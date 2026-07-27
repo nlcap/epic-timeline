@@ -1,0 +1,377 @@
+import { useState, type ChangeEvent, type FormEvent } from "react";
+import type { Era, Line } from "../types";
+import { earliestEraWithIcon, ERA_META, ERA_ORDER } from "../lib/era";
+import { LineIcon } from "./LineIcon";
+import { useSlidePanel } from "../hooks/useSlidePanel";
+
+const MONTHS = [
+  "January", "February", "March", "April", "May", "June",
+  "July", "August", "September", "October", "November", "December",
+];
+
+const HEX_PATTERN = /^#[0-9a-f]{6}$/i;
+const DEFAULT_HEX = "#FF00D9";
+
+function slugify(name: string): string {
+  return name
+    .trim()
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/(^-|-$)/g, "");
+}
+
+function readFileAsDataUrl(file: File): Promise<string> {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onload = () => resolve(reader.result as string);
+    reader.onerror = () => reject(reader.error);
+    reader.readAsDataURL(file);
+  });
+}
+
+export function LineFormDrawer({
+  collectionId,
+  supportsEra = false,
+  editingLine,
+  speculative = false,
+  fieldsLocked = false,
+  onSave,
+  onDelete,
+  onAddVolume,
+  onClose,
+}: {
+  collectionId: string;
+  /** DC Finest: one icon upload per era instead of a single icon. */
+  supportsEra?: boolean;
+  /** Omit to add a new line; pass an existing line to edit it. */
+  editingLine?: Line;
+  /** Speculation Mode: swaps the "Add Line" heading for "Add Speculative
+   * Line" when adding (editing an existing speculative line still just
+   * reads "Edit Line"). Field set is identical either way. */
+  speculative?: boolean;
+  /** Speculation Mode: this is an official line -- every field and Delete
+   * are disabled, but "Add Volume" stays live, since speculating a new
+   * volume onto an existing official line is still allowed. */
+  fieldsLocked?: boolean;
+  onSave: (line: Line) => void;
+  onDelete?: (lineId: string) => void;
+  onAddVolume?: () => void;
+  onClose: () => void;
+}) {
+  const isEditing = !!editingLine;
+
+  const [name, setName] = useState(editingLine?.name ?? "");
+  const [iconUrl, setIconUrl] = useState<string | undefined>(editingLine?.iconUrl);
+  const [eraIconUrls, setEraIconUrls] = useState<Partial<Record<Era, string>>>(
+    editingLine?.eraIconUrls ?? {}
+  );
+  const [defaultIconEra, setDefaultIconEra] = useState<Era | undefined>(
+    editingLine?.defaultIconEra
+  );
+  // Once the user explicitly picks a default via radio, stop auto-recomputing
+  // it from "earliest uploaded" on every new upload.
+  const [defaultPinned, setDefaultPinned] = useState(!!editingLine?.defaultIconEra);
+  const [year, setYear] = useState(editingLine ? String(editingLine.debutDate.year) : "");
+  const [month, setMonth] = useState(String(editingLine?.debutDate.month ?? 1));
+  const [hex, setHex] = useState(editingLine?.colorHex ?? DEFAULT_HEX);
+  const [error, setError] = useState<string | null>(null);
+  const [confirmingDelete, setConfirmingDelete] = useState(false);
+  const { visible, closeThen } = useSlidePanel();
+
+  const handleFileChange = async (e: ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+    setIconUrl(await readFileAsDataUrl(file));
+  };
+
+  const handleEraFileChange = async (era: Era, e: ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+    const dataUrl = await readFileAsDataUrl(file);
+    const next = { ...eraIconUrls, [era]: dataUrl };
+    setEraIconUrls(next);
+    if (!defaultPinned) {
+      setDefaultIconEra(earliestEraWithIcon(next));
+    }
+  };
+
+  const handleSubmit = (e: FormEvent) => {
+    e.preventDefault();
+    if (fieldsLocked) return;
+
+    const trimmedName = name.trim();
+    const yearNum = Number(year);
+
+    if (!trimmedName) {
+      setError("Line title is required.");
+      return;
+    }
+    if (!Number.isInteger(yearNum) || yearNum < 1900 || yearNum > 2100) {
+      setError("Enter a valid debut year.");
+      return;
+    }
+    if (!HEX_PATTERN.test(hex)) {
+      setError("Enter a valid hex color, e.g. #8B1E2F.");
+      return;
+    }
+
+    closeThen(() =>
+      onSave({
+        id: editingLine?.id ?? `${collectionId}-${slugify(trimmedName)}-${Date.now().toString(36)}`,
+        collectionId,
+        iconUrl: supportsEra ? undefined : iconUrl,
+        eraIconUrls: supportsEra ? eraIconUrls : undefined,
+        defaultIconEra: supportsEra ? defaultIconEra : undefined,
+        name: trimmedName,
+        colorHex: hex,
+        debutDate: { year: yearNum, month: Number(month) },
+      })
+    );
+  };
+
+  return (
+    <div
+      className={`fixed inset-0 z-50 flex justify-end bg-black/60 transition-opacity duration-200 ease-out ${
+        visible ? "opacity-100" : "opacity-0"
+      }`}
+      onClick={() => closeThen(onClose)}
+    >
+      <form
+        onSubmit={handleSubmit}
+        className={`flex h-full w-full max-w-sm flex-col overflow-y-auto border-l border-neutral-800 bg-[#252526]/50 p-6 backdrop-blur-sm transition-transform duration-200 ease-out ${
+          visible ? "translate-x-0" : "translate-x-full"
+        }`}
+        onClick={(e) => e.stopPropagation()}
+      >
+        <div className="flex items-center justify-between">
+          <h2 className="text-lg font-bold text-white">
+            {isEditing ? "Edit Line" : speculative ? "Add Speculative Line" : "Add Line"}
+          </h2>
+          <button
+            type="button"
+            onClick={() => closeThen(onClose)}
+            className="text-sm text-neutral-400 hover:text-white"
+          >
+            Close ✕
+          </button>
+        </div>
+
+        {supportsEra ? (
+          <fieldset className="mt-6">
+            <legend className="text-sm font-medium text-neutral-300">
+              Era icons
+            </legend>
+            <p className="mt-1 text-xs text-neutral-500">
+              Upload an icon for any era the line has -- not all four are required.
+              Pick which one shows on the sidebar.
+            </p>
+            <div className="mt-3 space-y-3">
+              {ERA_ORDER.map((era) => {
+                const hasIcon = !!eraIconUrls[era];
+                return (
+                  <div key={era} className="flex items-center gap-4">
+                    <span className="h-12 w-12 shrink-0 overflow-hidden rounded-full border-2 border-neutral-700">
+                      <LineIcon iconUrl={eraIconUrls[era]} />
+                    </span>
+                    <label
+                      className={`flex-1 ${fieldsLocked ? "" : "cursor-pointer"}`}
+                    >
+                      <span
+                        className={`block rounded-md border border-neutral-700 px-3 py-1.5 text-sm text-white ${
+                          fieldsLocked ? "opacity-40" : "hover:border-neutral-500"
+                        }`}
+                      >
+                        {hasIcon ? "Replace" : "Upload"} {ERA_META[era].label}
+                      </span>
+                      <input
+                        type="file"
+                        accept="image/*"
+                        disabled={fieldsLocked}
+                        onChange={(e) => handleEraFileChange(era, e)}
+                        className="sr-only"
+                      />
+                    </label>
+                    <label className="flex shrink-0 items-center gap-2 text-sm text-neutral-300">
+                      <input
+                        type="radio"
+                        name="defaultIconEra"
+                        checked={defaultIconEra === era}
+                        disabled={!hasIcon || fieldsLocked}
+                        onChange={() => {
+                          setDefaultIconEra(era);
+                          setDefaultPinned(true);
+                        }}
+                        className="disabled:opacity-30"
+                      />
+                      Default
+                    </label>
+                  </div>
+                );
+              })}
+            </div>
+          </fieldset>
+        ) : (
+          <label className="mt-6 flex items-center gap-4">
+            <span className="h-16 w-16 shrink-0 overflow-hidden rounded-full border-2 border-neutral-700">
+              <LineIcon iconUrl={iconUrl} />
+            </span>
+            <span>
+              <span
+                className={`block rounded-md border border-neutral-700 px-3 py-1.5 text-sm text-white ${
+                  fieldsLocked ? "opacity-40" : "hover:border-neutral-500"
+                }`}
+              >
+                Upload icon
+              </span>
+              <input
+                type="file"
+                accept="image/*"
+                disabled={fieldsLocked}
+                onChange={handleFileChange}
+                className="sr-only"
+              />
+            </span>
+          </label>
+        )}
+
+        <label className="mt-6 block text-sm font-medium text-neutral-300">
+          Line title
+          <input
+            type="text"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            placeholder="e.g. Green Arrow"
+            disabled={fieldsLocked}
+            className="mt-1 w-full rounded-md border border-neutral-700 bg-neutral-900 px-3 py-2 text-sm text-white placeholder:text-neutral-600 focus:border-neutral-500 focus:outline-none disabled:opacity-40"
+          />
+        </label>
+
+        <div className="mt-4 flex gap-3">
+          <label className="block flex-1 text-sm font-medium text-neutral-300">
+            Debut month
+            <select
+              value={month}
+              onChange={(e) => setMonth(e.target.value)}
+              disabled={fieldsLocked}
+              className="mt-1 w-full rounded-md border border-neutral-700 bg-neutral-900 px-3 py-2 text-sm text-white focus:border-neutral-500 focus:outline-none disabled:opacity-40"
+            >
+              {MONTHS.map((m, i) => (
+                <option key={m} value={i + 1}>
+                  {m}
+                </option>
+              ))}
+            </select>
+          </label>
+          <label className="block w-28 text-sm font-medium text-neutral-300">
+            Debut year
+            <input
+              type="number"
+              value={year}
+              onChange={(e) => setYear(e.target.value)}
+              placeholder="1941"
+              disabled={fieldsLocked}
+              className="mt-1 w-full rounded-md border border-neutral-700 bg-neutral-900 px-3 py-2 text-sm text-white placeholder:text-neutral-600 focus:border-neutral-500 focus:outline-none disabled:opacity-40"
+            />
+          </label>
+        </div>
+
+        <label className="mt-4 block text-sm font-medium text-neutral-300">
+          Base hex color
+          <div className="mt-1 flex items-center gap-2">
+            <input
+              type="color"
+              value={HEX_PATTERN.test(hex) ? hex : DEFAULT_HEX}
+              onChange={(e) => setHex(e.target.value)}
+              disabled={fieldsLocked}
+              className="h-9 w-9 shrink-0 cursor-pointer rounded-md border border-neutral-700 bg-neutral-900 p-1 disabled:cursor-not-allowed disabled:opacity-40"
+            />
+            <input
+              type="text"
+              value={hex}
+              onChange={(e) => setHex(e.target.value)}
+              placeholder="#8B1E2F"
+              disabled={fieldsLocked}
+              className="w-full rounded-md border border-neutral-700 bg-neutral-900 px-3 py-2 text-sm text-white placeholder:text-neutral-600 focus:border-neutral-500 focus:outline-none disabled:opacity-40"
+            />
+          </div>
+        </label>
+
+        {error && <p className="mt-4 text-sm text-red-400">{error}</p>}
+
+        <div className="mt-auto pt-6">
+          {confirmingDelete ? (
+            <div className="rounded-md border border-red-900 bg-red-950/40 p-4">
+              <p className="text-sm text-red-200">
+                Are you sure you want to delete "{editingLine?.name}"? This can't be undone.
+              </p>
+              <div className="mt-3 flex gap-3">
+                <button
+                  type="button"
+                  onClick={() => setConfirmingDelete(false)}
+                  className="flex-1 rounded-md border border-neutral-700 px-4 py-2 text-sm font-medium text-neutral-300 hover:text-white"
+                >
+                  Cancel
+                </button>
+                <button
+                  type="button"
+                  onClick={() => editingLine && closeThen(() => onDelete?.(editingLine.id))}
+                  className="flex-1 rounded-md bg-red-600 px-4 py-2 text-sm font-semibold text-white hover:bg-red-500"
+                >
+                  Yes, delete
+                </button>
+              </div>
+            </div>
+          ) : (
+            <>
+              <div className="flex gap-3">
+                <button
+                  type="button"
+                  onClick={() => closeThen(onClose)}
+                  className="flex-1 rounded-md border border-neutral-700 px-4 py-2 text-sm font-medium text-neutral-300 hover:text-white"
+                >
+                  Cancel
+                </button>
+                <button
+                  type="submit"
+                  disabled={fieldsLocked}
+                  className="flex-1 rounded-md bg-white px-4 py-2 text-sm font-semibold text-neutral-950 hover:enabled:bg-neutral-200 disabled:cursor-not-allowed disabled:opacity-40"
+                >
+                  {isEditing ? "Update Line" : speculative ? "Add Speculative Line" : "Add Line"}
+                </button>
+              </div>
+              {isEditing && onAddVolume && (
+                <button
+                  type="button"
+                  onClick={() => closeThen(onAddVolume)}
+                  className="mt-3 flex w-full items-center justify-center gap-2 rounded-md border border-dashed border-neutral-700 px-4 py-2 text-sm font-medium text-neutral-300 hover:border-neutral-500 hover:text-white"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth={1.75}
+                    strokeLinecap="round"
+                    className="h-4 w-4"
+                  >
+                    <path d="M12 5v14M5 12h14" />
+                  </svg>
+                  Add Volume
+                </button>
+              )}
+              {isEditing && onDelete && !fieldsLocked && (
+                <button
+                  type="button"
+                  onClick={() => setConfirmingDelete(true)}
+                  className="mt-3 w-full rounded-md border border-transparent px-4 py-2 text-sm font-medium text-red-400 hover:text-red-300"
+                >
+                  Delete Line
+                </button>
+              )}
+            </>
+          )}
+        </div>
+      </form>
+    </div>
+  );
+}

@@ -1,0 +1,41 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python3 -c ' *)",
+      "Bash(npx tsc *)",
+      "Bash(wc -c /tmp/cover_test.txt)",
+      "Bash(npx vite *)",
+      "Bash(curl -s -L 'https://docs.google.com/spreadsheets/d/1bLBKgo-v0eX1v-Ud8EF25YelcEW2bL35lKp63KZsUX4/export?format=csv&gid=338861465&range=A1:A100' -o /private/tmp/claude-501/-Users-nickcapetillo-Library-Application-Support-Claude-local-agent-mode-sessions-deb7eaff-8823-4d3b-be44-aa905704e138-42573dfa-5190-4213-9242-e12f079282ed-local-0e17d204-5b92-4db9-9344-0481d8f1039c-o-64qh9o/08262aa0-ce71-4537-b812-6c1f388972fb/scratchpad/dc_finest_colA.csv -w 'colA HTTP %{http_code}\\\\n')",
+      "Bash(curl -s -L https://docs.google.com/spreadsheets/d/1bLBKgo-v0eX1v-Ud8EF25YelcEW2bL35lKp63KZsUX4/htmlview?gid=338861465 -o /private/tmp/claude-501/-Users-nickcapetillo-Library-Application-Support-Claude-local-agent-mode-sessions-deb7eaff-8823-4d3b-be44-aa905704e138-42573dfa-5190-4213-9242-e12f079282ed-local-0e17d204-5b92-4db9-9344-0481d8f1039c-o-64qh9o/08262aa0-ce71-4537-b812-6c1f388972fb/scratchpad/dc_finest.html -w 'htmlview HTTP %{http_code}\\\\n')",
+      "Bash(python3 gen_dc_finest.py)",
+      "Bash(npm run *)",
+      "Bash(curl -s -L 'https://docs.google.com/spreadsheets/d/1bLBKgo-v0eX1v-Ud8EF25YelcEW2bL35lKp63KZsUX4/export?format=csv&gid=225666129' -o /private/tmp/claude-501/-Users-nickcapetillo-Library-Application-Support-Claude-local-agent-mode-sessions-deb7eaff-8823-4d3b-be44-aa905704e138-42573dfa-5190-4213-9242-e12f079282ed-local-0e17d204-5b92-4db9-9344-0481d8f1039c-o-64qh9o/08262aa0-ce71-4537-b812-6c1f388972fb/scratchpad/epic.csv -w 'HTTP %{http_code}\\\\n')",
+      "Bash([ -d \"$MEMDIR\" ])",
+      "Bash(awk '/--- Ant-Man\\\\/Giant-Man/{exit} 1' src/data/classic-marvel-epic.ts)",
+      "WebSearch",
+      "WebFetch(domain:www.penguinrandomhouse.com)",
+      "WebFetch(domain:penguinrandomhouselibrary.com)",
+      "WebFetch(domain:prhcomics.com)",
+      "Bash(awk '/id: \"the-amazing-spider-man-/{p=1} /id: \"ant-man-giant-man-1\"/{p=0} p' src/data/classic-marvel-epic.ts)",
+      "Bash(awk '/^export const DC_FINEST_ENTRIES/{p=1} p' src/data/dc-finest.ts)",
+      "Bash(awk ' *)",
+      "Bash(python3 -)",
+      "Bash(awk '/--- Ant-Man\\\\/Giant-Man ---/{p=1} /--- Deadpool ---/{p=1} /--- Doctor Doom ---/{exit} p' src/data/classic-marvel-epic.ts)",
+      "Bash(awk '/--- Doctor Strange ---/{p=1} /--- Guardians of the Galaxy ---/{exit} p' src/data/classic-marvel-epic.ts)",
+      "WebFetch(domain:www.amazon.com)",
+      "Bash(awk '/--- Guardians of the Galaxy ---/{p=1} /--- Master of Kung Fu ---/{exit} p' src/data/classic-marvel-epic.ts)",
+      "Bash(awk '/--- Master of Kung Fu ---/{p=1} /--- Thor ---/{exit} p' src/data/classic-marvel-epic.ts)",
+      "Bash(awk '/^export const DC_FINEST_LINES/,/^\\\\];/' src/data/dc-finest.ts)",
+      "Bash(awk '/^export const CLASSIC_MARVEL_LINES/,/^\\\\];/' src/data/classic-marvel-epic.ts)",
+      "Bash(curl -s \"https://en.wikipedia.org/w/index.php?title=Marvel_Epic_Collection&action=raw\" -o /tmp/epic_raw.wikitext)",
+      "Read(//tmp/**)",
+      "Bash(sed -n '6244,7806p' /tmp/epic_raw.wikitext > /tmp/modern_era.wikitext; wc -l /tmp/modern_era.wikitext; sed -n '1,80p' /tmp/modern_era.wikitext)",
+      "Bash(python3 /tmp/parse_wiki.py /tmp/modern_era.wikitext)",
+      "Bash(python3 /tmp/generate_modern.py)",
+      "Bash(sed -n '/id: \"astonishing-x-men\"/,/^  },/p' src/data/modern-marvel-epic.ts)",
+      "Bash(sed -n '/id: \"new-x-men\"/,/^  },/p' src/data/modern-marvel-epic.ts)",
+      "Bash(git init *)",
+      "Bash(git add *)"
+    ]
+  }
+}
