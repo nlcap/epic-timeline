@@ -1,5 +1,5 @@
 import { memo, useCallback, useEffect, useMemo, useRef, useState } from "react";
-import type { Gap, Line, QuarterPoint, TimelineEntry, Volume } from "../types";
+import type { Gap, Line, QuarterPoint, TimelineEntry } from "../types";
 import {
   ADD_CELL_ICON_SIZE_BY_ZOOM,
   ADD_CELL_SCROLL_BUCKET_PX,
@@ -53,7 +53,8 @@ export function LineRow({
   locked = false,
   speculativeVolumeIds,
   exiting = false,
-  onResizeVolume,
+  skipEnterTransition = false,
+  onResizeEntry,
 }: {
   line: Line;
   entries: TimelineEntry[];
@@ -118,10 +119,16 @@ export function LineRow({
    * play the reverse of its entrance transition instead of vanishing
    * instantly. */
   exiting?: boolean;
-  /** Drag-to-resize commit: called once, on mouseup, with the volume's new
-   * start/end after dragging one of its edge handles (see VolumeTile.tsx).
-   * Omit to disable resizing entirely. */
-  onResizeVolume?: (volume: Volume, start: QuarterPoint, end: QuarterPoint) => void;
+  /** True only on the render a collection tab switch first mounts this
+   * row -- skips the enter fade/rise entirely (see useEnterTransition) so
+   * an unrelated collection's lines appear instantly instead of all
+   * animating in at once, which read as a stall rather than a transition. */
+  skipEnterTransition?: boolean;
+  /** Drag-to-resize commit: called once, on mouseup, with the entry's new
+   * start/end after dragging one of its edge handles (see VolumeTile.tsx /
+   * GapSegment.tsx -- both volumes and gaps resize the same way). Omit to
+   * disable resizing entirely. */
+  onResizeEntry?: (entry: TimelineEntry, start: QuarterPoint, end: QuarterPoint) => void;
 }) {
   // Collapsed width matches the icon exactly (not padded) -- the icon
   // already overflows the pill by a fixed 4px on the left via -ml-3 below,
@@ -146,17 +153,20 @@ export function LineRow({
   // floating around the bare icon once everything else has collapsed away.
   const pillBorderColor = `rgba(115, 115, 115, ${hovered ? .3 : .3 - collapseProgress})`;
 
-  // Freshly-mounted rows (a speculative line the toggle just revealed, or
-  // any line on a newly switched collection tab) fade and rise into place
-  // instead of popping straight in -- an already-mounted row never
-  // remounts just because Speculation Mode toggles or the array reorders
-  // (React matches on key), so this only ever plays for genuinely new rows.
-  // `exiting` (set by useExitingLines once this line drops out of the
-  // visible list, e.g. Speculation Mode toggling off) forces the same
-  // hidden state back on, reusing the entrance transition in reverse --
-  // the duration here must match the exitDurationMs passed to
-  // useExitingLines in App.tsx, or the row gets cut off mid-fade.
-  const entered = useEnterTransition();
+  // Freshly-mounted rows (e.g. a speculative line the toggle just revealed)
+  // fade and rise into place instead of popping straight in -- an already-
+  // mounted row never remounts just because Speculation Mode toggles or the
+  // array reorders (React matches on key), so this only ever plays for
+  // genuinely new rows. `skipEnterTransition` opts a row out of this for
+  // one specific case: every row mounting because the user just switched
+  // collection tabs (see useEnterTransition) -- those should appear
+  // instantly, not all animate in together. `exiting` (set by
+  // useExitingLines once this line drops out of the visible list, e.g.
+  // Speculation Mode toggling off) forces the same hidden state back on,
+  // reusing the entrance transition in reverse -- the duration here must
+  // match the exitDurationMs passed to useExitingLines in App.tsx, or the
+  // row gets cut off mid-fade.
+  const entered = useEnterTransition(skipEnterTransition);
   const visible = entered && !exiting;
 
   return (
@@ -251,7 +261,7 @@ export function LineRow({
         scrollBucket={scrollBucket}
         addCellWindowQuarters={addCellWindowQuarters}
         inViewport={inViewport}
-        onResizeVolume={onResizeVolume}
+        onResizeEntry={onResizeEntry}
       />
     </div>
   );
@@ -289,7 +299,7 @@ const LineTimelineLane = memo(function LineTimelineLane({
   scrollBucket,
   addCellWindowQuarters,
   inViewport,
-  onResizeVolume,
+  onResizeEntry,
 }: {
   line: Line;
   entries: TimelineEntry[];
@@ -307,7 +317,7 @@ const LineTimelineLane = memo(function LineTimelineLane({
   scrollBucket: number;
   addCellWindowQuarters: number;
   inViewport: boolean;
-  onResizeVolume?: (volume: Volume, start: QuarterPoint, end: QuarterPoint) => void;
+  onResizeEntry?: (entry: TimelineEntry, start: QuarterPoint, end: QuarterPoint) => void;
 }) {
   // Drag-to-resize (see VolumeTile.tsx's edge handles): dragStartXRef holds
   // the mousedown clientX so mousemove can compute a running pixel delta
@@ -342,11 +352,13 @@ const LineTimelineLane = memo(function LineTimelineLane({
     };
     const handleMouseUp = () => {
       setResizeDrag((prev) => {
-        if (prev && onResizeVolume) {
+        if (prev && onResizeEntry) {
+          // Gaps resize exactly like volumes -- same live-preview math, same
+          // commit shape, entry.kind just decides what App.tsx updates.
           const entry = entries.find((e) => e.id === prev.entryId);
-          if (entry?.kind === "volume" && prev.deltaQuarters !== 0) {
+          if (entry && prev.deltaQuarters !== 0) {
             const { start, end } = resizeSpan(entry.start, entry.end, prev.edge, prev.deltaQuarters);
-            onResizeVolume(entry, start, end);
+            onResizeEntry(entry, start, end);
           }
         }
         return null;
@@ -361,7 +373,7 @@ const LineTimelineLane = memo(function LineTimelineLane({
       window.removeEventListener("mouseup", handleMouseUp);
       document.body.style.cursor = "";
     };
-  }, [isResizing, pxPerQuarter, entries, onResizeVolume]);
+  }, [isResizing, pxPerQuarter, entries, onResizeEntry]);
   // Pre-debut filler: not stored data, just derived every render from the
   // line's own debutDate vs. the visible timeline's start -- spans
   // [axisStart, the quarter before the debut quarter]. Skipped when the
@@ -457,7 +469,7 @@ const LineTimelineLane = memo(function LineTimelineLane({
             onEditGap={onEditGap}
             speculative={speculativeVolumeIds?.has(entry.id) ?? false}
             locked={entryLocked}
-            onResizeStart={entryLocked || !onResizeVolume ? undefined : handleResizeStart}
+            onResizeStart={entryLocked || !onResizeEntry ? undefined : handleResizeStart}
             renderStart={renderStart}
             renderEnd={renderEnd}
           />
@@ -532,7 +544,16 @@ const TimelineEntryTile = memo(function TimelineEntryTile({
           }
         />
       ) : (
-        <GapSegment gap={entry} line={line} onClick={() => onEditGap(entry)} />
+        <GapSegment
+          gap={entry}
+          line={line}
+          zoomLevel={zoomLevel}
+          locked={locked}
+          onClick={() => onEditGap(entry)}
+          onResizeStart={
+            onResizeStart ? (edge, clientX) => onResizeStart(entry.id, edge, clientX) : undefined
+          }
+        />
       )}
     </div>
   );

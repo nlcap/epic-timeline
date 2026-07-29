@@ -78,7 +78,10 @@ const COLLECTION_DATA: Record<string, { lines: Line[]; entries: TimelineEntry[] 
 const EMPTY_ENTRIES: TimelineEntry[] = [];
 
 export default function App() {
-  const [activeCollectionId, setActiveCollectionId] = useState("dc-finest");
+  // First tab in the nav (COLLECTIONS[0], "Epic Collection") rather than a
+  // second hardcoded id -- stays correct automatically if that order ever
+  // changes instead of silently drifting out of sync with it.
+  const [activeCollectionId, setActiveCollectionId] = useState(COLLECTIONS[0].id);
   const [selectedVolumeId, setSelectedVolumeId] = useState<string | null>(null);
   const [scrollLeft, setScrollLeft] = useState(0);
   const [zoomLevel, setZoomLevel] = useState<ZoomLevel>(DEFAULT_ZOOM_LEVEL);
@@ -179,7 +182,7 @@ export default function App() {
   // off) around a little longer, marked `exiting`, so LineRow can play its
   // fade-out instead of vanishing instantly -- see useExitingLines and the
   // matching duration on LineRow's own transition.
-  const displayLines = useExitingLines(visibleLines, 500);
+  const [displayLines, isCollectionSwitch] = useExitingLines(visibleLines, 500, activeCollectionId);
 
   const resolvedEntries = useMemo(() => {
     const lineIds = new Set(lines.map((l) => l.id));
@@ -254,18 +257,20 @@ export default function App() {
     setAddVolumeForLineId(targetLine.id);
     setAddVolumeDefaultStart(start);
   }, []);
-  // Drag-to-resize commit (see the edge handles in VolumeTile.tsx) -- same
-  // official-vs-speculative routing as every other volume write, just
-  // triggered from the timeline directly instead of through the drawer.
-  const handleResizeVolume = useCallback(
-    (volume: Volume, start: QuarterPoint, end: QuarterPoint) => {
-      const updated: Volume = {
-        ...volume,
-        start,
-        end,
-        yearsCovered: yearsCoveredLabel(start.year, end.year),
-      };
-      if (speculativeVolumeIds.has(volume.id)) {
+  // Drag-to-resize commit (see the edge handles in VolumeTile.tsx and
+  // GapSegment.tsx -- gaps resize exactly like volumes) -- same official-
+  // vs-speculative routing as every other write, just triggered from the
+  // timeline directly instead of through the drawer. Volume and Gap don't
+  // share every field (yearsCovered is volume-only, recomputed here same as
+  // the drawer's own submit does), so the updated object is built per-kind
+  // rather than blindly spreading start/end onto whichever shape it is.
+  const handleResizeEntry = useCallback(
+    (entry: TimelineEntry, start: QuarterPoint, end: QuarterPoint) => {
+      const updated: TimelineEntry =
+        entry.kind === "volume"
+          ? { ...entry, start, end, yearsCovered: yearsCoveredLabel(start.year, end.year) }
+          : { ...entry, start, end };
+      if (speculativeVolumeIds.has(entry.id)) {
         upsertSpeculativeVolume(updated);
       } else {
         upsertVolume(updated);
@@ -349,6 +354,24 @@ export default function App() {
         onSelect={(id) => {
           setActiveCollectionId(id);
           setSelectedVolumeId(null);
+          // Switching collections swaps in a completely different axis
+          // range and line list -- carrying over the old tab's scroll
+          // position doesn't map to anything meaningful on the new one.
+          // The browser silently clamps an out-of-range scrollLeft/scrollY
+          // to whatever's valid for the new (usually differently sized)
+          // content instead of erroring, so without this the new tab could
+          // land scrolled into the middle of its timeline, or past the end
+          // of a shorter line list, making lines look missing or
+          // mismatched with the visible years until the user scrolls
+          // manually. Resetting scrollLeft state alone isn't enough --
+          // it's a separate mirror of the DOM's own scroll position (see
+          // handleTimelineScroll), not a controlling source of truth for
+          // it, so the actual scrollable element needs to be reset too.
+          setScrollLeft(0);
+          if (timelineScrollRef.current) {
+            timelineScrollRef.current.scrollLeft = 0;
+          }
+          window.scrollTo(0, 0);
         }}
       />
       <div style={{ paddingTop: NAV_HEIGHT }}>
@@ -460,11 +483,12 @@ export default function App() {
                       scrollBucket={scrollBucket}
                       addCellWindowQuarters={addCellWindowQuartersValue}
                       onAddVolumeAt={handleAddVolumeAt}
-                      onResizeVolume={handleResizeVolume}
+                      onResizeEntry={handleResizeEntry}
                       speculative={lineIsSpeculative}
                       locked={speculationMode && !lineIsSpeculative}
                       speculativeVolumeIds={speculativeVolumeIds}
                       exiting={exiting}
+                      skipEnterTransition={isCollectionSwitch}
                     />
                   );
                 })}

@@ -2,7 +2,7 @@ import { useState, type ChangeEvent, type FormEvent } from "react";
 import type { Era, OwnershipStatus, Quarter, QuarterPoint, TimelineEntry } from "../types";
 import { OWNERSHIP_META, OWNERSHIP_ORDER } from "../lib/ownership";
 import { ERA_META, ERA_ORDER, volumeNumberLabel } from "../lib/era";
-import { quarterIndex, yearsCoveredLabel } from "../lib/timeline";
+import { quarterIndex, quarterPointFromIndex, yearsCoveredLabel } from "../lib/timeline";
 import { useSlidePanel } from "../hooks/useSlidePanel";
 
 const QUARTERS: Quarter[] = [1, 2, 3, 4];
@@ -24,6 +24,41 @@ function formatEntryLabel(entry: TimelineEntry): string {
   return entry.kind === "volume"
     ? `"${entry.title}" (${volumeNumberLabel(entry)})`
     : "an existing gap";
+}
+
+/**
+ * Hover-revealed reset control for an uploaded cover image -- darkened scrim
+ * + trash icon over the image itself, click resets to the empty (no cover)
+ * state. A sibling of the <img>, not a descendant of an upload-triggering
+ * <label>, so clicking it doesn't also open the file picker. Mirrors
+ * LineFormDrawer's IconResetOverlay.
+ */
+function ImageResetOverlay({ onReset }: { onReset: () => void }) {
+  return (
+    <button
+      type="button"
+      onClick={onReset}
+      aria-label="Reset cover image"
+      className="absolute inset-0 flex items-center justify-center bg-black/60 text-white opacity-0 transition-opacity focus-visible:opacity-100 group-hover:opacity-100"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth={1.75}
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        className="h-6 w-6"
+      >
+        <path d="M3 6h18" />
+        <path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" />
+        <path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6" />
+        <path d="M10 11v6" />
+        <path d="M14 11v6" />
+      </svg>
+    </button>
+  );
 }
 
 export function VolumeFormDrawer({
@@ -52,8 +87,12 @@ export function VolumeFormDrawer({
   speculative?: boolean;
   /** Pre-fills the start year/quarter fields when adding a new entry --
    * used by the timeline's per-quarter "add volume" hover shortcut, which
-   * knows exactly which quarter was clicked. Ignored when editingEntry is
-   * set (its own start already governs those fields). */
+   * knows exactly which quarter was clicked. Also pre-fills end to the
+   * quarter right after it (see defaultEnd below), rather than leaving end
+   * blank -- most volumes span more than a single quarter, so defaulting
+   * end to equal start (or leaving it empty) just made every quick-add
+   * volume need a manual end edit. Ignored when editingEntry is set (its
+   * own start/end already govern those fields). */
   defaultStart?: QuarterPoint;
   onSave: (entry: TimelineEntry) => void;
   onDelete?: (entryId: string) => void;
@@ -83,8 +122,18 @@ export function VolumeFormDrawer({
   const [startQuarter, setStartQuarter] = useState<Quarter>(
     editingEntry?.start.quarter ?? defaultStart?.quarter ?? 1
   );
-  const [endYear, setEndYear] = useState(editingEntry ? String(editingEntry.end.year) : "");
-  const [endQuarter, setEndQuarter] = useState<Quarter>(editingEntry?.end.quarter ?? 1);
+  // The quarter right after defaultStart -- e.g. clicking a Q3 cell
+  // pre-fills start at Q3 and end at Q4, not end left blank or equal to
+  // start, since a volume is almost never exactly one quarter long.
+  const defaultEnd = defaultStart
+    ? quarterPointFromIndex(quarterIndex(defaultStart) + 1)
+    : undefined;
+  const [endYear, setEndYear] = useState(
+    editingEntry ? String(editingEntry.end.year) : defaultEnd ? String(defaultEnd.year) : ""
+  );
+  const [endQuarter, setEndQuarter] = useState<Quarter>(
+    editingEntry?.end.quarter ?? defaultEnd?.quarter ?? 1
+  );
   const [ownershipStatus, setOwnershipStatus] = useState<OwnershipStatus>(
     editingVolume?.ownershipStatus ?? "announced"
   );
@@ -251,16 +300,35 @@ export function VolumeFormDrawer({
 
         {entryKind === "volume" && (
           <>
-            <label className="mt-6 block cursor-pointer">
-              {coverUrl ? (
-                <img src={coverUrl} alt="" className="h-auto w-3/5 rounded-md" />
-              ) : (
+            {coverUrl ? (
+              <div className="mt-6">
+                <span className="group relative block w-3/5 overflow-hidden rounded-md">
+                  <img src={coverUrl} alt="" className="h-auto w-full rounded-md" />
+                  <ImageResetOverlay onReset={() => setCoverUrl(undefined)} />
+                </span>
+                <label className="mt-2 inline-block cursor-pointer text-xs text-neutral-400 hover:text-white">
+                  Replace cover image
+                  <input
+                    type="file"
+                    accept="image/*"
+                    onChange={handleFileChange}
+                    className="sr-only"
+                  />
+                </label>
+              </div>
+            ) : (
+              <label className="mt-6 block cursor-pointer">
                 <span className="flex h-40 w-full items-center justify-center rounded-md border border-dashed border-neutral-700 bg-neutral-900 text-sm text-neutral-500 hover:border-neutral-500">
                   Upload cover image
                 </span>
-              )}
-              <input type="file" accept="image/*" onChange={handleFileChange} className="sr-only" />
-            </label>
+                <input
+                  type="file"
+                  accept="image/*"
+                  onChange={handleFileChange}
+                  className="sr-only"
+                />
+              </label>
+            )}
 
             <label className="mt-4 block text-sm font-medium text-neutral-300">
               Volume title
@@ -269,6 +337,9 @@ export function VolumeFormDrawer({
                 value={title}
                 onChange={(e) => setTitle(e.target.value)}
                 placeholder="e.g. Learning Curve"
+                // Only when adding -- jumping focus into an already-populated
+                // title on Edit would be more disruptive than helpful.
+                autoFocus={!isEditing}
                 className="mt-1 w-full rounded-md border border-neutral-700 bg-neutral-900 px-3 py-2 text-sm text-white placeholder:text-neutral-600 focus:border-neutral-500 focus:outline-none"
               />
             </label>

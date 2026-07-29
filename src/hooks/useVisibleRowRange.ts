@@ -30,9 +30,22 @@ export function useVisibleRowRange(
   rangeRef.current = range;
 
   useEffect(() => {
-    let ticking = false;
+    // rAF-gated so this doesn't recompute on every scroll pixel -- but
+    // gated via a cancel-and-reschedule handle, not a "ticking" boolean
+    // that only its own rAF callback can clear. That flavor has a stuck-
+    // forever failure mode: if a browser ever drops or indefinitely delays
+    // one rAF callback (e.g. the tab loses focus/visibility mid-scroll,
+    // which browsers routinely throttle rAF for), nothing else can ever
+    // flip the flag back, so every scroll event after that point is
+    // silently ignored for the rest of the page's life -- freezing the
+    // visible-row range at whatever it was, permanently starving every
+    // row outside that stale window of its "add volume" cells until a
+    // hard refresh. Canceling and rescheduling instead means each new
+    // scroll event recovers on its own regardless of whether the previous
+    // rAF ever actually fired.
+    let rafId: number | null = null;
     const compute = () => {
-      ticking = false;
+      rafId = null;
       const el = containerRef.current;
       if (!el) return;
       const containerTop = el.getBoundingClientRect().top + window.scrollY;
@@ -52,14 +65,14 @@ export function useVisibleRowRange(
       }
     };
     const handleScroll = () => {
-      if (ticking) return;
-      ticking = true;
-      requestAnimationFrame(compute);
+      if (rafId !== null) cancelAnimationFrame(rafId);
+      rafId = requestAnimationFrame(compute);
     };
     compute();
     window.addEventListener("scroll", handleScroll, { passive: true });
     window.addEventListener("resize", handleScroll);
     return () => {
+      if (rafId !== null) cancelAnimationFrame(rafId);
       window.removeEventListener("scroll", handleScroll);
       window.removeEventListener("resize", handleScroll);
     };

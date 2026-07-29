@@ -2,6 +2,7 @@ import { useState, type ChangeEvent, type FormEvent } from "react";
 import type { Era, Line } from "../types";
 import { earliestEraWithIcon, ERA_META, ERA_ORDER } from "../lib/era";
 import { LineIcon } from "./LineIcon";
+import { ImageCropModal } from "./ImageCropModal";
 import { useSlidePanel } from "../hooks/useSlidePanel";
 
 const MONTHS = [
@@ -27,6 +28,42 @@ function readFileAsDataUrl(file: File): Promise<string> {
     reader.onerror = () => reject(reader.error);
     reader.readAsDataURL(file);
   });
+}
+
+/**
+ * Hover-revealed reset control for an uploaded icon (used for both the
+ * single-icon path and each per-era icon) -- darkened scrim + trash icon
+ * over the icon itself, click resets to the default fallback. A sibling of
+ * `LineIcon` inside its own `relative` wrapper (see call sites), not a
+ * descendant of the upload `<label>`, so clicking it doesn't also open the
+ * file picker.
+ */
+function IconResetOverlay({ onReset }: { onReset: () => void }) {
+  return (
+    <button
+      type="button"
+      onClick={onReset}
+      aria-label="Reset icon to default"
+      className="absolute inset-0 flex items-center justify-center bg-black/60 text-white opacity-0 transition-opacity focus-visible:opacity-100 group-hover:opacity-100"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth={1.75}
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        className="h-5 w-5"
+      >
+        <path d="M3 6h18" />
+        <path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" />
+        <path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6" />
+        <path d="M10 11v6" />
+        <path d="M14 11v6" />
+      </svg>
+    </button>
+  );
 }
 
 export function LineFormDrawer({
@@ -78,20 +115,54 @@ export function LineFormDrawer({
   const [confirmingDelete, setConfirmingDelete] = useState(false);
   const { visible, closeThen } = useSlidePanel();
 
+  // A freshly-picked file doesn't become the icon directly -- it's routed
+  // through ImageCropModal first (see that file for why), and only applied
+  // to iconUrl/eraIconUrls once the user confirms a crop. `target` records
+  // which field the crop is for, since both the single-icon and per-era
+  // uploads share this same interstitial step.
+  const [pendingCrop, setPendingCrop] = useState<
+    { src: string; target: "icon" } | { src: string; target: "era"; era: Era } | null
+  >(null);
+
   const handleFileChange = async (e: ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
+    e.target.value = "";
     if (!file) return;
-    setIconUrl(await readFileAsDataUrl(file));
+    setPendingCrop({ src: await readFileAsDataUrl(file), target: "icon" });
   };
 
   const handleEraFileChange = async (era: Era, e: ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
+    e.target.value = "";
     if (!file) return;
-    const dataUrl = await readFileAsDataUrl(file);
-    const next = { ...eraIconUrls, [era]: dataUrl };
+    setPendingCrop({ src: await readFileAsDataUrl(file), target: "era", era });
+  };
+
+  const handleCropConfirm = (croppedDataUrl: string) => {
+    if (!pendingCrop) return;
+    if (pendingCrop.target === "icon") {
+      setIconUrl(croppedDataUrl);
+    } else {
+      const next = { ...eraIconUrls, [pendingCrop.era]: croppedDataUrl };
+      setEraIconUrls(next);
+      if (!defaultPinned) {
+        setDefaultIconEra(earliestEraWithIcon(next));
+      }
+    }
+    setPendingCrop(null);
+  };
+
+  const handleEraIconReset = (era: Era) => {
+    const next = { ...eraIconUrls };
+    delete next[era];
     setEraIconUrls(next);
-    if (!defaultPinned) {
+    // The removed icon was either the auto-picked default (recompute from
+    // whatever's left) or the user's own pinned choice (which no longer
+    // has an icon to point at -- fall back to auto instead of leaving it
+    // pinned to an era with nothing uploaded).
+    if (!defaultPinned || defaultIconEra === era) {
       setDefaultIconEra(earliestEraWithIcon(next));
+      setDefaultPinned(false);
     }
   };
 
@@ -130,6 +201,7 @@ export function LineFormDrawer({
   };
 
   return (
+    <>
     <div
       className={`fixed inset-0 z-50 flex justify-end bg-black/60 transition-opacity duration-200 ease-out ${
         visible ? "opacity-100" : "opacity-0"
@@ -170,8 +242,11 @@ export function LineFormDrawer({
                 const hasIcon = !!eraIconUrls[era];
                 return (
                   <div key={era} className="flex items-center gap-4">
-                    <span className="h-12 w-12 shrink-0 overflow-hidden rounded-full border-2 border-neutral-700">
+                    <span className="group relative h-12 w-12 shrink-0 overflow-hidden rounded-full border-2 border-neutral-700">
                       <LineIcon iconUrl={eraIconUrls[era]} />
+                      {hasIcon && !fieldsLocked && (
+                        <IconResetOverlay onReset={() => handleEraIconReset(era)} />
+                      )}
                     </span>
                     <label
                       className={`flex-1 ${fieldsLocked ? "" : "cursor-pointer"}`}
@@ -211,11 +286,14 @@ export function LineFormDrawer({
             </div>
           </fieldset>
         ) : (
-          <label className="mt-6 flex items-center gap-4">
-            <span className="h-16 w-16 shrink-0 overflow-hidden rounded-full border-2 border-neutral-700">
+          <div className="mt-6 flex items-center gap-4">
+            <span className="group relative h-16 w-16 shrink-0 overflow-hidden rounded-full border-2 border-neutral-700">
               <LineIcon iconUrl={iconUrl} />
+              {iconUrl && !fieldsLocked && (
+                <IconResetOverlay onReset={() => setIconUrl(undefined)} />
+              )}
             </span>
-            <span>
+            <label className={fieldsLocked ? "" : "cursor-pointer"}>
               <span
                 className={`block rounded-md border border-neutral-700 px-3 py-1.5 text-sm text-white ${
                   fieldsLocked ? "opacity-40" : "hover:border-neutral-500"
@@ -230,8 +308,8 @@ export function LineFormDrawer({
                 onChange={handleFileChange}
                 className="sr-only"
               />
-            </span>
-          </label>
+            </label>
+          </div>
         )}
 
         <label className="mt-6 block text-sm font-medium text-neutral-300">
@@ -242,6 +320,9 @@ export function LineFormDrawer({
             onChange={(e) => setName(e.target.value)}
             placeholder="e.g. Green Arrow"
             disabled={fieldsLocked}
+            // Only when adding -- jumping focus into an already-populated
+            // title on Edit would be more disruptive than helpful.
+            autoFocus={!isEditing}
             className="mt-1 w-full rounded-md border border-neutral-700 bg-neutral-900 px-3 py-2 text-sm text-white placeholder:text-neutral-600 focus:border-neutral-500 focus:outline-none disabled:opacity-40"
           />
         </label>
@@ -373,5 +454,13 @@ export function LineFormDrawer({
         </div>
       </form>
     </div>
+    {pendingCrop && (
+      <ImageCropModal
+        imageSrc={pendingCrop.src}
+        onConfirm={handleCropConfirm}
+        onCancel={() => setPendingCrop(null)}
+      />
+    )}
+    </>
   );
 }

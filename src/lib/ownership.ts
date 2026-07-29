@@ -1,17 +1,22 @@
 import type { OwnershipStatus } from "../types";
+import announcedIcon from "../assets/announced.svg";
+import orderedIcon from "../assets/ordered.svg";
+import shelvedIcon from "../assets/shelved.svg";
+import outOfPrintIcon from "../assets/out of print.svg";
+import altFormatIcon from "../assets/Alt Format.svg";
 
 export interface OwnershipMeta {
   label: string;
-  /** Badge icon color -- independent of the line color */
-  iconHex: string;
+  /** Status icon -- independent of the line color */
+  iconUrl: string;
 }
 
 export const OWNERSHIP_META: Record<OwnershipStatus, OwnershipMeta> = {
-  announced: { label: "Announced", iconHex: "#E4B94E" }, // gold bell
-  shelved: { label: "Shelved", iconHex: "#4ADE80" }, // green check
-  ordered: { label: "Ordered", iconHex: "#38BDF8" }, // blue bag
-  out_of_print: { label: "Out of Print", iconHex: "#F87171" }, // red !
-  alt_format: { label: "Alt Format", iconHex: "#C084FC" }, // purple mark
+  announced: { label: "Announced", iconUrl: announcedIcon },
+  shelved: { label: "Shelved", iconUrl: shelvedIcon },
+  ordered: { label: "Ordered", iconUrl: orderedIcon },
+  out_of_print: { label: "Out of Print", iconUrl: outOfPrintIcon },
+  alt_format: { label: "Alt Format", iconUrl: altFormatIcon },
 };
 
 export const OWNERSHIP_ORDER: OwnershipStatus[] = [

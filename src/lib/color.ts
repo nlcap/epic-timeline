@@ -15,10 +15,10 @@ export function hexToRgba(hex: string, opacity: number): string {
  *   - focused tile or detail panel: 15% (unowned) / 65% (owned)
  */
 export const TILE_OPACITY = {
-  unownedRest: 0.1,
+  unownedRest: 0.15,
   ownedRest: 0.35,
-  unownedFocused: 0.15,
-  ownedFocused: 0.65,
+  unownedFocused: 0.2,
+  ownedFocused: 0.6,
 } as const;
 
 export function tileBackground(
@@ -33,6 +33,14 @@ export function tileBackground(
     : focused
     ? TILE_OPACITY.unownedFocused
     : TILE_OPACITY.unownedRest;
+  // Unshelved (unowned) tiles mix in a touch of white before the opacity
+  // fade, the same "blend then fade" shape as ownedTileBorderColor below --
+  // a straight opacity fade of the raw line color reads a little flat/dark
+  // at these low opacities, especially for darker line colors.
+  if (!owned) {
+    const tint = `color-mix(in srgb, ${colorHex} 90%, white 10%)`;
+    return `color-mix(in srgb, ${tint} ${opacity * 100}%, transparent)`;
+  }
   return hexToRgba(colorHex, opacity);
 }
 
@@ -51,6 +59,25 @@ export function speculativeTileBackground(colorHex: string): string {
  * speculative background without being plain white. */
 export function speculativeTextColor(colorHex: string): string {
   return `color-mix(in srgb, white 50%, ${colorHex} 50%)`;
+}
+
+/**
+ * Owned-tile border ring (see VolumeTile.tsx): tinted with the line's own
+ * color instead of flat white, so it reads as "this line's owned volume"
+ * rather than a generic highlight -- and rendered on the tile's actual CSS
+ * border (not a separate inset box-shadow), so it sits flush with the
+ * tile's true outer edge instead of 1px inside it. Kept translucent (40%
+ * transparent) to stay a subtle accent, not a bold outline.
+ *
+ * `color-mix()` only takes two colors per call, so the color+white blend
+ * and the opacity fade are two nested calls, not one three-way mix (an
+ * earlier version tried a single three-argument call -- invalid CSS, which
+ * the browser silently drops in favor of the border's default, so it
+ * rendered as plain Tailwind gray instead of erroring).
+ */
+export function ownedTileBorderColor(colorHex: string): string {
+  const tint = `color-mix(in srgb, ${colorHex} 75%, white 25%)`;
+  return `color-mix(in srgb, ${tint} 25%, transparent)`;
 }
 
 /**

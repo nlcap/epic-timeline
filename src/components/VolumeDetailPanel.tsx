@@ -1,8 +1,16 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import type { Line, OwnershipStatus, Volume } from "../types";
 import { OWNERSHIP_META, OWNERSHIP_ORDER } from "../lib/ownership";
 import { volumeBadgeText } from "../lib/era";
 import { useSlidePanel } from "../hooks/useSlidePanel";
+
+// One option row is py-1.5 padding (12px) + text-sm line height (20px) =
+// 32px, plus the dropdown's own py-1 (8px) container padding -- used to
+// guess the picker's rendered height before it's actually mounted, so the
+// open-above decision (see openAbove below) can be made in the same click
+// that opens it instead of flashing open-below-then-correcting.
+const OWNERSHIP_OPTION_HEIGHT = 32;
+const DROPDOWN_HEIGHT_ESTIMATE = OWNERSHIP_ORDER.length * OWNERSHIP_OPTION_HEIGHT + 8;
 
 export function VolumeDetailPanel({
   volume,
@@ -26,9 +34,23 @@ export function VolumeDetailPanel({
   speculative?: boolean;
 }) {
   const [pickerOpen, setPickerOpen] = useState(false);
+  // Decided once, when the picker opens (not continuously re-checked while
+  // it's open) -- the button's own position doesn't change while the list
+  // is up, so there's nothing to react to afterward the way VolumeTile's
+  // hover preview needs to for scroll.
+  const [openAbove, setOpenAbove] = useState(false);
+  const pickerButtonRef = useRef<HTMLButtonElement>(null);
   const [confirmingDelete, setConfirmingDelete] = useState(false);
   const meta = OWNERSHIP_META[status];
   const { visible, closeThen } = useSlidePanel();
+
+  const togglePicker = () => {
+    if (!pickerOpen) {
+      const rect = pickerButtonRef.current?.getBoundingClientRect();
+      setOpenAbove(!!rect && rect.bottom + DROPDOWN_HEIGHT_ESTIMATE > window.innerHeight);
+    }
+    setPickerOpen((o) => !o);
+  };
 
   return (
     <div
@@ -101,20 +123,22 @@ export function VolumeDetailPanel({
         {!speculative && (
           <div className="relative mt-6">
             <button
+              ref={pickerButtonRef}
               type="button"
-              onClick={() => setPickerOpen((o) => !o)}
+              onClick={togglePicker}
               className="flex items-center gap-2 rounded-full border border-neutral-700 px-3 py-1.5 text-sm text-white"
             >
-              <span
-                className="h-2.5 w-2.5 rounded-full"
-                style={{ backgroundColor: meta.iconHex }}
-              />
+              <img src={meta.iconUrl} alt="" className="h-3 w-3" />
               {meta.label}
               <span className="text-neutral-500">▾</span>
             </button>
 
             {pickerOpen && (
-              <div className="absolute left-0 top-full z-10 mt-1 w-44 rounded-md border border-neutral-700 bg-neutral-900 py-1 shadow-lg">
+              <div
+                className={`absolute left-0 z-10 w-44 rounded-md border border-neutral-700 bg-neutral-900 py-1 shadow-lg ${
+                  openAbove ? "bottom-full mb-1" : "top-full mt-1"
+                }`}
+              >
                 {OWNERSHIP_ORDER.map((s) => {
                   const m = OWNERSHIP_META[s];
                   return (
@@ -127,10 +151,7 @@ export function VolumeDetailPanel({
                       }}
                       className="flex w-full items-center gap-2 px-3 py-1.5 text-left text-sm text-white hover:bg-neutral-800"
                     >
-                      <span
-                        className="h-2.5 w-2.5 rounded-full"
-                        style={{ backgroundColor: m.iconHex }}
-                      />
+                      <img src={m.iconUrl} alt="" className="h-3 w-3" />
                       {m.label}
                     </button>
                   );

@@ -1,9 +1,16 @@
-import { useRef, useState, type MouseEvent } from "react";
+import { useEffect, useRef, useState, type MouseEvent } from "react";
+import { createPortal } from "react-dom";
 import type { Line, Volume } from "../types";
 import { OWNED_STATUSES } from "../types";
-import { speculativeTextColor, speculativeTileBackground, tileBackground } from "../lib/color";
+import {
+  ownedTileBorderColor,
+  speculativeTextColor,
+  speculativeTileBackground,
+  tileBackground,
+} from "../lib/color";
 import { AXIS_HEIGHT, quartersBetween, type ZoomLevel } from "../lib/timeline";
 import { volumeBadgeText, volumeIconUrl, volumeNumberLabel } from "../lib/era";
+import { OWNERSHIP_META } from "../lib/ownership";
 import { LineIcon } from "./LineIcon";
 import { NAV_HEIGHT } from "./TopNav";
 import dragLeftIcon from "../assets/drag_left.svg";
@@ -65,7 +72,28 @@ export function VolumeTile({
   const showSubtitle = zoomLevel === 1;
   const showIcon = zoomLevel !== 3;
   const showTitle = zoomLevel !== 3;
-  const badgeWidthClass = volume.era ? "w-7" : "w-5";
+  // Single-quarter volumes at level 1-2 render just the icon/badge with no
+  // title span next to it -- the button is a flex row with no
+  // justify-content set, so with only one child it was hugging the left
+  // edge instead of sitting centered in the pill. Center that case instead
+  // of the default (title-trailing) left alignment.
+  const hasTitleContent = showTitle && !singleQuarter;
+  // Level 3 is always icon/badge-only too (showTitle is false there
+  // regardless of singleQuarter), but stays flush left on purpose --
+  // unlike the level 1-2 single-quarter case, it's not "centering a lone
+  // child that used to sit next to a title," it's the tile's only zoom
+  // level short enough that centering would visually disconnect the badge
+  // from the tile's left edge (where the equivalent single-quarter tiles
+  // at other zoom levels still read as anchored).
+  const centerIconOnly = !hasTitleContent && zoomLevel !== 3;
+  // Level 1-2: fixed width (era badges are two characters, "G1", so need
+  // more room than a plain number) -- it sits under the icon there, so a
+  // little uneven side-padding around a short number doesn't stand out.
+  // Level 3: the badge IS the whole tile's content (see showIcon/showTitle
+  // above), so that same fixed width made a single-digit number look oddly
+  // padded next to a wider one -- sized to content plus a small fixed gap
+  // instead, era and non-era alike.
+  const badgeWidthClass = zoomLevel === 3 ? "px-1" : volume.era ? "w-7" : "w-5";
   const badge = (
     <span
       className={`flex h-4 shrink-0 items-center justify-center rounded-full text-[10px] font-bold leading-none text-white ${badgeWidthClass} ${
@@ -83,14 +111,25 @@ export function VolumeTile({
   const buttonRef = useRef<HTMLButtonElement>(null);
   const [hovered, setHovered] = useState(false);
   const [flipBelow, setFlipBelow] = useState(false);
+  // Top edge (viewport px) the preview should anchor to -- recomputed
+  // explicitly (not read from the ref inline during render) so it can also
+  // be refreshed on scroll while hovered, see the effect below.
+  const [previewTop, setPreviewTop] = useState(0);
   // Preview follows the cursor's x position (not the tile's own horizontal
   // center) so very long volumes -- whose center can be far off screen --
   // still show their preview near wherever the mouse actually is.
   const [mouseX, setMouseX] = useState(0);
 
+  const updatePreviewPosition = () => {
+    const rect = buttonRef.current?.getBoundingClientRect();
+    if (!rect) return;
+    const shouldFlipBelow = rect.top < PREVIEW_CLEARANCE;
+    setFlipBelow(shouldFlipBelow);
+    setPreviewTop(shouldFlipBelow ? rect.bottom : rect.top);
+  };
+
   const handleMouseEnter = (e: MouseEvent<HTMLDivElement>) => {
-    const top = buttonRef.current?.getBoundingClientRect().top ?? Infinity;
-    setFlipBelow(top < PREVIEW_CLEARANCE);
+    updatePreviewPosition();
     setMouseX(e.clientX);
     setHovered(true);
   };
@@ -98,6 +137,39 @@ export function VolumeTile({
   const handleMouseMove = (e: MouseEvent<HTMLDivElement>) => {
     setMouseX(e.clientX);
   };
+
+  // A tile that's mid-screen when hovered can scroll close to the sticky
+  // nav/axis header without the mouse ever moving (wheel/trackpad scroll
+  // while still hovering) -- flipBelow was previously decided once on
+  // mouseenter and never revisited, so the preview could end up rendered
+  // above the tile (and behind/overlapping the sticky header) once that
+  // scroll brought the tile close enough to the top. Recompute on every
+  // scroll/resize for as long as the tile stays hovered.
+  useEffect(() => {
+    if (!hovered) return;
+    // Cancel-and-reschedule, not a "ticking" boolean only its own rAF
+    // callback can clear -- that flavor gets permanently stuck if a single
+    // rAF callback is ever dropped (e.g. the tab loses focus/visibility
+    // mid-scroll), silently ignoring every scroll event for the rest of
+    // this hover. See useVisibleRowRange.ts for the fuller writeup -- same
+    // bug class found there.
+    let rafId: number | null = null;
+    const handleScroll = () => {
+      if (rafId !== null) cancelAnimationFrame(rafId);
+      rafId = requestAnimationFrame(() => {
+        rafId = null;
+        updatePreviewPosition();
+      });
+    };
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    window.addEventListener("resize", handleScroll);
+    return () => {
+      if (rafId !== null) cancelAnimationFrame(rafId);
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("resize", handleScroll);
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [hovered]);
 
   // Resize handles need to stay visible while the cursor is over either of
   // them, but they're siblings of the button (not descendants -- nesting
@@ -127,14 +199,25 @@ export function VolumeTile({
         // truncate themselves (their own non-visible overflow), which gives
         // them an automatic flex min-width of 0 to shrink into.
         data-official-locked={locked ? "" : undefined}
-        className="group flex h-full w-full items-center gap-1 rounded-full border pr-2 text-left backdrop-blur-sm transition-colors"
+        className={`group flex h-full w-full items-center gap-1 rounded-full border text-left backdrop-blur-sm transition-colors ${
+          hasTitleContent ? "pr-2" : centerIconOnly ? "justify-center" : ""
+        }`}
         style={{
           backgroundColor: background,
-          borderColor: speculative ? line.colorHex : focused ? line.colorHex : "transparent",
-          // Subtle inset ring marking a tile as owned (shelved/ordered) --
-          // independent of the borderColor above, which is reserved for
-          // the focused/speculative line-color ring.
-          boxShadow: owned ? "inset 0 0 0 1px rgba(255, 255, 255, 0.05)" : undefined,
+          // Owned (shelved/ordered) gets a subtle ring tinted with the
+          // line's own color (see ownedTileBorderColor) -- on the actual
+          // border, not a separate inset box-shadow, so it sits flush with
+          // the tile's true edge instead of 1px inside it. Focused/
+          // speculative's full-color ring takes priority when present;
+          // ownership is still visible then via the tile's own higher fill
+          // opacity (see TILE_OPACITY).
+          borderColor: speculative
+            ? line.colorHex
+            : focused
+            ? line.colorHex
+            : owned
+            ? ownedTileBorderColor(line.colorHex)
+            : "transparent",
         }}
         title={`${line.name} ${volumeNumberLabel(volume)}: ${volume.title}`}
       >
@@ -163,7 +246,7 @@ export function VolumeTile({
       ) : (
         badge
       )}
-      {showTitle && !singleQuarter && (
+      {hasTitleContent && (
         <span className="min-w-0">
           <span
             className={`block truncate text-sm font-semibold ${speculative ? "" : "text-white"}`}
@@ -182,51 +265,100 @@ export function VolumeTile({
       {canResize && hovered && (
         <>
           <div
-            className="absolute inset-y-0 left-1 z-10 flex w-3 cursor-ew-resize items-center justify-center"
+            className="absolute inset-y-0 left-1 z-10 flex w-3 cursor-ew-resize select-none items-center justify-center"
             onMouseDown={(e) => {
+              // Otherwise a mousedown-and-drag gesture here also kicks off
+              // the browser's own default text-selection drag underneath --
+              // it doesn't block our custom drag (that's driven entirely by
+              // the window mousemove/mouseup listeners LineTimelineLane
+              // attaches on resize start), it just paints an unwanted blue
+              // selection highlight sweeping across the row's text while
+              // you drag. select-none on this handle covers the handle
+              // itself; preventDefault covers the gesture as a whole, since
+              // the drag continues out over sibling tiles/labels this
+              // element doesn't contain.
+              e.preventDefault();
               e.stopPropagation();
               onResizeStart!("start", e.clientX);
             }}
           >
-            <img src={dragLeftIcon} alt="" className="pointer-events-none h-4 w-auto" />
+            <img
+              src={dragLeftIcon}
+              alt=""
+              draggable={false}
+              // Level 3's tile is only ~16px tall (32px row - the 8px
+              // inset-y-2 top/bottom) -- the level 1/2 h-4 (16px) icon left
+              // no headroom at all there, so it's sized down to fit.
+              className={`pointer-events-none w-auto select-none ${zoomLevel === 3 ? "h-2.5" : "h-4"}`}
+            />
           </div>
           <div
-            className="absolute inset-y-0 right-1 z-10 flex w-3 cursor-ew-resize items-center justify-center"
+            className="absolute inset-y-0 right-1 z-10 flex w-3 cursor-ew-resize select-none items-center justify-center"
             onMouseDown={(e) => {
+              e.preventDefault();
               e.stopPropagation();
               onResizeStart!("end", e.clientX);
             }}
           >
-            <img src={dragRightIcon} alt="" className="pointer-events-none h-4 w-auto" />
+            <img
+              src={dragRightIcon}
+              alt=""
+              draggable={false}
+              className={`pointer-events-none w-auto select-none ${zoomLevel === 3 ? "h-2.5" : "h-4"}`}
+            />
           </div>
         </>
       )}
-      {hovered && (
-        <div
-          // Fixed to the viewport and driven by the cursor's clientX/Y
-          // instead of the tile's own layout position -- a tile-relative
-          // (e.g. horizontally centered) preview can land off screen for
-          // very long volumes even though the cursor itself is on screen.
-          // z-[60] clears the sticky nav (z-40) and timeline axis (z-50) so
-          // it's never hidden behind them even if it clips one at the edge.
-          className="pointer-events-none fixed z-[60] flex w-72 items-start overflow-hidden rounded-md border border-neutral-700 bg-neutral-900 shadow-xl"
-          style={{
-            left: mouseX,
-            top: buttonRef.current?.getBoundingClientRect()[flipBelow ? "bottom" : "top"],
-            transform: flipBelow ? "translate(-50%, 8px)" : "translate(-50%, calc(-100% - 8px))",
-          }}
-        >
-          {volume.coverUrl && (
-            <img src={volume.coverUrl} alt="" className="w-20 shrink-0" />
-          )}
-          <div className="min-w-0 flex-1 px-3 py-2.5">
-            <p className="text-xs font-semibold leading-snug text-white">{volume.title}</p>
-            <p className="mt-0.5 text-[11px] leading-snug text-neutral-400">
-              {volume.issuesCollected}
-            </p>
-          </div>
-        </div>
-      )}
+      {hovered &&
+        createPortal(
+          <div
+            // Fixed to the viewport and driven by the cursor's clientX/Y
+            // instead of the tile's own layout position -- a tile-relative
+            // (e.g. horizontally centered) preview can land off screen for
+            // very long volumes even though the cursor itself is on screen.
+            // z-[60] clears the sticky nav (z-40) and timeline axis (z-50) so
+            // it's never hidden behind them even if it clips one at the edge.
+            // Portaled straight to document.body -- LineRow's own row div
+            // always carries a Tailwind translate-y-* class (its enter/exit
+            // fade transition), and ANY transform on an ancestor -- even an
+            // identity translateY(0) -- makes that ancestor the containing
+            // block for descendant `position: fixed` elements per the CSS
+            // spec, so without the portal this rendered relative to the row,
+            // not the viewport, landing far from the cursor.
+            className="pointer-events-none fixed z-[60] flex w-72 items-start overflow-hidden rounded-md border border-neutral-700 bg-neutral-900 shadow-xl"
+            style={{
+              left: mouseX,
+              top: previewTop,
+              transform: flipBelow ? "translate(-50%, 8px)" : "translate(-50%, calc(-100% - 8px))",
+            }}
+          >
+            {volume.coverUrl && (
+              <img src={volume.coverUrl} alt="" className="w-20 shrink-0" />
+            )}
+            <div className="min-w-0 flex-1 px-3 py-2.5">
+              <p className="text-xs font-semibold leading-snug text-white">{volume.title}</p>
+              <p className="mt-0.5 text-[11px] leading-snug text-neutral-400">
+                {volume.issuesCollected}
+              </p>
+              {/* Read-only -- same OWNERSHIP_META icon+label as
+                  VolumeDetailPanel's status picker, just not clickable here.
+                  Speculative volumes don't track ownership (see VolumeTile's
+                  owned styling above, which is a no-op for them too), so
+                  this is skipped for those the same way the picker is. */}
+              {!speculative && (
+                <p className="mt-1 flex items-center gap-1.5 text-[11px] text-neutral-300">
+                  <img
+                    src={OWNERSHIP_META[volume.ownershipStatus].iconUrl}
+                    alt=""
+                    className="h-2.5 w-2.5 shrink-0"
+                  />
+                  {OWNERSHIP_META[volume.ownershipStatus].label}
+                </p>
+              )}
+            </div>
+          </div>,
+          document.body
+        )}
     </div>
   );
 }
