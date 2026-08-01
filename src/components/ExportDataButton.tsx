@@ -35,10 +35,6 @@ export function ExportDataButton() {
     setJson(text);
     setCopyState("idle");
     setOpen(true);
-    navigator.clipboard?.writeText(text).then(
-      () => setCopyState("copied"),
-      () => setCopyState("failed")
-    );
   };
 
   const handleCopyClick = () => {
@@ -120,7 +116,7 @@ export function ExportDataButton() {
                   readOnly
                   value={json}
                   onFocus={(e) => e.currentTarget.select()}
-                  className="mt-3 h-80 min-h-0 w-full flex-1 resize-none rounded-md border border-neutral-700 bg-neutral-950 p-3 font-mono text-xs text-neutral-300"
+                  className="mt-3 h-[40rem] min-h-0 w-full shrink resize-none rounded-md border border-neutral-700 bg-neutral-950 p-3 font-mono text-xs text-neutral-300"
                 />
                 <div className="mt-3 flex shrink-0 gap-2">
                   <button
