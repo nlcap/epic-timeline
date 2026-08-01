@@ -447,7 +447,12 @@ export default function App() {
             >
               <div
                 className="relative inline-block min-w-full"
-                style={{ height: (displayLines.length + 1) * rowHeight }}
+                style={{
+                  // Extra space below the last row so it can be scrolled clear
+                  // of the fixed "Add Line" button (bottom-4 + its own
+                  // pillHeight) instead of sitting underneath it.
+                  height: displayLines.length * rowHeight + pillHeight + 32,
+                }}
               >
                 <TimelineGrid
                   startYear={axisStart}
@@ -492,20 +497,24 @@ export default function App() {
                     />
                   );
                 })}
-                <AddLineButton
-                  scrollLeft={scrollLeft}
-                  sidebarWidth={sidebarWidth}
-                  onClick={() => setAddLineOpen(true)}
-                  rowHeight={rowHeight}
-                  pillHeight={pillHeight}
-                  speculative={speculationMode}
-                />
               </div>
             </div>
             </div>
           </>
         )}
       </div>
+
+      {displayLines.length > 0 && (
+        <div className="fixed bottom-4 left-4 z-40">
+          <AddLineButton
+            scrollLeft={scrollLeft}
+            sidebarWidth={sidebarWidth}
+            onClick={() => setAddLineOpen(true)}
+            pillHeight={pillHeight}
+            speculative={speculationMode}
+          />
+        </div>
+      )}
 
       <div className="fixed right-6 top-1/2 z-40 flex -translate-y-1/2 flex-col items-center gap-3">
         <SpeculationModeToggle

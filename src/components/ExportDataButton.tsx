@@ -1,22 +1,17 @@
 import { useEffect, useRef, useState } from "react";
-
-// The three "real correction" override stores -- line edits, volume
-// edits/resizes, and ownership status. Deliberately excludes
-// epic-timeline:speculative-lines/speculative-volumes: Speculation Mode is
-// an intentional what-if sandbox, not a correction to the real data, so
-// baking it into the shipped defaults would be wrong.
-const OVERRIDE_KEYS = [
-  "epic-timeline:line-overrides",
-  "epic-timeline:volume-overrides",
-  "epic-timeline:ownership-overrides",
-] as const;
+import { createPortal } from "react-dom";
+import { EXPORT_KEYS } from "../lib/overrideKeys";
 
 /**
- * One-off maintainer utility, not an end-user feature: dumps every
- * correction made through the app's UI as JSON so it can be handed off and
- * merged into the shipped seed data in src/data/*.ts, replacing the current
- * defaults. Shows the JSON in a readonly textarea (auto-selected, so a
- * plain Cmd/Ctrl+C works immediately) rather than relying solely on the
+ * Dumps every local-storage-backed correction and speculation-mode
+ * scenario as JSON, for two different downstream uses: (1) hand the real
+ * corrections (line/volume edits, ownership) off to Claude to merge into
+ * the shipped seed data in src/data/*.ts as new defaults, or (2)
+ * download/re-import it as a personal backup when switching browsers.
+ * Speculation-mode data rides along for #2 but should never be baked into
+ * #1 -- see OVERRIDE_KEYS vs SPECULATIVE_KEYS in lib/overrideKeys.ts.
+ * Shows the JSON in a readonly textarea (auto-selected, so a plain
+ * Cmd/Ctrl+C works immediately) rather than relying solely on the
  * Clipboard API, which can silently fail depending on browser/permissions.
  */
 export function ExportDataButton() {
@@ -27,7 +22,7 @@ export function ExportDataButton() {
 
   const handleExport = () => {
     const payload: Record<string, unknown> = {};
-    for (const key of OVERRIDE_KEYS) {
+    for (const key of EXPORT_KEYS) {
       const raw = localStorage.getItem(key);
       if (!raw) continue;
       try {
@@ -54,6 +49,20 @@ export function ExportDataButton() {
     textareaRef.current?.select();
   };
 
+  const handleDownloadClick = () => {
+    const blob = new Blob([json], { type: "application/json" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = `epic-timeline-corrections-${new Date().toISOString().slice(0, 10)}.json`;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    // Revoking immediately can race with the download actually starting in
+    // some browsers, silently dropping it -- give it a beat first.
+    setTimeout(() => URL.revokeObjectURL(url), 1000);
+  };
+
   useEffect(() => {
     if (open) textareaRef.current?.select();
   }, [open]);
@@ -63,7 +72,7 @@ export function ExportDataButton() {
       <button
         type="button"
         onClick={handleExport}
-        title="Export your corrections (line/volume edits, ownership status) as JSON"
+        title="Export your corrections and speculation-mode data as JSON"
         className="hidden h-9 shrink-0 items-center gap-1.5 rounded-full border border-neutral-700 px-3 text-sm text-neutral-300 transition-colors hover:text-white md:flex"
       >
         <svg
@@ -83,49 +92,57 @@ export function ExportDataButton() {
         Export
       </button>
 
-      {open && (
-        <div
-          className="fixed inset-0 z-[70] flex items-center justify-center bg-black/60 p-6"
-          onClick={() => setOpen(false)}
-        >
+      {open &&
+        createPortal(
           <div
-            className="flex w-full max-w-xl flex-col rounded-md border border-neutral-700 bg-neutral-900 p-5 shadow-xl"
-            onClick={(e) => e.stopPropagation()}
+            className="fixed inset-0 z-[70] overflow-y-auto bg-black/60 p-6"
+            onClick={() => setOpen(false)}
           >
-            <div className="flex items-center justify-between">
-              <h2 className="text-sm font-semibold text-white">Your corrections (JSON)</h2>
-              <button
-                type="button"
-                onClick={() => setOpen(false)}
-                className="text-sm text-neutral-400 hover:text-white"
+            <div className="flex min-h-full items-center justify-center">
+              <div
+                className="flex max-h-[85vh] w-full max-w-xl flex-col rounded-md border border-neutral-700 bg-neutral-900 p-5 shadow-xl"
+                onClick={(e) => e.stopPropagation()}
               >
-                Close ✕
-              </button>
+                <div className="flex shrink-0 items-center justify-between">
+                  <h2 className="text-sm font-semibold text-white">
+                    Your corrections &amp; speculation data (JSON)
+                  </h2>
+                  <button
+                    type="button"
+                    onClick={() => setOpen(false)}
+                    className="text-sm text-neutral-400 hover:text-white"
+                  >
+                    Close ✕
+                  </button>
+                </div>
+                <textarea
+                  ref={textareaRef}
+                  readOnly
+                  value={json}
+                  onFocus={(e) => e.currentTarget.select()}
+                  className="mt-3 h-80 min-h-0 w-full flex-1 resize-none rounded-md border border-neutral-700 bg-neutral-950 p-3 font-mono text-xs text-neutral-300"
+                />
+                <div className="mt-3 flex shrink-0 gap-2">
+                  <button
+                    type="button"
+                    onClick={handleCopyClick}
+                    className="flex-1 rounded-md border border-neutral-700 px-4 py-2 text-sm font-medium text-neutral-300 hover:text-white"
+                  >
+                    Copy to clipboard
+                  </button>
+                  <button
+                    type="button"
+                    onClick={handleDownloadClick}
+                    className="flex-1 rounded-md border border-neutral-700 px-4 py-2 text-sm font-medium text-neutral-300 hover:text-white"
+                  >
+                    Download JSON
+                  </button>
+                </div>
+              </div>
             </div>
-            <p className="mt-1 text-xs text-neutral-500">
-              {copyState === "copied"
-                ? "Copied to your clipboard -- paste it to Claude to bake these in as the new defaults."
-                : copyState === "failed"
-                ? "Couldn't copy automatically -- it's already selected below, so Cmd/Ctrl+C works, or use the button."
-                : "Copying to your clipboard..."}
-            </p>
-            <textarea
-              ref={textareaRef}
-              readOnly
-              value={json}
-              onFocus={(e) => e.currentTarget.select()}
-              className="mt-3 h-80 w-full resize-none rounded-md border border-neutral-700 bg-neutral-950 p-3 font-mono text-xs text-neutral-300"
-            />
-            <button
-              type="button"
-              onClick={handleCopyClick}
-              className="mt-3 w-full rounded-md border border-neutral-700 px-4 py-2 text-sm font-medium text-neutral-300 hover:text-white"
-            >
-              Copy to clipboard
-            </button>
-          </div>
-        </div>
-      )}
+          </div>,
+          document.body
+        )}
     </>
   );
 }

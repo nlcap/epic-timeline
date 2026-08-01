@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import type { Collection } from "../types";
 import epicTimelineLogo from "../assets/logo_epic_timeline.svg";
 import { ExportDataButton } from "./ExportDataButton";
+import { ImportDataButton } from "./ImportDataButton";
 
 const NAV_HEIGHT = 48;
 export { NAV_HEIGHT };
@@ -80,6 +81,7 @@ export function TopNav({
 
         <div className="hidden shrink-0 items-center gap-3 md:flex">
           <ExportDataButton />
+          <ImportDataButton />
           <AccountButton />
         </div>
 
