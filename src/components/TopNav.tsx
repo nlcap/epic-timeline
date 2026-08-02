@@ -3,6 +3,7 @@ import type { Collection } from "../types";
 import epicTimelineLogo from "../assets/logo_epic_timeline.svg";
 import { ExportDataButton } from "./ExportDataButton";
 import { ImportDataButton } from "./ImportDataButton";
+import { ResetLineDataButton } from "./ResetLineDataButton";
 
 const NAV_HEIGHT = 48;
 export { NAV_HEIGHT };
@@ -11,6 +12,7 @@ function SettingsMenu({ className = "" }: { className?: string }) {
   const [menuOpen, setMenuOpen] = useState(false);
   const [exportOpen, setExportOpen] = useState(false);
   const [importOpen, setImportOpen] = useState(false);
+  const [resetOpen, setResetOpen] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -82,11 +84,23 @@ function SettingsMenu({ className = "" }: { className?: string }) {
           >
             Import data
           </button>
+          <button
+            type="button"
+            role="menuitem"
+            onClick={() => {
+              setResetOpen(true);
+              setMenuOpen(false);
+            }}
+            className="block w-full px-3 py-2 text-left text-sm text-neutral-300 hover:bg-neutral-800 hover:text-white"
+          >
+            Reset line data
+          </button>
         </div>
       )}
 
       <ExportDataButton open={exportOpen} onClose={() => setExportOpen(false)} />
       <ImportDataButton open={importOpen} onClose={() => setImportOpen(false)} />
+      <ResetLineDataButton open={resetOpen} onClose={() => setResetOpen(false)} />
     </div>
   );
 }
@@ -103,6 +117,7 @@ export function TopNav({
   const [menuOpen, setMenuOpen] = useState(false);
   const [exportOpen, setExportOpen] = useState(false);
   const [importOpen, setImportOpen] = useState(false);
+  const [resetOpen, setResetOpen] = useState(false);
 
   useEffect(() => {
     if (!menuOpen) return;
@@ -238,6 +253,16 @@ export function TopNav({
               >
                 Import data
               </button>
+              <button
+                type="button"
+                onClick={() => {
+                  setResetOpen(true);
+                  setMenuOpen(false);
+                }}
+                className="rounded-md px-3 py-2.5 text-left text-sm font-medium text-neutral-400 transition-colors hover:bg-neutral-900 hover:text-white"
+              >
+                Reset line data
+              </button>
             </div>
           </div>
         </div>
@@ -245,6 +270,7 @@ export function TopNav({
 
       <ExportDataButton open={exportOpen} onClose={() => setExportOpen(false)} />
       <ImportDataButton open={importOpen} onClose={() => setImportOpen(false)} />
+      <ResetLineDataButton open={resetOpen} onClose={() => setResetOpen(false)} />
     </>
   );
 }

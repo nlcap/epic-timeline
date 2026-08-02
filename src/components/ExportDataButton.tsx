@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
-import { EXPORT_KEYS } from "../lib/overrideKeys";
+import { EXPORT_KEYS, stripIconsFromPayload } from "../lib/overrideKeys";
 
 /**
  * Dumps every local-storage-backed correction and speculation-mode
@@ -34,7 +34,7 @@ export function ExportDataButton({ open, onClose }: { open: boolean; onClose: ()
         payload[key] = raw;
       }
     }
-    setJson(JSON.stringify(payload, null, 2));
+    setJson(JSON.stringify(stripIconsFromPayload(payload), null, 2));
     setCopyState("idle");
   }, [open]);
 

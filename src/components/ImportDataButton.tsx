@@ -1,13 +1,15 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { createPortal } from "react-dom";
-import { EXPORT_KEYS } from "../lib/overrideKeys";
+import { EXPORT_KEYS, stripIconsFromPayload } from "../lib/overrideKeys";
 
 type ExportKey = (typeof EXPORT_KEYS)[number];
 type ParsedPayload = Partial<Record<ExportKey, unknown>>;
 
 /** Parses text as JSON and pulls out whichever EXPORT_KEYS it recognizes.
  * Returns null for anything that isn't a usable export (bad JSON, an
- * object with none of the keys this app knows about, etc). */
+ * object with none of the keys this app knows about, etc). Strips icon
+ * image data too -- covers exports made before that stripping existed on
+ * the way out, so old export files can't reintroduce broken icons. */
 function parseExportPayload(text: string): ParsedPayload | null {
   let parsed: unknown;
   try {
@@ -21,7 +23,7 @@ function parseExportPayload(text: string): ParsedPayload | null {
   for (const key of EXPORT_KEYS) {
     if (key in parsed) payload[key] = (parsed as Record<string, unknown>)[key];
   }
-  return Object.keys(payload).length > 0 ? payload : null;
+  return Object.keys(payload).length > 0 ? stripIconsFromPayload(payload) : null;
 }
 
 function writePayload(payload: ParsedPayload) {

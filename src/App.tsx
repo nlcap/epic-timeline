@@ -1,15 +1,6 @@
 import { useCallback, useEffect, useMemo, useRef, useState, type UIEvent } from "react";
 import { COLLECTIONS } from "./data/collections";
-import { ULTIMATE_LINES, ULTIMATE_ENTRIES } from "./data/ultimate-era";
-import {
-  CLASSIC_MARVEL_LINES,
-  CLASSIC_MARVEL_ENTRIES,
-} from "./data/classic-marvel-epic";
-import { DC_FINEST_LINES, DC_FINEST_ENTRIES } from "./data/dc-finest";
-import {
-  MODERN_MARVEL_LINES,
-  MODERN_MARVEL_ENTRIES,
-} from "./data/modern-marvel-epic";
+import { COLLECTION_DATA } from "./data/collectionData";
 import type { Line, QuarterPoint, TimelineEntry, Volume } from "./types";
 import { CollectionBanner } from "./components/CollectionBanner";
 import { TopNav, NAV_HEIGHT } from "./components/TopNav";
@@ -50,22 +41,6 @@ import {
   yearsCoveredLabel,
   type ZoomLevel,
 } from "./lib/timeline";
-
-// Per-collection datasets. Collections not listed here render an empty state
-// until their volume lists are compiled (same process as the ASM Epic
-// Collection pilot spreadsheet).
-const COLLECTION_DATA: Record<string, { lines: Line[]; entries: TimelineEntry[] }> = {
-  ultimate: { lines: ULTIMATE_LINES, entries: ULTIMATE_ENTRIES },
-  "classic-marvel-epic": {
-    lines: CLASSIC_MARVEL_LINES,
-    entries: CLASSIC_MARVEL_ENTRIES,
-  },
-  "dc-finest": { lines: DC_FINEST_LINES, entries: DC_FINEST_ENTRIES },
-  "modern-marvel-epic": {
-    lines: MODERN_MARVEL_LINES,
-    entries: MODERN_MARVEL_ENTRIES,
-  },
-};
 
 // Stable fallback for lines with no entries -- `entriesByLine.get(id) ?? []`
 // would otherwise create a brand-new array every render for any such line,
