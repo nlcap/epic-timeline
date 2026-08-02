@@ -333,7 +333,9 @@ export function VolumeTile({
             }}
           >
             {volume.coverUrl && (
-              <img src={volume.coverUrl} alt="" className="w-20 shrink-0" />
+              <div className="shrink-0 p-2.5">
+                <img src={volume.coverUrl} alt="" className="w-20" />
+              </div>
             )}
             <div className="min-w-0 flex-1 px-3 py-2.5">
               <p className="text-xs font-semibold leading-snug text-white">{volume.title}</p>
