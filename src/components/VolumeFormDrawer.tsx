@@ -450,17 +450,36 @@ export function VolumeFormDrawer({
             {!speculative && (
               <label className="mt-4 block text-sm font-medium text-neutral-300">
                 Shelf status
-                <select
-                  value={ownershipStatus}
-                  onChange={(e) => setOwnershipStatus(e.target.value as OwnershipStatus)}
-                  className="mt-1 w-full rounded-md border border-neutral-700 bg-neutral-900 px-3 py-2 text-sm text-white focus:border-neutral-500 focus:outline-none"
-                >
-                  {OWNERSHIP_ORDER.map((s) => (
-                    <option key={s} value={s}>
-                      {OWNERSHIP_META[s].label}
-                    </option>
-                  ))}
-                </select>
+                {/* appearance-none + a manual chevron -- an unstyled <select>
+                 * relies on the OS's native control chrome, which some
+                 * browsers (Safari in particular) size to the selected
+                 * option's text instead of filling the box the way a plain
+                 * <input> does. */}
+                <div className="relative mt-1">
+                  <select
+                    value={ownershipStatus}
+                    onChange={(e) => setOwnershipStatus(e.target.value as OwnershipStatus)}
+                    className="w-full appearance-none rounded-md border border-neutral-700 bg-neutral-900 px-3 py-2 pr-8 text-sm text-white focus:border-neutral-500 focus:outline-none"
+                  >
+                    {OWNERSHIP_ORDER.map((s) => (
+                      <option key={s} value={s}>
+                        {OWNERSHIP_META[s].label}
+                      </option>
+                    ))}
+                  </select>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth={1.75}
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    className="pointer-events-none absolute right-2.5 top-1/2 h-4 w-4 -translate-y-1/2 text-neutral-500"
+                  >
+                    <path d="M6 9l6 6 6-6" />
+                  </svg>
+                </div>
               </label>
             )}
 

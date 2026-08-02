@@ -330,18 +330,36 @@ export function LineFormDrawer({
         <div className="mt-4 flex gap-3">
           <label className="block flex-1 text-sm font-medium text-neutral-300">
             Debut month
-            <select
-              value={month}
-              onChange={(e) => setMonth(e.target.value)}
-              disabled={fieldsLocked}
-              className="mt-1 w-full rounded-md border border-neutral-700 bg-neutral-900 px-3 py-2 text-sm text-white focus:border-neutral-500 focus:outline-none disabled:opacity-40"
-            >
-              {MONTHS.map((m, i) => (
-                <option key={m} value={i + 1}>
-                  {m}
-                </option>
-              ))}
-            </select>
+            {/* appearance-none + a manual chevron -- an unstyled <select>
+             * relies on the OS's native control chrome, which some browsers
+             * (Safari in particular) size to the selected option's text
+             * instead of filling the box the way a plain <input> does. */}
+            <div className="relative mt-1">
+              <select
+                value={month}
+                onChange={(e) => setMonth(e.target.value)}
+                disabled={fieldsLocked}
+                className="w-full appearance-none rounded-md border border-neutral-700 bg-neutral-900 px-3 py-2 pr-8 text-sm text-white focus:border-neutral-500 focus:outline-none disabled:opacity-40"
+              >
+                {MONTHS.map((m, i) => (
+                  <option key={m} value={i + 1}>
+                    {m}
+                  </option>
+                ))}
+              </select>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth={1.75}
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className="pointer-events-none absolute right-2.5 top-1/2 h-4 w-4 -translate-y-1/2 text-neutral-500"
+              >
+                <path d="M6 9l6 6 6-6" />
+              </svg>
+            </div>
           </label>
           <label className="block w-28 text-sm font-medium text-neutral-300">
             Debut year

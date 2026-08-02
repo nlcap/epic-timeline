@@ -69,7 +69,8 @@
       "Bash(python3 fix-svg-filters.py /tmp/test_classic.svg /tmp/test_licensed.svg)",
       "Bash(python3 fix-svg-filters.py src/assets/logo_classic_epic_tagline.svg src/assets/logo_licensed_tagline.svg)",
       "Bash(ls -la ~/Downloads/epic-timeline-corrections* 2>&1 | tail -5)",
-      "Bash(rm -f /Users/nickcapetillo/Downloads/epic-timeline-corrections-2026-08-01.json)"
+      "Bash(rm -f /Users/nickcapetillo/Downloads/epic-timeline-corrections-2026-08-01.json)",
+      "Bash(git fetch *)"
     ]
   }
 }
