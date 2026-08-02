@@ -1,4 +1,4 @@
-import { useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import { EXPORT_KEYS } from "../lib/overrideKeys";
 
@@ -42,10 +42,12 @@ function writePayload(payload: ParsedPayload) {
  * (useLineOverrides, useVolumeOverrides, useOwnership,
  * useSpeculativeLines, useSpeculativeVolumes) to re-read from
  * localStorage, since they only load on mount.
+ *
+ * Controlled by `open`/`onClose` -- the trigger lives in the nav's gear
+ * dropdown, so this component only renders the modal itself.
  */
-export function ImportDataButton() {
+export function ImportDataButton({ open, onClose }: { open: boolean; onClose: () => void }) {
   const fileInputRef = useRef<HTMLInputElement>(null);
-  const [open, setOpen] = useState(false);
   const [pasteText, setPasteText] = useState("");
   // Uploading a file goes straight to a confirm step (its content isn't
   // something the user typed/reviewed, unlike a paste, so it gets an
@@ -58,16 +60,12 @@ export function ImportDataButton() {
 
   const pastePayload = useMemo(() => parseExportPayload(pasteText), [pasteText]);
 
-  const openDialog = () => {
+  useEffect(() => {
+    if (!open) return;
     setPasteText("");
     setPending(null);
     setError("");
-    setOpen(true);
-  };
-
-  const closeDialog = () => {
-    setOpen(false);
-  };
+  }, [open]);
 
   const handlePasteFromClipboard = async () => {
     try {
@@ -103,8 +101,10 @@ export function ImportDataButton() {
     writePayload(pending.payload);
   };
 
-  return (
-    <>
+  if (!open) return null;
+
+  return createPortal(
+    <div className="fixed inset-0 z-[70] overflow-y-auto bg-black/60 p-6" onClick={onClose}>
       <input
         ref={fileInputRef}
         type="file"
@@ -112,146 +112,115 @@ export function ImportDataButton() {
         className="hidden"
         onChange={handleFileChange}
       />
-      <button
-        type="button"
-        onClick={openDialog}
-        title="Import corrections and speculation-mode data from a JSON file"
-        className="hidden h-9 shrink-0 items-center gap-1.5 rounded-full border border-neutral-700 px-3 text-sm text-neutral-300 transition-colors hover:text-white md:flex"
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth={1.75}
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          className="h-4 w-4"
+      <div className="flex min-h-full items-center justify-center">
+        <div
+          className="flex max-h-[85vh] w-full max-w-xl flex-col rounded-md border border-neutral-700 bg-neutral-900 p-5 shadow-xl"
+          onClick={(e) => e.stopPropagation()}
         >
-          <path d="M12 15V3" />
-          <path d="M7 8l5-5 5 5" />
-          <path d="M4 19h16" />
-        </svg>
-        Import
-      </button>
-
-      {open &&
-        createPortal(
-          <div
-            className="fixed inset-0 z-[70] overflow-y-auto bg-black/60 p-6"
-            onClick={closeDialog}
-          >
-            <div className="flex min-h-full items-center justify-center">
-              <div
-                className="flex max-h-[85vh] w-full max-w-xl flex-col rounded-md border border-neutral-700 bg-neutral-900 p-5 shadow-xl"
-                onClick={(e) => e.stopPropagation()}
-              >
-                {error ? (
-                  <>
-                    <div className="flex shrink-0 items-center justify-between">
-                      <h2 className="text-sm font-semibold text-white">Import failed</h2>
-                      <button
-                        type="button"
-                        onClick={closeDialog}
-                        className="text-sm text-neutral-400 hover:text-white"
-                      >
-                        Close ✕
-                      </button>
-                    </div>
-                    <p className="mt-2 text-sm text-neutral-400">{error}</p>
-                    <button
-                      type="button"
-                      onClick={() => setError("")}
-                      className="mt-4 w-full rounded-md border border-neutral-700 px-4 py-2 text-sm font-medium text-neutral-300 hover:text-white"
-                    >
-                      Try again
-                    </button>
-                  </>
-                ) : pending ? (
-                  <>
-                    <div className="flex shrink-0 items-center justify-between">
-                      <h2 className="text-sm font-semibold text-white">Import corrections?</h2>
-                      <button
-                        type="button"
-                        onClick={closeDialog}
-                        className="text-sm text-neutral-400 hover:text-white"
-                      >
-                        Close ✕
-                      </button>
-                    </div>
-                    <p className="mt-2 text-sm text-neutral-400">
-                      "{pending.fileName}" has {Object.keys(pending.payload).length} correction
-                      set(s). This replaces your current line/volume/ownership edits and
-                      speculation-mode data, then reloads the page.
-                    </p>
-                    <div className="mt-4 flex gap-2">
-                      <button
-                        type="button"
-                        onClick={() => setPending(null)}
-                        className="flex-1 rounded-md border border-neutral-700 px-4 py-2 text-sm font-medium text-neutral-300 hover:text-white"
-                      >
-                        Cancel
-                      </button>
-                      <button
-                        type="button"
-                        onClick={handleConfirmUploadClick}
-                        className="flex-1 rounded-md border border-neutral-700 bg-neutral-100 px-4 py-2 text-sm font-medium text-neutral-900 hover:bg-white"
-                      >
-                        Import &amp; reload
-                      </button>
-                    </div>
-                  </>
-                ) : (
-                  <>
-                    <div className="flex shrink-0 items-center justify-between">
-                      <h2 className="text-sm font-semibold text-white">
-                        Import corrections &amp; speculation data (JSON)
-                      </h2>
-                      <button
-                        type="button"
-                        onClick={closeDialog}
-                        className="text-sm text-neutral-400 hover:text-white"
-                      >
-                        Close ✕
-                      </button>
-                    </div>
-                    <textarea
-                      value={pasteText}
-                      onChange={(e) => setPasteText(e.target.value)}
-                      placeholder="Paste exported JSON here..."
-                      className="mt-3 h-[40rem] min-h-0 w-full shrink resize-none rounded-md border border-neutral-700 bg-neutral-950 p-3 font-mono text-xs text-neutral-300 placeholder:text-neutral-600"
-                    />
-                    <div className="mt-3 flex shrink-0 gap-2">
-                      <button
-                        type="button"
-                        onClick={handlePasteFromClipboard}
-                        className="flex-1 rounded-md border border-neutral-700 px-4 py-2 text-sm font-medium text-neutral-300 hover:text-white"
-                      >
-                        Paste from clipboard
-                      </button>
-                      <button
-                        type="button"
-                        onClick={() => fileInputRef.current?.click()}
-                        className="flex-1 rounded-md border border-neutral-700 px-4 py-2 text-sm font-medium text-neutral-300 hover:text-white"
-                      >
-                        Upload JSON
-                      </button>
-                    </div>
-                    <button
-                      type="button"
-                      disabled={!pastePayload}
-                      onClick={handleImportPasteClick}
-                      className="mt-2 w-full shrink-0 rounded-md border border-neutral-700 bg-neutral-100 px-4 py-2 text-sm font-medium text-neutral-900 transition-colors hover:enabled:bg-white disabled:cursor-not-allowed disabled:border-neutral-800 disabled:bg-neutral-800 disabled:text-neutral-600"
-                    >
-                      Import JSON
-                    </button>
-                  </>
-                )}
+          {error ? (
+            <>
+              <div className="flex shrink-0 items-center justify-between">
+                <h2 className="text-sm font-semibold text-white">Import failed</h2>
+                <button
+                  type="button"
+                  onClick={onClose}
+                  className="text-sm text-neutral-400 hover:text-white"
+                >
+                  Close ✕
+                </button>
               </div>
-            </div>
-          </div>,
-          document.body
-        )}
-    </>
+              <p className="mt-2 text-sm text-neutral-400">{error}</p>
+              <button
+                type="button"
+                onClick={() => setError("")}
+                className="mt-4 w-full rounded-md border border-neutral-700 px-4 py-2 text-sm font-medium text-neutral-300 hover:text-white"
+              >
+                Try again
+              </button>
+            </>
+          ) : pending ? (
+            <>
+              <div className="flex shrink-0 items-center justify-between">
+                <h2 className="text-sm font-semibold text-white">Import corrections?</h2>
+                <button
+                  type="button"
+                  onClick={onClose}
+                  className="text-sm text-neutral-400 hover:text-white"
+                >
+                  Close ✕
+                </button>
+              </div>
+              <p className="mt-2 text-sm text-neutral-400">
+                "{pending.fileName}" has {Object.keys(pending.payload).length} correction
+                set(s). This replaces your current line/volume/ownership edits and
+                speculation-mode data, then reloads the page.
+              </p>
+              <div className="mt-4 flex gap-2">
+                <button
+                  type="button"
+                  onClick={() => setPending(null)}
+                  className="flex-1 rounded-md border border-neutral-700 px-4 py-2 text-sm font-medium text-neutral-300 hover:text-white"
+                >
+                  Cancel
+                </button>
+                <button
+                  type="button"
+                  onClick={handleConfirmUploadClick}
+                  className="flex-1 rounded-md border border-neutral-700 bg-neutral-100 px-4 py-2 text-sm font-medium text-neutral-900 hover:bg-white"
+                >
+                  Import &amp; reload
+                </button>
+              </div>
+            </>
+          ) : (
+            <>
+              <div className="flex shrink-0 items-center justify-between">
+                <h2 className="text-sm font-semibold text-white">
+                  Import corrections &amp; speculation data (JSON)
+                </h2>
+                <button
+                  type="button"
+                  onClick={onClose}
+                  className="text-sm text-neutral-400 hover:text-white"
+                >
+                  Close ✕
+                </button>
+              </div>
+              <textarea
+                value={pasteText}
+                onChange={(e) => setPasteText(e.target.value)}
+                placeholder="Paste exported JSON here..."
+                className="mt-3 h-[40rem] min-h-0 w-full shrink resize-none rounded-md border border-neutral-700 bg-neutral-950 p-3 font-mono text-xs text-neutral-300 placeholder:text-neutral-600"
+              />
+              <div className="mt-3 flex shrink-0 gap-2">
+                <button
+                  type="button"
+                  onClick={handlePasteFromClipboard}
+                  className="flex-1 rounded-md border border-neutral-700 px-4 py-2 text-sm font-medium text-neutral-300 hover:text-white"
+                >
+                  Paste from clipboard
+                </button>
+                <button
+                  type="button"
+                  onClick={() => fileInputRef.current?.click()}
+                  className="flex-1 rounded-md border border-neutral-700 px-4 py-2 text-sm font-medium text-neutral-300 hover:text-white"
+                >
+                  Upload JSON
+                </button>
+              </div>
+              <button
+                type="button"
+                disabled={!pastePayload}
+                onClick={handleImportPasteClick}
+                className="mt-2 w-full shrink-0 rounded-md border border-neutral-700 bg-neutral-100 px-4 py-2 text-sm font-medium text-neutral-900 transition-colors hover:enabled:bg-white disabled:cursor-not-allowed disabled:border-neutral-800 disabled:bg-neutral-800 disabled:text-neutral-600"
+              >
+                Import JSON
+              </button>
+            </>
+          )}
+        </div>
+      </div>
+    </div>,
+    document.body
   );
 }

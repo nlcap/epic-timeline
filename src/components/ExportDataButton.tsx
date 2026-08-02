@@ -13,14 +13,17 @@ import { EXPORT_KEYS } from "../lib/overrideKeys";
  * Shows the JSON in a readonly textarea (auto-selected, so a plain
  * Cmd/Ctrl+C works immediately) rather than relying solely on the
  * Clipboard API, which can silently fail depending on browser/permissions.
+ *
+ * Controlled by `open`/`onClose` -- the trigger lives in the nav's gear
+ * dropdown, so this component only renders the modal itself.
  */
-export function ExportDataButton() {
-  const [open, setOpen] = useState(false);
+export function ExportDataButton({ open, onClose }: { open: boolean; onClose: () => void }) {
   const [json, setJson] = useState("");
   const [copyState, setCopyState] = useState<"idle" | "copied" | "failed">("idle");
   const textareaRef = useRef<HTMLTextAreaElement>(null);
 
-  const handleExport = () => {
+  useEffect(() => {
+    if (!open) return;
     const payload: Record<string, unknown> = {};
     for (const key of EXPORT_KEYS) {
       const raw = localStorage.getItem(key);
@@ -31,11 +34,9 @@ export function ExportDataButton() {
         payload[key] = raw;
       }
     }
-    const text = JSON.stringify(payload, null, 2);
-    setJson(text);
+    setJson(JSON.stringify(payload, null, 2));
     setCopyState("idle");
-    setOpen(true);
-  };
+  }, [open]);
 
   const handleCopyClick = () => {
     navigator.clipboard?.writeText(json).then(
@@ -63,82 +64,53 @@ export function ExportDataButton() {
     if (open) textareaRef.current?.select();
   }, [open]);
 
-  return (
-    <>
-      <button
-        type="button"
-        onClick={handleExport}
-        title="Export your corrections and speculation-mode data as JSON"
-        className="hidden h-9 shrink-0 items-center gap-1.5 rounded-full border border-neutral-700 px-3 text-sm text-neutral-300 transition-colors hover:text-white md:flex"
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth={1.75}
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          className="h-4 w-4"
-        >
-          <path d="M12 3v12" />
-          <path d="M7 10l5 5 5-5" />
-          <path d="M4 19h16" />
-        </svg>
-        Export
-      </button>
+  if (!open) return null;
 
-      {open &&
-        createPortal(
-          <div
-            className="fixed inset-0 z-[70] overflow-y-auto bg-black/60 p-6"
-            onClick={() => setOpen(false)}
-          >
-            <div className="flex min-h-full items-center justify-center">
-              <div
-                className="flex max-h-[85vh] w-full max-w-xl flex-col rounded-md border border-neutral-700 bg-neutral-900 p-5 shadow-xl"
-                onClick={(e) => e.stopPropagation()}
-              >
-                <div className="flex shrink-0 items-center justify-between">
-                  <h2 className="text-sm font-semibold text-white">
-                    Your corrections &amp; speculation data (JSON)
-                  </h2>
-                  <button
-                    type="button"
-                    onClick={() => setOpen(false)}
-                    className="text-sm text-neutral-400 hover:text-white"
-                  >
-                    Close ✕
-                  </button>
-                </div>
-                <textarea
-                  ref={textareaRef}
-                  readOnly
-                  value={json}
-                  onFocus={(e) => e.currentTarget.select()}
-                  className="mt-3 h-[40rem] min-h-0 w-full shrink resize-none rounded-md border border-neutral-700 bg-neutral-950 p-3 font-mono text-xs text-neutral-300"
-                />
-                <div className="mt-3 flex shrink-0 gap-2">
-                  <button
-                    type="button"
-                    onClick={handleCopyClick}
-                    className="flex-1 rounded-md border border-neutral-700 px-4 py-2 text-sm font-medium text-neutral-300 hover:text-white"
-                  >
-                    Copy to clipboard
-                  </button>
-                  <button
-                    type="button"
-                    onClick={handleDownloadClick}
-                    className="flex-1 rounded-md border border-neutral-700 px-4 py-2 text-sm font-medium text-neutral-300 hover:text-white"
-                  >
-                    Download JSON
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>,
-          document.body
-        )}
-    </>
+  return createPortal(
+    <div className="fixed inset-0 z-[70] overflow-y-auto bg-black/60 p-6" onClick={onClose}>
+      <div className="flex min-h-full items-center justify-center">
+        <div
+          className="flex max-h-[85vh] w-full max-w-xl flex-col rounded-md border border-neutral-700 bg-neutral-900 p-5 shadow-xl"
+          onClick={(e) => e.stopPropagation()}
+        >
+          <div className="flex shrink-0 items-center justify-between">
+            <h2 className="text-sm font-semibold text-white">
+              Your corrections &amp; speculation data (JSON)
+            </h2>
+            <button
+              type="button"
+              onClick={onClose}
+              className="text-sm text-neutral-400 hover:text-white"
+            >
+              Close ✕
+            </button>
+          </div>
+          <textarea
+            ref={textareaRef}
+            readOnly
+            value={json}
+            onFocus={(e) => e.currentTarget.select()}
+            className="mt-3 h-[40rem] min-h-0 w-full shrink resize-none rounded-md border border-neutral-700 bg-neutral-950 p-3 font-mono text-xs text-neutral-300"
+          />
+          <div className="mt-3 flex shrink-0 gap-2">
+            <button
+              type="button"
+              onClick={handleCopyClick}
+              className="flex-1 rounded-md border border-neutral-700 px-4 py-2 text-sm font-medium text-neutral-300 hover:text-white"
+            >
+              Copy to clipboard
+            </button>
+            <button
+              type="button"
+              onClick={handleDownloadClick}
+              className="flex-1 rounded-md border border-neutral-700 px-4 py-2 text-sm font-medium text-neutral-300 hover:text-white"
+            >
+              Download JSON
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>,
+    document.body
   );
 }

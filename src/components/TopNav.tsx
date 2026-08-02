@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import type { Collection } from "../types";
 import epicTimelineLogo from "../assets/logo_epic_timeline.svg";
 import { ExportDataButton } from "./ExportDataButton";
@@ -7,26 +7,87 @@ import { ImportDataButton } from "./ImportDataButton";
 const NAV_HEIGHT = 48;
 export { NAV_HEIGHT };
 
-function AccountButton({ className = "" }: { className?: string }) {
+function SettingsMenu({ className = "" }: { className?: string }) {
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [exportOpen, setExportOpen] = useState(false);
+  const [importOpen, setImportOpen] = useState(false);
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!menuOpen) return;
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setMenuOpen(false);
+    };
+    const onPointerDown = (e: PointerEvent) => {
+      if (!containerRef.current?.contains(e.target as Node)) setMenuOpen(false);
+    };
+    window.addEventListener("keydown", onKeyDown);
+    window.addEventListener("pointerdown", onPointerDown);
+    return () => {
+      window.removeEventListener("keydown", onKeyDown);
+      window.removeEventListener("pointerdown", onPointerDown);
+    };
+  }, [menuOpen]);
+
   return (
-    <button
-      type="button"
-      disabled
-      title="Account (coming soon)"
-      className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-neutral-700 text-neutral-400 ${className}`}
-    >
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth={1.75}
-        className="h-4 w-4"
+    <div className={`relative shrink-0 ${className}`} ref={containerRef}>
+      <button
+        type="button"
+        onClick={() => setMenuOpen((o) => !o)}
+        aria-label="Settings"
+        aria-haspopup="menu"
+        aria-expanded={menuOpen}
+        title="Settings"
+        className="flex h-9 w-9 items-center justify-center rounded-full border border-neutral-700 text-neutral-400 transition-colors hover:text-white"
       >
-        <circle cx="12" cy="8" r="3.5" />
-        <path d="M4.5 20c1.6-3.5 4.5-5.25 7.5-5.25S17.9 16.5 19.5 20" />
-      </svg>
-    </button>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth={1.75}
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          className="h-4 w-4"
+        >
+          <circle cx="12" cy="12" r="3" />
+          <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15 1.65 1.65 0 0 0 3.17 14H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.6a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z" />
+        </svg>
+      </button>
+
+      {menuOpen && (
+        <div
+          role="menu"
+          className="absolute right-0 top-full z-50 mt-2 w-44 overflow-hidden rounded-md border border-neutral-700 bg-neutral-900 py-1 shadow-xl"
+        >
+          <button
+            type="button"
+            role="menuitem"
+            onClick={() => {
+              setExportOpen(true);
+              setMenuOpen(false);
+            }}
+            className="block w-full px-3 py-2 text-left text-sm text-neutral-300 hover:bg-neutral-800 hover:text-white"
+          >
+            Export data
+          </button>
+          <button
+            type="button"
+            role="menuitem"
+            onClick={() => {
+              setImportOpen(true);
+              setMenuOpen(false);
+            }}
+            className="block w-full px-3 py-2 text-left text-sm text-neutral-300 hover:bg-neutral-800 hover:text-white"
+          >
+            Import data
+          </button>
+        </div>
+      )}
+
+      <ExportDataButton open={exportOpen} onClose={() => setExportOpen(false)} />
+      <ImportDataButton open={importOpen} onClose={() => setImportOpen(false)} />
+    </div>
   );
 }
 
@@ -40,6 +101,8 @@ export function TopNav({
   onSelect: (id: string) => void;
 }) {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [exportOpen, setExportOpen] = useState(false);
+  const [importOpen, setImportOpen] = useState(false);
 
   useEffect(() => {
     if (!menuOpen) return;
@@ -80,9 +143,7 @@ export function TopNav({
         </div>
 
         <div className="hidden shrink-0 items-center gap-3 md:flex">
-          <ExportDataButton />
-          <ImportDataButton />
-          <AccountButton />
+          <SettingsMenu />
         </div>
 
         <button
@@ -156,13 +217,34 @@ export function TopNav({
               })}
             </div>
 
-            <div className="mt-auto flex items-center gap-3 border-t border-neutral-800 pt-4">
-              <AccountButton />
-              <span className="text-sm text-neutral-500">Account (coming soon)</span>
+            <div className="mt-auto flex flex-col gap-1 border-t border-neutral-800 pt-4">
+              <button
+                type="button"
+                onClick={() => {
+                  setExportOpen(true);
+                  setMenuOpen(false);
+                }}
+                className="rounded-md px-3 py-2.5 text-left text-sm font-medium text-neutral-400 transition-colors hover:bg-neutral-900 hover:text-white"
+              >
+                Export data
+              </button>
+              <button
+                type="button"
+                onClick={() => {
+                  setImportOpen(true);
+                  setMenuOpen(false);
+                }}
+                className="rounded-md px-3 py-2.5 text-left text-sm font-medium text-neutral-400 transition-colors hover:bg-neutral-900 hover:text-white"
+              >
+                Import data
+              </button>
             </div>
           </div>
         </div>
       )}
+
+      <ExportDataButton open={exportOpen} onClose={() => setExportOpen(false)} />
+      <ImportDataButton open={importOpen} onClose={() => setImportOpen(false)} />
     </>
   );
 }
