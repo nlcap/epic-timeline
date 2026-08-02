@@ -30,3 +30,17 @@ html {
   font-variant-numeric: tabular-nums;
   font-feature-settings: "tnum" 1, "lnum" 1;
 }
+
+/* AddVolumeCell's hover affordance -- toggled by useAddVolumeCellHover via
+   explicit pointerover/pointerout event delegation rather than native CSS
+   `:hover`, since Safari/WebKit can leave `:hover` itself stuck on a cell
+   the pointer's no longer over. Both states live here (not split with a
+   Tailwind `opacity-0` utility on the element) so there's no cross-system
+   specificity/layer ordering to referee -- this stylesheet is the only
+   thing that ever sets this property. */
+.add-volume-cell-icon {
+  opacity: 0;
+}
+[data-add-volume-cell].add-volume-cell--hovered .add-volume-cell-icon {
+  opacity: 1;
+}

@@ -22,6 +22,7 @@ import { useSpeculativeLines } from "./hooks/useSpeculativeLines";
 import { useSpeculativeVolumes } from "./hooks/useSpeculativeVolumes";
 import { useExitingLines } from "./hooks/useExitingLines";
 import { useVisibleRowRange } from "./hooks/useVisibleRowRange";
+import { useAddVolumeCellHover } from "./hooks/useAddVolumeCellHover";
 import { hexToRgba, SPECULATION_ACCENT_HEX } from "./lib/color";
 import { useEraBarCollapseProgress } from "./hooks/useEraBarCollapseProgress";
 import {
@@ -303,6 +304,11 @@ export default function App() {
     rowHeight,
     displayLines.length
   );
+  // Drives AddVolumeCell's hover affordance from raw pointer position
+  // instead of native CSS `:hover` (or even paired enter/leave events),
+  // which Safari/WebKit can leave stuck on a cell that's no longer under
+  // the pointer -- see useAddVolumeCellHover.ts.
+  useAddVolumeCellHover();
   const eraBarHeight = isDcFinest
     ? ERA_BAR_HEIGHT - eraBarCollapseProgress * (ERA_BAR_HEIGHT - ERA_BAR_COLLAPSED_HEIGHT)
     : 0;

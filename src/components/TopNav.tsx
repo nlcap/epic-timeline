@@ -131,7 +131,7 @@ export function TopNav({
   return (
     <>
       <nav
-        className="fixed inset-x-0 top-0 z-40 flex items-center justify-between gap-4 border-b border-neutral-700/40 bg-[#1E1E1E]/30 px-6 backdrop-blur-xl"
+        className="fixed inset-x-0 top-0 z-[55] flex items-center justify-between gap-4 border-b border-neutral-700/40 bg-[#1E1E1E]/30 px-6 backdrop-blur-xl"
         style={{ height: NAV_HEIGHT }}
       >
         <div className="flex min-w-0 items-center gap-6">

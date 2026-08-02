@@ -1,12 +1,20 @@
+// Shared with useAddVolumeCellHover, which delegates pointerover/pointerout
+// off the row container instead of relying on per-cell CSS `:hover` -- see
+// that hook for why. ATTR marks a cell as a delegation target; HOVER_CLASS
+// is what the hook toggles to drive the icon's opacity (see index.css).
+export const ADD_VOLUME_CELL_ATTR = "data-add-volume-cell";
+export const ADD_VOLUME_CELL_HOVER_CLASS = "add-volume-cell--hovered";
+
 /**
  * One quarter-wide hover target over an empty stretch of a line's row --
  * rendered only for quarters not already covered by a volume or gap tile
  * (see LineRow.tsx, which skips generating one anywhere an entry already
- * sits). Shows a plus-in-circle affordance on hover, purely via CSS
- * (group-hover, no per-cell React state) since a row can have hundreds of
- * these across a long timeline. Clicking anywhere in the cell is a shortcut
- * to "New Volume" for this line, with the start quarter pre-filled to
- * whichever quarter was clicked.
+ * sits). Shows a plus-in-circle affordance on hover, driven by
+ * useAddVolumeCellHover's event delegation (no per-cell React state or
+ * listeners) since a row can have hundreds of these across a long
+ * timeline. Clicking anywhere in the cell is a shortcut to "New Volume"
+ * for this line, with the start quarter pre-filled to whichever quarter
+ * was clicked.
  */
 export function AddVolumeCell({
   onClick,
@@ -20,10 +28,11 @@ export function AddVolumeCell({
       type="button"
       onClick={onClick}
       aria-label="Add volume starting this quarter"
-      className="group flex h-full w-full items-center justify-center"
+      {...{ [ADD_VOLUME_CELL_ATTR]: "" }}
+      className="flex h-full w-full items-center justify-center"
     >
       <span
-        className="flex items-center justify-center rounded-full border border-neutral-500 bg-neutral-900/80 text-neutral-200 opacity-0 transition-opacity duration-100 ease-out group-hover:opacity-100"
+        className="add-volume-cell-icon flex items-center justify-center rounded-full border border-neutral-500 bg-neutral-900/80 text-neutral-200 transition-opacity duration-100 ease-out"
         style={{ height: iconSize, width: iconSize }}
       >
         <svg
