@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import { EXPORT_KEYS, stripIconsFromPayload } from "../lib/overrideKeys";
+import { safeSetItem } from "../lib/storage";
 
 type ExportKey = (typeof EXPORT_KEYS)[number];
 type ParsedPayload = Partial<Record<ExportKey, unknown>>;
@@ -30,7 +31,7 @@ function writePayload(payload: ParsedPayload) {
   for (const key of EXPORT_KEYS) {
     const value = payload[key];
     if (value === undefined) continue;
-    localStorage.setItem(key, JSON.stringify(value));
+    safeSetItem(key, JSON.stringify(value));
   }
   window.location.reload();
 }

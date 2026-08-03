@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useState } from "react";
 import type { Line } from "../types";
+import { safeSetItem } from "../lib/storage";
 
 const STORAGE_KEY = "epic-timeline:line-overrides";
 const DELETED = "deleted" as const;
@@ -35,7 +36,7 @@ export function useLineOverrides() {
   const upsertLine = useCallback((line: Line) => {
     setOverrides((prev) => {
       const next = { ...prev, [line.id]: line };
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(next));
+      safeSetItem(STORAGE_KEY, JSON.stringify(next));
       return next;
     });
   }, []);
@@ -43,7 +44,7 @@ export function useLineOverrides() {
   const deleteLine = useCallback((lineId: string) => {
     setOverrides((prev) => {
       const next = { ...prev, [lineId]: DELETED };
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(next));
+      safeSetItem(STORAGE_KEY, JSON.stringify(next));
       return next;
     });
   }, []);

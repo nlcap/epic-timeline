@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useState } from "react";
 import type { OwnershipStatus } from "../types";
 import { isSupabaseConfigured, supabase } from "../lib/supabaseClient";
+import { safeSetItem } from "../lib/storage";
 
 const STORAGE_KEY = "epic-timeline:ownership-overrides";
 
@@ -38,7 +39,7 @@ export function useOwnership() {
   const setStatus = useCallback((volumeId: string, status: OwnershipStatus) => {
     setOverrides((prev) => {
       const next = { ...prev, [volumeId]: status };
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(next));
+      safeSetItem(STORAGE_KEY, JSON.stringify(next));
       return next;
     });
     if (isSupabaseConfigured && supabase) {

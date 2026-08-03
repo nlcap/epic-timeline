@@ -54,7 +54,7 @@ export function VolumeDetailPanel({
 
   return (
     <div
-      className={`fixed inset-0 z-50 flex justify-end bg-black/60 transition-opacity duration-200 ease-out ${
+      className={`fixed inset-0 z-[65] flex justify-end bg-black/60 transition-opacity duration-200 ease-out ${
         visible ? "opacity-100" : "opacity-0"
       }`}
       onClick={() => closeThen(onClose)}

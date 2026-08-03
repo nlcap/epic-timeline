@@ -3,18 +3,10 @@ import type { Era, OwnershipStatus, Quarter, QuarterPoint, TimelineEntry } from 
 import { OWNERSHIP_META, OWNERSHIP_ORDER } from "../lib/ownership";
 import { ERA_META, ERA_ORDER, volumeNumberLabel } from "../lib/era";
 import { quarterIndex, quarterPointFromIndex, yearsCoveredLabel } from "../lib/timeline";
+import { compressImageFile } from "../lib/imageCompression";
 import { useSlidePanel } from "../hooks/useSlidePanel";
 
 const QUARTERS: Quarter[] = [1, 2, 3, 4];
-
-function readFileAsDataUrl(file: File): Promise<string> {
-  return new Promise((resolve, reject) => {
-    const reader = new FileReader();
-    reader.onload = () => resolve(reader.result as string);
-    reader.onerror = () => reject(reader.error);
-    reader.readAsDataURL(file);
-  });
-}
 
 function formatQuarterPoint(p: QuarterPoint): string {
   return `Q${p.quarter} ${p.year}`;
@@ -145,7 +137,7 @@ export function VolumeFormDrawer({
   const handleFileChange = async (e: ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (!file) return;
-    setCoverUrl(await readFileAsDataUrl(file));
+    setCoverUrl(await compressImageFile(file));
   };
 
   const handleSubmit = (e: FormEvent) => {
@@ -242,7 +234,7 @@ export function VolumeFormDrawer({
 
   return (
     <div
-      className={`fixed inset-0 z-50 flex justify-end bg-black/60 transition-opacity duration-200 ease-out ${
+      className={`fixed inset-0 z-[65] flex justify-end bg-black/60 transition-opacity duration-200 ease-out ${
         visible ? "opacity-100" : "opacity-0"
       }`}
       onClick={() => closeThen(onClose)}

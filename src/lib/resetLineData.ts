@@ -1,5 +1,6 @@
 import { COLLECTION_DATA } from "../data/collectionData";
 import type { Line, TimelineEntry } from "../types";
+import { safeSetItem } from "./storage";
 
 const LINE_OVERRIDES_KEY = "epic-timeline:line-overrides";
 const VOLUME_OVERRIDES_KEY = "epic-timeline:volume-overrides";
@@ -91,7 +92,7 @@ export function resetLineData({
       if (change !== DELETED && targets.has(change.collectionId)) lineIds.add(id);
     }
 
-    localStorage.setItem(
+    safeSetItem(
       LINE_OVERRIDES_KEY,
       JSON.stringify(filterLineStore(lineOverrides, targets))
     );
@@ -103,7 +104,7 @@ export function resetLineData({
       if (lineId !== undefined && lineIds.has(lineId)) continue;
       keptVolumes[id] = change;
     }
-    localStorage.setItem(VOLUME_OVERRIDES_KEY, JSON.stringify(keptVolumes));
+    safeSetItem(VOLUME_OVERRIDES_KEY, JSON.stringify(keptVolumes));
 
     const ownershipOverrides = readJson<Record<string, string>>(OWNERSHIP_OVERRIDES_KEY) ?? {};
     const keptOwnership: Record<string, string> = {};
@@ -113,7 +114,7 @@ export function resetLineData({
       if (lineId !== undefined && lineIds.has(lineId)) continue;
       keptOwnership[volumeId] = status;
     }
-    localStorage.setItem(OWNERSHIP_OVERRIDES_KEY, JSON.stringify(keptOwnership));
+    safeSetItem(OWNERSHIP_OVERRIDES_KEY, JSON.stringify(keptOwnership));
   }
 
   if (scopeSet.has("speculative")) {
@@ -124,7 +125,7 @@ export function resetLineData({
       if (change !== DELETED && targets.has(change.collectionId)) speculativeLineIds.add(id);
     }
 
-    localStorage.setItem(
+    safeSetItem(
       SPECULATIVE_LINES_KEY,
       JSON.stringify(filterLineStore(speculativeLines, targets))
     );
@@ -137,6 +138,6 @@ export function resetLineData({
       if (lineId !== undefined && speculativeLineIds.has(lineId)) continue;
       keptSpeculativeVolumes[id] = change;
     }
-    localStorage.setItem(SPECULATIVE_VOLUMES_KEY, JSON.stringify(keptSpeculativeVolumes));
+    safeSetItem(SPECULATIVE_VOLUMES_KEY, JSON.stringify(keptSpeculativeVolumes));
   }
 }
