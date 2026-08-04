@@ -9,6 +9,50 @@ import { StorageDebugPanel } from "./StorageDebugPanel";
 const NAV_HEIGHT = 48;
 export { NAV_HEIGHT };
 
+function SearchBox({
+  value,
+  onChange,
+  className = "",
+}: {
+  value: string;
+  onChange: (value: string) => void;
+  className?: string;
+}) {
+  return (
+    <div className={`relative ${className}`}>
+      <input
+        type="text"
+        value={value}
+        onChange={(e) => onChange(e.target.value)}
+        placeholder="Filter lines..."
+        aria-label="Filter lines"
+        className="h-9 w-full rounded-md border border-neutral-700 bg-neutral-900 px-3 text-sm text-white placeholder:text-neutral-600 focus:border-neutral-500 focus:outline-none"
+        style={{ paddingRight: value ? "1.75rem" : undefined }}
+      />
+      {value && (
+        <button
+          type="button"
+          onClick={() => onChange("")}
+          aria-label="Clear search"
+          className="absolute right-2 top-1/2 flex h-4 w-4 -translate-y-1/2 items-center justify-center text-neutral-500 hover:text-white"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth={2}
+            strokeLinecap="round"
+            className="h-3.5 w-3.5"
+          >
+            <path d="M6 6l12 12M18 6L6 18" />
+          </svg>
+        </button>
+      )}
+    </div>
+  );
+}
+
 function SettingsMenu({ className = "" }: { className?: string }) {
   const [menuOpen, setMenuOpen] = useState(false);
   const [exportOpen, setExportOpen] = useState(false);
@@ -123,10 +167,14 @@ export function TopNav({
   collections,
   activeId,
   onSelect,
+  searchQuery,
+  onSearchChange,
 }: {
   collections: Collection[];
   activeId: string;
   onSelect: (id: string) => void;
+  searchQuery: string;
+  onSearchChange: (value: string) => void;
 }) {
   const [menuOpen, setMenuOpen] = useState(false);
   const [exportOpen, setExportOpen] = useState(false);
@@ -173,6 +221,7 @@ export function TopNav({
         </div>
 
         <div className="hidden shrink-0 items-center gap-3 md:flex">
+          <SearchBox value={searchQuery} onChange={onSearchChange} className="w-48" />
           <SettingsMenu />
         </div>
 
@@ -223,6 +272,8 @@ export function TopNav({
                 </svg>
               </button>
             </div>
+
+            <SearchBox value={searchQuery} onChange={onSearchChange} className="mt-4" />
 
             <div className="mt-6 flex flex-col gap-1">
               {collections.map((c) => {

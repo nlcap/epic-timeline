@@ -76,6 +76,9 @@ export default function App() {
   // tab at once (the speculative content it reveals is still scoped per
   // tab via the hooks below).
   const [speculationMode, setSpeculationMode] = useState(false);
+  // Global -- nav search box; filters the displayed lines by title (see
+  // searchFilteredLines below).
+  const [searchQuery, setSearchQuery] = useState("");
   const { getStatus, setStatus } = useOwnership();
   const { upsertLine, deleteLine, resolveLines } = useLineOverrides();
   const { upsertVolume, deleteVolume, resolveEntries } = useVolumeOverrides();
@@ -154,12 +157,23 @@ export default function App() {
     );
   }, [speculationMode, lines, speculativeLines]);
 
-  const sidebarWidth = useSidebarWidth(visibleLines);
+  // Search filters by line title only.
+  const searchFilteredLines = useMemo(() => {
+    const query = searchQuery.trim().toLowerCase();
+    if (query.length < 1) return visibleLines;
+    return visibleLines.filter((l) => l.name.toLowerCase().includes(query));
+  }, [visibleLines, searchQuery]);
+
+  const sidebarWidth = useSidebarWidth(searchFilteredLines);
   // Keeps a just-hidden line (e.g. a speculative one when the toggle turns
   // off) around a little longer, marked `exiting`, so LineRow can play its
   // fade-out instead of vanishing instantly -- see useExitingLines and the
   // matching duration on LineRow's own transition.
-  const [displayLines, isCollectionSwitch] = useExitingLines(visibleLines, 500, activeCollectionId);
+  const [displayLines, isCollectionSwitch] = useExitingLines(
+    searchFilteredLines,
+    500,
+    activeCollectionId
+  );
 
   const resolvedEntries = useMemo(() => {
     const lineIds = new Set(lines.map((l) => l.id));
@@ -341,6 +355,8 @@ export default function App() {
       <TopNav
         collections={COLLECTIONS}
         activeId={activeCollectionId}
+        searchQuery={searchQuery}
+        onSearchChange={setSearchQuery}
         onSelect={(id) => {
           setActiveCollectionId(id);
           setSelectedVolumeId(null);
