@@ -57,6 +57,7 @@ export const ULTIMATE_ENTRIES: TimelineEntry[] = [
     creators: "Bendis, Bagley",
     description:
       "The Ultimate line's flagship launch, retelling Peter Parker's origin for a new era.",
+    coverUrl: "https://m.media-amazon.com/images/I/81wBu27FwEL._SL1500_.jpg",
     ownershipStatus: "announced",
   },
   {
@@ -71,6 +72,7 @@ export const ULTIMATE_ENTRIES: TimelineEntry[] = [
     yearsCovered: "2001-2002",
     creators: "Bendis, Bagley",
     description: "The Kingpin closes in as Peter's double life grows harder to hide.",
+    coverUrl: "https://m.media-amazon.com/images/I/812ndNdq-nL._SL1500_.jpg",
     ownershipStatus: "announced",
   },
   {
@@ -101,6 +103,7 @@ export const ULTIMATE_ENTRIES: TimelineEntry[] = [
     yearsCovered: "2001",
     creators: "Millar, Kubert",
     description: "A new take on Xavier's students, and the world's fear of them.",
+    coverUrl: "https://m.media-amazon.com/images/I/81QeU1JVXYL._SL1500_.jpg",
     ownershipStatus: "announced",
   },
   {
@@ -115,6 +118,7 @@ export const ULTIMATE_ENTRIES: TimelineEntry[] = [
     yearsCovered: "2002",
     creators: "Millar, Kubert",
     description: "The team goes global chasing the Brotherhood.",
+    coverUrl: "https://m.media-amazon.com/images/I/91yyqL5nSnL._SL1500_.jpg",
     ownershipStatus: "announced",
   },
   {
@@ -145,6 +149,7 @@ export const ULTIMATE_ENTRIES: TimelineEntry[] = [
     yearsCovered: "2002",
     creators: "Millar, Hitch",
     description: "The Avengers, rebuilt as a modern black-ops super-team.",
+    coverUrl: "https://m.media-amazon.com/images/I/81YjCgnPS7L._SL1500_.jpg",
     ownershipStatus: "announced",
   },
   // Publication gap: The Ultimates had no issues released between the two
@@ -172,6 +177,7 @@ export const ULTIMATE_ENTRIES: TimelineEntry[] = [
     creators: "Millar, Hitch",
     description:
       "Volume 2 of the ongoing, collected under the same Epic Collection number.",
+    coverUrl: "https://m.media-amazon.com/images/I/81XqbRPSgFL._SL1500_.jpg",
     ownershipStatus: "announced",
   },
 
@@ -188,6 +194,7 @@ export const ULTIMATE_ENTRIES: TimelineEntry[] = [
     yearsCovered: "2004",
     creators: "Bendis, Millar, Land",
     description: "Reed Richards and friends, reimagined as teenage prodigies.",
+    coverUrl: "https://m.media-amazon.com/images/I/81gmyDbAxNL._SL1500_.jpg",
     ownershipStatus: "announced",
   },
   {
@@ -202,6 +209,7 @@ export const ULTIMATE_ENTRIES: TimelineEntry[] = [
     yearsCovered: "2005",
     creators: "Bendis, Millar, Land",
     description: "The Frightful Four assemble to take down Marvel's newest heroes.",
+    coverUrl: "https://m.media-amazon.com/images/I/81b7p2s3aHL._SL1500_.jpg",
     ownershipStatus: "announced",
   },
 ];

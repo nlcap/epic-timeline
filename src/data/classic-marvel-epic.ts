@@ -413,7 +413,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     creators: "Lee, Ditko",
     description:
       "The tragic origin that started it all, plus the first appearances of the Daily Bugle and J. Jonah Jameson, and the debuts of the Green Goblin, Doctor Octopus, the Sandman, the Vulture, and Electro.",
-    coverUrl: "https://images.penguinrandomhouse.com/cover/9781302946852",
+    coverUrl: "https://m.media-amazon.com/images/I/81q1x5ASYoL._SL1500_.jpg",
     ownershipStatus: "alt_format",
   },
   {
@@ -429,7 +429,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     creators: "Lee, Ditko",
     description:
       "Gwen Stacy's first appearance, Peter's high-school graduation, landmark battles with the Green Goblin, and a team-up with Doctor Strange, capped by the harrowing Master Planner saga.",
-    coverUrl: "https://images.penguinrandomhouse.com/cover/9781302950576",
+    coverUrl: "https://m.media-amazon.com/images/I/81QS4LiSAGL._SL1500_.jpg",
     ownershipStatus: "alt_format",
   },
   {
@@ -445,7 +445,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     creators: "Lee, Romita Sr.",
     description:
       "John Romita Sr. joins as artist, opening with a Green Goblin epic and bringing the Rhino, the Shocker, Kraven the Hunter, an all-new Vulture, and the first appearances of the Kingpin and Mary Jane Watson.",
-    coverUrl: "https://images.penguinrandomhouse.com/cover/9781302967857",
+    coverUrl: "https://m.media-amazon.com/images/I/91A0isJMV-L._SL1500_.jpg",
     ownershipStatus: "alt_format",
   },
   {
@@ -461,7 +461,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     creators: "Lee, Romita Sr.",
     description:
       "Norman Osborn regains his memory and the Green Goblin returns for a 58-page magazine showdown -- Spider-Man's most dangerous foe, and the only villain to know he's Peter Parker.",
-    coverUrl: "https://images.penguinrandomhouse.com/cover/9781302950392",
+    coverUrl: "https://m.media-amazon.com/images/I/81rzW0AF5BL._SL1500_.jpg",
     ownershipStatus: "alt_format",
   },
   {
@@ -477,7 +477,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     creators: "Lee, Romita Sr., Buscema",
     description:
       "Two crime lords race to decode an ancient tablet's secrets, the Prowler debuts, the Black Widow gets her spy gear, and the origin of Peter's parents is revealed.",
-    coverUrl: "https://images.penguinrandomhouse.com/cover/9781302957810",
+    coverUrl: "https://m.media-amazon.com/images/I/81aNBRoxj6L._SL1500_.jpg",
     ownershipStatus: "shelved",
   },
   {
@@ -493,7 +493,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     creators: "Lee, Thomas, Romita Sr., Kane",
     description:
       "Gwen Stacy's father becomes collateral damage in a battle between Spider-Man and Doctor Octopus, forever changing Peter's life, while Norman Osborn spirals into addiction as the Green Goblin's shadow looms.",
-    coverUrl: "https://images.penguinrandomhouse.com/cover/9781302929084",
+    coverUrl: "https://m.media-amazon.com/images/I/81ZRB4K3i3L._SL1500_.jpg",
     ownershipStatus: "shelved",
   },
   {
@@ -509,7 +509,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     creators: "Lee, Conway, Romita Sr., Kane",
     description:
       "The Gibbon debuts and old foes return, building to \"The Night Gwen Stacy Died\" -- the loss that ends the original Green Goblin's reign and defines a generation of Spider-Man stories.",
-    coverUrl: "https://images.penguinrandomhouse.com/cover/9781302967796",
+    coverUrl: "https://m.media-amazon.com/images/I/911xmFWgixL._SL1500_.jpg",
     ownershipStatus: "shelved",
   },
   {
@@ -525,7 +525,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     creators: "Conway, Andru",
     description:
       "Col. John Jameson is cursed as the Man-Wolf, Harry Osborn spirals toward his own green costume, the Punisher makes his debut, and Aunt May shocks everyone by marrying Doctor Octopus.",
-    coverUrl: "https://images.penguinrandomhouse.com/cover/9781302933500",
+    coverUrl: "https://m.media-amazon.com/images/I/81jpFptB-dL._SL1500_.jpg",
     ownershipStatus: "shelved",
   },
   {
@@ -541,7 +541,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     creators: "Conway, Wein, Andru",
     description:
       "The Jackal clones both Gwen Stacy and Spider-Man in one of Spidey's greatest personal tragedies, as Doc Ock returns with the ghost of Hammerhead and Peter and MJ share their first kiss.",
-    coverUrl: "https://images.penguinrandomhouse.com/cover/9781302948740",
+    coverUrl: "https://m.media-amazon.com/images/I/81bY-JIWqCL._SL1500_.jpg",
     ownershipStatus: "shelved",
   },
   {
@@ -557,7 +557,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     creators: "Wein, Andru",
     description:
       "J. Jonah Jameson gets proof Peter Parker is Spider-Man, dinosaurs battle the Lizard on Broadway, the Green Goblin rides again, and Peter proposes to Mary Jane.",
-    coverUrl: "https://images.penguinrandomhouse.com/cover/9781302955267",
+    coverUrl: "https://m.media-amazon.com/images/I/81mQixP55tL._SL1500_.jpg",
     ownershipStatus: "shelved",
   },
   {
@@ -573,7 +573,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     creators: "Wolfman, Pollard, Byrne",
     description:
       "Spidey swings toward his historic 200th issue as Aunt May hangs on by a thread, Felicia Hardy debuts as the Black Cat, and a gang war forces an uneasy team-up with the Punisher.",
-    coverUrl: "https://images.penguinrandomhouse.com/cover/9781302960483",
+    coverUrl: "https://m.media-amazon.com/images/I/81MFTw49c5L._SL1500_.jpg",
     ownershipStatus: "shelved",
   },
   {
@@ -589,7 +589,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     creators: "O'Neil, Romita Jr.",
     description:
       "Dennis O'Neil and John Romita Jr. debut on the title with Madame Web's first appearance, a marathon-day assassination plot, and two Frank Miller-drawn Annuals co-starring Doctor Strange and the Punisher.",
-    coverUrl: "https://images.penguinrandomhouse.com/cover/9781302960490",
+    coverUrl: "https://m.media-amazon.com/images/I/91wcC7iRJoL._SL1500_.jpg",
     ownershipStatus: "shelved",
   },
   {
@@ -605,7 +605,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     creators: "Stern, Romita Jr.",
     description:
       "Roger Stern and John Romita Jr. begin one of Spider-Man's greatest eras, introducing the Hobgoblin and Monica Rambeau/Captain Marvel while delivering the definitive Juggernaut showdown.",
-    coverUrl: "https://images.penguinrandomhouse.com/cover/9781302967789",
+    coverUrl: "https://m.media-amazon.com/images/I/91neQSL5WaL._SL1500_.jpg",
     ownershipStatus: "shelved",
   },
   {
@@ -621,7 +621,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     creators: "DeFalco, Frenz",
     description:
       "The Hobgoblin returns hunting Norman Osborn's journals, Spidey battles the symbiote costume, Silver Sable and Slyde debut, and Mary Jane reveals the secrets of her childhood.",
-    coverUrl: "https://images.penguinrandomhouse.com/cover/9781302950484",
+    coverUrl: "https://m.media-amazon.com/images/I/91kcohOTWZL._SL1500_.jpg",
     ownershipStatus: "shelved",
   },
   {
@@ -637,7 +637,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     creators: "DeMatteis, Zeck",
     description:
       "An all-time-classic Wolverine encounter changes Spidey's life, leading into Kraven's Last Hunt -- one of comics' most psychological sagas, as Kraven goes to extreme lengths to prove himself superior before Peter and MJ's wedding.",
-    coverUrl: "https://images.penguinrandomhouse.com/cover/9781302950330",
+    coverUrl: "https://m.media-amazon.com/images/I/91w1T5hdErL._SL1500_.jpg",
     ownershipStatus: "shelved",
   },
   {
@@ -653,7 +653,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     creators: "Michelinie, McFarlane",
     description:
       "Eddie Brock and the alien costume combine their mutual hatred of Spider-Man to become Venom, as Spidey returns to the classic red-and-blue and Speedball makes his heroic debut.",
-    coverUrl: "https://images.penguinrandomhouse.com/cover/9781302963903",
+    coverUrl: "https://m.media-amazon.com/images/I/81vkQionFoL._SL1500_.jpg",
     ownershipStatus: "shelved",
   },
   {
@@ -669,7 +669,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     creators: "Michelinie, McFarlane",
     description:
       "David Michelinie and Todd McFarlane's fan-favorite run rolls on with a Venom rematch, the demonic threat of Inferno, and international espionage in the Assassin Nation Plot alongside Silver Sable and Captain America.",
-    coverUrl: "https://images.penguinrandomhouse.com/cover/9781302957902",
+    coverUrl: "https://m.media-amazon.com/images/I/91ezDVHd-VL._SL1500_.jpg",
     ownershipStatus: "shelved",
   },
   {
@@ -685,7 +685,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     creators: "Michelinie, Various",
     description:
       "A science experiment enhances Spider-Man's powers just as a cabal of villains launches unpredictable attacks across his three titles, leading to a Punisher team-up and a shrunken showdown with Psycho-Man.",
-    coverUrl: "https://images.penguinrandomhouse.com/cover/9780785187899",
+    coverUrl: "https://m.media-amazon.com/images/I/71IPSk4y9BL._SL1400_.jpg",
     ownershipStatus: "shelved",
   },
   {
@@ -701,7 +701,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     creators: "Michelinie, Larsen",
     description:
       "Doctor Octopus reassembles the Sinister Six, and after defeating them Peter's sense of responsibility drives him to give up his powers, while a Scottish honeymoon with Mary Jane turns into a haunted second one.",
-    coverUrl: "https://images.penguinrandomhouse.com/cover/9781302957889",
+    coverUrl: "https://m.media-amazon.com/images/I/91zhsHJdqGL._SL1500_.jpg",
     ownershipStatus: "shelved",
   },
   {
@@ -717,7 +717,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     creators: "Michelinie, Bagley",
     description:
       "Spidey teams with Nova against the Tri-Sentinel before the guest-star-packed Round Robin story, bookended by three Annuals pitting Spidey, Iron Man, and Black Panther against Ultron, Kingpin, and the Ghost.",
-    coverUrl: "https://images.penguinrandomhouse.com/cover/9781302950545",
+    coverUrl: "https://m.media-amazon.com/images/I/91DHCa3NCTL._SL1500_.jpg",
     ownershipStatus: "shelved",
   },
   {
@@ -733,7 +733,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     creators: "Michelinie, Bagley",
     description:
       "Venom's offspring transforms psychopath Cletus Kasady into Carnage, forcing Peter to make the hardest decision of his life and turn to Venom for help, while the New Warriors join a hunt for the vengeful ghost of Kraven.",
-    coverUrl: "https://images.penguinrandomhouse.com/cover/9781302951047",
+    coverUrl: "https://m.media-amazon.com/images/I/81YsU6dG6CL._SL1500_.jpg",
     ownershipStatus: "shelved",
   },
   {
@@ -749,7 +749,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     creators: "Michelinie, Bagley",
     description:
       "Deadly Spider-Slayer robots attack on sight, Venom stands trial for his crimes, Peter's parents return home under a mysterious watcher's eye, and Spidey duels demons alongside Doctor Strange.",
-    coverUrl: "https://images.penguinrandomhouse.com/cover/9781302948320",
+    coverUrl: "https://m.media-amazon.com/images/I/81U7TEvNQuL._SL1500_.jpg",
     ownershipStatus: "shelved",
   },
   {
@@ -765,7 +765,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     creators: "Michelinie, Bagley, Lim",
     description:
       "Carnage assembles an army of Spider-Man's criminally insane foes -- Carrion, Demogoblin, Shriek, and the Doppelganger -- forcing Spidey to recruit Black Cat, Cloak & Dagger, Firestar, Captain America, Iron Fist, Deathlok, and Venom in one of the most iconic Spider-Man stories ever told.",
-    coverUrl: "https://images.penguinrandomhouse.com/cover/9781302950460",
+    coverUrl: "https://m.media-amazon.com/images/I/91rNFxpNtjL._SL1500_.jpg",
     ownershipStatus: "shelved",
   },
   {
@@ -781,7 +781,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     creators: "Michelinie, Bagley",
     description:
       "Mary and Richard Parker's return from the dead proves too good to be true as Peter teeters on the edge, battling the Hulk, the Jury, the Vulture, the Chameleon, Shriek, and Carrion.",
-    coverUrl: "https://images.penguinrandomhouse.com/cover/9781302930691",
+    coverUrl: "https://m.media-amazon.com/images/I/81QQFujFuIL._SL1500_.jpg",
     ownershipStatus: "shelved",
   },
   {
@@ -797,7 +797,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     creators: "Kavanagh, Various",
     description:
       "Spider-Man's clone is back. Spidey thought Ben Reilly was long dead -- but where has he been for five years, why has he returned, and is he Peter Parker's dark side or his better half?",
-    coverUrl: "https://images.penguinrandomhouse.com/cover/9781302953669",
+    coverUrl: "https://m.media-amazon.com/images/I/81Xx34sV28L._SL1500_.jpg",
     ownershipStatus: "shelved",
   },
   {
@@ -813,7 +813,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     creators: "Kavanagh, Various",
     description:
       "With Peter poisoned, his best hope lies in the tentacled arms of Doctor Octopus, but Otto may pay a high price for the mercy. Aunt May fights for her life, Mary Jane drops a bombshell, and Ben Reilly is stalked by the Grim Hunter and the mysterious Kaine.",
-    coverUrl: "https://images.penguinrandomhouse.com/cover/9781302960087",
+    coverUrl: "https://m.media-amazon.com/images/I/91Fa-m4hV+L._SL1500_.jpg",
     ownershipStatus: "shelved",
   },
   {
@@ -829,6 +829,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     creators: "",
     description:
       "",
+    coverUrl: "https://m.media-amazon.com/images/I/911kRWTRDBL._SL1500_.jpg",
     ownershipStatus: "announced",
   },
   {
@@ -860,7 +861,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     creators: "Lee, Lieber, Kirby",
     description:
       "Henry Pym's earliest adventures as Ant-Man, growing into the size-changing Giant-Man alongside the Wasp.",
-    coverUrl: "https://images.penguinrandomhouse.com/cover/9781302950354",
+    coverUrl: "https://m.media-amazon.com/images/I/81pJCJHPtOL._SL1500_.jpg",
     ownershipStatus: "shelved",
   },
   {
@@ -876,7 +877,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     creators: "Lee, Friedrich, Trimpe",
     description:
       "Hank Pym's later years as Goliath and Yellowjacket, plus the debuts of Bill Foster as Black Goliath and Scott Lang as the second Ant-Man.",
-    coverUrl: "https://images.penguinrandomhouse.com/cover/9781302949655",
+    coverUrl: "https://m.media-amazon.com/images/I/81dG-dWv4nL._SL1500_.jpg",
     ownershipStatus: "shelved",
   },
   // --- Avengers ---
@@ -893,7 +894,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     creators: "Lee, Kirby",
     description:
       "Iron Man, Thor, the Hulk, Ant-Man, and the Wasp band together to stop Loki, with Captain America joining soon after -- the origin of Earth's Mightiest Heroes.",
-    coverUrl: "https://images.penguinrandomhouse.com/cover/9781302957988",
+    coverUrl: "https://m.media-amazon.com/images/I/81RcN5HpztL._SL1500_.jpg",
     ownershipStatus: "shelved",
   },
   {
@@ -909,7 +910,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     creators: "Lee, Thomas, Heck",
     description:
       "The founding Avengers step aside for Captain America's \"Kooky Quartet\" -- Hawkeye, Quicksilver, and the Scarlet Witch -- as the team's roster philosophy is reinvented.",
-    coverUrl: "https://images.penguinrandomhouse.com/cover/9780785195825",
+    coverUrl: "https://m.media-amazon.com/images/I/914OCFSno8L._SL1500_.jpg",
     ownershipStatus: "shelved",
   },
   {
@@ -925,7 +926,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     creators: "Thomas, Buscema",
     description:
       "Baron Zemo assembles the Masters of Evil against the team, and Hercules and the Black Panther join the Avengers' ranks.",
-    coverUrl: "https://images.penguinrandomhouse.com/cover/9781302904104",
+    coverUrl: "https://m.media-amazon.com/images/I/81jwUwfTCOL._SL1500_.jpg",
     ownershipStatus: "shelved",
   },
   {
@@ -941,7 +942,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     creators: "Thomas, Buscema",
     description:
       "The android Vision debuts and joins the team, forming an unlikely bond with the Scarlet Witch as new threats target the Avengers.",
-    coverUrl: "https://images.penguinrandomhouse.com/cover/9780785191650",
+    coverUrl: "https://m.media-amazon.com/images/I/81yH7qrCdBL._SL1500_.jpg",
     ownershipStatus: "shelved",
   },
   {
@@ -957,7 +958,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     creators: "Thomas, Buscema",
     description:
       "The Kree-Skrull War begins, pitting the Avengers against a galaxy-spanning conflict that threatens to consume Earth, with the Vision and the Scarlet Witch's romance deepening.",
-    coverUrl: "https://images.penguinrandomhouse.com/cover/9781302921972",
+    coverUrl: "https://m.media-amazon.com/images/I/81yJo3eGriL._SL1500_.jpg",
     ownershipStatus: "shelved",
   },
   {
@@ -973,7 +974,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     creators: "Thomas, Englehart, Windsor-Smith",
     description:
       "The Kree-Skrull War reaches its climax, followed by a mole hunt within the team's own ranks as a hidden traitor works against the Avengers from the inside.",
-    coverUrl: "https://images.penguinrandomhouse.com/cover/9781302929114",
+    coverUrl: "https://m.media-amazon.com/images/I/91BHOsd-4JL._SL1500_.jpg",
     ownershipStatus: "shelved",
   },
   {
@@ -989,7 +990,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     creators: "Englehart, Brown",
     description:
       "The Avengers and the Defenders clash in comics' first great crossover war -- Captain America vs. Namor, Thor vs. the Hulk -- while the Squadron Sinister pulls strings from the shadows.",
-    coverUrl: "https://images.penguinrandomhouse.com/cover/9781302934026",
+    coverUrl: "https://m.media-amazon.com/images/I/81rraydydmL._SL1500_.jpg",
     ownershipStatus: "shelved",
   },
   {
@@ -1005,7 +1006,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     creators: "Englehart, Buscema",
     description:
       "The \"Celestial Madonna\" saga unfolds as Kang, Rama-Tut, and Immortus collide across time, leading to the Vision and Scarlet Witch's wedding and new members Beast, Hellcat, and Moondragon joining the team.",
-    coverUrl: "https://images.penguinrandomhouse.com/cover/9781302933524",
+    coverUrl: "https://m.media-amazon.com/images/I/81TkK6iUftL._SL1500_.jpg",
     ownershipStatus: "shelved",
   },
   {
@@ -1021,7 +1022,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     creators: "Englehart, Perez",
     description:
       "George Perez joins as artist as the team battles the Squadron Supreme and faces threats built to test the Avengers at their very core.",
-    coverUrl: "https://images.penguinrandomhouse.com/cover/9781302929596",
+    coverUrl: "https://m.media-amazon.com/images/I/71fJmZr6aNL._SL1400_.jpg",
     ownershipStatus: "shelved",
   },
   {
@@ -1037,7 +1038,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     creators: "Shooter, Perez",
     description:
       "The Korvac Saga -- one of the Avengers' most acclaimed stories -- pits the team against Michael Korvac, a being who has ascended to god-like cosmic power.",
-    coverUrl: "https://images.penguinrandomhouse.com/cover/9781302948764",
+    coverUrl: "https://m.media-amazon.com/images/I/81DUSrXnX2L._SL1500_.jpg",
     ownershipStatus: "shelved",
   },
   {
@@ -1053,7 +1054,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     creators: "Michelinie, Perez",
     description:
       "Henry Peter Gyrich tries to strip Earth's Mightiest Heroes of their government charter as the Grey Gargoyle crashes the hearing, and the mysterious Taskmaster debuts, able to replicate any hero's fighting skills.",
-    coverUrl: "https://images.penguinrandomhouse.com/cover/9781302955236",
+    coverUrl: "https://m.media-amazon.com/images/I/81aaXKqaRSL._SL1500_.jpg",
     ownershipStatus: "shelved",
   },
   {
@@ -1069,7 +1070,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     creators: "Shooter, Hall",
     description:
       "Hank Pym's downward spiral leads to a court-martial that will haunt him for years, while the Vision and the Scarlet Witch settle into married life in their own limited series.",
-    coverUrl: "https://images.penguinrandomhouse.com/cover/9781302960506",
+    coverUrl: "https://m.media-amazon.com/images/I/81rjQnOFekL._SL1500_.jpg",
     ownershipStatus: "shelved",
   },
   {
@@ -1085,7 +1086,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     creators: "Stern, Buscema",
     description:
       "The Avengers welcome the powerful new Captain Marvel, Monica Rambeau, into their ranks just in time to witness the trial of Hank Pym.",
-    coverUrl: "https://images.penguinrandomhouse.com/cover/9781302960094",
+    coverUrl: "https://m.media-amazon.com/images/I/81ui1EqHRnL._SL1500_.jpg",
     ownershipStatus: "shelved",
   },
   {
@@ -1101,7 +1102,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     creators: "Stern, Milgrom",
     description:
       "Roger Stern crafts a Vision epic for the ages, as the android Avenger's ambitions to link with the world's computer networks put him on a collision course with the team he loves.",
-    coverUrl: "https://images.penguinrandomhouse.com/cover/9781302967956",
+    coverUrl: "https://m.media-amazon.com/images/I/81REJLhRPnL._SL1500_.jpg",
     ownershipStatus: "shelved",
   },
   {
@@ -1117,7 +1118,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     creators: "Stern, Buscema",
     description:
       "Baron Zemo's rebuilt Masters of Evil launch a devastating assault on Avengers Mansion, laying siege to the team's home in one of the era's most brutal storylines.",
-    coverUrl: "https://images.penguinrandomhouse.com/cover/9780785195399",
+    coverUrl: "https://m.media-amazon.com/images/I/81iv3LnQcnL._SL1500_.jpg",
     ownershipStatus: "shelved",
   },
   {
@@ -1133,7 +1134,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     creators: "Stern, Buscema",
     description:
       "Doctor Doom seizes control of the world through mind control in Emperor Doom, while the Avengers and X-Men come to blows over Magneto.",
-    coverUrl: "https://images.penguinrandomhouse.com/cover/9780785188940",
+    coverUrl: "https://m.media-amazon.com/images/I/71JgmglkCZL._SL1400_.jpg",
     ownershipStatus: "shelved",
   },
   {
@@ -1149,7 +1150,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     creators: "Stern, Simonson",
     description:
       "Walt Simonson brings his singular artistic vision to the team, as the Avengers face down cosmic and terrestrial threats alike in a stretch fans still point to as a high-water mark.",
-    coverUrl: "https://images.penguinrandomhouse.com/cover/9781302923150",
+    coverUrl: "https://m.media-amazon.com/images/I/91bZxJDebXL._SL1500_.jpg",
     ownershipStatus: "shelved",
   },
   {
@@ -1165,7 +1166,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     creators: "Fingeroth, Buckler",
     description:
       "A revamped Avengers roster -- including Quasar, She-Hulk, and the Black Panther -- gets swept into Acts of Vengeance, as a cabal of villains swaps targets to attack heroes unfamiliar with their tactics.",
-    coverUrl: "https://images.penguinrandomhouse.com/cover/9781302951108",
+    coverUrl: "https://m.media-amazon.com/images/I/91LSf5Ts-AL._SL1500_.jpg",
     ownershipStatus: "shelved",
   },
   {
@@ -1181,7 +1182,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     creators: "Nicieza, Levins",
     description:
       "Fabian Nicieza takes the reins as the team navigates internal shakeups and outside threats testing the very idea of what makes an Avenger.",
-    coverUrl: "https://images.penguinrandomhouse.com/cover/9781302934446",
+    coverUrl: "https://m.media-amazon.com/images/I/817HAoYcYfL._SL1500_.jpg",
     ownershipStatus: "shelved",
   },
   {
@@ -1197,7 +1198,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     creators: "Fingeroth, Thomas",
     description:
       "The Taskmaster's Vault prison break sends the Avengers scrambling, in a collection built around the team's fascination with their own history and legacy.",
-    coverUrl: "https://images.penguinrandomhouse.com/cover/9781302946920",
+    coverUrl: "https://m.media-amazon.com/images/I/91325ejeuEL._SL1500_.jpg",
     ownershipStatus: "shelved",
   },
   {
@@ -1213,7 +1214,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     creators: "Gruenwald, Thomas",
     description:
       "The Kree-Shi'ar war explodes across the Marvel Universe as every Avengers team gets pulled into the biggest crossover event of the early '90s, forcing brutal choices about which side to save.",
-    coverUrl: "https://images.penguinrandomhouse.com/cover/9781302946869",
+    coverUrl: "https://m.media-amazon.com/images/I/81mBaYwHOmL._SL1500_.jpg",
     ownershipStatus: "shelved",
   },
   {
@@ -1229,7 +1230,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     creators: "Thomas, Gruenwald",
     description:
       "The demonic return of the Grim Reaper -- and his shambling Legion of the Unliving -- teaches the Avengers to fear death itself, with guest turns from the Starjammers and X-Men.",
-    coverUrl: "https://images.penguinrandomhouse.com/cover/9781302916169",
+    coverUrl: "https://m.media-amazon.com/images/I/71wdmiCemKL._SL1400_.jpg",
     ownershipStatus: "alt_format",
   },
   {
@@ -1245,7 +1246,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     creators: "Harras, Herdling",
     description:
       "The mysterious Gatherers -- warriors pulled from across time and space by an enigmatic leader -- launch a coordinated strike against the Avengers.",
-    coverUrl: "https://images.penguinrandomhouse.com/cover/9781302920630",
+    coverUrl: "https://m.media-amazon.com/images/I/91eSdaVq5nL._SL1500_.jpg",
     ownershipStatus: "alt_format",
   },
   {
@@ -1261,7 +1262,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     creators: "Harras, Hall",
     description:
       "The Gatherers' true purpose comes to light as the team faces a crossover with the X-Men, forcing a reckoning with the enemy pulling the strings behind recent attacks.",
-    coverUrl: "https://images.penguinrandomhouse.com/cover/9781302953676",
+    coverUrl: "https://m.media-amazon.com/images/I/91EhyVFanFL._SL1500_.jpg",
     ownershipStatus: "shelved",
   },
   {
@@ -1277,7 +1278,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     creators: "Harras, Deodato",
     description:
       "A.I.M. makes a play against the Avengers as the team's roster and status quo continue to shift heading into the mid-1990s, with a Vision limited series exploring the android's fractured identity.",
-    coverUrl: "https://images.penguinrandomhouse.com/cover/9781302932336",
+    coverUrl: "https://m.media-amazon.com/images/I/914TC+myIXL._SL1500_.jpg",
     ownershipStatus: "shelved",
   },
   {
@@ -1293,7 +1294,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     creators: "Harras, Kavanagh",
     description:
       "The fallout from the controversial \"Crossing\" storyline sends the team scrambling through time, setting the stage for the Onslaught crossover that reshapes the entire Marvel Universe.",
-    coverUrl: "https://images.penguinrandomhouse.com/cover/9781302967017",
+    coverUrl: "https://m.media-amazon.com/images/I/91Z7kmKApUL._SL1500_.jpg",
     ownershipStatus: "shelved",
   },
   {
@@ -1325,7 +1326,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     creators: "Stern, Englehart, Hall",
     description:
       "Hawkeye leads a new West Coast branch of the Avengers -- with Mockingbird, Wonder Man, Tigra, and Iron Man -- setting up shop on the opposite coast from the original team.",
-    coverUrl: "https://images.penguinrandomhouse.com/cover/9781302928193",
+    coverUrl: "https://m.media-amazon.com/images/I/812mBfSrdgL._SL1500_.jpg",
     ownershipStatus: "shelved",
   },
   {
@@ -1341,7 +1342,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     creators: "Englehart, Milgrom",
     description:
       "The Council of Kangs storyline sends the team scattered across time, as the West Coast squad grapples with an enemy who exists as countless versions of himself simultaneously.",
-    coverUrl: "https://images.penguinrandomhouse.com/cover/9781302950583",
+    coverUrl: "https://m.media-amazon.com/images/I/81um6Nc-ZUL._SL1500_.jpg",
     ownershipStatus: "shelved",
   },
   {
@@ -1357,7 +1358,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     creators: "Michelinie, Hall",
     description:
       "Scorpio's Zodiac targets the West Coast Avengers while Moon Knight hunts down the last surviving member of the original Zodiac, and Doctor Doom seizes control of the world in Emperor Doom.",
-    coverUrl: "https://images.penguinrandomhouse.com/cover/9781302923167",
+    coverUrl: "https://m.media-amazon.com/images/I/91S4WXTxKgL._SL1500_.jpg",
     ownershipStatus: "shelved",
   },
   {
@@ -1373,7 +1374,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     creators: "Englehart, Morgan",
     description:
       "John Byrne takes charge as writer/artist and immediately leaves his mark with a startling change for the Vision, while the Scarlet Witch descends into darkness and learns shocking revelations about her children.",
-    coverUrl: "https://images.penguinrandomhouse.com/cover/9781302927424",
+    coverUrl: "https://m.media-amazon.com/images/I/918pAIHxtzL._SL1500_.jpg",
     ownershipStatus: "shelved",
   },
   {
@@ -1389,7 +1390,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     creators: "Byrne",
     description:
       "The Scarlet Witch's grip on reality frays further as John Byrne pushes the fallout from Vision's transformation to its breaking point.",
-    coverUrl: "https://images.penguinrandomhouse.com/cover/9781302931988",
+    coverUrl: "https://m.media-amazon.com/images/I/81XcMN56E0L._SL1500_.jpg",
     ownershipStatus: "shelved",
   },
   {
@@ -1405,7 +1406,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     creators: "Thomas, Ryan",
     description:
       "Roy and Dann Thomas take the team through a run of stand-alone threats and simmering subplots as the West Coast squad settles into a new creative era.",
-    coverUrl: "https://images.penguinrandomhouse.com/cover/9781302951016",
+    coverUrl: "https://m.media-amazon.com/images/I/91Clfofx-hL._SL1500_.jpg",
     ownershipStatus: "shelved",
   },
   {
@@ -1421,7 +1422,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     creators: "Thomas, Fingeroth",
     description:
       "Ultron breaks free once more, forcing the West Coast Avengers into a desperate fight against the genocidal robot in the team's final major storyline before the branch folds.",
-    coverUrl: "https://images.penguinrandomhouse.com/cover/9781302956448",
+    coverUrl: "https://m.media-amazon.com/images/I/91nlne1bJZL._SL1500_.jpg",
     ownershipStatus: "shelved",
   },
   {
@@ -1437,6 +1438,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     creators: "",
     description:
       "",
+    coverUrl: "https://m.media-amazon.com/images/I/91fTq9BgnRL._SL1500_.jpg",
     ownershipStatus: "announced",
   },
   // --- Black Panther ---
@@ -1453,7 +1455,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     creators: "McGregor, Buckler",
     description:
       "Don McGregor's landmark run sends T'Challa across Wakanda's jungles and mountains to confront Erik Killmonger's coup for the throne, in one of the earliest sustained Black superhero narratives in mainstream comics.",
-    coverUrl: "https://images.penguinrandomhouse.com/cover/9781302901905",
+    coverUrl: "https://m.media-amazon.com/images/I/81DhE7m3-EL._SL1500_.jpg",
     ownershipStatus: "shelved",
   },
   {
@@ -1469,7 +1471,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     creators: "Kirby, Claremont",
     description:
       "Jack Kirby returns to co-create the character for a self-written solo series, sending T'Challa after the secret of King Solomon's frog and into battles with alien races and eternal samurai warriors.",
-    coverUrl: "https://images.penguinrandomhouse.com/cover/9781302928209",
+    coverUrl: "https://m.media-amazon.com/images/I/91XVbyNzStL._SL1500_.jpg",
     ownershipStatus: "shelved",
   },
   {
@@ -1485,7 +1487,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     creators: "McGregor, Turner",
     description:
       "The winged menace called Solomon Prey swears vengeance on the king of Wakanda, in the second and third chapters of Don McGregor's epic Wakandan trilogy.",
-    coverUrl: "https://images.penguinrandomhouse.com/cover/9781302921989",
+    coverUrl: "https://m.media-amazon.com/images/I/91csL5+WbYL._SL1500_.jpg",
     ownershipStatus: "shelved",
   },
   // --- Black Widow ---
@@ -1502,7 +1504,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     creators: "Lee, Thomas, Heck",
     description:
       "Natasha Romanoff's earliest Cold War missions as the Black Widow, debuting her classic black bodysuit and spy gear while crossing paths with the Avengers and Daredevil.",
-    coverUrl: "https://images.penguinrandomhouse.com/cover/9781302921262",
+    coverUrl: "https://m.media-amazon.com/images/I/81i3ilNv2bL._SL1500_.jpg",
     ownershipStatus: "shelved",
   },
   {
@@ -1518,7 +1520,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     creators: "Macchio, Perez",
     description:
       "A collection of Black Widow's graphic novels and specials from the '80s and '90s, teaming her with the Punisher, Daredevil, and Nick Fury on espionage missions across the globe.",
-    coverUrl: "https://images.penguinrandomhouse.com/cover/9781302921309",
+    coverUrl: "https://m.media-amazon.com/images/I/913+LXODo4L._SL1500_.jpg",
     ownershipStatus: "shelved",
   },
   {
@@ -1543,7 +1545,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     creators: "Wolfman, Colan",
     description:
       "Blade, Frank Drake, and the former vampire Hannibal King band together as the Nightstalkers to hunt the supernatural threats of the Midnight Sons era.",
-    coverUrl: "https://images.penguinrandomhouse.com/cover/9781302956547",
+    coverUrl: "https://m.media-amazon.com/images/I/91bKyQOsr6L._SL1500_.jpg",
     ownershipStatus: "shelved",
   },
   {
@@ -1559,6 +1561,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     creators: "",
     description:
       "",
+    coverUrl: "https://m.media-amazon.com/images/I/81oTJx8bDdL._SL1500_.jpg",
     ownershipStatus: "announced",
   },
   {
@@ -1583,7 +1586,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     creators: "Lee, Kirby",
     description:
       "Steve Rogers is discovered frozen in ice and revived by the Avengers, launching his own solo feature as he readjusts to a modern world that's moved on without him.",
-    coverUrl: "https://images.penguinrandomhouse.com/cover/9780785188360",
+    coverUrl: "https://m.media-amazon.com/images/I/910VGD7Bt-L._SL1500_.jpg",
     ownershipStatus: "shelved",
   },
   {
@@ -1599,7 +1602,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     creators: "Lee, Colan",
     description:
       "Baron Zemo returns to menace Cap in a saga guest-starring Nick Fury and the Black Panther, as the Red Skull's Cosmic Cube switches bodies with Cap -- leaving only Sam Wilson, the Falcon, able to set things right.",
-    coverUrl: "https://images.penguinrandomhouse.com/cover/9781302900076",
+    coverUrl: "https://m.media-amazon.com/images/I/81ZGgaenTEL._SL1500_.jpg",
     ownershipStatus: "shelved",
   },
   {
@@ -1615,7 +1618,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     creators: "Lee, Colan",
     description:
       "Cap goes behind enemy lines in Vietnam and teams with the Falcon against the radical Diamond Heads before hitting the road coast-to-coast -- and Bucky Barnes returns from the grave.",
-    coverUrl: "https://images.penguinrandomhouse.com/cover/9781302904197",
+    coverUrl: "https://m.media-amazon.com/images/I/71f8x5aRInL._SL1400_.jpg",
     ownershipStatus: "shelved",
   },
   {
@@ -1631,7 +1634,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     creators: "Friedrich, Romita Sr., Buscema",
     description:
       "Steve Rogers takes a job as one of New York's finest, joining the police force as he searches for renewed purpose beyond the shield.",
-    coverUrl: "https://images.penguinrandomhouse.com/cover/9781302910037",
+    coverUrl: "https://m.media-amazon.com/images/I/81-uffXiXLL._SL1500_.jpg",
     ownershipStatus: "shelved",
   },
   {
@@ -1647,7 +1650,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     creators: "Englehart, Buscema",
     description:
       "Steve Englehart and Sal Buscema unravel a conspiracy reaching to the very top of the U.S. government, as the Secret Empire's shocking scheme leaves Cap questioning what his shield stands for.",
-    coverUrl: "https://images.penguinrandomhouse.com/cover/9781302948733",
+    coverUrl: "https://m.media-amazon.com/images/I/8111Xp6qG9L._SL1500_.jpg",
     ownershipStatus: "shelved",
   },
   {
@@ -1663,7 +1666,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     creators: "Englehart, Kane",
     description:
       "Watergate-era disillusionment drives Steve Rogers to renounce the Captain America identity and become Nomad, a man without a country, building toward Jack Kirby's Bicentennial return and his classic \"Madbomb\" saga.",
-    coverUrl: "https://images.penguinrandomhouse.com/cover/9781302955205",
+    coverUrl: "https://m.media-amazon.com/images/I/81w1q6XAlqL._SL1500_.jpg",
     ownershipStatus: "shelved",
   },
   {
@@ -1679,7 +1682,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     creators: "Kirby",
     description:
       "Jack Kirby returns to write and draw his own creation, debuting the mutated menace Arnim Zola and bringing back the Red Skull for one of the character's most unabashedly wild eras.",
-    coverUrl: "https://images.penguinrandomhouse.com/cover/9781302960520",
+    coverUrl: "https://m.media-amazon.com/images/I/91MT2yUcAaL._SL1500_.jpg",
     ownershipStatus: "shelved",
   },
   {
@@ -1695,7 +1698,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     creators: "Stern, Byrne",
     description:
       "Roger Stern and John Byrne redefine Cap for a new decade, sharpening his rogues gallery and supporting cast in a run widely regarded as one of the character's finest.",
-    coverUrl: "https://images.penguinrandomhouse.com/cover/9781302929602",
+    coverUrl: "https://m.media-amazon.com/images/I/91J7ScB6MkL._SL1500_.jpg",
     ownershipStatus: "shelved",
   },
   {
@@ -1711,7 +1714,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     creators: "DeMatteis, Zeck",
     description:
       "Baron Helmut Zemo takes up his father's villainous mantle in a complex plan of revenge against Captain America, as Steve Rogers' childhood friend Arnie Roth resurfaces in deadly danger.",
-    coverUrl: "https://images.penguinrandomhouse.com/cover/9781302923235",
+    coverUrl: "https://m.media-amazon.com/images/I/81uhlaOfXjL._SL1500_.jpg",
     ownershipStatus: "shelved",
   },
   {
@@ -1727,7 +1730,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     creators: "DeMatteis, Neary",
     description:
       "J.M. DeMatteis pushes Cap into more introspective, psychologically charged territory, spinning the Falcon off into his own miniseries along the way.",
-    coverUrl: "https://images.penguinrandomhouse.com/cover/9781302945367",
+    coverUrl: "https://m.media-amazon.com/images/I/81qxoBNSIrL._SL1500_.jpg",
     ownershipStatus: "shelved",
   },
   {
@@ -1743,7 +1746,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     creators: "Carlin, Neary",
     description:
       "The sinister Sidewinder assembles the Serpent Society, and Captain America must face this army of villains alone while his partner Nomad questions his own sense of self after an encounter with Madcap.",
-    coverUrl: "https://images.penguinrandomhouse.com/cover/9780785188964",
+    coverUrl: "https://m.media-amazon.com/images/I/81Zf-JxN+4L._SL1500_.jpg",
     ownershipStatus: "shelved",
   },
   {
@@ -1759,7 +1762,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     creators: "Gruenwald, Byrne",
     description:
       "A super villain serial killer marked by the epitaph \"Justice is served!\" targets criminals across the city, drawing in the Scourge, Blue Streak, Flag-Smasher, and Wolverine.",
-    coverUrl: "https://images.penguinrandomhouse.com/cover/9781302904203",
+    coverUrl: "https://m.media-amazon.com/images/I/81wfngNsJ2L._SL1500_.jpg",
     ownershipStatus: "shelved",
   },
   {
@@ -1775,7 +1778,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     creators: "Gruenwald, Dwyer",
     description:
       "When Steve Rogers refuses to become a government operative, a new Captain America -- John Walker -- takes up the uniform and shield, while Rogers reinvents himself as the Captain and trades blows with Iron Man before the Red Skull's return forces the two Caps onto a collision course.",
-    coverUrl: "https://images.penguinrandomhouse.com/cover/9781302930707",
+    coverUrl: "https://m.media-amazon.com/images/I/810p5gFpANL._SL1500_.jpg",
     ownershipStatus: "shelved",
   },
   {
@@ -1791,7 +1794,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     creators: "Gruenwald, Dwyer",
     description:
       "Steve Rogers reclaims the shield and identity of Captain America, then sets off on a globe-trotting hunt for the shards of the mystical Bloodstone.",
-    coverUrl: "https://images.penguinrandomhouse.com/cover/9781302933913",
+    coverUrl: "https://m.media-amazon.com/images/I/81tSxgZgxQL._SL1500_.jpg",
     ownershipStatus: "shelved",
   },
   {
@@ -1807,7 +1810,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     creators: "Gruenwald, Lim",
     description:
       "A new super-drug called Ice hits the streets of Washington, D.C., and Captain America wages a personal war against it -- with tragic consequences for those closest to him.",
-    coverUrl: "https://images.penguinrandomhouse.com/cover/9781302960452",
+    coverUrl: "https://m.media-amazon.com/images/I/819MYhq7dkL._SL1500_.jpg",
     ownershipStatus: "shelved",
   },
   {
@@ -1823,7 +1826,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     creators: "Gruenwald, Levins",
     description:
       "Captain America faces a threat like never before when Superia raises an army of female super villains -- from Anaconda to M.O.D.A.M. -- and the roguish gun-for-hire Paladin lends a hand.",
-    coverUrl: "https://images.penguinrandomhouse.com/cover/9781302960469",
+    coverUrl: "https://m.media-amazon.com/images/I/91oxTL-V9-L._SL1500_.jpg",
     ownershipStatus: "shelved",
   },
   {
@@ -1839,7 +1842,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     creators: "Gruenwald, Janson",
     description:
       "Captain America and the Punisher find themselves on opposite sides of a mercenary war for blood diamonds in a war-torn African nation, testing how far apart their codes of justice really are.",
-    coverUrl: "https://images.penguinrandomhouse.com/cover/9781302922795",
+    coverUrl: "https://m.media-amazon.com/images/I/816+15ZGwcL._SL1500_.jpg",
     ownershipStatus: "shelved",
   },
   {
@@ -1855,7 +1858,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     creators: "Gruenwald, Levins",
     description:
       "John Walker's tenure as U.S.Agent gets its own spotlight while Captain America teams with Ghost Rider against a supernatural fear-based threat.",
-    coverUrl: "https://images.penguinrandomhouse.com/cover/9781302934453",
+    coverUrl: "https://m.media-amazon.com/images/I/81mQf-VPYzL._SL1500_.jpg",
     ownershipStatus: "shelved",
   },
   {
@@ -1871,7 +1874,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     creators: "Gruenwald, Levins",
     description:
       "Mark Gruenwald continues his marathon run with crossovers pulling in Nomad and Nick Fury, as Cap's rogues gallery of shadowy government operations keeps expanding.",
-    coverUrl: "https://images.penguinrandomhouse.com/cover/9781302951566",
+    coverUrl: "https://m.media-amazon.com/images/I/91VfV4OBzvL._SL1500_.jpg",
     ownershipStatus: "shelved",
   },
   {
@@ -1887,7 +1890,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     creators: "Gruenwald, Deodato",
     description:
       "Mark Gruenwald's final stretch on the title he steered longer than any other writer, closing out an era before the character's mid-'90s relaunch.",
-    coverUrl: "https://images.penguinrandomhouse.com/cover/9781302956349",
+    coverUrl: "https://m.media-amazon.com/images/I/91Iw-yZnfzL._SL1500_.jpg",
     ownershipStatus: "shelved",
   },
   {
@@ -1903,7 +1906,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     creators: "Waid, Garney",
     description:
       "Mark Waid takes over as Steve Rogers is declared a man without a country after a shadowy conspiracy strips his citizenship, forcing him to decide what Captain America means without a nation behind him.",
-    coverUrl: "https://images.penguinrandomhouse.com/cover/9780785195108",
+    coverUrl: "https://m.media-amazon.com/images/I/81P0BGMbxDL._SL1500_.jpg",
     ownershipStatus: "shelved",
   },
   {
@@ -1919,7 +1922,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     creators: "Waid, Garney",
     description:
       "A new era begins for Captain America, helmed by Mark Waid -- the world is happy to have him back, but as his popularity rises to a fever pitch of \"Capmania,\" something sinister lurks behind the scenes.",
-    coverUrl: "https://images.penguinrandomhouse.com/cover/9781302965273",
+    coverUrl: "https://m.media-amazon.com/images/I/81nx5YfTjeL._SL1500_.jpg",
     ownershipStatus: "shelved",
   },
   {
@@ -1935,6 +1938,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     creators: "",
     description:
       "",
+    coverUrl: "https://m.media-amazon.com/images/I/91MIibtM5cL._SL1500_.jpg",
     ownershipStatus: "announced",
   },
   {
@@ -1966,7 +1970,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     creators: "Michelinie, Bagley",
     description:
       "Cletus Kasady bonds with Venom's spawned symbiote to become Carnage, unleashing his first rampages against Spider-Man and building to the citywide Maximum Carnage crossover.",
-    coverUrl: "https://images.penguinrandomhouse.com/cover/9781302946623",
+    coverUrl: "https://m.media-amazon.com/images/I/91VHHeb7EEL._SL1500_.jpg",
     ownershipStatus: "shelved",
   },
   {
@@ -1982,7 +1986,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     creators: "DeMatteis, Bagley",
     description:
       "Cletus Kasady escapes captivity once again, and when the Planet of the Symbiotes invades Earth, a fifty-foot Carnage rampages through the city.",
-    coverUrl: "https://images.penguinrandomhouse.com/cover/9781302951092",
+    coverUrl: "https://m.media-amazon.com/images/I/81W2T3J6PuL._SL1500_.jpg",
     ownershipStatus: "shelved",
   },
   {
@@ -1998,7 +2002,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     creators: "DeFalco, Weeks",
     description:
       "The Carnage symbiote sets its sights on the Silver Surfer as a host, then vents its rage on Venom with the offspring symbiote Toxin caught in the middle.",
-    coverUrl: "https://images.penguinrandomhouse.com/cover/9781302956363",
+    coverUrl: "https://m.media-amazon.com/images/I/819-saXPygL._SL1500_.jpg",
     ownershipStatus: "shelved",
   },
   // --- Daredevil ---
@@ -2015,7 +2019,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     creators: "Lee, Everett",
     description:
       "Matt Murdock is blinded by radioactive waste while saving a man's life, but gains superhuman senses in return -- becoming Daredevil, a gritty hero protecting the downtrodden.",
-    coverUrl: "https://images.penguinrandomhouse.com/cover/9781302950361",
+    coverUrl: "https://m.media-amazon.com/images/I/81Yc-CWY53L._SL1500_.jpg",
     ownershipStatus: "shelved",
   },
   {
@@ -2031,7 +2035,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     creators: "Lee, Colan",
     description:
       "Matt Murdock juggles his double life by inventing a fake twin brother, Mike Murdock, and even swaps bodies with Doctor Doom in one of comics' first crossovers, alongside the debut of the Emissaries of Evil.",
-    coverUrl: "https://images.penguinrandomhouse.com/cover/9781302950569",
+    coverUrl: "https://m.media-amazon.com/images/I/8159ia6UUxL._SL1500_.jpg",
     ownershipStatus: "shelved",
   },
   {
@@ -2047,7 +2051,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     creators: "Lee, Thomas, Colan",
     description:
       "Gene Colan's definitive art run takes hold as Matt Murdock's double life grows more complicated, with new threats testing the Man Without Fear's resolve.",
-    coverUrl: "https://images.penguinrandomhouse.com/cover/9781302904258",
+    coverUrl: "https://m.media-amazon.com/images/I/81qVliRR6pL._SL1500_.jpg",
     ownershipStatus: "shelved",
   },
   {
@@ -2063,7 +2067,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     creators: "Thomas, Colan",
     description:
       "Daredevil heads to the West Coast to win back Karen Page's love, and one of his most iconic eras begins as his relationship with the Black Widow takes flight.",
-    coverUrl: "https://images.penguinrandomhouse.com/cover/9781302957933",
+    coverUrl: "https://m.media-amazon.com/images/I/81YmjbNxQkL._SL1500_.jpg",
     ownershipStatus: "shelved",
   },
   {
@@ -2079,7 +2083,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     creators: "Conway, Colan",
     description:
       "Daredevil and the Black Widow relocate to San Francisco, settling into a new life together while classic foes track them down on the opposite coast.",
-    coverUrl: "https://images.penguinrandomhouse.com/cover/9781302933555",
+    coverUrl: "https://m.media-amazon.com/images/I/81Gb1LZnO1L._SL1500_.jpg",
     ownershipStatus: "shelved",
   },
   {
@@ -2095,7 +2099,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     creators: "Gerber, Kane",
     description:
       "Daredevil, the Black Widow, and Shanna the She-Devil uncover the secret leaders of Black Spectre, a massive saga culminating in a battle on the White House lawn -- and Bullseye, the madman with perfect aim, makes his deadly debut.",
-    coverUrl: "https://images.penguinrandomhouse.com/cover/9781302948672",
+    coverUrl: "https://m.media-amazon.com/images/I/81GBq1AQi7L._SL1500_.jpg",
     ownershipStatus: "shelved",
   },
   {
@@ -2111,7 +2115,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     creators: "Wolfman, Colan",
     description:
       "A gritty saga traps Daredevil in Rikers Island prison, forcing him to survive among the very criminals he put behind bars.",
-    coverUrl: "https://images.penguinrandomhouse.com/cover/9781302955175",
+    coverUrl: "https://m.media-amazon.com/images/I/81i8MzUizXL._SL1500_.jpg",
     ownershipStatus: "shelved",
   },
   {
@@ -2127,7 +2131,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     creators: "Miller, Janson",
     description:
       "One of the most influential runs in Marvel history begins as Frank Miller takes over as artist and then writer, remaking the mythos of the Man Without Fear -- introducing Elektra, the assassin with surprising ties to Matt Murdock's past, and the Hand, a clan of killer ninjas.",
-    coverUrl: "https://images.penguinrandomhouse.com/cover/9781302960537",
+    coverUrl: "https://m.media-amazon.com/images/I/91BVcHJ1KEL._SL1500_.jpg",
     ownershipStatus: "shelved",
   },
   {
@@ -2143,7 +2147,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     creators: "Gruenwald, Ditko",
     description:
       "Klaw, Master of Sound, makes some noise, Chance tries his luck, and the savage Sabretooth crosses Daredevil's path right in the middle of the Mutant Massacre.",
-    coverUrl: "https://images.penguinrandomhouse.com/cover/9781302945947",
+    coverUrl: "https://m.media-amazon.com/images/I/812IWkgMwIL._SL1500_.jpg",
     ownershipStatus: "shelved",
   },
   {
@@ -2159,7 +2163,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     creators: "Nocenti, Romita Jr.",
     description:
       "Typhoid Mary, the lethally seductive assassin unleashed by the Kingpin, targets Matt Murdock with one personality and Daredevil with another as Ann Nocenti and John Romita Jr. begin their acclaimed run.",
-    coverUrl: "https://images.penguinrandomhouse.com/cover/9781302950491",
+    coverUrl: "https://m.media-amazon.com/images/I/91-jiQXAhRL._SL1500_.jpg",
     ownershipStatus: "shelved",
   },
   {
@@ -2175,7 +2179,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     creators: "Nocenti, Romita Jr.",
     description:
       "Daredevil is caught between the diabolical Mephisto and his monstrous son Blackheart, forcing the Man Without Fear and his allies to confront their own demons.",
-    coverUrl: "https://images.penguinrandomhouse.com/cover/9781302933777",
+    coverUrl: "https://m.media-amazon.com/images/I/81lJnZAr28L._SL1500_.jpg",
     ownershipStatus: "shelved",
   },
   {
@@ -2191,7 +2195,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     creators: "Nocenti, Romita Jr.",
     description:
       "Ann Nocenti's run reaches its climax with a groundbreaking stretch drawn by John Romita Jr., pushing Daredevil's rogues gallery and psyche to their breaking points.",
-    coverUrl: "https://images.penguinrandomhouse.com/cover/9781302950590",
+    coverUrl: "https://m.media-amazon.com/images/I/81jQbHDt4bL._SL1500_.jpg",
     ownershipStatus: "shelved",
   },
   {
@@ -2207,7 +2211,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     creators: "Chichester, McDaniel",
     description:
       "The Kingpin falls and the Owl moves to seize control of New York's underworld, as Tombstone, Hammerhead, Silvermane, Hydra, and the Hand all converge on a high-stakes Vegas gathering.",
-    coverUrl: "https://images.penguinrandomhouse.com/cover/9781302932381",
+    coverUrl: "https://m.media-amazon.com/images/I/91E-QciZ9QL._SL1500_.jpg",
     ownershipStatus: "shelved",
   },
   {
@@ -2223,7 +2227,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     creators: "Chichester, McDaniel",
     description:
       "Daredevil and the Black Widow reunite for a globe-trotting hunt against the assassin's guild called Abattoir, alongside Frank Miller and John Romita Jr.'s definitive retelling of the Man Without Fear's origin.",
-    coverUrl: "https://images.penguinrandomhouse.com/cover/9781302953720",
+    coverUrl: "https://m.media-amazon.com/images/I/81hyxuUFzRL._SL1500_.jpg",
     ownershipStatus: "shelved",
   },
   {
@@ -2239,7 +2243,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     creators: "Chichester, McDaniel",
     description:
       "Elektra returns to the Marvel Universe as the Hand unleashes a super-virus on New York, and Daredevil dons a new armored costume with help from his resurrected past love.",
-    coverUrl: "https://images.penguinrandomhouse.com/cover/9781302957872",
+    coverUrl: "https://m.media-amazon.com/images/I/91VE+978o9L._SL1500_.jpg",
     ownershipStatus: "shelved",
   },
   {
@@ -2255,7 +2259,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     creators: "Wright, Grindberg",
     description:
       "Elektra's own miniseries digs into her past as an assassin, while Daredevil contends with the ongoing fallout from the Kingpin's power vacuum.",
-    coverUrl: "https://images.penguinrandomhouse.com/cover/9781302957919",
+    coverUrl: "https://m.media-amazon.com/images/I/81wETLGV1KL._SL1500_.jpg",
     ownershipStatus: "shelved",
   },
   {
@@ -2271,7 +2275,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     creators: "DeMatteis, Kesel",
     description:
       "J.M. DeMatteis and Karl Kesel guide Daredevil through some of his darkest and most spiritually charged material yet, oscillating between damnation and redemption.",
-    coverUrl: "https://images.penguinrandomhouse.com/cover/9781302918798",
+    coverUrl: "https://m.media-amazon.com/images/I/91HOE-0F69L._SL1500_.jpg",
     ownershipStatus: "shelved",
   },
   {
@@ -2287,7 +2291,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     creators: "Kelly, Nord",
     description:
       "Gene \"The Dean\" Colan draws Daredevil once again as Mister Fear launches a new campaign of terror, and Matt comes between his ex-love Black Widow and the mutant Omega Red.",
-    coverUrl: "https://images.penguinrandomhouse.com/cover/9780785192978",
+    coverUrl: "https://m.media-amazon.com/images/I/716oYonB6ZL._SL1400_.jpg",
     ownershipStatus: "shelved",
   },
   // --- Deadpool ---
@@ -2304,7 +2308,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     creators: "Nicieza, Liefeld",
     description:
       "The Merc with a Mouth's first appearance and earliest mercenary jobs, building to his own Circle Chase miniseries and first ongoing series.",
-    coverUrl: "https://images.penguinrandomhouse.com/cover/9781302932053",
+    coverUrl: "https://m.media-amazon.com/images/I/91yRWw9O+7L._SL1500_.jpg",
     ownershipStatus: "shelved",
   },
   {
@@ -2320,7 +2324,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     creators: "Hama, McGuinness",
     description:
       "Deadpool's own ongoing series debuts, growing his supporting cast of Blind Al, Weasel, and the Vanisher while he chases down Black Tom Cassidy and Juggernaut.",
-    coverUrl: "https://images.penguinrandomhouse.com/cover/9781302948177",
+    coverUrl: "https://m.media-amazon.com/images/I/81sXMrXlrmL._SL1500_.jpg",
     ownershipStatus: "shelved",
   },
   {
@@ -2336,7 +2340,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     creators: "Kelly, McDaniel",
     description:
       "Joe Kelly digs into Wade Wilson's tragic past and his complicated relationship with Death herself, deepening Deadpool beyond the wisecracks.",
-    coverUrl: "https://images.penguinrandomhouse.com/cover/9781302953324",
+    coverUrl: "https://m.media-amazon.com/images/I/81oPPPFMqRL._SL1500_.jpg",
     ownershipStatus: "shelved",
   },
   {
@@ -2352,7 +2356,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     creators: "Kelly, Felder",
     description:
       "Joe Kelly and James Felder wrap the Wade Wilson origin threads and character confrontations that defined the series' first ongoing run.",
-    coverUrl: "https://images.penguinrandomhouse.com/cover/9781302951825",
+    coverUrl: "https://m.media-amazon.com/images/I/91omIakCwGL._SL1500_.jpg",
     ownershipStatus: "shelved",
   },
   {
@@ -2368,7 +2372,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     creators: "Priest, Diaz",
     description:
       "Christopher Priest's entire Deadpool run, sending the Merc with a Mouth into the courts of Wakanda and Asgard and forcing him to interact with two of Marvel's mightiest monarchs.",
-    coverUrl: "https://images.penguinrandomhouse.com/cover/9781302959579",
+    coverUrl: "https://m.media-amazon.com/images/I/81L+8cX6HML._SL1500_.jpg",
     ownershipStatus: "shelved",
   },
   {
@@ -2384,7 +2388,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     creators: "Simone, Lee",
     description:
       "Deadpool's memory and identity are scrambled by a telepathic villain, leading into Gail Simone's Agent X -- a mysterious new mercenary with a mangled, unreliable version of Wade's old life.",
-    coverUrl: "https://images.penguinrandomhouse.com/cover/9781302964078",
+    coverUrl: "https://m.media-amazon.com/images/I/81tY0zPX7SL._SL1500_.jpg",
     ownershipStatus: "announced",
   },
   {
@@ -2424,7 +2428,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     creators: "Thomas, Buscema",
     description:
       "Doctor Strange, the Hulk, and Namor the Sub-Mariner form a loose, non-team of misfits and outcasts too dangerous or strange for the mainstream Marvel Universe, birthing the \"non-team\" concept of the Defenders.",
-    coverUrl: "https://images.penguinrandomhouse.com/cover/9781302933562",
+    coverUrl: "https://m.media-amazon.com/images/I/81z9bTWSZYL._SL1500_.jpg",
     ownershipStatus: "shelved",
   },
   {
@@ -2440,7 +2444,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     creators: "Wein, Buscema",
     description:
       "The bizarre Headmen -- a mismatched trio of body-swapping villains -- launch a scheme against the Defenders as the team's roster of oddballs continues to expand.",
-    coverUrl: "https://images.penguinrandomhouse.com/cover/9781302955311",
+    coverUrl: "https://m.media-amazon.com/images/I/91d2Nle1NFL._SL1500_.jpg",
     ownershipStatus: "shelved",
   },
   {
@@ -2456,7 +2460,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     creators: "Gerber, Buscema",
     description:
       "Steve Gerber steers the team into one of the most creative and beloved eras of the non-team's history, mixing absurdist humor with genuine cosmic stakes.",
-    coverUrl: "https://images.penguinrandomhouse.com/cover/9781302960544",
+    coverUrl: "https://m.media-amazon.com/images/I/91VMmHxGYeL._SL1500_.jpg",
     ownershipStatus: "shelved",
   },
   {
@@ -2472,7 +2476,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     creators: "DeMatteis, Perlin",
     description:
       "J.M. DeMatteis takes Doctor Strange, the Hulk, Nighthawk, Hellcat, and the Son of Satan on wild journeys into the occult, beginning with a broken Eternity and building to a double-sized issue #100 extravaganza featuring Dracula and the Devil-Slayer.",
-    coverUrl: "https://images.penguinrandomhouse.com/cover/9780785195993",
+    coverUrl: "https://m.media-amazon.com/images/I/91ImonznJTL._SL1500_.jpg",
     ownershipStatus: "shelved",
   },
   {
@@ -2488,7 +2492,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     creators: "DeMatteis, Buscema",
     description:
       "The Defenders' occult adventures continue under J.M. DeMatteis as the team's ever-shifting roster faces new threats drawn from the shadows of the Marvel Universe.",
-    coverUrl: "https://images.penguinrandomhouse.com/cover/9781302904289",
+    coverUrl: "https://m.media-amazon.com/images/I/71NUe2d60JL._SL1031_.jpg",
     ownershipStatus: "shelved",
   },
   {
@@ -2504,7 +2508,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     creators: "DeMatteis, Gillis",
     description:
       "The team evolves into the New Defenders with a fresh roster, new headquarters, and new leadership -- a Valkyrie, a gargoyle, a cosmic psychic, a sentient cloud, and a pair of ex-X-Men.",
-    coverUrl: "https://images.penguinrandomhouse.com/cover/9781302912031",
+    coverUrl: "https://m.media-amazon.com/images/I/91uVI5FCptL._SL1500_.jpg",
     ownershipStatus: "alt_format",
   },
   {
@@ -2520,7 +2524,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     creators: "Gillis, Perlin",
     description:
       "Peter B. Gillis brings the long-running New Defenders series to its close, wrapping up the team's saga before the title's cancellation.",
-    coverUrl: "https://images.penguinrandomhouse.com/cover/9781302920708",
+    coverUrl: "https://m.media-amazon.com/images/I/910RSYR-9SL._SL1500_.jpg",
     ownershipStatus: "alt_format",
   },
   // --- Doctor Doom ---
@@ -2537,7 +2541,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     creators: "Lee, Kirby",
     description:
       "The earliest appearances that cemented Doctor Doom as an icon, beginning with the Latverian monarch's first battle with the Fantastic Four and his bitter rivalry with Reed Richards, plus his alliance with Namor and theft of the Power Cosmic from the Silver Surfer.",
-    coverUrl: "https://images.penguinrandomhouse.com/cover/9781302966126",
+    coverUrl: "https://m.media-amazon.com/images/I/81oz7xXnrmL._SL1500_.jpg",
     ownershipStatus: "announced",
   },
   {
@@ -2553,7 +2557,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     creators: "Lee, Goodwin, Kirby",
     description:
       "Doom's guest appearances across the Marvel Universe multiply as he schemes against the Sub-Mariner, Thor, the Hulk, and Luke Cage, plus his own solo Astonishing Tales serial exploring Latveria's political intrigue.",
-    coverUrl: "https://images.penguinrandomhouse.com/cover/9781302968458",
+    coverUrl: "https://m.media-amazon.com/images/I/910NNT3FpWL._SL1500_.jpg",
     ownershipStatus: "announced",
   },
   // --- Doctor Strange ---
@@ -2570,7 +2574,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     creators: "Lee, Ditko",
     description:
       "The debut of Baron Mordo, Eternity, Dormammu, and the Mindless Ones -- as well as Strange's faithful servant Wong and the mystic Clea -- in Stan Lee and Steve Ditko's psychedelic origin run.",
-    coverUrl: "https://images.penguinrandomhouse.com/cover/9781302929688",
+    coverUrl: "https://m.media-amazon.com/images/I/91HOosKJs4L._SL1500_.jpg",
     ownershipStatus: "alt_format",
   },
   {
@@ -2586,7 +2590,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     creators: "Lee, Colan",
     description:
       "Doctor Strange gets his own solo series and one of his greatest creative teams, pitting the Master of the Mystic Arts against Eternity and Dormammu with Clea and Victoria Bentley's lives hanging in the balance.",
-    coverUrl: "https://images.penguinrandomhouse.com/cover/9781302953157",
+    coverUrl: "https://m.media-amazon.com/images/I/81dZdETl95L._SL1500_.jpg",
     ownershipStatus: "shelved",
   },
   {
@@ -2602,7 +2606,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     creators: "Englehart, Brunner",
     description:
       "Steve Englehart and Frank Brunner create the classic \"Sise-Neg Genesis\" and \"Silver Dagger\" sagas, some of the most acclaimed Doctor Strange stories ever told.",
-    coverUrl: "https://images.penguinrandomhouse.com/cover/9781302932480",
+    coverUrl: "https://m.media-amazon.com/images/I/8142aY2RPvL._SL1500_.jpg",
     ownershipStatus: "shelved",
   },
   {
@@ -2618,7 +2622,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     creators: "Englehart, Colan",
     description:
       "A rotating cast of top creators -- including Marv Wolfman and Jim Starlin -- send Doctor Strange up against threats that test the very fabric of reality itself.",
-    coverUrl: "https://images.penguinrandomhouse.com/cover/9781302921996",
+    coverUrl: "https://m.media-amazon.com/images/I/91cQ-EOvwZL._SL1500_.jpg",
     ownershipStatus: "shelved",
   },
   {
@@ -2634,7 +2638,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     creators: "Stern, Colan",
     description:
       "Roger Stern and Chris Claremont pit Doctor Strange against Nightmare, D'Spayre, and the Dream Weaver in a war fought across the landscape of the subconscious.",
-    coverUrl: "https://images.penguinrandomhouse.com/cover/9781302933579",
+    coverUrl: "https://m.media-amazon.com/images/I/81s5SMENnXL._SL1500_.jpg",
     ownershipStatus: "shelved",
   },
   {
@@ -2650,7 +2654,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     creators: "Gillis, Case",
     description:
       "Peter B. Gillis launches the Sorcerer Supreme era, and in Triumph and Torment, Doctor Strange makes a bargain with Doctor Doom to save Doom's mother's soul from eternal torment.",
-    coverUrl: "https://images.penguinrandomhouse.com/cover/9781302950408",
+    coverUrl: "https://m.media-amazon.com/images/I/81b6btyWCoL._SL1500_.jpg",
     ownershipStatus: "shelved",
   },
   {
@@ -2666,7 +2670,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     creators: "Thomas, Guice",
     description:
       "The return of the vampires -- Doctor Strange faces bloodsuckers rising again, beginning with one uncomfortably close to Stephen himself.",
-    coverUrl: "https://images.penguinrandomhouse.com/cover/9781302930745",
+    coverUrl: "https://m.media-amazon.com/images/I/81dqj6VRzmL._SL1500_.jpg",
     ownershipStatus: "shelved",
   },
   {
@@ -2682,7 +2686,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     creators: "Thomas, Lawlis",
     description:
       "Doctor Strange is swept up in the galaxy-spanning Infinity War event, teaming with the Silver Surfer and Spider-Man as reality itself is threatened by an army of villainous doppelgangers.",
-    coverUrl: "https://images.penguinrandomhouse.com/cover/9781302945374",
+    coverUrl: "https://m.media-amazon.com/images/I/81CPwAsMtxL._SL1500_.jpg",
     ownershipStatus: "shelved",
   },
   {
@@ -2698,7 +2702,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     creators: "Kaminski, Isherwood",
     description:
       "Clea's actions accidentally free Dormammu and Doctor Strange loses his magical powers, forcing the Defenders to reunite against Dormammu while Nightmare sets his sights on the powerless sorcerer.",
-    coverUrl: "https://images.penguinrandomhouse.com/cover/9781302951054",
+    coverUrl: "https://m.media-amazon.com/images/I/8140e5359rL._SL1500_.jpg",
     ownershipStatus: "shelved",
   },
   {
@@ -2714,7 +2718,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     creators: "Quinn, Rubi",
     description:
       "David Quinn takes over the Sorcerer Supreme, sending Stephen through some of the wildest twists and turns of his solo series as the Midnight Sons era winds down.",
-    coverUrl: "https://images.penguinrandomhouse.com/cover/9781302965174",
+    coverUrl: "https://m.media-amazon.com/images/I/91geVCUhLsL._SL1500_.jpg",
     ownershipStatus: "shelved",
   },
   {
@@ -2730,7 +2734,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     creators: "Busiek, Villagran",
     description:
       "Kurt Busiek and Warren Ellis close out the Sorcerer Supreme series, bringing Doctor Strange's decades-long run to a reflective, era-ending conclusion.",
-    coverUrl: "https://images.penguinrandomhouse.com/cover/9781302907891",
+    coverUrl: "https://m.media-amazon.com/images/I/71gw-WOrvRL._SL1400_.jpg",
     ownershipStatus: "shelved",
   },
   // --- Excalibur ---
@@ -2747,7 +2751,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     creators: "Claremont, Davis",
     description:
       "Captain Britain and Meggan band together with former X-Men Nightcrawler and Kitty Pryde when Gatecrasher's Technet is sent to capture Rachel \"Phoenix\" Summers, forming Excalibur from their lighthouse base.",
-    coverUrl: "https://images.penguinrandomhouse.com/cover/9781302904340",
+    coverUrl: "https://m.media-amazon.com/images/I/91BML1v+uBL._SL1500_.jpg",
     ownershipStatus: "shelved",
   },
   {
@@ -2763,7 +2767,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     creators: "Claremont, Davis",
     description:
       "England's premier superteam takes their show on the road in an interdimensional odyssey, as Kitty Pryde, Nightcrawler, Rachel Summers, Captain Britain, and Meggan journey through a string of bizarre alternate dimensions.",
-    coverUrl: "https://images.penguinrandomhouse.com/cover/9781302910129",
+    coverUrl: "https://m.media-amazon.com/images/I/918x5X5kkEL._SL1500_.jpg",
     ownershipStatus: "shelved",
   },
   {
@@ -2779,7 +2783,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     creators: "Lobdell, Ross",
     description:
       "Kitty Pryde reunites with the team as Excalibur navigates a run of standalone genre romps -- from a haunted possession story to a trip through the girls' school from Heck.",
-    coverUrl: "https://images.penguinrandomhouse.com/cover/9781302916527",
+    coverUrl: "https://m.media-amazon.com/images/I/91x+fR9U6bL._SL1500_.jpg",
     ownershipStatus: "shelved",
   },
   {
@@ -2795,7 +2799,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     creators: "Davis, Lobdell",
     description:
       "Alan Davis takes over as writer and artist, steering Shadowcat, Nightcrawler, Phoenix, Captain Britain, and Meggan to new heights of greatness -- and madness.",
-    coverUrl: "https://images.penguinrandomhouse.com/cover/9781302922764",
+    coverUrl: "https://m.media-amazon.com/images/I/916-61MnRIL._SL1500_.jpg",
     ownershipStatus: "shelved",
   },
   {
@@ -2811,7 +2815,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     creators: "Davis",
     description:
       "The Phoenix-powered Rachel Summers returns fresh from a battle with Galactus as faces from Captain Britain's past resurface -- and dark days lie ahead as the team travels to Rachel's own nightmarish timeline, the Days of Future Past.",
-    coverUrl: "https://images.penguinrandomhouse.com/cover/9781302959944",
+    coverUrl: "https://m.media-amazon.com/images/I/912u53jXo7L._SL1500_.jpg",
     ownershipStatus: "shelved",
   },
   {
@@ -2827,7 +2831,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     creators: "Arcudi, Hitch",
     description:
       "John Arcudi and Bryan Hitch take the reins as the team faces a wave of crossovers alongside Colossus and a Kitty Pryde S.H.I.E.L.D. spinoff.",
-    coverUrl: "https://images.penguinrandomhouse.com/cover/9781302934460",
+    coverUrl: "https://m.media-amazon.com/images/I/81LZaqvXoeL._SL1500_.jpg",
     ownershipStatus: "shelved",
   },
   {
@@ -2843,7 +2847,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     creators: "Raab, Claremont",
     description:
       "The original Excalibur series builds to its conclusion around a wedding for Captain Britain and Meggan, before Chris Claremont relaunches the team in an all-new volume.",
-    coverUrl: "https://images.penguinrandomhouse.com/cover/9781302953331",
+    coverUrl: "https://m.media-amazon.com/images/I/91i9OUZVyeL._SL1500_.jpg",
     ownershipStatus: "shelved",
   },
   {
@@ -2859,6 +2863,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     creators: "",
     description:
       "",
+    coverUrl: "https://m.media-amazon.com/images/I/91cVvfwDrAL._SL1500_.jpg",
     ownershipStatus: "announced",
   },
   // --- Fantastic Four ---
@@ -2875,7 +2880,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     creators: "Lee, Kirby",
     description:
       "Stan Lee and Jack Kirby lay the foundation of the entire Marvel Universe, launching Reed Richards, Sue Storm, Johnny Storm, and Ben Grimm as the world's first family of superheroes.",
-    coverUrl: "https://images.penguinrandomhouse.com/cover/9781302960421",
+    coverUrl: "https://m.media-amazon.com/images/I/81NeChPsXGL._SL1500_.jpg",
     ownershipStatus: "alt_format",
   },
   {
@@ -2891,7 +2896,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     creators: "Lee, Kirby",
     description:
       "The Thing battles the Hulk, the Sub-Mariner makes a play for Sue Storm, and the FF tangle with the X-Men, plus two jam-packed annuals featuring Namor's invasion of New York and the origin of Doctor Doom.",
-    coverUrl: "https://images.penguinrandomhouse.com/cover/9781302904357",
+    coverUrl: "https://m.media-amazon.com/images/I/71vxDJVBxeL._SL1400_.jpg",
     ownershipStatus: "alt_format",
   },
   {
@@ -2907,7 +2912,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     creators: "Lee, Kirby",
     description:
       "The Frightful Four and the Inhumans debut, Galactus and the Silver Surfer arrive to threaten Earth, and Reed Richards and Sue Storm celebrate the first superhero wedding in comics.",
-    coverUrl: "https://images.penguinrandomhouse.com/cover/9781302950415",
+    coverUrl: "https://m.media-amazon.com/images/I/81R9ZPB3gQL._SL1500_.jpg",
     ownershipStatus: "alt_format",
   },
   {
@@ -2923,7 +2928,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     creators: "Lee, Kirby",
     description:
       "Stan Lee and Jack Kirby unveil the debut of the world's first Black superhero, the Black Panther, and his kingdom of Wakanda.",
-    coverUrl: "https://images.penguinrandomhouse.com/cover/9781302915568",
+    coverUrl: "https://m.media-amazon.com/images/I/912oGI9juOL._SL1500_.jpg",
     ownershipStatus: "alt_format",
   },
   {
@@ -2939,7 +2944,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     creators: "Lee, Kirby",
     description:
       "The FF struggle against the Mad Thinker's android army, travel into the Microverse, journey to the Inhumans' Himalayan refuge, venture into the Negative Zone, witness the birth of Franklin Richards, and battle Doctor Doom in Latveria.",
-    coverUrl: "https://images.penguinrandomhouse.com/cover/9781302922030",
+    coverUrl: "https://m.media-amazon.com/images/I/91OmkgpoP5L._SL1500_.jpg",
     ownershipStatus: "alt_format",
   },
   {
@@ -2955,7 +2960,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     creators: "Lee, Kirby",
     description:
       "The final stretch of Lee and Kirby's original run sends the FF to war with Prince Namor's undersea kingdom of Atlantis.",
-    coverUrl: "https://images.penguinrandomhouse.com/cover/9781302922023",
+    coverUrl: "https://m.media-amazon.com/images/I/91uQbykSGWL._SL1500_.jpg",
     ownershipStatus: "shelved",
   },
   {
@@ -2971,7 +2976,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     creators: "Lee, Buscema",
     description:
       "Stan Lee's final issues as regular writer give way to Archie Goodwin and John Buscema, pitting the team against a rotating cast of giant monsters and cosmic-level threats.",
-    coverUrl: "https://images.penguinrandomhouse.com/cover/9781302929138",
+    coverUrl: "https://m.media-amazon.com/images/I/81+lFWjY7GL._SL1500_.jpg",
     ownershipStatus: "shelved",
   },
   {
@@ -2987,7 +2992,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     creators: "Thomas, Buscema",
     description:
       "The origin of Annihilus in the Negative Zone unfolds alongside classic battles with Thundra and the Hulk, plus the return of Doctor Doom.",
-    coverUrl: "https://images.penguinrandomhouse.com/cover/9781302933593",
+    coverUrl: "https://m.media-amazon.com/images/I/81IjOry99CL._SL1500_.jpg",
     ownershipStatus: "shelved",
   },
   {
@@ -3003,7 +3008,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     creators: "Conway, Buckler",
     description:
       "The strained relationship of Reed and Sue Richards worsens as Sue joins Namor in an invasion of New York City, the Frightful Four resurface, the Femizons and Mahkizmo face off, and the Silver Surfer returns.",
-    coverUrl: "https://images.penguinrandomhouse.com/cover/9781302948757",
+    coverUrl: "https://m.media-amazon.com/images/I/81Zcd7uE-3L._SL1500_.jpg",
     ownershipStatus: "shelved",
   },
   {
@@ -3019,7 +3024,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     creators: "Thomas, Perez",
     description:
       "Roy Thomas, Len Wein, and a young George Perez bring some of the greatest Fantastic Four tales of the 1970s, including the High Evolutionary's Counter-Earth reaching its explosive endgame.",
-    coverUrl: "https://images.penguinrandomhouse.com/cover/9781302955441",
+    coverUrl: "https://m.media-amazon.com/images/I/91O64A8Z7XL._SL1500_.jpg",
     ownershipStatus: "shelved",
   },
   {
@@ -3035,7 +3040,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     creators: "Wolfman, Pollard",
     description:
       "The Fantastic Four celebrate their landmark 200th issue as the team splits apart, only for Doctor Doom's evil machinations to reunite Marvel's First Family for an FF #200 extravaganza.",
-    coverUrl: "https://images.penguinrandomhouse.com/cover/9781302960551",
+    coverUrl: "https://m.media-amazon.com/images/I/81WuJ8GtvgL._SL1500_.jpg",
     ownershipStatus: "shelved",
   },
   {
@@ -3051,7 +3056,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     creators: "Moench, Sienkiewicz",
     description:
       "A possessed Franklin Richards threatens all reality, alongside stories featuring giant monsters and a cosmic-scale war with the Skrulls.",
-    coverUrl: "https://images.penguinrandomhouse.com/cover/9781302960568",
+    coverUrl: "https://m.media-amazon.com/images/I/91DAq5tVe5L._SL1500_.jpg",
     ownershipStatus: "shelved",
   },
   {
@@ -3067,7 +3072,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     creators: "Stern, Buscema",
     description:
       "The Thing returns to the Fantastic Four as Alicia Masters marries the Human Torch with the Puppet Master lurking nearby, and Mr. Fantastic and Invisible Woman step away so Crystal and the new Ms. Marvel can join the team.",
-    coverUrl: "https://images.penguinrandomhouse.com/cover/9780785188650",
+    coverUrl: "https://m.media-amazon.com/images/I/91N5eec1cQL._SL1500_.jpg",
     ownershipStatus: "shelved",
   },
   {
@@ -3083,7 +3088,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     creators: "Englehart, Frenz",
     description:
       "An era of transformation for Marvel's First Family as the Thing adjusts to his new role leading a lineup that now includes the Human Torch, Crystal, and Sharon \"Ms. Marvel\" Ventura.",
-    coverUrl: "https://images.penguinrandomhouse.com/cover/9781302963927",
+    coverUrl: "https://m.media-amazon.com/images/I/91hb7bPU-+L._SL1500_.jpg",
     ownershipStatus: "shelved",
   },
   {
@@ -3099,7 +3104,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     creators: "Englehart, Lim",
     description:
       "Steve Englehart's run reaches its controversial climax as the team faces a shakeup that will redefine the FF's status quo -- collected alongside Doctor Strange's bargain with Doctor Doom in Triumph and Torment.",
-    coverUrl: "https://images.penguinrandomhouse.com/cover/9781302951122",
+    coverUrl: "https://m.media-amazon.com/images/I/81CGjsBdLOL._SL1500_.jpg",
     ownershipStatus: "shelved",
   },
   {
@@ -3115,7 +3120,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     creators: "Simonson, Simonson",
     description:
       "Legendary Thor writer Walt Simonson takes over the Fantastic Four, sending the team through a mind-bending trip across the timestream.",
-    coverUrl: "https://images.penguinrandomhouse.com/cover/9781302957896",
+    coverUrl: "https://m.media-amazon.com/images/I/910iee6ZkAL._SL1500_.jpg",
     ownershipStatus: "shelved",
   },
   {
@@ -3131,7 +3136,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     creators: "Simonson, Adams",
     description:
       "With Reed, Sue, Ben, and Johnny out of commission, an all-new lineup comes together to hold down the fort: Spider-Man, Wolverine, Ghost Rider, and the Hulk.",
-    coverUrl: "https://images.penguinrandomhouse.com/cover/9781302911379",
+    coverUrl: "https://m.media-amazon.com/images/I/91t7TSbZ9YL._SL1500_.jpg",
     ownershipStatus: "shelved",
   },
   {
@@ -3147,7 +3152,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     creators: "DeFalco, Ryan",
     description:
       "Tom DeFalco and Paul Ryan settle into a long, stable run on the team, weathering the early-'90s Marvel landscape with street-level threats and cosmic stakes alike.",
-    coverUrl: "https://images.penguinrandomhouse.com/cover/9781302932367",
+    coverUrl: "https://m.media-amazon.com/images/I/81ZDdaFPEHL._SL1500_.jpg",
     ownershipStatus: "shelved",
   },
   {
@@ -3163,7 +3168,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     creators: "DeFalco, Ryan",
     description:
       "Tom DeFalco and Paul Ryan continue their run as the team's oldest enemies close in, driving home the volume's grim promise that nobody gets out alive.",
-    coverUrl: "https://images.penguinrandomhouse.com/cover/9781302934477",
+    coverUrl: "https://m.media-amazon.com/images/I/81k+1OfCAXL._SL1500_.jpg",
     ownershipStatus: "shelved",
   },
   {
@@ -3179,7 +3184,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     creators: "DeFalco, Ryan",
     description:
       "The Invisible Woman searches for her missing husband, Mister Fantastic, the Thing seeks payback on Wolverine, and the sorceress Morgan Le Fay forces the sunken continent of Atlantis back above the waves.",
-    coverUrl: "https://images.penguinrandomhouse.com/cover/9781302956394",
+    coverUrl: "https://m.media-amazon.com/images/I/91409lHZD7L._SL1500_.jpg",
     ownershipStatus: "shelved",
   },
   {
@@ -3195,7 +3200,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     creators: "DeFalco, Ryan",
     description:
       "Tom DeFalco and Paul Ryan's run heads into its final stretch as the team is swept up in the Onslaught crossover that reshapes the Marvel Universe.",
-    coverUrl: "https://images.penguinrandomhouse.com/cover/9780785192954",
+    coverUrl: "https://m.media-amazon.com/images/I/81fsHNECdKL._SL1500_.jpg",
     ownershipStatus: "shelved",
   },
   {
@@ -3211,6 +3216,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     creators: "",
     description:
       "",
+    coverUrl: "https://m.media-amazon.com/images/I/811CADZn4aL._SL1500_.jpg",
     ownershipStatus: "announced",
   },
   {
@@ -3241,6 +3247,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     creators: "",
     description:
       "",
+    coverUrl: "https://m.media-amazon.com/images/I/91KItekal6L._SL1500_.jpg",
     ownershipStatus: "ordered",
   },
   // --- Generation X ---
@@ -3257,7 +3264,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     creators: "Lobdell, Bachalo",
     description:
       "Banshee and Emma Frost open the Xavier School's Massachusetts Academy to a new class of teenage mutants, introducing Jubilee, Chamber, Skin, Husk, M, and Synch as Generation X.",
-    coverUrl: "https://images.penguinrandomhouse.com/cover/9781302930769",
+    coverUrl: "https://m.media-amazon.com/images/I/912Mm-wQ5QL._SL1500_.jpg",
     ownershipStatus: "shelved",
   },
   {
@@ -3273,7 +3280,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     creators: "Lobdell, Bachalo",
     description:
       "M's monstrous brother Emplate returns to menace the students of the Massachusetts Academy, forcing the young team to confront the sibling trauma at the root of M's condition.",
-    coverUrl: "https://images.penguinrandomhouse.com/cover/9781302946494",
+    coverUrl: "https://m.media-amazon.com/images/I/81Pw1O7QuNL._SL1500_.jpg",
     ownershipStatus: "shelved",
   },
   {
@@ -3289,7 +3296,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     creators: "Lobdell, Bachalo",
     description:
       "Shocking secrets about M's true nature and origin come to light, testing the bonds between the students of Generation X.",
-    coverUrl: "https://images.penguinrandomhouse.com/cover/9781302951733",
+    coverUrl: "https://m.media-amazon.com/images/I/81WrjznpUHL._SL1500_.jpg",
     ownershipStatus: "shelved",
   },
   {
@@ -3305,7 +3312,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     creators: "Hama, Harris",
     description:
       "Larry Hama takes over as the students face guilt, grief, and a holiday-season crossover with Dracula himself.",
-    coverUrl: "https://images.penguinrandomhouse.com/cover/9781302956523",
+    coverUrl: "https://m.media-amazon.com/images/I/81RzM-wcn8L._SL1500_.jpg",
     ownershipStatus: "shelved",
   },
   {
@@ -3321,7 +3328,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     creators: "Faerber, Dodson",
     description:
       "Jay Faerber and Terry Dodson close out the series' original run, crossing paths with X-Man and the New Warriors as the team's roster faces its biggest shakeup yet.",
-    coverUrl: "https://images.penguinrandomhouse.com/cover/9781302965280",
+    coverUrl: "https://m.media-amazon.com/images/I/91HITESD0RL._SL1500_.jpg",
     ownershipStatus: "announced",
   },
   {
@@ -3337,6 +3344,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     creators: "",
     description:
       "",
+    coverUrl: "https://m.media-amazon.com/images/I/91ZQfKmE75L._SL1500_.jpg",
     ownershipStatus: "announced",
   },
   // --- Ghost Rider ---
@@ -3353,7 +3361,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     creators: "Friedrich, Ploog",
     description:
       "Stunt cyclist Johnny Blaze sells his soul to save his adoptive father, transforming into the hellfire-skulled Ghost Rider in Gary Friedrich and Mike Ploog's atmospheric debut.",
-    coverUrl: "https://images.penguinrandomhouse.com/cover/9781302946111",
+    coverUrl: "https://m.media-amazon.com/images/I/81Ys9k4wfeL._SL1500_.jpg",
     ownershipStatus: "shelved",
   },
   {
@@ -3369,7 +3377,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     creators: "Isabella, Robbins",
     description:
       "Ghost Rider faces the Orb, Gladiator, the Eel, and the Enforcer across America's backroads, teaming with Hawkeye and the Two-Gun Kid before joining Man-Thing, Morbius, and Werewolf by Night as the Legion of Monsters.",
-    coverUrl: "https://images.penguinrandomhouse.com/cover/9781302955496",
+    coverUrl: "https://m.media-amazon.com/images/I/81D9e5I90bL._SL1500_.jpg",
     ownershipStatus: "shelved",
   },
   {
@@ -3385,7 +3393,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     creators: "McKenzie, Fleisher",
     description:
       "Michael Fleisher and Don Perlin begin their long tenure on the title, delivering a reckoning for both the mortal and demon sides of Ghost Rider and a time-traveling team-up with the original Western Ghost Rider.",
-    coverUrl: "https://images.penguinrandomhouse.com/cover/9781302960575",
+    coverUrl: "https://m.media-amazon.com/images/I/81FzK7LhhzL._SL1500_.jpg",
     ownershipStatus: "shelved",
   },
   {
@@ -3401,6 +3409,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     creators: "",
     description:
       "",
+    coverUrl: "https://m.media-amazon.com/images/I/81S6vLw5H1L._SL1500_.jpg",
     ownershipStatus: "announced",
   },
   // --- Ghost Rider: Danny Ketch ---
@@ -3417,7 +3426,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     creators: "Mackie, Saltares",
     description:
       "A new era for the Spirit of Vengeance begins as Danny Ketch becomes the new Ghost Rider, riding into a gang war between the Kingpin and Deathwatch.",
-    coverUrl: "https://images.penguinrandomhouse.com/cover/9781302954055",
+    coverUrl: "https://m.media-amazon.com/images/I/81xsn5NHnnL._SL1500_.jpg",
     ownershipStatus: "shelved",
   },
   {
@@ -3433,7 +3442,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     creators: "Mackie, Garney",
     description:
       "Ghost Rider, Johnny Blaze, and their fellow Midnight Sons confront demon queen Lilith's hellish Lilin spawn and her unholy alliance with Zarathos.",
-    coverUrl: "https://images.penguinrandomhouse.com/cover/9781302964085",
+    coverUrl: "https://m.media-amazon.com/images/I/918-9lKFrhL._SL1500_.jpg",
     ownershipStatus: "ordered",
   },
   {
@@ -3884,6 +3893,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     creators: "",
     description:
       "",
+    coverUrl: "https://m.media-amazon.com/images/I/911jdfFwtaL._SL1500_.jpg",
     ownershipStatus: "ordered",
   },
   {
@@ -4235,6 +4245,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     creators: "",
     description:
       "",
+    coverUrl: "https://m.media-amazon.com/images/I/91UawRnZFWL._SL1500_.jpg",
     ownershipStatus: "announced",
   },
   {
@@ -4265,6 +4276,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     creators: "",
     description:
       "",
+    coverUrl: "https://m.media-amazon.com/images/I/91YJvD9ISJL._SL1500_.jpg",
     ownershipStatus: "shelved",
   },
   // --- Killraven ---
@@ -4379,6 +4391,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     creators: "",
     description:
       "",
+    coverUrl: "https://m.media-amazon.com/images/I/91ePNSxJ6lL._SL1500_.jpg",
     ownershipStatus: "announced",
   },
   {
@@ -4571,6 +4584,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     creators: "",
     description:
       "",
+    coverUrl: "https://m.media-amazon.com/images/I/812nGmn9XwL._SL1500_.jpg",
     ownershipStatus: "announced",
   },
   // --- Morbius ---
@@ -5128,6 +5142,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     creators: "",
     description:
       "",
+    coverUrl: "https://m.media-amazon.com/images/I/819M2NzeN4L._SL1500_.jpg",
     ownershipStatus: "announced",
   },
   // --- Silver Surfer ---
@@ -5688,6 +5703,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     creators: "",
     description:
       "",
+    coverUrl: "https://m.media-amazon.com/images/I/81irVHSFtoL._SL1500_.jpg",
     ownershipStatus: "shelved",
   },
   {
@@ -5888,6 +5904,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     creators: "",
     description:
       "",
+    coverUrl: "https://m.media-amazon.com/images/I/91QdVELN3zL._SL1500_.jpg",
     ownershipStatus: "announced",
   },
   // --- Wolverine ---
@@ -6193,6 +6210,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     creators: "",
     description:
       "",
+    coverUrl: "https://m.media-amazon.com/images/I/91QqDPGTNcL._SL1500_.jpg",
     ownershipStatus: "announced",
   },
   // --- X-Force ---
@@ -6305,6 +6323,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     creators: "",
     description:
       "",
+    coverUrl: "https://m.media-amazon.com/images/I/91C2G67vzsL._SL1500_.jpg",
     ownershipStatus: "announced",
   },
   // --- X-Men ---
@@ -6617,6 +6636,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     creators: "",
     description:
       "",
+    coverUrl: "https://m.media-amazon.com/images/I/9110NKCJ6oL._SL1500_.jpg",
     ownershipStatus: "announced",
   },
   {
@@ -6632,6 +6652,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     creators: "",
     description:
       "",
+    coverUrl: "https://m.media-amazon.com/images/I/813-5fpTvpL._SL1500_.jpg",
     ownershipStatus: "announced",
   },
   {
