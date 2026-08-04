@@ -83,6 +83,22 @@ export interface Line {
    * rather than by their earliest volume/gap.
    */
   debutDate: MonthPoint;
+  /**
+   * How many stacked lanes this line's volumes/gaps can spread across when
+   * their date ranges overlap, instead of piling up on top of each other in
+   * a single band -- 1-5, undefined means 1 (today's single-lane behavior).
+   * Licensed-collection-only for now; see assignLanes/lineHeight in
+   * lib/timeline.ts and LineFormDrawer's "Swim lanes" field.
+   */
+  swimLanes?: number;
+  /**
+   * Short era/timeframe blurb shown under the line title in the sidebar
+   * pill -- e.g. "4000-1000 years before Yavin". Only ever displayed when
+   * swimLanes is 2+ (see LineRow.tsx); stored regardless so it's preserved
+   * if a line's lane count changes later. Licensed-collection-only for now,
+   * same as swimLanes -- see LineFormDrawer's "Description" field.
+   */
+  description?: string;
 }
 
 /**
@@ -120,6 +136,15 @@ export interface Volume {
   description: string;
   coverUrl?: string;
   ownershipStatus: OwnershipStatus;
+  /**
+   * Deliberate 1-based swim-lane pin (1-5), from the "Swim lane position"
+   * field on the Licensed-collection volume form -- undefined means "let
+   * assignLanes place it automatically" (the default for every volume,
+   * and the only behavior outside Licensed). See assignLanes in
+   * lib/timeline.ts for how a pinned volume takes priority over the
+   * greedy auto-placement pass.
+   */
+  swimLanePosition?: number;
 }
 
 export type GapType = "publication" | "uncollected";

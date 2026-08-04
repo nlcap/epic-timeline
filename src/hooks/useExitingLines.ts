@@ -86,7 +86,21 @@ export function useExitingLines(
       if (!entry.exiting) {
         const lineId = entry.line.id;
         setTimeout(() => {
-          setDisplay((cur) => cur.filter((d) => d.line.id !== lineId));
+          // Keep prevDisplayRef in lockstep with the state update it's
+          // driving -- it's read by the *next* effect run to decide what
+          // still needs to fade out. Left stale (state updated, ref not),
+          // a later effect run (e.g. toggling Speculation Mode again
+          // before this fires, then again after) reads the ref, still
+          // finds this already-exiting entry, and splices it back into
+          // `next` -- but since it's already `exiting`, the `!entry.exiting`
+          // check above never re-arms a timer for it, so it's stuck
+          // forever: invisible, but still holding its row's height (the
+          // sidebar gap this was fixed for).
+          setDisplay((cur) => {
+            const trimmed = cur.filter((d) => d.line.id !== lineId);
+            prevDisplayRef.current = trimmed;
+            return trimmed;
+          });
         }, exitDurationMs);
       }
     });

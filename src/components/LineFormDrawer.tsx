@@ -111,6 +111,13 @@ export function LineFormDrawer({
   const [year, setYear] = useState(editingLine ? String(editingLine.debutDate.year) : "");
   const [month, setMonth] = useState(String(editingLine?.debutDate.month ?? 1));
   const [hex, setHex] = useState(editingLine?.colorHex ?? DEFAULT_HEX);
+  // Licensed-collection-only for now -- see swimLanes on the Line type and
+  // assignLanes/lineHeight in lib/timeline.ts for the layout it drives.
+  const [swimLanes, setSwimLanes] = useState(editingLine?.swimLanes ?? 1);
+  const supportsSwimLanes = collectionId === "marvel-licensed-epic";
+  // Same Licensed-only gate as swimLanes -- only shown under the title when
+  // a line actually has 2+ lanes (see LineRow.tsx), but stored regardless.
+  const [description, setDescription] = useState(editingLine?.description ?? "");
   const [error, setError] = useState<string | null>(null);
   const [confirmingDelete, setConfirmingDelete] = useState(false);
   const { visible, closeThen } = useSlidePanel();
@@ -196,6 +203,8 @@ export function LineFormDrawer({
         name: trimmedName,
         colorHex: hex,
         debutDate: { year: yearNum, month: Number(month) },
+        swimLanes: supportsSwimLanes && swimLanes !== 1 ? swimLanes : undefined,
+        description: supportsSwimLanes && description.trim() ? description.trim() : undefined,
       })
     );
   };
@@ -373,6 +382,61 @@ export function LineFormDrawer({
             />
           </label>
         </div>
+
+        {supportsSwimLanes && (
+          <label className="mt-4 block text-sm font-medium text-neutral-300">
+            Swim lanes
+            <p className="mt-0.5 text-xs font-normal text-neutral-500">
+              How many stacked lanes this line's volumes can spread across when
+              their dates overlap.
+            </p>
+            <div className="relative mt-1">
+              <select
+                value={swimLanes}
+                onChange={(e) => setSwimLanes(Number(e.target.value))}
+                disabled={fieldsLocked}
+                className="w-full appearance-none rounded-md border border-neutral-700 bg-neutral-900 px-3 py-2 pr-8 text-sm text-white focus:border-neutral-500 focus:outline-none disabled:opacity-40"
+              >
+                {[1, 2, 3, 4, 5].map((n) => (
+                  <option key={n} value={n}>
+                    {n}
+                  </option>
+                ))}
+              </select>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth={1.75}
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className="pointer-events-none absolute right-2.5 top-1/2 h-4 w-4 -translate-y-1/2 text-neutral-500"
+              >
+                <path d="M6 9l6 6 6-6" />
+              </svg>
+            </div>
+          </label>
+        )}
+
+        {supportsSwimLanes && (
+          <label className="mt-4 block text-sm font-medium text-neutral-300">
+            Description
+            <p className="mt-0.5 text-xs font-normal text-neutral-500">
+              Short era/timeframe blurb, e.g. "4000–1000 years before Yavin".
+              Only shown when Swim lanes is 2 or more. Paste "&lt;br&gt;" for
+              a line break.
+            </p>
+            <input
+              type="text"
+              value={description}
+              onChange={(e) => setDescription(e.target.value)}
+              placeholder="e.g. 4000-1000 years before Yavin"
+              disabled={fieldsLocked}
+              className="mt-1 w-full rounded-md border border-neutral-700 bg-neutral-900 px-3 py-2 text-sm text-white placeholder:text-neutral-600 focus:border-neutral-500 focus:outline-none disabled:opacity-40"
+            />
+          </label>
+        )}
 
         <label className="mt-4 block text-sm font-medium text-neutral-300">
           Base hex color

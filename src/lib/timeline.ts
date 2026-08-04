@@ -1,4 +1,7 @@
-import type { MonthPoint, Quarter, QuarterPoint } from "../types";
+import type { MonthPoint, Quarter, QuarterPoint, TimelineEntry } from "../types";
+
+export const MIN_SWIM_LANES = 1;
+export const MAX_SWIM_LANES = 5;
 
 export const SIDEBAR_MIN_WIDTH = 180;
 export const SIDEBAR_MAX_WIDTH = 320;
@@ -150,6 +153,86 @@ export function spanToPx(
     pxPerQuarter
   );
   return { left, width };
+}
+
+/**
+ * A line's total row height given its swim-lane count -- the one place the
+ * 1-5 clamp and the stacked-lanes formula live. `swimLanes` undefined/1
+ * (every collection except Licensed, and Licensed lines that don't opt in)
+ * returns `rowHeight` unchanged, so single-lane rows are pixel-identical to
+ * before this existed.
+ *
+ * Every lane's own tile is a FIXED height (rowHeight - 16, the same as a
+ * single-lane tile at this zoom level -- see TimelineEntryTile in
+ * LineRow.tsx) regardless of laneCount, with an 8px margin above the first
+ * lane, 8px below the last, and an 8px gap between each pair of lanes
+ * (half the 16px gap between two different lines' rows). This is the sum
+ * of that fixed layout, not `rowHeight * lanes` -- that simpler formula
+ * padded each tile out to fill an even rowHeight-tall slice, which made
+ * multi-lane tiles taller than a single-lane tile at the same zoom level.
+ */
+export function lineHeight(rowHeight: number, swimLanes: number | undefined): number {
+  const lanes = Math.min(MAX_SWIM_LANES, Math.max(MIN_SWIM_LANES, swimLanes ?? 1));
+  const tileHeight = rowHeight - 16;
+  return lanes * tileHeight + (lanes - 1) * 8 + 16;
+}
+
+/**
+ * Assigns each entry to a lane index (0-based, < laneCount) so overlapping
+ * volumes/gaps land in separate stacked lanes instead of piling on top of
+ * each other. Entries must already be sorted by start quarter (true of
+ * `entriesByLine` in App.tsx, which every caller here sources from).
+ *
+ * Two passes:
+ * 1. Volumes with a deliberate `swimLanePosition` (see the Licensed volume
+ *    form's "Swim lane position" field) are pinned to that lane outright,
+ *    in whatever order they appear -- a manual pin always wins regardless
+ *    of start time. Two volumes deliberately pinned to the same lane will
+ *    still visually overlap if their dates overlap; that's the point of
+ *    "deliberate" -- this function doesn't second-guess it.
+ * 2. Every other entry (the common case -- nothing outside Licensed ever
+ *    sets swimLanePosition) is greedily interval-partitioned into whatever
+ *    lanes the pins left free: lowest-indexed lane whose last-placed entry
+ *    ends before this one starts, or -- if every lane is currently
+ *    occupied, i.e. more concurrent entries than the line's lane budget --
+ *    whichever lane's occupant ends soonest. That entry will visually
+ *    overlap, an explicit tradeoff of the lane count chosen rather than a
+ *    hard cap enforced on the data.
+ */
+export function assignLanes(entries: TimelineEntry[], laneCount: number): Map<string, number> {
+  const lanes = Math.min(MAX_SWIM_LANES, Math.max(MIN_SWIM_LANES, laneCount));
+  // Last-occupied quarter index (inclusive) per lane, so far.
+  const laneEnds: number[] = new Array(lanes).fill(-Infinity);
+  const assignment = new Map<string, number>();
+
+  const pinned: TimelineEntry[] = [];
+  const auto: TimelineEntry[] = [];
+  for (const entry of entries) {
+    const position = entry.kind === "volume" ? entry.swimLanePosition : undefined;
+    (position && position >= 1 && position <= lanes ? pinned : auto).push(entry);
+  }
+
+  for (const entry of pinned) {
+    const lane = (entry as Extract<TimelineEntry, { kind: "volume" }>).swimLanePosition! - 1;
+    assignment.set(entry.id, lane);
+    laneEnds[lane] = Math.max(laneEnds[lane], quarterIndex(entry.end));
+  }
+
+  for (const entry of auto) {
+    const startIdx = quarterIndex(entry.start);
+    const endIdx = quarterIndex(entry.end);
+
+    let target = laneEnds.findIndex((end) => end < startIdx);
+    if (target === -1) {
+      // No free lane -- double up on whichever lane frees up soonest.
+      target = laneEnds.indexOf(Math.min(...laneEnds));
+    }
+
+    assignment.set(entry.id, target);
+    laneEnds[target] = Math.max(laneEnds[target], endIdx);
+  }
+
+  return assignment;
 }
 
 /**

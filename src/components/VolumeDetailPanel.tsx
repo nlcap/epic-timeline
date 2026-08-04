@@ -2,6 +2,7 @@ import { useRef, useState } from "react";
 import type { Line, OwnershipStatus, Volume } from "../types";
 import { OWNERSHIP_META, OWNERSHIP_ORDER } from "../lib/ownership";
 import { volumeBadgeText } from "../lib/era";
+import { formatLineBreaks } from "../lib/text";
 import { useSlidePanel } from "../hooks/useSlidePanel";
 
 // One option row is py-1.5 padding (12px) + text-sm line height (20px) =
@@ -51,6 +52,8 @@ export function VolumeDetailPanel({
     }
     setPickerOpen((o) => !o);
   };
+
+  const formattedDescription = formatLineBreaks(volume.description);
 
   return (
     <div
@@ -116,8 +119,8 @@ export function VolumeDetailPanel({
         <p className="mt-2 text-sm text-neutral-300">
           Collects {volume.issuesCollected}.
         </p>
-        <p className="mt-3 text-sm leading-relaxed text-neutral-200">
-          {volume.description}
+        <p className="mt-3 whitespace-pre-line text-sm leading-relaxed text-neutral-200">
+          {formattedDescription}
         </p>
 
         {!speculative && (

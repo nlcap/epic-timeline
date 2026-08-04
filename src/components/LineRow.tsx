@@ -3,6 +3,8 @@ import type { Gap, Line, QuarterPoint, TimelineEntry } from "../types";
 import {
   ADD_CELL_ICON_SIZE_BY_ZOOM,
   ADD_CELL_SCROLL_BUCKET_PX,
+  assignLanes,
+  lineHeight,
   quarterBeforeMonthPoint,
   quarterIndex,
   quarterPointFromIndex,
@@ -15,6 +17,7 @@ import { useSidebarPillMetrics } from "../hooks/useSidebarPillMetrics";
 import { useEnterTransition } from "../hooks/useEnterTransition";
 import { lineIconUrl } from "../lib/era";
 import { speculativeTextColor } from "../lib/color";
+import { formatLineBreaks } from "../lib/text";
 import { VolumeTile } from "./VolumeTile";
 import { GapSegment } from "./GapSegment";
 import { LineIcon } from "./LineIcon";
@@ -169,6 +172,28 @@ export function LineRow({
   const entered = useEnterTransition(skipEnterTransition);
   const visible = entered && !exiting;
 
+  // A 2+ swim-lane line (Licensed collection only, see LineFormDrawer's
+  // "Swim lanes" field) gets a pill that expands to cover the full stacked
+  // height instead of staying pinned to the single-lane pillHeight, with
+  // its optional description shown below the title -- see the Figma
+  // reference this was built from. A single-lane line (every line outside
+  // Licensed, and any Licensed line that doesn't opt into extra lanes)
+  // keeps today's fixed-height, title-only pill untouched.
+  const isMultiLane = (line.swimLanes ?? 1) >= 2;
+  const effectivePillHeight = isMultiLane
+    ? lineHeight(rowHeight, line.swimLanes) - 16
+    : pillHeight;
+  // Licensed multi-lane pills fade their background to transparent behind
+  // the icon instead of a flat fill (see the Figma reference) -- solid
+  // pillBackground from the right edge until just past the icon's own box,
+  // then an even fade to fully transparent at the pill's left edge, where
+  // the icon (offset -ml-3 below) overflows past the pill's own background
+  // entirely. Fade width matches pillIconSize exactly, in px rather than %,
+  // so it always lands on the icon regardless of the pill's own width.
+  // Single-lane pills (every line outside Licensed, and any Licensed line
+  // that doesn't opt into extra lanes) keep today's flat fill untouched.
+  const useIconFadeGradient = line.collectionId === "marvel-licensed-epic" && isMultiLane;
+
   return (
     <div
       className={`flex transition-[opacity,transform] duration-500 ease-out ${
@@ -178,7 +203,7 @@ export function LineRow({
     >
       <div
         className="relative flex shrink-0 items-center"
-        style={{ width: sidebarWidth, height: rowHeight }}
+        style={{ width: sidebarWidth, height: lineHeight(rowHeight, line.swimLanes) }}
       >
         <button
           ref={pillRef}
@@ -198,14 +223,24 @@ export function LineRow({
           }`}
           style={{
             width: pillWidth,
-            height: pillHeight,
+            height: effectivePillHeight,
             // Gap collapses with the label instead of staying reserved --
             // otherwise the icon-only pill overflows its own width and gets
             // clipped asymmetrically by `overflow-hidden`.
             gap: 12 * labelOpacity,
             transform: `translateX(${scrollLeft}px)`,
-            boxShadow: `0 6px 24px 4px rgba(0, 0, 0, ${collapseProgress * 0.2})`,
-            backgroundColor: pillBackground,
+            // Tied to hover, not collapseProgress -- the pill's background
+            // already fades to fully transparent on scroll (see
+            // pillBackground above), so a shadow that scaled with
+            // collapseProgress instead just left a shadow with no visible
+            // box under it once collapsed. The icon below carries its own
+            // small always-on shadow instead, so collapsed (icon-only)
+            // pills still read as sitting above the timeline.
+            boxShadow: hovered ? "0 6px 24px 4px rgba(0, 0, 0, 0.2)" : "none",
+            backgroundColor: useIconFadeGradient ? undefined : pillBackground,
+            backgroundImage: useIconFadeGradient
+              ? `linear-gradient(to left, ${pillBackground}, ${pillBackground} calc(100% - ${pillIconSize}px), transparent 100%)`
+              : undefined,
             borderColor: speculative ? pillBorderColor : undefined,
           }}
           onMouseEnter={() => setHovered(true)}
@@ -227,21 +262,44 @@ export function LineRow({
               borderWidth: pillIconBorder,
               borderColor: line.colorHex,
               borderStyle: "solid",
+              // Always on (not tied to hover/collapse like the pill's own
+              // shadow above) -- the icon is the one thing still visible
+              // once a pill collapses to icon-only on scroll, so it needs
+              // its own separation from the timeline regardless of hover
+              // state.
+              boxShadow: "0 2px 6px rgba(0, 0, 0, 0.5)",
             }}
           >
             <LineIcon iconUrl={lineIconUrl(line)} />
           </span>
-          <span
-            className={`truncate text-sm font-semibold transition-opacity duration-150 ease-out ${
-              speculative ? "" : "text-white"
-            }`}
-            style={{
-              opacity: labelOpacity,
-              color: speculative ? speculativeTextColor(line.colorHex) : undefined,
-            }}
-          >
-            {line.name}
-          </span>
+          {isMultiLane && line.description ? (
+            <span
+              className="flex min-w-0 flex-col justify-center gap-0.5 transition-opacity duration-150 ease-out"
+              style={{ opacity: labelOpacity }}
+            >
+              <span
+                className={`truncate text-sm font-semibold ${speculative ? "" : "text-white"}`}
+                style={{ color: speculative ? speculativeTextColor(line.colorHex) : undefined }}
+              >
+                {line.name}
+              </span>
+              <span className="line-clamp-2 whitespace-pre-line text-xs italic leading-snug text-neutral-400">
+                {formatLineBreaks(line.description)}
+              </span>
+            </span>
+          ) : (
+            <span
+              className={`truncate text-sm font-semibold transition-opacity duration-150 ease-out ${
+                speculative ? "" : "text-white"
+              }`}
+              style={{
+                opacity: labelOpacity,
+                color: speculative ? speculativeTextColor(line.colorHex) : undefined,
+              }}
+            >
+              {line.name}
+            </span>
+          )}
         </button>
       </div>
       <LineTimelineLane
@@ -381,6 +439,18 @@ const LineTimelineLane = memo(function LineTimelineLane({
   const preDebutEnd = quarterBeforeMonthPoint(line.debutDate);
   const showPreDebutFiller = quartersBetween(axisStart, preDebutEnd) >= 0;
 
+  // Which lane (0-based) each entry renders in -- see assignLanes for the
+  // greedy interval-partitioning that keeps overlapping entries apart.
+  // `entries` is already sorted by start quarter (see entriesByLine in
+  // App.tsx), which the algorithm requires. A no-op (every entry lands in
+  // lane 0) for the swimLanes-undefined/1 case, i.e. every line outside the
+  // Licensed collection today.
+  const laneAssignment = useMemo(
+    () => assignLanes(entries, line.swimLanes ?? 1),
+    [entries, line.swimLanes]
+  );
+  const totalHeight = lineHeight(rowHeight, line.swimLanes);
+
   // Hover "add volume" cells: one per empty quarter within a window
   // centered on the current scroll position (not the whole axis width --
   // a wide collection can be tens of thousands of px across, and rendering
@@ -430,13 +500,18 @@ const LineTimelineLane = memo(function LineTimelineLane({
   }, [axisStart, axisWidth, pxPerQuarter, entries, scrollBucket, addCellWindowQuarters, inViewport]);
 
   return (
-    <div className="relative flex-1" style={{ height: rowHeight }}>
+    <div className="relative flex-1" style={{ height: totalHeight }}>
       {showPreDebutFiller && (() => {
         const { left, width } = spanToPx(axisStart, axisStart, preDebutEnd, pxPerQuarter);
         return (
           <div
-            className="absolute inset-y-2"
-            style={{ left: left + 1, width: Math.max(width - 1, 0) }}
+            className="absolute"
+            style={{
+              left: left + 1,
+              width: Math.max(width - 1, 0),
+              top: 8,
+              height: totalHeight - 16,
+            }}
           >
             <PreDebutFiller />
           </div>
@@ -463,6 +538,8 @@ const LineTimelineLane = memo(function LineTimelineLane({
             line={line}
             axisStart={axisStart}
             pxPerQuarter={pxPerQuarter}
+            rowHeight={rowHeight}
+            laneIndex={laneAssignment.get(entry.id) ?? 0}
             zoomLevel={zoomLevel}
             focused={focusedId === entry.id}
             onSelect={onSelect}
@@ -503,6 +580,8 @@ const TimelineEntryTile = memo(function TimelineEntryTile({
   line,
   axisStart,
   pxPerQuarter,
+  rowHeight,
+  laneIndex,
   zoomLevel,
   focused,
   onSelect,
@@ -517,6 +596,12 @@ const TimelineEntryTile = memo(function TimelineEntryTile({
   line: Line;
   axisStart: QuarterPoint;
   pxPerQuarter: number;
+  /** Single-lane row height (per zoom level) -- one lane's worth, not the
+   * line's total (possibly multi-lane) height. */
+  rowHeight: number;
+  /** 0-based lane this entry renders in -- see assignLanes in
+   * lib/timeline.ts. Always 0 for a single-lane line. */
+  laneIndex: number;
   zoomLevel: ZoomLevel;
   focused: boolean;
   onSelect: (volumeId: string) => void;
@@ -528,8 +613,25 @@ const TimelineEntryTile = memo(function TimelineEntryTile({
   renderEnd: QuarterPoint;
 }) {
   const { left, width } = spanToPx(axisStart, renderStart, renderEnd, pxPerQuarter);
+  // Every lane's tile is the same fixed height as a single-lane tile at
+  // this zoom level (rowHeight - 16) no matter how many lanes the line
+  // has -- lineHeight in lib/timeline.ts sizes the line's total row to
+  // match this exactly (an 8px margin above the first lane, 8px below the
+  // last, 8px between each pair of lanes), so there's no leftover space to
+  // stretch tiles into. laneIndex === 0 (every single-lane line) reduces to
+  // top: 8, pixel-identical to before swim lanes existed.
+  const tileHeight = rowHeight - 16;
+  const top = 8 + laneIndex * (tileHeight + 8);
   return (
-    <div className="absolute inset-y-2" style={{ left: left + 1, width: Math.max(width - 1, 0) }}>
+    <div
+      className="absolute"
+      style={{
+        left: left + 1,
+        width: Math.max(width - 1, 0),
+        top,
+        height: tileHeight,
+      }}
+    >
       {entry.kind === "volume" ? (
         <VolumeTile
           volume={entry}

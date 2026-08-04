@@ -33,6 +33,7 @@ import {
   MAX_ZOOM_LEVEL,
   MIN_ZOOM_LEVEL,
   PX_PER_QUARTER_BY_ZOOM,
+  lineHeight,
   ROW_HEIGHT_BY_ZOOM,
   SIDEBAR_GAP_BY_ZOOM,
   SIDEBAR_ICON_BORDER_BY_ZOOM,
@@ -292,6 +293,18 @@ export default function App() {
   const axisWidth = (axisEnd - axisStart + 2) * 4 * pxPerQuarter;
   const addCellWindowQuartersValue = addCellWindowQuarters(timelineViewportWidth, pxPerQuarter);
 
+  // Each line's own row height -- rowHeight for a single-lane line, a
+  // multiple of it for a Licensed-collection line with swimLanes > 1 (see
+  // lineHeight in lib/timeline.ts). Memoized so useVisibleRowRange below
+  // only tears down/re-adds its scroll listeners when heights actually
+  // change (a new array reference every render would do that on every
+  // render instead).
+  const rowHeights = useMemo(
+    () => displayLines.map(({ line }) => lineHeight(rowHeight, line.swimLanes)),
+    [displayLines, rowHeight]
+  );
+  const rowsTotalHeight = rowHeights.reduce((sum, h) => sum + h, 0);
+
   // Which rows are actually on screen (see useVisibleRowRange) -- lets each
   // LineRow skip building its hover "add volume" cell layer (by far the
   // biggest DOM cost per row, see lib/timeline.ts) when it's scrolled well
@@ -299,11 +312,7 @@ export default function App() {
   // enter/exit fade transitions, pill hover state, etc. are all untouched
   // and can't replay/glitch just from scrolling past a row).
   const rowsContainerRef = useRef<HTMLDivElement>(null);
-  const [visibleRowStart, visibleRowEnd] = useVisibleRowRange(
-    rowsContainerRef,
-    rowHeight,
-    displayLines.length
-  );
+  const [visibleRowStart, visibleRowEnd] = useVisibleRowRange(rowsContainerRef, rowHeights);
   // Drives AddVolumeCell's hover affordance from raw pointer position
   // instead of native CSS `:hover` (or even paired enter/leave events),
   // which Safari/WebKit can leave stuck on a cell that's no longer under
@@ -432,7 +441,7 @@ export default function App() {
                   // Extra space below the last row so it can be scrolled clear
                   // of the fixed "Add Line" button (bottom-4 + its own
                   // pillHeight) instead of sitting underneath it.
-                  height: displayLines.length * rowHeight + pillHeight + 32,
+                  height: rowsTotalHeight + pillHeight + 32,
                 }}
               >
                 <TimelineGrid
@@ -594,16 +603,22 @@ export default function App() {
         const volumeFormIsSpeculative = editingEntry
           ? speculativeVolumeIds.has(editingEntry.id)
           : speculationMode;
+        const targetLineId = editingEntry?.lineId ?? addVolumeForLineId!;
+        const targetLine =
+          lines.find((l) => l.id === targetLineId) ??
+          speculativeLines.find((l) => l.id === targetLineId);
         return (
           <VolumeFormDrawer
-            lineId={editingEntry?.lineId ?? addVolumeForLineId!}
+            lineId={targetLineId}
             supportsEra={activeCollectionId === "dc-finest"}
+            supportsSwimLanePosition={activeCollectionId === "marvel-licensed-epic"}
+            lineSwimLanes={targetLine?.swimLanes ?? 1}
             editingEntry={editingEntry ?? undefined}
             speculative={volumeFormIsSpeculative}
             defaultStart={addVolumeDefaultStart ?? undefined}
-            existingEntries={(
-              entriesByLine.get(editingEntry?.lineId ?? addVolumeForLineId!) ?? []
-            ).filter((e) => e.id !== editingEntry?.id)}
+            existingEntries={(entriesByLine.get(targetLineId) ?? []).filter(
+              (e) => e.id !== editingEntry?.id
+            )}
             onSave={(entry) => {
               if (volumeFormIsSpeculative) {
                 upsertSpeculativeVolume(entry);

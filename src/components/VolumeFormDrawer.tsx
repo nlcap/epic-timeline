@@ -56,6 +56,8 @@ function ImageResetOverlay({ onReset }: { onReset: () => void }) {
 export function VolumeFormDrawer({
   lineId,
   supportsEra = false,
+  supportsSwimLanePosition = false,
+  lineSwimLanes = 1,
   editingEntry,
   existingEntries,
   speculative = false,
@@ -68,6 +70,13 @@ export function VolumeFormDrawer({
   /** DC Finest: volumes carry an era + era-relative number ("G1", "Sa")
    * instead of a plain sequential number. Every other collection omits this. */
   supportsEra?: boolean;
+  /** Licensed-collection-only, same gate as the Line form's "Swim lanes"
+   * field -- shows the "Swim lane position" field below. */
+  supportsSwimLanePosition?: boolean;
+  /** This volume's line's current swim-lane count (see Line.swimLanes) --
+   * drives the "Swim lane position" dropdown's option range, and disables
+   * it outright at 1 (nothing to pin against). */
+  lineSwimLanes?: number;
   /** Omit to add a new entry; pass an existing volume or gap to edit it. */
   editingEntry?: TimelineEntry;
   /** Other entries already on this line, for overlap validation -- should
@@ -131,6 +140,13 @@ export function VolumeFormDrawer({
   );
   const [creators, setCreators] = useState(editingVolume?.creators ?? "");
   const [description, setDescription] = useState(editingVolume?.description ?? "");
+  // undefined ("Auto") lets assignLanes place this volume automatically --
+  // the default for every volume, including a freshly-opened form. Only an
+  // explicit 1-N choice here is a deliberate pin (see assignLanes in
+  // lib/timeline.ts); "Auto" isn't just "position 1 nobody picked".
+  const [swimLanePosition, setSwimLanePosition] = useState<number | undefined>(
+    editingVolume?.swimLanePosition
+  );
   const [error, setError] = useState<string | null>(null);
   const { visible, closeThen } = useSlidePanel();
 
@@ -226,6 +242,7 @@ export function VolumeFormDrawer({
         description: description.trim(),
         coverUrl,
         ownershipStatus,
+        swimLanePosition: supportsSwimLanePosition && lineSwimLanes > 1 ? swimLanePosition : undefined,
       })
     );
   };
@@ -475,6 +492,45 @@ export function VolumeFormDrawer({
               </label>
             )}
 
+            {supportsSwimLanePosition && (
+              <label className="mt-4 block text-sm font-medium text-neutral-300">
+                Swim lane position
+                <p className="mt-0.5 text-xs font-normal text-neutral-500">
+                  Pin this volume to a specific lane instead of letting it
+                  auto-place among the line's other overlapping volumes.
+                </p>
+                <div className="relative mt-1">
+                  <select
+                    value={swimLanePosition ?? ""}
+                    onChange={(e) =>
+                      setSwimLanePosition(e.target.value === "" ? undefined : Number(e.target.value))
+                    }
+                    disabled={lineSwimLanes <= 1}
+                    className="w-full appearance-none rounded-md border border-neutral-700 bg-neutral-900 px-3 py-2 pr-8 text-sm text-white focus:border-neutral-500 focus:outline-none disabled:opacity-40"
+                  >
+                    <option value="">Auto</option>
+                    {Array.from({ length: lineSwimLanes }, (_, i) => i + 1).map((n) => (
+                      <option key={n} value={n}>
+                        {n}
+                      </option>
+                    ))}
+                  </select>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth={1.75}
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    className="pointer-events-none absolute right-2.5 top-1/2 h-4 w-4 -translate-y-1/2 text-neutral-500"
+                  >
+                    <path d="M6 9l6 6 6-6" />
+                  </svg>
+                </div>
+              </label>
+            )}
+
             <label className="mt-4 block text-sm font-medium text-neutral-300">
               Creators
               <input
@@ -488,6 +544,10 @@ export function VolumeFormDrawer({
 
             <label className="mt-4 block text-sm font-medium text-neutral-300">
               Description
+              <p className="mt-0.5 text-xs font-normal text-neutral-500">
+                Press Enter for a paragraph break (or paste "&lt;br&gt;") --
+                both render as a line break in the detail panel.
+              </p>
               <textarea
                 value={description}
                 onChange={(e) => setDescription(e.target.value)}
