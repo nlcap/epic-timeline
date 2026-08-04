@@ -53,12 +53,29 @@ function SearchBox({
   );
 }
 
-function SettingsMenu({ className = "" }: { className?: string }) {
+/**
+ * Just the dropdown trigger + menu -- the four dialogs it opens
+ * (Export/Import/Reset/Storage debug) are owned and rendered by the parent
+ * (TopNav), not here, since the mobile hamburger menu below needs to open
+ * the exact same dialogs. Owning a second copy of that open/close state and
+ * a second set of dialog instances here (as this component used to) meant
+ * every edit to those dialogs had to be made twice, and doubled how many of
+ * them were mounted at once.
+ */
+function SettingsMenu({
+  className = "",
+  onOpenExport,
+  onOpenImport,
+  onOpenReset,
+  onOpenStorageDebug,
+}: {
+  className?: string;
+  onOpenExport: () => void;
+  onOpenImport: () => void;
+  onOpenReset: () => void;
+  onOpenStorageDebug: () => void;
+}) {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [exportOpen, setExportOpen] = useState(false);
-  const [importOpen, setImportOpen] = useState(false);
-  const [resetOpen, setResetOpen] = useState(false);
-  const [storageDebugOpen, setStorageDebugOpen] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -112,7 +129,7 @@ function SettingsMenu({ className = "" }: { className?: string }) {
             type="button"
             role="menuitem"
             onClick={() => {
-              setExportOpen(true);
+              onOpenExport();
               setMenuOpen(false);
             }}
             className="block w-full px-3 py-2 text-left text-sm text-neutral-300 hover:bg-neutral-800 hover:text-white"
@@ -123,7 +140,7 @@ function SettingsMenu({ className = "" }: { className?: string }) {
             type="button"
             role="menuitem"
             onClick={() => {
-              setImportOpen(true);
+              onOpenImport();
               setMenuOpen(false);
             }}
             className="block w-full px-3 py-2 text-left text-sm text-neutral-300 hover:bg-neutral-800 hover:text-white"
@@ -134,7 +151,7 @@ function SettingsMenu({ className = "" }: { className?: string }) {
             type="button"
             role="menuitem"
             onClick={() => {
-              setResetOpen(true);
+              onOpenReset();
               setMenuOpen(false);
             }}
             className="block w-full px-3 py-2 text-left text-sm text-neutral-300 hover:bg-neutral-800 hover:text-white"
@@ -145,7 +162,7 @@ function SettingsMenu({ className = "" }: { className?: string }) {
             type="button"
             role="menuitem"
             onClick={() => {
-              setStorageDebugOpen(true);
+              onOpenStorageDebug();
               setMenuOpen(false);
             }}
             className="block w-full px-3 py-2 text-left text-sm text-neutral-300 hover:bg-neutral-800 hover:text-white"
@@ -154,11 +171,6 @@ function SettingsMenu({ className = "" }: { className?: string }) {
           </button>
         </div>
       )}
-
-      <ExportDataButton open={exportOpen} onClose={() => setExportOpen(false)} />
-      <ImportDataButton open={importOpen} onClose={() => setImportOpen(false)} />
-      <ResetLineDataButton open={resetOpen} onClose={() => setResetOpen(false)} />
-      <StorageDebugPanel open={storageDebugOpen} onClose={() => setStorageDebugOpen(false)} />
     </div>
   );
 }
@@ -222,7 +234,12 @@ export function TopNav({
 
         <div className="hidden shrink-0 items-center gap-3 md:flex">
           <SearchBox value={searchQuery} onChange={onSearchChange} className="w-48" />
-          <SettingsMenu />
+          <SettingsMenu
+            onOpenExport={() => setExportOpen(true)}
+            onOpenImport={() => setImportOpen(true)}
+            onOpenReset={() => setResetOpen(true)}
+            onOpenStorageDebug={() => setStorageDebugOpen(true)}
+          />
         </div>
 
         <button
