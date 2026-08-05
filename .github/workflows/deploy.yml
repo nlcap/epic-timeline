@@ -28,6 +28,12 @@ jobs:
           node-version: 20
           cache: npm
       - run: npm ci
+      # Gate the deploy on both -- a step that fails stops the job before
+      # the build/deploy steps below ever run, so a broken type/lint check
+      # or a failing test blocks that push from going live instead of
+      # silently deploying over it.
+      - run: npm run lint
+      - run: npm run test
       - run: npm run build
         env:
           GITHUB_PAGES: true
