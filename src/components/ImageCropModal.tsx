@@ -103,7 +103,6 @@ export function ImageCropModal({
   useEffect(() => {
     if (!naturalSize) return;
     setOffset((prev) => clampOffset(prev, baseScale * zoom, naturalSize));
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [zoom, naturalSize, baseScale]);
 
   const handleConfirm = () => {

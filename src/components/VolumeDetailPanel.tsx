@@ -1,5 +1,5 @@
 import { useRef, useState } from "react";
-import type { Line, OwnershipStatus, Volume } from "../types";
+import type { OwnershipStatus, Volume } from "../types";
 import { OWNERSHIP_META, OWNERSHIP_ORDER } from "../lib/ownership";
 import { volumeBadgeText } from "../lib/era";
 import { formatLineBreaks } from "../lib/text";
@@ -15,7 +15,6 @@ const DROPDOWN_HEIGHT_ESTIMATE = OWNERSHIP_ORDER.length * OWNERSHIP_OPTION_HEIGH
 
 export function VolumeDetailPanel({
   volume,
-  line,
   status,
   onStatusChange,
   onEdit,
@@ -24,7 +23,6 @@ export function VolumeDetailPanel({
   speculative = false,
 }: {
   volume: Volume;
-  line: Line;
   status: OwnershipStatus;
   onStatusChange: (status: OwnershipStatus) => void;
   onEdit?: (volume: Volume) => void;

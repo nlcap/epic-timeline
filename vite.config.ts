@@ -1,4 +1,4 @@
-import { defineConfig } from "vite";
+import { defineConfig } from "vitest/config";
 import react from "@vitejs/plugin-react";
 
 // GitHub Pages serves a project site (not a user/org root site) at
@@ -12,5 +12,14 @@ export default defineConfig({
   plugins: [react()],
   server: {
     port: Number(process.env.PORT) || 5173,
+  },
+  // `defineConfig` comes from "vitest/config" (a superset of Vite's own)
+  // instead of "vite" specifically so this `test` block type-checks --
+  // plain Vite's UserConfig type doesn't know about it. Node environment,
+  // not jsdom: today's tests are all pure src/lib functions, not component
+  // rendering, so there's no DOM to simulate.
+  test: {
+    environment: "node",
+    include: ["src/**/*.test.ts"],
   },
 });

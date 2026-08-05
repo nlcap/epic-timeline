@@ -542,7 +542,6 @@ export default function App() {
       {selectedVolume && selectedLine && (
         <VolumeDetailPanel
           volume={selectedVolume}
-          line={selectedLine}
           status={getStatus(selectedVolume.id, selectedVolume.ownershipStatus)}
           onStatusChange={(s) => setStatus(selectedVolume.id, s)}
           speculative={selectedVolumeIsSpeculative}

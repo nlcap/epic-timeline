@@ -168,7 +168,6 @@ export function VolumeTile({
       window.removeEventListener("scroll", handleScroll);
       window.removeEventListener("resize", handleScroll);
     };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [hovered]);
 
   // Resize handles need to stay visible while the cursor is over either of

@@ -98,7 +98,11 @@ export function ExportDataButton({ open, onClose }: { open: boolean; onClose: ()
               onClick={handleCopyClick}
               className="flex-1 rounded-md border border-neutral-700 px-4 py-2 text-sm font-medium text-neutral-300 hover:text-white"
             >
-              Copy to clipboard
+              {copyState === "copied"
+                ? "Copied!"
+                : copyState === "failed"
+                ? "Copy failed"
+                : "Copy to clipboard"}
             </button>
             <button
               type="button"
