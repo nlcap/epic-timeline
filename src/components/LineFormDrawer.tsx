@@ -1,6 +1,7 @@
 import { useState, type ChangeEvent, type FormEvent } from "react";
 import type { Era, Line } from "../types";
 import { earliestEraWithIcon, ERA_META, ERA_ORDER } from "../lib/era";
+import { readFileAsDataUrl } from "../lib/imageCompression";
 import { LineIcon } from "./LineIcon";
 import { ImageCropModal } from "./ImageCropModal";
 import { useSlidePanel } from "../hooks/useSlidePanel";
@@ -19,15 +20,6 @@ function slugify(name: string): string {
     .toLowerCase()
     .replace(/[^a-z0-9]+/g, "-")
     .replace(/(^-|-$)/g, "");
-}
-
-function readFileAsDataUrl(file: File): Promise<string> {
-  return new Promise((resolve, reject) => {
-    const reader = new FileReader();
-    reader.onload = () => resolve(reader.result as string);
-    reader.onerror = () => reject(reader.error);
-    reader.readAsDataURL(file);
-  });
 }
 
 /**

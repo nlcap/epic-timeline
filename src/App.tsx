@@ -632,9 +632,6 @@ export default function App() {
             editingEntry={editingEntry ?? undefined}
             speculative={volumeFormIsSpeculative}
             defaultStart={addVolumeDefaultStart ?? undefined}
-            existingEntries={(entriesByLine.get(targetLineId) ?? []).filter(
-              (e) => e.id !== editingEntry?.id
-            )}
             onSave={(entry) => {
               if (volumeFormIsSpeculative) {
                 upsertSpeculativeVolume(entry);

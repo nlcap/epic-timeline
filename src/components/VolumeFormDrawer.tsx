@@ -1,7 +1,7 @@
 import { useState, type ChangeEvent, type FormEvent } from "react";
 import type { Era, OwnershipStatus, Quarter, QuarterPoint, TimelineEntry } from "../types";
 import { OWNERSHIP_META, OWNERSHIP_ORDER } from "../lib/ownership";
-import { ERA_META, ERA_ORDER, volumeNumberLabel } from "../lib/era";
+import { ERA_META, ERA_ORDER } from "../lib/era";
 import { quarterIndex, quarterPointFromIndex, yearsCoveredLabel } from "../lib/timeline";
 import { compressImageFile } from "../lib/imageCompression";
 import { useSlidePanel } from "../hooks/useSlidePanel";
@@ -10,12 +10,6 @@ const QUARTERS: Quarter[] = [1, 2, 3, 4];
 
 function formatQuarterPoint(p: QuarterPoint): string {
   return `Q${p.quarter} ${p.year}`;
-}
-
-function formatEntryLabel(entry: TimelineEntry): string {
-  return entry.kind === "volume"
-    ? `"${entry.title}" (${volumeNumberLabel(entry)})`
-    : "an existing gap";
 }
 
 /**
@@ -59,7 +53,6 @@ export function VolumeFormDrawer({
   supportsSwimLanePosition = false,
   lineSwimLanes = 1,
   editingEntry,
-  existingEntries,
   speculative = false,
   defaultStart,
   onSave,
@@ -79,9 +72,6 @@ export function VolumeFormDrawer({
   lineSwimLanes?: number;
   /** Omit to add a new entry; pass an existing volume or gap to edit it. */
   editingEntry?: TimelineEntry;
-  /** Other entries already on this line, for overlap validation -- should
-   * exclude editingEntry itself. */
-  existingEntries: TimelineEntry[];
   /** Speculation Mode: this entry belongs to a speculative line. Relabels
    * "Volume" to "Speculation" throughout and hides the ownership-status
    * field -- speculative volumes don't carry ownership state. */
@@ -178,19 +168,6 @@ export function VolumeFormDrawer({
       );
       return;
     }
-
-    // Overlap validation disabled for now -- may bring it back later.
-    // const conflict = existingEntries.find((entry) => {
-    //   const entryStart = quarterIndex(entry.start);
-    //   const entryEnd = quarterIndex(entry.end);
-    //   return startIdx <= entryEnd && entryStart <= endIdx;
-    // });
-    // if (conflict) {
-    //   setError(
-    //     `This overlaps with ${formatEntryLabel(conflict)}, which runs ${formatQuarterPoint(conflict.start)}–${formatQuarterPoint(conflict.end)}. Adjust the dates to resolve the conflict.`
-    //   );
-    //   return;
-    // }
 
     if (entryKind === "gap") {
       closeThen(() =>
