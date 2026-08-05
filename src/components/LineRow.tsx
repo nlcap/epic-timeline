@@ -283,7 +283,12 @@ export function LineRow({
               >
                 {line.name}
               </span>
-              <span className="line-clamp-2 whitespace-pre-line text-xs italic leading-snug text-neutral-400">
+              <span
+                className={`line-clamp-2 whitespace-pre-line italic text-neutral-400 ${
+                  zoomLevel === 3 ? "" : "text-xs leading-snug"
+                }`}
+                style={zoomLevel === 3 ? { fontSize: "0.5rem", lineHeight: 1 } : undefined}
+              >
                 {formatLineBreaks(line.description)}
               </span>
             </span>

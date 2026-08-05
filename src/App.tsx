@@ -117,6 +117,19 @@ export default function App() {
     return () => observer.disconnect();
   }, []);
 
+  // Every keystroke can shift the trimmed axis range (see axisStart/axisEnd
+  // above), so the old scroll offset would otherwise keep pointing at
+  // whatever used to be there -- possibly empty space now that the axis
+  // starts somewhere else. Snapping back to the left edge on each change
+  // keeps the newly-trimmed match(es) actually in view instead of making
+  // the user rescroll after every character.
+  useEffect(() => {
+    setScrollLeft(0);
+    if (timelineScrollRef.current) {
+      timelineScrollRef.current.scrollLeft = 0;
+    }
+  }, [searchQuery]);
+
   // Functional updates -- guards against stale-closure double-steps if two
   // zoom clicks land in the same render cycle.
   const zoomIn = () =>
@@ -222,17 +235,25 @@ export default function App() {
     return map;
   }, [resolvedEntries, speculativeResolvedEntries, speculationMode]);
 
+  // Scoped to searchFilteredLines (not every line in the collection) so a
+  // nav search trims the axis down to just the matching lines' own
+  // occupied years -- unfiltered, searchFilteredLines is every visible
+  // line, so this reduces to the old full-collection range for free. Cuts
+  // the leading/trailing horizontal scroll needed to reach a match instead
+  // of leaving the axis spanning years nothing filtered-in touches.
   const { axisStart, axisEnd } = useMemo(() => {
+    const filteredLineIds = new Set(searchFilteredLines.map((l) => l.id));
     const combined = speculationMode
       ? [...resolvedEntries, ...speculativeResolvedEntries]
       : resolvedEntries;
-    if (combined.length === 0) {
+    const relevant = combined.filter((e) => filteredLineIds.has(e.lineId));
+    if (relevant.length === 0) {
       const thisYear = new Date().getFullYear();
       return { axisStart: thisYear, axisEnd: thisYear + 1 };
     }
-    const years = combined.flatMap((e) => [e.start.year, e.end.year]);
+    const years = relevant.flatMap((e) => [e.start.year, e.end.year]);
     return { axisStart: Math.min(...years), axisEnd: Math.max(...years) };
-  }, [resolvedEntries, speculativeResolvedEntries, speculationMode]);
+  }, [resolvedEntries, speculativeResolvedEntries, speculationMode, searchFilteredLines]);
 
   // Stable object/function references for LineRow's memoized timeline lane
   // (see LineRow.tsx) -- an inline `{ year: axisStart, quarter: 1 }` literal
