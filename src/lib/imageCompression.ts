@@ -65,6 +65,24 @@ export async function compressImageFile(file: File): Promise<string> {
   return compressDataUrl(dataUrl);
 }
 
+/**
+ * Pulls an image out of a paste event's clipboard data, if there is one --
+ * lets cover/icon paste-from-clipboard feed the same File-based pipeline
+ * the file `<input>`s already use. Returns null (leaving the event, and
+ * whatever default paste behavior it has, alone) when the clipboard holds
+ * anything else, e.g. copied text pasted into a nearby field.
+ */
+export function getPastedImageFile(e: { clipboardData: DataTransfer | null }): File | null {
+  const items = e.clipboardData?.items;
+  if (!items) return null;
+  for (const item of items) {
+    if (item.kind === "file" && item.type.startsWith("image/")) {
+      return item.getAsFile();
+    }
+  }
+  return null;
+}
+
 type EntryChange = TimelineEntry | "deleted";
 type OverrideMap = Record<string, EntryChange>;
 

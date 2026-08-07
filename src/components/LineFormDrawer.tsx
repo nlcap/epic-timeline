@@ -1,7 +1,7 @@
-import { useState, type ChangeEvent, type FormEvent } from "react";
+import { useEffect, useRef, useState, type ChangeEvent, type FormEvent } from "react";
 import type { Era, Line } from "../types";
 import { earliestEraWithIcon, ERA_META, ERA_ORDER } from "../lib/era";
-import { readFileAsDataUrl } from "../lib/imageCompression";
+import { getPastedImageFile, readFileAsDataUrl } from "../lib/imageCompression";
 import { LineIcon } from "./LineIcon";
 import { ImageCropModal } from "./ImageCropModal";
 import { useSlidePanel } from "../hooks/useSlidePanel";
@@ -114,13 +114,31 @@ export function LineFormDrawer({
   const [confirmingDelete, setConfirmingDelete] = useState(false);
   const { visible, closeThen } = useSlidePanel();
 
+  // Focuses the title field when opening in edit mode, so Cmd+V works
+  // immediately instead of needing a click into the drawer first.
+  //
+  // It has to be a genuinely editable element: the browser only generates a
+  // `paste` event at all when focus is in an editable context (input,
+  // textarea, contenteditable). Focusing the form wrapper instead, even
+  // with tabIndex={-1} to make it focusable, produces no paste event for
+  // any listener to catch -- don't "simplify" this to that.
+  //
+  // Add mode is already covered by the title field's own autoFocus below.
+  const titleRef = useRef<HTMLInputElement>(null);
+  useEffect(() => {
+    if (isEditing) titleRef.current?.focus();
+  }, [isEditing]);
+
   // A freshly-picked file doesn't become the icon directly -- it's routed
   // through ImageCropModal first (see that file for why), and only applied
   // to iconUrl/eraIconUrls once the user confirms a crop. `target` records
   // which field the crop is for, since both the single-icon and per-era
-  // uploads share this same interstitial step.
+  // uploads share this same interstitial step. `era` is only a hint for
+  // ImageCropModal's era picker (era mode) -- which button was clicked for
+  // a file upload, or the first era still missing an icon for a paste --
+  // the user can still change it there before confirming.
   const [pendingCrop, setPendingCrop] = useState<
-    { src: string; target: "icon" } | { src: string; target: "era"; era: Era } | null
+    { src: string; target: "icon" } | { src: string; target: "era"; era?: Era } | null
   >(null);
 
   const handleFileChange = async (e: ChangeEvent<HTMLInputElement>) => {
@@ -137,12 +155,40 @@ export function LineFormDrawer({
     setPendingCrop({ src: await readFileAsDataUrl(file), target: "era", era });
   };
 
-  const handleCropConfirm = (croppedDataUrl: string) => {
+  // Listens on `document` rather than via onPaste on the form, because a
+  // paste event is delivered to whatever currently has focus -- and that
+  // isn't reliably inside this form. Notably, right after the drawer opens
+  // focus can still be on <body>, and a paste targeting <body> never
+  // bubbles through the form, so a form-scoped handler simply never runs.
+  //
+  // Applies in both modes: single-icon mode has exactly one slot, so it's
+  // unambiguous. Era mode has four, but rather than requiring a specific
+  // slot to be picked first, this just guesses a starting era (the first
+  // one still missing an icon) and lets ImageCropModal's era picker sort
+  // out the rest.
+  useEffect(() => {
+    if (fieldsLocked) return;
+    const onPaste = async (e: globalThis.ClipboardEvent) => {
+      const file = getPastedImageFile(e);
+      if (!file) return;
+      e.preventDefault();
+      const src = await readFileAsDataUrl(file);
+      if (supportsEra) {
+        setPendingCrop({ src, target: "era", era: ERA_ORDER.find((era) => !eraIconUrls[era]) });
+      } else {
+        setPendingCrop({ src, target: "icon" });
+      }
+    };
+    document.addEventListener("paste", onPaste);
+    return () => document.removeEventListener("paste", onPaste);
+  }, [fieldsLocked, supportsEra, eraIconUrls]);
+
+  const handleCropConfirm = (croppedDataUrl: string, era?: Era) => {
     if (!pendingCrop) return;
     if (pendingCrop.target === "icon") {
       setIconUrl(croppedDataUrl);
-    } else {
-      const next = { ...eraIconUrls, [pendingCrop.era]: croppedDataUrl };
+    } else if (era) {
+      const next = { ...eraIconUrls, [era]: croppedDataUrl };
       setEraIconUrls(next);
       if (!defaultPinned) {
         setDefaultIconEra(earliestEraWithIcon(next));
@@ -236,7 +282,8 @@ export function LineFormDrawer({
             </legend>
             <p className="mt-1 text-xs text-neutral-500">
               Upload an icon for any era the line has -- not all four are required.
-              Pick which one shows on the sidebar.
+              Pick which one shows on the sidebar. You can also paste an image
+              anywhere in this form; you'll choose which era it's for next.
             </p>
             <div className="mt-3 space-y-3">
               {ERA_ORDER.map((era) => {
@@ -294,35 +341,44 @@ export function LineFormDrawer({
                 <IconResetOverlay onReset={() => setIconUrl(undefined)} />
               )}
             </span>
-            <label className={fieldsLocked ? "" : "cursor-pointer"}>
-              <span
-                className={`block rounded-md border border-neutral-700 px-3 py-1.5 text-sm text-white ${
-                  fieldsLocked ? "opacity-40" : "hover:border-neutral-500"
-                }`}
-              >
-                Upload icon
-              </span>
-              <input
-                type="file"
-                accept="image/*"
-                disabled={fieldsLocked}
-                onChange={handleFileChange}
-                className="sr-only"
-              />
-            </label>
+            <div>
+              <label className={fieldsLocked ? "" : "cursor-pointer"}>
+                <span
+                  className={`block rounded-md border border-neutral-700 px-3 py-1.5 text-sm text-white ${
+                    fieldsLocked ? "opacity-40" : "hover:border-neutral-500"
+                  }`}
+                >
+                  Upload icon
+                </span>
+                <input
+                  type="file"
+                  accept="image/*"
+                  disabled={fieldsLocked}
+                  onChange={handleFileChange}
+                  className="sr-only"
+                />
+              </label>
+              {!fieldsLocked && (
+                <p className="mt-1 text-xs text-neutral-500">or paste from clipboard</p>
+              )}
+            </div>
           </div>
         )}
 
         <label className="mt-6 block text-sm font-medium text-neutral-300">
           Line title
           <input
+            ref={titleRef}
             type="text"
             value={name}
             onChange={(e) => setName(e.target.value)}
             placeholder="e.g. Green Arrow"
             disabled={fieldsLocked}
-            // Only when adding -- jumping focus into an already-populated
-            // title on Edit would be more disruptive than helpful.
+            // Adding focuses here outright; editing focuses the same field
+            // via titleRef's effect above (caret only, nothing selected) so
+            // the drawer is paste-ready on open. Locked (official line in
+            // Speculation Mode) it's disabled and unfocusable -- which
+            // matches handlePaste refusing to paste in that mode anyway.
             autoFocus={!isEditing}
             className="mt-1 w-full rounded-md border border-neutral-700 bg-neutral-900 px-3 py-2 text-sm text-white placeholder:text-neutral-600 focus:border-neutral-500 focus:outline-none disabled:opacity-40"
           />
@@ -531,6 +587,12 @@ export function LineFormDrawer({
     {pendingCrop && (
       <ImageCropModal
         imageSrc={pendingCrop.src}
+        eraOptions={
+          pendingCrop.target === "era"
+            ? ERA_ORDER.map((era) => ({ era, label: ERA_META[era].label }))
+            : undefined
+        }
+        initialEra={pendingCrop.target === "era" ? pendingCrop.era : undefined}
         onConfirm={handleCropConfirm}
         onCancel={() => setPendingCrop(null)}
       />

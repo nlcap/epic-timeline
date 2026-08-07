@@ -37,6 +37,14 @@ export const ERA_QUARTER_RANGE: Record<Era, { start: number; end: number }> = {
   "post-crisis": { start: eraBoundaryQuarter({ year: 1986, quarter: 4 }), end: Infinity },
 };
 
+/** Which shared DC era a given quarter falls into -- the ranges above are
+ * contiguous and cover -Infinity..Infinity between them, so this always
+ * finds a match. */
+export function eraForQuarterPoint(point: QuarterPoint): Era {
+  const idx = quarterIndex(point);
+  return ERA_ORDER.find((era) => idx >= ERA_QUARTER_RANGE[era].start && idx <= ERA_QUARTER_RANGE[era].end)!;
+}
+
 // Muted bar background per era -- approximated from the Figma reference,
 // refine with exact values later. Also doubles as each era's label text
 // color (see EraBar.tsx): the label itself sits on a #1E1E1E chip, not

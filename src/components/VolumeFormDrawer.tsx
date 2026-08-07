@@ -1,9 +1,9 @@
-import { useState, type ChangeEvent, type FormEvent } from "react";
+import { useEffect, useRef, useState, type ChangeEvent, type FormEvent } from "react";
 import type { Era, OwnershipStatus, Quarter, QuarterPoint, TimelineEntry } from "../types";
 import { OWNERSHIP_META, OWNERSHIP_ORDER } from "../lib/ownership";
-import { ERA_META, ERA_ORDER } from "../lib/era";
+import { eraForQuarterPoint, ERA_META, ERA_ORDER } from "../lib/era";
 import { quarterIndex, quarterPointFromIndex, yearsCoveredLabel } from "../lib/timeline";
-import { compressImageFile } from "../lib/imageCompression";
+import { compressImageFile, getPastedImageFile } from "../lib/imageCompression";
 import { useSlidePanel } from "../hooks/useSlidePanel";
 
 const QUARTERS: Quarter[] = [1, 2, 3, 4];
@@ -100,7 +100,13 @@ export function VolumeFormDrawer({
 
   const [coverUrl, setCoverUrl] = useState<string | undefined>(editingVolume?.coverUrl);
   const [title, setTitle] = useState(editingVolume?.title ?? "");
-  const [era, setEra] = useState<Era>(editingVolume?.era ?? ERA_ORDER[0]);
+  // Editing keeps the volume's existing era. Adding via a timeline cell's
+  // hover shortcut (defaultStart set) defaults to whichever era that
+  // quarter actually falls into, instead of always Golden Age -- e.g.
+  // clicking a Bronze Age cell now opens the form pre-set to Bronze Age.
+  const [era, setEra] = useState<Era>(
+    editingVolume?.era ?? (defaultStart ? eraForQuarterPoint(defaultStart) : ERA_ORDER[0])
+  );
   const [number, setNumber] = useState(editingVolume ? String(editingVolume.number) : "");
   const [issuesCollected, setIssuesCollected] = useState(editingVolume?.issuesCollected ?? "");
   const [startYear, setStartYear] = useState(
@@ -140,11 +146,50 @@ export function VolumeFormDrawer({
   const [error, setError] = useState<string | null>(null);
   const { visible, closeThen } = useSlidePanel();
 
+  // Focuses the title field when opening in edit mode, so Cmd+V works
+  // immediately instead of needing a click into the drawer first.
+  //
+  // It has to be a genuinely editable element: the browser only generates a
+  // `paste` event at all when focus is in an editable context (input,
+  // textarea, contenteditable). Focusing the form wrapper instead, even
+  // with tabIndex={-1} to make it focusable, produces no paste event for
+  // any listener to catch -- don't "simplify" this to that.
+  //
+  // Add mode is already covered by the title field's own autoFocus below.
+  const titleRef = useRef<HTMLInputElement>(null);
+  useEffect(() => {
+    if (isEditing) titleRef.current?.focus();
+  }, [isEditing]);
+
   const handleFileChange = async (e: ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (!file) return;
     setCoverUrl(await compressImageFile(file));
   };
+
+  // Listens on `document` rather than via onPaste on the form, because a
+  // paste event is delivered to whatever currently has focus -- and that
+  // isn't reliably inside this form. Notably, right after the drawer opens
+  // focus can still be on <body> (the element that was focused before,
+  // e.g. the detail panel's Edit button, is gone by then), and a paste
+  // targeting <body> never bubbles through the form, so a form-scoped
+  // handler simply never runs. Listening at the document catches it
+  // wherever it lands.
+  //
+  // Only active for volumes/speculations -- a gap has no cover to paste
+  // into. Pasting text (e.g. into the title field) passes straight through
+  // untouched, since getPastedImageFile returns null for it.
+  useEffect(() => {
+    if (entryKind !== "volume") return;
+    const onPaste = async (e: globalThis.ClipboardEvent) => {
+      const file = getPastedImageFile(e);
+      if (!file) return;
+      e.preventDefault();
+      setCoverUrl(await compressImageFile(file));
+    };
+    document.addEventListener("paste", onPaste);
+    return () => document.removeEventListener("paste", onPaste);
+  }, [entryKind]);
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
@@ -293,7 +338,7 @@ export function VolumeFormDrawer({
                   <ImageResetOverlay onReset={() => setCoverUrl(undefined)} />
                 </span>
                 <label className="mt-2 inline-block cursor-pointer text-xs text-neutral-400 hover:text-white">
-                  Replace cover image
+                  Replace cover image (or paste)
                   <input
                     type="file"
                     accept="image/*"
@@ -304,8 +349,9 @@ export function VolumeFormDrawer({
               </div>
             ) : (
               <label className="mt-6 block cursor-pointer">
-                <span className="flex h-40 w-full items-center justify-center rounded-md border border-dashed border-neutral-700 bg-neutral-900 text-sm text-neutral-500 hover:border-neutral-500">
-                  Upload cover image
+                <span className="flex h-40 w-full flex-col items-center justify-center gap-1 rounded-md border border-dashed border-neutral-700 bg-neutral-900 text-sm text-neutral-500 hover:border-neutral-500">
+                  <span>Upload cover image</span>
+                  <span className="text-xs text-neutral-600">or paste from clipboard</span>
                 </span>
                 <input
                   type="file"
@@ -319,12 +365,14 @@ export function VolumeFormDrawer({
             <label className="mt-4 block text-sm font-medium text-neutral-300">
               Volume title
               <input
+                ref={titleRef}
                 type="text"
                 value={title}
                 onChange={(e) => setTitle(e.target.value)}
                 placeholder="e.g. Learning Curve"
-                // Only when adding -- jumping focus into an already-populated
-                // title on Edit would be more disruptive than helpful.
+                // Adding focuses here outright; editing focuses the same
+                // field via titleRef's effect above (caret only, nothing
+                // selected) so the drawer is paste-ready on open.
                 autoFocus={!isEditing}
                 className="mt-1 w-full rounded-md border border-neutral-700 bg-neutral-900 px-3 py-2 text-sm text-white placeholder:text-neutral-600 focus:border-neutral-500 focus:outline-none"
               />

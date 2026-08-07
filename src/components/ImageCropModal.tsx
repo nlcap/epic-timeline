@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState, type PointerEvent } from "react";
 import { createPortal } from "react-dom";
+import type { Era } from "../types";
 
 const VIEWPORT_SIZE = 280;
 const OUTPUT_SIZE = 512;
@@ -24,13 +25,26 @@ const MAX_ZOOM_MULTIPLIER = 6;
  */
 export function ImageCropModal({
   imageSrc,
+  eraOptions,
+  initialEra,
   onConfirm,
   onCancel,
 }: {
   imageSrc: string;
-  onConfirm: (croppedDataUrl: string) => void;
+  /** DC Finest only: offers an era picker so a pasted image (which, unlike
+   * a specific era's "Upload"/"Replace" button, doesn't already say which
+   * era it's for) can be routed to the right one here instead of requiring
+   * a target to be chosen before pasting. Omit for the single-icon path. */
+  eraOptions?: { era: Era; label: string }[];
+  /** Pre-selects one of eraOptions -- the era whose button was clicked, for
+   * the click-to-upload path, or the first era missing an icon, for paste. */
+  initialEra?: Era;
+  onConfirm: (croppedDataUrl: string, era?: Era) => void;
   onCancel: () => void;
 }) {
+  const [selectedEra, setSelectedEra] = useState<Era | undefined>(
+    initialEra ?? eraOptions?.[0]?.era
+  );
   const imgRef = useRef<HTMLImageElement | null>(null);
   const [naturalSize, setNaturalSize] = useState<{ width: number; height: number } | null>(null);
   // scale = baseScale * zoom. baseScale is the "cover fit" scale computed
@@ -124,7 +138,7 @@ export function ImageCropModal({
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
     ctx.drawImage(img, cropX, cropY, cropSize, cropSize, 0, 0, OUTPUT_SIZE, OUTPUT_SIZE);
-    onConfirm(canvas.toDataURL("image/png"));
+    onConfirm(canvas.toDataURL("image/png"), selectedEra);
   };
 
   return createPortal(
@@ -134,6 +148,28 @@ export function ImageCropModal({
         <p className="mt-1 text-xs text-neutral-500">
           Drag to reposition, use the slider to zoom. The square is exactly what becomes the icon.
         </p>
+
+        {eraOptions && (
+          <div className="mt-4">
+            <p className="text-xs font-medium text-neutral-300">Which era?</p>
+            <div className="mt-1.5 flex gap-1.5">
+              {eraOptions.map(({ era, label }) => (
+                <button
+                  key={era}
+                  type="button"
+                  onClick={() => setSelectedEra(era)}
+                  className={`flex-1 rounded-md border px-2 py-1.5 text-xs font-medium transition-colors ${
+                    selectedEra === era
+                      ? "border-white bg-white text-neutral-950"
+                      : "border-neutral-700 text-neutral-400 hover:text-white"
+                  }`}
+                >
+                  {label}
+                </button>
+              ))}
+            </div>
+          </div>
+        )}
 
         <div
           className="relative mx-auto mt-4 touch-none select-none overflow-hidden rounded-md border border-neutral-700 bg-neutral-900"
