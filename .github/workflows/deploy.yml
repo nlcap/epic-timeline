@@ -22,7 +22,14 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      # Full history, not the default single-commit shallow clone -- the
+      # build reads each seed data file's last-commit date via `git log
+      # --follow` (see the collectionUpdatedAt plugin in vite.config.ts) to
+      # show "Last updated" in the Reset line data modal, which needs the
+      # real history to search.
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - uses: actions/setup-node@v4
         with:
           node-version: 20

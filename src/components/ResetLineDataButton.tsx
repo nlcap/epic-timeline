@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
 import { COLLECTIONS } from "../data/collections";
+import { COLLECTION_DATA_UPDATED_AT } from "../lib/collectionUpdatedAt";
 import { resetLineData, type TimelineScope } from "../lib/resetLineData";
 
 const TIMELINE_SCOPES: { id: TimelineScope; label: string }[] = [
@@ -10,10 +11,15 @@ const TIMELINE_SCOPES: { id: TimelineScope; label: string }[] = [
 
 function CheckRow({
   label,
+  subtitle,
   checked,
   onToggle,
 }: {
   label: string;
+  /** Collection rows only -- e.g. "Last updated: August 4, 2026", so a user
+   * considering a reset can see how stale the seed data they'd fall back to
+   * is before wiping their own edits. */
+  subtitle?: string;
   checked: boolean;
   onToggle: () => void;
 }) {
@@ -44,7 +50,12 @@ function CheckRow({
           </svg>
         )}
       </span>
-      {label}
+      <span className="flex flex-col">
+        {label}
+        {subtitle && (
+          <span className="text-xs italic text-neutral-500">{subtitle}</span>
+        )}
+      </span>
     </button>
   );
 }
@@ -160,6 +171,11 @@ export function ResetLineDataButton({ open, onClose }: { open: boolean; onClose:
                     <CheckRow
                       key={c.id}
                       label={c.name}
+                      subtitle={
+                        COLLECTION_DATA_UPDATED_AT[c.id]
+                          ? `Last updated: ${COLLECTION_DATA_UPDATED_AT[c.id]}`
+                          : undefined
+                      }
                       checked={selectedCollections.has(c.id)}
                       onToggle={() => toggleCollection(c.id)}
                     />
