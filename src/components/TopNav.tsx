@@ -26,7 +26,7 @@ function SearchBox({
         onChange={(e) => onChange(e.target.value)}
         placeholder="Filter lines..."
         aria-label="Filter lines"
-        className="h-9 w-full rounded-md border border-neutral-700 bg-neutral-900 px-3 text-sm text-white placeholder:text-neutral-600 focus:border-neutral-500 focus:outline-none"
+        className="h-9 w-full rounded-md border border-neutral-700 bg-transparent px-3 text-sm text-white placeholder:text-neutral-600 focus:border-neutral-500 focus:bg-neutral-900 focus:outline-none"
         style={{ paddingRight: value ? "1.75rem" : undefined }}
       />
       {value && (
