@@ -24,6 +24,7 @@ import { useExitingLines } from "./hooks/useExitingLines";
 import { useVisibleRowRange } from "./hooks/useVisibleRowRange";
 import { useAddVolumeCellHover } from "./hooks/useAddVolumeCellHover";
 import { hexToRgba, SPECULATION_ACCENT_HEX } from "./lib/color";
+import { safeSetItem } from "./lib/storage";
 import { useEraBarCollapseProgress } from "./hooks/useEraBarCollapseProgress";
 import {
   ADD_CELL_SCROLL_BUCKET_PX,
@@ -54,11 +55,30 @@ import {
 // added lines with no volumes yet) makes this the dominant cost.
 const EMPTY_ENTRIES: TimelineEntry[] = [];
 
+const ACTIVE_COLLECTION_STORAGE_KEY = "epic-timeline:active-collection";
+
+// Reads back whichever tab the user was last on, so a refresh keeps them
+// there instead of bouncing to the first tab. Falls back to COLLECTIONS[0]
+// whenever the stored id doesn't match a real collection -- unset,
+// corrupted, or (if a collection is ever renamed/removed) stale from an
+// older build.
+function loadStoredCollectionId(): string {
+  try {
+    const stored = localStorage.getItem(ACTIVE_COLLECTION_STORAGE_KEY);
+    if (stored && COLLECTIONS.some((c) => c.id === stored)) {
+      return stored;
+    }
+  } catch {
+    // Storage unavailable (e.g. private browsing) -- fall through to default.
+  }
+  return COLLECTIONS[0].id;
+}
+
 export default function App() {
   // First tab in the nav (COLLECTIONS[0], "Epic Collection") rather than a
   // second hardcoded id -- stays correct automatically if that order ever
   // changes instead of silently drifting out of sync with it.
-  const [activeCollectionId, setActiveCollectionId] = useState(COLLECTIONS[0].id);
+  const [activeCollectionId, setActiveCollectionId] = useState(loadStoredCollectionId);
   const [selectedVolumeId, setSelectedVolumeId] = useState<string | null>(null);
   const [scrollLeft, setScrollLeft] = useState(0);
   const [zoomLevel, setZoomLevel] = useState<ZoomLevel>(DEFAULT_ZOOM_LEVEL);
@@ -380,6 +400,7 @@ export default function App() {
         onSearchChange={setSearchQuery}
         onSelect={(id) => {
           setActiveCollectionId(id);
+          safeSetItem(ACTIVE_COLLECTION_STORAGE_KEY, id);
           setSelectedVolumeId(null);
           // Switching collections swaps in a completely different axis
           // range and line list -- carrying over the old tab's scroll
