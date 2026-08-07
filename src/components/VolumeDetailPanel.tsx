@@ -117,9 +117,18 @@ export function VolumeDetailPanel({
         <p className="mt-2 text-sm text-neutral-300">
           Collects {volume.issuesCollected}.
         </p>
-        <p className="mt-3 whitespace-pre-line text-sm leading-relaxed text-neutral-200">
-          {formattedDescription}
-        </p>
+        <div className="mt-3 text-sm leading-relaxed text-neutral-200">
+          {formattedDescription.split("\n").map((paragraph, i) => (
+            // Each Enter press in the editor's textarea is one paragraph
+            // (see the "Press Enter for a paragraph break" hint in
+            // VolumeFormDrawer) -- rendering them as separate <p>s instead
+            // of one whitespace-pre-line block lets each get its own
+            // bottom spacing rather than just the font's line-height gap.
+            <p key={i} className="pb-2 last:pb-0">
+              {paragraph}
+            </p>
+          ))}
+        </div>
 
         {!speculative && (
           <div className="relative mt-6">
