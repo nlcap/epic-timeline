@@ -1,8 +1,9 @@
 import { memo, useCallback, useEffect, useMemo, useRef, useState } from "react";
-import type { Gap, Line, QuarterPoint, TimelineEntry } from "../types";
+import type { Gap, Line, QuarterPoint, TimelineEntry, Volume } from "../types";
 import {
   ADD_CELL_ICON_SIZE_BY_ZOOM,
   ADD_CELL_SCROLL_BUCKET_PX,
+  addCellLeadingBlockedQuarters,
   assignLanes,
   lineHeight,
   quarterBeforeMonthPoint,
@@ -11,6 +12,7 @@ import {
   quartersBetween,
   resizeSpan,
   spanToPx,
+  stepperReservePx,
   type ZoomLevel,
 } from "../lib/timeline";
 import { useSidebarPillMetrics } from "../hooks/useSidebarPillMetrics";
@@ -23,6 +25,7 @@ import { GapSegment } from "./GapSegment";
 import { LineIcon } from "./LineIcon";
 import { PreDebutFiller } from "./PreDebutFiller";
 import { AddVolumeCell } from "./AddVolumeCell";
+import { VolumeStepper } from "./VolumeStepper";
 
 // Stable reference for out-of-viewport rows' empty quarter list -- a fresh
 // `[]` here would be a new array every render, defeating AddVolumeCellsLayer's
@@ -40,6 +43,7 @@ export function LineRow({
   onEditGap,
   scrollLeft,
   sidebarWidth,
+  sidebarColumnWidth,
   rowHeight,
   pillHeight,
   pillIconSize,
@@ -58,6 +62,8 @@ export function LineRow({
   exiting = false,
   skipEnterTransition = false,
   onResizeEntry,
+  onStepScroll,
+  stepScrolling,
 }: {
   line: Line;
   entries: TimelineEntry[];
@@ -67,7 +73,19 @@ export function LineRow({
   onEdit: (line: Line) => void;
   onEditGap: (gap: Gap) => void;
   scrollLeft: number;
+  /** Raw content-fit width (from useSidebarWidth) -- feeds
+   * useSidebarPillMetrics' own pillWidth-at-rest math. NOT the same as
+   * sidebarColumnWidth below; using that here would double-count the
+   * stepper reserve for the default (unscrolled) pill state. */
   sidebarWidth: number;
+  /** The sidebar column's actual allocated width -- sidebarWidth plus the
+   * volume stepper's reserve (see stepperReservePx in lib/timeline.ts), so
+   * the pill's own outer wrapping div, and everything downstream that needs
+   * to align with its right edge (VolumeStepper's scroll math), has enough
+   * room without the pill bleeding into the timeline grid. App.tsx computes
+   * this once and also feeds it to TimelineGrid/the axis header/AddLineButton,
+   * so all four stay in lockstep. */
+  sidebarColumnWidth: number;
   rowHeight: number;
   pillHeight: number;
   pillIconSize: number;
@@ -132,6 +150,23 @@ export function LineRow({
    * GapSegment.tsx -- both volumes and gaps resize the same way). Omit to
    * disable resizing entirely. */
   onResizeEntry?: (entry: TimelineEntry, start: QuarterPoint, end: QuarterPoint) => void;
+  /** Volume stepper (see VolumeStepper.tsx): called with the scroll
+   * container's target scrollLeft after a chevron click picks the next/
+   * previous volume -- LineRow itself has no ref to the actual scroll
+   * container (that lives in App.tsx), so it just reports the target back up. */
+  onStepScroll: (targetScrollLeft: number) => void;
+  /** True for the duration of a chevron-triggered smooth scroll (see
+   * handleStepScroll in App.tsx). Does two things: gates the pill's hover
+   * handlers below so the pinning transform's own frame-to-frame jitter
+   * during that animation can't sweep the icon under a stationary cursor
+   * and trigger a spurious expand/collapse, and (passed straight through as
+   * useSidebarPillMetrics' suppressHover) forces the pill to collapse-with-
+   * scroll normally for the animation's duration even if it was genuinely
+   * hovered/expanded at click time -- so stepping from an expanded tile
+   * (its default rest state, or hover-expanded while scrolled) shows it
+   * shrinking down on the way to the destination instead of staying puffed
+   * open the whole glide. */
+  stepScrolling: boolean;
 }) {
   // Collapsed width matches the icon exactly (not padded) -- the icon
   // already overflows the pill by a fixed 4px on the left via -ml-3 below,
@@ -142,7 +177,40 @@ export function LineRow({
     scrollLeft,
     sidebarWidth,
     pillIconSize,
-    pillRef
+    pillRef,
+    stepScrolling
+  );
+  // A chevron-triggered scroll ending clears `hovered` outright rather than
+  // letting it carry over from before the click. Without this, a stepper
+  // click made from an expanded tile (Change #14) leaves `hovered` frozen
+  // true (per Bug #11) for the animation's whole duration, and the outer
+  // sidebar cell's hoverable box below is a fixed sidebarColumnWidth
+  // regardless of the pill's current (possibly now-collapsed) visual size
+  // -- needed for grid/Add-Line alignment (Bug #6), but it means a cursor
+  // that's sitting anywhere in that box, including empty space the label/
+  // panel used to occupy before collapsing, still reads as "inside" and
+  // never fires a real leave. The moment stepScrolling clears, that stale
+  // `true` reasserts itself and re-expands the pill even though the cursor
+  // never got anywhere near its now-smaller, collapsed self -- reported by
+  // Nick as the icon puffing open while he was still moving toward it, not
+  // yet over it. Resetting unconditionally here means every landing starts
+  // from a clean slate and needs a genuine fresh hover (on the pill itself,
+  // or the panel's own independent CSS-hover reveal) to expand/reveal
+  // anything again, matching what he actually expects to happen.
+  const wasStepScrolling = useRef(stepScrolling);
+  useEffect(() => {
+    if (wasStepScrolling.current && !stepScrolling) {
+      setHovered(false);
+    }
+    wasStepScrolling.current = stepScrolling;
+  }, [stepScrolling, setHovered]);
+  // Volume stepper (see VolumeStepper.tsx): the volume-only subset of this
+  // line's entries, gaps excluded -- VolumeStepper derives its forward/
+  // backward targets fresh from this list plus the live scroll position on
+  // every render, not from any state kept here.
+  const volumesOnly = useMemo(
+    () => entries.filter((e): e is Volume => e.kind === "volume"),
+    [entries]
   );
   // Tile background fades out as the pill collapses to icon-only on scroll,
   // going fully transparent once collapsed -- hovering always shows the same
@@ -203,12 +271,65 @@ export function LineRow({
     >
       <div
         className="relative flex shrink-0 items-center"
-        style={{ width: sidebarWidth, height: lineHeight(rowHeight, line.swimLanes) }}
+        style={{ width: sidebarColumnWidth, height: lineHeight(rowHeight, line.swimLanes) }}
+        // onMouseLeave (only) lives here, not on the pill button below,
+        // because the stepper panel is a SIBLING of that button (has to be
+        // -- it can't be nested inside the button, or a chevron's mouseup
+        // would land on the button and fire its onClick), and once hovered,
+        // visually overlaps the button's own rendered box (Bug #6: the
+        // button deliberately renders wider than its content to give the
+        // panel a home inset within it). If leaving fired on the button
+        // itself, the cursor crossing from the button onto that overlapping
+        // panel -- painted on top, later in DOM order, same z-20 -- would
+        // intercept the pointer and fire the button's own onMouseLeave even
+        // though the cursor never left this div's box. That flipped
+        // `hovered` false, which shrinks pillWidth, which moves the panel
+        // (its own `left` isn't transitioned, so it jumps instantly) out
+        // from under the cursor, re-exposing the button and re-triggering
+        // hover -- a feedback loop Nick saw as a rapid flicker between
+        // expanded/collapsed and what looked like two overlapping steppers
+        // in a photo (motion blur across that oscillation, not two real
+        // instances). Leaving via this shared ancestor instead means moving
+        // from the button onto the panel never crosses OUT of the hovered
+        // subtree, so `hovered` -- and therefore pillWidth and the panel's
+        // position -- stays stable the whole time. Same fix shape as
+        // VolumeTile.tsx's resize handles, which document the identical
+        // class of bug; wasn't reachable here until Bug #6 widened this div
+        // to actually contain both children in every state.
+        //
+        // onMouseEnter, by contrast, stays on the button ITSELF below, not
+        // here -- deliberately asymmetric. While the pill is collapsed to
+        // icon-only, the panel sits OUTSIDE the button's box entirely (not
+        // overlapping -- that only starts once the pill has a label to
+        // inset next to), so this div's box is wider than the icon alone.
+        // An enter handler here would fire the instant the cursor reaches
+        // the panel's own hover area even before it ever touches the icon,
+        // expanding the pill from a hover that never touched it -- exactly
+        // what Nick reported after the fix above first shipped: hovering
+        // the collapsed-state stepper (which floats past the icon on its
+        // own, unhovered) was incorrectly puffing the icon out into a full
+        // label pill. Scoping enter to the button means only a genuine
+        // icon/label hover starts the expansion; leave stays on this wider
+        // div purely so an *already-expanded* pill doesn't collapse out
+        // from under a cursor crossing onto its own inset panel.
+        //
+        // Both handlers additionally no-op while stepScrolling -- see its
+        // doc comment in the props above. A chevron click's own smooth
+        // scroll can jitter the pinned icon under a cursor that never
+        // moved, and without this guard that reads as a real hover,
+        // expanding (or collapsing) the pill mid-animation for no reason
+        // the user's mouse actually did.
+        onMouseLeave={() => {
+          if (!stepScrolling) setHovered(false);
+        }}
       >
         <button
           ref={pillRef}
           type="button"
           onClick={() => onEdit(line)}
+          onMouseEnter={() => {
+            if (!stepScrolling) setHovered(true);
+          }}
           data-official-locked={locked ? "" : undefined}
           // No overflow set here on purpose -- `overflow-x-hidden` alone would
           // force overflow-y to compute as `auto` (an overflow spec quirk when
@@ -218,11 +339,26 @@ export function LineRow({
           // with its own non-visible overflow gets an automatic flex
           // min-width of 0, so it shrinks and ellipsizes without the parent
           // needing to clip anything.
-          className={`relative z-20 flex items-center rounded-lg px-2 text-left transition-[width,background-color,border-color,box-shadow] duration-150 ease-out ${
+          // shrink-0 -- the outer div is a fixed-width flex container, and
+          // this button's own requested width can now exceed it once the
+          // stepper reserve is added (pillWidth alone never could, it was
+          // always <= sidebarWidth). Without shrink-0 here, flexbox silently
+          // compresses the button back down to fit its parent regardless of
+          // the inline width style, defeating the reserve entirely -- the
+          // outer div's own overflow is unset (visible), so the wider button
+          // just overflows past it instead, same as everything else here.
+          className={`relative z-20 flex shrink-0 items-center rounded-lg px-2 text-left transition-[width,background-color,border-color,box-shadow] duration-150 ease-out ${
             speculative ? "border" : ""
           }`}
           style={{
-            width: pillWidth,
+            // Rendered a little wider than the pill's own label/icon content
+            // needs (see VolumeStepper.tsx's stepperReservePx) so the
+            // chevron stepper has a guaranteed home inset within the pill's
+            // own background, just past the label, instead of floating past
+            // it over empty space -- scaled by labelOpacity so the reserve
+            // collapses to zero once the pill is fully icon-only, matching
+            // the "no dead space past the collapsed icon" rule below.
+            width: pillWidth + stepperReservePx(zoomLevel) * labelOpacity,
             height: effectivePillHeight,
             // Gap collapses with the label instead of staying reserved --
             // otherwise the icon-only pill overflows its own width and gets
@@ -243,8 +379,6 @@ export function LineRow({
               : undefined,
             borderColor: speculative ? pillBorderColor : undefined,
           }}
-          onMouseEnter={() => setHovered(true)}
-          onMouseLeave={() => setHovered(false)}
         >
           <span
             // Sized to overflow the pill top/bottom (a constant 4px per side
@@ -306,6 +440,20 @@ export function LineRow({
             </span>
           )}
         </button>
+        <VolumeStepper
+          volumes={volumesOnly}
+          axisStart={axisStart}
+          pxPerQuarter={pxPerQuarter}
+          sidebarWidth={sidebarWidth}
+          sidebarColumnWidth={sidebarColumnWidth}
+          sidebarGap={sidebarGap}
+          pillWidth={pillWidth}
+          pillIconSize={pillIconSize}
+          labelOpacity={labelOpacity}
+          scrollLeft={scrollLeft}
+          zoomLevel={zoomLevel}
+          onStepScroll={onStepScroll}
+        />
       </div>
       <LineTimelineLane
         line={line}
@@ -480,6 +628,12 @@ const LineTimelineLane = memo(function LineTimelineLane({
     // a pixel-wide window would pack in far more cells at zoomed-out levels,
     // and a flat quarter count sized for zoomed-out coverage is wastefully
     // oversized at zoomed-in levels (see App.tsx for the measurement).
+    // centerQuarterIdx doubles as the lane's own leftmost-visible quarter:
+    // its local coordinate origin sits at full-page content-x
+    // sidebarColumnWidth + sidebarGap (same as VolumeStepper's contentXOf),
+    // a constant that cancels out of "which local-x is at the viewport's
+    // left edge" -- leaving just scrollLeft itself, approximated here via
+    // the already-coarsened scrollBucket.
     const centerQuarterIdx =
       axisStartIdx + Math.round((scrollBucket * ADD_CELL_SCROLL_BUCKET_PX) / pxPerQuarter);
     const windowStartIdx = Math.max(
@@ -490,6 +644,12 @@ const LineTimelineLane = memo(function LineTimelineLane({
       axisEndIdxExclusive,
       centerQuarterIdx + Math.ceil(addCellWindowQuarters / 2)
     );
+    // No add-cell for the leading edge of the visible lane -- see
+    // addCellLeadingBlockedQuarters in lib/timeline.ts for why (it sits
+    // directly under the pinned sidebar icon/stepper, prone to fat-finger
+    // clicks meant for the stepper instead) and why this is a px-based
+    // margin converted to quarters per zoom level, not a flat count.
+    const blockedEndIdxExclusive = centerQuarterIdx + addCellLeadingBlockedQuarters(pxPerQuarter);
 
     const occupied = entries.map((entry) => [
       quarterIndex(entry.start),
@@ -497,6 +657,7 @@ const LineTimelineLane = memo(function LineTimelineLane({
     ]);
     const indexes: number[] = [];
     for (let q = windowStartIdx; q < windowEndIdxExclusive; q++) {
+      if (q >= centerQuarterIdx && q < blockedEndIdxExclusive) continue;
       if (!occupied.some(([start, end]) => q >= start && q <= end)) {
         indexes.push(q);
       }

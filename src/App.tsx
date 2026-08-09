@@ -41,6 +41,7 @@ import {
   SIDEBAR_ICON_SIZE_BY_ZOOM,
   SIDEBAR_PILL_HEIGHT_BY_ZOOM,
   monthIndex,
+  stepperReservePx,
   yearsCoveredLabel,
   type ZoomLevel,
 } from "./lib/timeline";
@@ -81,6 +82,22 @@ export default function App() {
   const [activeCollectionId, setActiveCollectionId] = useState(loadStoredCollectionId);
   const [selectedVolumeId, setSelectedVolumeId] = useState<string | null>(null);
   const [scrollLeft, setScrollLeft] = useState(0);
+  // Volume stepper (see handleStepScroll below): true for the duration of a
+  // chevron-triggered smooth scroll. Every sidebar pill stays pinned during
+  // scroll via `transform: translateX(scrollLeft)`, recomputed from React
+  // state on each 'scroll' event rather than natively -- during a native
+  // smooth-scroll animation that recomputation can lag the browser's own
+  // paint by a frame, "bobbing" the pinned pill a few px around its intended
+  // position for the animation's duration. If the user's cursor is parked
+  // right at the icon/panel boundary (typical right after clicking a
+  // chevron, since the panel sits immediately past the icon), that bob is
+  // enough to sweep the icon under a cursor that never moved, firing a real
+  // browser mouseenter and puffing it open mid-scroll -- reported by Nick
+  // scrolling backward on the Joker line. Threading this down to gate
+  // LineRow's hover handlers freezes `hovered` at whatever it already was
+  // for the animation's duration, so a stationary cursor can't trigger a
+  // spurious expand/collapse from the pinning math's own jitter.
+  const [stepScrolling, setStepScrolling] = useState(false);
   const [zoomLevel, setZoomLevel] = useState<ZoomLevel>(DEFAULT_ZOOM_LEVEL);
   const [addLineOpen, setAddLineOpen] = useState(false);
   const [editingLine, setEditingLine] = useState<Line | null>(null);
@@ -198,6 +215,16 @@ export default function App() {
   }, [visibleLines, searchQuery]);
 
   const sidebarWidth = useSidebarWidth(searchFilteredLines);
+  // Volume stepper (see VolumeStepper.tsx): the sidebar column's actual
+  // allocated width -- wider than the pill's own content needs (sidebarWidth
+  // above) by stepperReservePx, so the stepper panel has guaranteed room
+  // without the (now-wider) line pills bleeding past this column's own
+  // boundary into the timeline grid. Everything that needs to stay visually
+  // aligned with the pills' right edge -- the grid lines, the sticky axis
+  // header, and the "Add Line" button -- uses this, not the raw sidebarWidth.
+  // LineRow still receives raw sidebarWidth too (for useSidebarPillMetrics'
+  // own pillWidth-at-rest math, which must NOT double-count the reserve).
+  const sidebarColumnWidth = sidebarWidth + stepperReservePx(zoomLevel);
   // Keeps a just-hidden line (e.g. a speculative one when the toggle turns
   // off) around a little longer, marked `exiting`, so LineRow can play its
   // fade-out instead of vanishing instantly -- see useExitingLines and the
@@ -310,6 +337,28 @@ export default function App() {
     },
     [speculativeVolumeIds, upsertSpeculativeVolume, upsertVolume]
   );
+  // Volume stepper (see VolumeStepper.tsx / LineRow.tsx): a chevron click
+  // picks the next/previous volume and reports back the scrollLeft that
+  // lands it a fixed one-quarter-width clear of the stepper panel -- this is
+  // the only thing that actually owns timelineScrollRef, so it's the one
+  // place that can drive it. Empty deps: only touches a ref, never stale.
+  const handleStepScroll = useCallback((targetScrollLeft: number) => {
+    const el = timelineScrollRef.current;
+    if (!el) return;
+    setStepScrolling(true);
+    // Whichever fires first (native scroll settling, or the fallback in
+    // case `scrollend` never fires -- e.g. the target was already the
+    // current position, so nothing actually scrolls) clears the other and
+    // resumes normal hover tracking.
+    const finish = () => {
+      window.clearTimeout(fallbackId);
+      el.removeEventListener("scrollend", finish);
+      setStepScrolling(false);
+    };
+    const fallbackId = window.setTimeout(finish, 1000);
+    el.addEventListener("scrollend", finish);
+    el.scrollTo({ left: targetScrollLeft, behavior: "smooth" });
+  }, []);
   // Coarsened scroll position for windowing the hover "add volume" cells
   // (see LineRow.tsx) -- a plain derived number, not its own state/memo, but
   // that's fine: since it only changes value once every
@@ -468,7 +517,7 @@ export default function App() {
               <div
                 style={{
                   width: axisWidth,
-                  marginLeft: sidebarWidth + sidebarGap,
+                  marginLeft: sidebarColumnWidth + sidebarGap,
                   transform: `translateX(${-scrollLeft}px)`,
                 }}
               >
@@ -505,7 +554,7 @@ export default function App() {
                 <TimelineGrid
                   startYear={axisStart}
                   endYear={axisEnd + 1}
-                  sidebarWidth={sidebarWidth}
+                  sidebarWidth={sidebarColumnWidth}
                   pxPerQuarter={pxPerQuarter}
                   sidebarGap={sidebarGap}
                 />
@@ -524,6 +573,7 @@ export default function App() {
                       onEditGap={setEditingEntry}
                       scrollLeft={scrollLeft}
                       sidebarWidth={sidebarWidth}
+                      sidebarColumnWidth={sidebarColumnWidth}
                       rowHeight={rowHeight}
                       pillHeight={pillHeight}
                       pillIconSize={pillIconSize}
@@ -537,6 +587,8 @@ export default function App() {
                       addCellWindowQuarters={addCellWindowQuartersValue}
                       onAddVolumeAt={handleAddVolumeAt}
                       onResizeEntry={handleResizeEntry}
+                      onStepScroll={handleStepScroll}
+                      stepScrolling={stepScrolling}
                       speculative={lineIsSpeculative}
                       locked={speculationMode && !lineIsSpeculative}
                       speculativeVolumeIds={speculativeVolumeIds}
@@ -556,7 +608,7 @@ export default function App() {
         <div className="fixed bottom-4 left-4 z-40">
           <AddLineButton
             scrollLeft={scrollLeft}
-            sidebarWidth={sidebarWidth}
+            sidebarWidth={sidebarColumnWidth}
             onClick={() => setAddLineOpen(true)}
             pillHeight={pillHeight}
             speculative={speculationMode}

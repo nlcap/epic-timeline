@@ -49,6 +49,41 @@ export const PX_PER_QUARTER_BY_ZOOM: Record<ZoomLevel, number> = { 1: 55, 2: 31,
 // Gap between the sidebar column and the timeline lanes -- same 0.75x/0.5x
 // compression as the rest of the zoom-scaled values above.
 export const SIDEBAR_GAP_BY_ZOOM: Record<ZoomLevel, number> = { 1: 24, 2: 18, 3: 12 };
+// Volume stepper (see VolumeStepper.tsx): gap between the pill's own current
+// trailing edge and the panel, and again between the panel and the pill's
+// true (reserved) right edge -- see stepperReservePx below.
+export const STEPPER_PANEL_GAP_PX = 4;
+// Each chevron button's own hit area -- larger than its 16px icon glyph on
+// purpose (3px of clickable padding per side instead of dead panel padding/
+// gap; started at 2px, widened another 1px per side per Nick's request).
+// Panel width/height is exactly two of these with zero gap between them.
+export const STEPPER_BUTTON_SIZE_PX = 22;
+// Two STEPPER_BUTTON_SIZE_PX buttons, stacked with zero gap either
+// direction -- vertical stack at zoom 1-2 keeps the single-button width;
+// horizontal at zoom 3 doubles it instead.
+export function panelFootprintPx(zoomLevel: ZoomLevel): number {
+  return zoomLevel === 3 ? STEPPER_BUTTON_SIZE_PX * 2 : STEPPER_BUTTON_SIZE_PX;
+}
+// How much wider LineRow should render the sidebar pill than its own label/
+// icon content needs, so the stepper panel has a guaranteed home inset
+// within the pill's own background (not floating past it over empty space)
+// without ever covering the label text -- gap, panel, gap. LineRow scales
+// this by labelOpacity so it collapses to zero once the pill is fully
+// icon-only, matching the existing "no dead space past the collapsed icon"
+// rule (see LineRow.tsx's own collapsed-width comment) rather than
+// reserving room for a panel that, in that state, sits directly after the
+// icon anyway.
+export function stepperReservePx(zoomLevel: ZoomLevel): number {
+  return STEPPER_PANEL_GAP_PX + panelFootprintPx(zoomLevel) + STEPPER_PANEL_GAP_PX;
+}
+// Volume stepper landing (see VolumeStepper.tsx): how far the pill's icon
+// is pulled in past the quarter gridline immediately before a stepped-to
+// volume, so it overlaps that line instead of stopping exactly on it (the
+// original one-full-quarter-of-clearance behavior). Per-zoom because Nick
+// is giving direction one level at a time -- only level 1 has a value so
+// far; 2 and 3 stay at 0 (i.e. unchanged, full-quarter clearance) until he
+// specifies theirs.
+export const STEPPER_ICON_OVERLAP_PX_BY_ZOOM: Record<ZoomLevel, number> = { 1: 12, 2: 0, 3: 0 };
 // The hover "add volume" circle shown over an empty quarter segment (see
 // AddVolumeCell.tsx) -- shrinks with the row so it never overflows the
 // shorter tile area at zoomed-out levels.
@@ -78,6 +113,38 @@ export const ADD_CELL_ICON_SIZE_BY_ZOOM: Record<ZoomLevel, number> = { 1: 24, 2:
 // recomputing frequently -- only a benefit to keeping the margin (and thus
 // the DOM) small.
 export const ADD_CELL_SCROLL_BUCKET_PX = 150;
+// No "add volume" hover cell renders within this many px of the timeline
+// lane's own leftmost-visible edge -- that edge sits directly under the
+// pinned sidebar icon/stepper (see LineRow.tsx), and Nick found himself
+// fat-fingering the add-volume "+" there when he meant to hit the stepper
+// chevrons instead. Deliberately a leading-edge exclusion of specific
+// quarter indexes, not a blocking overlay laid on top of the lane: an
+// overlay would have to sit above both the add-cell layer AND real volume/
+// gap tiles (they share the same DOM region), so it would just as happily
+// swallow clicks on a genuine tile that happens to start in that zone --
+// excluding quarter indexes up front only ever removes the add-cell
+// affordance itself, never a real tile's own.
+//
+// Expressed in px, not a flat quarter count, and deliberately set equal to
+// ADD_CELL_SCROLL_BUCKET_PX rather than some independent number: the
+// leading edge itself is only known approximately (derived from the same
+// scrollBucket-coarsened position the cell window already uses, to avoid
+// re-rendering LineTimelineLane on every scroll pixel -- see
+// [[epic-timeline-scroll-perf-fix]]), which can be off from the true
+// current position by up to half a bucket in either direction. A flat
+// quarter count picked to be safe at zoom 1 (55px/quarter) turned out to
+// still be short of that worst-case drift at zoom 2/3 (31px, 14px/quarter)
+// -- reported live by Nick as the "+" still appearing right next to a
+// collapsed icon. Matching this to ADD_CELL_SCROLL_BUCKET_PX guarantees the
+// blocked zone extends at least a full bucket-width past the approximated
+// edge, which by construction always reaches (and clears, with margin) the
+// true edge regardless of which direction the approximation drifted.
+export const ADD_CELL_LEADING_BLOCKED_PX = ADD_CELL_SCROLL_BUCKET_PX;
+// Quarters-to-block scales inversely with pxPerQuarter so the px guarantee
+// above holds at every zoom level, not just the one it was tuned against.
+export function addCellLeadingBlockedQuarters(pxPerQuarter: number): number {
+  return Math.ceil(ADD_CELL_LEADING_BLOCKED_PX / pxPerQuarter);
+}
 
 /**
  * How many quarters (centered on scroll position) get hover "add volume"

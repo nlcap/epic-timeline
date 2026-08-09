@@ -17,12 +17,28 @@ import { SIDEBAR_COLLAPSE_RANGE } from "../lib/timeline";
  * re-expand on hover to only as wide as its content needs (while scrolled);
  * omit it (e.g. the "Add Line" row) to keep the old behavior of always
  * re-expanding to the full sidebar column width.
+ *
+ * `suppressHover` (volume stepper, see LineRow.tsx) forces `pillWidth`/
+ * `labelOpacity` to compute as though NOT hovered -- letting the pill
+ * collapse-with-scroll normally -- without touching the real `hovered`
+ * state or its setter. Distinct from just calling `setHovered(false)`:
+ * LineRow needs `hovered` itself to stay frozen at whatever it was during a
+ * chevron-triggered scroll (see stepScrolling there, and Bug #11 in
+ * [[epic-timeline-volume-stepper]]) so a real mouseenter/leave firing mid-
+ * animation from the pinning transform's own jitter can't flip it and cause
+ * a flicker; this only overrides what that frozen value is allowed to *do*
+ * to layout while suppressed. The moment suppression lifts, `pillWidth`
+ * immediately reflects whatever `hovered` actually is again -- if the
+ * cursor is still genuinely over the pill/panel at that point (the common
+ * case, since a stepper click doesn't require the mouse to move), it
+ * re-expands right back out.
  */
 export function useSidebarPillMetrics(
   scrollLeft: number,
   sidebarWidth: number,
   collapsedWidth: number,
-  measureRef?: RefObject<HTMLElement | null>
+  measureRef?: RefObject<HTMLElement | null>,
+  suppressHover = false
 ) {
   const [hovered, setHovered] = useState(false);
   const [hoverWidth, setHoverWidth] = useState(sidebarWidth);
@@ -33,7 +49,10 @@ export function useSidebarPillMetrics(
   // -- all inside a layout effect, so it happens before the browser paints
   // and never flashes. Only bothers measuring while actually scrolled/
   // collapsed, since that's the only state this affects -- in the default
-  // view every pill already sits at the full sidebarWidth regardless.
+  // view every pill already sits at the full sidebarWidth regardless. Keyed
+  // off the real `hovered`, not suppression -- keeping the measurement
+  // fresh throughout a suppressed stretch is what makes the re-expand above
+  // instant instead of flashing an unmeasured width for one frame.
   useLayoutEffect(() => {
     if (!hovered || !measureRef?.current || collapseProgress === 0) return;
     const el = measureRef.current;
@@ -44,11 +63,12 @@ export function useSidebarPillMetrics(
     setHoverWidth(Math.min(natural, sidebarWidth));
   }, [hovered, collapseProgress, sidebarWidth, measureRef]);
 
+  const effectiveHovered = hovered && !suppressHover;
   const expandedWidth = measureRef && collapseProgress > 0 ? hoverWidth : sidebarWidth;
-  const pillWidth = hovered
+  const pillWidth = effectiveHovered
     ? expandedWidth
     : sidebarWidth - collapseProgress * (sidebarWidth - collapsedWidth);
-  const labelOpacity = hovered ? 1 : 1 - collapseProgress;
+  const labelOpacity = effectiveHovered ? 1 : 1 - collapseProgress;
 
   return { hovered, setHovered, pillWidth, labelOpacity, collapseProgress };
 }
