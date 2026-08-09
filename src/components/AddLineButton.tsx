@@ -1,3 +1,4 @@
+import { useRef } from "react";
 import { useSidebarPillMetrics } from "../hooks/useSidebarPillMetrics";
 
 /**
@@ -32,19 +33,24 @@ export function AddLineButton({
   // Collapsed width includes the button's px-2 padding on both sides (this
   // icon doesn't overflow the pill like LineRow's does, so it needs the
   // padding reserved rather than sitting flush against the edge).
-  const { setHovered, pillWidth, labelOpacity } = useSidebarPillMetrics(
-    scrollLeft,
-    sidebarWidth,
-    iconSize + 16
-  );
+  const pillRef = useRef<HTMLButtonElement>(null);
+  const { hovered, setHovered, pillWidth, labelOpacity, collapseProgress } =
+    useSidebarPillMetrics(scrollLeft, sidebarWidth, iconSize + 16, pillRef);
+  // Only the idle collapsed pill (icon-only, unhovered) goes fully round --
+  // hovering back open or sitting unscrolled keeps the rectangular pill
+  // shape, same as every other row.
+  const isCollapsed = !hovered && collapseProgress > 0;
 
   return (
     <button
+      ref={pillRef}
       type="button"
       onClick={onClick}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
-      className="flex items-center overflow-hidden rounded-md border border-dashed border-neutral-700/.1 bg-[#1E1E1E] px-2 text-neutral-400 shadow-lg transition-[width,color,border-color] duration-150 ease-out hover:border-neutral-500 hover:text-white"
+      className={`flex items-center overflow-hidden border border-dashed border-neutral-700/60 bg-[#1E1E1E]/60 px-2 text-neutral-400 shadow-lg backdrop-blur-[4px] transition-[width,color,border-color,border-radius,background-color] duration-150 ease-out hover:border-neutral-500 hover:bg-[#1E1E1E]/75 hover:text-white ${
+        isCollapsed ? "rounded-[999px]" : "rounded-md"
+      }`}
       style={{
         width: pillWidth,
         height: pillHeight,
