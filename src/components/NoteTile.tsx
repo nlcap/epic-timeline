@@ -1,18 +1,11 @@
-import { useEffect, useRef, useState, type MouseEvent } from "react";
-import { createPortal } from "react-dom";
 import type { Line, Note } from "../types";
 import { speculativeTextColor, speculativeTileBackground } from "../lib/color";
-import { AXIS_HEIGHT, quartersBetween, type ZoomLevel } from "../lib/timeline";
+import { quartersBetween, type ZoomLevel } from "../lib/timeline";
 import { ERA_META, lineIconUrl } from "../lib/era";
 import { LineIcon } from "./LineIcon";
-import { NAV_HEIGHT } from "./TopNav";
-import dragLeftIcon from "../assets/drag_left.svg";
-import dragRightIcon from "../assets/drag_right.svg";
-
-// See VolumeTile.tsx's identical constant -- same floating hover preview,
-// same clearance math.
-const PREVIEW_HEIGHT_ESTIMATE = 160;
-const PREVIEW_CLEARANCE = NAV_HEIGHT + AXIS_HEIGHT + PREVIEW_HEIGHT_ESTIMATE;
+import { TileResizeHandles } from "./TileResizeHandles";
+import { TilePreviewCard } from "./TilePreviewCard";
+import { useTilePreviewPosition } from "../hooks/useTilePreviewPosition";
 
 /**
  * Speculation Mode's "New Note" entry, in place of a volume. Modeled on
@@ -78,59 +71,15 @@ export function NoteTile({
   ) : null;
   const iconUrl = (note.era && line.eraIconUrls?.[note.era]) ?? lineIconUrl(line);
 
-  const buttonRef = useRef<HTMLButtonElement>(null);
-  const [hovered, setHovered] = useState(false);
-  const [flipBelow, setFlipBelow] = useState(false);
-  const [previewTop, setPreviewTop] = useState(0);
-  const [mouseX, setMouseX] = useState(0);
-
-  const updatePreviewPosition = () => {
-    const rect = buttonRef.current?.getBoundingClientRect();
-    if (!rect) return;
-    const shouldFlipBelow = rect.top < PREVIEW_CLEARANCE;
-    setFlipBelow(shouldFlipBelow);
-    setPreviewTop(shouldFlipBelow ? rect.bottom : rect.top);
-  };
-
-  const handleMouseEnter = (e: MouseEvent<HTMLDivElement>) => {
-    updatePreviewPosition();
-    setMouseX(e.clientX);
-    setHovered(true);
-  };
-
-  const handleMouseMove = (e: MouseEvent<HTMLDivElement>) => {
-    setMouseX(e.clientX);
-  };
-
-  // See VolumeTile.tsx's identical effect -- keeps the preview from ending
-  // up behind the sticky header if the tile scrolls close to it mid-hover.
-  useEffect(() => {
-    if (!hovered) return;
-    let rafId: number | null = null;
-    const handleScroll = () => {
-      if (rafId !== null) cancelAnimationFrame(rafId);
-      rafId = requestAnimationFrame(() => {
-        rafId = null;
-        updatePreviewPosition();
-      });
-    };
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    window.addEventListener("resize", handleScroll);
-    return () => {
-      if (rafId !== null) cancelAnimationFrame(rafId);
-      window.removeEventListener("scroll", handleScroll);
-      window.removeEventListener("resize", handleScroll);
-    };
-  }, [hovered]);
-
-  const canResize = !locked && !!onResizeStart;
+  const { buttonRef, hovered, flipBelow, previewTop, mouseX, handleMouseEnter, handleMouseMove, handleMouseLeave } =
+    useTilePreviewPosition();
 
   return (
     <div
       className="relative h-full w-full"
       onMouseEnter={handleMouseEnter}
       onMouseMove={handleMouseMove}
-      onMouseLeave={() => setHovered(false)}
+      onMouseLeave={handleMouseLeave}
     >
       <button
         ref={buttonRef}
@@ -173,62 +122,22 @@ export function NoteTile({
           </span>
         )}
       </button>
-      {canResize && hovered && (
-        <>
-          <div
-            className="absolute inset-y-0 left-1 z-10 flex w-3 cursor-ew-resize select-none items-center justify-center"
-            onMouseDown={(e) => {
-              e.preventDefault();
-              e.stopPropagation();
-              onResizeStart!("start", e.clientX);
-            }}
-          >
-            <img
-              src={dragLeftIcon}
-              alt=""
-              draggable={false}
-              className={`pointer-events-none w-auto select-none ${zoomLevel === 3 ? "h-2.5" : "h-4"}`}
-            />
-          </div>
-          <div
-            className="absolute inset-y-0 right-1 z-10 flex w-3 cursor-ew-resize select-none items-center justify-center"
-            onMouseDown={(e) => {
-              e.preventDefault();
-              e.stopPropagation();
-              onResizeStart!("end", e.clientX);
-            }}
-          >
-            <img
-              src={dragRightIcon}
-              alt=""
-              draggable={false}
-              className={`pointer-events-none w-auto select-none ${zoomLevel === 3 ? "h-2.5" : "h-4"}`}
-            />
-          </div>
-        </>
+      <TileResizeHandles
+        visible={hovered}
+        locked={locked}
+        zoomLevel={zoomLevel}
+        onResizeStart={onResizeStart}
+      />
+      {hovered && (
+        <TilePreviewCard
+          left={mouseX}
+          top={previewTop}
+          flipBelow={flipBelow}
+          coverUrl={note.coverUrl}
+          title={note.title}
+          subtitle={note.summary}
+        />
       )}
-      {hovered &&
-        createPortal(
-          <div
-            className="pointer-events-none fixed z-[60] flex w-72 items-start overflow-hidden rounded-md border border-neutral-700 bg-neutral-900 shadow-xl"
-            style={{
-              left: mouseX,
-              top: previewTop,
-              transform: flipBelow ? "translate(-50%, 8px)" : "translate(-50%, calc(-100% - 8px))",
-            }}
-          >
-            {note.coverUrl && (
-              <div className="shrink-0 p-2.5">
-                <img src={note.coverUrl} alt="" className="w-20" />
-              </div>
-            )}
-            <div className="min-w-0 flex-1 px-3 py-2.5">
-              <p className="text-xs font-semibold leading-snug text-white">{note.title}</p>
-              <p className="mt-0.5 text-[11px] leading-snug text-neutral-400">{note.summary}</p>
-            </div>
-          </div>,
-          document.body
-        )}
     </div>
   );
 }

@@ -2,8 +2,7 @@ import { useState } from "react";
 import type { Gap, Line } from "../types";
 import { hexToRgba } from "../lib/color";
 import type { ZoomLevel } from "../lib/timeline";
-import dragLeftIcon from "../assets/drag_left.svg";
-import dragRightIcon from "../assets/drag_right.svg";
+import { TileResizeHandles } from "./TileResizeHandles";
 
 /**
  * Two gap types, two treatments:
@@ -42,7 +41,6 @@ export function GapSegment({
   onResizeStart?: (edge: "start" | "end", clientX: number) => void;
 }) {
   const [hovered, setHovered] = useState(false);
-  const canResize = !locked && !!onResizeStart;
 
   const content =
     gap.gapType === "publication" ? (
@@ -76,40 +74,12 @@ export function GapSegment({
       onMouseLeave={() => setHovered(false)}
     >
       {content}
-      {canResize && hovered && (
-        <>
-          <div
-            className="absolute inset-y-0 left-1 z-10 flex w-3 cursor-ew-resize select-none items-center justify-center"
-            onMouseDown={(e) => {
-              e.preventDefault();
-              e.stopPropagation();
-              onResizeStart!("start", e.clientX);
-            }}
-          >
-            <img
-              src={dragLeftIcon}
-              alt=""
-              draggable={false}
-              className={`pointer-events-none w-auto select-none ${zoomLevel === 3 ? "h-2.5" : "h-4"}`}
-            />
-          </div>
-          <div
-            className="absolute inset-y-0 right-1 z-10 flex w-3 cursor-ew-resize select-none items-center justify-center"
-            onMouseDown={(e) => {
-              e.preventDefault();
-              e.stopPropagation();
-              onResizeStart!("end", e.clientX);
-            }}
-          >
-            <img
-              src={dragRightIcon}
-              alt=""
-              draggable={false}
-              className={`pointer-events-none w-auto select-none ${zoomLevel === 3 ? "h-2.5" : "h-4"}`}
-            />
-          </div>
-        </>
-      )}
+      <TileResizeHandles
+        visible={hovered}
+        locked={locked}
+        zoomLevel={zoomLevel}
+        onResizeStart={onResizeStart}
+      />
     </div>
   );
 }
