@@ -1,5 +1,5 @@
 import { memo, useCallback, useEffect, useMemo, useRef, useState } from "react";
-import type { Gap, Line, QuarterPoint, TimelineEntry, Volume } from "../types";
+import type { Gap, Line, Note, QuarterPoint, TimelineEntry, Volume } from "../types";
 import {
   ADD_CELL_ICON_SIZE_BY_ZOOM,
   ADD_CELL_SCROLL_BUCKET_PX,
@@ -22,6 +22,7 @@ import { speculativeTextColor } from "../lib/color";
 import { formatLineBreaks } from "../lib/text";
 import { VolumeTile } from "./VolumeTile";
 import { GapSegment } from "./GapSegment";
+import { NoteTile } from "./NoteTile";
 import { LineIcon } from "./LineIcon";
 import { PreDebutFiller } from "./PreDebutFiller";
 import { AddVolumeCell } from "./AddVolumeCell";
@@ -40,7 +41,7 @@ export function LineRow({
   focusedId,
   onSelect,
   onEdit,
-  onEditGap,
+  onEditEntry,
   scrollLeft,
   sidebarWidth,
   sidebarColumnWidth,
@@ -71,7 +72,10 @@ export function LineRow({
   focusedId: string | null;
   onSelect: (volumeId: string) => void;
   onEdit: (line: Line) => void;
-  onEditGap: (gap: Gap) => void;
+  /** Gaps and notes have no detail panel, so a click on either opens
+   * VolumeFormDrawer directly, pre-filled for editing (see App.tsx's
+   * setEditingEntry). */
+  onEditEntry: (entry: Gap | Note) => void;
   scrollLeft: number;
   /** Raw content-fit width (from useSidebarWidth) -- feeds
    * useSidebarPillMetrics' own pillWidth-at-rest math. NOT the same as
@@ -465,7 +469,7 @@ export function LineRow({
         rowHeight={rowHeight}
         focusedId={focusedId}
         onSelect={onSelect}
-        onEditGap={onEditGap}
+        onEditEntry={onEditEntry}
         onAddVolumeAt={onAddVolumeAt}
         locked={locked}
         speculativeVolumeIds={speculativeVolumeIds}
@@ -503,7 +507,7 @@ const LineTimelineLane = memo(function LineTimelineLane({
   rowHeight,
   focusedId,
   onSelect,
-  onEditGap,
+  onEditEntry,
   onAddVolumeAt,
   locked,
   speculativeVolumeIds,
@@ -521,7 +525,7 @@ const LineTimelineLane = memo(function LineTimelineLane({
   rowHeight: number;
   focusedId: string | null;
   onSelect: (volumeId: string) => void;
-  onEditGap: (gap: Gap) => void;
+  onEditEntry: (entry: Gap | Note) => void;
   onAddVolumeAt: (line: Line, start: QuarterPoint) => void;
   locked: boolean;
   speculativeVolumeIds?: Set<string>;
@@ -709,7 +713,7 @@ const LineTimelineLane = memo(function LineTimelineLane({
             zoomLevel={zoomLevel}
             focused={focusedId === entry.id}
             onSelect={onSelect}
-            onEditGap={onEditGap}
+            onEditEntry={onEditEntry}
             speculative={speculativeVolumeIds?.has(entry.id) ?? false}
             locked={entryLocked}
             onResizeStart={entryLocked || !onResizeEntry ? undefined : handleResizeStart}
@@ -751,7 +755,7 @@ const TimelineEntryTile = memo(function TimelineEntryTile({
   zoomLevel,
   focused,
   onSelect,
-  onEditGap,
+  onEditEntry,
   speculative,
   locked,
   onResizeStart,
@@ -771,7 +775,7 @@ const TimelineEntryTile = memo(function TimelineEntryTile({
   zoomLevel: ZoomLevel;
   focused: boolean;
   onSelect: (volumeId: string) => void;
-  onEditGap: (gap: Gap) => void;
+  onEditEntry: (entry: Gap | Note) => void;
   speculative: boolean;
   locked: boolean;
   onResizeStart?: (entryId: string, edge: "start" | "end", clientX: number) => void;
@@ -811,13 +815,24 @@ const TimelineEntryTile = memo(function TimelineEntryTile({
             onResizeStart ? (edge, clientX) => onResizeStart(entry.id, edge, clientX) : undefined
           }
         />
-      ) : (
+      ) : entry.kind === "gap" ? (
         <GapSegment
           gap={entry}
           line={line}
           zoomLevel={zoomLevel}
           locked={locked}
-          onClick={() => onEditGap(entry)}
+          onClick={() => onEditEntry(entry)}
+          onResizeStart={
+            onResizeStart ? (edge, clientX) => onResizeStart(entry.id, edge, clientX) : undefined
+          }
+        />
+      ) : (
+        <NoteTile
+          note={entry}
+          line={line}
+          zoomLevel={zoomLevel}
+          locked={locked}
+          onClick={() => onEditEntry(entry)}
           onResizeStart={
             onResizeStart ? (edge, clientX) => onResizeStart(entry.id, edge, clientX) : undefined
           }

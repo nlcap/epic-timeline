@@ -570,7 +570,7 @@ export default function App() {
                       focusedId={selectedVolumeId}
                       onSelect={setSelectedVolumeId}
                       onEdit={setEditingLine}
-                      onEditGap={setEditingEntry}
+                      onEditEntry={setEditingEntry}
                       scrollLeft={scrollLeft}
                       sidebarWidth={sidebarWidth}
                       sidebarColumnWidth={sidebarColumnWidth}

@@ -92,23 +92,37 @@ export function VolumeFormDrawer({
   const isEditing = !!editingEntry;
   const editingVolume = editingEntry?.kind === "volume" ? editingEntry : undefined;
   const editingGap = editingEntry?.kind === "gap" ? editingEntry : undefined;
+  const editingNote = editingEntry?.kind === "note" ? editingEntry : undefined;
 
-  // The New Volume / New Gap switch only matters when adding -- editing
-  // keeps whatever kind the entry already is.
-  const [entryKind, setEntryKind] = useState<"volume" | "gap">(editingEntry?.kind ?? "volume");
+  // The New Volume / New Gap / New Note switch only matters when adding --
+  // editing keeps whatever kind the entry already is.
+  const [entryKind, setEntryKind] = useState<"volume" | "gap" | "note">(
+    editingEntry?.kind ?? "volume"
+  );
   const [confirmingDelete, setConfirmingDelete] = useState(false);
 
-  const [coverUrl, setCoverUrl] = useState<string | undefined>(editingVolume?.coverUrl);
-  const [title, setTitle] = useState(editingVolume?.title ?? "");
-  // Editing keeps the volume's existing era. Adding via a timeline cell's
+  // Volume and Note share a cover/title/era-number field set (see the
+  // `entryKind !== "gap"` block below), so their initial state falls back to
+  // whichever of the two is being edited.
+  const [coverUrl, setCoverUrl] = useState<string | undefined>(
+    editingVolume?.coverUrl ?? editingNote?.coverUrl
+  );
+  const [title, setTitle] = useState(editingVolume?.title ?? editingNote?.title ?? "");
+  // Editing keeps the entry's existing era. Adding via a timeline cell's
   // hover shortcut (defaultStart set) defaults to whichever era that
   // quarter actually falls into, instead of always Golden Age -- e.g.
   // clicking a Bronze Age cell now opens the form pre-set to Bronze Age.
   const [era, setEra] = useState<Era>(
-    editingVolume?.era ?? (defaultStart ? eraForQuarterPoint(defaultStart) : ERA_ORDER[0])
+    editingVolume?.era ??
+      editingNote?.era ??
+      (defaultStart ? eraForQuarterPoint(defaultStart) : ERA_ORDER[0])
   );
-  const [number, setNumber] = useState(editingVolume ? String(editingVolume.number) : "");
-  const [issuesCollected, setIssuesCollected] = useState(editingVolume?.issuesCollected ?? "");
+  const [number, setNumber] = useState(
+    editingVolume ? String(editingVolume.number) : editingNote?.number ?? ""
+  );
+  const [issuesCollected, setIssuesCollected] = useState(
+    editingVolume?.issuesCollected ?? editingNote?.summary ?? ""
+  );
   const [startYear, setStartYear] = useState(
     editingEntry
       ? String(editingEntry.start.year)
@@ -135,7 +149,9 @@ export function VolumeFormDrawer({
     editingVolume?.ownershipStatus ?? "announced"
   );
   const [creators, setCreators] = useState(editingVolume?.creators ?? "");
-  const [description, setDescription] = useState(editingVolume?.description ?? "");
+  const [description, setDescription] = useState(
+    editingVolume?.description ?? editingNote?.notes ?? ""
+  );
   // undefined ("Auto") lets assignLanes place this volume automatically --
   // the default for every volume, including a freshly-opened form. Only an
   // explicit 1-N choice here is a deliberate pin (see assignLanes in
@@ -176,11 +192,11 @@ export function VolumeFormDrawer({
   // handler simply never runs. Listening at the document catches it
   // wherever it lands.
   //
-  // Only active for volumes/speculations -- a gap has no cover to paste
-  // into. Pasting text (e.g. into the title field) passes straight through
-  // untouched, since getPastedImageFile returns null for it.
+  // Active for volumes/speculations and notes -- a gap has no cover to
+  // paste into. Pasting text (e.g. into the title field) passes straight
+  // through untouched, since getPastedImageFile returns null for it.
   useEffect(() => {
-    if (entryKind !== "volume") return;
+    if (entryKind === "gap") return;
     const onPaste = async (e: globalThis.ClipboardEvent) => {
       const file = getPastedImageFile(e);
       if (!file) return;
@@ -230,6 +246,31 @@ export function VolumeFormDrawer({
       return;
     }
 
+    if (entryKind === "note") {
+      const trimmedNoteTitle = title.trim();
+      if (!trimmedNoteTitle) {
+        setError("Note title is required.");
+        return;
+      }
+      closeThen(() =>
+        onSave({
+          kind: "note",
+          id: editingEntry?.id ?? `${lineId}-note-${Date.now().toString(36)}`,
+          lineId,
+          title: trimmedNoteTitle,
+          era: supportsEra ? era : undefined,
+          // Unlike a volume's number, a note's number is optional.
+          number: number.trim(),
+          summary: issuesCollected.trim(),
+          start,
+          end,
+          notes: description.trim(),
+          coverUrl,
+        })
+      );
+      return;
+    }
+
     const trimmedTitle = title.trim();
     const trimmedNumber = number.trim();
 
@@ -269,7 +310,8 @@ export function VolumeFormDrawer({
     );
   };
 
-  const entryNoun = entryKind === "gap" ? "Gap" : speculative ? "Speculation" : "Volume";
+  const entryNoun =
+    entryKind === "gap" ? "Gap" : entryKind === "note" ? "Note" : speculative ? "Speculation" : "Volume";
 
   return (
     <div
@@ -317,19 +359,19 @@ export function VolumeFormDrawer({
             </button>
             <button
               type="button"
-              onClick={() => setEntryKind("gap")}
+              onClick={() => setEntryKind(speculative ? "note" : "gap")}
               className={`flex-1 rounded px-3 py-1.5 text-sm font-medium transition-colors ${
-                entryKind === "gap"
+                entryKind === "gap" || entryKind === "note"
                   ? "bg-white text-neutral-950"
                   : "text-neutral-400 hover:text-white"
               }`}
             >
-              New Gap
+              {speculative ? "New Note" : "New Gap"}
             </button>
           </div>
         )}
 
-        {entryKind === "volume" && (
+        {entryKind !== "gap" && (
           <>
             {coverUrl ? (
               <div className="mt-6">
@@ -363,7 +405,7 @@ export function VolumeFormDrawer({
             )}
 
             <label className="mt-4 block text-sm font-medium text-neutral-300">
-              Volume title
+              {entryKind === "note" ? "Note Title" : "Volume title"}
               <input
                 ref={titleRef}
                 type="text"
@@ -419,7 +461,7 @@ export function VolumeFormDrawer({
             )}
 
             <label className="mt-4 block text-sm font-medium text-neutral-300">
-              Issues collected
+              {entryKind === "note" ? "Note Summary" : "Issues collected"}
               <input
                 type="text"
                 value={issuesCollected}
@@ -566,33 +608,36 @@ export function VolumeFormDrawer({
                 className="mt-1 w-full rounded-md border border-neutral-700 bg-neutral-900 px-3 py-2 text-sm text-white placeholder:text-neutral-600 focus:border-neutral-500 focus:outline-none"
               />
             </label>
-
-            <label className="mt-4 block text-sm font-medium text-neutral-300">
-              Description
-              <p className="mt-0.5 text-xs font-normal text-neutral-500">
-                Press Enter for a paragraph break (or paste "&lt;br&gt;") --
-                both render as a line break in the detail panel.
-              </p>
-              <textarea
-                value={description}
-                onChange={(e) => setDescription(e.target.value)}
-                rows={4}
-                className="mt-1 w-full rounded-md border border-neutral-700 bg-neutral-900 px-3 py-2 text-sm text-white placeholder:text-neutral-600 focus:border-neutral-500 focus:outline-none"
-              />
-            </label>
           </>
+        )}
+
+        {entryKind !== "gap" && (
+          <label className="mt-4 block text-sm font-medium text-neutral-300">
+            {entryKind === "note" ? "Notes" : "Description"}
+            <p className="mt-0.5 text-xs font-normal text-neutral-500">
+              Press Enter for a paragraph break (or paste "&lt;br&gt;") --
+              both render as a line break in the detail panel.
+            </p>
+            <textarea
+              value={description}
+              onChange={(e) => setDescription(e.target.value)}
+              rows={4}
+              className="mt-1 w-full rounded-md border border-neutral-700 bg-neutral-900 px-3 py-2 text-sm text-white placeholder:text-neutral-600 focus:border-neutral-500 focus:outline-none"
+            />
+          </label>
         )}
 
         {error && <p className="mt-4 text-sm text-red-400">{error}</p>}
 
-        {/* Volumes are deleted from the volume detail panel; gaps have no
-         * separate detail view, so deletion lives here instead. */}
-        {isEditing && editingGap && onDelete && (
+        {/* Volumes are deleted from the volume detail panel; gaps and notes
+         * have no separate detail view, so deletion lives here instead. */}
+        {isEditing && (editingGap || editingNote) && onDelete && (
           <div className="mt-4">
             {confirmingDelete ? (
               <div className="rounded-md border border-red-900 bg-red-950/40 p-4">
                 <p className="text-sm text-red-200">
-                  Are you sure you want to delete this gap? This can't be undone.
+                  Are you sure you want to delete this {entryNoun.toLowerCase()}? This can't be
+                  undone.
                 </p>
                 <div className="mt-3 flex gap-3">
                   <button
@@ -604,7 +649,7 @@ export function VolumeFormDrawer({
                   </button>
                   <button
                     type="button"
-                    onClick={() => closeThen(() => onDelete(editingGap.id))}
+                    onClick={() => closeThen(() => onDelete((editingGap ?? editingNote)!.id))}
                     className="flex-1 rounded-md bg-red-600 px-4 py-2 text-sm font-semibold text-white hover:bg-red-500"
                   >
                     Yes, delete
@@ -617,7 +662,7 @@ export function VolumeFormDrawer({
                 onClick={() => setConfirmingDelete(true)}
                 className="w-full rounded-md border border-transparent px-4 py-2 text-sm font-medium text-red-400 hover:text-red-300"
               >
-                Delete Gap
+                Delete {entryNoun}
               </button>
             )}
           </div>

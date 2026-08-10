@@ -12,6 +12,9 @@
 //                  no comics existed then (a "publication" gap) or because comics
 //                  exist but haven't been collected into a volume yet (an
 //                  "uncollected" gap -- visual treatment for this is still TBD).
+//   Note        -> Speculation Mode only. A freeform annotation on a speculative
+//                  line's timeline, in place of a volume -- e.g. a rumor or a
+//                  placeholder for something not yet announced as a real volume.
 
 export type Quarter = 1 | 2 | 3 | 4;
 
@@ -160,4 +163,30 @@ export interface Gap {
   label?: string;
 }
 
-export type TimelineEntry = Volume | Gap;
+/**
+ * Speculation Mode only -- replaces "New Gap" as the second option when
+ * adding/editing an entry on a speculative line. Modeled on Volume's fields
+ * (see VolumeFormDrawer) but without ownership/creators/swim-lane-position,
+ * and `number` isn't required the way Volume's is.
+ */
+export interface Note {
+  kind: "note";
+  id: string;
+  lineId: string;
+  coverUrl?: string;
+  /** Form label: "Note Title". */
+  title: string;
+  /** DC Finest only -- see Volume.era. */
+  era?: Era;
+  /** Form label: "Number", paired with era same as Volume -- unlike
+   * Volume.number, may be left blank. */
+  number: string;
+  /** Form label: "Note Summary" (Volume's analogous field is issuesCollected). */
+  summary: string;
+  start: QuarterPoint;
+  end: QuarterPoint;
+  /** Form label: "Notes" (Volume's analogous field is description). */
+  notes: string;
+}
+
+export type TimelineEntry = Volume | Gap | Note;
