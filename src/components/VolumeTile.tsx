@@ -58,9 +58,14 @@ export function VolumeTile({
   onResizeStart?: (edge: "start" | "end", clientX: number) => void;
 }) {
   const owned = OWNED_STATUSES.has(volume.ownershipStatus);
+  // Speculative fill/border are dialed back to 60%/65% opacity (off the
+  // solid speculativeTileBackground mix and the line's raw color,
+  // respectively) so a speculative volume reads as less "certain" than an
+  // owned/real one.
   const background = speculative
-    ? speculativeTileBackground(line.colorHex)
+    ? `color-mix(in srgb, ${speculativeTileBackground(line.colorHex)} 60%, transparent)`
     : tileBackground(line.colorHex, owned, focused);
+  const speculativeBorderColor = `color-mix(in srgb, ${line.colorHex} 65%, transparent)`;
   const singleQuarter = quartersBetween(volume.start, volume.end) === 0;
   // Zoomed out, the tile has less and less room: level 2 drops the
   // issues-collected subtitle first (icon/badge stay, now visibly
@@ -211,7 +216,7 @@ export function VolumeTile({
           // ownership is still visible then via the tile's own higher fill
           // opacity (see TILE_OPACITY).
           borderColor: speculative
-            ? line.colorHex
+            ? speculativeBorderColor
             : focused
             ? line.colorHex
             : owned

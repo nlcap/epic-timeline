@@ -99,7 +99,7 @@ export async function recompressStoredCovers(
   const next: OverrideMap = { ...overrides };
 
   for (const [id, entry] of Object.entries(overrides)) {
-    if (entry === "deleted" || entry.kind !== "volume" || !entry.coverUrl) continue;
+    if (entry === "deleted" || entry.kind === "gap" || !entry.coverUrl) continue;
     if (entry.coverUrl.length <= RECOMPRESS_THRESHOLD_BYTES) continue;
 
     const compressed = await compressDataUrl(entry.coverUrl);
