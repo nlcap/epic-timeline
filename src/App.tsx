@@ -129,8 +129,13 @@ export default function App() {
     deleteVolume: deleteSpeculativeVolume,
     resolveEntries: resolveSpeculativeEntries,
   } = useSpeculativeVolumes();
+  // Only DC Finest has an era bar -- computed here (rather than down by
+  // `collection`/`data` below, closer to where it's otherwise used) so it's
+  // available to gate useEraBarCollapseProgress, which needs it before that
+  // point.
+  const isDcFinest = activeCollectionId === "dc-finest";
   const eraBarAnchorRef = useRef<HTMLDivElement>(null);
-  const eraBarCollapseProgress = useEraBarCollapseProgress(eraBarAnchorRef);
+  const eraBarCollapseProgress = useEraBarCollapseProgress(eraBarAnchorRef, isDcFinest);
 
   const handleTimelineScroll = (e: UIEvent<HTMLDivElement>) => {
     setScrollLeft(e.currentTarget.scrollLeft);
@@ -176,7 +181,6 @@ export default function App() {
 
   const collection = COLLECTIONS.find((c) => c.id === activeCollectionId)!;
   const data = COLLECTION_DATA[activeCollectionId];
-  const isDcFinest = activeCollectionId === "dc-finest";
 
   const lines = useMemo(
     () =>

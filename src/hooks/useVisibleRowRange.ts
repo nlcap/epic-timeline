@@ -17,10 +17,10 @@ const BUFFER_ROWS = 4;
  * LineRow.tsx / AddVolumeCellsLayer) for rows currently scrolled out of
  * view. Vertical scrolling here is the whole page (window scroll), not a
  * fixed-height inner container, so this tracks window.scrollY the same way
- * useEraBarCollapseProgress does -- but rAF-gated and only committing state
- * when the *row range* actually changes (not on every scroll pixel), since
- * unlike that hook's continuous float this only needs to change in whole-
- * row steps.
+ * useEraBarCollapseProgress does -- both rAF-gated, but this one additionally
+ * only commits state when the *row range* actually changes (not on every
+ * rAF tick), since unlike that hook's continuous float this only needs to
+ * change in whole-row steps.
  *
  * Callers must pass a `rowHeights` array that's stable (same reference)
  * across renders where the actual per-row heights haven't changed -- it's
