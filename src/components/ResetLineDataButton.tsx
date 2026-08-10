@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
-import { createPortal } from "react-dom";
 import { COLLECTIONS } from "../data/collections";
 import { COLLECTION_DATA_UPDATED_AT } from "../lib/collectionUpdatedAt";
 import { resetLineData, type TimelineScope } from "../lib/resetLineData";
+import { SettingsModal } from "./SettingsModal";
 
 const TIMELINE_SCOPES: { id: TimelineScope; label: string }[] = [
   { id: "main", label: "Main Timeline" },
@@ -118,109 +118,95 @@ export function ResetLineDataButton({ open, onClose }: { open: boolean; onClose:
     window.location.reload();
   };
 
-  return createPortal(
-    <div className="fixed inset-0 z-[70] overflow-y-auto bg-black/60 p-6" onClick={onClose}>
-      <div className="flex min-h-full items-center justify-center">
-        <div
-          className="flex w-full max-w-md flex-col rounded-md border border-neutral-700 bg-neutral-900 p-5 shadow-xl"
-          onClick={(e) => e.stopPropagation()}
-        >
-          <div className="flex items-center justify-between">
-            <h2 className="text-sm font-semibold text-white">Reset line data</h2>
+  return (
+    <SettingsModal
+      title="Reset line data"
+      onClose={onClose}
+      maxWidthClassName="max-w-md"
+      scrollable={false}
+    >
+      {confirming ? (
+        <div className="mt-4 rounded-md border border-red-900 bg-red-950/40 p-4">
+          <p className="text-sm text-red-200">
+            This will permanently reset {selectedCollectionNames.join(", ")} (
+            {scopeLabel}) to the default seed data, deleting any lines or volumes you've
+            added or edited there. This can't be undone.
+          </p>
+          <div className="mt-3 flex gap-3">
+            <button
+              type="button"
+              onClick={() => setConfirming(false)}
+              className="flex-1 rounded-md border border-neutral-700 px-4 py-2 text-sm font-medium text-neutral-300 hover:text-white"
+            >
+              Cancel
+            </button>
+            <button
+              type="button"
+              onClick={handleConfirmReset}
+              className="flex-1 rounded-md bg-red-600 px-4 py-2 text-sm font-semibold text-white hover:bg-red-500"
+            >
+              Yes, reset
+            </button>
+          </div>
+        </div>
+      ) : (
+        <>
+          <div className="mt-4">
+            <p className="mb-1.5 text-xs font-semibold uppercase tracking-wide text-neutral-500">
+              Collections
+            </p>
+            <div className="flex flex-col">
+              {COLLECTIONS.map((c) => (
+                <CheckRow
+                  key={c.id}
+                  label={c.name}
+                  subtitle={
+                    COLLECTION_DATA_UPDATED_AT[c.id]
+                      ? `Last updated: ${COLLECTION_DATA_UPDATED_AT[c.id]}`
+                      : undefined
+                  }
+                  checked={selectedCollections.has(c.id)}
+                  onToggle={() => toggleCollection(c.id)}
+                />
+              ))}
+            </div>
+          </div>
+
+          <div className="mt-4">
+            <p className="mb-1.5 text-xs font-semibold uppercase tracking-wide text-neutral-500">
+              Timeline
+            </p>
+            <div className="flex flex-col">
+              {TIMELINE_SCOPES.map((s) => (
+                <CheckRow
+                  key={s.id}
+                  label={s.label}
+                  checked={selectedScopes.has(s.id)}
+                  onToggle={() => toggleScope(s.id)}
+                />
+              ))}
+            </div>
+          </div>
+
+          <div className="mt-5 flex gap-3">
             <button
               type="button"
               onClick={onClose}
-              className="text-sm text-neutral-400 hover:text-white"
+              className="flex-1 rounded-md border border-neutral-700 px-4 py-2 text-sm font-medium text-neutral-300 hover:text-white"
             >
-              Close ✕
+              Cancel
+            </button>
+            <button
+              type="button"
+              disabled={!canReset}
+              onClick={() => setConfirming(true)}
+              className="flex-1 rounded-md border border-neutral-700 bg-neutral-100 px-4 py-2 text-sm font-medium text-neutral-900 transition-colors hover:enabled:bg-white disabled:cursor-not-allowed disabled:border-neutral-800 disabled:bg-neutral-800 disabled:text-neutral-600"
+            >
+              Reset data
             </button>
           </div>
-
-          {confirming ? (
-            <div className="mt-4 rounded-md border border-red-900 bg-red-950/40 p-4">
-              <p className="text-sm text-red-200">
-                This will permanently reset {selectedCollectionNames.join(", ")} (
-                {scopeLabel}) to the default seed data, deleting any lines or volumes you've
-                added or edited there. This can't be undone.
-              </p>
-              <div className="mt-3 flex gap-3">
-                <button
-                  type="button"
-                  onClick={() => setConfirming(false)}
-                  className="flex-1 rounded-md border border-neutral-700 px-4 py-2 text-sm font-medium text-neutral-300 hover:text-white"
-                >
-                  Cancel
-                </button>
-                <button
-                  type="button"
-                  onClick={handleConfirmReset}
-                  className="flex-1 rounded-md bg-red-600 px-4 py-2 text-sm font-semibold text-white hover:bg-red-500"
-                >
-                  Yes, reset
-                </button>
-              </div>
-            </div>
-          ) : (
-            <>
-              <div className="mt-4">
-                <p className="mb-1.5 text-xs font-semibold uppercase tracking-wide text-neutral-500">
-                  Collections
-                </p>
-                <div className="flex flex-col">
-                  {COLLECTIONS.map((c) => (
-                    <CheckRow
-                      key={c.id}
-                      label={c.name}
-                      subtitle={
-                        COLLECTION_DATA_UPDATED_AT[c.id]
-                          ? `Last updated: ${COLLECTION_DATA_UPDATED_AT[c.id]}`
-                          : undefined
-                      }
-                      checked={selectedCollections.has(c.id)}
-                      onToggle={() => toggleCollection(c.id)}
-                    />
-                  ))}
-                </div>
-              </div>
-
-              <div className="mt-4">
-                <p className="mb-1.5 text-xs font-semibold uppercase tracking-wide text-neutral-500">
-                  Timeline
-                </p>
-                <div className="flex flex-col">
-                  {TIMELINE_SCOPES.map((s) => (
-                    <CheckRow
-                      key={s.id}
-                      label={s.label}
-                      checked={selectedScopes.has(s.id)}
-                      onToggle={() => toggleScope(s.id)}
-                    />
-                  ))}
-                </div>
-              </div>
-
-              <div className="mt-5 flex gap-3">
-                <button
-                  type="button"
-                  onClick={onClose}
-                  className="flex-1 rounded-md border border-neutral-700 px-4 py-2 text-sm font-medium text-neutral-300 hover:text-white"
-                >
-                  Cancel
-                </button>
-                <button
-                  type="button"
-                  disabled={!canReset}
-                  onClick={() => setConfirming(true)}
-                  className="flex-1 rounded-md border border-neutral-700 bg-neutral-100 px-4 py-2 text-sm font-medium text-neutral-900 transition-colors hover:enabled:bg-white disabled:cursor-not-allowed disabled:border-neutral-800 disabled:bg-neutral-800 disabled:text-neutral-600"
-                >
-                  Reset data
-                </button>
-              </div>
-            </>
-          )}
-        </div>
-      </div>
-    </div>,
-    document.body
+        </>
+      )}
+    </SettingsModal>
   );
 }

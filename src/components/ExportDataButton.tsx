@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
-import { createPortal } from "react-dom";
 import { EXPORT_KEYS, stripIconsFromPayload } from "../lib/overrideKeys";
+import { SettingsModal } from "./SettingsModal";
 
 /**
  * Dumps every local-storage-backed correction and speculation-mode
@@ -66,55 +66,35 @@ export function ExportDataButton({ open, onClose }: { open: boolean; onClose: ()
 
   if (!open) return null;
 
-  return createPortal(
-    <div className="fixed inset-0 z-[70] overflow-y-auto bg-black/60 p-6" onClick={onClose}>
-      <div className="flex min-h-full items-center justify-center">
-        <div
-          className="flex max-h-[85vh] w-full max-w-xl flex-col rounded-md border border-neutral-700 bg-neutral-900 p-5 shadow-xl"
-          onClick={(e) => e.stopPropagation()}
+  return (
+    <SettingsModal title="Your corrections & speculation data (JSON)" onClose={onClose}>
+      <textarea
+        ref={textareaRef}
+        readOnly
+        value={json}
+        onFocus={(e) => e.currentTarget.select()}
+        className="mt-3 h-[40rem] min-h-0 w-full shrink resize-none rounded-md border border-neutral-700 bg-neutral-950 p-3 font-mono text-xs text-neutral-300"
+      />
+      <div className="mt-3 flex shrink-0 gap-2">
+        <button
+          type="button"
+          onClick={handleCopyClick}
+          className="flex-1 rounded-md border border-neutral-700 px-4 py-2 text-sm font-medium text-neutral-300 hover:text-white"
         >
-          <div className="flex shrink-0 items-center justify-between">
-            <h2 className="text-sm font-semibold text-white">
-              Your corrections &amp; speculation data (JSON)
-            </h2>
-            <button
-              type="button"
-              onClick={onClose}
-              className="text-sm text-neutral-400 hover:text-white"
-            >
-              Close ✕
-            </button>
-          </div>
-          <textarea
-            ref={textareaRef}
-            readOnly
-            value={json}
-            onFocus={(e) => e.currentTarget.select()}
-            className="mt-3 h-[40rem] min-h-0 w-full shrink resize-none rounded-md border border-neutral-700 bg-neutral-950 p-3 font-mono text-xs text-neutral-300"
-          />
-          <div className="mt-3 flex shrink-0 gap-2">
-            <button
-              type="button"
-              onClick={handleCopyClick}
-              className="flex-1 rounded-md border border-neutral-700 px-4 py-2 text-sm font-medium text-neutral-300 hover:text-white"
-            >
-              {copyState === "copied"
-                ? "Copied!"
-                : copyState === "failed"
-                ? "Copy failed"
-                : "Copy to clipboard"}
-            </button>
-            <button
-              type="button"
-              onClick={handleDownloadClick}
-              className="flex-1 rounded-md border border-neutral-700 px-4 py-2 text-sm font-medium text-neutral-300 hover:text-white"
-            >
-              Download JSON
-            </button>
-          </div>
-        </div>
+          {copyState === "copied"
+            ? "Copied!"
+            : copyState === "failed"
+            ? "Copy failed"
+            : "Copy to clipboard"}
+        </button>
+        <button
+          type="button"
+          onClick={handleDownloadClick}
+          className="flex-1 rounded-md border border-neutral-700 px-4 py-2 text-sm font-medium text-neutral-300 hover:text-white"
+        >
+          Download JSON
+        </button>
       </div>
-    </div>,
-    document.body
+    </SettingsModal>
   );
 }
