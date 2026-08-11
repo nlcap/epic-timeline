@@ -14,16 +14,61 @@ function formatQuarterPoint(p: QuarterPoint): string {
 
 /**
  * Hover-revealed reset control for an uploaded cover image -- darkened scrim
- * + trash icon over the image itself, click resets to the empty (no cover)
- * state. A sibling of the <img>, not a descendant of an upload-triggering
- * <label>, so clicking it doesn't also open the file picker. Mirrors
- * LineFormDrawer's IconResetOverlay.
+ * + trash icon over the image itself, click arms a "Remove this cover?"
+ * confirmation in the same spot rather than deleting immediately (auto-backs
+ * out after a few seconds if left alone, same forgiving default as the
+ * timed-out confirm in LineFormDrawer's IconResetOverlay). A sibling of the
+ * <img>, not a descendant of an upload-triggering <label>, so clicking it
+ * doesn't also open the file picker.
  */
 function ImageResetOverlay({ onReset }: { onReset: () => void }) {
+  const [confirming, setConfirming] = useState(false);
+  const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  useEffect(() => {
+    return () => {
+      if (timeoutRef.current) clearTimeout(timeoutRef.current);
+    };
+  }, []);
+
+  const arm = () => {
+    setConfirming(true);
+    timeoutRef.current = setTimeout(() => setConfirming(false), 4000);
+  };
+
+  const cancel = () => {
+    if (timeoutRef.current) clearTimeout(timeoutRef.current);
+    setConfirming(false);
+  };
+
+  if (confirming) {
+    return (
+      <div className="absolute inset-0 flex flex-col items-center justify-center gap-2 bg-black/80 p-3 text-center">
+        <p className="text-xs font-medium text-white">Remove this cover?</p>
+        <div className="flex gap-2">
+          <button
+            type="button"
+            onClick={cancel}
+            className="rounded border border-neutral-600 px-2.5 py-1 text-xs text-neutral-200 hover:text-white"
+          >
+            Cancel
+          </button>
+          <button
+            type="button"
+            onClick={onReset}
+            className="rounded bg-red-600 px-2.5 py-1 text-xs font-semibold text-white hover:bg-red-500"
+          >
+            Remove
+          </button>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <button
       type="button"
-      onClick={onReset}
+      onClick={arm}
       aria-label="Reset cover image"
       className="absolute inset-0 flex items-center justify-center bg-black/60 text-white opacity-0 transition-opacity focus-visible:opacity-100 group-hover:opacity-100"
     >

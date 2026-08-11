@@ -25,35 +25,78 @@ function slugify(name: string): string {
 /**
  * Hover-revealed reset control for an uploaded icon (used for both the
  * single-icon path and each per-era icon) -- darkened scrim + trash icon
- * over the icon itself, click resets to the default fallback. A sibling of
- * `LineIcon` inside its own `relative` wrapper (see call sites), not a
- * descendant of the upload `<label>`, so clicking it doesn't also open the
- * file picker.
+ * over the icon itself. The circle's too small (48-64px) for a text
+ * confirmation, so the first click arms it instead of resetting immediately:
+ * the scrim turns red and the icon swaps to a checkmark, and a second click
+ * within a few seconds is what actually resets to the default fallback.
+ * Left alone, it quietly disarms itself rather than staying a trap for a
+ * later, unrelated click. A sibling of `LineIcon` inside its own `relative`
+ * wrapper (see call sites), not a descendant of the upload `<label>`, so
+ * clicking it doesn't also open the file picker.
  */
 function IconResetOverlay({ onReset }: { onReset: () => void }) {
+  const [confirming, setConfirming] = useState(false);
+  const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  useEffect(() => {
+    return () => {
+      if (timeoutRef.current) clearTimeout(timeoutRef.current);
+    };
+  }, []);
+
+  const handleClick = () => {
+    if (confirming) {
+      if (timeoutRef.current) clearTimeout(timeoutRef.current);
+      setConfirming(false);
+      onReset();
+      return;
+    }
+    setConfirming(true);
+    timeoutRef.current = setTimeout(() => setConfirming(false), 3000);
+  };
+
   return (
     <button
       type="button"
-      onClick={onReset}
-      aria-label="Reset icon to default"
-      className="absolute inset-0 flex items-center justify-center bg-black/60 text-white opacity-0 transition-opacity focus-visible:opacity-100 group-hover:opacity-100"
+      onClick={handleClick}
+      aria-label={confirming ? "Click again to confirm removing this icon" : "Reset icon to default"}
+      className={`absolute inset-0 flex items-center justify-center text-white transition-opacity ${
+        confirming
+          ? "bg-red-900/90 opacity-100"
+          : "bg-black/60 opacity-0 focus-visible:opacity-100 group-hover:opacity-100"
+      }`}
     >
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth={1.75}
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        className="h-5 w-5"
-      >
-        <path d="M3 6h18" />
-        <path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" />
-        <path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6" />
-        <path d="M10 11v6" />
-        <path d="M14 11v6" />
-      </svg>
+      {confirming ? (
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth={2}
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          className="h-5 w-5"
+        >
+          <path d="M20 6 9 17l-5-5" />
+        </svg>
+      ) : (
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth={1.75}
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          className="h-5 w-5"
+        >
+          <path d="M3 6h18" />
+          <path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" />
+          <path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6" />
+          <path d="M10 11v6" />
+          <path d="M14 11v6" />
+        </svg>
+      )}
     </button>
   );
 }
