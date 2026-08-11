@@ -462,11 +462,11 @@ export function VolumeFormDrawer({
 
             <label className="mt-4 block text-sm font-medium text-neutral-300">
               {entryKind === "note" ? "Note Summary" : "Issues collected"}
-              <input
-                type="text"
+              <textarea
                 value={issuesCollected}
                 onChange={(e) => setIssuesCollected(e.target.value)}
                 placeholder="e.g. Ultimate Spider-Man (2000) #1-13"
+                rows={3}
                 className="mt-1 w-full rounded-md border border-neutral-700 bg-neutral-900 px-3 py-2 text-sm text-white placeholder:text-neutral-600 focus:border-neutral-500 focus:outline-none"
               />
             </label>
