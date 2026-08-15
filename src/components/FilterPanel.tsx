@@ -51,13 +51,56 @@ function FilterCheckboxRow({
   );
 }
 
+/** Same pill footprint (size/padding/shape) as TagInput's TagPill, so a
+ * filter chip and an edit-form tag chip read as the same kind of object --
+ * but toggleable rather than remove-only: inactive is an outline (border,
+ * no fill, "+" to activate); active is filled neutral-100 with "-" to
+ * deactivate. Both states keep an identical (1px, just transparent when
+ * filled) border so the chip doesn't change size when toggled. */
+function FilterTagChip({
+  label,
+  active,
+  onToggle,
+}: {
+  label: string;
+  active: boolean;
+  onToggle: () => void;
+}) {
+  return (
+    <button
+      type="button"
+      onClick={onToggle}
+      aria-pressed={active}
+      className={`flex items-center gap-1 rounded-full border py-0.5 pl-2 pr-1.5 text-xs font-medium ${
+        active
+          ? "border-transparent bg-neutral-100 text-neutral-900"
+          : "border-neutral-400 text-neutral-400 hover:border-neutral-300 hover:text-neutral-300"
+      }`}
+    >
+      {label}
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth={2}
+        strokeLinecap="round"
+        className="h-3 w-3"
+      >
+        {active ? <path d="M5 12h14" /> : <path d="M12 5v14M5 12h14" />}
+      </svg>
+    </button>
+  );
+}
+
 /**
- * Right-side slide-out panel for filtering the visible lines by per-volume
- * status facets -- shelving and reading status today, more later. A line
- * passes a facet if it has at least one volume matching one of that
- * facet's checked statuses (facets with nothing checked don't filter
- * anything); a line must pass every active facet (see the AND across
- * facets in App.tsx's statusFilteredLineIds).
+ * Right-side slide-out panel for filtering the visible lines -- shelving
+ * and reading status (per-volume facets) plus tags (a per-line facet).
+ * Shelving/reading: a line passes if it has at least one volume matching
+ * one of that facet's checked statuses. Tags: a line passes if its own
+ * Line.tags includes one of the checked tags. Facets with nothing checked
+ * don't filter anything; a line must pass every active facet (see the AND
+ * across facets in App.tsx's statusFilteredLineIds).
  *
  * Draft/apply, same as VolumeFormDrawer/LineFormDrawer: checking boxes here
  * only edits local state, seeded from the currently-applied filters on
@@ -68,12 +111,18 @@ function FilterCheckboxRow({
 export function FilterPanel({
   shelvingFilter,
   readingFilter,
+  tagFilter,
+  timelineTags,
   onApply,
   onClose,
 }: {
   shelvingFilter: ReadonlySet<OwnershipStatus>;
   readingFilter: ReadonlySet<ReadingStatus>;
-  onApply: (shelving: Set<OwnershipStatus>, reading: Set<ReadingStatus>) => void;
+  tagFilter: ReadonlySet<string>;
+  /** Every tag used anywhere on the current timeline (see App.tsx's
+   * timelineTags) -- the full set of chips this panel can offer. */
+  timelineTags: string[];
+  onApply: (shelving: Set<OwnershipStatus>, reading: Set<ReadingStatus>, tags: Set<string>) => void;
   onClose: () => void;
 }) {
   const { visible, closeThen } = useSlidePanel();
@@ -83,6 +132,7 @@ export function FilterPanel({
   const [draftReading, setDraftReading] = useState<Set<ReadingStatus>>(
     () => new Set(readingFilter)
   );
+  const [draftTags, setDraftTags] = useState<Set<string>>(() => new Set(tagFilter));
 
   const toggleShelving = (status: OwnershipStatus) => {
     setDraftShelving((prev) => {
@@ -100,8 +150,17 @@ export function FilterPanel({
       return next;
     });
   };
+  const toggleTag = (tag: string) => {
+    setDraftTags((prev) => {
+      const next = new Set(prev);
+      if (next.has(tag)) next.delete(tag);
+      else next.add(tag);
+      return next;
+    });
+  };
 
-  const hasDraftSelections = draftShelving.size > 0 || draftReading.size > 0;
+  const hasDraftSelections =
+    draftShelving.size > 0 || draftReading.size > 0 || draftTags.size > 0;
 
   return (
     <div
@@ -135,6 +194,7 @@ export function FilterPanel({
               onClick={() => {
                 setDraftShelving(new Set());
                 setDraftReading(new Set());
+                setDraftTags(new Set());
               }}
               className={`text-xs font-medium ${
                 hasDraftSelections
@@ -189,6 +249,24 @@ export function FilterPanel({
               })}
             </div>
           </div>
+
+          {timelineTags.length > 0 && (
+            <div className="mt-6">
+              <h3 className="text-xs font-semibold uppercase tracking-wide text-neutral-500">
+                Tags
+              </h3>
+              <div className="mt-2 flex flex-wrap gap-1.5">
+                {timelineTags.map((tag) => (
+                  <FilterTagChip
+                    key={tag}
+                    label={tag}
+                    active={draftTags.has(tag)}
+                    onToggle={() => toggleTag(tag)}
+                  />
+                ))}
+              </div>
+            </div>
+          )}
         </div>
 
         {/* Pinned footer, same split-from-scrolling-content pattern as
@@ -203,7 +281,7 @@ export function FilterPanel({
           </button>
           <button
             type="button"
-            onClick={() => closeThen(() => onApply(draftShelving, draftReading))}
+            onClick={() => closeThen(() => onApply(draftShelving, draftReading, draftTags))}
             className="flex-1 rounded-md bg-white px-4 py-2 text-sm font-semibold text-neutral-950 hover:bg-neutral-200"
           >
             Apply Filters

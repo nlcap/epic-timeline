@@ -4,6 +4,7 @@ import { earliestEraWithIcon, ERA_META, ERA_ORDER } from "../lib/era";
 import { getPastedImageFile, readFileAsDataUrl } from "../lib/imageCompression";
 import { LineIcon } from "./LineIcon";
 import { ImageCropModal } from "./ImageCropModal";
+import { TagInput } from "./TagInput";
 import { useSlidePanel } from "../hooks/useSlidePanel";
 
 const MONTHS = [
@@ -107,6 +108,7 @@ export function LineFormDrawer({
   editingLine,
   speculative = false,
   fieldsLocked = false,
+  allTags,
   onSave,
   onDelete,
   onAddVolume,
@@ -125,6 +127,9 @@ export function LineFormDrawer({
    * are disabled, but "Add Volume" stays live, since speculating a new
    * volume onto an existing official line is still allowed. */
   fieldsLocked?: boolean;
+  /** Every tag known anywhere in the app, for the Tags field's
+   * autocomplete -- see App.tsx's allTags. */
+  allTags: string[];
   onSave: (line: Line) => void;
   onDelete?: (lineId: string) => void;
   onAddVolume?: () => void;
@@ -153,6 +158,7 @@ export function LineFormDrawer({
   // Same Licensed-only gate as swimLanes -- only shown under the title when
   // a line actually has 2+ lanes (see LineRow.tsx), but stored regardless.
   const [description, setDescription] = useState(editingLine?.description ?? "");
+  const [tags, setTags] = useState<string[]>(editingLine?.tags ?? []);
   const [error, setError] = useState<string | null>(null);
   const [confirmingDelete, setConfirmingDelete] = useState(false);
   const { visible, closeThen } = useSlidePanel();
@@ -286,6 +292,7 @@ export function LineFormDrawer({
         debutDate: { year: yearNum, month: Number(month) },
         swimLanes: supportsSwimLanes && swimLanes !== 1 ? swimLanes : undefined,
         description: supportsSwimLanes && description.trim() ? description.trim() : undefined,
+        tags: tags.length > 0 ? tags : undefined,
       })
     );
   };
@@ -549,6 +556,10 @@ export function LineFormDrawer({
             />
           </div>
         </label>
+
+        <div className="mt-4">
+          <TagInput tags={tags} onChange={setTags} allTags={allTags} disabled={fieldsLocked} />
+        </div>
 
         {error && <p className="mt-4 text-sm text-red-400">{error}</p>}
 

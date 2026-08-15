@@ -150,8 +150,10 @@ export default function App() {
   // "no filter" convention as searchQuery's empty string.
   const [shelvingFilter, setShelvingFilter] = useState<Set<OwnershipStatus>>(new Set());
   const [readingFilter, setReadingFilter] = useState<Set<ReadingStatus>>(new Set());
+  const [tagFilter, setTagFilter] = useState<Set<string>>(new Set());
   const [filterPanelOpen, setFilterPanelOpen] = useState(false);
-  const filtersActive = shelvingFilter.size > 0 || readingFilter.size > 0;
+  const filtersActive =
+    shelvingFilter.size > 0 || readingFilter.size > 0 || tagFilter.size > 0;
   const { getStatus, setStatus } = useOwnership();
   const { getStatus: getReadingStatus, setStatus: setReadingStatus } = useReadingStatus();
   const { upsertLine, deleteLine, resolveLines } = useLineOverrides();
@@ -239,6 +241,25 @@ export default function App() {
     [speculativeLines]
   );
 
+  // Every tag used on any line, in any collection -- not scoped to
+  // activeCollectionId like `lines` above, since tags are a single global
+  // pool (see TagInput.tsx): a tag created on a DC line has to suggest
+  // itself when tagging a Marvel one too. Cheap to recompute -- both
+  // resolveLines calls are pure reads over already-loaded override state,
+  // no different from calling them once for the active collection.
+  const allTags = useMemo(() => {
+    const tags = new Set<string>();
+    for (const [collectionId, { lines: seedLines }] of Object.entries(COLLECTION_DATA)) {
+      for (const line of resolveLines(collectionId, seedLines)) {
+        for (const tag of line.tags ?? []) tags.add(tag);
+      }
+      for (const line of resolveSpeculativeLines(collectionId)) {
+        for (const tag of line.tags ?? []) tags.add(tag);
+      }
+    }
+    return [...tags].sort((a, b) => a.localeCompare(b));
+  }, [resolveLines, resolveSpeculativeLines]);
+
   // Official lines stay visible (read-only) while Speculation Mode is on --
   // speculative lines are additional entries merged in, not a replacement.
   const visibleLines = useMemo(() => {
@@ -247,6 +268,23 @@ export default function App() {
       (a, b) => monthIndex(a.debutDate) - monthIndex(b.debutDate)
     );
   }, [speculationMode, lines, speculativeLines]);
+
+  // Every tag used on a line in *this* timeline (the active collection,
+  // official + speculative) -- unlike LineFormDrawer's allTags (global,
+  // every collection), the filter panel only ever needs to offer tags
+  // that could actually match something currently on screen. Ordered by
+  // how many lines carry each tag, most-used first -- ties broken
+  // alphabetically so the order stays stable instead of depending on
+  // Map iteration/insertion order.
+  const timelineTags = useMemo(() => {
+    const counts = new Map<string, number>();
+    for (const line of visibleLines) {
+      for (const tag of line.tags ?? []) counts.set(tag, (counts.get(tag) ?? 0) + 1);
+    }
+    return [...counts.entries()]
+      .sort(([tagA, countA], [tagB, countB]) => countB - countA || tagA.localeCompare(tagB))
+      .map(([tag]) => tag);
+  }, [visibleLines]);
 
   const resolvedEntries = useMemo(() => {
     const lineIds = new Set(lines.map((l) => l.id));
@@ -261,23 +299,41 @@ export default function App() {
     );
   }, [data, resolveEntries, lines, getStatus, getReadingStatus]);
 
-  // Nav filter panel's two facets (see FilterPanel.tsx) -- a line passes
-  // only if it has at least one volume matching every active facet at
-  // once (see volumeMatchesStatusFilters). null means neither facet is
-  // active, i.e. don't restrict searchFilteredLines below at all.
+  // Nav filter panel's facets (see FilterPanel.tsx). Shelving/reading match
+  // at the volume level -- a line passes that pair if it has at least one
+  // volume matching every active one of them at once (see
+  // volumeMatchesStatusFilters). Tags live on the line itself, not a
+  // volume, so that facet is checked separately against Line.tags and
+  // intersected in afterward. null means no facet is active at all, i.e.
+  // don't restrict searchFilteredLines below.
   const statusFilteredLineIds = useMemo(() => {
-    if (shelvingFilter.size === 0 && readingFilter.size === 0) return null;
-    const matches = new Set<string>();
-    for (const entry of resolvedEntries) {
-      if (
-        entry.kind === "volume" &&
-        volumeMatchesStatusFilters(entry, shelvingFilter, readingFilter)
-      ) {
-        matches.add(entry.lineId);
+    const shelvingOrReadingActive = shelvingFilter.size > 0 || readingFilter.size > 0;
+    const tagsActive = tagFilter.size > 0;
+    if (!shelvingOrReadingActive && !tagsActive) return null;
+
+    const matchSets: Set<string>[] = [];
+    if (shelvingOrReadingActive) {
+      const volumeMatches = new Set<string>();
+      for (const entry of resolvedEntries) {
+        if (
+          entry.kind === "volume" &&
+          volumeMatchesStatusFilters(entry, shelvingFilter, readingFilter)
+        ) {
+          volumeMatches.add(entry.lineId);
+        }
       }
+      matchSets.push(volumeMatches);
     }
-    return matches;
-  }, [resolvedEntries, shelvingFilter, readingFilter]);
+    if (tagsActive) {
+      const tagMatches = new Set<string>();
+      for (const line of visibleLines) {
+        if (line.tags?.some((t) => tagFilter.has(t))) tagMatches.add(line.id);
+      }
+      matchSets.push(tagMatches);
+    }
+
+    return matchSets.reduce((acc, set) => new Set([...acc].filter((id) => set.has(id))));
+  }, [resolvedEntries, shelvingFilter, readingFilter, tagFilter, visibleLines]);
 
   // Search filters by line title; the filter panel's facets (above) narrow
   // it further by status. Either, both, or neither can be active at once.
@@ -558,11 +614,21 @@ export default function App() {
         onClearFilters={() => {
           setShelvingFilter(new Set());
           setReadingFilter(new Set());
+          setTagFilter(new Set());
         }}
         onSelect={(id) => {
           setActiveCollectionId(id);
           safeSetItem(ACTIVE_COLLECTION_STORAGE_KEY, id);
           setSelectedVolumeId(null);
+          // A text search or status filter scoped to the old tab's lines
+          // (e.g. "batman" on DC Finest) has nothing to do with the new
+          // tab's -- carrying it over would just silently hide every line
+          // there instead of the empty-search "show everything" state a
+          // freshly-opened tab should start in.
+          setSearchQuery("");
+          setShelvingFilter(new Set());
+          setReadingFilter(new Set());
+          setTagFilter(new Set());
           // Switching collections swaps in a completely different axis
           // range and line list -- carrying over the old tab's scroll
           // position doesn't map to anything meaningful on the new one.
@@ -781,9 +847,12 @@ export default function App() {
         <FilterPanel
           shelvingFilter={shelvingFilter}
           readingFilter={readingFilter}
-          onApply={(shelving, reading) => {
+          tagFilter={tagFilter}
+          timelineTags={timelineTags}
+          onApply={(shelving, reading, tags) => {
             setShelvingFilter(shelving);
             setReadingFilter(reading);
+            setTagFilter(tags);
             setFilterPanelOpen(false);
           }}
           onClose={() => setFilterPanelOpen(false)}
@@ -795,6 +864,7 @@ export default function App() {
           collectionId={activeCollectionId}
           supportsEra={activeCollectionId === "dc-finest"}
           editingLine={editingLine ?? undefined}
+          allTags={allTags}
           speculative={editingLine ? speculativeLineIdSet.has(editingLine.id) : speculationMode}
           fieldsLocked={!!(editingLine && speculationMode && !speculativeLineIdSet.has(editingLine.id))}
           onSave={(line) => {

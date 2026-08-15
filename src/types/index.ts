@@ -110,6 +110,13 @@ export interface Line {
    * same as swimLanes -- see LineFormDrawer's "Description" field.
    */
   description?: string;
+  /**
+   * Freeform labels set via the Add/Edit Line form's Tags field -- global
+   * across the whole app (not scoped to this line's collection), so a tag
+   * created here shows up as a suggestion when tagging any other line
+   * anywhere. See TagInput.tsx and App.tsx's allTags.
+   */
+  tags?: string[];
 }
 
 /**
