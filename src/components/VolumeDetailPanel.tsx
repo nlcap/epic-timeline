@@ -1,10 +1,12 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import type { OwnershipStatus, ReadingStatus, Volume } from "../types";
 import { OWNERSHIP_META, OWNERSHIP_ORDER } from "../lib/ownership";
 import { READING_STATUS_META, READING_STATUS_ORDER } from "../lib/readingStatus";
 import { volumeBadgeText } from "../lib/era";
 import { formatLineBreaks } from "../lib/text";
+import { isTypingTarget } from "../lib/keyboard";
 import { useSlidePanel } from "../hooks/useSlidePanel";
+import { useEscapeToClose } from "../hooks/useEscapeToClose";
 import { StatusDropdown } from "./StatusDropdown";
 
 export function VolumeDetailPanel({
@@ -34,6 +36,24 @@ export function VolumeDetailPanel({
   const meta = OWNERSHIP_META[status];
   const readingMeta = READING_STATUS_META[readingStatus];
   const { visible, closeThen } = useSlidePanel();
+
+  useEscapeToClose(closeThen, onClose);
+
+  // "e" opens Edit Volume, same as clicking the button -- only wired up
+  // when onEdit is actually provided (matching the button's own conditional
+  // rendering above), and skipped while a status dropdown or anything else
+  // in here might plausibly have focus in a way that makes "e" ambiguous.
+  useEffect(() => {
+    if (!onEdit) return;
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key !== "e" || e.metaKey || e.ctrlKey || e.altKey) return;
+      if (isTypingTarget(e.target)) return;
+      e.preventDefault();
+      closeThen(() => onEdit(volume));
+    };
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, [onEdit, volume, closeThen]);
 
   const formattedDescription = formatLineBreaks(volume.description);
 

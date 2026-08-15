@@ -1,8 +1,9 @@
-import { useState, type ReactNode } from "react";
+import { useEffect, useState, type ReactNode } from "react";
 import type { OwnershipStatus, ReadingStatus } from "../types";
 import { OWNERSHIP_META, OWNERSHIP_ORDER } from "../lib/ownership";
 import { READING_STATUS_META, READING_STATUS_ORDER } from "../lib/readingStatus";
 import { useSlidePanel } from "../hooks/useSlidePanel";
+import { useEscapeToClose } from "../hooks/useEscapeToClose";
 
 /** One checkbox row -- custom rather than a native <input type="checkbox">
  * to match the icon+label rows used everywhere else in the app (see
@@ -161,6 +162,23 @@ export function FilterPanel({
 
   const hasDraftSelections =
     draftShelving.size > 0 || draftReading.size > 0 || draftTags.size > 0;
+
+  useEscapeToClose(closeThen, onClose);
+
+  // Cmd/Ctrl+Enter applies the draft, same as clicking Apply Filters --
+  // not gated on a typing-target check like the app's bare-key shortcuts,
+  // since the modifier already makes this impossible to trigger by accident
+  // while just typing.
+  useEffect(() => {
+    const onKeyDown = (e: KeyboardEvent) => {
+      if ((e.metaKey || e.ctrlKey) && e.key === "Enter") {
+        e.preventDefault();
+        closeThen(() => onApply(draftShelving, draftReading, draftTags));
+      }
+    };
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, [closeThen, onApply, draftShelving, draftReading, draftTags]);
 
   return (
     <div

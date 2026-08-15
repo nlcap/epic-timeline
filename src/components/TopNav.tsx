@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, type RefObject } from "react";
 import type { Collection } from "../types";
 import epicTimelineLogo from "../assets/logo_epic_timeline.svg";
 import { ExportDataButton } from "./ExportDataButton";
@@ -56,6 +56,7 @@ function SearchBox({
   filtersActive,
   onOpenFilters,
   onClearFilters,
+  inputRef,
   className = "",
 }: {
   value: string;
@@ -66,6 +67,11 @@ function SearchBox({
    * onChange("") when the clear-X is clicked, so one click clears both a
    * text search and any active status filters. */
   onClearFilters: () => void;
+  /** Imperative focus target for the "/" global shortcut (see App.tsx) --
+   * optional since only one of this component's two call sites (the
+   * always-mounted desktop nav, not the mobile menu's copy) needs to be
+   * reachable that way. */
+  inputRef?: RefObject<HTMLInputElement>;
   className?: string;
 }) {
   // The clear-X used to only show once there was text to clear; now it
@@ -75,6 +81,7 @@ function SearchBox({
   return (
     <div className={`relative ${className}`}>
       <input
+        ref={inputRef}
         type="text"
         value={value}
         onChange={(e) => onChange(e.target.value)}
@@ -126,12 +133,14 @@ function SettingsMenu({
   onOpenImport,
   onOpenReset,
   onOpenStorageDebug,
+  onOpenShortcuts,
 }: {
   className?: string;
   onOpenExport: () => void;
   onOpenImport: () => void;
   onOpenReset: () => void;
   onOpenStorageDebug: () => void;
+  onOpenShortcuts: () => void;
 }) {
   const [menuOpen, setMenuOpen] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
@@ -227,6 +236,17 @@ function SettingsMenu({
           >
             Storage debug
           </button>
+          <button
+            type="button"
+            role="menuitem"
+            onClick={() => {
+              onOpenShortcuts();
+              setMenuOpen(false);
+            }}
+            className="block w-full px-3 py-2 text-left text-sm text-neutral-300 hover:bg-neutral-800 hover:text-white"
+          >
+            Keyboard shortcuts
+          </button>
         </div>
       )}
     </div>
@@ -242,6 +262,8 @@ export function TopNav({
   filtersActive,
   onOpenFilters,
   onClearFilters,
+  onOpenShortcuts,
+  searchInputRef,
 }: {
   collections: Collection[];
   activeId: string;
@@ -251,6 +273,10 @@ export function TopNav({
   filtersActive: boolean;
   onOpenFilters: () => void;
   onClearFilters: () => void;
+  onOpenShortcuts: () => void;
+  /** Forwarded to the desktop nav's SearchBox only -- see SearchBox's own
+   * inputRef prop. */
+  searchInputRef?: RefObject<HTMLInputElement>;
 }) {
   const [menuOpen, setMenuOpen] = useState(false);
   const [exportOpen, setExportOpen] = useState(false);
@@ -303,6 +329,7 @@ export function TopNav({
             filtersActive={filtersActive}
             onOpenFilters={onOpenFilters}
             onClearFilters={onClearFilters}
+            inputRef={searchInputRef}
             className="w-48"
           />
           <SettingsMenu
@@ -310,6 +337,7 @@ export function TopNav({
             onOpenImport={() => setImportOpen(true)}
             onOpenReset={() => setResetOpen(true)}
             onOpenStorageDebug={() => setStorageDebugOpen(true)}
+            onOpenShortcuts={onOpenShortcuts}
           />
         </div>
 
@@ -433,6 +461,16 @@ export function TopNav({
                 className="rounded-md px-3 py-2.5 text-left text-sm font-medium text-neutral-400 transition-colors hover:bg-neutral-900 hover:text-white"
               >
                 Storage debug
+              </button>
+              <button
+                type="button"
+                onClick={() => {
+                  onOpenShortcuts();
+                  setMenuOpen(false);
+                }}
+                className="rounded-md px-3 py-2.5 text-left text-sm font-medium text-neutral-400 transition-colors hover:bg-neutral-900 hover:text-white"
+              >
+                Keyboard shortcuts
               </button>
             </div>
           </div>

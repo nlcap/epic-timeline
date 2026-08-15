@@ -13,6 +13,7 @@ import { LineFormDrawer } from "./components/LineFormDrawer";
 import { VolumeFormDrawer } from "./components/VolumeFormDrawer";
 import { VolumeDetailPanel } from "./components/VolumeDetailPanel";
 import { FilterPanel } from "./components/FilterPanel";
+import { KeyboardShortcutsModal } from "./components/KeyboardShortcutsModal";
 import { ZoomControl } from "./components/ZoomControl";
 import { SpeculationModeToggle } from "./components/SpeculationModeToggle";
 import { useOwnership } from "./hooks/useOwnership";
@@ -25,6 +26,7 @@ import { useSpeculativeVolumes } from "./hooks/useSpeculativeVolumes";
 import { useExitingLines } from "./hooks/useExitingLines";
 import { useVisibleRowRange } from "./hooks/useVisibleRowRange";
 import { useAddVolumeCellHover } from "./hooks/useAddVolumeCellHover";
+import { useGlobalShortcuts } from "./hooks/useGlobalShortcuts";
 import { hexToRgba, SPECULATION_ACCENT_HEX } from "./lib/color";
 import { safeSetItem } from "./lib/storage";
 import { useEraBarCollapseProgress } from "./hooks/useEraBarCollapseProgress";
@@ -152,6 +154,14 @@ export default function App() {
   const [readingFilter, setReadingFilter] = useState<Set<ReadingStatus>>(new Set());
   const [tagFilter, setTagFilter] = useState<Set<string>>(new Set());
   const [filterPanelOpen, setFilterPanelOpen] = useState(false);
+  // Owned here (not locally in TopNav like Export/Import/Reset/Storage
+  // debug) because the "?" global shortcut needs to be able to open it too
+  // -- same reason filterPanelOpen lives here instead of in TopNav.
+  const [shortcutsOpen, setShortcutsOpen] = useState(false);
+  // Imperative focus target for the "/" shortcut -- TopNav forwards this to
+  // the desktop nav's search input specifically (not the mobile menu's
+  // copy, which only exists in the DOM while that menu is open).
+  const searchInputRef = useRef<HTMLInputElement>(null);
   const filtersActive =
     shelvingFilter.size > 0 || readingFilter.size > 0 || tagFilter.size > 0;
   const { getStatus, setStatus } = useOwnership();
@@ -217,6 +227,54 @@ export default function App() {
     setZoomLevel((l) => (l > MIN_ZOOM_LEVEL ? ((l - 1) as ZoomLevel) : l));
   const zoomOut = () =>
     setZoomLevel((l) => (l < MAX_ZOOM_LEVEL ? ((l + 1) as ZoomLevel) : l));
+
+  // Named (not inline in TopNav's onSelect prop) so the "1".."5" global
+  // shortcut can trigger the exact same switch a tab click does, instead of
+  // a second, easy-to-drift-out-of-sync copy of this logic.
+  const switchCollection = (id: string) => {
+    setActiveCollectionId(id);
+    safeSetItem(ACTIVE_COLLECTION_STORAGE_KEY, id);
+    setSelectedVolumeId(null);
+    // A text search or status filter scoped to the old tab's lines (e.g.
+    // "batman" on DC Finest) has nothing to do with the new tab's --
+    // carrying it over would just silently hide every line there instead
+    // of the empty-search "show everything" state a freshly-opened tab
+    // should start in.
+    setSearchQuery("");
+    setShelvingFilter(new Set());
+    setReadingFilter(new Set());
+    setTagFilter(new Set());
+    // Switching collections swaps in a completely different axis range and
+    // line list -- carrying over the old tab's scroll position doesn't map
+    // to anything meaningful on the new one. The browser silently clamps
+    // an out-of-range scrollLeft/scrollY to whatever's valid for the new
+    // (usually differently sized) content instead of erroring, so without
+    // this the new tab could land scrolled into the middle of its
+    // timeline, or past the end of a shorter line list, making lines look
+    // missing or mismatched with the visible years until the user scrolls
+    // manually. Resetting scrollLeft state alone isn't enough -- it's a
+    // separate mirror of the DOM's own scroll position (see
+    // handleTimelineScroll), not a controlling source of truth for it, so
+    // the actual scrollable element needs to be reset too.
+    setScrollLeft(0);
+    if (timelineScrollRef.current) {
+      timelineScrollRef.current.scrollLeft = 0;
+    }
+    window.scrollTo(0, 0);
+  };
+
+  // Named for the same reason as switchCollection -- the "s" global
+  // shortcut fires this exact function, not a second copy of it.
+  const toggleSpeculationMode = () => {
+    setSpeculationMode((on) => !on);
+    // Toggling off hides speculative content -- drop any selection/editing
+    // state that might be pointing at it so nothing dangles.
+    setSelectedVolumeId(null);
+    setEditingLine(null);
+    setAddVolumeForLineId(null);
+    setAddVolumeDefaultStart(null);
+    setEditingEntry(null);
+  };
 
   const collection = COLLECTIONS.find((c) => c.id === activeCollectionId)!;
   const data = COLLECTION_DATA[activeCollectionId];
@@ -584,6 +642,21 @@ export default function App() {
   // which Safari/WebKit can leave stuck on a cell that's no longer under
   // the pointer -- see useAddVolumeCellHover.ts.
   useAddVolumeCellHover();
+
+  useGlobalShortcuts({
+    onFocusSearch: () => searchInputRef.current?.focus(),
+    onOpenFilters: () => setFilterPanelOpen(true),
+    onAddLine: () => setAddLineOpen(true),
+    onSelectCollection: (oneBasedIndex) => {
+      const target = COLLECTIONS[oneBasedIndex - 1];
+      if (target) switchCollection(target.id);
+    },
+    onZoomIn: zoomIn,
+    onZoomOut: zoomOut,
+    onToggleSpeculationMode: toggleSpeculationMode,
+    onShowShortcuts: () => setShortcutsOpen(true),
+  });
+
   const eraBarHeight = isDcFinest
     ? ERA_BAR_HEIGHT - eraBarCollapseProgress * (ERA_BAR_HEIGHT - ERA_BAR_COLLAPSED_HEIGHT)
     : 0;
@@ -616,38 +689,9 @@ export default function App() {
           setReadingFilter(new Set());
           setTagFilter(new Set());
         }}
-        onSelect={(id) => {
-          setActiveCollectionId(id);
-          safeSetItem(ACTIVE_COLLECTION_STORAGE_KEY, id);
-          setSelectedVolumeId(null);
-          // A text search or status filter scoped to the old tab's lines
-          // (e.g. "batman" on DC Finest) has nothing to do with the new
-          // tab's -- carrying it over would just silently hide every line
-          // there instead of the empty-search "show everything" state a
-          // freshly-opened tab should start in.
-          setSearchQuery("");
-          setShelvingFilter(new Set());
-          setReadingFilter(new Set());
-          setTagFilter(new Set());
-          // Switching collections swaps in a completely different axis
-          // range and line list -- carrying over the old tab's scroll
-          // position doesn't map to anything meaningful on the new one.
-          // The browser silently clamps an out-of-range scrollLeft/scrollY
-          // to whatever's valid for the new (usually differently sized)
-          // content instead of erroring, so without this the new tab could
-          // land scrolled into the middle of its timeline, or past the end
-          // of a shorter line list, making lines look missing or
-          // mismatched with the visible years until the user scrolls
-          // manually. Resetting scrollLeft state alone isn't enough --
-          // it's a separate mirror of the DOM's own scroll position (see
-          // handleTimelineScroll), not a controlling source of truth for
-          // it, so the actual scrollable element needs to be reset too.
-          setScrollLeft(0);
-          if (timelineScrollRef.current) {
-            timelineScrollRef.current.scrollLeft = 0;
-          }
-          window.scrollTo(0, 0);
-        }}
+        onSelect={switchCollection}
+        onOpenShortcuts={() => setShortcutsOpen(true)}
+        searchInputRef={searchInputRef}
       />
       <div style={{ paddingTop: NAV_HEIGHT }}>
         <CollectionBanner collection={collection} />
@@ -795,19 +839,7 @@ export default function App() {
       )}
 
       <div className="fixed right-6 top-1/2 z-40 flex -translate-y-1/2 flex-col items-center gap-3">
-        <SpeculationModeToggle
-          enabled={speculationMode}
-          onToggle={() => {
-            setSpeculationMode((on) => !on);
-            // Toggling off hides speculative content -- drop any selection/
-            // editing state that might be pointing at it so nothing dangles.
-            setSelectedVolumeId(null);
-            setEditingLine(null);
-            setAddVolumeForLineId(null);
-            setAddVolumeDefaultStart(null);
-            setEditingEntry(null);
-          }}
-        />
+        <SpeculationModeToggle enabled={speculationMode} onToggle={toggleSpeculationMode} />
         <ZoomControl level={zoomLevel} onZoomIn={zoomIn} onZoomOut={zoomOut} />
       </div>
 
@@ -858,6 +890,8 @@ export default function App() {
           onClose={() => setFilterPanelOpen(false)}
         />
       )}
+
+      <KeyboardShortcutsModal open={shortcutsOpen} onClose={() => setShortcutsOpen(false)} />
 
       {(addLineOpen || editingLine) && (
         <LineFormDrawer

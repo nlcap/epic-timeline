@@ -6,6 +6,7 @@ import { LineIcon } from "./LineIcon";
 import { ImageCropModal } from "./ImageCropModal";
 import { TagInput } from "./TagInput";
 import { useSlidePanel } from "../hooks/useSlidePanel";
+import { useEscapeToClose } from "../hooks/useEscapeToClose";
 
 const MONTHS = [
   "January", "February", "March", "April", "May", "June",
@@ -190,6 +191,27 @@ export function LineFormDrawer({
     { src: string; target: "icon" } | { src: string; target: "era"; era?: Era } | null
   >(null);
 
+  const formRef = useRef<HTMLFormElement>(null);
+
+  // Suppressed while ImageCropModal is up top of this drawer -- otherwise
+  // Escape would skip past it and close the whole form (losing whatever's
+  // typed) instead of just cancelling the crop.
+  useEscapeToClose(closeThen, onClose, !pendingCrop);
+
+  // Cmd/Ctrl+Enter submits from anywhere in the form, same as clicking the
+  // Add/Update button -- requestSubmit (not calling handleSubmit directly)
+  // so it goes through the browser's normal submit path.
+  useEffect(() => {
+    const onKeyDown = (e: KeyboardEvent) => {
+      if ((e.metaKey || e.ctrlKey) && e.key === "Enter") {
+        e.preventDefault();
+        formRef.current?.requestSubmit();
+      }
+    };
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, []);
+
   const handleFileChange = async (e: ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     e.target.value = "";
@@ -306,6 +328,7 @@ export function LineFormDrawer({
       onClick={() => closeThen(onClose)}
     >
       <form
+        ref={formRef}
         onSubmit={handleSubmit}
         className={`flex h-full w-full max-w-sm flex-col overflow-y-auto border-l border-neutral-800 bg-[#252526]/50 p-6 backdrop-blur-sm transition-transform duration-200 ease-out ${
           visible ? "translate-x-0" : "translate-x-full"
