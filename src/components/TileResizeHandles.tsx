@@ -34,7 +34,12 @@ export function TileResizeHandles({
   // Level 3's tile is only ~16px tall (32px row - the 8px inset-y-2 top/
   // bottom) -- the level 1/2 h-4 (16px) icon left no headroom at all there,
   // so it's sized down to fit.
-  const iconClassName = `pointer-events-none w-auto select-none ${
+  //
+  // drop-shadow (not box-shadow) so the shadow traces the icon's two bars
+  // themselves -- it follows the rendered alpha shape of the img, not its
+  // square bounding box -- since tile fill colors are arbitrary and light
+  // fills would otherwise wash the light-gray bars out.
+  const iconClassName = `pointer-events-none w-auto select-none drop-shadow-[0_1px_1.5px_rgba(0,0,0,0.6)] ${
     zoomLevel === 3 ? "h-2.5" : "h-4"
   }`;
 
