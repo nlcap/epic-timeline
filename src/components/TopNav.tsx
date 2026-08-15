@@ -9,15 +9,69 @@ import { StorageDebugPanel } from "./StorageDebugPanel";
 const NAV_HEIGHT = 48;
 export { NAV_HEIGHT };
 
+/** Filter-slider icon, always visible at the search box's right edge --
+ * the small blue dot overlays it once any filter facet is applied (see
+ * App.tsx's filtersActive). Sits just right of the clear-X (when that's
+ * showing too), so both live inside the same box rather than as separate
+ * nav-bar buttons. */
+function FilterIconButton({ active, onClick }: { active: boolean; onClick: () => void }) {
+  return (
+    <button
+      type="button"
+      onClick={onClick}
+      aria-label="Filters"
+      aria-haspopup="dialog"
+      aria-pressed={active}
+      title="Filters"
+      className="absolute right-2 top-1/2 flex h-5 w-5 -translate-y-1/2 items-center justify-center text-neutral-500 hover:text-white"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth={1.75}
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        className="h-4 w-4"
+      >
+        <line x1="3" y1="6" x2="6" y2="6" />
+        <line x1="10" y1="6" x2="21" y2="6" />
+        <line x1="8" y1="3.5" x2="8" y2="8.5" />
+        <line x1="3" y1="12" x2="14" y2="12" />
+        <line x1="18" y1="12" x2="21" y2="12" />
+        <line x1="16" y1="9.5" x2="16" y2="14.5" />
+        <line x1="3" y1="18" x2="10" y2="18" />
+        <line x1="14" y1="18" x2="21" y2="18" />
+        <line x1="12" y1="15.5" x2="12" y2="20.5" />
+      </svg>
+      {active && <span className="absolute right-0 top-0 h-1.5 w-1.5 rounded-full bg-blue-500" />}
+    </button>
+  );
+}
+
 function SearchBox({
   value,
   onChange,
+  filtersActive,
+  onOpenFilters,
+  onClearFilters,
   className = "",
 }: {
   value: string;
   onChange: (value: string) => void;
+  filtersActive: boolean;
+  onOpenFilters: () => void;
+  /** Clears whatever filters are currently applied -- fired alongside
+   * onChange("") when the clear-X is clicked, so one click clears both a
+   * text search and any active status filters. */
+  onClearFilters: () => void;
   className?: string;
 }) {
+  // The clear-X used to only show once there was text to clear; now it
+  // also does double duty clearing filters, so it shows whenever there's
+  // either to clear -- the filter icon alone stays visible always.
+  const showClear = value.length > 0 || filtersActive;
   return (
     <div className={`relative ${className}`}>
       <input
@@ -27,14 +81,17 @@ function SearchBox({
         placeholder="Filter lines..."
         aria-label="Filter lines"
         className="h-9 w-full rounded-md border border-neutral-700 bg-transparent px-3 text-sm text-white placeholder:text-neutral-600 focus:border-neutral-500 focus:bg-neutral-900 focus:outline-none"
-        style={{ paddingRight: value ? "1.75rem" : undefined }}
+        style={{ paddingRight: showClear ? "3.25rem" : "1.75rem" }}
       />
-      {value && (
+      {showClear && (
         <button
           type="button"
-          onClick={() => onChange("")}
-          aria-label="Clear search"
-          className="absolute right-2 top-1/2 flex h-4 w-4 -translate-y-1/2 items-center justify-center text-neutral-500 hover:text-white"
+          onClick={() => {
+            onChange("");
+            if (filtersActive) onClearFilters();
+          }}
+          aria-label="Clear search and filters"
+          className="absolute right-8 top-1/2 flex h-4 w-4 -translate-y-1/2 items-center justify-center text-neutral-500 hover:text-white"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -49,6 +106,7 @@ function SearchBox({
           </svg>
         </button>
       )}
+      <FilterIconButton active={filtersActive} onClick={onOpenFilters} />
     </div>
   );
 }
@@ -181,12 +239,18 @@ export function TopNav({
   onSelect,
   searchQuery,
   onSearchChange,
+  filtersActive,
+  onOpenFilters,
+  onClearFilters,
 }: {
   collections: Collection[];
   activeId: string;
   onSelect: (id: string) => void;
   searchQuery: string;
   onSearchChange: (value: string) => void;
+  filtersActive: boolean;
+  onOpenFilters: () => void;
+  onClearFilters: () => void;
 }) {
   const [menuOpen, setMenuOpen] = useState(false);
   const [exportOpen, setExportOpen] = useState(false);
@@ -233,7 +297,14 @@ export function TopNav({
         </div>
 
         <div className="hidden shrink-0 items-center gap-3 md:flex">
-          <SearchBox value={searchQuery} onChange={onSearchChange} className="w-48" />
+          <SearchBox
+            value={searchQuery}
+            onChange={onSearchChange}
+            filtersActive={filtersActive}
+            onOpenFilters={onOpenFilters}
+            onClearFilters={onClearFilters}
+            className="w-48"
+          />
           <SettingsMenu
             onOpenExport={() => setExportOpen(true)}
             onOpenImport={() => setImportOpen(true)}
@@ -290,7 +361,14 @@ export function TopNav({
               </button>
             </div>
 
-            <SearchBox value={searchQuery} onChange={onSearchChange} className="mt-4" />
+            <SearchBox
+              value={searchQuery}
+              onChange={onSearchChange}
+              filtersActive={filtersActive}
+              onOpenFilters={onOpenFilters}
+              onClearFilters={onClearFilters}
+              className="mt-4"
+            />
 
             <div className="mt-6 flex flex-col gap-1">
               {collections.map((c) => {

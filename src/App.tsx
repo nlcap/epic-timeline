@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useMemo, useRef, useState, type UIEvent } from "react";
 import { COLLECTIONS } from "./data/collections";
 import { COLLECTION_DATA } from "./data/collectionData";
-import type { Line, QuarterPoint, TimelineEntry, Volume } from "./types";
+import type { Line, OwnershipStatus, QuarterPoint, ReadingStatus, TimelineEntry, Volume } from "./types";
 import { CollectionBanner } from "./components/CollectionBanner";
 import { TopNav, NAV_HEIGHT } from "./components/TopNav";
 import { TimelineAxis } from "./components/TimelineAxis";
@@ -12,6 +12,7 @@ import { AddLineButton } from "./components/AddLineButton";
 import { LineFormDrawer } from "./components/LineFormDrawer";
 import { VolumeFormDrawer } from "./components/VolumeFormDrawer";
 import { VolumeDetailPanel } from "./components/VolumeDetailPanel";
+import { FilterPanel } from "./components/FilterPanel";
 import { ZoomControl } from "./components/ZoomControl";
 import { SpeculationModeToggle } from "./components/SpeculationModeToggle";
 import { useOwnership } from "./hooks/useOwnership";
@@ -76,6 +77,33 @@ function loadStoredCollectionId(): string {
   return COLLECTIONS[0].id;
 }
 
+/**
+ * Whether a volume matches every currently-active filter-panel facet (see
+ * FilterPanel.tsx) -- an empty facet doesn't restrict anything, so a
+ * volume only needs to satisfy the facets that actually have a selection.
+ * Shared by statusFilteredLineIds (which decides whether a line has a
+ * matching volume at all) and entriesByLine (which decides which of that
+ * line's volume tiles actually render) so the two can't disagree about
+ * what counts as a match -- e.g. one volume Ordered-but-not-Finished and a
+ * different volume Finished-but-not-Ordered must NOT combine to make a
+ * line pass an "Ordered AND Finished" filter, since no single volume of
+ * it actually satisfies both.
+ */
+function volumeMatchesStatusFilters(
+  volume: Volume,
+  shelvingFilter: ReadonlySet<OwnershipStatus>,
+  readingFilter: ReadonlySet<ReadingStatus>
+): boolean {
+  if (shelvingFilter.size > 0 && !shelvingFilter.has(volume.ownershipStatus)) return false;
+  if (
+    readingFilter.size > 0 &&
+    !(volume.readingStatus !== undefined && readingFilter.has(volume.readingStatus))
+  ) {
+    return false;
+  }
+  return true;
+}
+
 export default function App() {
   // First tab in the nav (COLLECTIONS[0], "Epic Collection") rather than a
   // second hardcoded id -- stays correct automatically if that order ever
@@ -117,6 +145,13 @@ export default function App() {
   // Global -- nav search box; filters the displayed lines by title (see
   // searchFilteredLines below).
   const [searchQuery, setSearchQuery] = useState("");
+  // Nav filter panel (see FilterPanel.tsx) -- applied (committed) facet
+  // selections. Empty set means that facet doesn't restrict anything, same
+  // "no filter" convention as searchQuery's empty string.
+  const [shelvingFilter, setShelvingFilter] = useState<Set<OwnershipStatus>>(new Set());
+  const [readingFilter, setReadingFilter] = useState<Set<ReadingStatus>>(new Set());
+  const [filterPanelOpen, setFilterPanelOpen] = useState(false);
+  const filtersActive = shelvingFilter.size > 0 || readingFilter.size > 0;
   const { getStatus, setStatus } = useOwnership();
   const { getStatus: getReadingStatus, setStatus: setReadingStatus } = useReadingStatus();
   const { upsertLine, deleteLine, resolveLines } = useLineOverrides();
@@ -213,12 +248,50 @@ export default function App() {
     );
   }, [speculationMode, lines, speculativeLines]);
 
-  // Search filters by line title only.
+  const resolvedEntries = useMemo(() => {
+    const lineIds = new Set(lines.map((l) => l.id));
+    return resolveEntries(data?.entries ?? [], lineIds).map((entry): TimelineEntry =>
+      entry.kind === "volume"
+        ? {
+            ...entry,
+            ownershipStatus: getStatus(entry.id, entry.ownershipStatus),
+            readingStatus: getReadingStatus(entry.id),
+          }
+        : entry
+    );
+  }, [data, resolveEntries, lines, getStatus, getReadingStatus]);
+
+  // Nav filter panel's two facets (see FilterPanel.tsx) -- a line passes
+  // only if it has at least one volume matching every active facet at
+  // once (see volumeMatchesStatusFilters). null means neither facet is
+  // active, i.e. don't restrict searchFilteredLines below at all.
+  const statusFilteredLineIds = useMemo(() => {
+    if (shelvingFilter.size === 0 && readingFilter.size === 0) return null;
+    const matches = new Set<string>();
+    for (const entry of resolvedEntries) {
+      if (
+        entry.kind === "volume" &&
+        volumeMatchesStatusFilters(entry, shelvingFilter, readingFilter)
+      ) {
+        matches.add(entry.lineId);
+      }
+    }
+    return matches;
+  }, [resolvedEntries, shelvingFilter, readingFilter]);
+
+  // Search filters by line title; the filter panel's facets (above) narrow
+  // it further by status. Either, both, or neither can be active at once.
   const searchFilteredLines = useMemo(() => {
     const query = searchQuery.trim().toLowerCase();
-    if (query.length < 1) return visibleLines;
-    return visibleLines.filter((l) => l.name.toLowerCase().includes(query));
-  }, [visibleLines, searchQuery]);
+    let result = visibleLines;
+    if (query.length >= 1) {
+      result = result.filter((l) => l.name.toLowerCase().includes(query));
+    }
+    if (statusFilteredLineIds) {
+      result = result.filter((l) => statusFilteredLineIds.has(l.id));
+    }
+    return result;
+  }, [visibleLines, searchQuery, statusFilteredLineIds]);
 
   const sidebarWidth = useSidebarWidth(searchFilteredLines);
   // Volume stepper (see VolumeStepper.tsx): the sidebar column's actual
@@ -240,19 +313,6 @@ export default function App() {
     500,
     activeCollectionId
   );
-
-  const resolvedEntries = useMemo(() => {
-    const lineIds = new Set(lines.map((l) => l.id));
-    return resolveEntries(data?.entries ?? [], lineIds).map((entry): TimelineEntry =>
-      entry.kind === "volume"
-        ? {
-            ...entry,
-            ownershipStatus: getStatus(entry.id, entry.ownershipStatus),
-            readingStatus: getReadingStatus(entry.id),
-          }
-        : entry
-    );
-  }, [data, resolveEntries, lines, getStatus, getReadingStatus]);
 
   // Speculative volumes can be added to an official line too (speculating
   // about a future volume on an existing line, not just a brand-new one),
@@ -278,7 +338,23 @@ export default function App() {
     const combined = speculationMode
       ? [...resolvedEntries, ...speculativeResolvedEntries]
       : resolvedEntries;
+    const filtersActive = shelvingFilter.size > 0 || readingFilter.size > 0;
     for (const entry of combined) {
+      // Filter panel's facets (see statusFilteredLineIds above, which hides
+      // a line entirely once none of its volumes match) also hide individual
+      // non-matching volume tiles within a line that does still have a
+      // match -- same "clear it out" behavior as the text search, just at
+      // volume instead of line granularity. Gaps/notes and speculative
+      // volumes (which don't track either status -- see VolumeDetailPanel)
+      // always pass through untouched.
+      if (
+        filtersActive &&
+        entry.kind === "volume" &&
+        !speculativeVolumeIds.has(entry.id) &&
+        !volumeMatchesStatusFilters(entry, shelvingFilter, readingFilter)
+      ) {
+        continue;
+      }
       const list = map.get(entry.lineId) ?? [];
       list.push(entry);
       map.set(entry.lineId, list);
@@ -291,7 +367,14 @@ export default function App() {
       });
     }
     return map;
-  }, [resolvedEntries, speculativeResolvedEntries, speculationMode]);
+  }, [
+    resolvedEntries,
+    speculativeResolvedEntries,
+    speculationMode,
+    shelvingFilter,
+    readingFilter,
+    speculativeVolumeIds,
+  ]);
 
   // Scoped to searchFilteredLines (not every line in the collection) so a
   // nav search trims the axis down to just the matching lines' own
@@ -299,19 +382,31 @@ export default function App() {
   // line, so this reduces to the old full-collection range for free. Cuts
   // the leading/trailing horizontal scroll needed to reach a match instead
   // of leaving the axis spanning years nothing filtered-in touches.
+  //
+  // Pulled from entriesByLine (not resolvedEntries directly) so this
+  // automatically reflects that map's own per-volume status filtering too
+  // -- a still-visible line's non-matching volumes already don't render,
+  // and now don't stretch the axis out to cover them either. With a status
+  // facet active, gaps/notes are dropped from the range entirely (unlike a
+  // plain text search, which keeps a surviving line's full span, gaps
+  // included) -- the whole point of that filter is zooming to just where
+  // the matching volume(s) actually are, and a gap carries no status of
+  // its own to have matched in the first place.
   const { axisStart, axisEnd } = useMemo(() => {
-    const filteredLineIds = new Set(searchFilteredLines.map((l) => l.id));
-    const combined = speculationMode
-      ? [...resolvedEntries, ...speculativeResolvedEntries]
-      : resolvedEntries;
-    const relevant = combined.filter((e) => filteredLineIds.has(e.lineId));
+    let relevant: TimelineEntry[] = [];
+    for (const line of searchFilteredLines) {
+      relevant.push(...(entriesByLine.get(line.id) ?? []));
+    }
+    if (shelvingFilter.size > 0 || readingFilter.size > 0) {
+      relevant = relevant.filter((e) => e.kind === "volume");
+    }
     if (relevant.length === 0) {
       const thisYear = new Date().getFullYear();
       return { axisStart: thisYear, axisEnd: thisYear + 1 };
     }
     const years = relevant.flatMap((e) => [e.start.year, e.end.year]);
     return { axisStart: Math.min(...years), axisEnd: Math.max(...years) };
-  }, [resolvedEntries, speculativeResolvedEntries, speculationMode, searchFilteredLines]);
+  }, [searchFilteredLines, entriesByLine, shelvingFilter, readingFilter]);
 
   // Stable object/function references for LineRow's memoized timeline lane
   // (see LineRow.tsx) -- an inline `{ year: axisStart, quarter: 1 }` literal
@@ -458,6 +553,12 @@ export default function App() {
         activeId={activeCollectionId}
         searchQuery={searchQuery}
         onSearchChange={setSearchQuery}
+        filtersActive={filtersActive}
+        onOpenFilters={() => setFilterPanelOpen(true)}
+        onClearFilters={() => {
+          setShelvingFilter(new Set());
+          setReadingFilter(new Set());
+        }}
         onSelect={(id) => {
           setActiveCollectionId(id);
           safeSetItem(ACTIVE_COLLECTION_STORAGE_KEY, id);
@@ -673,6 +774,19 @@ export default function App() {
                 }
           }
           onClose={() => setSelectedVolumeId(null)}
+        />
+      )}
+
+      {filterPanelOpen && (
+        <FilterPanel
+          shelvingFilter={shelvingFilter}
+          readingFilter={readingFilter}
+          onApply={(shelving, reading) => {
+            setShelvingFilter(shelving);
+            setReadingFilter(reading);
+            setFilterPanelOpen(false);
+          }}
+          onClose={() => setFilterPanelOpen(false)}
         />
       )}
 
