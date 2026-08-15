@@ -142,7 +142,7 @@ export const ULTIMATE_ENTRIES: TimelineEntry[] = [
     id: "uxm-3",
     lineId: "ultimate-x-men",
     number: "3",
-    title: "World Tour",
+    title: "Return of the King",
     start: { year: 2002, quarter: 4 },
     end: { year: 2003, quarter: 2 },
     issuesCollected: "Ultimate X-Men #26-33, Ultimate War",
