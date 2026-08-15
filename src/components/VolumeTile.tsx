@@ -9,6 +9,7 @@ import {
 import { quartersBetween, type ZoomLevel } from "../lib/timeline";
 import { volumeBadgeText, volumeIconUrl, volumeNumberLabel } from "../lib/era";
 import { OWNERSHIP_META } from "../lib/ownership";
+import { DEFAULT_READING_STATUS, READING_STATUS_META } from "../lib/readingStatus";
 import { LineIcon } from "./LineIcon";
 import { TileResizeHandles } from "./TileResizeHandles";
 import { TilePreviewCard } from "./TilePreviewCard";
@@ -207,20 +208,30 @@ export function VolumeTile({
           title={volume.title}
           subtitle={volume.issuesCollected}
         >
-          {/* Read-only -- same OWNERSHIP_META icon+label as
-              VolumeDetailPanel's status picker, just not clickable here.
-              Speculative volumes don't track ownership (see VolumeTile's
+          {/* Read-only -- same OWNERSHIP_META/READING_STATUS_META icon+label
+              pairs as VolumeDetailPanel's status pickers, just not clickable
+              here. Speculative volumes don't track either (see VolumeTile's
               owned styling above, which is a no-op for them too), so this
-              is skipped for those the same way the picker is. */}
+              is skipped for those the same way the pickers are. */}
           {!speculative && (
-            <p className="mt-1 flex items-center gap-1.5 text-[11px] text-neutral-300">
-              <img
-                src={OWNERSHIP_META[volume.ownershipStatus].iconUrl}
-                alt=""
-                className="h-2.5 w-2.5 shrink-0"
-              />
-              {OWNERSHIP_META[volume.ownershipStatus].label}
-            </p>
+            <div className="mt-1 flex flex-wrap items-center gap-x-3 gap-y-1 text-[11px] text-neutral-300">
+              <p className="flex items-center gap-1.5">
+                <img
+                  src={OWNERSHIP_META[volume.ownershipStatus].iconUrl}
+                  alt=""
+                  className="h-2.5 w-2.5 shrink-0"
+                />
+                {OWNERSHIP_META[volume.ownershipStatus].label}
+              </p>
+              <p className="flex items-center gap-1.5">
+                <span
+                  className={`h-2.5 w-2.5 shrink-0 rounded-full ${
+                    READING_STATUS_META[volume.readingStatus ?? DEFAULT_READING_STATUS].dotClassName
+                  }`}
+                />
+                {READING_STATUS_META[volume.readingStatus ?? DEFAULT_READING_STATUS].label}
+              </p>
+            </div>
           )}
         </TilePreviewCard>
       )}

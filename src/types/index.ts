@@ -47,6 +47,14 @@ export const OWNED_STATUSES: ReadonlySet<OwnershipStatus> = new Set([
   "ordered",
 ]);
 
+/**
+ * Tracks reading progress, independent of ownership -- a volume can be
+ * Reading before it's Shelved (borrowed, read digitally, etc). No seeded
+ * per-volume default the way OwnershipStatus has; every volume starts at
+ * "not_started" (see useReadingStatus).
+ */
+export type ReadingStatus = "not_started" | "reading" | "finished" | "paused" | "dropped";
+
 export interface Collection {
   id: string;
   name: string;
@@ -139,6 +147,15 @@ export interface Volume {
   description: string;
   coverUrl?: string;
   ownershipStatus: OwnershipStatus;
+  /**
+   * Resolved (override-applied) reading status, stamped onto each volume by
+   * App.tsx's resolvedEntries the same way ownershipStatus is -- unlike
+   * ownershipStatus there's no seeded value underneath, so this is only
+   * ever set at render time, never in seed data or VolumeFormDrawer.
+   * Undefined for speculative volumes (see resolvedEntries/App.tsx), which
+   * don't track reading progress any more than they track ownership.
+   */
+  readingStatus?: ReadingStatus;
   /**
    * Deliberate 1-based swim-lane pin (1-5), from the "Swim lane position"
    * field on the Licensed-collection volume form -- undefined means "let

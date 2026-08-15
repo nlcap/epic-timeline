@@ -1,22 +1,18 @@
-import { useRef, useState } from "react";
-import type { OwnershipStatus, Volume } from "../types";
+import { useState } from "react";
+import type { OwnershipStatus, ReadingStatus, Volume } from "../types";
 import { OWNERSHIP_META, OWNERSHIP_ORDER } from "../lib/ownership";
+import { READING_STATUS_META, READING_STATUS_ORDER } from "../lib/readingStatus";
 import { volumeBadgeText } from "../lib/era";
 import { formatLineBreaks } from "../lib/text";
 import { useSlidePanel } from "../hooks/useSlidePanel";
-
-// One option row is py-1.5 padding (12px) + text-sm line height (20px) =
-// 32px, plus the dropdown's own py-1 (8px) container padding -- used to
-// guess the picker's rendered height before it's actually mounted, so the
-// open-above decision (see openAbove below) can be made in the same click
-// that opens it instead of flashing open-below-then-correcting.
-const OWNERSHIP_OPTION_HEIGHT = 32;
-const DROPDOWN_HEIGHT_ESTIMATE = OWNERSHIP_ORDER.length * OWNERSHIP_OPTION_HEIGHT + 8;
+import { StatusDropdown } from "./StatusDropdown";
 
 export function VolumeDetailPanel({
   volume,
   status,
   onStatusChange,
+  readingStatus,
+  onReadingStatusChange,
   onEdit,
   onDelete,
   onClose,
@@ -25,31 +21,19 @@ export function VolumeDetailPanel({
   volume: Volume;
   status: OwnershipStatus;
   onStatusChange: (status: OwnershipStatus) => void;
+  readingStatus: ReadingStatus;
+  onReadingStatusChange: (status: ReadingStatus) => void;
   onEdit?: (volume: Volume) => void;
   onDelete?: (volumeId: string) => void;
   onClose: () => void;
-  /** Speculative volumes don't carry ownership state -- hides the shelf
-   * status picker entirely. */
+  /** Speculative volumes don't carry ownership or reading state -- hides
+   * both status pickers entirely. */
   speculative?: boolean;
 }) {
-  const [pickerOpen, setPickerOpen] = useState(false);
-  // Decided once, when the picker opens (not continuously re-checked while
-  // it's open) -- the button's own position doesn't change while the list
-  // is up, so there's nothing to react to afterward the way VolumeTile's
-  // hover preview needs to for scroll.
-  const [openAbove, setOpenAbove] = useState(false);
-  const pickerButtonRef = useRef<HTMLButtonElement>(null);
   const [confirmingDelete, setConfirmingDelete] = useState(false);
   const meta = OWNERSHIP_META[status];
+  const readingMeta = READING_STATUS_META[readingStatus];
   const { visible, closeThen } = useSlidePanel();
-
-  const togglePicker = () => {
-    if (!pickerOpen) {
-      const rect = pickerButtonRef.current?.getBoundingClientRect();
-      setOpenAbove(!!rect && rect.bottom + DROPDOWN_HEIGHT_ESTIMATE > window.innerHeight);
-    }
-    setPickerOpen((o) => !o);
-  };
 
   const formattedDescription = formatLineBreaks(volume.description);
 
@@ -114,10 +98,36 @@ export function VolumeDetailPanel({
         <p className="text-sm italic text-neutral-300">
           Vol. {volumeBadgeText(volume)}, {volume.yearsCovered} • {volume.creators}
         </p>
-        <p className="mt-2 text-sm text-neutral-300">
-          Collects {volume.issuesCollected}.
-        </p>
-        <div className="mt-3 text-sm leading-relaxed text-neutral-200">
+        {!speculative && (
+          <div className="mt-4 flex flex-wrap items-center gap-2">
+            <StatusDropdown
+              icon={<img src={meta.iconUrl} alt="" className="h-3 w-3" />}
+              label={meta.label}
+              onSelect={onStatusChange}
+              options={OWNERSHIP_ORDER.map((s) => ({
+                value: s,
+                label: OWNERSHIP_META[s].label,
+                icon: <img src={OWNERSHIP_META[s].iconUrl} alt="" className="h-3 w-3" />,
+              }))}
+            />
+            <StatusDropdown
+              icon={<span className={`h-2.5 w-2.5 rounded-full ${readingMeta.dotClassName}`} />}
+              label={readingMeta.label}
+              onSelect={onReadingStatusChange}
+              options={READING_STATUS_ORDER.map((s) => ({
+                value: s,
+                label: READING_STATUS_META[s].label,
+                icon: (
+                  <span
+                    className={`h-2.5 w-2.5 rounded-full ${READING_STATUS_META[s].dotClassName}`}
+                  />
+                ),
+              }))}
+            />
+          </div>
+        )}
+
+        <div className="mt-4 text-sm leading-relaxed text-neutral-200">
           {formattedDescription.split("\n").map((paragraph, i) => (
             // Each Enter press in the editor's textarea is one paragraph
             // (see the "Press Enter for a paragraph break" hint in
@@ -130,46 +140,9 @@ export function VolumeDetailPanel({
           ))}
         </div>
 
-        {!speculative && (
-          <div className="relative mt-6">
-            <button
-              ref={pickerButtonRef}
-              type="button"
-              onClick={togglePicker}
-              className="flex items-center gap-2 rounded-full border border-neutral-700 px-3 py-1.5 text-sm text-white"
-            >
-              <img src={meta.iconUrl} alt="" className="h-3 w-3" />
-              {meta.label}
-              <span className="text-neutral-500">▾</span>
-            </button>
-
-            {pickerOpen && (
-              <div
-                className={`absolute left-0 z-10 w-44 rounded-md border border-neutral-700 bg-neutral-900 py-1 shadow-lg ${
-                  openAbove ? "bottom-full mb-1" : "top-full mt-1"
-                }`}
-              >
-                {OWNERSHIP_ORDER.map((s) => {
-                  const m = OWNERSHIP_META[s];
-                  return (
-                    <button
-                      key={s}
-                      type="button"
-                      onClick={() => {
-                        onStatusChange(s);
-                        setPickerOpen(false);
-                      }}
-                      className="flex w-full items-center gap-2 px-3 py-1.5 text-left text-sm text-white hover:bg-neutral-800"
-                    >
-                      <img src={m.iconUrl} alt="" className="h-3 w-3" />
-                      {m.label}
-                    </button>
-                  );
-                })}
-              </div>
-            )}
-          </div>
-        )}
+        <p className="mt-3 text-sm italic text-neutral-400">
+          Collects {volume.issuesCollected}.
+        </p>
 
         {onDelete && (
           <div className="mt-6">

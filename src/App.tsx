@@ -15,6 +15,7 @@ import { VolumeDetailPanel } from "./components/VolumeDetailPanel";
 import { ZoomControl } from "./components/ZoomControl";
 import { SpeculationModeToggle } from "./components/SpeculationModeToggle";
 import { useOwnership } from "./hooks/useOwnership";
+import { useReadingStatus } from "./hooks/useReadingStatus";
 import { useSidebarWidth } from "./hooks/useSidebarWidth";
 import { useLineOverrides } from "./hooks/useLineOverrides";
 import { useVolumeOverrides } from "./hooks/useVolumeOverrides";
@@ -117,6 +118,7 @@ export default function App() {
   // searchFilteredLines below).
   const [searchQuery, setSearchQuery] = useState("");
   const { getStatus, setStatus } = useOwnership();
+  const { getStatus: getReadingStatus, setStatus: setReadingStatus } = useReadingStatus();
   const { upsertLine, deleteLine, resolveLines } = useLineOverrides();
   const { upsertVolume, deleteVolume, resolveEntries } = useVolumeOverrides();
   const {
@@ -241,12 +243,16 @@ export default function App() {
 
   const resolvedEntries = useMemo(() => {
     const lineIds = new Set(lines.map((l) => l.id));
-    return resolveEntries(data?.entries ?? [], lineIds).map((entry) =>
+    return resolveEntries(data?.entries ?? [], lineIds).map((entry): TimelineEntry =>
       entry.kind === "volume"
-        ? { ...entry, ownershipStatus: getStatus(entry.id, entry.ownershipStatus) }
+        ? {
+            ...entry,
+            ownershipStatus: getStatus(entry.id, entry.ownershipStatus),
+            readingStatus: getReadingStatus(entry.id),
+          }
         : entry
     );
-  }, [data, resolveEntries, lines, getStatus]);
+  }, [data, resolveEntries, lines, getStatus, getReadingStatus]);
 
   // Speculative volumes can be added to an official line too (speculating
   // about a future volume on an existing line, not just a brand-new one),
@@ -256,7 +262,8 @@ export default function App() {
     [lines, speculativeLines]
   );
 
-  // Speculative volumes don't track ownership status -- no getStatus overlay.
+  // Speculative volumes don't track ownership or reading status -- no
+  // getStatus/getReadingStatus overlay.
   const speculativeResolvedEntries = useMemo(
     () => resolveSpeculativeEntries(allLineIds),
     [resolveSpeculativeEntries, allLineIds]
@@ -642,6 +649,8 @@ export default function App() {
           volume={selectedVolume}
           status={getStatus(selectedVolume.id, selectedVolume.ownershipStatus)}
           onStatusChange={(s) => setStatus(selectedVolume.id, s)}
+          readingStatus={getReadingStatus(selectedVolume.id)}
+          onReadingStatusChange={(s) => setReadingStatus(selectedVolume.id, s)}
           speculative={selectedVolumeIsSpeculative}
           onEdit={
             speculationMode && !selectedVolumeIsSpeculative

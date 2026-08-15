@@ -40,9 +40,9 @@ function writePayload(payload: ParsedPayload) {
  * Counterpart to ExportDataButton. Two ways in: paste a previously
  * exported JSON blob into the textarea (from the clipboard or by hand),
  * or upload an exported file directly -- either overwrites the current
- * line/volume/ownership overrides and speculation-mode data. A full
- * reload afterward is the simplest way to get every hook
- * (useLineOverrides, useVolumeOverrides, useOwnership,
+ * line/volume/ownership/reading-status overrides and speculation-mode
+ * data. A full reload afterward is the simplest way to get every hook
+ * (useLineOverrides, useVolumeOverrides, useOwnership, useReadingStatus,
  * useSpeculativeLines, useSpeculativeVolumes) to re-read from
  * localStorage, since they only load on mount.
  *

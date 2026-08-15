@@ -1,10 +1,16 @@
 // The three "real correction" override stores -- line edits, volume
-// edits/resizes, and ownership status. These are the ones that make sense
-// to bake into the shipped seed data in src/data/*.ts as new defaults.
+// edits/resizes, and ownership status -- plus reading status, a per-volume
+// tracking value with the same override-map shape but no seed counterpart
+// to correct. Unlike the other three, baking a reading status into the
+// shipped seed data as a new default would never make sense (it's Nick's
+// personal progress, not a fact about the volume) -- it's grouped here
+// anyway since export/import/reset all treat every key in this list the
+// same way regardless of what it means.
 export const OVERRIDE_KEYS = [
   "epic-timeline:line-overrides",
   "epic-timeline:volume-overrides",
   "epic-timeline:ownership-overrides",
+  "epic-timeline:reading-status-overrides",
 ] as const;
 
 // Speculation Mode's sandbox layer -- lines/volumes that are an intentional

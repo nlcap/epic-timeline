@@ -5,6 +5,7 @@ import { safeSetItem } from "./storage";
 const LINE_OVERRIDES_KEY = "epic-timeline:line-overrides";
 const VOLUME_OVERRIDES_KEY = "epic-timeline:volume-overrides";
 const OWNERSHIP_OVERRIDES_KEY = "epic-timeline:ownership-overrides";
+const READING_STATUS_OVERRIDES_KEY = "epic-timeline:reading-status-overrides";
 const SPECULATIVE_LINES_KEY = "epic-timeline:speculative-lines";
 const SPECULATIVE_VOLUMES_KEY = "epic-timeline:speculative-volumes";
 
@@ -59,8 +60,9 @@ function filterLineStore(
  * clears line/volume/ownership overrides for just those two collections,
  * leaving every other collection and any speculative data untouched.
  *
- * Ownership overrides are only ever scoped by "main" -- speculative
- * volumes never carry an ownership status (see useOwnership/App.tsx).
+ * Ownership and reading-status overrides are only ever scoped by "main" --
+ * speculative volumes never carry either (see useOwnership/useReadingStatus
+ * and App.tsx).
  *
  * Reads and writes localStorage directly rather than going through the
  * override hooks (useLineOverrides etc.), since those only load their
@@ -115,6 +117,17 @@ export function resetLineData({
       keptOwnership[volumeId] = status;
     }
     safeSetItem(OWNERSHIP_OVERRIDES_KEY, JSON.stringify(keptOwnership));
+
+    const readingStatusOverrides =
+      readJson<Record<string, string>>(READING_STATUS_OVERRIDES_KEY) ?? {};
+    const keptReadingStatus: Record<string, string> = {};
+    for (const [volumeId, status] of Object.entries(readingStatusOverrides)) {
+      const change = volumeOverrides[volumeId];
+      const lineId = change && change !== DELETED ? change.lineId : SEED_ENTRY_LINE[volumeId];
+      if (lineId !== undefined && lineIds.has(lineId)) continue;
+      keptReadingStatus[volumeId] = status;
+    }
+    safeSetItem(READING_STATUS_OVERRIDES_KEY, JSON.stringify(keptReadingStatus));
   }
 
   if (scopeSet.has("speculative")) {
