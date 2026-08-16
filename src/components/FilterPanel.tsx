@@ -396,7 +396,13 @@ export function FilterPanel({
                 disabled={draftTags.size === 0}
                 onClear={() => setDraftTags(new Set())}
               />
-              <div className="mt-2 flex flex-wrap gap-1.5">
+              {/* mt-4, not mt-2 like FilterStatusSection's rows -- a
+               * checkbox/radio row's visible glyph sits inset from the row
+               * by its own py-2 padding, while a chip's border sits flush
+               * with its margin. Matching margins would leave less visible
+               * whitespace above the chips than above the rows above; this
+               * makes up the difference so the gap reads the same. */}
+              <div className="mt-4 flex flex-wrap gap-1.5">
                 {timelineTags.map((tag) => (
                   <FilterTagChip
                     key={tag}
