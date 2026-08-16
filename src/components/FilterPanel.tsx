@@ -389,19 +389,23 @@ export function FilterPanel({
             }))}
           />
 
-          {timelineTags.length > 0 && (
-            <div className="mt-6">
-              <FilterSectionHeading
-                label="Tags"
-                disabled={draftTags.size === 0}
-                onClear={() => setDraftTags(new Set())}
-              />
-              {/* mt-4, not mt-2 like FilterStatusSection's rows -- a
+          {/* The heading stays even with nothing to show. Dropping the whole
+           * section made tags look like a feature this timeline doesn't
+           * have, when it's really just one nobody's used here yet -- so an
+           * empty state explains where they come from instead. */}
+          <div className="mt-6">
+            <FilterSectionHeading
+              label="Tags"
+              disabled={draftTags.size === 0}
+              onClear={() => setDraftTags(new Set())}
+            />
+            {timelineTags.length > 0 ? (
+              /* mt-4, not mt-2 like FilterStatusSection's rows -- a
                * checkbox/radio row's visible glyph sits inset from the row
                * by its own py-2 padding, while a chip's border sits flush
                * with its margin. Matching margins would leave less visible
                * whitespace above the chips than above the rows above; this
-               * makes up the difference so the gap reads the same. */}
+               * makes up the difference so the gap reads the same. */
               <div className="mt-4 flex flex-wrap gap-1.5">
                 {timelineTags.map((tag) => (
                   <FilterTagChip
@@ -412,8 +416,13 @@ export function FilterPanel({
                   />
                 ))}
               </div>
-            </div>
-          )}
+            ) : (
+              <p className="mt-4 text-xs leading-relaxed text-neutral-500">
+                No tags on this timeline yet. Add some when you edit a line and
+                they'll show up here as filters.
+              </p>
+            )}
+          </div>
         </div>
 
         {/* Pinned footer, same split-from-scrolling-content pattern as
