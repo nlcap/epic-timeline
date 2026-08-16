@@ -34,7 +34,6 @@ function volume(
     end: { year: 2001, quarter: 1 },
     issuesCollected: "",
     yearsCovered: "2000",
-    creators: "",
     description: "",
     ownershipStatus,
     ...(readingStatus ? { readingStatus } : {}),

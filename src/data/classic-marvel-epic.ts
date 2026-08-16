@@ -430,7 +430,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Amazing Spider-Man #1–17, Annual #1; and material from; Amazing Fantasy #15",
     yearsCovered: "1962-1964",
     releaseDate: { year: 2014, month: 9 },
-    creators: "Lee, Ditko",
     writers: "Stan Lee",
     artists: "Steve Ditko",
     description:
@@ -449,7 +448,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Amazing Spider-Man #18–38, Annual #2",
     yearsCovered: "1964-1966",
     releaseDate: { year: 2016, month: 12 },
-    creators: "Lee, Ditko",
     writers: "Stan Lee, Steve Ditko",
     artists: "Steve Ditko",
     description:
@@ -468,7 +466,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Amazing Spider-Man #39–52, Annual #3–4; and material from; Not Brand Echh #2",
     yearsCovered: "1966-1967",
     releaseDate: { year: 2018, month: 5 },
-    creators: "Lee, Romita Sr.",
     writers: "Stan Lee",
     artists: "John Romita Sr.",
     description:
@@ -487,7 +484,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Amazing Spider-Man #53–67,; Spectacular Spider-Man magazine #1–2,; Marvel Super-Heroes #14; and material from; Not Brand Echh #6, 11",
     yearsCovered: "1967-1968",
     releaseDate: { year: 2019, month: 6 },
-    creators: "Lee, Romita Sr.",
     writers: "Stan Lee",
     artists: "John Romita Sr.",
     description:
@@ -506,7 +502,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Amazing Spider-Man #68-85, Annual #5",
     yearsCovered: "1969-1970",
     releaseDate: { year: 2020, month: 2 },
-    creators: "Lee, Romita Sr., Buscema",
     writers: "Stan Lee",
     artists: "John Romita Sr., John Buscema",
     description:
@@ -525,7 +520,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Amazing Spider-Man #86-104, Annual #7-8 (covers only)",
     yearsCovered: "1970-1971",
     releaseDate: { year: 2021, month: 10 },
-    creators: "Lee, Thomas, Romita Sr., Kane",
     writers: "Stan Lee, Roy Thomas",
     artists: "John Romita Sr., Gil Kane",
     description:
@@ -544,7 +538,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Amazing Spider-Man #105–123, Annual #9 (cover only)",
     yearsCovered: "1972-1973",
     releaseDate: { year: 2017, month: 5 },
-    creators: "Lee, Conway, Romita Sr., Kane",
     writers: "Stan Lee, Gerry Conway",
     artists: "John Romita Sr., Gil Kane",
     description:
@@ -563,7 +556,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Amazing Spider-Man #124-142, Giant-Size Super-Heroes #1 and material from Marvel Treasury Edition 1.",
     yearsCovered: "1973-1975",
     releaseDate: { year: 2022, month: 7 },
-    creators: "Conway, Andru",
     writers: "Gerry Conway",
     artists: "Ross Andru",
     description:
@@ -582,7 +574,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Amazing Spider-Man (1963) 143-164; Amazing Spider-Man Annual (1964) 10; material from; Marvel Special Edition Treasury (1975) 1",
     yearsCovered: "1975-1976",
     releaseDate: { year: 2023, month: 7 },
-    creators: "Conway, Wein, Andru",
     writers: "Gerry Conway, Len Wein",
     artists: "Ross Andru",
     description:
@@ -601,7 +592,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Amazing Spider-Man (1963) 165-185; Amazing Spider-Man Annual (1964) 11-12; Nova (1977) 12; Marvel Calendar 1978; material from; Marvel Treasury Edition (1974) 14; F.O.O.M. (1973) 17-18, 22",
     yearsCovered: "1977-1978",
     releaseDate: { year: 2024, month: 5 },
-    creators: "Wein, Andru",
     writers: "Len Wein, Marv Wolfman",
     artists: "Ross Andru",
     description:
@@ -620,7 +610,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Amazing Spider-Man #186-206, Annual #13, Peter Parker, Spectacular Spider-Man Annual #1",
     yearsCovered: "1978-1980",
     releaseDate: { year: 2025, month: 2 },
-    creators: "Wolfman, Pollard, Byrne",
     writers: "Marv Wolfman",
     artists: "Keith Pollard, John Byrne",
     description:
@@ -639,7 +628,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Amazing Spider-Man #207-223, Annual #14-15",
     yearsCovered: "1980-1981",
     releaseDate: { year: 2026, month: 1 },
-    creators: "O'Neil, Romita Jr.",
     writers: "Dennis O'Neil",
     artists: "John Romita Jr., Frank Miller",
     description:
@@ -658,7 +646,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Amazing Spider-Man #224-241, Annual #16",
     yearsCovered: "1981-1983",
     releaseDate: { year: 2026, month: 6 },
-    creators: "Stern, Romita Jr.",
     writers: "Roger Stern",
     artists: "John Romita Jr.",
     description:
@@ -677,7 +664,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Amazing Spider-Man #259–272, Annual #18–19;; Web of Spider-Man #1, 6",
     yearsCovered: "1984-1986",
     releaseDate: { year: 2014, month: 5 },
-    creators: "DeFalco, Frenz",
     writers: "Tom DeFalco, Bob Layton, Louise Simonson, Peter David",
     artists: "Ron Frenz, Sal Buscema",
     description:
@@ -696,7 +682,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Amazing Spider-Man #289–294, Annual #20–21,; Spider-Man versus Wolverine,; Spectacular Spider-Man #131–132 and; Web of Spider-Man #29–32",
     yearsCovered: "1987",
     releaseDate: { year: 2017, month: 6 },
-    creators: "DeMatteis, Zeck",
     writers: "James Owsley, David Michelinie, J.M. DeMatteis",
     artists: "John Romita Jr, Mark Bright, Mike Zeck",
     description:
@@ -715,7 +700,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Amazing Spider-Man #295–310, Annual #22;; Spectacular Spider-Man #133;; Web of Spider-Man #33",
     yearsCovered: "1988",
     releaseDate: { year: 2018, month: 8 },
-    creators: "Michelinie, McFarlane",
     writers: "Ann Nocenti, David Michelinie",
     artists: "Cynthia Martin, Alex Saviuk, Todd McFarlane, Mark Bagley",
     description:
@@ -734,7 +718,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Amazing Spider-Man #311–325, Annual #23;; Marvel Graphic Novel No. 46 - The Amazing Spider-Man: Parallel Lives",
     yearsCovered: "1989",
     releaseDate: { year: 2019, month: 5 },
-    creators: "Michelinie, McFarlane",
     writers: "David Michelinie, Gerry Conway",
     artists: "Todd McFarlane, Rob Liefeld, Erik Larsen, Alex Saviuk",
     description:
@@ -753,7 +736,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Amazing Spider-Man #326–333, Annual #24;; Spectacular Spider-Man #158–160, Annual #10;; Web of Spider-Man #59–61, Annual #6",
     yearsCovered: "1989-1990",
     releaseDate: { year: 2013, month: 11 },
-    creators: "Michelinie, Various",
     writers: "David Michelinie, Gerry Conway",
     artists: "Erik Larsen, Sal Buscema, Alex Saviuk, Gil Kane",
     description:
@@ -772,7 +754,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Amazing Spider-Man #334–350;; Marvel Graphic Novel No. 63 - Spider-Man: Spirits of the Earth",
     yearsCovered: "1990-1991",
     releaseDate: { year: 2016, month: 2 },
-    creators: "Michelinie, Larsen",
     writers: "David Michelinie",
     artists: "Charles Vess, Erik Larsen, Mark Bagley",
     description:
@@ -791,7 +772,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Amazing Spider-Man #351–360, Annual #25;; Spectacular Spider-Man Annual #11;; Web of Spider-Man Annual #7;; Spider-Man: Fear Itself (1992)",
     yearsCovered: "1991-1992",
     releaseDate: { year: 2015, month: 3 },
-    creators: "Michelinie, Bagley",
     writers: "David Michelinie, Al Milgrom",
     artists: "Mark Bagley, Chris Marrinan, Guang Yap, Ross Andru",
     description:
@@ -810,7 +790,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Amazing Spider-Man (1963) 361-367; Amazing Spider-Man Annual (1964) 26; Amazing Spider-Man: Soul of the Hunter (1992) 1; material from; Spectacular Spider-Man Annual (1979) 12; Web of Spider-Man Annual (1985) 8; New Warriors Annual (1991) 2",
     yearsCovered: "1992",
     releaseDate: { year: 2023, month: 1 },
-    creators: "Michelinie, Bagley",
     writers: "David Michelinie, J.M. DeMatteis",
     artists: "Mark Bagley, Scott McDaniel, Mike Zeck",
     description:
@@ -829,7 +808,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Amazing Spider-Man #368-377, Annual #27; Spider-Man/Dr. Strange: The Way to Dusty Death; Spider-Man Special Edition: The Trial of Venom",
     yearsCovered: "1992-1993",
     releaseDate: { year: 2023, month: 1 },
-    creators: "Michelinie, Bagley",
     writers: "Roy Thomas, David Michelinie",
     artists: "Mike Bair, Mark Bagley, Jeff Johnson",
     description:
@@ -848,7 +826,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Amazing Spider-Man #378–380,; Spectacular Spider-Man #201-203,; Web of Spider-Man #101-103,; Spider-Man #35-37,; Spider-Man/Punisher/Sabretooth: Designer Genes (1993); and material from; Spider-Man Unlimited (1993) #1-2",
     yearsCovered: "1993",
     releaseDate: { year: 2020, month: 1 },
-    creators: "Michelinie, Bagley, Lim",
     writers: "Terry Kavanagh, David Michelinie, J.M. DeMatteis, Tom DeFalco",
     artists: "Alex Saviuk, Mark Bagley, Tom Lyle, Sal Buscema, Ron Lim",
     description:
@@ -867,7 +844,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Amazing Spider-Man #381–393, Annual #28;; Spectacular Spider-Man #211,; Web of Spider-Man #112,; Spider-Man #45,; Amazing Spider-Man: Ashcan Edition #1",
     yearsCovered: "1993-1994",
     releaseDate: { year: 2021, month: 11 },
-    creators: "Michelinie, Bagley",
     writers: "David Michelinie, J.M. DeMatteis",
     artists: "Mark Bagley, Steven Butler",
     description:
@@ -886,7 +862,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Web of Spider-Man #117-119; Amazing Spider-Man #394-396; Spider-Man #51-53; Spectacular Spider-Man #217-219; Spider-Man Unlimited #7; subplot pages",
     yearsCovered: "1994",
     releaseDate: { year: 2024, month: 1 },
-    creators: "Kavanagh, Various",
     writers: "Terry Kavanagh, J.M. DeMatteis, Howard Mackie, Tom DeFalco",
     artists: "Tom Lyle, Steven Butler, Mark Bagley, Sal Buscema, Liam Sharp",
     description:
@@ -905,7 +880,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "WEB OF SPIDER-MAN (1985) 120-123; SPIDER-MAN (1990) 54-56; AMAZING SPIDER-MAN (1963) 397-399; SPECTACULAR SPIDER-MAN (1976) 220-222; SPIDER-MAN UNLIMITED (1993) 8; SPIDER-MAN: FUNERAL FOR AN OCTOPUS (1995) 1-3; SPIDER-MAN: THE CLONE JOURNAL (1995) 1",
     yearsCovered: "1995",
     releaseDate: { year: 2024, month: 11 },
-    creators: "Kavanagh, Various",
     writers: "Howard Mackie, J.M. DeMatteis, Tom DeFalco",
     artists: "Tom Lyle, Steven Butler, Mark Bagley, Sal Buscema",
     description:
@@ -925,7 +899,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
       "Amazing Spider-Man #400-403; Spectacular Spider-Man #223-226; Web of Spider-Man #124-126; Spider-Man #57-60; Spider-Man Unlimited #9",
     yearsCovered: "1995",
     releaseDate: { year: 2026, month: 12 },
-    creators: "",
     writers: "Howard Mackie, J.M. DeMatteis, Tom DeFalco, Stan Lee, Tom Lyle",
     artists: "John Romita Jr., Mark Bagley, Sal Buscema, Bill Sienkiewicz, Tom Lyle",
     description:
@@ -945,7 +918,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
       "Amazing Spider-Man #404; Web of Spider-Man #127; Spider-Man #61; Spectacular Spider-Man #227; Spider-Man: The Jackal Files #1; Spider-Man: Maximum Clonage Alpha #1; Spider-Man: Maximum Clonage Omega #1; New Warriors #61-62; and material from Amazing Spider-Man Super Special #1, Spider-Man Super Special #1, Venom Super Special #1, Spectacular Spider-Man Super Special #1, and Web of Spider-Man Super Special #1",
     yearsCovered: "1995",
     releaseDate: { year: 2027, month: 2 },
-    creators: "",
     writers: "Todd DeZago, J.M. DeMatteis, Howard Mackie, Tom DeFalco, David Michelinie, Evan Skolnick",
     artists: "Steven Butler, Mark Bagley, Tom Lyle, Eliot Brown, Ron Lim, Sal Buscema, Patch Zircher, Dave Hoover, Joe St. Pierre, Kyle Hotz, Darick Robertson, Steve Lightle",
     description:
@@ -964,7 +936,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Tales to Astonish #27, 35–59",
     yearsCovered: "1962-1964",
     releaseDate: { year: 2015, month: 6 },
-    creators: "Lee, Lieber, Kirby",
     writers: "Stan Lee, Larry Lieber",
     artists: "Jack Kirby, Don Heck, Dick Ayers",
     description:
@@ -983,7 +954,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Tales To Astonish (1959) #60-69, Iron Man (1968) #44, Marvel Feature (1971) #4-10, Power Man (1974) #24-25, Black Goliath (1976) #1-5, The Champions (1975) #11-13 And Marvel Premiere (1972) #47-48.",
     yearsCovered: "1964-1979",
     releaseDate: { year: 2023, month: 1 },
-    creators: "Lee, Friedrich, Trimpe",
     writers: "Stan Lee, Mike Friedrich, Chris Claremont, Bill Mantlo",
     artists: "Herb Trimpe, Philip Russell, George Tuska, John Byrne",
     description:
@@ -1003,7 +973,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Avengers #1–20",
     yearsCovered: "1963-1965",
     releaseDate: { year: 2014, month: 11 },
-    creators: "Lee, Kirby",
     writers: "Stan Lee",
     artists: "Jack Kirby, Don Heck",
     description:
@@ -1022,7 +991,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Avengers #21–40",
     yearsCovered: "1965-1967",
     releaseDate: { year: 2016, month: 11 },
-    creators: "Lee, Thomas, Heck",
     writers: "Stan Lee, Roy Thomas",
     artists: "Don Heck",
     description:
@@ -1041,7 +1009,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Avengers #41–56, Annual #1–2,; X-Men #45; and material from; Not Brand Echh #5, 8",
     yearsCovered: "1967-1968",
     releaseDate: { year: 2017, month: 4 },
-    creators: "Thomas, Buscema",
     writers: "Roy Thomas",
     artists: "John Buscema",
     description:
@@ -1060,7 +1027,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Avengers #57–76;; Marvel Super Heroes #17",
     yearsCovered: "1968-1970",
     releaseDate: { year: 2015, month: 4 },
-    creators: "Thomas, Buscema",
     writers: "Roy Thomas",
     artists: "John Buscema, Sal Buscema, Gene Colan",
     description:
@@ -1079,7 +1045,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Avengers #77–97;; Incredible Hulk (vol. 2) #140",
     yearsCovered: "1970-1972",
     releaseDate: { year: 2020, month: 7 },
-    creators: "Thomas, Buscema",
     writers: "Roy Thomas",
     artists: "John Buscema, Sal Buscema, Neal Adams",
     description:
@@ -1098,7 +1063,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Avengers #98–114;; Daredevil #99",
     yearsCovered: "1972-1973",
     releaseDate: { year: 2021, month: 6 },
-    creators: "Thomas, Englehart, Windsor-Smith",
     writers: "Roy Thomas, Steve Englehart",
     artists: "Barry Windsor-Smith, Rich Buckler, Don Heck",
     description:
@@ -1117,7 +1081,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Avengers #115–128;; Giant-Size Avengers #1;; Defenders #8–11;; Captain Marvel #33;; Fantastic Four #150",
     yearsCovered: "1973-1974",
     releaseDate: { year: 2018, month: 4 },
-    creators: "Englehart, Brown",
     writers: "Steve Englehart",
     artists: "Bob Brown, Sal Buscema",
     description:
@@ -1136,7 +1099,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Avengers #129-149, Giant-Size Avengers #2-4, material from Foom #12 and Marvel Treasury Edition #7.",
     yearsCovered: "1974-1976",
     releaseDate: { year: 2022, month: 7 },
-    creators: "Englehart, Buscema",
     writers: "Steve Englehart",
     artists: "Sal Buscema, Dave Cockrum, George Tuska, Don Heck, George Perez",
     description:
@@ -1155,7 +1117,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Avengers #150–166, Annual #6–7;; Super-Villain Team-Up #9;; Marvel Two-in-One Annual #2",
     yearsCovered: "1976-1977",
     releaseDate: { year: 2013, month: 12 },
-    creators: "Englehart, Perez",
     writers: "Jim Shooter, Gerry Conway",
     artists: "George Perez, Jim Starlin, John Byrne",
     description:
@@ -1174,7 +1135,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Avengers #167-188; Annual #8-9; material from; Marvel Tales #100",
     yearsCovered: "1978-1979",
     releaseDate: { year: 2023, month: 9 },
-    creators: "Shooter, Perez",
     writers: "Jim Shooter, David Michelinie",
     artists: "George Perez, John Byrne, David Wenzel",
     description:
@@ -1193,7 +1153,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Avengers (1963) 189-209; Avengers Annual (1967) 10; material from; Tales to Astonish (1979) 12",
     yearsCovered: "1979-1981",
     releaseDate: { year: 2024, month: 5 },
-    creators: "Michelinie, Perez",
     writers: "David Michelinie",
     artists: "George Perez, John Byrne, Gene Colan",
     description:
@@ -1212,7 +1171,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Avengers #210-226, Annual #11, and Vision and the Scarlet Witch (1982) #1-4",
     yearsCovered: "1981-1982",
     releaseDate: { year: 2025, month: 5 },
-    creators: "Shooter, Hall",
     writers: "Jim Shooter, Bill Mantlo",
     artists: "Bob Hall, Greg LaRocque, Rick Leonardi",
     description:
@@ -1231,7 +1189,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "AVENGERS (1963) 227-237; AVENGERS ANNUAL (1967) 12; AMAZING SPIDER-MAN ANNUAL (1964) 16; FANTASTIC FOUR (1961) 256; DOCTOR STRANGE (1974) 60; HAWKEYE (1983) 1-4",
     yearsCovered: "1982-1983",
     releaseDate: { year: 2024, month: 11 },
-    creators: "Stern, Buscema",
     writers: "Roger Stern, Mark Gruenwald",
     artists: "Al Milgrom, John Byrne",
     description:
@@ -1250,7 +1207,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Avengers #238-254, Annual #13",
     yearsCovered: "1983-1985",
     releaseDate: { year: 2026, month: 3 },
-    creators: "Stern, Milgrom",
     writers: "Roger Stern",
     artists: "Al Milgrom, Bob Hall",
     description:
@@ -1269,7 +1225,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Avengers #264–277, Annual #15;; West Coast Avengers Annual #1;; Alpha Flight #39",
     yearsCovered: "1986-1987",
     releaseDate: { year: 2016, month: 5 },
-    creators: "Stern, Buscema",
     writers: "Roger Stern, Danny Fingeroth, Steve Englehart",
     artists: "John Buscema, Steve Ditko, Mark Bright",
     description:
@@ -1288,7 +1243,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Avengers #278–285, Annual #16;; Marvel Graphic Novel No. 27 - Emperor Doom;; X-Men vs. Avengers #1–4;; West Coast Avengers Annual #2",
     yearsCovered: "1987",
     releaseDate: { year: 2014, month: 6 },
-    creators: "Stern, Buscema",
     writers: "Roger Stern, Bob Harras, Tom DeFalco, David Michelinie, Steve Englehart",
     artists: "Bob Hall, John Buscema, Marc Silvestri, Keith Pollard, Al Milgrom",
     description:
@@ -1307,7 +1261,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Avengers #286-303, Annual #17",
     yearsCovered: "1988-1989",
     releaseDate: { year: 2020, month: 11 },
-    creators: "Stern, Simonson",
     writers: "Walt Simonson, Ralph Macchio",
     artists: "John Buscema",
     description:
@@ -1326,7 +1279,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Avengers (1963) 304-318; Avengers Annual (1967) 18; Avengers West Coast (1989) 53-55",
     yearsCovered: "1989-1990",
     releaseDate: { year: 2023, month: 3 },
-    creators: "Fingeroth, Buckler",
     writers: "John Byrne, Michael Higgins, Fabian Nicieza",
     artists: "Paul Ryan, Ron Wilson",
     description:
@@ -1345,7 +1297,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Avengers #319-333, Annual #19 and material from Captain America Annual #9, Iron Man Annual #11, Thor Annual #15 and Avengers West Coast Annual #5",
     yearsCovered: "1990-1991",
     releaseDate: { year: 2022, month: 3 },
-    creators: "Nicieza, Levins",
     writers: "Fabian Nicieza, Larry Hama",
     artists: "Rik Levins, Paul Ryan, Herb Trimpe",
     description:
@@ -1364,7 +1315,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Avengers #334–344, Annual #20,; Marvel Graphic Novel No. 68 - Avengers: Death Trap – The Vault; and material from; Incredible Hulk Annual #17,; Namor the Sub-Mariner Annual #1,; Iron Man Annual #12 and; Avengers West Coast Annual #6",
     yearsCovered: "1991-1992",
     releaseDate: { year: 2018, month: 3 },
-    creators: "Fingeroth, Thomas",
     writers: "Danny Fingeroth, Roy Thomas, Bob Harras, Fabian Nicieza",
     artists: "Ron Lim, Steve Epting",
     description:
@@ -1383,7 +1333,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Avengers #345–347,; Avengers West Coast #80–82,; Quasar #32–34,; Wonder Man #7–9,; Iron Man #278–279,; Thor #445–446,; Captain America #401; and material from; Captain America #398–400",
     yearsCovered: "1992",
     releaseDate: { year: 2017, month: 7 },
-    creators: "Gruenwald, Thomas",
     writers: "Bob Harras, Mark Gruenwald",
     artists: "Steve Epting, Rik Levins, Dave Ross",
     description:
@@ -1402,7 +1351,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Avengers #348–359, Annual #21,; and material from; Captain America Annual #11,; Thor Annual #17 and; Fantastic Four Annual #25",
     yearsCovered: "1992-1993",
     releaseDate: { year: 2019, month: 4 },
-    creators: "Thomas, Gruenwald",
     writers: "Mark Gruenwald, Bob Harras, Len Kaminski",
     artists: "Herb Trimpe, Steve Epting, M.C. Wyman",
     description:
@@ -1421,7 +1369,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Avengers #360–366, Annual #22;; Avengers: Strikefile;; Avengers Anniversary Magazine;; Avengers: The Terminatrix Objective #1–4",
     yearsCovered: "1993",
     releaseDate: { year: 2019, month: 12 },
-    creators: "Harras, Herdling",
     writers: "Bob Harras, Glenn Herdling, Mark Gruenwald",
     artists: "Steve Epting, Gordon Purcell, Mike Gustovich",
     description:
@@ -1440,7 +1387,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Avengers #367-377; Avengers Annual 23; X-Men #26; Avengers West Coast #101; Uncanny X-Men #307; Avengers Log #1",
     yearsCovered: "1993-1994",
     releaseDate: { year: 2023, month: 8 },
-    creators: "Harras, Hall",
     writers: "Bob Harras, Roy Thomas, Glenn Herdling",
     artists: "Steve Epting, John Buscema",
     description:
@@ -1459,7 +1405,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Avengers (1963) 378-388, Marvel Double Feature: Avengers/Giant-Man (1994) 379-382, Vision (1994) 1-4, Captain America (1968) 440-441",
     yearsCovered: "1994-1995",
     releaseDate: { year: 2021, month: 11 },
-    creators: "Harras, Deodato",
     writers: "Bob Harras",
     artists: "George Perez, Mike Deodato Jr., Jeff Moore, Manny Clark",
     description:
@@ -1478,7 +1423,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Avengers #389-402; Avengers: The Crossing; Avengers: Timeslide; Onslaught: Marvel Universe",
     yearsCovered: "1995-1996",
     releaseDate: { year: 2025, month: 12 },
-    creators: "Harras, Kavanagh",
     writers: "Bob Harras, Terry Kavanagh, Mark Waid, Ben Raab",
     artists: "Mike Deodato Jr",
     description:
@@ -1497,7 +1441,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Avengers (1996) 1-12; etc.",
     yearsCovered: "1996-1997",
     releaseDate: { year: 2027, month: 3 },
-    creators: "",
     writers: "Rob Liefeld, Jim Valentino, Jeph Loeb, Walter Simonson, Scott Lobdell, Jim Lee & Brandon Choi",
     artists: "Chap Yaep, Rob Liefeld, Ian Churchill, Michael Ryan, Ed Benes, Ron Lim, Brett Booth, Joe Bennett",
     description:
@@ -1516,7 +1459,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "West Coast Avengers (1984) #1–4;; Iron Man Annual #7;; Avengers #250;; West Coast Avengers (1985) #1–7;; The Vision and the Scarlet Witch #1–2;; Wonder Man #1",
     yearsCovered: "1984-1986",
     releaseDate: { year: 2018, month: 9 },
-    creators: "Stern, Englehart, Hall",
     writers: "Roger Stern, Steve Englehart",
     artists: "Bob Hall, Al Milgrom, Richard Howell",
     description:
@@ -1535,7 +1477,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "West Coast Avengers (1985) #8–24, Annual #1;; Avengers Annual #15",
     yearsCovered: "1986-1987",
     releaseDate: { year: 2019, month: 9 },
-    creators: "Englehart, Milgrom",
     writers: "Steve Englehart, Danny Fingeroth",
     artists: "Al Milgrom, Steve Ditko, Mark Bright",
     description:
@@ -1554,7 +1495,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "West Coast Avengers #25-37,; West Coast Avengers Annual #2,; Avengers Annual #16 and; Marvel Graphic Novel No. 27 - Emperor Doom",
     yearsCovered: "1987-1988",
     releaseDate: { year: 2020, month: 9 },
-    creators: "Michelinie, Hall",
     writers: "David Michelinie, Steve Englehart, Tom DeFalco",
     artists: "Bob Hall, Al Milgrom",
     description:
@@ -1573,7 +1513,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "West Coast Avengers #38-46,; Avengers West Coast #47-52,; West Coast Avengers Annual #3,; Avengers West Coast Annual #4; and material from; Avengers Spotlight #23",
     yearsCovered: "1988-1989",
     releaseDate: { year: 2020, month: 12 },
-    creators: "Englehart, Morgan",
     writers: "John Byrne, Steve Englehart",
     artists: "John Byrne, Al Milgrom",
     description:
@@ -1592,7 +1531,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Avengers West Coast (1989) 53-64, Avengers West Coast Annual (1989) 5, Avengers (1963) 311-313; material from Avengers Annual (1967) 19, What The--?! (1988) 6",
     yearsCovered: "1990",
     releaseDate: { year: 2021, month: 12 },
-    creators: "Byrne",
     writers: "John Byrne, Roy Thomas, Dann Thomas",
     artists: "John Byrne, Paul Ryan, James Fry",
     description:
@@ -1611,7 +1549,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Avengers West Coast (1989) 65-82; Avengers West Coast Annual (1989) 6",
     yearsCovered: "1991-1992",
     releaseDate: { year: 2023, month: 4 },
-    creators: "Thomas, Ryan",
     writers: "Roy Thomas, Dann Thomas",
     artists: "Paul Ryan, Dave Ross, Herb Trimpe",
     description:
@@ -1630,7 +1567,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Avengers West Coast (1989) 83-95; Avengers West Coast Annual (1989) 7-8; Material from; Darkhawk Annual (1992) 1; Iron Man Annual (1970) 13",
     yearsCovered: "1992-1993",
     releaseDate: { year: 2024, month: 4 },
-    creators: "Thomas, Fingeroth",
     writers: "Roy Thomas, Dann Thomas",
     artists: "Dave Ross, M.C. Wyman",
     description:
@@ -1649,7 +1585,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "96-102;U.S.Agent (93);Spider-Woman (93);Scarlet Witch (94)",
     yearsCovered: "1993-1994",
     releaseDate: { year: 2026, month: 12 },
-    creators: "",
     writers: "Roy Thomas, Dann Thomas, Dan Abnett, Andy Lanning, Mark Gruenwald",
     artists: "Dave Ross, John Higgins, John Czop, Steve Ellis, M.C. Wyman",
     description:
@@ -1669,7 +1604,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Fantastic Four #52–53;; Jungle Action (vol. 2) #6–24",
     yearsCovered: "1973-1976",
     releaseDate: { year: 2016, month: 9 },
-    creators: "McGregor, Buckler",
     writers: "Don McGregor",
     artists: "Rich Buckler, Billy Graham",
     description:
@@ -1688,7 +1622,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Black Panther (1977) #1–15,; Marvel Premiere #51–53,; Black Panther (1988) #1–4; and material from; Marvel Team-Up #100",
     yearsCovered: "1977-1988",
     releaseDate: { year: 2019, month: 2 },
-    creators: "Kirby, Claremont",
     writers: "Jack Kirby, Ed Hannigan, Peter Gillis",
     artists: "Jack Kirby, Jerry Bingham, Denys Cowan",
     description:
@@ -1707,7 +1640,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Black Panther: Panther's Prey #1-4; and material from; Marvel Comics Presents #13-37, 148,; Solo Avengers #19,; Marvel Super Heroes #1,; Marvel Fanfare #60 and; Fantastic Four Unlimited #1",
     yearsCovered: "1988-1994",
     releaseDate: { year: 2021, month: 3 },
-    creators: "McGregor, Turner",
     writers: "Don McGregor",
     artists: "Sandy Plunkett, Gene Colan, Dwayne Turner, Denys Cowan, Don Hillsman II",
     description:
@@ -1727,7 +1659,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Tales of Suspense #52-53, 57, 60, 64,; Avengers #29-30, 36–37, 43–44,; Amazing Spider-Man #86,; Amazing Adventures #1-8,; Daredevil #81; and material from; Avengers #16, 32–33, 38–39, 41–42, 45–47, 57, 63–64, 76",
     yearsCovered: "1964-1971",
     releaseDate: { year: 2020, month: 2 },
-    creators: "Lee, Thomas, Heck",
     writers: "Stan Lee, Roy Thomas",
     artists: "Don Heck, John Buscema, Gene Colan",
     description:
@@ -1746,7 +1677,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Marvel Graphic Novel No. 61 - Black Widow: The Coldest War,; Marvel Graphic Novel No. 74 - Punisher/Black Widow: Spinning Doomsday's Web,; Marvel Graphic Novel No. 75 - Daredevil/Black Widow: Abattoir,; Fury/Black Widow: Death Duty; and material from; Bizarre Adventures #25,; Marvel Fanfare #10-13,; Solo Avengers #7,; Marvel Comics Presents #135 and; Daredevil Annual #10",
     yearsCovered: "1983-1998",
     releaseDate: { year: 2020, month: 10 },
-    creators: "Macchio, Perez",
     writers: "Ralph Macchio, Gerry Conway, Daniel Chichester",
     artists: "Jim Starlin, Cefn Ridout, George Perez, George Freeman, Larry Stroman, Joe Chiodo, Charlie Adlard",
     description:
@@ -1774,7 +1704,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Tomb of Dracula (1991) 1-4; Nightstalkers (1992) 1-6; Ghost Rider (1990) 31; Material from; Midnight Sons Unlimited (1993) 1",
     yearsCovered: "1991-1993",
     releaseDate: { year: 2025, month: 1 },
-    creators: "Wolfman, Colan",
     writers: "Marv Wolfman, Daniel Chichester",
     artists: "Gene Colan, Ron Garney",
     description:
@@ -1793,7 +1722,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Tomb of Dracula (1972) 10, 12-14, 24, 30, 41-43, 51, 58; Fear (1970) 24; Marvel Preview (1975) 3; Doctor Strange (1974) 61-62, 67 material from Tomb of Dracula (1972) 17-19, 21, 44-50, 52-53; Vampire Tales (1973) 8-9; Marvel Preview (1975) 8; Marvel Comics Presents (1988) 64",
     yearsCovered: "1973-1991",
     releaseDate: { year: 2026, month: 10 },
-    creators: "",
     writers: "Marv Wolfman",
     artists: "Gene Colan",
     description:
@@ -1821,7 +1749,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Tales of Suspense #58–96;; Avengers #4;; Strange Tales #114",
     yearsCovered: "1964-1967",
     releaseDate: { year: 2014, month: 11 },
-    creators: "Lee, Kirby",
     writers: "Stan Lee",
     artists: "Jack Kirby",
     description:
@@ -1840,7 +1767,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Tales of Suspense #97–99,; Captain America #100–119; and material from; Not Brand Echh #3, 12",
     yearsCovered: "1968–1969",
     releaseDate: { year: 2016, month: 9 },
-    creators: "Lee, Colan",
     writers: "Stan Lee, Jim Steranko",
     artists: "Jack Kirby, Jim Steranko, Gene Colan",
     description:
@@ -1859,7 +1785,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Captain America #120–138",
     yearsCovered: "1970-1971",
     releaseDate: { year: 2017, month: 7 },
-    creators: "Lee, Colan",
     writers: "Stan Lee",
     artists: "Gene Colan",
     description:
@@ -1878,7 +1803,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Captain America #139–159",
     yearsCovered: "1971-1973",
     releaseDate: { year: 2018, month: 7 },
-    creators: "Friedrich, Romita Sr., Buscema",
     writers: "Stan Lee, Gary Friedrich, Steve Englehart",
     artists: "John Romita Sr., Sal Buscema",
     description:
@@ -1897,7 +1821,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Captain America (1968) 160-179",
     yearsCovered: "1973-1974",
     releaseDate: { year: 2023, month: 6 },
-    creators: "Englehart, Buscema",
     writers: "Steve Englehart",
     artists: "Sal Buscema",
     description:
@@ -1916,7 +1839,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Captain America (1968) 180-200; Marvel Treasury Special: Captain America's; Bicentennial Battles (1976)",
     yearsCovered: "1975-1976",
     releaseDate: { year: 2024, month: 4 },
-    creators: "Englehart, Kane",
     writers: "Steve Englehart, Jack Kirby",
     artists: "Frank Robbins, Jack Kirby",
     description:
@@ -1935,7 +1857,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Captain America #201–221, Annual #3-4",
     yearsCovered: "1976-1978",
     releaseDate: { year: 2025, month: 7 },
-    creators: "Kirby",
     writers: "Jack Kirby, Donald Glut",
     artists: "Jack Kirby, Sal Buscema",
     description:
@@ -1954,7 +1875,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Captain America #247–266, Annual #5",
     yearsCovered: "1980-1982",
     releaseDate: { year: 2014, month: 2 },
-    creators: "Stern, Byrne",
     writers: "Roger Stern, John Byrne, David Michelinie, J.M. DeMatteis, David Kraft",
     artists: "John Byrne, Gene Colan, Mike Zeck",
     description:
@@ -1973,7 +1893,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Captain America #267–285, Annual #6;; Defenders #106",
     yearsCovered: "1982-1983",
     releaseDate: { year: 2020, month: 10 },
-    creators: "DeMatteis, Zeck",
     writers: "J.M. DeMatteis, David Kraft",
     artists: "Mike Zeck, Ron Wilson, Sal Buscema",
     description:
@@ -1992,7 +1911,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Captain America #286-301, Annual #7 and The Falcon #1-4",
     yearsCovered: "1983-1984",
     releaseDate: { year: 2022, month: 8 },
-    creators: "DeMatteis, Neary",
     writers: "J.M. DeMatteis, Jim Owsley",
     artists: "Mike Zeck, Mark Bright, Paul Neary",
     description:
@@ -2011,7 +1929,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Captain America #302–317; and material from; Marvel Fanfare #18",
     yearsCovered: "1985-1986",
     releaseDate: { year: 2014, month: 8 },
-    creators: "Carlin, Neary",
     writers: "Michael Carlin, Mark Gruenwald, Roger Stern",
     artists: "Frank Miller, Paul Neary",
     description:
@@ -2030,7 +1947,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Captain America #318–332, Annual #8,; Amazing Spider-Man #278; and material from; Marvel Fanfare #29, 31–32",
     yearsCovered: "1986-1987",
     releaseDate: { year: 2017, month: 4 },
-    creators: "Gruenwald, Byrne",
     writers: "Mark Gruenwald, J.M. DeMatteis",
     artists: "Paul Neary, Mike Zeck, Kerry Gammill, Tom Morgan",
     description:
@@ -2049,7 +1965,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Captain America #333–350,; Iron Man #228",
     yearsCovered: "1987-1989",
     releaseDate: { year: 2021, month: 7 },
-    creators: "Gruenwald, Dwyer",
     writers: "Mark Gruenwald, David Michelinie",
     artists: "Tom Morgan, Kieron Dwyer, Mark Bright",
     description:
@@ -2068,7 +1983,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Captain America #351–371",
     yearsCovered: "1989-1990",
     releaseDate: { year: 2018, month: 4 },
-    creators: "Gruenwald, Dwyer",
     writers: "Mark Gruenwald",
     artists: "Kieron Dwyer, Al Milgrom, Mark Bright, Ron Lim",
     description:
@@ -2087,7 +2001,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Captain America #372–386, Annual #9–10",
     yearsCovered: "1990-1991",
     releaseDate: { year: 2015, month: 6 },
-    creators: "Gruenwald, Lim",
     writers: "Mark Gruenwald, Daniel Chichester",
     artists: "Ron Lim, Mark Bagley, Jim Valentino, Mike Manley",
     description:
@@ -2106,7 +2019,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Captain America #387–397;; Adventures of Captain America #1–4",
     yearsCovered: "1991-1992",
     releaseDate: { year: 2019, month: 3 },
-    creators: "Gruenwald, Levins",
     writers: "Mark Gruenwald, Fabian Nicieza",
     artists: "Rik Levins, Larry Alexander, Kevin Maguire, Kevin West",
     description:
@@ -2125,7 +2037,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Captain America #398-410;; Punisher/Captain America: Blood and Glory #1–3",
     yearsCovered: "1992",
     releaseDate: { year: 2020, month: 3 },
-    creators: "Gruenwald, Janson",
     writers: "Mark Gruenwald, Daniel Chichester, Margaret Clark",
     artists: "Rik Levins, Larry Alexander, Klaus Janson",
     description:
@@ -2144,7 +2055,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Captain America #411-419, Annual #11-12; Ghost Rider/Captain America: Fear #1; U.S.Agent #1-4 and material from Silver Sable & the Wild Pack #15",
     yearsCovered: "1993",
     releaseDate: { year: 2022, month: 3 },
-    creators: "Gruenwald, Levins",
     writers: "Mark Gruenwald, Howard Mackie",
     artists: "Lee Weeks, Rik Levins, M.C. Wyman",
     description:
@@ -2163,7 +2073,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Captain America (1968) 420-430; Captain America Annual (1971) 13; Nomad (1992) 18-19; Captain America: The Medusa Effect (1994) 1; Captain America/Nick Fury: Blood Truce (1995) 1",
     yearsCovered: "1993-1994",
     releaseDate: { year: 2023, month: 5 },
-    creators: "Gruenwald, Levins",
     writers: "Mark Gruenwald, Roy Thomas",
     artists: "Rik Levins, M.C. Wyman, Dave Hoover",
     description:
@@ -2182,7 +2091,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Captain America (1968) 431-443; Tales of Suspense (1995) 1; Avengers (1963) 386-388; material from; Captain America Collector's Preview (1995) 1",
     yearsCovered: "1994-1995",
     releaseDate: { year: 2024, month: 2 },
-    creators: "Gruenwald, Deodato",
     writers: "Mark Gruenwald",
     artists: "Andrew Robinson, Bob Harras, Dave Hoover, Colin MacNeil",
     description:
@@ -2201,7 +2109,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Captain America #444–454, Ashcan Edition,; Thor #496,; Iron Man #326,; Avengers #396,; Captain America: The Legend; and material from; Captain America Collectors' Preview",
     yearsCovered: "1995-1996",
     releaseDate: { year: 2016, month: 4 },
-    creators: "Waid, Garney",
     writers: "Mark Waid",
     artists: "Ron Garney",
     description:
@@ -2220,7 +2127,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Captain America (vol. 3) #1–14, Iron Man & Captain America Annual (1998); Captain America & Citizen V Annual (1998)",
     yearsCovered: "1997-1998",
     releaseDate: { year: 2025, month: 12 },
-    creators: "Waid, Garney",
     writers: "Mark Waid",
     artists: "Ron Garney, Andy Kubert, Mark Bagley, Patrick Zircher",
     description:
@@ -2239,7 +2145,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "#222-246; Incredible Hulk (1968) 232; Marvel Premiere (1972) 49",
     yearsCovered: "1978-1980",
     releaseDate: { year: 2026, month: 11 },
-    creators: "",
     writers: "Roger McKenzie, Peter Gillis, Steve Gerber",
     artists: "Sal Buscema",
     description:
@@ -2258,7 +2163,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Captain America (98) 15-31; Annual 1999",
     yearsCovered: "1999-2000",
     releaseDate: { year: 2027, month: 6 },
-    creators: "",
     writers: "Mark Waid",
     artists: "Andy Kubert",
     description:
@@ -2277,7 +2181,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Amazing Spider-Man (1963) #361-363, #378-380; Web of Spider-Man (1985) #101-103; Spider-Man (1990) #35-37; Spectacular Spider-Man (1976) #201-203; material from; Spider-Man Unlimited (1993) #1-2 and; Amazing Spider-Man Annual (1964) #28",
     yearsCovered: "1992-1993",
     releaseDate: { year: 2022, month: 3 },
-    creators: "Michelinie, Bagley",
     writers: "David Michelinie, Terry Kavanagh, J.M. DeMatteis",
     artists: "Mark Bagley, Alex Saviuk, Tom Lyle, Sal Buscema",
     description:
@@ -2296,7 +2199,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Amazing Spider-Man (1963) 403, 410; Venom: Carnage Unleashed (1995) 1-4; Carnage: Mind Bomb (1996) 1; Sensational Spider-Man (1996) 3; Spider-Man (1990) 67; Spectacular Spider-Man (1976) 233; Carnage: It's a Wonderful Life (1996) 1; Venom: On Trial (1997) 2-3; material from; Amazing Spider-Man Super Special (1995) 1; Spider-Man Super Special (1995) 1; Venom Super Special (1995) 1; Spectacular Spider-Man Super Special (1995) 1; Web of Spider-Man Super Special (1995) 1",
     yearsCovered: "1994-1997",
     releaseDate: { year: 2023, month: 3 },
-    creators: "DeMatteis, Bagley",
     writers: "Larry Hama, David Michelinie",
     artists: "Mark Bagley, Andrew Wildman, Kyle Hotz, Josh Hood",
     description:
@@ -2315,7 +2217,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Amazing Spider-Man (1963) 430-431; Peter Parker: Spider-Man (1999) 13; Webspinners: Tales of Spider-Man (1999) 13-14; Venom vs. Carnage (2004) 1-4; Toxin (2005) 1-6; X-Men/Spider-Man (2008) 3; What If? (1989) 108",
     yearsCovered: "1997-2008",
     releaseDate: { year: 2024, month: 3 },
-    creators: "DeFalco, Weeks",
     writers: "Tom DeFalco, Howard Mackie, Peter Milligan",
     artists: "Clayton Crain, Darick Robertson",
     description:
@@ -2335,7 +2236,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Daredevil #1–21",
     yearsCovered: "1964-1966",
     releaseDate: { year: 2016, month: 7 },
-    creators: "Lee, Everett",
     writers: "Stan Lee",
     artists: "Wally Wood, John Romita Sr.",
     description:
@@ -2354,7 +2254,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Daredevil #22–41, Annual #1,; Fantastic Four #73; and material from; Not Brand Echh #4",
     yearsCovered: "1966-1968",
     releaseDate: { year: 2018, month: 2 },
-    creators: "Lee, Colan",
     writers: "Stan Lee",
     artists: "Gene Colan",
     description:
@@ -2373,7 +2272,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Daredevil #42–63",
     yearsCovered: "1968-1970",
     releaseDate: { year: 2017, month: 2 },
-    creators: "Lee, Thomas, Colan",
     writers: "Stan Lee, Roy Thomas",
     artists: "Gene Colan, Barry Windsor Smith",
     description:
@@ -2392,7 +2290,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Daredevil #64–86;; Iron Man #35–36",
     yearsCovered: "1970-1972",
     releaseDate: { year: 2019, month: 11 },
-    creators: "Thomas, Colan",
     writers: "Roy Thomas, Gerry Conway",
     artists: "Gene Colan",
     description:
@@ -2411,7 +2308,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Daredevil (1964) 87-107, Avengers (1963) 111",
     yearsCovered: "1972-1973",
     releaseDate: { year: 2022, month: 1 },
-    creators: "Conway, Colan",
     writers: "Gerry Conway, Steve Gerber",
     artists: "Gene Colan, Don Heck",
     description:
@@ -2430,7 +2326,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Daredevil #108-132, Marvel Two-In-One #3",
     yearsCovered: "1974-1976",
     releaseDate: { year: 2023, month: 3 },
-    creators: "Gerber, Kane",
     writers: "Steve Gerber, Tony Isabella, Marv Wolfman",
     artists: "Bob Brown, Gene Colan",
     description:
@@ -2449,7 +2344,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Daredevil (1964) 133-154; Daredevil Annual (1967) 4; Ghost Rider (1973) 20; Marvel Premiere (1972) 39-40, 43; material from Ghost Rider (1973) 19",
     yearsCovered: "1976-1978",
     releaseDate: { year: 2024, month: 4 },
-    creators: "Wolfman, Colan",
     writers: "Marv Wolfman, Jim Shooter, Roger McKenzie",
     artists: "Bob Brown, Gil Kane, Carmine Infantino",
     description:
@@ -2468,7 +2362,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Daredevil #155-176; material from What If #28; Bizarre Adventures #28",
     yearsCovered: "1978-1980",
     releaseDate: { year: 2025, month: 9 },
-    creators: "Miller, Janson",
     writers: "Roger McKenzie, Frank Miller",
     artists: "Frank Miller",
     description:
@@ -2487,7 +2380,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Daredevil #234-252",
     yearsCovered: "1986-1987",
     releaseDate: { year: 2022, month: 11 },
-    creators: "Gruenwald, Ditko",
     writers: "Ann Nocenti",
     artists: "Steve Ditko, Louis Williams, Rick Leonardi, John Romita Jr.",
     description:
@@ -2506,7 +2398,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Daredevil #253–270;; Punisher #10",
     yearsCovered: "1988-1989",
     releaseDate: { year: 2016, month: 1 },
-    creators: "Nocenti, Romita Jr.",
     writers: "Ann Nocenti",
     artists: "John Romita Jr.",
     description:
@@ -2525,7 +2416,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Daredevil #271–282, Annual #5–6; and material from; Punisher Annual #3,; Incredible Hulk Annual #16 and; Silver Surfer Annual #3",
     yearsCovered: "1989-1990",
     releaseDate: { year: 2017, month: 9 },
-    creators: "Nocenti, Romita Jr.",
     writers: "Gregory Wright, Ann Nocenti, Peter David",
     artists: "Mark Bagley, John Romita Jr. Angel Medina",
     description:
@@ -2544,7 +2434,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Daredevil #283-300, Annual #7",
     yearsCovered: "1990-1991",
     releaseDate: { year: 2020, month: 12 },
-    creators: "Nocenti, Romita Jr.",
     writers: "Gregory Wright, Ann Nocenti, Daniel Chichester",
     artists: "Lee Weeks, Kieron Dwyer, Ron Garney",
     description:
@@ -2563,7 +2452,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Daredevil (1964) 301-311, Daredevil Annual (1967) 8, Nomad (1992) 4-6, Punisher War Journal (1988) 45-47, material from Marvel Holiday Special (1991) 2",
     yearsCovered: "1992",
     releaseDate: { year: 2021, month: 11 },
-    creators: "Chichester, McDaniel",
     writers: "Daniel Chichester, Fabian Nicieza",
     artists: "M.C. Wyman, Scott McDaniel, Pat Olliffe",
     description:
@@ -2582,7 +2470,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Daredevil #312-318; Daredevil Annual 9; Daredevil/Black Widow: Abattoir; Daredevil: The Man Without Fear #1-5",
     yearsCovered: "1993",
     releaseDate: { year: 2023, month: 8 },
-    creators: "Chichester, McDaniel",
     writers: "Daniel Chichester, Frank Miller",
     artists: "Scott McDaniel, John Romita Jr.",
     description:
@@ -2601,7 +2488,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Daredevil #319–332, Annual #10 and; additional pages from the original Fall from Grace trade paperback",
     yearsCovered: "1993-1994",
     releaseDate: { year: 2014, month: 4 },
-    creators: "Chichester, McDaniel",
     writers: "Daniel Chichester, Gregory Wright",
     artists: "Scott McDaniel, Sergio Cariello, Kris Renkewitz",
     description:
@@ -2620,7 +2506,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Daredevil #333–344;; Elektra: Root of Evil #1–4",
     yearsCovered: "1994-1995",
     releaseDate: { year: 2018, month: 7 },
-    creators: "Wright, Grindberg",
     writers: "Gregory Wright, Daniel Chichester",
     artists: "Tom Grindberg, Scott McDaniel, Alexander Jubran, Keith Pollard",
     description:
@@ -2639,7 +2524,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Daredevil #345–364",
     yearsCovered: "1995-1997",
     releaseDate: { year: 2019, month: 6 },
-    creators: "DeMatteis, Kesel",
     writers: "J.M. DeMatteis, Karl Kesel",
     artists: "Ron Wagner, Cary Nord, Shawn McManus, Gene Colan",
     description:
@@ -2658,7 +2542,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Daredevil #365–380, −1;; Daredevil/Deadpool Annual '97",
     yearsCovered: "1997-1998",
     releaseDate: { year: 2015, month: 8 },
-    creators: "Kelly, Nord",
     writers: "Joe Kelly, Scott Lobdell",
     artists: "Gene Colan, Ariel Olivetti, Cully Hamner, Tom Morgan",
     description:
@@ -2678,7 +2561,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "New Mutants (1983) 98; X-Force (1991) 2, 11, 15; Nomad (1992) 4; Deadpool: The Circle Chase (1993) 1-4; Secret Defenders (1993) 15-17; Deadpool (1994) 1-4; material from Avengers (1963) 366; Silver Sable & the Wild Pack (1992) 23",
     yearsCovered: "1991-1994",
     releaseDate: { year: 2021, month: 11 },
-    creators: "Nicieza, Liefeld",
     writers: "Rob Liefeld, Fabian Nicieza, Mark Waid",
     artists: "Rob Liefeld, Joe Madureira, Ian Churchill",
     description:
@@ -2697,7 +2579,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Wolverine #88; X-Force #47 & 56; Deadpool #1-9 & -1; Daredevil/Deadpool Annual '97; material from Wolverine Annual '95",
     yearsCovered: "1996-1997",
     releaseDate: { year: 2022, month: 10 },
-    creators: "Hama, McGuinness",
     writers: "Jeph Loeb, Joe Kelly",
     artists: "Adam Pollina, Ed McGuinness, Bernard Chang",
     description:
@@ -2716,7 +2597,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Deadpool #10-20; Deadpool/Death Annual '98; Heroes for Hire #10-11; Baby's First Deadpool Book #1; Amazing Spider-Man #47",
     yearsCovered: "1997-1998",
     releaseDate: { year: 2024, month: 1 },
-    creators: "Kelly, McDaniel",
     writers: "Joe Kelly, John Ostrander",
     artists: "Pete Woods, Walter McDaniel, Tony Harris",
     description:
@@ -2735,7 +2615,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Deadpool (1997) 0, 21-33; Deadpool Team-Up (1998) 1; Encyclopedia Deadpoolica (1998) 1",
     yearsCovered: "1998-1999",
     releaseDate: { year: 2023, month: 7 },
-    creators: "Kelly, Felder",
     writers: "Joe Kelly, James Felder",
     artists: "Pete Woods, Walter McDaniel, David Brewer",
     description:
@@ -2754,7 +2633,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Deadpool (vol. 3) #34-45, Black Panther (vol. 3) #23, Wolverine (vol. 2) #154-155, Heroes Reborn: Remnants #1, Fight Man #1, and material from Wolverine Annual '99",
     yearsCovered: "1999-2000",
     releaseDate: { year: 2024, month: 9 },
-    creators: "Priest, Diaz",
     writers: "Christopher Priest",
     artists: "Paco Diaz, Jim Calafiore, Rob Liefeld, Evan Dorkin",
     description:
@@ -2773,7 +2651,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Deadpool (vol. 3) #65-69; Agent X #1-15",
     yearsCovered: "2002-2003",
     releaseDate: { year: 2025, month: 7 },
-    creators: "Simone, Lee",
     writers: "Gail Simone, Buddy Scalera, Evan Dorkin",
     artists: "Udon Studios, Mitch Breitweiser, Juan Bobillo",
     description:
@@ -2800,7 +2677,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "46-64; material from X-Men Unlimited (1993) 28",
     yearsCovered: "2000-2002",
     releaseDate: { year: 2027, month: 1 },
-    creators: "",
     writers: "Jimmy Palmiotti, Buddy Scalera & Frank Tieri",
     artists: "Paul Chadwick, Michael Lopez, Darick Robertson, Anthony Williams, Georges Jeanty, Karl Kerschl, Jim Calafiore & Liam Sharp",
     description:
@@ -2819,7 +2695,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Doctor Strange #183; Sub-Mariner #22, 34-35; Incredible Hulk #126; Marvel Feature #1-3; Defenders #1-11; Avengers #116-118; material from Avengers #115",
     yearsCovered: "1972-1973",
     releaseDate: { year: 2022, month: 12 },
-    creators: "Thomas, Buscema",
     writers: "Roy Thomas, Steve Englehart",
     artists: "Sal Buscema, Ross Andru, Bob Brown",
     description:
@@ -2838,7 +2713,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Defenders (1972) 12-25, Giant-Size Defenders (1974) 1-4, Marvel Two-in-One (1974) 6-7; material from Mystery Tales (1952) 21, World of Fantasy (1956) 11, Tales of Suspense (1959) 9",
     yearsCovered: "1974-1975",
     releaseDate: { year: 2024, month: 6 },
-    creators: "Wein, Buscema",
     writers: "Len Wein, Steve Gerber",
     artists: "Sal Buscema",
     description:
@@ -2857,7 +2731,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Defenders #26-41, Annual #1; Giant-Size Defenders #5; Marvel Treasury Edition #12",
     yearsCovered: "1975-1976",
     releaseDate: { year: 2025, month: 4 },
-    creators: "Gerber, Buscema",
     writers: "Steve Gerber",
     artists: "Sal Buscema",
     description:
@@ -2876,7 +2749,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Defenders #92–109;; Marvel Team-Up #101;; Captain America #268",
     yearsCovered: "1981-1982",
     releaseDate: { year: 2016, month: 8 },
-    creators: "DeMatteis, Perlin",
     writers: "J.M. DeMatteis",
     artists: "Don Perlin",
     description:
@@ -2895,7 +2767,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Defenders #110–125;; Avengers Annual #11",
     yearsCovered: "1982-1983",
     releaseDate: { year: 2017, month: 8 },
-    creators: "DeMatteis, Buscema",
     writers: "J.M. DeMatteis",
     artists: "Don Perlin",
     description:
@@ -2914,7 +2785,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Defenders #126–137;; Iceman #1–4;; Beauty and the Beast #1–4",
     yearsCovered: "1984",
     releaseDate: { year: 2018, month: 8 },
-    creators: "DeMatteis, Gillis",
     writers: "J.M. DeMatteis, Peter Gillis, Ann Nocenti",
     artists: "Don Perlin, Alan Kupperberg",
     description:
@@ -2933,7 +2803,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Defenders #138–152;; Gargoyle #1–4",
     yearsCovered: "1985-1986",
     releaseDate: { year: 2019, month: 12 },
-    creators: "Gillis, Perlin",
     writers: "Peter B. Gillis, J.M. DeMatteis",
     artists: "Don Perlin, Mark Badger",
     description:
@@ -2953,7 +2822,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Fantastic Four #5-6, 10, 16-17, 23, 39-40, 57-60, 73; Annual #2-3; Amazing Spider-Man #5; Avengers #25; Daredevil #37-38; Marvel Super Heroes #20",
     yearsCovered: "1962-1969",
     releaseDate: { year: 2025, month: 11 },
-    creators: "Lee, Kirby",
     writers: "Stan Lee",
     artists: "Jack Kirby, Steve Ditko, Don Heck, Gene Colan",
     description:
@@ -2972,7 +2840,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Fantastic Four #84-87, 116, 142-144; Sub-Mariner #20, 47-49; Thor #182-183; Incredible Hulk #143-144; Hero For Hire #8-9; material from Astonishing Tales #1-8",
     yearsCovered: "1969-1974",
     releaseDate: { year: 2026, month: 5 },
-    creators: "Lee, Goodwin, Kirby",
     writers: "Stan Lee, Gerry Conway",
     artists: "Jack Kirby, John Buscema, Gene Colan",
     description:
@@ -2992,7 +2859,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Strange Tales #110–111, 114–146;; Amazing Spider-Man Annual #2",
     yearsCovered: "1963-1966",
     releaseDate: { year: 2018, month: 10 },
-    creators: "Lee, Ditko",
     writers: "Stan Lee, Steve Ditko",
     artists: "Steve Ditko",
     description:
@@ -3011,7 +2877,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Strange Tales #147-168; Doctor Strange #169-179; Avengers #61; Material from; Not Brand Echh #13",
     yearsCovered: "1966-1969",
     releaseDate: { year: 2024, month: 1 },
-    creators: "Lee, Colan",
     writers: "Stan Lee, Roy Thomas",
     artists: "Bill Everett, Marie Severin, Dan Adkins, Gene Colan",
     description:
@@ -3030,7 +2895,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Doctor Strange #180–183;; Sub-Mariner #22;; Incredible Hulk #126;; Marvel Premiere #3–10, #12–14;; Doctor Strange (1974) #1–2, #4–5;; material from Marvel Feature #1; Marvel Premiere #11; Doctor Strange (1974) #3",
     yearsCovered: "1969-1974",
     releaseDate: { year: 2016, month: 10 },
-    creators: "Englehart, Brunner",
     writers: "Roy Thomas, Steve Englehart",
     artists: "Gene Colan, Frank Brunner",
     description:
@@ -3049,7 +2913,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Doctor Strange (1974) #6-28;; Doctor Strange Annual (1997) #1;; Tomb of Dracula #44;; Giant-Size Doctor Strange (1975) #1 (cover only)",
     yearsCovered: "1975-1978",
     releaseDate: { year: 2021, month: 2 },
-    creators: "Englehart, Colan",
     writers: "Steve Englehart, Marv Wolfman, Jim Starlin",
     artists: "Gene Colan, Philip Russell, Jim Starlin",
     description:
@@ -3068,7 +2931,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Doctor Strange 29-51 Man-Thing 4 material from Chamber of Chills 3-4 Defenders 53",
     yearsCovered: "1978-1982",
     releaseDate: { year: 2022, month: 2 },
-    creators: "Stern, Colan",
     writers: "Roger Stern, Chris Claremont",
     artists: "Gene Colan, Tom Sutton, Marshall Rogers",
     description:
@@ -3087,7 +2949,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Doctor Strange, Sorcerer Supreme #1–13;; Marvel Graphic Novel No. 49 - Doctor Strange and Doctor Doom: Triumph and Torment",
     yearsCovered: "1989-1990",
     releaseDate: { year: 2019, month: 10 },
-    creators: "Gillis, Case",
     writers: "Peter B. Gillis, Roy Thomas, Roger Stern",
     artists: "Richard Case, Butch Guice, Mike Mignolia",
     description:
@@ -3106,7 +2967,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Doctor Strange, Sorcerer Supreme #14–33;; Ghost Rider #12",
     yearsCovered: "1991-1992",
     releaseDate: { year: 2021, month: 8 },
-    creators: "Thomas, Guice",
     writers: "Roy Thomas, Dann Thomas",
     artists: "Jean-Marc Lofficier, Butch Guice, Chris Marrinan",
     description:
@@ -3125,7 +2985,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Doctor Strange, Sorcerer Supreme #34–47; Doctor Strange, Sorcerer Supreme Annual #2; Silver Surfer #67; Spider-Man/Dr. Strange: The Way to Dusty Death",
     yearsCovered: "1992-1993",
     releaseDate: { year: 2022, month: 8 },
-    creators: "Thomas, Lawlis",
     writers: "Roy Thomas, Dann Thomas",
     artists: "Don Lawlis, Geof Isherwood, Michael Bair",
     description:
@@ -3144,7 +3003,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Doctor Strange, Sorcerer Supreme (1988) 48-61; Doctor Strange, Sorcerer Supreme Annual (1992) 3; Morbius: the Living Vampire (1992) 9; material from; Marvel Super-Heroes (1990) 12, 14; Marvel Comics Presents (1988) 146",
     yearsCovered: "1994",
     releaseDate: { year: 2023, month: 1 },
-    creators: "Kaminski, Isherwood",
     writers: "Len Kaminski, Roy Thomas, David Quinn",
     artists: "Geof Isherwood, Mel Rubi",
     description:
@@ -3163,7 +3021,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Doctor Strange, Sorcerer Supreme #62-75, Annual #4; Midnight Sons Unlimited #6",
     yearsCovered: "1995-1996",
     releaseDate: { year: 2025, month: 11 },
-    creators: "Quinn, Rubi",
     writers: "David Quinn",
     artists: "Melvin Rubi, Kyle Hotz, Peter Gross, Mark Buckingham",
     description:
@@ -3182,7 +3039,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Strange Tales (1994) #1;; Doctor Strange, Sorcerer Supreme #76–90, Ashcan Edition;; Doctor Strange: What Is It That Disturbs You, Stephen?",
     yearsCovered: "1996-1997",
     releaseDate: { year: 2017, month: 10 },
-    creators: "Busiek, Villagran",
     writers: "David Quinn, Warren Ellis, J.M. DeMatteis",
     artists: "Evan Skolnick, Marie Severin, Mark Buckingham",
     description:
@@ -3202,7 +3058,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Captain Britain #1–2,; Excalibur #1–11,; Excalibur Special Edition,; Excalibur – Mojo Mayhem #1; and material from; Mighty World of Marvel #7, 14–15 and; Marvel Comics Presents #31–38",
     yearsCovered: "1988-1989",
     releaseDate: { year: 2017, month: 3 },
-    creators: "Claremont, Davis",
     writers: "Chris Claremont, Michael Higgins",
     artists: "Alan Davis, Marshall Rogers, Arthur Adams, Erik Larsen",
     description:
@@ -3221,7 +3076,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Excalibur #12–30",
     yearsCovered: "1989-1990",
     releaseDate: { year: 2018, month: 2 },
-    creators: "Claremont, Davis",
     writers: "Chris Claremont, Michael Higgins",
     artists: "Alan Davis, Ron Lim, Chris Wozniak",
     description:
@@ -3240,7 +3094,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Excalibur #31–41,; Weird War III,; The Possession,; Air Apparent,; Sensational She-Hulk #26; and material from; Marvel Comics Presents #75",
     yearsCovered: "1990-1991",
     releaseDate: { year: 2019, month: 2 },
-    creators: "Lobdell, Ross",
     writers: "Scott Lobdell, Chris Claremont, Michael Higgins",
     artists: "Ron Wagner, Tom Morgan, Mark Badger",
     description:
@@ -3259,7 +3112,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Excalibur #42-58,; Excalibur: XX Crossing; and material from; Marvel Comics Presents #110",
     yearsCovered: "1991-1992",
     releaseDate: { year: 2020, month: 3 },
-    creators: "Davis, Lobdell",
     writers: "Alan Davis, Scott Lobdell",
     artists: "Doug Braithwaite, Will Simpson, James Fry, Joe Madureira",
     description:
@@ -3278,7 +3130,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Excalibur #59-75, Annual #1",
     yearsCovered: "1993",
     releaseDate: { year: 2024, month: 12 },
-    creators: "Davis",
     writers: "Alan Davis, Scott Lobdell, Richard Ashford",
     artists: "Ken Lashley",
     description:
@@ -3297,7 +3148,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Excalibur 104-115, -1; Colossus 1; Kitty Pryde: Agent of S.H.I.E.L.D. 1-3; New Mutants: Truth or Death 1-2",
     yearsCovered: "1997",
     releaseDate: { year: 2022, month: 2 },
-    creators: "Arcudi, Hitch",
     writers: "Ben Raab",
     artists: "Bryan Hitch, Salvador Larroca, Pete Woods, Bernard Chang",
     description:
@@ -3316,7 +3166,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Excalibur #116-125; X-Men Unlimited #19; X-Men: True Friends #1-3; Excalibur (vol. 2) #1-4",
     yearsCovered: "1998-2001",
     releaseDate: { year: 2023, month: 11 },
-    creators: "Raab, Claremont",
     writers: "Ben Raab, Chris Claremont",
     artists: "Mel Rubi, Rick Leonardi, Pablo Raimondi",
     description:
@@ -3335,7 +3184,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "76-87; Annual 2; X-Factor 106; X-Force 38; mat Marvel Comics Presents 174",
     yearsCovered: "1994-1995",
     releaseDate: { year: 2026, month: 10 },
-    creators: "",
     writers: "Warren Ellis, Scott Lobdell, Richard Ashford",
     artists: "Ken Lashley, Robert Brown",
     description:
@@ -3355,7 +3203,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Fantastic Four #1–18",
     yearsCovered: "1961-1963",
     releaseDate: { year: 2014, month: 9 },
-    creators: "Lee, Kirby",
     writers: "Stan Lee",
     artists: "Jack Kirby",
     description:
@@ -3374,7 +3221,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Fantastic Four #19–32, Annual #1–2",
     yearsCovered: "1963-1964",
     releaseDate: { year: 2017, month: 6 },
-    creators: "Lee, Kirby",
     writers: "Stan Lee",
     artists: "Jack Kirby",
     description:
@@ -3393,7 +3239,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Fantastic Four #33–51, Annual #3",
     yearsCovered: "1965-1966",
     releaseDate: { year: 2018, month: 8 },
-    creators: "Lee, Kirby",
     writers: "Stan Lee",
     artists: "Jack Kirby",
     description:
@@ -3412,7 +3257,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Fantastic Four #52–67, Annual #4–5; and material from; Not Brand Echh #1, 5",
     yearsCovered: "1966-1967",
     releaseDate: { year: 2019, month: 8 },
-    creators: "Lee, Kirby",
     writers: "Stan Lee",
     artists: "Jack Kirby",
     description:
@@ -3431,7 +3275,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Fantastic Four #68-87, Annual #6; and material from; Not Brand Echh #6-7",
     yearsCovered: "1967-1969",
     releaseDate: { year: 2020, month: 6 },
-    creators: "Lee, Kirby",
     writers: "Stan Lee",
     artists: "Jack Kirby",
     description:
@@ -3450,7 +3293,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Fantastic Four #88-104, Annual #7;; Fantastic Four: The Lost Adventure #1",
     yearsCovered: "1969-1970",
     releaseDate: { year: 2020, month: 11 },
-    creators: "Lee, Kirby",
     writers: "Stan Lee",
     artists: "Jack Kirby",
     description:
@@ -3469,7 +3311,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Fantastic Four #105-125, Annual #8-9 (covers only)",
     yearsCovered: "1971-1972",
     releaseDate: { year: 2021, month: 9 },
-    creators: "Lee, Buscema",
     writers: "Stan Lee",
     artists: "John Buscema",
     description:
@@ -3488,7 +3329,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Fantastic Four #126-146; Giant-Size Super-Stars #1; and material from F.O.O.M. #1, 4-5",
     yearsCovered: "1973-1974",
     releaseDate: { year: 2022, month: 8 },
-    creators: "Thomas, Buscema",
     writers: "Roy Thomas, Gerry Conway",
     artists: "John Buscema, Ross Andru, Rich Buckler",
     description:
@@ -3507,7 +3347,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Fantastic Four #147-167; Giant-Size Fantastic Four #2-4; Avengers #127",
     yearsCovered: "1974-1975",
     releaseDate: { year: 2023, month: 8 },
-    creators: "Conway, Buckler",
     writers: "Gerry Conway, Roy Thomas",
     artists: "Rich Buckler, John Buscema, George Perez",
     description:
@@ -3526,7 +3365,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Fantastic Four #168–191, Annual #11; Marvel Two-in-One #20, Annual #1",
     yearsCovered: "1976-1977",
     releaseDate: { year: 2024, month: 9 },
-    creators: "Thomas, Perez",
     writers: "Roy Thomas, Len Wein",
     artists: "George Perez, John Buscema, Sal Buscema",
     description:
@@ -3545,7 +3383,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Fantastic Four #192-214, Annual #12-13",
     yearsCovered: "1978-1979",
     releaseDate: { year: 2025, month: 3 },
-    creators: "Wolfman, Pollard",
     writers: "Marv Wolfman",
     artists: "Keith Pollard, John Byrne, Sal Buscema",
     description:
@@ -3564,7 +3401,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Fantastic Four #215-231, Annual #14-15",
     yearsCovered: "1979-1981",
     releaseDate: { year: 2025, month: 8 },
-    creators: "Moench, Sienkiewicz",
     writers: "Marv Wolfman, Doug Moench, Roger Stern",
     artists: "John Byrne, Bill Sienkiewicz, Jerome Moore",
     description:
@@ -3583,7 +3419,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Fantastic Four #296–307, Annual #20;; Fantastic Four vs. the X-Men #1–4",
     yearsCovered: "1986-1987",
     releaseDate: { year: 2014, month: 1 },
-    creators: "Stern, Buscema",
     writers: "Roger Stern, Steve Englehart, Chris Claremont",
     artists: "John Buscema, Jon Bogdanove, Paul Neary",
     description:
@@ -3602,7 +3437,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Marvel Graphic Novel No. 29 - The Incredible Hulk and the Thing: The Big Change;; Fantastic Four #308–320, Annual #21;; Incredible Hulk (vol. 2) #350",
     yearsCovered: "1987-1988",
     releaseDate: { year: 2019, month: 6 },
-    creators: "Englehart, Frenz",
     writers: "Jim Starlin, Steve Englehart",
     artists: "Bernie Wrightson, John Buscema, Keith Pollard, Kieron Dwyer",
     description:
@@ -3621,7 +3455,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Fantastic Four (1961) 321-333; Fantastic Four Annual (1963) 22; Marvel Graphic Novel: Doctor Strange and Doctor; Doom - Triumph and Torment (1989)",
     yearsCovered: "1989",
     releaseDate: { year: 2023, month: 3 },
-    creators: "Englehart, Lim",
     writers: "Steve Englehart, Roger Stern",
     artists: "Keith Pollard, Rich Buckler, Mike Mignola",
     description:
@@ -3640,7 +3473,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Fantastic Four #334–346, Annual #23; and material from; New Mutants Annual #6,; X-Factor Annual #5 and; Uncanny X-Men Annual #14",
     yearsCovered: "1990",
     releaseDate: { year: 2014, month: 7 },
-    creators: "Simonson, Simonson",
     writers: "Walt Simonson, Louise Simonson, Chris Claremont",
     artists: "Walt Simonson, Rich Buckler, Arthur Adams",
     description:
@@ -3659,7 +3491,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Fantastic Four #347–361, Annual #24; and material from; Marvel Holiday Special #1",
     yearsCovered: "1991-1992",
     releaseDate: { year: 2018, month: 6 },
-    creators: "Simonson, Adams",
     writers: "Walt Simonson, Tom DeFalco",
     artists: "Arthur Adams, Paul Ryan",
     description:
@@ -3678,7 +3509,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Fantastic Four (1961) 362-376, Fantastic Four Annual (1963) 25-26, Adventures of the Thing (1992) 3",
     yearsCovered: "1992-1993",
     releaseDate: { year: 2021, month: 11 },
-    creators: "DeFalco, Ryan",
     writers: "Tom DeFalco, Mark Gruenwald",
     artists: "Paul Ryan, Herb Trimpe",
     description:
@@ -3697,7 +3527,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Fantastic Four 377-392 Fantastic Four Annual 27 Namor the Sub-Mariner 47-48 Fantastic Four Ashcan Edition 1",
     yearsCovered: "1993-1994",
     releaseDate: { year: 2022, month: 3 },
-    creators: "DeFalco, Ryan",
     writers: "Tom DeFalco, Glenn Herdling",
     artists: "Paul Ryan, Geof Isherwood, Mike Gustovich",
     description:
@@ -3716,7 +3545,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Fantastic Four #393-402; Fantastic Force #7-9; Fantastic Four: Atlantis Rising #1-2; Fantastic Four: Atlantis Rising Collectors' Preview",
     yearsCovered: "1994-1995",
     releaseDate: { year: 2024, month: 3 },
-    creators: "DeFalco, Ryan",
     writers: "Tom DeFalco, Glenn Herdling",
     artists: "Paul Ryan, Dante Bastianoni, M. C. Wyman",
     description:
@@ -3735,7 +3563,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Fantastic Four #403–416,; Fantastic Four: The Legend,; Onslaught: Marvel Universe; and material from; Tales of the Marvel Universe",
     yearsCovered: "1995-1996",
     releaseDate: { year: 2015, month: 5 },
-    creators: "DeFalco, Ryan",
     writers: "Tom DeFalco, Mark Waid",
     artists: "Paul Ryan, Carlos Pacheco, Adam Kubert",
     description:
@@ -3754,7 +3581,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "",
     yearsCovered: "1981-1982",
     releaseDate: { year: 2026, month: 2 },
-    creators: "",
     writers: "John Byrne",
     artists: "John Byrne",
     description:
@@ -3773,7 +3599,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "",
     yearsCovered: "1982-1983",
     releaseDate: { year: 2027, month: 5 },
-    creators: "",
     writers: "John Byrne",
     artists: "John Byrne",
     description:
@@ -3791,7 +3616,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Fantastic Four (1996) 1-12; etc",
     yearsCovered: "1996-1997",
     releaseDate: { year: 2026, month: 8 },
-    creators: "",
     writers: "Jim Lee, Brandon Choi",
     artists: "Jim Lee, Brett Booth, Ron Lim",
     description:
@@ -3811,7 +3635,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Uncanny X-Men #316-318,; X-Men #36-37,; Wolverine #94,; Generation-X #1-9,; Generation-X Collectors Preview,; Generation-X Ashcan Edition",
     yearsCovered: "1994-1995",
     releaseDate: { year: 2021, month: 7 },
-    creators: "Lobdell, Bachalo",
     writers: "Scott Lobdell, Fabian Nicieza",
     artists: "Chris Bachalo, Joe Madureira, Andy Kubert, Roger Cruz",
     description:
@@ -3830,7 +3653,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Generation X #10-23; Generation X Annual '95 & '96; Generation X San Diego Preview #1; and material from Incredible Hulk Annual '97",
     yearsCovered: "1995-1996",
     releaseDate: { year: 2022, month: 5 },
-    creators: "Lobdell, Bachalo",
     writers: "Scott Lobdell, Michael Golden",
     artists: "Tom Grummett, Chris Bachalo, Jeff Johnson",
     description:
@@ -3849,7 +3671,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Generation X (1994) 24-32, -1; Generation X Annual '97; X-Men Unlimited (1993) 16; Marvel Team-Up (1997) 1; Daydreamers (1997) 1-3; Generation X Underground (1998) 1",
     yearsCovered: "1997",
     releaseDate: { year: 2023, month: 6 },
-    creators: "Lobdell, Bachalo",
     writers: "Scott Lobdell, James Robinson",
     artists: "Jim Mahfood, Chris Bachalo, Martin Egeland",
     description:
@@ -3868,7 +3689,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Generation X #33-47, 1/2; Generation X/Dracula Annual '98 #1; X-Men Unlimited #20; Generation X Holiday Special #1",
     yearsCovered: "1998",
     releaseDate: { year: 2024, month: 9 },
-    creators: "Hama, Harris",
     writers: "Larry Hama, Joseph Harris",
     artists: "Terry Dodson, Alé Garza",
     description:
@@ -3887,7 +3707,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Generation X #48-62; Generation X Annual '99; X-Man #50; New Warriors #5",
     yearsCovered: "1999-2000",
     releaseDate: { year: 2025, month: 9 },
-    creators: "Faerber, Dodson",
     writers: "Jay Faerber",
     artists: "Terry Dodson, Gregg Schigiel, Darick Robertson, Kevin Sharpe",
     description:
@@ -3906,7 +3725,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Generation X (1994) 63-75, Chamber (2002); material X-Men Unlimited (1993) 30, 34",
     yearsCovered: "2000-2002",
     releaseDate: { year: 2026, month: 11 },
-    creators: "",
     writers: "Brian Wood, Warren Ellis, Brian K. Vaughan, Andi Watson & Ken Siu-Chong",
     artists: "Steve Pugh, Allen Evans, Ron Lim, Lee Ferguson, Jim Mahfood & Christina Chen",
     description:
@@ -3926,7 +3744,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Marvel Spotlight #5-12; Ghost Rider (1973) #1-11; Marvel Team-Up #15",
     yearsCovered: "1972-1975",
     releaseDate: { year: 2022, month: 5 },
-    creators: "Friedrich, Ploog",
     writers: "Gary Friedrich, Tony Isabella",
     artists: "Mike Ploog, Tom Sutton, Jim Mooney",
     description:
@@ -3945,7 +3762,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Ghost Rider (vol. 2) #12-28, Marvel Two-in-One #8, Daredevil #138, Marvel Team-Up #58, Marvel Premiere #28, and material from Marvel Tales #255",
     yearsCovered: "1975-1977",
     releaseDate: { year: 2024, month: 10 },
-    creators: "Isabella, Robbins",
     writers: "Tony Isabella, Jim Shooter",
     artists: "Frank Robbins, Don Heck",
     description:
@@ -3964,7 +3780,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Ghost Rider (vol. 2) #29-50, Marvel Team-Up #91; material from What If? #17 and Marvel Tales #256",
     yearsCovered: "1978-1980",
     releaseDate: { year: 2025, month: 9 },
-    creators: "McKenzie, Fleisher",
     writers: "Michael Fleisher, Roger McKenzie",
     artists: "Don Perlin",
     description:
@@ -3983,7 +3798,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "#51-66; Marvel Two-in-One (1974) 80; Avengers (1963) 214; etc",
     yearsCovered: "1980-1982",
     releaseDate: { year: 2026, month: 10 },
-    creators: "",
     writers: "Michael Fleisher",
     artists: "Don Perlin, Tom Sutton",
     description:
@@ -4003,7 +3817,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Ghost Rider (1990) #1-12; Marc Spector: Moon Knight #25; Doctor Strange: Sorcerer Supreme #28; Material from; Marvel Comics Presents #64-71",
     yearsCovered: "1990-1991",
     releaseDate: { year: 2023, month: 10 },
-    creators: "Mackie, Saltares",
     writers: "Howard Mackie",
     artists: "Javier Saltares, Mark Texeira, Mark Bagley, Larry Stroman",
     description:
@@ -4022,7 +3835,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Ghost Rider (vol. 3) #44-45; Ghost Rider/Blaze: Spirits of Vengeance #17-18, and more",
     yearsCovered: "1993",
     releaseDate: { year: 2025, month: 4 },
-    creators: "Mackie, Garney",
     writers: "Howard Mackie, Steven Grant, Chris Cooper, Gregory Wright, Daniel Chichester",
     artists: "Ron Garney, Henry Martinez",
     description:
@@ -4041,7 +3853,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Collects Ghost Rider (1990) #13-24, Ghost Rider/Wolverine/Punisher: Hearts of Darkness (1991) #1, Marvel Comics Presents (1988) #100; material from Marvel Comics Presents (1988) #90-97, Marvel Holiday Special (1991) #1.",
     yearsCovered: "1991-1992",
     releaseDate: { year: 2026, month: 12 },
-    creators: "",
     writers: "Howard Mackie",
     artists: "Mark Texeira, Ron Wagner, John Romita Jr., Guang Yap",
     description:
@@ -4061,7 +3872,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Marvel Super-Heroes #18, Marvel Two-in-One #4-5, Giant-Size Defenders #5, Defenders #26-29, Marvel Presents #3-12, Thor Annual #6",
     yearsCovered: "1970-1977",
     releaseDate: { year: 2023, month: 4 },
-    creators: "Drake, Colan",
     writers: "Steve Gerber, Roger Stern",
     artists: "John Buscema, Al Milgrom, Don Heck",
     description:
@@ -4080,7 +3890,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Avengers (1963) 167-168, 170-177, 181; Ms. Marvel (1977) 23; Marvel Team-Up (1972) 86; Marvel Two-in-One (1974) 61-63, 69; Guardians of the Galaxv (1990) 1-6",
     yearsCovered: "1978-1990",
     releaseDate: { year: 2025, month: 2 },
-    creators: "Shooter, Perez",
     writers: "Jim Shooter, Mark Gruenwald",
     artists: "Jim Valentino, George Perez, David Wenzel",
     description:
@@ -4099,7 +3908,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Guardians Of The Galaxy #7-20, Annual #1; material from Fantastic Four Annual #24; Thor Annual #16; Silver Surfer Annual #4",
     yearsCovered: "1990-1991",
     releaseDate: { year: 2025, month: 9 },
-    creators: "Valentino, Milgrom",
     writers: "Jim Valentino, Al Milgrom, Ron Marz",
     artists: "Jim Valentino, Al Milgrom, Ron Lim",
     description:
@@ -4119,7 +3927,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Hawkeye1-4; Avengers 16, 63-65, 189, 223; Marvel Team-Up 22, 92, 95; Captain America 317; and material from Tales of Suspense 57, 60, 64; Marvel Tales 100; Marvel Fanfare 3, 39; Marvel Super Action 11",
     yearsCovered: "1964-1986",
     releaseDate: { year: 2022, month: 1 },
-    creators: "Lee, Heck",
     writers: "Stan Lee, Roy Thomas, Mark Gruenwald, Steven Grant",
     artists: "Mark Gruenwald, Gene Colan",
     description:
@@ -4138,7 +3945,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Solo Avengers #1-20; Avengers Spotlight #21",
     yearsCovered: "1988-1989",
     releaseDate: { year: 2023, month: 10 },
-    creators: "DeFalco, Bright",
     writers: "Tom DeFalco, Howard Mackie",
     artists: "Mark Bright, Ron Lim, Al Milgrom, Ron Wilson",
     description:
@@ -4157,7 +3963,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Avengers Spotlight #22-40; material from Marvel Comics Presents #83",
     yearsCovered: "1989-1991",
     releaseDate: { year: 2025, month: 12 },
-    creators: "Mackie, Milgrom",
     writers: "Howard Mackie, Dwayne McDuffie, Steve Gerber",
     artists: "Al Milgrom, Dwayne Turner",
     description:
@@ -4176,7 +3981,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Hawkeye (vol. 2) #1-4; Hawkeye (vol. 3) #1-8; Hawkeye: Earth's Mightiest Marksman #1; Avengers #502; The Pulse #10; New Avengers #26, 30; Young Avengers Presents #6; and material from Marvel Comics Presents #159-161",
     yearsCovered: "1994-2008",
     releaseDate: { year: 2024, month: 12 },
-    creators: "Dixon, Larroca",
     writers: "Chuck Dixon, Fabian Nicieza, Brian Michael Bendis",
     artists: "Scott Kolins, Stefano Raffaele",
     description:
@@ -4212,7 +4016,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Incredible Hulk #1–6;; Fantastic Four #12, 25–26;; Avengers #1–3, 5;; Amazing Spider-Man #14;; Tales to Astonish #59;; Journey into Mystery #112",
     yearsCovered: "1962-1964",
     releaseDate: { year: 2016, month: 6 },
-    creators: "Lee, Kirby",
     writers: "Stan Lee",
     artists: "Jack Kirby, Steve Ditko, Dick Ayers",
     description:
@@ -4231,7 +4034,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Tales to Astonish #60–96; and material from; Not Brand Echh #3",
     yearsCovered: "1965-1967",
     releaseDate: { year: 2017, month: 10 },
-    creators: "Lee, Kirby",
     writers: "Stan Lee",
     artists: "Steve Ditko, Jack Kirby, Bill Everett, Gil Kane, John Buscema, Marie Severin",
     description:
@@ -4250,7 +4052,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Tales to Astonish #97–101,; Incredible Hulk (vol. 2) #102–117, Annual #1; and material from; Not Brand Echh #9",
     yearsCovered: "1967-1969",
     releaseDate: { year: 2018, month: 10 },
-    creators: "Lee, Trimpe",
     writers: "Stan Lee, Gary Friedrich",
     artists: "Marie Severin, Herb Trimpe",
     description:
@@ -4269,7 +4070,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Incredible Hulk (vol. 2) #118–137;; Marvel Super-Heroes #16",
     yearsCovered: "1969-1971",
     releaseDate: { year: 2019, month: 9 },
-    creators: "Thomas, Trimpe",
     writers: "Roy Thomas",
     artists: "Herb Trimpe",
     description:
@@ -4288,7 +4088,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Incredible Hulk (vol. 2) #138-156,; Annual #3-4 (covers only);; Avengers #88",
     yearsCovered: "1971-1972",
     releaseDate: { year: 2021, month: 1 },
-    creators: "Thomas, Trimpe",
     writers: "Roy Thomas, Archie Goodwin",
     artists: "Herb Trimpe",
     description:
@@ -4307,7 +4106,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Incredible Hulk (1968) 157-178; material from FOOM (1973) 1-2",
     yearsCovered: "1972-1974",
     releaseDate: { year: 2021, month: 10 },
-    creators: "Englehart, Trimpe",
     writers: "Steve Englehart, Roy Thomas, Gerry Conway",
     artists: "Herb Trimpe",
     description:
@@ -4326,7 +4124,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Incredible Hulk (1968) 179-200, Annual #5",
     yearsCovered: "1974-1976",
     releaseDate: { year: 2022, month: 10 },
-    creators: "Wein, Trimpe",
     writers: "Len Wein",
     artists: "Herb Trimpe, Sal Buscema",
     description:
@@ -4345,7 +4142,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Incredible Hulk (vol. 2) #201-226, Annual #6",
     yearsCovered: "1976-1978",
     releaseDate: { year: 2023, month: 10 },
-    creators: "Wein, Buscema",
     writers: "Len Wein, Roger Stern",
     artists: "Sal Buscema",
     description:
@@ -4364,7 +4160,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Incredible Hulk (1968) 227-244; Incredible Hulk Annual (1968) 7-9; Captain America (1968) 230; Marvel Calendar 1979; material from; Marvel Treasury Edition (1974) 20, 24",
     yearsCovered: "1978-1980",
     releaseDate: { year: 2024, month: 7 },
-    creators: "Stern, Buscema",
     writers: "Roger Stern",
     artists: "Sal Buscema",
     description:
@@ -4383,7 +4178,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Incredible Hulk (vol. 2) #245-262; Marvel Treasury Edition #25",
     yearsCovered: "1980-1981",
     releaseDate: { year: 2025, month: 11 },
-    creators: "Mantlo, Trimpe",
     writers: "Bill Mantlo",
     artists: "Sal Buscema, Herb Trimpe",
     description:
@@ -4402,7 +4196,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Incredible Hulk (1968) 297-313, Incredible Hulk Annual (1968) 13, Alpha Flight (1983) 29",
     yearsCovered: "1984-1985",
     releaseDate: { year: 2022, month: 4 },
-    creators: "Mantlo, Buscema",
     writers: "Bill Mantlo",
     artists: "Sal Buscema, Bret Blevins, Mike Mignola, Alan Kupperberg",
     description:
@@ -4421,7 +4214,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Incredible Hulk #314-330,; Annual #14-15; and material from; Marvel Fanfare #29",
     yearsCovered: "1986-1987",
     releaseDate: { year: 2020, month: 12 },
-    creators: "Byrne, Buscema",
     writers: "John Byrne, Al Milgrom, Peter David",
     artists: "John Byrne, Al Milgrom, Steve Geiger, Sal Buscema",
     description:
@@ -4440,7 +4232,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Incredible Hulk (vol. 2) #331-346; Marvel Graphic Novel No. 29 - The Incredible Hulk and the Thing: The Big Change",
     yearsCovered: "1987-1988",
     releaseDate: { year: 2024, month: 8 },
-    creators: "David, McFarlane",
     writers: "Peter David, Jim Starlin",
     artists: "Todd McFarlane, John Ridgway, Erik Larsen, Berni Wrightson",
     description:
@@ -4459,7 +4250,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Incredible Hulk #397–406, Annual #18–19; and material from; Namor the Sub-Mariner Annual #2,; Silver Surfer Annual #5,; Doctor Strange, Sorcerer Supreme Annual #2 and; Marvel Holiday Special #2",
     yearsCovered: "1991-1992",
     releaseDate: { year: 2015, month: 9 },
-    creators: "David, Keown",
     writers: "Peter David, Ron Marz",
     artists: "Dale Keown, Jan Duursema, Gary Frank",
     description:
@@ -4478,7 +4268,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Incredible Hulk (vol. 2) #407–419, Annual #20, Ashcan Edition;; Incredible Hulk: Future Imperfect #1–2; and material from; Marvel Holiday Special #3",
     yearsCovered: "1992-1993",
     releaseDate: { year: 2017, month: 1 },
-    creators: "David, Perez",
     writers: "Peter David",
     artists: "Gary Frank, Paul Pelletier, George Perez, Roger Cruz",
     description:
@@ -4497,7 +4286,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Tales to Astonish (1994) #1;; Incredible Hulk vs. Venom #1;; Incredible Hulk (vol. 2) #420–435",
     yearsCovered: "1993-1994",
     releaseDate: { year: 2018, month: 1 },
-    creators: "David, Lim",
     writers: "Peter David",
     artists: "John Estes, Gary Frank, Darick Robertson, Liam Sharp",
     description:
@@ -4516,7 +4304,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Incredible Hulk (vol. 2) #436–448;; Savage Hulk #1;; Cutting Edge #1;; Cable #34;; Onslaught: Marvel Universe",
     yearsCovered: "1995",
     releaseDate: { year: 2019, month: 1 },
-    creators: "David, Deodato",
     writers: "Peter David, William Messner-Loebs, Mark Waid",
     artists: "Angel Medina, Adam Kubert, Mike Deodato Jr.",
     description:
@@ -4535,7 +4322,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Incredible Hulk (1968) 460-474; Hulk & Sub-Mariner Annual '98; X-Man & Hulk Annual '98",
     yearsCovered: "1997",
     releaseDate: { year: 2023, month: 4 },
-    creators: "David, Kubert",
     writers: "Peter David, Joe Casey",
     artists: "Adam Kubert, David Brewer, Javier Pulido, Ed McGuinness",
     description:
@@ -4554,7 +4340,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "#263-279; An 10-11; Incredible Hulk vs. Quasimodo",
     yearsCovered: "1981-1982",
     releaseDate: { year: 2026, month: 5 },
-    creators: "",
     writers: "Bill Mantlo",
     artists: "Sal Buscema",
     description:
@@ -4573,7 +4358,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "#280-296, An 12; Questprobe (1984) 1",
     yearsCovered: "1983-1984",
     releaseDate: { year: 2027, month: 2 },
-    creators: "",
     writers: "Bill Mantlo",
     artists: "Sal Buscema",
     description:
@@ -4591,7 +4375,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "#347-363; WebS-M 44; FFour 320; mat. MCP 26, 45",
     yearsCovered: "1988-1989",
     releaseDate: { year: 2027, month: 1 },
-    creators: "",
     writers: "Peter David, Bob Harras, Steve Englehart",
     artists: "Jeff Purves, Dan Reed, Alex Saviuk, Keith Pollard & Herb Trimpe",
     description:
@@ -4610,7 +4393,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Marvel Premiere #15–25;; Iron Fist (1975) #1–15;; Marvel Team-Up #63–64",
     yearsCovered: "1974-1977",
     releaseDate: { year: 2015, month: 7 },
-    creators: "Claremont, Byrne",
     writers: "Chris Claremont",
     artists: "John Byrne, Larry Hama",
     description:
@@ -4630,7 +4412,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Tales of Suspense #39–72",
     yearsCovered: "1963-1965",
     releaseDate: { year: 2014, month: 10 },
-    creators: "Lee, Heck",
     writers: "Stan Lee",
     artists: "Don Heck",
     description:
@@ -4649,7 +4430,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Tales of Suspense #73–99,; Tales to Astonish #82,; Iron Man and the Sub-Mariner #1,; Iron Man #1; and material from; Not Brand Echh #2",
     yearsCovered: "1965-1967",
     releaseDate: { year: 2017, month: 1 },
-    creators: "Lee, Colan",
     writers: "Stan Lee",
     artists: "Gene Colan",
     description:
@@ -4668,7 +4448,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Iron Man #2–24",
     yearsCovered: "1968-1970",
     releaseDate: { year: 2019, month: 4 },
-    creators: "Goodwin, Tuska",
     writers: "Archie Goodwin",
     artists: "George Tuska",
     description:
@@ -4687,7 +4466,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Iron Man #25-46;; Daredevil #73",
     yearsCovered: "1970-1972",
     releaseDate: { year: 2020, month: 8 },
-    creators: "Goodwin, Tuska",
     writers: "Archie Goodwin, Gerry Conway, Allyn Brodsky",
     artists: "Don Heck, George Tuska",
     description:
@@ -4706,7 +4484,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Iron Man #47-67",
     yearsCovered: "1972-1973",
     releaseDate: { year: 2022, month: 5 },
-    creators: "Friedrich, Kane",
     writers: "Mike Friedrich",
     artists: "George Tuska",
     description:
@@ -4725,7 +4502,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Iron Man #68-91; Iron Man Annual #3",
     yearsCovered: "1974-1976",
     releaseDate: { year: 2023, month: 11 },
-    creators: "Friedrich, Tuska",
     writers: "Mike Friedrich",
     artists: "George Tuska",
     description:
@@ -4744,7 +4520,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Iron Man #92-114, Annual #4; Marvel Premiere #44",
     yearsCovered: "1976-1978",
     releaseDate: { year: 2025, month: 6 },
-    creators: "Mantlo, Tuska",
     writers: "Bill Mantlo",
     artists: "George Tuska, Keith Pollard",
     description:
@@ -4763,7 +4538,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Iron Man #158–177, Annual #5",
     yearsCovered: "1982-1983",
     releaseDate: { year: 2013, month: 9 },
-    creators: "O'Neil, Infantino",
     writers: "Denny O'Neil",
     artists: "Luke McDonnell",
     description:
@@ -4782,7 +4556,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Iron Man #178–195, Annual #6–7",
     yearsCovered: "1984-1985",
     releaseDate: { year: 2016, month: 3 },
-    creators: "O'Neil, Layton",
     writers: "Denny O'Neil",
     artists: "Luke McDonnell",
     description:
@@ -4801,7 +4574,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Iron Man #215–232, Annual #9",
     yearsCovered: "1987-1988",
     releaseDate: { year: 2015, month: 1 },
-    creators: "Michelinie, Layton",
     writers: "David Michelinie",
     artists: "Bob Layton, Mark Bright, Barry Windsor-Smith",
     description:
@@ -4820,7 +4592,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Iron Man #233–244;; Iron Man: Crash;; Marvel Fanfare #22–23, 44",
     yearsCovered: "1988-1989",
     releaseDate: { year: 2019, month: 3 },
-    creators: "Layton, Guice",
     writers: "Mike Saenz, David Michelinie",
     artists: "Bob Layton, Roger McKenzie, Butch Guice, Ken Steacy",
     description:
@@ -4839,7 +4610,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Iron Man #245–257, Annual #10–11; and material from; Captain America Annual #9",
     yearsCovered: "1989-1990",
     releaseDate: { year: 2018, month: 1 },
-    creators: "Michelinie, Smith",
     writers: "David Michelinie, Bob Layton, Dwayne McDuffie",
     artists: "Bob Layton, Paul Smith, Herb Trimpe",
     description:
@@ -4858,7 +4628,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Iron Man #258–277",
     yearsCovered: "1990-1992",
     releaseDate: { year: 2014, month: 3 },
-    creators: "Byrne, Ryan",
     writers: "John Byrne",
     artists: "John Romita Jr., Paul Ryan, Mark Bright",
     description:
@@ -4877,7 +4646,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Iron Man #278-289, Annual #12-13; and material from; Darkhawk Annual #1,; Avengers West Coast Annual #7 and; Marvel Holiday Special #2",
     yearsCovered: "1992-1993",
     releaseDate: { year: 2020, month: 4 },
-    creators: "Kaminski, Hopgood",
     writers: "Roy Thomas, Danny Fingeroth, Len Kaminski",
     artists: "Tom Morgan, Paul Ryan, Kevin Hopgood, Gene Colan",
     description:
@@ -4896,7 +4664,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Iron Man #290-297,; Annual #14,; Marvel Super-Heroes #13,; Iron Manual #1,; and material from:; Marvel Super-Heroes #2, 8-9, 12, 14-15",
     yearsCovered: "1993",
     releaseDate: { year: 2022, month: 11 },
-    creators: "Kaminski, Hopgood",
     writers: "Len Kaminski, Kurt Busiek, Christopher Priest",
     artists: "Kevin Hopgood, Greg LaRocque",
     description:
@@ -4915,7 +4682,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Iron Man #310-318,; War Machine #8-10,; Force Works #6-7,; Iron Man/Force Works Collectors Preview #1; and material from Marvel Comics Presents #169-172",
     yearsCovered: "1994-1995",
     releaseDate: { year: 2021, month: 11 },
-    creators: "Kaminski, Morgan",
     writers: "Scott Benson, Len Kaminski, Dan Abnett",
     artists: "Tom Morgan, Dave Taylor, Geoff Senior",
     description:
@@ -4934,7 +4700,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Iron Man (1968) 319-324; Avengers (1964) 390-394; Avengers: The Crossing (1995) 1; Force Works (1994) 16-20; War Machine (1994) 20-22",
     yearsCovered: "1995-1996",
     releaseDate: { year: 2023, month: 5 },
-    creators: "Kavanagh, Morgan",
     writers: "Bob Harras, Terry Kavanagh, Dan Abnett",
     artists: "Mike Deodato Jr, Heitor Oliveira",
     description:
@@ -4953,7 +4718,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "ron Man #325-332; War Machine #23; Avengers: Timeslide #1; Avengers #395-396; Age of Innocence: The Rebirth of Iron Man #1; Onslaught: Marvel Universe; Iron Man: The Legend #1",
     yearsCovered: "1996",
     releaseDate: { year: 2024, month: 10 },
-    creators: "Kavanagh, Cheung",
     writers: "Dan Abnett, Bob Harras, Terry Kavanagh",
     artists: "Jim Cheung, Hector Collazo, Richard Bennett",
     description:
@@ -4972,7 +4736,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Iron Man (1968) 115-139",
     yearsCovered: "1978-1980",
     releaseDate: { year: 2026, month: 9 },
-    creators: "",
     writers: "David Michelinie, Bob Layton",
     artists: "Bob Layton, John Romita Jr., Jerry Bingham",
     description:
@@ -4991,7 +4754,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "#196-214, Annual 8",
     yearsCovered: "1985-1986",
     releaseDate: { year: 2027, month: 3 },
-    creators: "",
     writers: "Denny O'Neil",
     artists: "Rich Buckler, Sal Buscema, Herb Trimpe, Mark Bright, Paul Ryan",
     description:
@@ -5009,7 +4771,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "#298-309, An 15; Tales of Suspense",
     yearsCovered: "1993-1994",
     releaseDate: { year: 2026, month: 6 },
-    creators: "",
     writers: "Len Kaminski, James Robinson",
     artists: "Tom Morgan, Kevin Hopgood, Colin MacNeil",
     description:
@@ -5029,7 +4790,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Amazing Adventures (1970) 18-39, Marvel Graphic Novel (1982) 7, Marvel Team-Up (1972) 45",
     yearsCovered: "1973-1983",
     releaseDate: { year: 2021, month: 10 },
-    creators: "McGregor, Russell",
     writers: "Don McGregor",
     artists: "Philip Russell, Herb Trimpe",
     description:
@@ -5049,7 +4809,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Hero for Hire (1972) #1-16,; Power Man (1974) #17-23",
     yearsCovered: "1972-1975",
     releaseDate: { year: 2021, month: 2 },
-    creators: "Goodwin, Tuska",
     writers: "Archie Goodwin, Steve Englehart, Tony Isabella",
     artists: "George Tuska, Billy Graham",
     description:
@@ -5068,7 +4827,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Power Man #24-47, Annual #1",
     yearsCovered: "1975-1977",
     releaseDate: { year: 2024, month: 2 },
-    creators: "McGregor, Tuska",
     writers: "Don McGregor, Marv Wolfman",
     artists: "George Tuska, Lee Elias",
     description:
@@ -5088,7 +4846,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Marvel Feature #11–12;; Marvel Two-In-One #1–19;; Marvel Team-Up #47",
     yearsCovered: "1973-1976",
     releaseDate: { year: 2018, month: 8 },
-    creators: "Gerber, Buscema",
     writers: "Steve Gerber, Bill Mantlo",
     artists: "Sal Buscema, Ron Wilson",
     description:
@@ -5107,7 +4864,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Marvel Two-in-One #20, 22-36; Marvel Two-in-One Annual #1; Fantastic Four Annual #11",
     yearsCovered: "1976-1978",
     releaseDate: { year: 2024, month: 1 },
-    creators: "Wolfman, Wilson",
     writers: "Marv Wolfman, Roy Thomas",
     artists: "John Buscema, Sal Buscema, Ron Wilson",
     description:
@@ -5126,7 +4882,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Marvel Two-in-One #37-52, Annual #2-4; Avengers Annual #7",
     yearsCovered: "1978-1979",
     releaseDate: { year: 2025, month: 1 },
-    creators: "Wolfman, Perez",
     writers: "Marv Wolfman, Jim Starlin",
     artists: "Ron Wilson, Sal Buscema, Alan Kupperberg",
     description:
@@ -5145,7 +4900,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "#53-74",
     yearsCovered: "1979-1980",
     releaseDate: { year: 2026, month: 8 },
-    creators: "",
     writers: "Mark Gruenwald, Ralph Macchio with Marv Wolfman",
     artists: "George Pérez, Ron Wilson, John Byrne & Jerry Bingham with Chic Stone, Michael Netzer & Frank Springer",
     description:
@@ -5164,7 +4918,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "#75-87; Annual 5-6",
     yearsCovered: "1981",
     releaseDate: { year: 2027, month: 6 },
-    creators: "",
     description:
       "",
     ownershipStatus: "announced",
@@ -5181,7 +4934,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Special Marvel Edition #15–16,; Master of Kung Fu #17–28,; Giant-Size Master of Kung Fu #1–4,; Giant-Size Spider-Man #2; and material from; Iron Man Annual #4",
     yearsCovered: "1974-1975",
     releaseDate: { year: 2018, month: 3 },
-    creators: "Englehart, Starlin",
     writers: "Steve Englehart, Doug Moench",
     artists: "Jim Starlin, Paul Gulacy",
     description:
@@ -5200,7 +4952,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Master of Kung Fu #29–53; Annual #1",
     yearsCovered: "1975-1977",
     releaseDate: { year: 2019, month: 6 },
-    creators: "Moench, Gulacy",
     writers: "Doug Moench",
     artists: "Paul Gulacy",
     description:
@@ -5218,7 +4969,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     end: { year: 1979, quarter: 3 },
     issuesCollected: "Master of Kung Fu #54–79",
     yearsCovered: "1977-1979",
-    creators: "Moench, Zeck",
     writers: "Doug Moench",
     artists: "Mike Zeck, Jim Craig, Pat Broderick",
     description:
@@ -5238,7 +4988,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Werewolf by Night #32–33,; Marvel Spotlight #28–29,; Defenders #47–50 and material from #51,; Spectacular Spider-Man #22–23,; Marvel Two-in-One #52,; Moon Knight #1–4; and material from; The Hulk! #11–15, 17–18, 20 and; Marvel Preview #21",
     yearsCovered: "1975-1981",
     releaseDate: { year: 2014, month: 10 },
-    creators: "Moench, Sienkiewicz",
     writers: "Doug Moench, David Anthony Kraft, Bill Mantlo",
     artists: "Don Perlin, Keith Giffen, Bill Sienkiewicz",
     description:
@@ -5257,7 +5006,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Moon Knight #5–23",
     yearsCovered: "1981-1982",
     releaseDate: { year: 2015, month: 10 },
-    creators: "Moench, Sienkiewicz",
     writers: "Doug Moench, Jack Harris",
     artists: "Bill Sienkiewicz, Denys Cowan",
     description:
@@ -5276,7 +5024,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Moon Knight #24–38",
     yearsCovered: "1982-1984",
     releaseDate: { year: 2018, month: 12 },
-    creators: "Moench, Sienkiewicz",
     writers: "Doug Moench, Alan Zelenetz, Tony Isabella",
     artists: "Bill Sienkiewicz, Kevin Nowlan, Bo Hampton",
     description:
@@ -5295,7 +5042,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Moon Knight (1985) #1-6, Marvel Team-Up #144, Marvel Fanfare #30, Marc Spector: Moon Knight #1-7, and material from: Solo Avengers #3, Marvel Fanfare #38-39, Marvel Super-Heroes #1",
     yearsCovered: "1984-1988",
     releaseDate: { year: 2022, month: 9 },
-    creators: "Zelenetz, Warner",
     writers: "Alan Zelenetz, Jo Duffy, Chuck Dixon",
     artists: "Chris Warner, Sal Velluto",
     description:
@@ -5314,7 +5060,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Marc Spector: Moon Knight #8-25, and material from Punisher Annual #2",
     yearsCovered: "1989-1991",
     releaseDate: { year: 2024, month: 10 },
-    creators: "Dixon, Velluto",
     writers: "Mike Baron, Chuck Dixon, Howard Mackie",
     artists: "Bill Reinhold, Sal Velluto, Mark Bagley",
     description:
@@ -5333,7 +5078,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Marc Spector: Moon Knight #26-38; Amazing Spider-Man #353-358",
     yearsCovered: "1991-1992",
     releaseDate: { year: 2025, month: 10 },
-    creators: "DeMatteis, Garney",
     writers: "J.M. DeMatteis, Al Milgrom, Terry Kavanagh",
     artists: "Ron Garney, Mark Bagley",
     description:
@@ -5352,7 +5096,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Marc Spector: Moon Knight #39-51, Moon Knight: Divided We Fall #1, Moon Knight Special #1, Web of Spider-Man #93-94 and material from Marvel Comics Presents #152-154",
     yearsCovered: "1992-1993",
     releaseDate: { year: 2023, month: 10 },
-    creators: "Kavanagh, Kwapisz",
     writers: "Terry Kavanagh",
     artists: "Denys Cowan, Gary Kwapisz, James Fry, Kelley Jones",
     description:
@@ -5371,7 +5114,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Marc Spector: Moon Knight (1989) 52-60; Moon Knight (1998) 1-4; Moon Knight (1999) 1-4; Black Panther (1998) 20-22",
     yearsCovered: "1993-1999",
     releaseDate: { year: 2026, month: 10 },
-    creators: "",
     writers: "Terry Kavanagh, Doug Moench",
     artists: "Stephen Platt, Tommy Lee Edwards, Mark Texeira",
     description:
@@ -5391,7 +5133,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Amazing Spider-Man #101–102,; Marvel Team-Up #3–4,; Fear #20-26,; Giant-Size Super-Heroes (1974) #1; and material from: Vampire Tales (1973) #1-8,; Giant-Size Werewolf #4",
     yearsCovered: "1971-1975",
     releaseDate: { year: 2021, month: 2 },
-    creators: "Gerber, Kane",
     writers: "Steve Gerber, Don McGregor",
     artists: "Gill Kane, Rick Buckler, Pablo Maros",
     description:
@@ -5410,7 +5151,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Fear #27-31,; Marvel Premiere #28,; Marvel Two-in-One #15,; Spectacular Spider-Man #6-8, 38,; Savage She-Hulk #9-12,; and material from Vampire Tales #9-11, Super Annual #1;; Marvel Preview #8",
     yearsCovered: "1975-1980",
     releaseDate: { year: 2021, month: 5 },
-    creators: "Moench, Mantlo",
     writers: "Doug Moench, Bill Mantlo, David Kraft",
     artists: "Sonny Trinidad, Sal Buscema, Mike Vosburg",
     description:
@@ -5430,7 +5170,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Ms. Marvel #1–14;; Marvel Team-Up #61–62;; Defenders #57",
     yearsCovered: "1977-1978",
     releaseDate: { year: 2019, month: 1 },
-    creators: "Claremont, Mooney",
     writers: "Chris Claremont, Gerry Conway",
     artists: "Jim Mooney, John Buscema, Sal Buscema",
     description:
@@ -5449,7 +5188,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Ms. Marvel #15–23,; Marvel Team-Up #76–77,; Marvel Two-In-One #51,; Marvel Super-Heroes #10–11,; Avengers #200, Annual #10; and material from; Avengers #197–199 and; Marvel Fanfare #24",
     yearsCovered: "1978-1986",
     releaseDate: { year: 2019, month: 5 },
-    creators: "Claremont, Golden",
     writers: "Chris Claremont",
     artists: "Jim Mooney, Mike Vosburg",
     description:
@@ -5469,7 +5207,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Fantastic Four #4, 6, 9, 14, 27, 33, Annual #1,; Avengers #3-4,; X-Men #6,; Daredevil #7,; and material from; Strange Tales #107, 125,; Tales to Astonish #70-76",
     yearsCovered: "1962-1966",
     releaseDate: { year: 2021, month: 4 },
-    creators: "Lee, Kirby",
     writers: "Stan Lee",
     artists: "Jack Kirby, Gene Colan",
     description:
@@ -5488,7 +5225,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Sub-Mariner #4-27",
     yearsCovered: "1968-1970",
     releaseDate: { year: 2023, month: 2 },
-    creators: "Thomas, Severin",
     writers: "Roy Thomas",
     artists: "Marie Severin, John Buscema",
     description:
@@ -5507,7 +5243,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Sub-Mariner #28-49, Daredevil #77, material from Ka-Zar #1",
     yearsCovered: "1970-1972",
     releaseDate: { year: 2024, month: 8 },
-    creators: "Thomas, Buscema",
     writers: "Roy Thomas, Gerry Conway",
     artists: "Sal Buscema, Gene Colan",
     description:
@@ -5526,7 +5261,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Sub-Mariner #50-72; Marvel Spotlight #27",
     yearsCovered: "1972-1974",
     releaseDate: { year: 2025, month: 12 },
-    creators: "Everett, Gerber",
     writers: "Bill Everett, Steve Gerber",
     artists: "Bill Everett, Don Heck",
     description:
@@ -5545,7 +5279,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Tales to Astonish (1959) 77-101; Iron Man and Sub-Mariner (1968); Sub-Mariner (1968) 1-3; mat from Not Brand Echh (1967) 1, 4, 9, 11",
     yearsCovered: "1966-1968",
     releaseDate: { year: 2027, month: 1 },
-    creators: "",
     writers: "Stan Lee & Roy Thomas with Archie Goodwin, Raymond Marais, Gary Friedrich & Arnold Drake",
     artists: "Gene Colan, Bill Everett & John Buscema with Marie Severin, Dan Adkins, Werner Roth, Jack Kirby, Jerry Grandenetti, Tom Sutton & Ross Andru",
     description:
@@ -5564,7 +5297,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Marvel Graphic Novel No. 4 - The New Mutants,; The New Mutants #1–12,; Uncanny X-Men #167,; Marvel Team-Up Annual #6,; Magik #1–4; and material from; Marvel Team-Up #100",
     yearsCovered: "1982-1984",
     releaseDate: { year: 2017, month: 3 },
-    creators: "Claremont, McLeod",
     writers: "Chris Claremont",
     artists: "Bob McLeod, Sal Buscema, Ron Frenz, John Buscema",
     description:
@@ -5583,7 +5315,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "The New Mutants #13–31, Annual #1",
     yearsCovered: "1984-1985",
     releaseDate: { year: 2019, month: 7 },
-    creators: "Claremont, Sienkiewicz",
     writers: "Chris Claremont",
     artists: "Bill Sienkiewicz, Sal Buscema, Bob McLeod",
     description:
@@ -5602,7 +5333,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "The New Mutants #32-44, Annual #2; New Mutants Special Edition #1; Uncanny X-Men Annual #9",
     yearsCovered: "1985-1986",
     releaseDate: { year: 2023, month: 6 },
-    creators: "Claremont, Leonardi",
     writers: "Chris Claremont",
     artists: "Steve Leialoha, Arthur Adams, Mary Wilshire, Butch Guice",
     description:
@@ -5621,7 +5351,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "The New Mutants #45-54, Annual #3; Fallen Angels #1-8",
     yearsCovered: "1986-1987",
     releaseDate: { year: 2025, month: 2 },
-    creators: "Claremont, Guice",
     writers: "Chris Claremont, Jo Duffy",
     artists: "Butch Guice, Kerry Gammill, Joe Staton",
     description:
@@ -5640,7 +5369,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "The New Mutants #55–70, Annual #4",
     yearsCovered: "1987-1988",
     releaseDate: { year: 2021, month: 8 },
-    creators: "Simonson, Blevins",
     writers: "Louise Simonson",
     artists: "Bret Blevins, June Brigman, John Muth, Bo Hampton, Terry Shoemaker",
     description:
@@ -5659,7 +5387,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "X-Terminators #1–4;; The New Mutants #71–85",
     yearsCovered: "1989",
     releaseDate: { year: 2018, month: 2 },
-    creators: "Simonson, Blevins",
     writers: "Louise Simonson, Chris Claremont",
     artists: "Bret Blevins, Rich Buckler, Terry Shoemaker",
     description:
@@ -5678,7 +5405,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "The New Mutants #86-94,; The New Mutants Annual #5-6,; The New Mutants Summer Special #1; and material from; X-Factor Annual #5 and; X-Men Annual #14",
     yearsCovered: "1990",
     releaseDate: { year: 2020, month: 10 },
-    creators: "Simonson, Liefeld",
     writers: "Louise Simonson, Ann Nocenti",
     artists: "Rob Liefeld, Jon Bogdanove, Arthur Adams, Bret Blevins",
     description:
@@ -5697,7 +5423,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "The New Mutants #95-100, The New Mutants Annual #7, Uncanny X-Men #270-272; X-Factor #60-62; and material from New Warriors Annual #1; X-Men Annual #15; X-Factor Annual #6",
     yearsCovered: "1990-1991",
     releaseDate: { year: 2022, month: 7 },
-    creators: "Simonson, Liefeld",
     writers: "Louise Simonson, Chris Claremont, Fabian Nicieza",
     artists: "Rob Liefeld, Jim Lee, Jon Bogdanove",
     description:
@@ -5717,7 +5442,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Power Man #48–49;; Power Man and Iron Fist #50–70",
     yearsCovered: "1977-1981",
     releaseDate: { year: 2015, month: 8 },
-    creators: "Claremont, Byrne",
     writers: "Jo Duffy, Chris Claremont",
     artists: "Kerry Gammill, John Byrne, Trevor Von Eeden",
     description:
@@ -5736,7 +5460,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Power Man and Iron Fist #71–72, 74–89;; Daredevil #178",
     yearsCovered: "1981-1982",
     releaseDate: { year: 2016, month: 10 },
-    creators: "Duffy, Cowan",
     writers: "Jo Duffy, Dennis O'Neil, Frank Miller",
     artists: "Kerry Gammill, Denys Cowan, Keith Pollard, Frank Miller",
     description:
@@ -5755,7 +5478,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Power Man and Iron Fist #90–107",
     yearsCovered: "1983-1984",
     releaseDate: { year: 2019, month: 11 },
-    creators: "Busiek, Cowan",
     writers: "Steven Grant, Archie Goodwin",
     artists: "Denys Cowan, Greg Larocque, Geof Isherwood",
     description:
@@ -5774,7 +5496,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Power Man and Iron Fist (1978) 108-125",
     yearsCovered: "1984-1986",
     releaseDate: { year: 2022, month: 10 },
-    creators: "Priest, Larocque",
     writers: "Christopher Priest, Alan Rowlands, Tony Isabella",
     artists: "Greg LaRocque, Mark Bright",
     description:
@@ -5794,7 +5515,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "The Punisher (1986) #1–5;; The Punisher (1987) #1–10;; Daredevil #257;; Marvel Graphic Novel No. 40 - The Punisher: Assassin's Guild",
     yearsCovered: "1986-1988",
     releaseDate: { year: 2018, month: 12 },
-    creators: "Grant, Duffy, Baron, Zeck",
     writers: "Steven Grant, Jo Duffy, Mike Baron",
     artists: "Mike Zeck, Whilce Portacio",
     description:
@@ -5813,7 +5533,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "The Punisher #11–25, Annual #1–2",
     yearsCovered: "1988-1989",
     releaseDate: { year: 2019, month: 2 },
-    creators: "Baron, Portacio",
     writers: "Mike Baron, Roger Salick",
     artists: "Mark Texeira, Whilce Portacio, Erik Larsen, Bill Reinhold",
     description:
@@ -5833,7 +5552,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
       "The Punisher (vol. 2) #26–34, Annual #3, Classic Punisher #1, Epic Graphic Novel: Return to Big Nothing, Marvel Graphic Novel No. 51 - The Punisher: Intruder, Marvel Graphic Novel No. 64 - The Punisher: Kingdom Gone",
     yearsCovered: "1989-1990",
     releaseDate: { year: 2021, month: 7 },
-    creators: "Baron, Dixon, Wright, Henderson",
     writers: "Steven Grant, Mike Baron, Chuck Dixon",
     artists: "Mike Zeck, Bill Reinhold, Jorge Zaffino",
     description:
@@ -5853,7 +5571,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
       "The Punisher (vol. 2) #35-48, Annual #4; Punisher: No Escape; Punisher: The Prize",
     yearsCovered: "1990-1991",
     releaseDate: { year: 2020, month: 2 },
-    creators: "Dixon, Abnett, Lanning, Smith",
     writers: "Mike Baron, Chris Henderson",
     artists: "Cam Smith, Bill Reinhold, Mark Texeira, Mike Harris",
     description:
@@ -5872,7 +5589,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Amazing Spider-Man (1963) 129, 134-135, 161-162, 174-175, 201-202; Amazing Spider-Man Annual (1964) 15; Giant-Size Spider-Man (1974) 4; Captain America (1968) 241; Daredevil (1964) 183-184; Peter Parker, the Spectacular Spider-Man (1976) 81-83; material from Marvel Preview (1975) 2; Marvel Super Action (1976) 1",
     yearsCovered: "1973-1983",
     releaseDate: { year: 2027, month: 3 },
-    creators: "",
     writers: "Gerry Conway, Marv Wolfman, Dennis O’Neill, Mike Barr, Roger McKenzie, Frank Miller, Bill Mantlo & Archie Goodwin",
     artists: "Ross Andru, Keith Pollard, Frank Miller, Frank Springer, Al Milgrom, Greg LaRocque & Tony DeZuniga",
     description:
@@ -5898,7 +5614,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "The Punisher (vol. 2) #63–75; Punisher: G-Force; Punisher: Die Hard in the Big Easy; Marvel Graphic Novel No. 74 - Punisher/Black Widow: Spinning Doomsday's Web",
     yearsCovered: "1992-1993",
     releaseDate: { year: 2017, month: 12 },
-    creators: "",
     writers: "Dan Abnett, Andy Lanning, Daniel Chichester",
     artists: "Doug Braithwaite, Larry Stroman",
     description:
@@ -5917,7 +5632,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Punisher (1987) #76-84, Punisher Annual (1988) #5-6, Spider-Man/Punisher/Sabretooth: Designer Genes (1993) #1, Punisher: A Man Named Frank (1994) #1",
     yearsCovered: "1993",
     releaseDate: { year: 2026, month: 3 },
-    creators: "",
     writers: "Steven Grant, Chuck Dixon, Val Mayerik",
     artists: "Val Mayerik, Dave Hoover, Hugh Haynes",
     description:
@@ -5937,7 +5651,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Sgt. Fury and his Howling Commandos #1–19",
     yearsCovered: "1963-1965",
     releaseDate: { year: 2019, month: 3 },
-    creators: "Lee, Kirby, Ayers",
     writers: "Stan Lee",
     artists: "Jack Kirby, Dick Ayers",
     description:
@@ -5956,7 +5669,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Sgt. Fury and his Howling Commandos #20-36 and Annual #1-2",
     yearsCovered: "1965-1966",
     releaseDate: { year: 2023, month: 5 },
-    creators: "Lee, Thomas, Ayers, Kirby",
     writers: "Stan Lee, Roy Thomas",
     artists: "Dick Ayers",
     description:
@@ -5976,7 +5688,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Sensational She-Hulk #1-12; She-Hulk Ceremony #1-2; and material from Solo Avengers #14; Marvel Comics Presents #18; Marvel Fanfare #48",
     yearsCovered: "1989-1990",
     releaseDate: { year: 2022, month: 5 },
-    creators: "Byrne",
     writers: "John Byrne, Steve Gerber, Dwayne McDuffie",
     artists: "John Byrne, Bryan Hitch, June Brigman",
     description:
@@ -5995,7 +5706,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Sensational She-Hulk (1989) 13-30; material from:; Marvel Super-Heroes (1990) 5",
     yearsCovered: "1990-1991",
     releaseDate: { year: 2023, month: 5 },
-    creators: "Gerber, Dixon, Furman, Keown, Hitch",
     writers: "Steve Gerber, Simon Furman, Louise Simonson",
     artists: "Bryan Hitch, Tom Artis, Tom Morgan",
     description:
@@ -6014,7 +5724,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Sensational She-Hulk #51-60; Doc Samson #1-4; Incredible Hulk #441-442; Thing & She-Hulk: The Long Night #1; and material from Marvel Comics Presents #123-126; Incredible Hulk #412",
     yearsCovered: "1993-2002",
     releaseDate: { year: 2024, month: 7 },
-    creators: "Benson, Eury, Fisch, Kaminski, Slott, Olliffe",
     writers: "Scott Benson, Michael Eury, Peter David, Dan Slott",
     artists: "Pat Olliffe, Paco Medina",
     description:
@@ -6033,7 +5742,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Sensational She-Hulk (1989) 31-50",
     yearsCovered: "1991-1993",
     releaseDate: { year: 2026, month: 12 },
-    creators: "",
     writers: "John Byrne, Simon Furman",
     artists: "John Byrne, Rik Levins",
     description:
@@ -6053,7 +5761,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Fantastic Four #48–50, 55, 57–60, 72, 74–77; and material from; Tales to Astonish #92–93 and; Fantastic Four #56, 61, Annual #5",
     yearsCovered: "1966-1968",
     releaseDate: { year: 2014, month: 11 },
-    creators: "Lee, Kirby, Severin",
     writers: "Stan Lee",
     artists: "Jack Kirby",
     description:
@@ -6072,7 +5779,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Silver Surfer (1982) #1,; Silver Surfer (1987) #1–14,; Super-Villain Classics #1; and material from; Epic Illustrated #1 and; Marvel Fanfare #51",
     yearsCovered: "1980-1988",
     releaseDate: { year: 2015, month: 11 },
-    creators: "Lee, Byrne, Englehart, Rogers",
     writers: "Stan Lee, Steve Englehart",
     artists: "John Byrne, Marshall Rogers, Joe Staton, John Buscema",
     description:
@@ -6091,7 +5797,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Silver Surfer (1987) 15-23, Silver Surfer Annual (1988) 1-2, Fantastic Four (1961) 325, Marvel Graphic Novel: Silver Surfer (1988), Silver Surfer (1988) 1-2, material from Marvel Comics Presents (1988) 1",
     yearsCovered: "1988-1989",
     releaseDate: { year: 2022, month: 6 },
-    creators: "Englehart, Lee, Lim, Rogers",
     writers: "Steve Englehart, Stan Lee",
     artists: "Ron Lim, John Buscema, Moebius (Jean Giraud)",
     description:
@@ -6110,7 +5815,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Silver Surfer (1987) #24-38, Silver Surfer: The Enslavers",
     yearsCovered: "1989-1990",
     releaseDate: { year: 2023, month: 1 },
-    creators: "Englehart, Lim",
     writers: "Steve Englehart, Jim Starlin, Stan Lee",
     artists: "Ron Lim, Keith Pollard",
     description:
@@ -6129,7 +5833,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Silver Surfer #39–50, Annual #3;; Thanos Quest #1–2; and material from; Marvel Comics Presents #50",
     yearsCovered: "1990-1991",
     releaseDate: { year: 2018, month: 6 },
-    creators: "Starlin, Grant, Lim",
     writers: "Jim Starlin, Ron Marz, Alan Grant",
     artists: "Ron Lim, Jim Sherman",
     description:
@@ -6148,7 +5851,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Silver Surfer #51–66, Annual #4; and material from; Marvel Comics Presents #69, 93–97",
     yearsCovered: "1991-1992",
     releaseDate: { year: 2017, month: 5 },
-    creators: "Lim, Marz",
     writers: "Ron Marz, Susan Kennedy",
     artists: "Ron Lim, Gavin Curtis, Todd Smith, Tom Raney",
     description:
@@ -6167,7 +5869,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Silver Surfer (vol. 3) #67-75, Annual #5; Silver Surfer: Homecoming; material from Incredible Hulk Annual #18, Namor, the Sub-Mariner Annual #2, Doctor Strange, Sorceror Supreme Annual #2",
     yearsCovered: "1992",
     releaseDate: { year: 2024, month: 12 },
-    creators: "Marz, Lim, West",
     writers: "Jim Starlin, Ron Marz",
     artists: "Bill Reinhold, Ron Lim, M.C. Wyman, Kevin West",
     description:
@@ -6186,7 +5887,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Silver Surfer #76-85, Annual #6; Secret Defenders #9, 10 and; Silver Surfer/Warlock: Resurrection #1-4",
     yearsCovered: "1993",
     releaseDate: { year: 2020, month: 9 },
-    creators: "Marz, Starlin, Lim",
     writers: "Ron Marz, Jim Starlin",
     artists: "Ron Lim, Tom Grindberg, Joe Phillips, Cully Hamner, Ernie Stiner",
     description:
@@ -6205,7 +5905,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Silver Surfer (vol. 3) #111-122, Silver Surfer: Dangerous Artifacts(1996), Silver Surfer Ashcan (1995) #1, Spider-Man Team-Up(1995) #2, material from X-Men Unlimited (1993) #13, Marvel Holiday Special 1996",
     yearsCovered: "1995-1996",
     releaseDate: { year: 2025, month: 6 },
-    creators: "Perez, Grindberg, Eaton",
     writers: "George Perez, Ron Marz",
     artists: "Tom Grindberg, Scot Eaton, Claudio Castellini",
     description:
@@ -6224,7 +5923,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Silver Surfer #123–138, -1, Annual '97",
     yearsCovered: "1997-1998",
     releaseDate: { year: 2019, month: 5 },
-    creators: "DeMatteis, Greenberg, DeFalco, Garney",
     writers: "J.M. DeMatteis, Tom DeFalco, Ron Garney",
     artists: "Val Semeiks, Paul Pelletier, Tom Grummett",
     description:
@@ -6243,7 +5941,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Silver Surfer #½, 139-146; Silver Surfer/Thor Annual $98; Galactus the Devourer #1-6; Silver Surfer: Loftier Than Mortals #1-2",
     yearsCovered: "1998-2000",
     releaseDate: { year: 2023, month: 12 },
-    creators: "DeFalco, Olivetti, Velluto",
     writers: "Tom DeFalco, J.M. DeMatteis, Louise Simonson",
     artists: "John Muth, John Buscema",
     description:
@@ -6262,7 +5959,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "93-110; mat. Cosmic Powers Unlimited (1995) 1",
     yearsCovered: "1994-1995",
     releaseDate: { year: 2027, month: 1 },
-    creators: "",
     writers: "Ron Marz, Michael Jan Friedman, Glenn Greenberg, Mike Lackey",
     artists: "Bart Sears, Tom Grindberg, Scot Eaton, Jim Hall, Joe Phillips, Tom Morgan, John Buscema, Scott Benefiel, Steve Carr",
     description:
@@ -6281,7 +5977,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Journey into Mystery #83–109",
     yearsCovered: "1962-1964",
     releaseDate: { year: 2014, month: 10 },
-    creators: "Lee, Kirby, Sinnott",
     writers: "Stan Lee",
     artists: "Jack Kirby, Joe Sinnott, Don Heck",
     description:
@@ -6300,7 +5995,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Journey into Mystery #110–125, Annual #1,; Thor #126–130; and material from; Not Brand Echh #3",
     yearsCovered: "1964-1966",
     releaseDate: { year: 2016, month: 11 },
-    creators: "Lee, Kirby",
     writers: "Stan Lee",
     artists: "Jack Kirby",
     description:
@@ -6319,7 +6013,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Thor #131–153, Annual #2",
     yearsCovered: "1966-1968",
     releaseDate: { year: 2017, month: 9 },
-    creators: "Lee, Kirby",
     writers: "Stan Lee",
     artists: "Jack Kirby",
     description:
@@ -6338,7 +6031,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Thor #154–174",
     yearsCovered: "1968-1970",
     releaseDate: { year: 2015, month: 2 },
-    creators: "Lee, Kirby",
     writers: "Stan Lee",
     artists: "Jack Kirby",
     description:
@@ -6357,7 +6049,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Thor #175–194",
     yearsCovered: "1970-1971",
     releaseDate: { year: 2018, month: 9 },
-    creators: "Lee, Kirby, Buscema",
     writers: "Stan Lee",
     artists: "Jack Kirby, John Buscema",
     description:
@@ -6376,7 +6067,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Thor #195-216",
     yearsCovered: "1972-1973",
     releaseDate: { year: 2020, month: 3 },
-    creators: "Conway, Lee, Wein, Buscema",
     writers: "Gerry Conway",
     artists: "John Buscema",
     description:
@@ -6395,7 +6085,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Thor 217-241 + ??",
     yearsCovered: "1974-1975",
     releaseDate: { year: 2021, month: 12 },
-    creators: "Conway, Mantlo, Buscema",
     writers: "Gerry Conway",
     artists: "John Buscema",
     description:
@@ -6414,7 +6103,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Thor (1966) 242-259, Annual (1966) 5; Marvel Spotlight (1971) 30; material from Marvel Treasury Edition (1974) 10",
     yearsCovered: "1976-1977",
     releaseDate: { year: 2022, month: 6 },
-    creators: "Wein, Englehart, Buscema",
     writers: "Len Wein",
     artists: "John Buscema",
     description:
@@ -6433,7 +6121,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Thor #260-280, Annual #6-7, Marvel Preview #10",
     yearsCovered: "1977-1979",
     releaseDate: { year: 2023, month: 4 },
-    creators: "Wein, Thomas, Simonson, Buscema",
     writers: "Len Wein, Roy Thomas",
     artists: "John Buscema, Walt Simonson",
     description:
@@ -6452,7 +6139,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Thor #281-302, Annual #8, material from Marvel Treasury Edition #24, 26",
     yearsCovered: "1979-1980",
     releaseDate: { year: 2024, month: 11 },
-    creators: "Thomas, Gruenwald, Pollard",
     writers: "Roy Thomas, Mark Gruenwald, Ralph Macchio",
     artists: "Keith Pollard, John Buscema",
     description:
@@ -6471,7 +6157,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Thor #303–319, Annual #9–10",
     yearsCovered: "1980-1982",
     releaseDate: { year: 2014, month: 4 },
-    creators: "Claremont, Zelenetz, Leonardi, Kane",
     writers: "Doug Moench, Ralph Macchio, Mark Gruenwald",
     artists: "Keith Pollard",
     description:
@@ -6490,7 +6175,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Thor #320–336, Annual #11;; Bizarre Adventures #32",
     yearsCovered: "1982-1983",
     releaseDate: { year: 2016, month: 8 },
-    creators: "Moench, Zelenetz, Grant, Hall",
     writers: "Doug Moench, Alan Zelenetz, Bob Hall",
     artists: "Alan Kupperberg, Bob Hall, Mark Bright",
     description:
@@ -6509,7 +6193,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Thor #383–400",
     yearsCovered: "1987-1989",
     releaseDate: { year: 2013, month: 10 },
-    creators: "DeFalco, Lee, Shooter, Frenz",
     writers: "Tom DeFalco",
     artists: "Ron Frenz",
     description:
@@ -6528,7 +6211,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Thor #401–418, Annual #14",
     yearsCovered: "1989-1990",
     releaseDate: { year: 2017, month: 8 },
-    creators: "Frenz, DeFalco, Thomas",
     writers: "Tom DeFalco, Randall Frenz, Roy Thomas",
     artists: "Ron Frenz, Herb Trimpe, Al Milgrom",
     description:
@@ -6547,7 +6229,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Thor #419–436, Annual #15",
     yearsCovered: "1990-1991",
     releaseDate: { year: 2019, month: 8 },
-    creators: "DeFalco, Frenz",
     writers: "Roy Thomas, Tom DeFalco",
     artists: "Herb Trimpe, Gary Hartle, Ron Frenz",
     description:
@@ -6566,7 +6247,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Thor #437-450, Annual #16-17",
     yearsCovered: "1991-1992",
     releaseDate: { year: 2020, month: 12 },
-    creators: "Thomas, DeFalco, Frenz",
     writers: "Tom DeFalco",
     artists: "Ron Frenz, Pat Olliffe",
     description:
@@ -6585,7 +6265,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Thor #451-467, Thor Corps #1-4",
     yearsCovered: "1992-1993",
     releaseDate: { year: 2021, month: 6 },
-    creators: "DeFalco, Frenz, Starlin, Marz",
     writers: "Tom DeFalco, Ron Marz",
     artists: "Ron Frenz, Bruce Zick, Pat Olliffe",
     description:
@@ -6604,7 +6283,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Thor #468-475, Annual #18; Silver Surfer #86-88; Warlock Chronicles #6-8; Warlock and the Infinity Gauntlet #23-25",
     yearsCovered: "1993-1994",
     releaseDate: { year: 2022, month: 11 },
-    creators: "Marz, Thomas, Starlin, Lim",
     writers: "Ron Marz, Jim Starlin, Roy Thomas",
     artists: "Cam Smith, M.C. Wyman",
     description:
@@ -6623,7 +6301,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Thor #476-490, Annual #19 and material from Avengers Annual #23",
     yearsCovered: "1994-1995",
     releaseDate: { year: 2023, month: 7 },
-    creators: "Thomas, Greenberg, DeFalco, Frenz",
     writers: "Roy Thomas",
     artists: "John Buscema, Jerry DeClaire, M.C. Wyman",
     description:
@@ -6642,7 +6319,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Thor #491–502;; Captain America #449;; Iron Man #326;; Avengers #396;; Thor: The Legend",
     yearsCovered: "1995-1996",
     releaseDate: { year: 2018, month: 6 },
-    creators: "Ellis, Messner-Loebs, Deodato",
     writers: "Warren Ellis, William Messner-Loebs, Mark Waid, Terry Kavanagh",
     artists: "Mike Deodato Jr., Geof Isherwood",
     description:
@@ -6661,7 +6337,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Journey into Mystery #503-513, -1; Valkyrie #1; Hercules and the Heart of Chaos #1-3",
     yearsCovered: "1996-1997",
     releaseDate: { year: 2024, month: 6 },
-    creators: "DeFalco, DeMatteis, Wein, Deodato",
     writers: "Tom DeFalco",
     artists: "Mike Deodato Jr., John Buscema, Pablo Raimondi, Ron Frenz",
     description:
@@ -6680,7 +6355,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Thor (Vol. 2) #1-13, #1: Rough Cut, Annual '99; Silver Surfer/Thor Annual '98; Peter Parker: Spider-Man #2",
     yearsCovered: "1998-1999",
     releaseDate: { year: 2025, month: 7 },
-    creators: "Jurgens, Romita Jr.",
     writers: "Dan Jurgens, Tom DeFalco",
     artists: "John Romita Jr., Ramon Bernado, John Buscema",
     description:
@@ -6699,7 +6373,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Thor (1966) 337-356",
     yearsCovered: "1983-1984",
     releaseDate: { year: 2026, month: 3 },
-    creators: "",
     writers: "Walter Simonson",
     artists: "Walter Simonson",
     description:
@@ -6727,7 +6400,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Thunderbolts (1997) 1-12; Thunderbolts: Distant Rumblings (1997) -1; Thunderbolts Annual '97; Incredible Hulk (1968) 449; Spider-Man Team-Up (1995) 7; Heroes For Hire (1997) 7; material from; Tales of the Marvel Universe (1997) 1",
     yearsCovered: "1997-1998",
     releaseDate: { year: 2023, month: 7 },
-    creators: "Busiek, Bagley",
     writers: "Kurt Busiek, Roger Stern",
     artists: "Mark Bagley, Sal Buscema",
     description:
@@ -6746,7 +6418,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Thunderbolts #13-25, 0; Captain America & Citizen V Annual 1998; Avengers (vol. 3) #12",
     yearsCovered: "1998-1999",
     releaseDate: { year: 2024, month: 4 },
-    creators: "Busiek, Kesel, Bagley",
     writers: "Kurt Busiek, Karl Kesel, Barbara Kesel",
     artists: "Mark Bagley, George Perez",
     description:
@@ -6765,7 +6436,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Thunderbolts #26-41, Annual (2000); Avengers Annual (2000)",
     yearsCovered: "1999-2000",
     releaseDate: { year: 2025, month: 5 },
-    creators: "Busiek, Bagley",
     writers: "Kurt Busiek, Fabian Nicieza, Joe Casey",
     artists: "Mark Bagley, Norm Breyfogle, Leonardo Manco",
     description:
@@ -6784,7 +6454,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Thunderbolts #42-52; Avengers (vol. 3) #31-34; Thunderbolts: Life Sentences",
     yearsCovered: "2000-2001",
     releaseDate: { year: 2026, month: 3 },
-    creators: "Nicieza, Busiek, Bagley",
     writers: "Fabian Nicieza, Kurt Busiek",
     artists: "George Perez, Mark Bagley, Patch Zircher",
     description:
@@ -6803,7 +6472,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "53-63; V-Battallion; The Everlasting",
     yearsCovered: "2001-2002",
     releaseDate: { year: 2027, month: 3 },
-    creators: "",
     writers: "Fabian Nicieza & Michael Barreiro",
     artists: "Patch Zircher, Mark Bagley, Michael Ryan, Lewis LaRosa & Jose Kleber de Moura Jr.",
     description:
@@ -6822,7 +6490,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Amazing Spider-Man #258, 300, 315–17, 332–33, 346–47, 388 (B story),; Web of Spider-Man #1,; Marvel Graphic Novel No. 68 - Avengers: Deathtrap - The Vault,; Darkhawk #13-14; and material from; Amazing Spider-Man Annual #25-26;; Web of Spider-Man Annual #7-8;; and Spectacular Spider-Man Annual #12",
     yearsCovered: "1988-1991",
     releaseDate: { year: 2020, month: 11 },
-    creators: "DeFalco, Michelinie, Simonson, McFarlane",
     writers: "David Michelinie, Danny Fingeroth",
     artists: "Todd McFarlane, Ron Lim, Erik Larsen, Mike Manley",
     description:
@@ -6841,7 +6508,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Amazing Spider-Man (1963) 361-363, 374; Spider-Man: The Trial of Venom (1992) 1; Web of Spider-Man (1985) 95-96; Ghost Rider/Blaze: Spirits of Vengeance (1992) 5-6; Venom: Lethal Protector (1993) 1-6; material from Marvel Comics Presents (1988) 117-122; Amazing Spider-Man (1963) 373, 375",
     yearsCovered: "1992-1993",
     releaseDate: { year: 2022, month: 1 },
-    creators: "Michelinie, David, Mackie, Bagley",
     writers: "David Michelinie, Howard Mackie",
     artists: "Mark Bagley, Sam Kieth, Ron Lim",
     description:
@@ -6860,7 +6526,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Iron Man (1968) 302; Darkhawk (1991) 35-37; Venom: The Madness (1993) 1-3; Venom: The Enemy Within (1994) 1-3; Incredible Hulk vs. Venom (1994) 1; Venom: The Mace (1994) 1-3; Nightwatch (1994) 5-6; Venom: Nights of Vengeance (1994) 1-4",
     yearsCovered: "1994",
     releaseDate: { year: 2023, month: 9 },
-    creators: "Kaminski, Hopgood, McLeod",
     writers: "Danny Fingeroth, Ann Nocenti, Bruce Jones, Carl Potts, Howard Mackie",
     artists: "Tod Smith, Kelley Jones, Bob McLeod, Liam Sharp, Ron Lim",
     description:
@@ -6879,7 +6544,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Spider-Man: The Arachnis Project #6,; Web of Spider-Man #118-119,; Spider-Man #52-53,; Venom: Separation Anxiety #1-4,; Venom: Carnage Unleashed #1-4,; Venom: Sinner Takes All #1-4 (A-stores) & #5,; Uncanny Origins #7",
     yearsCovered: "1995",
     releaseDate: { year: 2022, month: 9 },
-    creators: "Lackey, Kavanagh, Wildman",
     writers: "Howard Mackie, Larry Hama",
     artists: "Andrew Wildman, Ron Randell, Greg Luzniak",
     description:
@@ -6898,7 +6562,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Venom: Along Came A Spider #1-4; Venom: The Hunted #1-3, and more",
     yearsCovered: "1996",
     releaseDate: { year: 2025, month: 10 },
-    creators: "Hama, Skolnick, Rouleau",
     writers: "Larry Hama, Evan Skolnick, David Michelinie",
     artists: "Joe St. Pierre, Duncan Rouleau",
     description:
@@ -6917,7 +6580,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Venom: The Hunger #1-4; Venom: Tooth and Claw #1-3; Venom: On Trial #1-3; Venom: License to Kill #1-3; Venom: Seed of Darkness #-1; Venom: Sign of the Boss #1-2; Spider-Man: The Venom Agenda #1; Venom: The Finale #1-3",
     yearsCovered: "1996-1997",
     releaseDate: { year: 2024, month: 8 },
-    creators: "Kaminski, Hama, Velez",
     writers: "Len Kaminski, Larry Hama",
     artists: "Ted Halsted, Joe St. Pierre, Josh Hood, Mark Pajarillo",
     description:
@@ -6935,7 +6597,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     end: { year: 1999, quarter: 1 },
     issuesCollected: "",
     yearsCovered: "1998-1999",
-    creators: "",
     description:
       "",
     coverUrl: "https://m.media-amazon.com/images/I/91QdVELN3zL._SL1500_.jpg",
@@ -6953,7 +6614,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Wolverine #1–16; and material from; Marvel Comics Presents #1–10 and; Marvel Age Annual #4",
     yearsCovered: "1988-1989",
     releaseDate: { year: 2014, month: 12 },
-    creators: "Claremont, Buscema",
     writers: "Chris Claremont, Peter David",
     artists: "John Buscema, Gene Colan",
     description:
@@ -6972,7 +6632,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Wolverine #17–30;; Marvel Graphic Novel No. 50 - Wolverine/Nick Fury: The Scorpio Connection;; Wolverine: The Jungle Adventure",
     yearsCovered: "1989-1990",
     releaseDate: { year: 2019, month: 3 },
-    creators: "Goodwin, David, Duffy, Byrne",
     writers: "Archie Goodwin, Walt Simonson, Jo Duffy",
     artists: "Howard Chaykin, Mike Mignola, John Byrne",
     description:
@@ -6991,7 +6650,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Wolverine #31–44;; Wolverine: Bloodlust; Wolverine: Bloody Choices",
     yearsCovered: "1990-1991",
     releaseDate: { year: 2021, month: 7 },
-    creators: "Hama, Silvestri",
     writers: "Larry Hama, Tom DeFalco",
     artists: "Marc Silvestri, Alan Davis, John Buscema",
     description:
@@ -7010,7 +6668,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Wolverine #69-75;; Wolverine: Inner Fury;; Wolverine: Killing;; Wolverine: Global Jeopardy;; Sabretooth #1-4;; X-Men #25",
     yearsCovered: "1992-1993",
     releaseDate: { year: 2020, month: 3 },
-    creators: "Hama, Chichester, Turner",
     writers: "Larry Hama",
     artists: "Bill Sienkiewicz, Dwayne Turner, Kent Williams, Mark Texeira",
     description:
@@ -7029,7 +6686,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Wolverine (1988) 76-86; Cable (1993) 16; Wolverine: Evilution (1994) 1; Wolverine & Nick Fury:; Scorpio Rising (1994) 1; Ghost Rider/Wolverine/Punisher:; The Dark Design (1994) 1",
     yearsCovered: "1994-1995",
     releaseDate: { year: 2023, month: 6 },
-    creators: "Hama, Nocenti, Chaykin",
     writers: "Larry Hama, Ann Nocenti, Howard Mackie",
     artists: "Adam Kubert, Ron Garney",
     description:
@@ -7048,7 +6704,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Wolverine #87–100, Annual '95;; Wolverine: Knight of Terra",
     yearsCovered: "1996",
     releaseDate: { year: 2015, month: 12 },
-    creators: "Hama, Golden, Edginton, Kubert",
     writers: "Larry Hama",
     artists: "Adam Kubert, James Williams III, Jan Duursema",
     description:
@@ -7067,7 +6722,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Wolverine #101-109, #102.5, Annual '96; Uncanny X-Men #332; Venom: Tooth and Claw #1-3; Logan: Path of the Warlord #1; Logan: Shadow Society #1",
     yearsCovered: "1997",
     releaseDate: { year: 2022, month: 8 },
-    creators: "Hama, Loeb, Macchio",
     writers: "Larry Hama, Howard Mackie",
     artists: "Val Semeiks, Anthony Winn, Joe St. Pierre",
     description:
@@ -7086,7 +6740,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Wolverine #133–149;; Hulk #8;; Wolverine/Cable",
     yearsCovered: "1999-2000",
     releaseDate: { year: 2017, month: 2 },
-    creators: "Larsen, Stephenson, Nicieza",
     writers: "Erik Larsen, Eric Stephenson",
     artists: "Jeff Matsuda, Leinil Francis Yu, Mike Miller, Roger Cruz",
     description:
@@ -7105,7 +6758,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Wolverine #150–158, Annual '99;; Wolverine: Origin #1–6",
     yearsCovered: "2000-2001",
     releaseDate: { year: 2018, month: 3 },
-    creators: "Skroce, Liefeld, Stephenson",
     writers: "Steve Skroce, Eric Stephenson, Paul Jenkins",
     artists: "Rob Liefeld, Ian Churchill, Adam Kubert",
     description:
@@ -7124,7 +6776,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Wolverine (1988) 159-172, Wolverine Annual 2000-2001",
     yearsCovered: "2001-2003",
     releaseDate: { year: 2024, month: 3 },
-    creators: "Tieri, Nixon, Chen",
     writers: "Frank Tieri",
     artists: "Jorge Santamaria, Sean Chen, Dan Fraga, Matthew Marsilia",
     description:
@@ -7143,7 +6794,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Wolverine (vol. 2) #173-189",
     yearsCovered: "2003-2004",
     releaseDate: { year: 2025, month: 3 },
-    creators: "Tieri, Chen, Finch",
     writers: "Frank Tieri, Matt Nixon, Daniel Way",
     artists: "Sean Chen, Dan Fraga, Staz Johnson",
     description:
@@ -7163,7 +6813,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Avengers #263,; Fantastic Four #286,; X-Factor #1–9, Annual #1,; Iron Man Annual #8,; Amazing Spider-Man #282; and material from; Classic X-Men #8, 43",
     yearsCovered: "1986",
     releaseDate: { year: 2017, month: 2 },
-    creators: "Stern, Byrne, Layton, Simonson",
     writers: "John Byrne, Bob Layton, Louise Simonson, Bob Harras",
     artists: "John Byrne, Jackson Guice, Paul Neary",
     description:
@@ -7182,7 +6831,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "X-Factor #21-36, Annual #3;; Power Pack #35",
     yearsCovered: "1987-1988",
     releaseDate: { year: 2021, month: 5 },
-    creators: "Simonson, Buscema",
     writers: "Louise Simonson, Walt Simonson",
     artists: "Sal Buscema, Jon Bogdanove, Terry Shoemaker, Steve Lightle",
     description:
@@ -7201,7 +6849,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "X-Factor#37-50; X-Factor Annual #4; Uncanny X-Men #242-243",
     yearsCovered: "1989",
     releaseDate: { year: 2023, month: 8 },
-    creators: "Simonson, Dwyer, Byrne",
     writers: "Louise Simonson, Walter Simonson, John Byrne",
     artists: "Arthur Adams, Tom Smith, John Byrne",
     description:
@@ -7220,7 +6867,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "X-Factor #71–83, Annual #7;; Incredible Hulk #390–392",
     yearsCovered: "1991-1992",
     releaseDate: { year: 2018, month: 11 },
-    creators: "David, Nicieza, Stroman",
     writers: "Peter David, Fabian Nicieza",
     artists: "Larry Stroman, Dale Keown, Joe Quesada",
     description:
@@ -7239,7 +6885,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "X-Factor #84–100, Annual #8",
     yearsCovered: "1992-1994",
     releaseDate: { year: 2019, month: 11 },
-    creators: "David, Lobdell, Quesada",
     writers: "Peter David, Scott Lobdell, J.M. DeMatteis",
     artists: "Jae Lee, Joe Quesada, Jan Duursema",
     description:
@@ -7258,7 +6903,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "X-Factor 101-111, X-Factor Annual 9, Spider-Man & X-Factor: Shadowgames 1-3, X-Force 38 & Excalibur 82",
     yearsCovered: "1994-1995",
     releaseDate: { year: 2022, month: 6 },
-    creators: "DeMatteis, DeZago, Lobdell",
     writers: "J.M. DeMatteis, Todd DeZago",
     artists: "John Francis Moore, Jan Duursema, Mat Broome",
     description:
@@ -7277,7 +6921,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "X-Factor #112-126; Sabretooth and Mystique #1-4; Marvel Fanfare (1996) #6; material from X-Men: Prime (1995)",
     yearsCovered: "1995-1996",
     releaseDate: { year: 2025, month: 1 },
-    creators: "Moore, Matsuda, Epting",
     writers: "Howard Mackie",
     artists: "Jeff Matsuda, Steve Epting, Ariel Olivetti",
     description:
@@ -7296,7 +6939,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "#10-20, An 2; Power Pack (1984) 27; etc",
     yearsCovered: "1986-1987",
     releaseDate: { year: 2026, month: 11 },
-    creators: "",
     writers: "Louise Simonson, Walter Simonson, Peter David, Jo Duffy",
     artists: "Walter Simonson, Sal Buscema",
     description:
@@ -7316,7 +6958,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "X-Force #1–15, Annual #1;; Spider-Man #16;; Wolverine #54",
     yearsCovered: "1991-1992",
     releaseDate: { year: 2017, month: 3 },
-    creators: "Liefeld, Nicieza",
     writers: "Rob Liefeld, Fabian Nicieza",
     artists: "Todd McFarlane, Mark Pacella, Greg Capullo",
     description:
@@ -7335,7 +6976,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "X-Force #16–19;; Cable: Blood & Metal #1–2;; Uncanny X-Men #294–296;; X-Factor #84–86 ;; X-Men #14–16;; Stryfe's Strike File #1;; New Warriors #31",
     yearsCovered: "1992-1993",
     releaseDate: { year: 2019, month: 12 },
-    creators: "Nicieza, Lobdell, David",
     writers: "Fabian Nicieza, Scott Lobdell",
     artists: "John Romita Jr., Brendan Peterson, Andy Kubert, Greg Capullo",
     description:
@@ -7354,7 +6994,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "X-Force #20-26; X-Force Annual #2; Cable #1-4; Deadpool: The Circle Chase #1-4; Nomad #20",
     yearsCovered: "1993",
     releaseDate: { year: 2023, month: 12 },
-    creators: "Nicieza, Capullo",
     writers: "Fabian Nicieza",
     artists: "Greg Capullo, Art Thibert, Joe Madureira, Tony Daniel",
     description:
@@ -7373,7 +7012,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "X-Force #27-39; X-Force Annual #3; Cable #6-8; New Warriors 45-46",
     yearsCovered: "1993-1994",
     releaseDate: { year: 2025, month: 2 },
-    creators: "Nicieza, Krueger, Broome",
     writers: "Fabian Nicieza",
     artists: "Mat Broome, Tony Daniel, Aron Wiesenfeld, Darick Robertson, Mike Wieringo",
     description:
@@ -7392,7 +7030,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "X-Force #67-84, -1",
     yearsCovered: "1997-1998",
     releaseDate: { year: 2022, month: 4 },
-    creators: "Moore, Harris, Faerber, Cheung",
     writers: "John Francis Moore",
     artists: "Adam Pollina, Pop Mhan, Andy Smith, Jim Cheung",
     description:
@@ -7411,7 +7048,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "X-Force #85-100,; X-Force/Champions Annual '98,; X-Force Annual '99",
     yearsCovered: "1999-2000",
     releaseDate: { year: 2023, month: 6 },
-    creators: "Moore, Unzueta, Cheung",
     writers: "John Francis Moore",
     artists: "Terry Shoemaker, Jim Cheung, Anthony Williams, Chris Renaud",
     description:
@@ -7430,7 +7066,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "#40-56; Annual '95",
     yearsCovered: "1994-1996",
     releaseDate: { year: 2026, month: 12 },
-    creators: "",
     writers: "Fabian Nicieza, Jeph Loeb",
     artists: "Adam Pollina",
     description:
@@ -7450,7 +7085,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "X-Men #1–23",
     yearsCovered: "1963-1966",
     releaseDate: { year: 2014, month: 12 },
-    creators: "Lee, Kirby",
     writers: "Stan Lee, Roy Thomas",
     artists: "Jack Kirby, Werner Roth",
     description:
@@ -7469,7 +7103,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "X-Men #24–45,; Avengers #53; and material from; Not Brand Echh #4, 8",
     yearsCovered: "1966-1968",
     releaseDate: { year: 2016, month: 12 },
-    creators: "Thomas, Friedrich, Buscema",
     writers: "Roy Thomas",
     artists: "Werner Roth, Don Heck, George Tuska",
     description:
@@ -7488,7 +7121,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "X-Men #46–66; and material from; Ka-Zar #2–3 and; Marvel Tales #30",
     yearsCovered: "1968-1970",
     releaseDate: { year: 2018, month: 11 },
-    creators: "Thomas, Adams",
     writers: "Roy Thomas, Arnold Drake",
     artists: "Neal Adams, Jim Steranko, Werner Roth",
     description:
@@ -7507,7 +7139,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Amazing Adventures #11–17,; Amazing Spider-Man #92,; Incredible Hulk #150, 161, 172, 180–182,; Marvel Team-Up #4, 23,; Avengers #110–111,; Captain America #172–175,; Defenders #15–16,; Giant-Size Fantastic Four #4; and material from; X-Men #67–93, Annual #1–2",
     yearsCovered: "1970-1975",
     releaseDate: { year: 2019, month: 7 },
-    creators: "Englehart, Wein, Conway",
     writers: "Steve Englehart, Len Wein",
     artists: "Sal Buscema, Tom Sutton, Herb Trimpe, Gil Kane",
     description:
@@ -7526,7 +7157,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Giant Size X-Men #1,; Uncanny X-Men #94–110,; Iron Fist #14–15,; Marvel Team-Up #53, 69–70, Annual #1; and material from; FOOM #10",
     yearsCovered: "1976-1978",
     releaseDate: { year: 2017, month: 3 },
-    creators: "Claremont, Wein, Cockrum",
     writers: "Chris Claremont",
     artists: "Dave Cockrum John Byrne",
     description:
@@ -7545,7 +7175,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Uncanny X-Men #111–128, Annual #3;; Marvel Team-Up #89;; Incredible Hulk Annual #7",
     yearsCovered: "1978-1979",
     releaseDate: { year: 2020, month: 8 },
-    creators: "Claremont, Byrne",
     writers: "Chris Claremont",
     artists: "John Byrne",
     description:
@@ -7564,7 +7193,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Uncanny X-Men #129-143,; Annual #4,; Marvel Treasury Edition #26-27,; Phoenix: The Untold Story (1984); and material from Marvel Team-Up #100",
     yearsCovered: "1980-1981",
     releaseDate: { year: 2021, month: 3 },
-    creators: "Claremont, Byrne",
     writers: "Chris Claremont",
     artists: "John Byrne",
     description:
@@ -7583,7 +7211,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Uncanny X-Men (1981) 144-153, X-Men Annual (1970) 5, Avengers Annual (1967) 10, Bizarre Adventures (1981) 27, material from Marvel Fanfare (1982) 1-4",
     yearsCovered: "1981",
     releaseDate: { year: 2021, month: 11 },
-    creators: "Claremont, Cockrum",
     writers: "Chris Claremont",
     artists: "Dave Cockrum, Michael Golden",
     description:
@@ -7602,7 +7229,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Uncanny X-Men#154-167; X-Men Annual #6; Special Edition X-Men #1",
     yearsCovered: "1982-1983",
     releaseDate: { year: 2023, month: 12 },
-    creators: "Claremont, Cockrum, Smith",
     writers: "Chris Claremont",
     artists: "Dave Cockrum, Paul Smith",
     description:
@@ -7621,7 +7247,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Uncanny X-Men #168-175, Annual #7; Marvel Graphic Novel #5 - X-Men: God Loves, Man Kills; Wolverine #1-4; and material from Official Handbook of the Marvel Universe",
     yearsCovered: "1983",
     releaseDate: { year: 2024, month: 12 },
-    creators: "Claremont, Smith, Anderson",
     writers: "Chris Claremont",
     artists: "Paul Smith, Brent Anderson, Frank Miller",
     description:
@@ -7640,7 +7265,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Uncanny X-Men #189–198, Annual #8;; X-Men and Alpha Flight #1–2;; Nightcrawler #1–4",
     yearsCovered: "1985",
     releaseDate: { year: 2015, month: 12 },
-    creators: "Claremont, Cockrum, Romita Jr.",
     writers: "Chris Claremont",
     artists: "John Romita Jr., Paul Smith, Dave Cockrum",
     description:
@@ -7659,7 +7283,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Uncanny X-Men #199-210, Annual #9-10; New Mutants Special Edition #1; and material from Marvel Fanfare #33 (1987)",
     yearsCovered: "1985-1986",
     releaseDate: { year: 2025, month: 10 },
-    creators: "Claremont, Romita Jr.",
     writers: "Chris Claremont",
     artists: "John Romita Jr., Art Adams, June Brigman, Barry Windsor-Smith",
     description:
@@ -7678,7 +7301,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Uncanny X-Men #248–267",
     yearsCovered: "1989-1990",
     releaseDate: { year: 2019, month: 8 },
-    creators: "Claremont, Silvestri, Lee",
     writers: "Chris Claremont",
     artists: "Jim Lee, Marc Silvestri, Bill Jaaska, Mike Collins",
     description:
@@ -7697,7 +7319,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Uncanny X-Men #278–280, Annual #15,; X-Factor #65–70,; X-Men (1991) #1–3; and material from; New Mutants Annual #7 and; X-Factor Annual #6",
     yearsCovered: "1991",
     releaseDate: { year: 2017, month: 11 },
-    creators: "Claremont, Lee, Portacio",
     writers: "Fabian Nicieza, Chris Claremont",
     artists: "Whilce Portacio, Jim Lee, Andy Kubert",
     description:
@@ -7716,7 +7337,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Uncanny X-Men #281–288, Annual #16, X-Men (1991) #4–9, Annual #1, Ghost Rider #26-27",
     yearsCovered: "1991-1992",
     releaseDate: { year: 2022, month: 3 },
-    creators: "Lee, Portacio, Byrne",
     writers: "Jim Lee, Fabian Nicieza, John Byrne, Scott Lobdell",
     artists: "Jim Lee, Whilce Portacio",
     description:
@@ -7735,7 +7355,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Uncanny X-Men #289–296, X-Men (1991) #10-16, X-Factor #84-86, X-Force #16-18",
     yearsCovered: "1992",
     releaseDate: { year: 2022, month: 12 },
-    creators: "Lobdell, Lee, Portacio",
     writers: "Scott Lobdell, Fabian Nicieza",
     artists: "Tom Raney, Brendan Peterson, Andy Kubert",
     description:
@@ -7754,7 +7373,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Uncanny X-Men (1981) 297-300; Uncanny X-Men Annual (1992) 17; X-Men (1991) 17-23; Stryfe's Strike File (1993) 1; X-Men Unlimited (1993) 1; X-Men Survival Guide to the Mansion (1993) 1",
     yearsCovered: "1993",
     releaseDate: { year: 2023, month: 4 },
-    creators: "Lobdell, Nicieza, Peterson",
     writers: "Scott Lobdell, Fabian Nicieza",
     artists: "Brandon Peterson, Andy Kubert, John Romita Jr., Chris Bachalo",
     description:
@@ -7773,7 +7391,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Uncanny X-Men #301-306; X-Men (vol. 2) #24-25; X-Men Unlimited #2; Wolverine #75; Gambit #1-4; X-Men: Survival Guide to the Mansion",
     yearsCovered: "1993-1994",
     releaseDate: { year: 2024, month: 4 },
-    creators: "Lobdell, Nicieza, Hama",
     writers: "Scott Lobdell, Fabian Nicieza, Howard Mackie",
     artists: "John Romita Jr., Lee Weeks",
     description:
@@ -7800,7 +7417,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "#176-188; Kitty Pride & Wolverine; etc",
     yearsCovered: "1984",
     releaseDate: { year: 2026, month: 1 },
-    creators: "",
     writers: "Chris Claremont",
     artists: "John Romita Jr., Al Milgrom",
     description:
@@ -7819,7 +7435,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Uncanny X-Men #211-219; Spider-Man Vs. Wolverine; Fantastic Four Vs. X-Men #1-4; X-Men Vs. Avengers #1-4",
     yearsCovered: "1986-1987",
     releaseDate: { year: 2026, month: 6 },
-    creators: "",
     writers: "Chris Claremont, Christopher Priest, Roger Stern",
     artists: "Marc Silvestri, Jon Bogdanove, Mark Bright",
     description:
@@ -7838,7 +7453,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Uncanny X-Men #220-234, Annual #11-12; Best of Marvel Comics 1987",
     yearsCovered: "1987-1988",
     releaseDate: { year: 2027, month: 1 },
-    creators: "",
     writers: "Chris Claremont",
     artists: "Marc Silvestri",
     description:

@@ -58,10 +58,10 @@ export function VolumeDetailPanel({
 
   const formattedDescription = formatLineBreaks(volume.description);
 
-  // writers/artists are mid-migration off the combined `creators` string --
-  // whichever a volume actually has populated is what shows here.
-  const credits =
-    [volume.writers, volume.artists].filter(Boolean).join(" • ") || volume.creators;
+  // Either credit can be missing (the Star Wars sub-lines have neither), so
+  // the separators are joined rather than hardcoded -- otherwise a volume
+  // with no credits trails a stray bullet after the years.
+  const credits = [volume.writers, volume.artists].filter(Boolean).join(" • ");
 
   return (
     <div
@@ -122,7 +122,9 @@ export function VolumeDetailPanel({
 
         <h2 className="mt-4 text-xl font-bold text-white">{volume.title}</h2>
         <p className="text-sm italic text-neutral-300">
-          Vol. {volumeBadgeText(volume)}, {volume.yearsCovered} • {credits}
+          {[`Vol. ${volumeBadgeText(volume)}, ${volume.yearsCovered}`, credits]
+            .filter(Boolean)
+            .join(" • ")}
         </p>
         {volume.releaseDate && (
           <p className="mt-1 text-xs text-neutral-400">

@@ -24,7 +24,6 @@ function volume(id: string, start: [number, number], end: [number, number], swim
     end: { year: end[0], quarter: end[1] as 1 | 2 | 3 | 4 },
     issuesCollected: "",
     yearsCovered: "",
-    creators: "",
     description: "",
     ownershipStatus: "announced",
     swimLanePosition,

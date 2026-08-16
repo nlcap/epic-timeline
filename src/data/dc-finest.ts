@@ -629,7 +629,6 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Adventure Comics #229-280, #282, and #284: Action Comics #272; Detective Comics #293-300; World’s Finest Comics #125; Showcase #30-33; Superman’s Girl Friend Lois Lane #12; and Aquaman #1-3",
     yearsCovered: "1956-1962",
     releaseDate: { year: 2025, month: 1 },
-    creators: "Miller, Bernstein, Fradon",
     writers: "Jack Miller, Robert Bernstein",
     artists: "Ramona Fradon, Nick Cardy",
     description:
@@ -650,7 +649,6 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
       "Aquaman #4-24; The Brave and the Bold #51; World's Finest Comics #126-133, #135, #137, and #139; Superman's Girl Friend, Lois Lane #29; and Superman's Pal, Jimmy Olsen #55 and #78",
     yearsCovered: "1962-1965",
     releaseDate: { year: 2027, month: 6 },
-    creators: "Jack Miller, Nick Cardy, Ramona Fradon",
     writers: "Jack Miller",
     artists: "Ramona Fradon, Nick Cardy",
     description:
@@ -671,7 +669,6 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Batman #1-5 and Detective Comics #27-52",
     yearsCovered: "1939-1941",
     releaseDate: { year: 2026, month: 1 },
-    creators: "Finger, Kane",
     writers: "Bill Finger, Gardner Fox",
     artists: "Bob Kane, Jerry Robinson, Sheldon Moldoff, George Roussos",
     description:
@@ -691,7 +688,6 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Batman #231-245 and Detective Comics #410-429",
     yearsCovered: "1971-1972",
     releaseDate: { year: 2026, month: 10 },
-    creators: "O'Neil, Robbins, Adams",
     writers: "Dennis O'Neil, Frank Robbins",
     artists: "Neal Adams, Dick Giordano, Irv Novick, Bob Brown",
     description:
@@ -712,9 +708,10 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
       "Batman #246-281?, Detective Comics #430-445, and the never-before-collected five-page Batman story that was included with the Batman model kit released by Aurora in 1974",
     yearsCovered: "1972-1975",
     releaseDate: { year: 2027, month: 2 },
-    creators: "Denny O'Neil, Frank Robbins, Archie Goodwin, Irv Novick, Jim Aparo, Bob Brown, Neal Adams",
-    writers: "TBC",
-    artists: "TBC",
+    // Split by hand from `creators` -- Wikipedia lists this volume's credits
+    // as "TBC", so the names carried over from Nick's own sheet.
+    writers: "Denny O'Neil, Frank Robbins, Archie Goodwin",
+    artists: "Irv Novick, Jim Aparo, Bob Brown, Neal Adams",
     description:
       "Batman faces crime, mystery, and psychological threats in a darker, more dangerous Gotham in these defining Bronze Age adventures.<br />\nGotham City is changing—and Batman must change with it.<br />\n\nAs crime grows more unpredictable and dangerous, the Dark Knight is drawn into cases that push him beyond traditional detective work. From high-stakes battles with some of his most dangerous enemies to tense investigations that uncover Gotham’s rampant corruption, every encounter tests his instincts, restraint, and resolve.<br />\n\nBringing together core Batman stories with rare and unexpected material, this DC Finest volume delivers an immersive, wide-ranging collection that captures the tone and evolution of the Dark Knight Detective during this pivotal period.",
     coverUrl: batmanNightOfTheStalkerCover,
@@ -732,7 +729,6 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Batman #307–324; Detective Comics #482–490; DC Special Series #21; and The Brave and the Bold #159",
     yearsCovered: "1979-1980",
     releaseDate: { year: 2026, month: 11 },
-    creators: "O'Neil, Wein, Novick, Newton",
     writers: "Len Wein, Dennis O'Neil",
     artists: "Irv Novick, Don Newton",
     description:
@@ -752,7 +748,6 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Secret Origins #6, Batman Annual #10, Batman #386-400, and Detective Comics #553-567",
     yearsCovered: "1985-1986",
     releaseDate: { year: 2025, month: 9 },
-    creators: "Various",
     writers: "Doug Moench",
     artists: "Gene Colan, Tom Mandrake, Klaus Janson",
     description:
@@ -772,7 +767,6 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Batman 401-412, Annual 11, Detective Comics #568-579",
     yearsCovered: "1986-1987",
     releaseDate: { year: 2024, month: 11 },
-    creators: "Miller, Mazzucchelli, Barr, Davis",
     writers: "Frank Miller, Mike W. Barr, Max Allan Collins",
     artists: "David Mazzucchelli, Alan Davis, Todd McFarlane",
     description:
@@ -792,7 +786,6 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Batman: The Killing Joke #1; Batman #413-422; Detective Comics #580-589; and Batman: Son of the Demon #1.",
     yearsCovered: "1988",
     releaseDate: { year: 2025, month: 5 },
-    creators: "Moore, Bolland",
     writers: "Alan Moore, Mike W. Barr, Jim Starlin, Alan Grant, John Wagner",
     artists: "Brian Bolland, Jerry Bingham, Jim Aparo, Norm Breyfogle",
     description:
@@ -812,7 +805,6 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Batman #423-429, Batman Annual #12, Batman: The Cult #1-4, Detective Comics #590-595, Detective Comics Annual #1",
     yearsCovered: "1988-1989",
     releaseDate: { year: 2026, month: 4 },
-    creators: "Starlin, Grant",
     writers: "Jim Starlin, Alan Grant",
     artists: "Jim Aparo, Bernie Wrightson, Norm Breyfogle, Mike DeCarlo",
     description:
@@ -832,7 +824,6 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Batman (1940) #430-435, An #13; Detective Comics (1937) #596-603; Secret Origins (1986) #36, #39",
     yearsCovered: "1989",
     releaseDate: { year: 2026, month: 7 },
-    creators: "Hamm, Grant, Cowan, Breyfogle",
     writers: "Sam Hamm, Alan Grant",
     artists: "Denys Cowan, Jim Aparo, Dick Giordano",
     description:
@@ -853,7 +844,6 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
       "Arkham Asylum graphic novel, Batman #436-444, Detective Comics #604-609, The New Titans #60-61 and #65, Secret Origins #44, Secret Origins Special #1, and select stories from Batman Villains Secret Files 2005 #1 and Christmas with the Super-Heroes #2.",
     yearsCovered: "1989-1990",
     releaseDate: { year: 2027, month: 4 },
-    creators: "Marv Wolfman, Alan Grant, Pat Broderick, Jim Aparo, Norm Breyfogle",
     writers: "Marv Wolfman, Alan Grant, Grant Morrison",
     artists: "Pat Broderick, Jim Aparo, Norm Breyfogle",
     description:
@@ -875,7 +865,6 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
       "Batgirl #1-6; Batgirl Annual #1; Batman: No Man’s Land #0; Batman #567 and #569, Detective Comics #732 and #734; Batman: Legends of the Dark Knight #120; Azrael: Agent of the Bat #56-57 and #60-61; The Batman Chronicles #18; Batman: Gotham Knights #2; and the long-out-of-print crossover series Ghost/Batgirl #1-4.",
     yearsCovered: "1999-2000",
     releaseDate: { year: 2027, month: 1 },
-    creators: "Kelley Puckett, Scott Peterson, Damion Scott, Various",
     writers: "Kelley Puckett, Scott Peterson, Various",
     artists: "Damion Scott, Various",
     description:
@@ -895,7 +884,6 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Batgirl #7-27, Superboy #85, and Supergirl #63",
     yearsCovered: "2000-2002",
     releaseDate: { year: 2025, month: 4 },
-    creators: "Puckett, Scott",
     writers: "Kelley Puckett, Joe Kelly",
     artists: "Damion Scott",
     description:
@@ -916,7 +904,6 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Captain Atom (1965) #83-86; Blue Beetle (1964) #1-5; Blue Beetle (1965) #1-5, #50-54, Charlton Bullseye #1",
     yearsCovered: "1964-1981",
     releaseDate: { year: 2025, month: 8 },
-    creators: "Various",
     writers: "Joe Gill, Steve Ditko, Benjamin Smith",
     artists: "Steve Ditko, Bill Fraccio, Tony Tallarico, Dan Reed",
     description:
@@ -937,7 +924,6 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Catwoman (1989) 1-4, Catwoman: Defiant, Catwoman (1993) 1-12, Showcase '93",
     yearsCovered: "1988-1994",
     releaseDate: { year: 2024, month: 12 },
-    creators: "Newell, Duffy, Balent",
     writers: "Mindy Newell, Jo Duffy",
     artists: "J. J. Birch, Jim Balent",
     description:
@@ -957,7 +943,6 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Catwoman #0, #13-32; and Catwoman Annual #2-3",
     yearsCovered: "1994-1996",
     releaseDate: { year: 2025, month: 6 },
-    creators: "Duffy, Dixon, Balent",
     writers: "Doug Moench, Chuck Dixon, Jo Duffy",
     artists: "Jim Balent",
     description:
@@ -977,7 +962,6 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Catwoman #33–53; Catwoman Annual #3-4; DC Universe Holiday Bash #1; and Batman Secret Files #1",
     yearsCovered: "1996-1997",
     releaseDate: { year: 2026, month: 12 },
-    creators: "Moench, Dixon, Balent",
     writers: "Doug Moench, Chuck Dixon, Jo Duffy",
     artists: "Jim Balent",
     description:
@@ -998,7 +982,6 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
       "Catwoman #54-71, Catwoman/Wildcat #1-4, Catwoman Plus #1, Catwoman #1000000, and a 10-page story from Batman 80-Page Giant #1.",
     yearsCovered: "1998-1999",
     releaseDate: { year: 2027, month: 6 },
-    creators: "Devin Grayson, Beau Smith, Chuck Dixon, Jim Balent, Sergio Cariello",
     writers: "Devin Grayson, Beau Smith, Chuck Dixon",
     artists: "Jim Balent, Sergio Cariello",
     description:
@@ -1019,7 +1002,6 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Strange Adventures #205–216, Aquaman #50–52, Justice League of America #94, The Brave and the Bold #79, 86, 104, 133, The Phantom Stranger #33, 39–41, World’s Finest #223, 227, The Forever People #9–10, Challengers of the Unknown #74",
     yearsCovered: "1967-1977",
     releaseDate: { year: 2026, month: 5 },
-    creators: "Drake, Grandenetti, Adams",
     writers: "Arnold Drake, Neal Adams, Bob Haney",
     artists: "Neal Adams",
     description:
@@ -1040,7 +1022,6 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     issuesCollected: "The Demon #1–16 (1972–1973); The Brave and the Bold #109, #137; Batman Family (1975) #17; Detective Comics #482-485, Wonder Woman #280-282",
     yearsCovered: "1972-1980",
     releaseDate: { year: 2026, month: 2 },
-    creators: "Kirby, Wein, Conway",
     writers: "Jack Kirby, Jim Starlin, Bob Rozakis",
     artists: "Jack Kirby, Juan Manuel Ortiz",
     description:
@@ -1061,7 +1042,6 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     issuesCollected: "The Brave and the Bold #65; Doom Patrol #86-102; Challengers of the Unknown #48; My Greatest Adventure #80-85; Teen Titans #6",
     yearsCovered: "1963-1966",
     releaseDate: { year: 2025, month: 2 },
-    creators: "Drake, Haney, Premiani",
     writers: "Arnold Drake",
     artists: "Bruno Premiani, Bob Brown",
     description:
@@ -1081,7 +1061,6 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Showcase #94-96, Superman Family #191-193, and Doom Patrol #103-121",
     yearsCovered: "1966-1979",
     releaseDate: { year: 2026, month: 1 },
-    creators: "Various",
     writers: "Arnold Drake",
     artists: "Bruno Premiani",
     description:
@@ -1101,7 +1080,6 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Doom Patrol #64–87; Vertigo Jam #1; and Doom Patrol Annual #2",
     yearsCovered: "1993-1995",
     releaseDate: { year: 2026, month: 10 },
-    creators: "Pollack, McKeever",
     writers: "Rachel Pollack",
     artists: "Ted McKeever, Linda Medley, Stan Woch",
     description:
@@ -1122,7 +1100,6 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Swamp Thing #39; Batman #389-391; Detective Comics #555-558; Justice League of America #244; Green Lantern #194; Wonder Woman #327; DC Comics Presents #78; Infinity, Inc. #18-19; The Fury of Firestorm #41; All-Star Squadron #50-52; Crisis on Infinite Earths #1-4; The Losers Special #1",
     yearsCovered: "1985",
     releaseDate: { year: 2025, month: 10 },
-    creators: "Wolfman, Perez",
     writers: "Marv Wolfman",
     artists: "George Pérez",
     description:
@@ -1142,7 +1119,6 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     issuesCollected: "DC Comics Presents #86 and #95, Infinity, Inc. #20-22, Infinity, Inc. Annual #1, The New Teen Titans #13-14, Swamp Thing #44-46, Wonder Woman #328-329, Legends of the DC Universe: Crisis on Infinite Earths #1, Crisis on Infinite Earths #5, All-Star Squadron #53-56, and Superman #413",
     yearsCovered: "1986",
     releaseDate: { year: 2026, month: 8 },
-    creators: "Wolfman, Thomas",
     writers: "Marv Wolfman",
     artists: "George Pérez",
     description:
@@ -1162,7 +1138,6 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Justice League of America #245; Superman #414–415; Green Lantern #195–196; DC Comics Presents #87–88; Legion of Super-Heroes #16, #18; Infinity, Inc. #23-24; Justice League of America Annual #3; Crisis on Infinite Earths #6–9; The Vigilante #22; The Omega Men #31; and Blue Devil #17–18.",
     yearsCovered: "1986",
     releaseDate: { year: 2026, month: 11 },
-    creators: "Wolfman, Perez",
     writers: "Marv Wolfman",
     artists: "George Pérez",
     description:
@@ -1183,7 +1158,6 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
       "Crisis on Infinite Earths #10-12; All-Star Squadron #57-60; Amethyst: Princess of Gemworld #13; Blue Devil #19; Christmas with the Super-Heroes #2; DC Comics Presents #94; Green Lantern #197-198; History of the DC Universe #1-2; Infinity, Inc. #25; JLA: Incarnations #5; Secret Origins Annual #2; Starman Annual #1; The Fury of Firestorm #42; The Omega Men #33; and Who’s Who: The Definitive Directory of the DC Universe #10 and #16-18.",
     yearsCovered: "1986",
     releaseDate: { year: 2027, month: 2 },
-    creators: "Marv Wolfman, George Perez, Jerry Ordway",
     writers: "Marv Wolfman",
     artists: "George Pérez",
     description:
@@ -1203,7 +1177,6 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Legends #1–3; Infinity Inc. #34-36; Hawkman #5-6; Secret Origins #10, Crisis on Infinite Earths #12, Batman #401; Detective Comics #568; Justice League of America #258; Green Lantern Corps #207-208; The Fury of Firestorm #55–56; Blue Beetle #9; Cosmic Boy #1–2; Booster Gold #13",
     yearsCovered: "1986",
     releaseDate: { year: 2026, month: 11 },
-    creators: "Ostrander, Wein, Byrne",
     writers: "John Ostrander, Paul Levitz",
     artists: "John Byrne, Luke McDonnell",
     description:
@@ -1223,7 +1196,6 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Superman #93, The Flash #94, L.E.G.I.O.N. #70, Green Lantern #55, Superman: The Man of Steel #37, Team Titans #24, The Darkstars #24, Valor #23, Batman #511, Batman: Shadow of the Bat #31, Detective Comics #678, Legionnaires #18, Hawkman #13, Showcase '94 #8-9, Steel #8, Superboy #8, Outsiders #11, and Zero Hour: Crisis in Time #3-4",
     yearsCovered: "1994",
     releaseDate: { year: 2024, month: 12 },
-    creators: "Jurgens, Simonson, Moench",
     writers: "Dan Jurgens",
     artists: "Dan Jurgens, Jerry Ordway",
     description:
@@ -1243,7 +1215,6 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     issuesCollected: "The Flash #0; Green Arrow #90; Adventures of Superman #516; Justice League America #92; Action Comics #703; Justice League International #68; Legion of Super-Heroes #61; Green Lantern #0; Superman: The Man of Steel #0; Guy Gardner: Warrior #24; Justice League Task Force #16; Catwoman #14; Robin #10; Showcase '94 #10; Damage #0, #6; Zero Hour: Crisis in Time #0-2; Anima #7",
     yearsCovered: "1994",
     releaseDate: { year: 2025, month: 5 },
-    creators: "Jurgens, Ordway",
     writers: "Dan Jurgens",
     artists: "Dan Jurgens, Jerry Ordway",
     description:
@@ -1264,7 +1235,6 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Showcase #4, 8, 13, 14; The Flash #105-123",
     yearsCovered: "1956-1961",
     releaseDate: { year: 2024, month: 11 },
-    creators: "Kanigher, Broome, Infantino",
     writers: "Robert Kanigher, John Broome",
     artists: "Carmine Infantino, Joe Kubert",
     description:
@@ -1284,7 +1254,6 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     issuesCollected: "World’s Finest Comics #198, The Flash #200–204, 206–212, 214–229, and The Brave and the Bold #99.",
     yearsCovered: "1970-1974",
     releaseDate: { year: 2026, month: 3 },
-    creators: "Kanigher, Various",
     writers: "Robert Kanigher, Cary Bates",
     artists: "Irv Novick",
     description:
@@ -1305,7 +1274,6 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Mister Miracle #1–4, The Forever People #1–5, The New Gods #1–4, Superman’s Pal Jimmy Olsen #133–141, and Superman’s Girl Friend Lois Lane #115",
     yearsCovered: "1970-1971",
     releaseDate: { year: 2026, month: 6 },
-    creators: "Kirby",
     writers: "Jack Kirby",
     artists: "Jack Kirby, Vince Colletta",
     description:
@@ -1326,7 +1294,6 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
       "Superman #244; The New Gods #4-8; The Forever People #5-8; Mister Miracle #5-8; Superman's Pal Jimmy Olsen #144-148, and Superman's Girl Friend Lois Lane #116-119",
     yearsCovered: "1971-1972",
     releaseDate: { year: 2027, month: 6 },
-    creators: "Jack Kirby, Robert Kanigher, Werner Roth",
     writers: "Jack Kirby, Robert Kanighter",
     artists: "Jack Kirby, Werner Roth",
     description:
@@ -1348,7 +1315,6 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Detective Comics Annual #1, Green Arrow #1-8, Green Arrow Annual #1, The Question #17-18, The Question Annual #1, Green Arrow: The Longbow Hunters #1-3",
     yearsCovered: "1987-1988",
     releaseDate: { year: 2025, month: 1 },
-    creators: "Grell",
     writers: "Mike Grell",
     artists: "Mike Grell, Ed Hannigan, Dick Giordano",
     description:
@@ -1368,7 +1334,6 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Green Arrow #9–20, Green Arrow Annual #2, The Question Annual #2, Secret Origins #38, and key Black Canary material from Action Comics #609–616 and #624–635",
     yearsCovered: "1988-1989",
     releaseDate: { year: 2026, month: 2 },
-    creators: "Grell, Stern",
     writers: "Mike Grell, Sharon Wright",
     artists: "Dan Jurgens, Ed Hannigan",
     description:
@@ -1389,7 +1354,6 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Green Lantern 19-39, Flash 143, Brave & The Bold 59",
     yearsCovered: "1963-1965",
     releaseDate: { year: 2024, month: 12 },
-    creators: "Broome, Fox, Kane",
     writers: "John Broome, Gardner Fox",
     artists: "Gil Kane, Joe Giella",
     description:
@@ -1409,7 +1373,6 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     issuesCollected: "The Flash #168; Green Lantern #40-61; The Brave and the Bold #69",
     yearsCovered: "1965-1968",
     releaseDate: { year: 2025, month: 11 },
-    creators: "Broome, Fox, Kane",
     writers: "John Broome, Gardner Fox",
     artists: "Gil Kane, Sid Greene",
     description:
@@ -1429,7 +1392,6 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Green Lantern #62–82, The Flash #191, and World’s Finest Comics #201",
     yearsCovered: "1968-1971",
     releaseDate: { year: 2026, month: 7 },
-    creators: "O'Neil, Adams",
     writers: "Dennis O'Neil, John Broome",
     artists: "Neal Adams, Gil Kane",
     description:
@@ -1449,7 +1411,6 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Secret Origins #7; Action Comics #589; Green Lantern #201–205; Tales of the Green Lantern Corps Annual #2; Green Lantern Corps #206–219; and Green Lantern Annual #3.",
     yearsCovered: "1986-1987",
     releaseDate: { year: 2026, month: 9 },
-    creators: "Englehart, Staton",
     writers: "Steve Englehart",
     artists: "Joe Staton, Ian Gibson",
     description:
@@ -1470,7 +1431,6 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Action Comics #765; Batman: Legends of the Dark Knight #126; The Batman Adventures #12; Azrael: Agent of the Bat #60; Batman #570, #573-574; Batman: Shadow of the Bat #93; Detective Comics #737, #740-741; Catwoman #82-84, #89; The Batman Adventures: Mad Love #1; The Batgirl Adventures #1; Batman: Harley Quinn #1; Batman: Gotham Knights #14; Harley Quinn #1-8",
     yearsCovered: "1993-2001",
     releaseDate: { year: 2025, month: 2 },
-    creators: "Dini, Timm, Kesel",
     writers: "Paul Dini, Karl Kesel",
     artists: "Bruce Timm",
     description:
@@ -1490,7 +1450,6 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Harley Quinn #9-25, Harley Quinn: Our Worlds at War, Harley and Ivy: Love on the Lam, and Gotham Girls #1-5",
     yearsCovered: "2001-2002",
     releaseDate: { year: 2026, month: 9 },
-    creators: "Kesel, Dodson",
     writers: "Karl Kesel",
     artists: "Terry Dodson, Rachel Dodson",
     description:
@@ -1511,7 +1470,6 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     issuesCollected: "The Brave and the Bold #34-36, #42-44; Mystery in Space #87-90; The Atom #7; Hawkman #1-16",
     yearsCovered: "1961-1966",
     releaseDate: { year: 2025, month: 8 },
-    creators: "Fox, Kubert, Anderson",
     writers: "Gardner Fox",
     artists: "Joe Kubert, Murphy Anderson",
     description:
@@ -1532,7 +1490,6 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     issuesCollected: "House of Secrets #81-85, House of Mystery #180-185, The Phantom Stranger #5, The Witching Hour #3-7, and The Unexpected #113-117",
     yearsCovered: "1969-1970",
     releaseDate: { year: 2025, month: 9 },
-    creators: "Wein, Adams, Wrightson",
     writers: "Gerry Conway, Marv Wolfman",
     artists: "Alex Toth, Bernie Wrightson",
     description:
@@ -1552,7 +1509,6 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     issuesCollected: "House of Secrets #86–90; House of Mystery #186–190; The Phantom Stranger #7; The Witching Hour #8–12; and The Unexpected #118–123",
     yearsCovered: "1970-1971",
     releaseDate: { year: 2026, month: 10 },
-    creators: "Wein, Wolfman, Wrightson",
     writers: "Gerry Conway, Marv Wolfman",
     artists: "Alex Toth, Bernie Wrightson",
     description:
@@ -1573,7 +1529,6 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Batman #251, #260, #286, #291–294, #321, Detective Comics #475–476, #504, Justice League of America #77, Wonder Woman #280–283, The Brave and the Bold #111, #118, #129–130, #141, and The Joker #1–10",
     yearsCovered: "1968-1981",
     releaseDate: { year: 2026, month: 4 },
-    creators: "O'Neil, Various",
     writers: "Dennis O'Neil, Bob Haney, Elliot S. Maggin",
     artists: "Frank Springer, John Calnan",
     description:
@@ -1594,7 +1549,6 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     issuesCollected: "The Brave and the Bold #28–30, Justice League of America #1–19, and Mystery in Space #75",
     yearsCovered: "1960-1963",
     releaseDate: { year: 2026, month: 3 },
-    creators: "Fox, Sekowsky",
     writers: "Gardner Fox",
     artists: "Mike Sekowsky, Sid Greene, Bernard Sachs",
     description:
@@ -1614,7 +1568,6 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Justice League of America 45-72",
     yearsCovered: "1966-1969",
     releaseDate: { year: 2024, month: 11 },
-    creators: "Fox, O'Neil, Sekowsky",
     writers: "Gardner Fox",
     artists: "Mike Sekowsky, Sid Greene, Dick Dillin",
     description:
@@ -1634,7 +1587,6 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Justice League of America #103-132",
     yearsCovered: "1972-1976",
     releaseDate: { year: 2026, month: 8 },
-    creators: "Wein, Conway, Dillin",
     writers: "Len Wein, Gerry Conway",
     artists: "Dick Dillin",
     description:
@@ -1654,7 +1606,6 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Justice League of America #241-261; Infinity, Inc. #19; Justice League of America Annual #3",
     yearsCovered: "1985-1987",
     releaseDate: { year: 2025, month: 8 },
-    creators: "Conway, McDonnell",
     writers: "Gerry Conway",
     artists: "Luke McDonnell, Bill Wray",
     description:
@@ -1675,7 +1626,6 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     issuesCollected: "AII-Star Comics #3-12",
     yearsCovered: "1940-1942",
     releaseDate: { year: 2024, month: 12 },
-    creators: "Fox, Mayer, Burnley",
     writers: "Gardner Fox",
     artists: "Sheldon Mayer, Jack Burnley",
     description:
@@ -1695,7 +1645,6 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     issuesCollected: "All-Star Comics #13-24",
     yearsCovered: "1942-1945",
     releaseDate: { year: 2025, month: 7 },
-    creators: "Fox",
     writers: "Gardner Fox",
     artists: "Joe Gallagher, Stan Aschmeier",
     description:
@@ -1716,7 +1665,6 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Action Comics #378-387 and #389-392, Adventure Comics #374-380 and #403, and Superboy #172-173, #176, #183-184, 188, 190-191, 193, 195, and #197-203",
     yearsCovered: "1968-1974",
     releaseDate: { year: 2024, month: 12 },
-    creators: "Shooter, Bates, Cockrum",
     writers: "Jim Shooter, Cary Bates",
     artists: "Win Mortimer, Dave Cockrum",
     description:
@@ -1737,7 +1685,6 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
       "DC Comics Presents #43, The Legion of Super-Heroes #284-300, World’s Finest Comics #284, The Best of DC: Blue Ribbon Digest #24, The Legion of Super-Heroes Annual #1",
     yearsCovered: "1982-1983",
     releaseDate: { year: 2027, month: 3 },
-    creators: "Paul Levitz, Keith Giffen, Pat Broderick",
     writers: "Paul Levitz",
     artists: "Keith Giffen, Pat Broderick",
     description:
@@ -1758,7 +1705,6 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Justice League of America #42; The Brave and the Bold #57-58, #66, #68, #88, #101; Metamorpho #1-17",
     yearsCovered: "1965-1968",
     releaseDate: { year: 2025, month: 6 },
-    creators: "Haney, Fradon",
     writers: "Bob Haney",
     artists: "Ramona Fradon, Sal Trapani, Joe Orlando, Mike Sekowsky, Jim Aparo",
     description:
@@ -1787,9 +1733,10 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
       "Metamorpho (1993) #1-4; Metamopho: Year One #1-6; Outsiders: Five of a Kind - Metamorpho / Aquaman #1; The Sandman #20; Wednesday Comics (2009) #1-12 [Metamorpho Stories]; 1st Issue Special #3; Action Comics #413-418; Brave and the Bold #123 and #154; DC Comics Presents #40; and World's Finest Comics #217-220, #224, #226, AND #228-229",
     yearsCovered: "1972-2009",
     releaseDate: { year: 2027, month: 4 },
-    creators: "Dan Jurgens, Mike W. Barr, Mike Norton (Illustrated by), Jim Aparo",
-    writers: "various",
-    artists: "various",
+    // Split by hand from `creators` -- Wikipedia only says "various" for this
+    // one. The sheet's "(Illustrated by)" marked where the artists started.
+    writers: "Dan Jurgens, Mike W. Barr",
+    artists: "Mike Norton, Jim Aparo",
     description:
       "A shape-shifting hero pushed to new limits—Metamorpho faces bigger challenges, team-ups, and unexpected transformations.\nRex Mason is no ordinary hero—he can transform into any element on Earth.\nAs Metamorpho, his powers allow him to reshape his body into anything from steel to smoke to fire, making him one of the most unpredictable heroes in the DC Universe. But with those abilities comes a challenge: holding onto his humanity while constantly changing.\nAcross a wide range of adventures, DC's most versatile of champions takes on new challenges, teams up with other heroes, and navigates increasingly complex threats while struggling with the personal cost of his powers.\nCollecting stories from across multiple series, this volume offers a broad and energetic look at one of DC's most unusual characters—blending science fiction, superhero action, and character-driven storytelling.",
     coverUrl: "https://m.media-amazon.com/images/I/815PF+lh3pL._SL1500_.jpg",
@@ -1808,7 +1755,6 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Fightin' Five #40-41; Suicide Squad #27-30; Checkmate #16-26, #28, #32-33; Eclipso #11-13; Showcase '93 #6-11; Peacemaker #1-4; The Vigilante #36-38, #41-43; The Peacemaker #1-5",
     yearsCovered: "1966-1993",
     releaseDate: { year: 2025, month: 4 },
-    creators: "Gill, Kupperberg, Boyette",
     writers: "Joe Gill, Paul Kupperberg",
     artists: "Pat Boyette",
     description:
@@ -1829,7 +1775,6 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Police Comics #1-36; Plastic Man #1-2",
     yearsCovered: "1941-1944",
     releaseDate: { year: 2025, month: 3 },
-    creators: "Cole",
     writers: "Jack Cole",
     artists: "Jack Cole",
     description:
@@ -1850,7 +1795,6 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Batman (1940) #184, #192, #202, #213, #227, #229-231, #234-236, #239-242, #244-245, #248-250, #252, #254, AND #259; Detective Comics (1937) #342, #386, #390, #391, #394-395, #398-403, #445, #447, and #450-451; Superman's' Pal: Jimmy Olsen (1954) #111 AND #130; World's Finest Comics (1941) #141, #147, #195, and #200",
     yearsCovered: "1964-1975",
     releaseDate: { year: 2026, month: 6 },
-    creators: "Friedrich, Broome, Moldoff",
     writers: "Mike Friedrich, Elliot S. Maggin",
     artists: "Gil Kane, Irv Novick",
     description:
@@ -1879,9 +1823,6 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
       "Secret Origins #50; Batman #333-334, #337-339, and #341-343; Detective Comics #481-495; DC Comics Presents #58; and The Batman Family #4, #6-9, and #11-20",
     yearsCovered: "1976-1983",
     releaseDate: { year: 2027, month: 5 },
-    creators: "Various",
-    writers: "various",
-    artists: "various",
     description:
       "Robin takes center stage in this DC Finest collection of classic adventures beyond the shadow of Batman!\nRobin may be Batman's partner, but some adventures belong entirely to him.\nAs Dick Grayson continues to grow into a hero in his own right, he takes on dangerous criminals, mysterious conspiracies, supernatural threats, and globe-spanning adventures that test his courage, intelligence, and leadership. Whether working alone, joining forces with Batgirl, or teaming with heroes from across the DC Universe, Robin proves that he is more than a sidekick—he is a hero capable of carrying the spotlight himself.\nFrom college campuses and traveling carnivals to hidden criminal organizations and extraordinary mysteries, these stories showcase the variety and excitement that defined Robin during the late Bronze Age. Along the way, Dick develops friendships, faces personal challenges, and gains the confidence that will help shape his future as one of DC's most enduring heroes.\nTogether, these stories capture the moment Dick Grayson begins to feel like a hero with his own world, his own instincts, and his own future beyond Batman.",
     coverUrl: "https://m.media-amazon.com/images/I/91W5aOuGyKL._SL1500_.jpg",
@@ -1900,7 +1841,6 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Action Comics #183-196; Strange Adventures #35-48; Mystery in Space #16-22",
     yearsCovered: "1953-1954",
     releaseDate: { year: 2025, month: 7 },
-    creators: "Broome, Fox, Anderson",
     writers: "John Broome, Gardner Fox",
     artists: "Murphy Anderson",
     description:
@@ -1921,7 +1861,6 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     issuesCollected: "G.I. Combat #68 and Our Army at War #81–122",
     yearsCovered: "1959-1962",
     releaseDate: { year: 2026, month: 5 },
-    creators: "Kanigher, Kubert",
     writers: "Robert Kanigher, Bob Haney",
     artists: "Joe Kubert",
     description:
@@ -1942,7 +1881,6 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Adventure Comics #431-440; Showcase #60-61, #64; The Spectre #2 #1-10; The Brave and the Bold #72; All-Star Squadron #27-28; Ghosts #97-99; Wrath of the Spectre #4",
     yearsCovered: "1966-1988",
     releaseDate: { year: 2025, month: 9 },
-    creators: "Fleisher, Various",
     writers: "Gardner Fox, Michael Fleisher",
     artists: "Murphy Anderson, Jim Aparo",
     description:
@@ -1963,7 +1901,6 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Static #1-15, Superman: The Man of Steel #36, Superboy #7, and Worlds Collide #1",
     yearsCovered: "1993-1994",
     releaseDate: { year: 2025, month: 10 },
-    creators: "McDuffie, Cowan",
     writers: "Dwayne McDuffie, Robert L. Washington III",
     artists: "John Paul Leon",
     description:
@@ -1984,7 +1921,6 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Swamp Thing #1–22; The House of Secrets #92, #140; The Phantom Stranger #14; The Brave and the Bold #122",
     yearsCovered: "1971-1976",
     releaseDate: { year: 2026, month: 12 },
-    creators: "Wein, Wrightson",
     writers: "Len Wein",
     artists: "Bernie Wrightson, Nestor Redondo",
     description:
@@ -2005,7 +1941,6 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Adventure Comics #199-216; Superboy #33-43",
     yearsCovered: "1954-1955",
     releaseDate: { year: 2025, month: 5 },
-    creators: "Binder, Sikela, Swan",
     writers: "Otto Binder",
     artists: "John Sikela, Curt Swan",
     description:
@@ -2026,7 +1961,6 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Limited Collectors' Edition #41, Limited Collectors' Edition #46, and Super Friends #1-26",
     yearsCovered: "1976-1979",
     releaseDate: { year: 2025, month: 11 },
-    creators: "Various",
     writers: "E. Nelson Bridwell",
     artists: "Ramona Fradon, Bob Smith",
     description:
@@ -2047,7 +1981,6 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Action Comics #252-288, Adventure Comics #278, Superman #139-140 and #144, Superboy #80, Superman’s Girl Friend Lois Lane #14 and #20, and Superman’s Pal, Jimmy Olsen #40, #46, #51, and #57",
     yearsCovered: "1959-1962",
     releaseDate: { year: 2025, month: 1 },
-    creators: "Binder, Siegel, Plastino",
     writers: "Otto Binder, Jerry Siegel",
     artists: "Jim Mooney",
     description:
@@ -2067,7 +2000,6 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Showcase ’96 #8, Supergirl #1-18, Supergirl Annual #1-2, and Supergirl Plus #1",
     yearsCovered: "1996-1998",
     releaseDate: { year: 2025, month: 10 },
-    creators: "David, Frank",
     writers: "Peter David",
     artists: "Gary Frank, Leonard Kirk",
     description:
@@ -2087,7 +2019,6 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Adventure Comics 80-Page Giant #1, Resurrection Man #16–17, Supergirl #19–35, Supergirl #1 ML, Supergirl/Prysm Double-Shot #1, Team Superman #1, and Team Superman Secret Files #1",
     yearsCovered: "1998-1999",
     releaseDate: { year: 2026, month: 5 },
-    creators: "David, Kirk",
     writers: "Peter David",
     artists: "Leonard Kirk, Robin Riggs",
     description:
@@ -2108,7 +2039,6 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Action Comics #1-25, Superman #1-5, and New York World’s Fair Comics #1",
     yearsCovered: "1938-1940",
     releaseDate: { year: 2024, month: 11 },
-    creators: "Siegel, Shuster",
     writers: "Jerry Siegel",
     artists: "Joe Shuster, Paul Cassidy",
     description:
@@ -2128,7 +2058,6 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Action Comics #26-40, World’s Finest Comics #2-3, Superman #6-11, World’s Best Comics #1, and New York World’s Fair #2",
     yearsCovered: "1940-1941",
     releaseDate: { year: 2025, month: 12 },
-    creators: "Siegel, Shuster",
     writers: "Jerry Siegel",
     artists: "Joe Shuster, Jack Burnley, Paul Cassidy, Wayne Boring, Leo Nowak",
     description:
@@ -2148,7 +2077,6 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Action Comics #144–159, Superman #64–70, and World’s Finest Comics #46–53",
     yearsCovered: "1950-1951",
     releaseDate: { year: 2026, month: 2 },
-    creators: "Various",
     writers: "Al Plastino, Alvin Schwartz, Edmond Hamilton, Jack Schiff",
     artists: "Al Plastino, Wayne Boring",
     description:
@@ -2168,7 +2096,6 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Action Comics #393-406; Superman #233-238, #240-246",
     yearsCovered: "1970-1971",
     releaseDate: { year: 2025, month: 6 },
-    creators: "O'Neil, Swan",
     writers: "Dennis O'Neil, Leo Dorfman",
     artists: "Curt Swan, Murphy Anderson",
     description:
@@ -2189,7 +2116,6 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
       "Collects Action Comics #421-437, Superman #261-277, Limited Collectors Edition #31, Wanted: The Worlds Most Dangerous Villains #9, Secret Origins #1, The Amazing World of Superman #1, Aurora Comics Scenes #185, and DC 100-Page Super Spectacular #18",
     yearsCovered: "1973-1974",
     releaseDate: { year: 2027, month: 5 },
-    creators: "Cary Bates, Elliot S! Maggin, Curt Swan",
     writers: "Cary Bates, Elliot S! Maggin",
     artists: "Curt Swan",
     description:
@@ -2209,7 +2135,6 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     issuesCollected: "The Man of Steel #1–6; Superman #1–6; Adventures of Superman #424–429; and Action Comics #584–588",
     yearsCovered: "1986-1987",
     releaseDate: { year: 2026, month: 11 },
-    creators: "Byrne, Wolfman",
     writers: "John Byrne, Marv Wolfman",
     artists: "John Byrne, Jerry Ordway",
     description:
@@ -2229,7 +2154,6 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Superman #49–56, Starman #28, Adventures of Superman #472–479, and Action Comics #659–666",
     yearsCovered: "1990-1991",
     releaseDate: { year: 2026, month: 3 },
-    creators: "Jurgens, Ordway, Stern",
     writers: "Dan Jurgens, Jerry Ordway, Roger Stern",
     artists: "Dan Jurgens, Jerry Ordway, Bob McLeod",
     description:
@@ -2250,7 +2174,6 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Action Comics #266, #277; Superman #142-143, #147; Superman's Girl Friend Lois Lane #19-28; Superman's Pal, Jimmy Olsen #47-56",
     yearsCovered: "1960-1961",
     releaseDate: { year: 2025, month: 4 },
-    creators: "Bernstein, Siegel, Swan",
     writers: "Robert Bernstein, Jerry Siegel",
     artists: "Curt Swan, Kurt Schaffenberger",
     description:
@@ -2271,7 +2194,6 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
       "Superman’s Pal, Jimmy Olsen #163 and Superman’s Girl Friend, Lois Lane #136; and stories from Superman #271, #275, #279, #282, and #286-287; Action Comics #436, #438, #440-441, #461-462, #465, #467-468, #472, and #475; and Superman Family #164, #166-167, #169-170, #172-173, #175-176, #178-179, and #181-186",
     yearsCovered: "1974-1977",
     releaseDate: { year: 2027, month: 3 },
-    creators: "Cary Bates, Kurt Schaffenberger, Curt Swan",
     writers: "Cary Bates",
     artists: "Curt Swan, Kurt Schaffenberger",
     description:
@@ -2292,7 +2214,6 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Suicide Squad #1-10; Secret Origins #14; Detective Comics #582; The Fury of Firestorm #62-64; Firestorm: The Nuclear Man Annual #5; Legends #1-6; Millennium #4",
     yearsCovered: "1986-1988",
     releaseDate: { year: 2025, month: 3 },
-    creators: "Ostrander, Wein, McDonnell",
     writers: "John Ostrander, Len Wein",
     artists: "Luke McDonnell",
     description:
@@ -2312,7 +2233,6 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Suicide Squad #11–20, Suicide Squad Annual #1, The Doom Patrol and Suicide Squad Special #1, The Flash #12, Manhunter #1 and #6, Justice League International #13, Deadshot #1–4, Checkmate #1 (1997), and Checkmate #8 (1988)",
     yearsCovered: "1988",
     releaseDate: { year: 2026, month: 7 },
-    creators: "Ostrander, Greenberger, McDonnell",
     writers: "John Ostrander",
     artists: "Luke McDonnell",
     description:
@@ -2333,7 +2253,6 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     issuesCollected: "The Brave and the Bold (1955) #106–130; Stories From Super-Team Family #2 (the Creeper and Wildcat in “Showdown in San Lorenza” by Dennis O’Neil & Ric Estrada); And #3 (Hawkman and the Flash in “The End of the World” by Steve Skeates & Ric Estrada); Covers to Super-Team Family #1, #4–7",
     yearsCovered: "1973-1976",
     releaseDate: { year: 2026, month: 6 },
-    creators: "Haney, Drake, Aparo",
     writers: "Bob Haney",
     artists: "Jim Aparo",
     description:
@@ -2353,7 +2272,6 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     issuesCollected: "DC Comics Presents #1-14; The Brave and the Bold #141-155",
     yearsCovered: "1978-1979",
     releaseDate: { year: 2025, month: 3 },
-    creators: "Haney, Pasko, Aparo",
     writers: "Bob Haney, Martin Pasko",
     artists: "Jim Aparo, José Luis García-López",
     description:
@@ -2374,7 +2292,6 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     issuesCollected: "The New Teen Titans #21–32; The New Teen Titans Annual #1; Tales of the New Teen Titans #1–4; The New Teen Titans (Drug Awareness) #1–3; and Action Comics #536",
     yearsCovered: "1982-1983",
     releaseDate: { year: 2026, month: 10 },
-    creators: "Wolfman, Perez",
     writers: "Marv Wolfman",
     artists: "George Pérez",
     description:
@@ -2394,7 +2311,6 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Action Comics #546; World's Finest Comics #300; The New Teen Titans #33-40; The New Teen Titans Annual #2; Tales of the Teen Titans #41-47; Tales of the Teen Titans Annual #3; The Vigilante #3; and more",
     yearsCovered: "1983-1984",
     releaseDate: { year: 2025, month: 2 },
-    creators: "Wolfman, Perez",
     writers: "Marv Wolfman",
     artists: "George Pérez",
     description:
@@ -2415,7 +2331,6 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Our Army at War #54-57, Star Spangled War Stories #53-56, G.I. Combat #44-47, Blackhawk #108-111, Our Fighting Forces #17-20, and All-American Men of War #41-44",
     yearsCovered: "1957",
     releaseDate: { year: 2025, month: 11 },
-    creators: "Various, Kubert, Heath",
     writers: "Robert Kanigher, Bob Haney",
     artists: "Joe Kubert, Ross Andru",
     description:
@@ -2436,7 +2351,6 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Weird Western Tales #12-17; All-Star Western #2-8, #10-11; Super DC Giant #15; Tomahawk #130-140",
     yearsCovered: "1970-1973",
     releaseDate: { year: 2026, month: 4 },
-    creators: "Kanigher, Mooney, Sherman",
     writers: "Robert Kanigher, John Albano",
     artists: "Joe Kubert, Tony DeZuniga",
     description:
@@ -2456,7 +2370,6 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Weird Western Tales #18-43, Jonah Hex #1-7, and a never-before-reprinted Jonah Hex parody story from The Amazing World of DC Comics #13.",
     yearsCovered: "1973-1977",
     releaseDate: { year: 2026, month: 12 },
-    creators: "Michael Fleisher, José Luis García-López, John Albano, Tony DeZuniga, Dick Ayers, George Moliterni, Noly Panaligan, and more",
     writers: "Michael Fleisher, John Albano",
     artists: "Tony DeZuniga, Dick Ayers, George Moliterni, José Luis García-López, Noly Panaligan",
     description:
@@ -2477,7 +2390,6 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Wonder Woman #1-4; All-Star Comics #8; Sensation Comics #1-18; Comic Cavalcade #1-2",
     yearsCovered: "1941-1943",
     releaseDate: { year: 2025, month: 12 },
-    creators: "Marston, Peter",
     writers: "William Moulton Marston",
     artists: "H. G. Peter",
     description:
@@ -2497,7 +2409,6 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Wonder Woman #5–9, Sensation Comics #19–34, Comic Cavalcade #3–7, and All-Star Comics #20",
     yearsCovered: "1943-1944",
     releaseDate: { year: 2026, month: 2 },
-    creators: "Marston, Peter",
     writers: "William Moulton Marston",
     artists: "H. G. Peter",
     description:
@@ -2518,9 +2429,9 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
       "Wonder Woman #280-305, The New Teen Titans #11-12, the special 16-page preview story from DC Comics Presents #41, and the never-before-reprinted promotional comic Superman: The Computer Masters of Metropolis #1.",
     yearsCovered: "1981-1983",
     releaseDate: { year: 2027, month: 1 },
-    creators: "Paul Levitz, Dan Mishkin, Gene Colan",
-    writers: "various",
-    artists: "various",
+    // Split by hand from `creators` -- Wikipedia only says "various" here.
+    writers: "Paul Levitz, Dan Mishkin",
+    artists: "Gene Colan",
     description:
       "A sweeping collection of Wonder Woman adventures—mythology, action, and cosmic stakes in an expansive, accessible DC Finest collection.\n\nWonder Woman faces gods, monsters, and threats that stretch far beyond the mortal world.\n\nAs Diana’s adventures grow in scale and ambition, she is drawn into battles that test her strength, her compassion, and her role as a champion of both humanity and the divine. From mythological trials to universe-spanning conflicts, each story pushes her further as a hero and a warrior.\n\nSpanning a major run of stories, this volume brings together action, fantasy, and adventure in one immersive collection—offering a wide-ranging look at Wonder Woman’s world and the challenges she must overcome.",
     coverUrl: wonderWomanJudgementInInfinityCover,
@@ -2538,7 +2449,6 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Wonder Woman #306-329; DC Comics Presents #76; Blue Devil #10; The Legend of Wonder Woman #1-4",
     yearsCovered: "1983-1986",
     releaseDate: { year: 2025, month: 7 },
-    creators: "Mishkin, Heck, Busiek",
     writers: "Dan Mishkin, Kurt Busiek",
     artists: "Don Heck, Trina Robbins",
     description:
@@ -2558,7 +2468,6 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Wonder Woman (2006) #14-35, Brave & Bold #7, Outsiders: Five of a Kind - Wonder Woman and Grace #1",
     yearsCovered: "2007-2009",
     releaseDate: { year: 2024, month: 11 },
-    creators: "Simone, Dodson, Lopresti",
     writers: "Gail Simone",
     artists: "Terry Dodson, Aaron Lopresti, Bernard Chang",
     description:
@@ -2578,7 +2487,6 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Wonder Woman #36–44 and #600, Secret Six #10–14, Blackest Night: Wonder Woman #1–3, and DCU Halloween Special '09 #1",
     yearsCovered: "2009-2010",
     releaseDate: { year: 2026, month: 5 },
-    creators: "Simone, Scott, Rucka",
     writers: "Gail Simone",
     artists: "Nicola Scott",
     description:
@@ -2600,7 +2508,6 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
       "The Demon Annual #2, The Demon #42-45 and #52-54, Batman Chronicles #4, Hitman #1-14, and pages from JLA #5",
     yearsCovered: "1993-1997",
     releaseDate: { year: 2027, month: 4 },
-    creators: "Garth Ennis, John McCrea",
     writers: "Garth Ennis",
     artists: "John McCrea",
     description:
@@ -2622,7 +2529,6 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
       "Falling in Love #58-61, Girls’ Romances #91-94, Girls’ Love Stories #94-97, Heart Throbs #83-85, and Secret Hearts #86-89",
     yearsCovered: "1963",
     releaseDate: { year: 2027, month: 1 },
-    creators: "John Romita, Robert Kanigher, Mike Sekowsky, Phyllis Reed, and more",
     writers: "Robert Kanigher, Phyllis Reed",
     artists: "John Romita Sr., Mike Sekowsky",
     description:
@@ -2644,7 +2550,6 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
       "The Atom #1-15, Showcase #34-36, The Brave and the Bold #53 and #55, Strange Adventures #135 and #145, and Justice League of America #7, #14, and #18.",
     yearsCovered: "1961-1964",
     releaseDate: { year: 2027, month: 5 },
-    creators: "Gardner Fox, Gil Kane",
     writers: "Gardner Fox",
     artists: "Gil Kane",
     description:
@@ -2666,7 +2571,6 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
       "The Question #1-15, Blue Beetle (Charlton) #1-5, Americomics Special #1, Mysterious Suspense #1, Blue Beetle (DC) #4-7, Who’s Who Update ‘87 #4, Who’s Who: The Definitive Directory of the DC Universe #19, and The Charlton Bullseye #1 and #5",
     yearsCovered: "1967-1989",
     releaseDate: { year: 2027, month: 3 },
-    creators: "Steve Ditko, Dennis O'Neil, Denys Cowan",
     writers: "Dennis O'Neil",
     artists: "Denys Cowan",
     description:
@@ -2687,7 +2591,6 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Warlord #1-36 and 1st Issue Special #8",
     yearsCovered: "1975-1980",
     releaseDate: { year: 2027, month: 2 },
-    creators: "Mike Grell",
     writers: "Mike Grell",
     artists: "Mike Grell",
     description:

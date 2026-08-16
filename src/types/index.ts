@@ -167,17 +167,15 @@ export interface Volume {
    */
   releaseDate?: MonthPoint;
   /**
-   * e.g. "Lee, Kirby". Superseded by the `writers`/`artists` split below --
-   * still the populated field across every collection's seed data, so it
-   * stays as the fallback until those two are backfilled.
-   */
-  creators: string;
-  /**
-   * Writer credits, split out from the combined `creators` string. Optional
-   * while the two coexist: undefined means "not split yet, read `creators`".
+   * Credits, split by role. Either can be undefined where the source had
+   * nothing usable -- notably the Star Wars (Legends) sub-lines, whose
+   * Wikipedia tables carry no creator columns at all. Undefined means "not
+   * known", so the detail panel omits the credits rather than showing a
+   * placeholder; don't store "TBC"/"various" here.
+   *
+   * These replaced a single combined `creators` string (e.g. "Lee, Kirby").
    */
   writers?: string;
-  /** Artist credits -- see `writers`. */
   artists?: string;
   description: string;
   coverUrl?: string;
@@ -218,7 +216,7 @@ export interface Gap {
 /**
  * Speculation Mode only -- replaces "New Gap" as the second option when
  * adding/editing an entry on a speculative line. Modeled on Volume's fields
- * (see VolumeFormDrawer) but without ownership/creators/swim-lane-position,
+ * (see VolumeFormDrawer) but without ownership/credits/swim-lane-position,
  * and `number` isn't required the way Volume's is.
  */
 export interface Note {

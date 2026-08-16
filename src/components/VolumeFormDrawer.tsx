@@ -203,7 +203,6 @@ export function VolumeFormDrawer({
   const [releaseMonth, setReleaseMonth] = useState(
     String(editingVolume?.releaseDate?.month ?? 1)
   );
-  const [creators, setCreators] = useState(editingVolume?.creators ?? "");
   const [writers, setWriters] = useState(editingVolume?.writers ?? "");
   const [artists, setArtists] = useState(editingVolume?.artists ?? "");
   const [description, setDescription] = useState(
@@ -386,7 +385,6 @@ export function VolumeFormDrawer({
         releaseDate: hasReleaseDate
           ? { year: releaseYearNum, month: Number(releaseMonth) }
           : undefined,
-        creators: creators.trim(),
         writers: writers.trim() || undefined,
         artists: artists.trim() || undefined,
         description: description.trim(),
@@ -751,21 +749,6 @@ export function VolumeFormDrawer({
                 value={artists}
                 onChange={(e) => setArtists(e.target.value)}
                 placeholder="e.g. Bagley"
-                className="mt-1 w-full rounded-md border border-neutral-700 bg-neutral-900 px-3 py-2 text-sm text-white placeholder:text-neutral-600 focus:border-neutral-500 focus:outline-none"
-              />
-            </label>
-
-            <label className="mt-4 block text-sm font-medium text-neutral-300">
-              Creators
-              <p className="mt-0.5 text-xs font-normal text-neutral-500">
-                Being replaced by Writers/Artists -- still what the detail
-                panel falls back to when those two are empty.
-              </p>
-              <input
-                type="text"
-                value={creators}
-                onChange={(e) => setCreators(e.target.value)}
-                placeholder="e.g. Bendis, Bagley"
                 className="mt-1 w-full rounded-md border border-neutral-700 bg-neutral-900 px-3 py-2 text-sm text-white placeholder:text-neutral-600 focus:border-neutral-500 focus:outline-none"
               />
             </label>

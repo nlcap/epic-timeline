@@ -40,11 +40,10 @@ function modernIcon(filename: string): string {
 // to avoid the two colliding in the app's line-override storage (which is
 // keyed by id only, not id+collection).
 //
-// creators are writer + artist SURNAMES only (matching the terse style
-// used elsewhere in this app), pulled from Wikipedia's Writers/Artists
-// columns -- "TBC" (not yet solicited) reads as blank. writers/artists hold
-// the same credits unabbreviated, backfilled from those columns later;
-// releaseDate came from the same tables' Released column.
+// writers/artists come from Wikipedia's Writers/Artists columns, and
+// releaseDate from the same tables' Released column. A volume Wikipedia
+// hasn't credited yet (its cells read "TBC") simply has neither field --
+// never store the placeholder itself.
 // ownershipStatus defaults to "announced" for all of them: this pull has
 // no signal on Nick's personal shelf/order status, only that Marvel has
 // solicited or released the book.
@@ -300,7 +299,6 @@ export const MODERN_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "All-New Wolverine #1-18, Annual (2016)",
     yearsCovered: "2015-2017",
     releaseDate: { year: 2025, month: 12 },
-    creators: "Taylor, López, Navarrot",
     writers: "Tom Taylor",
     artists: "David López, David Navarrot, Marcio Takara, Ig Guara, Nik Virella, Djibril Morissette-Phan",
     description:
@@ -319,7 +317,6 @@ export const MODERN_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "All-New Wolverine #19-35; Generations: Wolverine & All-New Wolverine #1",
     yearsCovered: "2017-2018",
     releaseDate: { year: 2026, month: 12 },
-    creators: "Taylor",
     writers: "Tom Taylor",
     artists: "Leonard Kirk, Juann Cabal, Marco Failla, Djibril Morissette-Phan & Ramon Rosanas",
     description:
@@ -339,7 +336,6 @@ export const MODERN_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Amazing Spider-Man (vol. 2) #30-45",
     yearsCovered: "2001-2002",
     releaseDate: { year: 2025, month: 4 },
-    creators: "Straczynski, Romita Jr., Campbell",
     writers: "J. Michael Straczynski",
     artists: "John Romita Jr., J. Scott Campbell",
     description:
@@ -358,7 +354,6 @@ export const MODERN_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Amazing Spider-Man (vol. 2) #46-58, 500–502",
     yearsCovered: "2002-2003",
     releaseDate: { year: 2026, month: 1 },
-    creators: "Straczynski, Avery, Romita Jr., Romita Sr.",
     writers: "J. Michael Straczynski, Fiona Avery",
     artists: "John Romita Jr., John Romita Sr.",
     description:
@@ -377,7 +372,6 @@ export const MODERN_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Amazing Spider-Man #503-518, 509 (Director's Cut)",
     yearsCovered: "2004-2005",
     releaseDate: { year: 2026, month: 4 },
-    creators: "Straczynski, Avery, Romita Jr., Deodato Jr.",
     writers: "J. Michael Straczynski, Fiona Kai Avery",
     artists: "John Romita Jr., Mike Deodato Jr., Mark Brooks",
     description:
@@ -396,7 +390,6 @@ export const MODERN_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Amazing Spider-Man #519–528; Friendly Neighborhood Spider-Man #1–4; Marvel Knights Spider-Man #19–22; Spider-Man: The Other Sketchbook",
     yearsCovered: "2005",
     releaseDate: { year: 2027, month: 1 },
-    creators: "Straczynski, David",
     writers: "J. Michael Straczynski, Peter David, Reginald Hudlin",
     artists: "Mike Deodato Jr., Mike Wieringo & Pat Lee",
     description:
@@ -414,7 +407,6 @@ export const MODERN_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Amazing Spider-Man #648 (A story), 649–662, 654.1",
     yearsCovered: "2010-2011",
     releaseDate: { year: 2025, month: 9 },
-    creators: "Slott, Gage, Ramos, Brown",
     writers: "Dan Slott, Christos N. Gage",
     artists: "Humberto Ramos, Reilly Brown",
     description:
@@ -433,7 +425,6 @@ export const MODERN_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Amazing Spider-Man #663-676; Amazing Spider-Man: Infested; FCBD: Spider-Man (2011); Spider-Island: Deadly Foes",
     yearsCovered: "2011-2012",
     releaseDate: { year: 2026, month: 9 },
-    creators: "Slott, Ramos, Camuncoli",
     writers: "Dan Slott",
     artists: "Humberto Ramos, Giuseppe Camuncoli, Barry Kitson",
     description:
@@ -452,7 +443,6 @@ export const MODERN_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Amazing Spider-Man #677-687, 679.1; Daredevil #8; Avenging Spider Man #8; Amazing Spider-Man: Ends of the Earth #1",
     yearsCovered: "2012",
     releaseDate: { year: 2027, month: 2 },
-    creators: "",
     writers: "Mark Waid, Dan Slott, Christopher Yost, Brian Clevinger, Rob Williams & Ty Templeton",
     artists: "Emma Rios, Haim Kano, Humberto Ramos, Matthew Clark, Giuseppe Camuncoli, Stefano Caselli & Thony Silas",
     description:
@@ -471,7 +461,6 @@ export const MODERN_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Drax the Destroyer (2005) #1-4; Annihilation: Prologue (2006); Annihilation: Nova (2006) #1-4; Annihilation: Silver Surfer (2006) #1-4; Annihilation: Super Skrull (2006) #1-4",
     yearsCovered: "2005-2006",
     releaseDate: { year: 2025, month: 6 },
-    creators: "Giffen, Abnett, Breitweiser, Olivetti",
     writers: "Keith Giffen, Dan Abnett, Andy Lanning, Javier Grillo-Marxuach",
     artists: "Mitch Breitweiser, Ariel Olivetti, Scott Kolins, Kev Walker, Renato Arlem, Gregory Titus",
     description:
@@ -490,7 +479,6 @@ export const MODERN_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Annihilation: Ronan (2006) #1-4; Annihilation (2006) #1-6; Annihilation: Heralds Of Galactus (2006) #1-2; Annihilation: Nova Corps Files (2006)",
     yearsCovered: "2006-2007",
     releaseDate: { year: 2025, month: 10 },
-    creators: "Giffen, Furman, Vito, Lucas",
     writers: "Keith Giffen, Simon Furman, Christos N. Gage, Stuart Moore",
     artists: "Andrea Di Vito, Jorge Lucas, Giuseppe Camuncoli, Mike McKone, Scott Kolins",
     description:
@@ -509,7 +497,6 @@ export const MODERN_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Annihilation: Conquest Prologue; Annihilation: Conquest - Quasar #1-4; Annihilation: Conquest - Starlord #1-4; Annihilation: Saga; Nova (vol. 4) #1-7",
     yearsCovered: "2007",
     releaseDate: { year: 2026, month: 6 },
-    creators: "Gage, Giffen, Lilly, Green II",
     writers: "Christos N. Gage, Keith Giffen, TBC",
     artists: "Mike Lilly, Timothy Green II, TBC",
     description:
@@ -528,7 +515,6 @@ export const MODERN_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Annihilation: Conquest - Wraith #1-4; Nova (vol. 4) #8-12, and Annual #1; Annihilation: Conquest #1-6",
     yearsCovered: "2008",
     releaseDate: { year: 2027, month: 6 },
-    creators: "",
     description:
       "The techno-organic Phalanx sweep across the galaxy, seizing control of the Kree homeworld and dismantling everything the surviving heroes of the Annihilation War fought to rebuild. As Ultron's twisted influence spreads through the conquered Kree Empire, Star-Lord's scattered allies must regroup for one final stand against total conquest.",
     ownershipStatus: "announced",
@@ -553,7 +539,6 @@ export const MODERN_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Astonishing X-Men (vol. 3) #1-12",
     yearsCovered: "2004-2005",
     releaseDate: { year: 2024, month: 3 },
-    creators: "Whedon, Cassaday",
     writers: "Joss Whedon",
     artists: "John Cassaday",
     description:
@@ -572,7 +557,6 @@ export const MODERN_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Astonishing X-Men (vol. 3) #13-24; Giant-Size Astonishing X-Men #1",
     yearsCovered: "2006-2008",
     releaseDate: { year: 2025, month: 3 },
-    creators: "Whedon, Cassaday",
     writers: "Joss Whedon",
     artists: "John Cassaday",
     description:
@@ -592,7 +576,6 @@ export const MODERN_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Black Widow (1999) #1-3, Black Widow (2001) #1-3, Black Widow: Pale Little Spider (2002) #1-3, Black Widow (2004) #1-6, Black Widow: The Things They Say About Her (2005) #1-6",
     yearsCovered: "1999-2006",
     releaseDate: { year: 2025, month: 4 },
-    creators: "Grayson, Rucka, Jones, Hampton",
     writers: "Devin Grayson, Greg Rucka, Richard Morgan",
     artists: "Jeffrey Glen Jones, Scott Hampton, Igor Kordey, Bill Sienkiewicz, Goran Parlov, Sean Phillips",
     description:
@@ -611,7 +594,6 @@ export const MODERN_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Black Widow Deadly Origin #1-4; Black Widow (vol. 4) #1-8; Widowmaker #1-4; Fear Itself: Black Widow; Black Widow Saga; material from Enter The Heroic Age; Iron Man: Kiss And Kill",
     yearsCovered: "2009-2011",
     releaseDate: { year: 2026, month: 4 },
-    creators: "Cornell, Liu, Raney, Leon",
     writers: "Paul Cornell, Marjorie Liu, Duane Swierczynski, Jim Mccann",
     artists: "Tom Raney, John Paul Leon, Daniel Acuña, Manuel Garcia, David López",
     description:
@@ -630,7 +612,6 @@ export const MODERN_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Black Widow (vol. 5) #1-20; Punisher (vol. 10) #9; material from All-New Marvel Now! Point One #1",
     yearsCovered: "2014-2015",
     releaseDate: { year: 2024, month: 4 },
-    creators: "Edmondson, Noto, Gerads",
     writers: "Nathan Edmondson",
     artists: "Phil Noto, Mitch Gerads",
     description:
@@ -666,7 +647,6 @@ export const MODERN_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Captain America (vol. 5) #1-17; Captain America 65th Anniversary Special; Captain America: Winter Soldier Director's Cut",
     yearsCovered: "2004-2006",
     releaseDate: { year: 2024, month: 6 },
-    creators: "Brubaker, Epting, Lark",
     writers: "Ed Brubaker",
     artists: "Steve Epting, Michael Lark, John Paul Leon, Lee Weeks, Javier Pulido, Marcos Martin",
     description:
@@ -685,7 +665,6 @@ export const MODERN_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Captain America (vol. 5) #18-30; Captain America #25: Director's Cut; Winter Soldier: Winter Kills; Fallen Son: The Death Of Captain America #1-5",
     yearsCovered: "2006-2007",
     releaseDate: { year: 2024, month: 10 },
-    creators: "Brubaker, Loeb, Epting, Perkins",
     writers: "Ed Brubaker, Jeph Loeb",
     artists: "Steve Epting, Mike Perkins, Lee Weeks, Leinil Francis Yu, Ed McGuinness, John Romita Jr, David Finch, John Cassaday",
     description:
@@ -704,7 +683,6 @@ export const MODERN_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Captain America (vol. 5) #31-48, #34 Director's Cut",
     yearsCovered: "2007-2009",
     releaseDate: { year: 2025, month: 10 },
-    creators: "Brubaker, Epting, Ross",
     writers: "Ed Brubaker",
     artists: "Steve Epting, Luke Ross, Butch Guice, Mike Perkins, Roberto De La Torre",
     description:
@@ -723,7 +701,6 @@ export const MODERN_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Captain America (vol. 5) #49-50; 600–601; Captain America Reborn #1-6; Captain America Reborn: Who Will Wield The Shield?",
     yearsCovered: "2009-2010",
     releaseDate: { year: 2026, month: 10 },
-    creators: "Brubaker, Hitch, Guice",
     writers: "Ed Brubaker",
     artists: "Bryan Hitch, Butch Guice, Luke Ross, Gene Colan",
     description:
@@ -743,7 +720,6 @@ export const MODERN_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Carnage (2010) #1-5; Carnage U.S.A. #1-5; Minimum Carnage: Alpha; Scarlet Spider (2012) #10-11; Venom (2011) #26-27; Minimum Carnage: Omega; Superior Carnage #1-5",
     yearsCovered: "2010-2013",
     releaseDate: { year: 2025, month: 9 },
-    creators: "Wells, Shinick, Crain, Segovia",
     writers: "Zeb Wells, Kevin Shinick, Cullen Bunn, Kevin Shinick",
     artists: "Clayton Crain, Stephen Segovia, Lan Medina, Khoi Pham, Declan Shalvey",
     description:
@@ -762,7 +738,6 @@ export const MODERN_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Superior Carnage Annual (2014); Deadpool vs. Carnage #1-4; AXIS: Carnage #1-3; Nova #26-27; Carnage (vol. 2) #1-10; All-New, All-Different Point One #1 (Carnage Story)",
     yearsCovered: "2014-2016",
     releaseDate: { year: 2026, month: 9 },
-    creators: "Bunn, Spears, Henderson, Jacinto",
     writers: "Cullen Bunn, Rick Spears, Gerry Duggan, Gerry Conway",
     artists: "Mike Henderson, Aaron Kim Jacinto, Sala Espin, Germán Peralta, John Timms Moreira, Michael Perkins",
     description:
@@ -782,7 +757,6 @@ export const MODERN_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Daredevil (vol. 2) #0-15, 1/2",
     yearsCovered: "1998-2001",
     releaseDate: { year: 2027, month: 2 },
-    creators: "Smith, Mack, Quesada",
     writers: "Kevin Smith, David Mack",
     artists: "Joe Quesada",
     description:
@@ -800,7 +774,6 @@ export const MODERN_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Daredevil (vol. 2) #16-31; Daredevil: Ninja #1-3",
     yearsCovered: "2001-2002",
     releaseDate: { year: 2024, month: 2 },
-    creators: "Bendis, Gale, Haynes, Mack",
     writers: "Brian Michael Bendis, Bob Gale",
     artists: "Rob Haynes, David Mack, Phil Winslade, Dave Ross, Alex Maleev",
     description:
@@ -819,7 +792,6 @@ export const MODERN_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Daredevil (vol. 2) #32-50",
     yearsCovered: "2002-2003",
     releaseDate: { year: 2024, month: 10 },
-    creators: "Bendis, Maleev, Gutierrez",
     writers: "Brian Michael Bendis",
     artists: "Alex Maleev, Manuel Gutierrez, Terry Dodson",
     description:
@@ -838,7 +810,6 @@ export const MODERN_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Daredevil (vol. 2) #51-65; What If... Karen Page Had Lived? (2004)",
     yearsCovered: "2003-2004",
     releaseDate: { year: 2025, month: 2 },
-    creators: "Bendis, Mack, Maleev, Golden",
     writers: "Brian Michael Bendis, David Mack",
     artists: "Alex Maleev, Michael Golden, Greg Horn, Philip Russell, Phil Hester, Chris Bachalo, Michael Lark",
     description:
@@ -857,7 +828,6 @@ export const MODERN_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Daredevil (vol. 2) #66-81",
     yearsCovered: "2005-2006",
     releaseDate: { year: 2026, month: 2 },
-    creators: "Bendis, Maleev",
     writers: "Brian Michael Bendis",
     artists: "Alex Maleev",
     description:
@@ -876,7 +846,6 @@ export const MODERN_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Daredevil (vol. 2) #82-94, Annual (2007)",
     yearsCovered: "2006-2007",
     releaseDate: { year: 2025, month: 7 },
-    creators: "Brubaker, Lark, Parks",
     writers: "Ed Brubaker",
     artists: "Michael Lark, Ande Parks, David Aja, Lee Weeks, Leandro Fernández",
     description:
@@ -896,7 +865,6 @@ export const MODERN_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Dark Avengers #1-16, Annual #1; Dark Avengers / Uncanny X-Men: Utopia; Dark Avengers / Uncanny X-Men: Exodus; Uncanny X-Men #513-514",
     yearsCovered: "2009-2010",
     releaseDate: { year: 2024, month: 1 },
-    creators: "Bendis, Fraction, Deodato, Silvestri",
     writers: "Brian Michael Bendis, Matt Fraction",
     artists: "Mike Deodato, Marc Silvestri, Terry Dodson, Luke Ross, Greg Horn, Chris Bachalo",
     description:
@@ -916,7 +884,6 @@ export const MODERN_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Cable & Deadpool #1-18",
     yearsCovered: "2004-2005",
     releaseDate: { year: 2024, month: 8 },
-    creators: "Nicieza, Zircher, Brooks",
     writers: "Fabian Nicieza",
     artists: "Patch Zircher, Mark Brooks, Marvin Law",
     description:
@@ -936,7 +903,6 @@ export const MODERN_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Wolverine: Origins #21-25; Deadpool (vol. 3) #1-12; Thunderbolts #130-131",
     yearsCovered: "2008-2009",
     releaseDate: { year: 2026, month: 1 },
-    creators: "Way, Medina, Dillon",
     writers: "Daniel Way",
     artists: "Paco Medina, Steve Dillon",
     description:
@@ -955,7 +921,6 @@ export const MODERN_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Deadpool (vol. 3) #13-31",
     yearsCovered: "2009-2010",
     releaseDate: { year: 2026, month: 7 },
-    creators: "Way, Swierczynski, Crystal, Medina",
     writers: "Daniel Way, Duane Swierczynski",
     artists: "Shawn Crystal, Paco Medina, Carlo Barberi, Tan Eng Huat, Philip Bond, Bong Dazo",
     description:
@@ -974,7 +939,6 @@ export const MODERN_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Deadpool (vol. 3) #32-49, #33.1, #49.1",
     yearsCovered: "2011-2012",
     releaseDate: { year: 2027, month: 4 },
-    creators: "",
     description:
       "A symbiote-infected splinter of Wade Wilson's own psyche breaks loose as \"Evil Deadpool,\" hunting down and absorbing the healing factors of Wolverine's extended family one by one. Deadpool must track down his own murderous doppelganger before the last of his healing powers -- and his sanity -- are gone for good.",
     ownershipStatus: "announced",
@@ -990,7 +954,6 @@ export const MODERN_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Deadpool (vol. 4) #1-19",
     yearsCovered: "2012-2013",
     releaseDate: { year: 2025, month: 5 },
-    creators: "Posehn, Duggan, Moore, Koblish",
     writers: "Brian Posehn, Gerry Duggan",
     artists: "Tony Moore, Scott Koblish, Mike Hawthorne, Declan Shalvey",
     description:
@@ -1010,7 +973,6 @@ export const MODERN_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Annihilation: Conquest - Star-Lord #1-4, Guardians of the Galaxy (vol. 2) #1-12",
     yearsCovered: "2007-2009",
     releaseDate: { year: 2023, month: 9 },
-    creators: "Giffen, Abnett, Green II, Pelletier",
     writers: "Keith Giffen, Dan Abnett, Andy Lanning",
     artists: "Timothy Green II, Paul Pelletier, Brad Walker, Carlos Magno, Wes Craig",
     description:
@@ -1029,7 +991,6 @@ export const MODERN_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Guardians of the Galaxy (vol. 2) #13-25; Thanos Imperative: Ignition #1; Thanos Imperative #1-6",
     yearsCovered: "2009-2010",
     releaseDate: { year: 2025, month: 1 },
-    creators: "Abnett, Lanning, Walker, Craig",
     writers: "Dan Abnett, Andy Lanning",
     artists: "Brad Walker, Wes Craig, Miguel Sepulveda",
     description:
@@ -1048,7 +1009,6 @@ export const MODERN_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "The Thanos Imperative: Devastation #1; Annihilators #1-4; Annihilators: Earthfall #1-4; Thanos Sourcebook",
     yearsCovered: "2011-2012",
     releaseDate: { year: 2026, month: 12 },
-    creators: "",
     writers: "Dan Abnett & Andy Lanning",
     artists: "Miguel Angel Sepulveda, Tan Eng Huat & Timothy Green II",
     description:
@@ -1068,7 +1028,6 @@ export const MODERN_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "New Avengers: The Reunion #1-4; Hawkeye & Mockingbird #1-6; Widowmaker #1-4; Hawkeye: Blindspot #1-4; Hawkeye & Mockingbird Sketchbook #1; material from Dark Reign: New Nation #1; Enter the Heroic Age #1",
     yearsCovered: "2009-2011",
     releaseDate: { year: 2024, month: 7 },
-    creators: "McCann, Swierczynski, Lopez, Garcia",
     writers: "Jim McCann, Duane Swierczynski",
     artists: "David Lopez, Manuel Garcia, Paco Diaz, Nick Dragotta, Valentine De Landro, Lee Weeks",
     description:
@@ -1088,7 +1047,6 @@ export const MODERN_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Hulk (vol. 2) #1-12; King-Size Hulk #1; material from Incredible Hulk #600, Wolverine (vol. 3) #50",
     yearsCovered: "2008-2009",
     releaseDate: { year: 2024, month: 5 },
-    creators: "Loeb, McGuinness, Adams",
     writers: "Jeph Loeb",
     artists: "Ed McGuinness, Arthur Adams, Frank Cho, Herb Trimpe",
     description:
@@ -1107,7 +1065,6 @@ export const MODERN_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Hulk (vol. 2) #13-18; Incredible Hulk #601-605; Dark Reign: The List - Hulk; material from Incredible Hulk #600",
     yearsCovered: "2009-2010",
     releaseDate: { year: 2026, month: 1 },
-    creators: "Loeb, Pak, McGuinness, Churchill",
     writers: "Jeph Loeb, Greg Pak, Fred Van Lente",
     artists: "Ed McGuinness, Ian Churchill, Whilce Portacio, Ariel Olivetti, Giuseppe Camuncoli, Ben Oliver, Michael Ryan",
     description:
@@ -1126,7 +1083,6 @@ export const MODERN_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Hulk (vol. 2) #19-21; Incredible Hulk #606-608; Fall Of The Hulks: Alpha; Fall Of The Hulks: Gamma; Fall Of The Hulks: Red Hulk #1-4; Fall Of The Hulks: Save She-Hulks #1-3; Fall Of The Hulks: MODOK",
     yearsCovered: "2011",
     releaseDate: { year: 2026, month: 11 },
-    creators: "",
     writers: "Jeph Loeb, Greg Pak, Jeff Parker, Ryan Dunlavey",
     artists: "Ed McGuinness, Paul Pelletier, John Romita Jr., Carlos Rodriguez, Fernando Blanco, Salva Espin, Ryan Dunlavey",
     description:
@@ -1145,7 +1101,6 @@ export const MODERN_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Hulk (vol. 2) #22-24; Incredible Hulk #609-611 (A Stories); World War Hulks #1; Hulked Out Heroes #1-2; World War Hulks: Spider-Man vs. Thor #1-2; World War Hulks: Captain America vs. Wolverine #1-2",
     yearsCovered: "2011",
     releaseDate: { year: 2027, month: 2 },
-    creators: "",
     writers: "Jeph Loeb, Greg Pak, Jeff Parker, Kieron Gillen",
     artists: "Ed McGuinness, Paul Pelletier, Humberto Ramos, Jorge Molina",
     description:
@@ -1164,7 +1119,6 @@ export const MODERN_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Invincible Iron Man (vol. 2) #1-19",
     yearsCovered: "2008-2009",
     releaseDate: { year: 2024, month: 6 },
-    creators: "Fraction, Larroca",
     writers: "Matt Fraction",
     artists: "Salvador Larroca",
     description:
@@ -1183,7 +1137,6 @@ export const MODERN_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Invincible Iron Man (vol. 2) #20-33; Iron Man: Requiem #1; Rescue #1; FCBD 2010 Iron Man/Thor",
     yearsCovered: "2010",
     releaseDate: { year: 2024, month: 12 },
-    creators: "Fraction, DeConnick, Larroca, Kano",
     writers: "Matt Fraction, Kelly Sue DeConnick",
     artists: "Salvador Larroca, Kano, Andrea Mutti, John Romita Jr, Jamie McKelvie",
     description:
@@ -1202,7 +1155,6 @@ export const MODERN_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Invincible Iron Man (vol. 2) 500 (A story), #500.1, 501–509; Invincible Iron Man Annual (2010); Fear Itself (2011) #7.3: Iron Man",
     yearsCovered: "2011",
     releaseDate: { year: 2025, month: 7 },
-    creators: "Fraction, Larroca, Giandomenico",
     writers: "Matt Fraction",
     artists: "Salvador Larroca, Carmine Di Giandomenico, Kano, Howard Chaykin",
     description:
@@ -1221,7 +1173,6 @@ export const MODERN_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Invincible Iron Man (vol. 2) #510-527",
     yearsCovered: "2012",
     releaseDate: { year: 2026, month: 7 },
-    creators: "Fraction, Larroca",
     writers: "Matt Fraction",
     artists: "Salvador Larroca",
     description:
@@ -1241,7 +1192,6 @@ export const MODERN_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Siege: Loki; Journey Into Mystery #622-636, 626.1",
     yearsCovered: "2010-2012",
     releaseDate: { year: 2023, month: 8 },
-    creators: "Gillen, Rodi, McKelvie, Braithwaite",
     writers: "Kieron Gillen, Robert Rodi",
     artists: "Jamie McKelvie, Doug Braithwaite, Pasqual Ferry, Richard Elson, Whilce Portacio, Mitchell Breitweiser",
     description:
@@ -1260,7 +1210,6 @@ export const MODERN_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Journey Into Mystery #637-645; Exiled #1; New Mutants (vol. 2) #42-43; Mighty Thor #18-21; material from A+X #5",
     yearsCovered: "2012",
     releaseDate: { year: 2023, month: 9 },
-    creators: "Gillen, Abnett, Giandomenico, Elson",
     writers: "Kieron Gillen, Dan Abnett, Andy Lanning, Matt Fraction",
     artists: "Carmine Di Giandomenico, Richard Elson, Alan Davis, Stephanie Hans, Joe Bennett",
     description:
@@ -1280,7 +1229,6 @@ export const MODERN_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Ultimate Comics Spider-Man (2011) #1-12; Spider-Men (2012) #1-5; material from Ultimate Fallout (2011) #4",
     yearsCovered: "2011-2012",
     releaseDate: { year: 2025, month: 3 },
-    creators: "Bendis, Pichelli, Samnee",
     writers: "Brian Michael Bendis",
     artists: "Sara Pichelli, Chris Samnee, David Marquez",
     description:
@@ -1299,7 +1247,6 @@ export const MODERN_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Ultimate Comics Spider-Man (2011) #13-28, 16.1",
     yearsCovered: "2012-2013",
     releaseDate: { year: 2025, month: 8 },
-    creators: "Bendis, Marquez, Larraz",
     writers: "Brian Michael Bendis",
     artists: "David Marquez, Pepe Larraz, Sara Pichelli",
     description:
@@ -1318,7 +1265,6 @@ export const MODERN_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Cataclysm: Ultimate Spider-Man (2013) #1-3; Ultimate Spider-Man #200; Miles Morales: Ultimate Spider-Man #1-12",
     yearsCovered: "2013-2015",
     releaseDate: { year: 2026, month: 1 },
-    creators: "Bendis, Marquez, Bagley",
     writers: "Brian Michael Bendis",
     artists: "David Marquez, Mark Bagley, Mark Brooks, Sara Pichelli, David Lafuente",
     description:
@@ -1337,7 +1283,6 @@ export const MODERN_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Spider-Man (vol. 2) #1-14; Spider-Gwen (vol. 2) #16-18",
     yearsCovered: "2016-2017",
     releaseDate: { year: 2026, month: 8 },
-    creators: "Bendis, Latour, Pichelli, Rodriguez",
     writers: "Brian Michael Bendis, Jason Latour",
     artists: "Sara Pichelli, Robbi Rodriguez, TBC",
     description:
@@ -1356,7 +1301,6 @@ export const MODERN_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Spider-Man (vol. 2) #15-21, #234-240; Spider-Men II #1-5; Generations: Miles Morales Spider-Man & Peter Parker Spider-Man #1",
     yearsCovered: "2017-2018",
     releaseDate: { year: 2027, month: 4 },
-    creators: "",
     writers: "Brian Michael Bendis",
     artists: "Szymon Kudranski, Jan Bazaldua, Nico Leon, Sara Pichelli & Ramón",
     description:
@@ -1383,7 +1327,6 @@ export const MODERN_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Avengers #500-503; Avengers Finale; New Avengers (vol. 1) #1-10; New Avengers #1 Director's Cut; New Avengers Most Wanted Files",
     yearsCovered: "2004-2005",
     releaseDate: { year: 2023, month: 8 },
-    creators: "Bendis, Finch, McNiven",
     writers: "Brian Michael Bendis",
     artists: "David Finch, Steve McNiven",
     description:
@@ -1402,7 +1345,6 @@ export const MODERN_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "New Avengers #11-25, Annual (2006); New Avengers Guest Starring the Fantastic Four; Giant-Size Spider-Woman; New Avengers: Illuminati One-Shot; Civil War: The Confession",
     yearsCovered: "2005-2006",
     releaseDate: { year: 2024, month: 12 },
-    creators: "Bendis, Jurgens, Finch, Cho",
     writers: "Brian Michael Bendis, Dan Jurgens",
     artists: "David Finch, Frank Cho, Steve McNiven, Mike Deodato, Olivier Coipel, Alex Maleev, Howard Chaykin, Leinil Francis Yu, Pasqual Ferry, Jim Cheung",
     description:
@@ -1421,7 +1363,6 @@ export const MODERN_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Civil War: The Initiative; New Avengers #26-37, Annual (2006) #2; New Avengers: Illuminati #1-5",
     yearsCovered: "2007-2008",
     releaseDate: { year: 2025, month: 5 },
-    creators: "Bendis, Ellis, Silvestri, Maleev",
     writers: "Brian Michael Bendis, Warren Ellis, Brian Reed",
     artists: "Marc Silvestri, Alex Maleev, Leinil Yu, Carlo Pagulayan, Jim Cheung",
     description:
@@ -1440,7 +1381,6 @@ export const MODERN_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "New Avengers #38-54, Secret Invasion: Dark Reign",
     yearsCovered: "2008-2009",
     releaseDate: { year: 2026, month: 5 },
-    creators: "Bendis, Gaydos, Mack",
     writers: "Brian Michael Bendis",
     artists: "Michael Gaydos, David Mack, Jim Cheung, Billy Tan, Alex Maleev, Chris Bachalo",
     description:
@@ -1459,7 +1399,6 @@ export const MODERN_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "New Avengers #55-64; New Avengers Annual #3; Dark Reign: The List - Avengers; Free Comic Book Day 2009 (Avengers); New Avengers Finale #1; material from Amazing Spider-Man #601, and Breaking Into Comics the Marvel Way! #1",
     yearsCovered: "2009-2010",
     releaseDate: { year: 2027, month: 5 },
-    creators: "",
     writers: "Brian Michael Bendis",
     description:
       "With Norman Osborn now the country's top cop, the New Avengers operate as outlaws and fugitives, regrouping in secret to protect the world from threats Osborn's Dark Reign can't -- or won't -- handle. As old alliances are tested and new powers emerge, the team fights to hold together while hunted by the very government they once served.",
@@ -1477,7 +1416,6 @@ export const MODERN_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "New X-Men #114-126, Annual 2001",
     yearsCovered: "2001-2002",
     releaseDate: { year: 2024, month: 6 },
-    creators: "Morrison, Quitely, Yu",
     writers: "Grant Morrison",
     artists: "Frank Quitely, Leinil Yu, Ethan Van Sciver, Igor Kordey, Tom Derenick",
     description:
@@ -1496,7 +1434,6 @@ export const MODERN_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "New X-Men #127-141",
     yearsCovered: "2002-2003",
     releaseDate: { year: 2025, month: 6 },
-    creators: "Morrison, Quitely, Leon",
     writers: "Grant Morrison",
     artists: "Frank Quitely, John Paul Leon, Igor Kordey, Phil Jimenez, Ethan van Sciver, Keron Grant",
     description:
@@ -1515,7 +1452,6 @@ export const MODERN_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "New X-Men #142-154",
     yearsCovered: "2003-2004",
     releaseDate: { year: 2026, month: 6 },
-    creators: "Morrison, Bachalo, Silvestri",
     writers: "Grant Morrison",
     artists: "Chris Bachalo, Marc Silvestri, Phil Jimenez, TBC",
     description:
@@ -1535,7 +1471,6 @@ export const MODERN_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "What If? (vol. 2) #105; Spider-Girl (1998) #1-15, #½; Spider-Girl Annual 1999",
     yearsCovered: "1998-1999",
     releaseDate: { year: 2024, month: 3 },
-    creators: "DeFalco, Rosemann, Olliffe",
     writers: "Tom DeFalco",
     artists: "Bill Rosemann, Pat Olliffe, Ron Frenz, Paul Ryan",
     description:
@@ -1554,7 +1489,6 @@ export const MODERN_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Spider-Girl #68-84",
     yearsCovered: "2004-2005",
     releaseDate: { year: 2024, month: 11 },
-    creators: "DeFalco, Frenz, Olliffe",
     writers: "Tom DeFalco",
     artists: "Ron Frenz, Pat Olliffe",
     description:
@@ -1573,7 +1507,6 @@ export const MODERN_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Spider-Girl #85-99; material from #100 and Spider-Man Family #1",
     yearsCovered: "2005-2006",
     releaseDate: { year: 2025, month: 11 },
-    creators: "DeFalco, Frenz, Olliffe",
     writers: "Tom DeFalco, Ron Frenz, Pat Olliffe",
     artists: "Ron Frenz, Pat Olliffe",
     description:
@@ -1592,7 +1525,6 @@ export const MODERN_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "The Amazing Spider-Girl #0-15",
     yearsCovered: "2006-2007",
     releaseDate: { year: 2026, month: 8 },
-    creators: "DeFalco, Frenz, Olliffe",
     writers: "Tom DeFalco",
     artists: "Ron Frenz, Pat Olliffe, John Romita, J. Scott Campbell",
     description:
@@ -1612,7 +1544,6 @@ export const MODERN_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Edge Of Spider-Verse #2; Spider-Gwen (vol. 1) #1-5; Spider-Gwen (vol. 2) #1-8; Spider-Women Alpha #1; Silk (vol. 2) #7-8; Spider-Woman (vol. 6) #6-7; Spider-Women Omega #1",
     yearsCovered: "2014-2016",
     releaseDate: { year: 2023, month: 5 },
-    creators: "Latour, Hopeless, Rodriguez, Bengal",
     writers: "Jason Latour, Dennis Hopeless, Kelly Thompson",
     artists: "Robbi Rodriguez, Bengal, Tana Ford, Joëlle Jones",
     description:
@@ -1631,7 +1562,6 @@ export const MODERN_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Spider-Gwen (vol. 2) #9-24, Annual #1; All-New Wolverine Annual #1; Spider-Man (vol. 2) #12-14",
     yearsCovered: "2016-2017",
     releaseDate: { year: 2024, month: 2 },
-    creators: "Latour, Taylor, Blumenreich, Rodriguez",
     writers: "Jason Latour, Tom Taylor, Brian Michael Bendis",
     artists: "Hannah Blumenreich, Robbi Rodriguez, Chris Brunner, Chris Visions, Olivia Margraf, Marcio Takara, Sara Pichelli, Jorge Coelho, Jordan Gibson",
     description:
@@ -1650,7 +1580,6 @@ export const MODERN_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Spider-Gwen (vol. 2) #25-34; Spider-Geddon: Ghost Spider Video Comic; Spider-Gwen: Ghost-Spider #1-10",
     yearsCovered: "2018-2019",
     releaseDate: { year: 2025, month: 10 },
-    creators: "Latour, McGuire, Rodriguez, Fish",
     writers: "Jason Latour, Seanan McGuire",
     artists: "Robbi Rodriguez, Veronica Fish, Olivia Margraf, Chris Visions, Tim Eldred, Alti Firmansyah, Rosi Kämpe, Takeshi Miyazawa",
     description:
@@ -1669,7 +1598,6 @@ export const MODERN_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Ghost-Spider #1-10, Annual #1; King In Black: Gwenom vs. Carnage #1-3; Spider-Gwen: Gwenverse #1-5",
     yearsCovered: "2019-2022",
     releaseDate: { year: 2026, month: 9 },
-    creators: "McGuire, Seeley, Miyazawa, Armentaro",
     writers: "Seanan McGuire, Tim Seeley",
     artists: "Takeshi Miyazawa, Flaviano Armentaro, Jodi Nishijima",
     description:
@@ -1689,7 +1617,6 @@ export const MODERN_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Spider-Man / Deadpool #1-14, 17–18, 1.MU",
     yearsCovered: "2016-2017",
     releaseDate: { year: 2023, month: 10 },
-    creators: "Kelly, Aukerman, McGuinness, Brown",
     writers: "Joe Kelly, Scott Aukerman, Gerry Duggan, Penn Jillette, Paul Scheer, Nick Giovannetti, Joshua Corin",
     artists: "Ed McGuinness, Reilly Brown, Scott Koblish, Todd Nauck, David Walker",
     description:
@@ -1708,7 +1635,6 @@ export const MODERN_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Spider-Man / Deadpool #15-16, 19–32; Deadpool (vol. 5) #28-29; Deadpool And The Mercs For Money (vol. 2) #9-10",
     yearsCovered: "2017-2018",
     releaseDate: { year: 2024, month: 9 },
-    creators: "Duggan, Corin, Espin, Koblish",
     writers: "Gerry Duggan, Joshua Corin, Christopher Hastings, Elliott Kalan, Robbie Thompson",
     artists: "Salva Espin, Scott Koblish, Iban Coello, Will Robson, Todd Nauck, Chris Bachalo, Scott Hepburn, Elmo Bondoc",
     description:
@@ -1727,7 +1653,6 @@ export const MODERN_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Spider-Man / Deadpool #33-50",
     yearsCovered: "2018-2019",
     releaseDate: { year: 2025, month: 9 },
-    creators: "Thompson, Horak, Towe",
     writers: "Robbie Thompson",
     artists: "Matt Horak, Jim Towe, Scott Hepburn, Flaviano Armentaro, Nick Roche",
     description:
@@ -1747,7 +1672,6 @@ export const MODERN_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Star Wars (2015) #1-14, #1: Director's Cut; Star Wars: Vader Down #1; Darth Vader #13-15",
     yearsCovered: "2015-2016",
     releaseDate: { year: 2024, month: 7 },
-    creators: "Aaron, Gillen, Cassaday, Bianchi",
     writers: "Jason Aaron, Kieron Gillen",
     artists: "John Cassaday, Simone Bianchi, Stuart Immonen, Mike Deodato Jr, Salvador Larroca",
     description:
@@ -1766,7 +1690,6 @@ export const MODERN_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Star Wars (2015) #15-30, Annual #1-2",
     yearsCovered: "2016-2017",
     releaseDate: { year: 2025, month: 7 },
-    creators: "Aaron, Gillen, Larroca, Mayhew",
     writers: "Jason Aaron, Kieron Gillen, Kelly Thompson",
     artists: "Salvador Larroca, Mike Mayhew, Leinil Francis Yu, Jorge Molina",
     description:
@@ -1785,7 +1708,6 @@ export const MODERN_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Star Wars (2015) #31-43, Annual #3; Star Wars: The Screaming Citadel; Star Wars: Doctor Aphra #7-8",
     yearsCovered: "2017-2018",
     releaseDate: { year: 2026, month: 7 },
-    creators: "Aaron, Gillen, Larroca, Broccardo",
     writers: "Jason Aaron, Kieron Gillen",
     artists: "Salvador Larroca, Andrea Broccardo",
     description:
@@ -1804,7 +1726,6 @@ export const MODERN_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Star Wars (2015) #44-61",
     yearsCovered: "2018-2019",
     releaseDate: { year: 2027, month: 2 },
-    creators: "",
     writers: "Kieron Gillen",
     artists: "Salvador Larroca, Giuseppe Camuncoli, Andrea Broccardo & Angel Unzueta Galarza",
     description:
@@ -1823,7 +1744,6 @@ export const MODERN_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Darth Vader (2015) #1 Director's Cut; #2-12, Darth Vader Annual (2015)",
     yearsCovered: "2015",
     releaseDate: { year: 2024, month: 11 },
-    creators: "Gillen, Larroca, Yu",
     writers: "Kieron Gillen",
     artists: "Salvador Larroca, Leinil Yu",
     description:
@@ -1842,7 +1762,6 @@ export const MODERN_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Darth Vader (2015) #13-25, Vader Down; Star Wars (2015) #13-14",
     yearsCovered: "2016",
     releaseDate: { year: 2025, month: 11 },
-    creators: "Gillen, Aaron, Larroca, Fiumara",
     writers: "Kieron Gillen, Jason Aaron",
     artists: "Salvador Larroca, Max Fiumara, Mike Deodato Jr., Mike Norton",
     description:
@@ -1861,9 +1780,6 @@ export const MODERN_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Darth Vader (2017) #1-12, Annual 2",
     yearsCovered: "2017-2018",
     releaseDate: { year: 2026, month: 11 },
-    creators: "",
-    writers: "TBC",
-    artists: "TBC",
     description:
       "Explore the days after Anakin Skywalker's transformation into Darth Vader! In the wake of Revenge of the Sith, follow Vader as he receives his legendary red lightsaber and rises to power as a Dark Lord of the Sith -- beginning by hunting down and eradicating the galaxy's remaining Jedi. But Jocasta Nu, librarian of the Jedi Temple, is making a desperate effort to preserve what she can of their legacy.",
     coverUrl: "https://m.media-amazon.com/images/I/91AKBeOHRFL._SL1500_.jpg",
@@ -1880,7 +1796,6 @@ export const MODERN_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Darth Vader (2017) #13-25; Obi-Wan and Anakin #1-5",
     yearsCovered: "2018-2019",
     releaseDate: { year: 2027, month: 5 },
-    creators: "",
     description:
       "Darth Vader constructs a fortress on the lava world of Mustafar -- a stronghold to rebuild his broken body and reflect on his fall to the dark side -- while enemies within the Empire's ranks scheme against him. Plus: journey back to Anakin Skywalker's youth on Tatooine, when a young Obi-Wan Kenobi first crossed paths with the boy who would become Darth Vader.",
     ownershipStatus: "announced",
@@ -1905,7 +1820,6 @@ export const MODERN_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Kanan: The Last Padawan #1-5; Kanan #6-12",
     yearsCovered: "2016-2017",
     releaseDate: { year: 2025, month: 8 },
-    creators: "Weisman, Laraz, Camagni",
     writers: "Greg Weisman",
     artists: "Pepe Laraz, Jacopo Camagni, Andrea Broccardo",
     description:
@@ -1925,7 +1839,6 @@ export const MODERN_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Thor (vol. 3) #1-12, Thor #600, Fantastic Four #536-537; material from Dark Reign: The Cabal One-Shot",
     yearsCovered: "2006-2009",
     releaseDate: { year: 2024, month: 7 },
-    creators: "Straczynski, Lee, McKone, Coipel",
     writers: "J. Michael Straczynski, Stan Lee, Peter Milligan",
     artists: "Mike McKone, Olivier Coipel, Marko Djurdjevic, David Aja, Tonci Zonjic",
     description:
@@ -1944,7 +1857,6 @@ export const MODERN_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Thor #601-614, Annual (2009); Thor: Giant-Size Finale; New Mutants (vol. 3) #11",
     yearsCovered: "2009-2010",
     releaseDate: { year: 2024, month: 12 },
-    creators: "Straczynski, Milligan, Djurdjevic, Suayan",
     writers: "J. Michael Straczynski, Peter Milligan, Kieron Gillen",
     artists: "Marko Djurdjevic, Mico Suayan, Tom Grindberg, Stefano Gaudiano, Billy Tan, Jamie McKelvie, Richard Elson, Doug Braithwaite, Niko Henrichon",
     description:
@@ -1963,7 +1875,6 @@ export const MODERN_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Thor #615-621, 620.1; The Mighty Thor (vol. 2) #1-6; FCBD 2010: Iron Man/Thor",
     yearsCovered: "2010-2011",
     releaseDate: { year: 2025, month: 8 },
-    creators: "Fraction, Abnett, Lanning, Romita Jr.",
     writers: "Matt Fraction, Dan Abnett",
     artists: "Andy Lanning, John Romita Jr., Mark Brooks, Pasqual Ferry, Olivier Coipel, Salvador Larroca, Khoi Pham",
     description:
@@ -1982,9 +1893,6 @@ export const MODERN_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "The Mighty Thor (vol. 2) #7-12; Fear Itself #1-7; Fear Itself #7.2: Thor",
     yearsCovered: "2011-2012",
     releaseDate: { year: 2026, month: 11 },
-    creators: "",
-    writers: "TBC",
-    artists: "TBC",
     description:
       "A shocking secret from Odin's past returns to spread fear across the Nine Realms. The terrifying Serpent has arrived, and the Avengers and the world's remaining heroes must face the unstoppable tide of terror when the Serpent's Hammers fall and those who raise them become his Worthy. In the wake of the final battle, Odin decides the fate of Asgard, and the heroes bid farewell to one of their own -- Thor no more?",
     coverUrl: "https://m.media-amazon.com/images/I/91dHbMIx2xL._SL1500_.jpg",
@@ -2002,7 +1910,6 @@ export const MODERN_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Venom #1-18",
     yearsCovered: "2003-2004",
     releaseDate: { year: 2024, month: 9 },
-    creators: "Way, Herrera, Medina",
     writers: "Daniel Way",
     artists: "Francisco Herrera, Lan Medina, Skottie Young, Sean Galloway",
     description:
@@ -2021,7 +1928,6 @@ export const MODERN_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Venom Vs. Carnage #1-4; Marvel Knights: Spider-Man #7-8, 11; Sensational Spider-Man (vol. 2) #38-39; Thunderbolts: Reason In Madness; Venom: Dark Origin #1-5",
     yearsCovered: "2004-2008",
     releaseDate: { year: 2026, month: 7 },
-    creators: "Millar, Milligan, Dodson, Crain",
     writers: "Mark Millar, Peter Milligan, Roberto Aguirre-Sacasa, Zeb Wells",
     artists: "Terry Dodson, Clayton Crain, Lee Weeks, Angel Medina",
     description:
@@ -2040,7 +1946,6 @@ export const MODERN_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Amazing Spider-Man #654, #654.1; Venom (vol. 2) #1-16, #13.1-13.4",
     yearsCovered: "2011-2012",
     releaseDate: { year: 2023, month: 8 },
-    creators: "Slott, Remender, Ramos, Moore",
     writers: "Dan Slott, Rick Remender, Rob Williams, Jeff Parker",
     artists: "Humberto Ramos, Tony Moore, Tom Fowler, Stefano Caselli, Lan Medina, Lee Garbett, Sana Takeda, Julian Totino Tedesco, Kev Walker",
     description:
@@ -2059,7 +1964,6 @@ export const MODERN_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Venom (vol. 2) #17-35, #27.1; Minimum Carnage: Alpha #1; Minimum Carnage: Omega #1; Scarlet Spider (vol. 2) #10-11",
     yearsCovered: "2012-2013",
     releaseDate: { year: 2023, month: 12 },
-    creators: "Remender, Bunn, Walker, Medina",
     writers: "Rick Remender, Cullen Bunn, Christopher Yost",
     artists: "Kev Walker, Lan Medina, Declan Shalvey, Thony Silas, Khoi Pham, Reilly Brown, Marco Checchetto",
     description:
@@ -2078,7 +1982,6 @@ export const MODERN_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Venom (vol. 2) #36-42; Venom: Space-Knight #1-13",
     yearsCovered: "2013-2015",
     releaseDate: { year: 2024, month: 8 },
-    creators: "Bunn, Thompson, Larraz, Jacinto",
     writers: "Cullen Bunn, Robbie Thompson",
     artists: "Pepe Larraz, Kim Jacinto, Iban Coello, Ariel Olivetti, Gerardo Sandoval",
     description:
@@ -2098,7 +2001,6 @@ export const MODERN_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Young Avengers (vol. 1) #1-12, Director's Cut; Young Avengers Special (2005)",
     yearsCovered: "2005-2006",
     releaseDate: { year: 2025, month: 2 },
-    creators: "Heinberg, Cheung, Vito",
     writers: "Allan Heinberg",
     artists: "Jim Cheung, Andrea Di Vito, Michael Gaydos, Neal Adams, Gene Ha, Jae Lee, Bill Sienkiewicz, Pasqual Ferry",
     description:
@@ -2117,7 +2019,6 @@ export const MODERN_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Civil War: Young Avengers & Runaways #1-4; Young Avengers Presents #1-6; Secret Invasion: Runaways/Young Avengers #1-3; Dark Reign: Young Avengers #1-5; Siege: Young Avengers",
     yearsCovered: "2006-2010",
     releaseDate: { year: 2025, month: 8 },
-    creators: "Wells, Brubaker, Caselli, Medina",
     writers: "Zeb Wells, Ed Brubaker, Chris Yost, Paul Cornell, Sean McKeever",
     artists: "Stefano Caselli, Paco Medina, Takeshi Miyazawa, Mark Brooks, Mahmud Asrar",
     description:
@@ -2136,7 +2037,6 @@ export const MODERN_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Avengers: The Children's Crusade #1-9; Avengers: The Children's Crusade - Young Avengers; Avengers World (2014) #15-16; And Material From Uncanny X-Men (1981) #526 And; I Am An Avenger (2010) #1 And #4-5",
     yearsCovered: "2010-2012",
     releaseDate: { year: 2026, month: 2 },
-    creators: "Heinberg, Cheung, Coipel",
     writers: "Allan Heinberg",
     artists: "Jim Cheung,, Olivier Coipel,, Alan Davis",
     description:
@@ -2155,7 +2055,6 @@ export const MODERN_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Young Avengers (vol. 2) #1-15; and material from Marvel Now! Point One #1",
     yearsCovered: "2013-2014",
     releaseDate: { year: 2027, month: 4 },
-    creators: "Gillen, Norton, McKelvie",
     writers: "Kieron Gillen",
     artists: "Mike Norton, Jamie McKelvie",
     description:
