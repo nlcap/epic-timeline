@@ -1,9 +1,13 @@
-import { useEffect, useState, type ReactNode } from "react";
+import { useEffect, useState, type Dispatch, type ReactNode, type SetStateAction } from "react";
 import type { FilterMode, OwnershipStatus, ReadingStatus } from "../types";
 import { OWNERSHIP_META, OWNERSHIP_ORDER } from "../lib/ownership";
 import { READING_STATUS_META, READING_STATUS_ORDER } from "../lib/readingStatus";
 import { useSlidePanel } from "../hooks/useSlidePanel";
 import { useEscapeToClose } from "../hooks/useEscapeToClose";
+// Same {value, label, icon} shape the volume detail panel's status pickers
+// use -- deliberately shared, so a status's icon can't end up drawn one way
+// in the picker and another way in the filter for it.
+import type { StatusDropdownOption } from "./StatusDropdown";
 
 /** One checkbox (Any mode) or radio (All mode) row -- custom rather than a
  * native <input> to match the icon+label rows used everywhere else in the
@@ -85,6 +89,62 @@ function FilterSectionHeading({
       >
         Clear
       </button>
+    </div>
+  );
+}
+
+/**
+ * Adds or removes one value from a facet's draft set.
+ *
+ * "any" mode is a plain checkbox toggle. "all" mode is radio-style
+ * replace-on-select: ANDing multiple values of a single-valued field could
+ * never match anything, so picking a second one swaps rather than adds, and
+ * picking the checked one again clears the facet.
+ */
+function toggleInSet<T>(prev: ReadonlySet<T>, value: T, mode: FilterMode): Set<T> {
+  if (mode === "all") return prev.has(value) ? new Set() : new Set([value]);
+  const next = new Set(prev);
+  if (next.has(value)) next.delete(value);
+  else next.add(value);
+  return next;
+}
+
+/** One whole single-valued facet -- heading, per-facet Clear, and a row per
+ * option. Shelving and Reading are the same section twice over, differing
+ * only in their _ORDER/_META pair and how their icon is drawn, so they share
+ * this rather than keeping two copies that have to be edited in lockstep. */
+function FilterStatusSection<T extends string>({
+  label,
+  options,
+  draft,
+  mode,
+  onChange,
+}: {
+  label: string;
+  options: StatusDropdownOption<T>[];
+  draft: ReadonlySet<T>;
+  mode: FilterMode;
+  onChange: Dispatch<SetStateAction<Set<T>>>;
+}) {
+  return (
+    <div className="mt-6">
+      <FilterSectionHeading
+        label={label}
+        disabled={draft.size === 0}
+        onClear={() => onChange(new Set())}
+      />
+      <div className="mt-2 flex flex-col gap-0.5">
+        {options.map((option) => (
+          <FilterSelectableRow
+            key={option.value}
+            variant={mode === "all" ? "radio" : "checkbox"}
+            selected={draft.has(option.value)}
+            onToggle={() => onChange((prev) => toggleInSet(prev, option.value, mode))}
+            icon={option.icon}
+            label={option.label}
+          />
+        ))}
+      </div>
     </div>
   );
 }
@@ -202,31 +262,11 @@ export function FilterPanel({
     setDraftTags(new Set());
   };
 
-  const toggleShelving = (status: OwnershipStatus) => {
-    setDraftShelving((prev) => {
-      if (draftMode === "all") return prev.has(status) ? new Set() : new Set([status]);
-      const next = new Set(prev);
-      if (next.has(status)) next.delete(status);
-      else next.add(status);
-      return next;
-    });
-  };
-  const toggleReading = (status: ReadingStatus) => {
-    setDraftReading((prev) => {
-      if (draftMode === "all") return prev.has(status) ? new Set() : new Set([status]);
-      const next = new Set(prev);
-      if (next.has(status)) next.delete(status);
-      else next.add(status);
-      return next;
-    });
-  };
+  // Always "any" semantics, even in All mode -- tags are multi-valued per
+  // line, so "has every one of these" is a real query and the chips stay
+  // multi-select (see the docblock above).
   const toggleTag = (tag: string) => {
-    setDraftTags((prev) => {
-      const next = new Set(prev);
-      if (next.has(tag)) next.delete(tag);
-      else next.add(tag);
-      return next;
-    });
+    setDraftTags((prev) => toggleInSet(prev, tag, "any"));
   };
 
   const hasDraftSelections =
@@ -319,55 +359,35 @@ export function FilterPanel({
             </button>
           </div>
 
-          <div className="mt-6">
-            <FilterSectionHeading
-              label="Shelving Status"
-              disabled={draftShelving.size === 0}
-              onClear={() => setDraftShelving(new Set())}
-            />
-            <div className="mt-2 flex flex-col gap-0.5">
-              {OWNERSHIP_ORDER.map((status) => {
-                const meta = OWNERSHIP_META[status];
-                return (
-                  <FilterSelectableRow
-                    key={status}
-                    variant={draftMode === "all" ? "radio" : "checkbox"}
-                    selected={draftShelving.has(status)}
-                    onToggle={() => toggleShelving(status)}
-                    icon={<img src={meta.iconUrl} alt="" className="h-3 w-3 shrink-0" />}
-                    label={meta.label}
-                  />
-                );
-              })}
-            </div>
-          </div>
+          <FilterStatusSection
+            label="Shelving Status"
+            mode={draftMode}
+            draft={draftShelving}
+            onChange={setDraftShelving}
+            options={OWNERSHIP_ORDER.map((status) => ({
+              value: status,
+              label: OWNERSHIP_META[status].label,
+              icon: (
+                <img src={OWNERSHIP_META[status].iconUrl} alt="" className="h-3 w-3 shrink-0" />
+              ),
+            }))}
+          />
 
-          <div className="mt-6">
-            <FilterSectionHeading
-              label="Reading Status"
-              disabled={draftReading.size === 0}
-              onClear={() => setDraftReading(new Set())}
-            />
-            <div className="mt-2 flex flex-col gap-0.5">
-              {READING_STATUS_ORDER.map((status) => {
-                const meta = READING_STATUS_META[status];
-                return (
-                  <FilterSelectableRow
-                    key={status}
-                    variant={draftMode === "all" ? "radio" : "checkbox"}
-                    selected={draftReading.has(status)}
-                    onToggle={() => toggleReading(status)}
-                    icon={
-                      <span
-                        className={`h-2.5 w-2.5 shrink-0 rounded-full ${meta.dotClassName}`}
-                      />
-                    }
-                    label={meta.label}
-                  />
-                );
-              })}
-            </div>
-          </div>
+          <FilterStatusSection
+            label="Reading Status"
+            mode={draftMode}
+            draft={draftReading}
+            onChange={setDraftReading}
+            options={READING_STATUS_ORDER.map((status) => ({
+              value: status,
+              label: READING_STATUS_META[status].label,
+              icon: (
+                <span
+                  className={`h-2.5 w-2.5 shrink-0 rounded-full ${READING_STATUS_META[status].dotClassName}`}
+                />
+              ),
+            }))}
+          />
 
           {timelineTags.length > 0 && (
             <div className="mt-6">
