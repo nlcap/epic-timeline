@@ -48,8 +48,14 @@ function dcIcon(era: string, filename: string): string {
 // War, Western) have no single debut, so they fall back to their earliest
 // collected volume's year -- see FALLBACK comments below.
 //
-// creators/description aren't in the source spreadsheet -- left blank for now,
-// same known-gap treatment as cover images (see README).
+// creators/description aren't in the source spreadsheet -- both have since
+// been filled in for every volume here.
+//
+// releaseDate/writers/artists were bulk-backfilled from
+// https://en.wikipedia.org/wiki/DC_Finest_trade_paperbacks, which carries
+// Writers/Artists/Pub. date columns per volume; all 100 have all three. That
+// page has no "#" column (volumes are listed in publication order, not
+// numbered), so rows were matched to these entries by title within a line.
 export const DC_FINEST_LINES: Line[] = [
   {
     id: "aquaman",
@@ -622,7 +628,10 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     end: { year: 1962, quarter: 2 },
     issuesCollected: "Adventure Comics #229-280, #282, and #284: Action Comics #272; Detective Comics #293-300; World’s Finest Comics #125; Showcase #30-33; Superman’s Girl Friend Lois Lane #12; and Aquaman #1-3",
     yearsCovered: "1956-1962",
+    releaseDate: { year: 2025, month: 1 },
     creators: "Miller, Bernstein, Fradon",
+    writers: "Jack Miller, Robert Bernstein",
+    artists: "Ramona Fradon, Nick Cardy",
     description:
       "The earliest Silver Age stories starring the King of the Seas, drawn by Ramona Fradon and Nick Cardy as Aquaman graduates from backup feature to headlining his own title.",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781779529893",
@@ -640,7 +649,10 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     issuesCollected:
       "Aquaman #4-24; The Brave and the Bold #51; World's Finest Comics #126-133, #135, #137, and #139; Superman's Girl Friend, Lois Lane #29; and Superman's Pal, Jimmy Olsen #55 and #78",
     yearsCovered: "1962-1965",
+    releaseDate: { year: 2027, month: 6 },
     creators: "Jack Miller, Nick Cardy, Ramona Fradon",
+    writers: "Jack Miller",
+    artists: "Ramona Fradon, Nick Cardy",
     description:
       "Part of the DC Finest line, this deep-diving collection spotlights Aquaman's early adventures!\nAs king of Atlantis and protector of the seas, Aquaman faces threats both above and below the surface-but some dangers are stranger and more unpredictable than anything he's encountered before. From cursed forces rising out of the deep to mysterious enemies that blur the line between science and sorcery, these adventures transform the ocean into a place of wonder, danger, and suspense.\nBlending action, suspense, and imaginative world-building, these stories showcase a defining era of Aquaman's legacy; where superhero storytelling meets eerie, atmospheric adventure.",
     coverUrl: aquamanHauntedSeaCover,
@@ -658,7 +670,10 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     end: { year: 1941, quarter: 2 },
     issuesCollected: "Batman #1-5 and Detective Comics #27-52",
     yearsCovered: "1939-1941",
+    releaseDate: { year: 2026, month: 1 },
     creators: "Finger, Kane",
+    writers: "Bill Finger, Gardner Fox",
+    artists: "Bob Kane, Jerry Robinson, Sheldon Moldoff, George Roussos",
     description:
       "Batman's earliest Golden Age cases, including his own origin and the debut of the Joker, the Catwoman, and Robin the Boy Wonder.",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781799506706",
@@ -675,7 +690,10 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     end: { year: 1972, quarter: 3 },
     issuesCollected: "Batman #231-245 and Detective Comics #410-429",
     yearsCovered: "1971-1972",
+    releaseDate: { year: 2026, month: 10 },
     creators: "O'Neil, Robbins, Adams",
+    writers: "Dennis O'Neil, Frank Robbins",
+    artists: "Neal Adams, Dick Giordano, Irv Novick, Bob Brown",
     description:
       "The debut of Ra's al Ghul and the Lazarus Pit, as Denny O'Neil, Frank Robbins, and Neal Adams pull Batman out of the campy '60s and into a darker, globe-trotting era.",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781799510307",
@@ -693,7 +711,10 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     issuesCollected:
       "Batman #246-281?, Detective Comics #430-445, and the never-before-collected five-page Batman story that was included with the Batman model kit released by Aurora in 1974",
     yearsCovered: "1972-1975",
+    releaseDate: { year: 2027, month: 2 },
     creators: "Denny O'Neil, Frank Robbins, Archie Goodwin, Irv Novick, Jim Aparo, Bob Brown, Neal Adams",
+    writers: "TBC",
+    artists: "TBC",
     description:
       "Batman faces crime, mystery, and psychological threats in a darker, more dangerous Gotham in these defining Bronze Age adventures.<br />\nGotham City is changing—and Batman must change with it.<br />\n\nAs crime grows more unpredictable and dangerous, the Dark Knight is drawn into cases that push him beyond traditional detective work. From high-stakes battles with some of his most dangerous enemies to tense investigations that uncover Gotham’s rampant corruption, every encounter tests his instincts, restraint, and resolve.<br />\n\nBringing together core Batman stories with rare and unexpected material, this DC Finest volume delivers an immersive, wide-ranging collection that captures the tone and evolution of the Dark Knight Detective during this pivotal period.",
     coverUrl: batmanNightOfTheStalkerCover,
@@ -710,7 +731,10 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     end: { year: 1980, quarter: 2 },
     issuesCollected: "Batman #307–324; Detective Comics #482–490; DC Special Series #21; and The Brave and the Bold #159",
     yearsCovered: "1979-1980",
+    releaseDate: { year: 2026, month: 11 },
     creators: "O'Neil, Wein, Novick, Newton",
+    writers: "Len Wein, Dennis O'Neil",
+    artists: "Irv Novick, Don Newton",
     description:
       "Denny O'Neil and Len Wein fuse crime noir and gothic horror as Batman faces a freezer-killer, an arsonist, Ra's al Ghul's assassins, and the Joker treating murder as performance art -- plus the pivotal debut of Lucius Fox.",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781799509615",
@@ -727,7 +751,10 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     end: { year: 1986, quarter: 3 },
     issuesCollected: "Secret Origins #6, Batman Annual #10, Batman #386-400, and Detective Comics #553-567",
     yearsCovered: "1985-1986",
+    releaseDate: { year: 2025, month: 9 },
     creators: "Various",
+    writers: "Doug Moench",
+    artists: "Gene Colan, Tom Mandrake, Klaus Janson",
     description:
       "From Gotham's dark alleys to the literal red skies of Crisis on Infinite Earths -- the debut of Black Mask, Hugo Strange's schemes, and showdowns with Two-Face, Catwoman, and the False Face Society.",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781799502739",
@@ -744,7 +771,10 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     end: { year: 1987, quarter: 4 },
     issuesCollected: "Batman 401-412, Annual 11, Detective Comics #568-579",
     yearsCovered: "1986-1987",
+    releaseDate: { year: 2024, month: 11 },
     creators: "Miller, Mazzucchelli, Barr, Davis",
+    writers: "Frank Miller, Mike W. Barr, Max Allan Collins",
+    artists: "David Mazzucchelli, Alan Davis, Todd McFarlane",
     description:
       "Frank Miller and David Mazzucchelli's definitive Year One origin, followed by Mike W. Barr and Alan Davis's Year Two, chronicling Bruce Wayne's earliest days as Batman.",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781779528353",
@@ -761,7 +791,10 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     end: { year: 1988, quarter: 3 },
     issuesCollected: "Batman: The Killing Joke #1; Batman #413-422; Detective Comics #580-589; and Batman: Son of the Demon #1.",
     yearsCovered: "1988",
+    releaseDate: { year: 2025, month: 5 },
     creators: "Moore, Bolland",
+    writers: "Alan Moore, Mike W. Barr, Jim Starlin, Alan Grant, John Wagner",
+    artists: "Brian Bolland, Jerry Bingham, Jim Aparo, Norm Breyfogle",
     description:
       "Alan Moore and Brian Bolland's The Killing Joke, one of the most influential Batman stories ever told, alongside Mike W. Barr and Jerry Bingham's Son of the Demon, which explores Batman's relationship with Talia al Ghul.",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781799501459",
@@ -778,7 +811,10 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     end: { year: 1989, quarter: 1 },
     issuesCollected: "Batman #423-429, Batman Annual #12, Batman: The Cult #1-4, Detective Comics #590-595, Detective Comics Annual #1",
     yearsCovered: "1988-1989",
+    releaseDate: { year: 2026, month: 4 },
     creators: "Starlin, Grant",
+    writers: "Jim Starlin, Alan Grant",
+    artists: "Jim Aparo, Bernie Wrightson, Norm Breyfogle, Mike DeCarlo",
     description:
       "In 1988, comics readers were given the chance to decide the outcome of one of the medium's most controversial quandaries: should the Joker kill the Boy Wonder?",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781799508571",
@@ -795,7 +831,10 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     end: { year: 1989, quarter: 3 },
     issuesCollected: "Batman (1940) #430-435, An #13; Detective Comics (1937) #596-603; Secret Origins (1986) #36, #39",
     yearsCovered: "1989",
+    releaseDate: { year: 2026, month: 7 },
     creators: "Hamm, Grant, Cowan, Breyfogle",
+    writers: "Sam Hamm, Alan Grant",
+    artists: "Denys Cowan, Jim Aparo, Dick Giordano",
     description:
       "Bruce Wayne is accused of espionage and faces the loss of his company, reputation, and freedom, as Batman investigates a conspiracy tied to a forgotten chapter of his own past -- and meets the mysterious mentor Henri Ducard.",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781799513162",
@@ -813,7 +852,10 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     issuesCollected:
       "Arkham Asylum graphic novel, Batman #436-444, Detective Comics #604-609, The New Titans #60-61 and #65, Secret Origins #44, Secret Origins Special #1, and select stories from Batman Villains Secret Files 2005 #1 and Christmas with the Super-Heroes #2.",
     yearsCovered: "1989-1990",
+    releaseDate: { year: 2027, month: 4 },
     creators: "Marv Wolfman, Alan Grant, Pat Broderick, Jim Aparo, Norm Breyfogle",
+    writers: "Marv Wolfman, Alan Grant, Grant Morrison",
+    artists: "Pat Broderick, Jim Aparo, Norm Breyfogle",
     description:
       "A new Robin—Tim Drake—rises as Batman faces one of the darkest chapters of his life in this essential DC Finest collection.\n\nBatman is at his lowest point.\n\nIn the aftermath of devastating loss, Bruce Wayne becomes increasingly reckless in his war on crime, pushing away allies and abandoning the balance that once made him Gotham City’s greatest hero.\n\nBut one young detective sees what no one else can: Batman needs a Robin.\n\nDetermined to help, Tim Drake sets out on a journey that will change both his life and Batman’s forever. What follows is the story of how a new Robin emerges, bringing hope back to Gotham and laying the foundation for a new era of the Bat-Family.\n\nCollected alongside key stories from one of the most important periods in Batman history, these adventures capture the return of Robin and the beginning of Tim Drake’s journey as one of DC’s most beloved heroes.",
     coverUrl: batmanLonelyPlaceOfDyingCover,
@@ -832,7 +874,10 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     issuesCollected:
       "Batgirl #1-6; Batgirl Annual #1; Batman: No Man’s Land #0; Batman #567 and #569, Detective Comics #732 and #734; Batman: Legends of the Dark Knight #120; Azrael: Agent of the Bat #56-57 and #60-61; The Batman Chronicles #18; Batman: Gotham Knights #2; and the long-out-of-print crossover series Ghost/Batgirl #1-4.",
     yearsCovered: "1999-2000",
+    releaseDate: { year: 2027, month: 1 },
     creators: "Kelley Puckett, Scott Peterson, Damion Scott, Various",
+    writers: "Kelley Puckett, Scott Peterson, Various",
+    artists: "Damion Scott, Various",
     description:
       "Cassandra Cain’s journey continues, as she expands her role in Gotham and beyond in a powerful story of growth, identity, and action.\n\nAt age 17, the teenaged assassin Cassandra Cain is literally a fighter like no other. Remorselessly trained by her mercenary father to be the ultimate human weapon, Cassandra cannot speak or write, but her uncanny ability to read body language allows her to take down opponents three times her size without batting an eye.\n\nBut when she rebels against her programming on the lawless streets of No Man’s Land-era Gotham City, the Dark Knight Detective sees a possible successor to the role of Batgirl. Under the tutelage of the original Batgirl, Barbara Gordon, Cassandra must now reinvent herself as a protector instead of a predator—and prove to both her newfound family and herself that even someone who was born to kill can be worthy to take up the cowl of a legend!\n\nWitness the origin of one of the DC Universe’s most celebrated heroes in this landmark volume showcasing Cassandra’s first appearances and foundational adventures.",
     coverUrl: batgirlSilentKnightCover,
@@ -849,7 +894,10 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     end: { year: 2002, quarter: 2 },
     issuesCollected: "Batgirl #7-27, Superboy #85, and Supergirl #63",
     yearsCovered: "2000-2002",
+    releaseDate: { year: 2025, month: 4 },
     creators: "Puckett, Scott",
+    writers: "Kelley Puckett, Joe Kelly",
+    artists: "Damion Scott",
     description:
       "Key early appearances of Cassandra Cain, the daughter of assassins who became a vastly different kind of Batgirl -- facing Lady Shiva in a battle to the death and teaming with Superboy and Supergirl.",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781799501046",
@@ -867,7 +915,10 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     end: { year: 1981, quarter: 2 },
     issuesCollected: "Captain Atom (1965) #83-86; Blue Beetle (1964) #1-5; Blue Beetle (1965) #1-5, #50-54, Charlton Bullseye #1",
     yearsCovered: "1964-1981",
+    releaseDate: { year: 2025, month: 8 },
     creators: "Various",
+    writers: "Joe Gill, Steve Ditko, Benjamin Smith",
+    artists: "Steve Ditko, Bill Fraccio, Tony Tallarico, Dan Reed",
     description:
       "The original Charlton Comics adventures of Ted Kord as Blue Beetle, from his earliest team-ups with Captain Atom through the character's Bronze Age revival.",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781799502487",
@@ -885,7 +936,10 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     end: { year: 1994, quarter: 2 },
     issuesCollected: "Catwoman (1989) 1-4, Catwoman: Defiant, Catwoman (1993) 1-12, Showcase '93",
     yearsCovered: "1988-1994",
+    releaseDate: { year: 2024, month: 12 },
     creators: "Newell, Duffy, Balent",
+    writers: "Mindy Newell, Jo Duffy",
+    artists: "J. J. Birch, Jim Balent",
     description:
       "The early history of Catwoman as a solo protagonist in her own right, from Mindy Newell's 1989 debut miniseries through the first year of Jo Duffy and Jim Balent's ongoing series.",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781779528469",
@@ -902,7 +956,10 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     end: { year: 1996, quarter: 1 },
     issuesCollected: "Catwoman #0, #13-32; and Catwoman Annual #2-3",
     yearsCovered: "1994-1996",
+    releaseDate: { year: 2025, month: 6 },
     creators: "Duffy, Dixon, Balent",
+    writers: "Doug Moench, Chuck Dixon, Jo Duffy",
+    artists: "Jim Balent",
     description:
       "Selina Kyle's ferocious and stylish mid-'90s solo adventures continue under Jo Duffy and then Chuck Dixon, with art by Jim Balent throughout.",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781799501756",
@@ -919,7 +976,10 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     end: { year: 1997, quarter: 4 },
     issuesCollected: "Catwoman #33–53; Catwoman Annual #3-4; DC Universe Holiday Bash #1; and Batman Secret Files #1",
     yearsCovered: "1996-1997",
+    releaseDate: { year: 2026, month: 12 },
     creators: "Moench, Dixon, Balent",
+    writers: "Doug Moench, Chuck Dixon, Jo Duffy",
+    artists: "Jim Balent",
     description:
       "Doug Moench and Chuck Dixon bring sleek noir rhythms and high-velocity Gotham storytelling to Selina Kyle's ongoing series, with art from Jim Balent and Mark Pennington.",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781799509813",
@@ -937,7 +997,10 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     issuesCollected:
       "Catwoman #54-71, Catwoman/Wildcat #1-4, Catwoman Plus #1, Catwoman #1000000, and a 10-page story from Batman 80-Page Giant #1.",
     yearsCovered: "1998-1999",
+    releaseDate: { year: 2027, month: 6 },
     creators: "Devin Grayson, Beau Smith, Chuck Dixon, Jim Balent, Sergio Cariello",
+    writers: "Devin Grayson, Beau Smith, Chuck Dixon",
+    artists: "Jim Balent, Sergio Cariello",
     description:
       "A master thief is pushed to her limits in this pivotal DC Finest collection, as Catwoman faces ever-escalating danger!\n\nSelina Kyle knows how to steal—but will she be able to stay alive long enough to enjoy her ill-gotten gains?\n\nAs Catwoman's world expands beyond Gotham, the potential scores grow bigger, and the risks get more personal. From dangerous encounters with some of the city’s most unpredictable figures to high-stakes jobs that take her into dangerously unfamiliar territories, every move will test her hard-earned skills and instincts to their limits.\n\nBringing together a wide range of stories from one of Catwoman’s greatest eras, this volume blends crime, action, and character-driven storytelling—showcasing Catwoman at her most resourceful, cunning, and complex.",
     coverUrl: catwomanToCatchAThiefCover,
@@ -955,7 +1018,10 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     end: { year: 1977, quarter: 2 },
     issuesCollected: "Strange Adventures #205–216, Aquaman #50–52, Justice League of America #94, The Brave and the Bold #79, 86, 104, 133, The Phantom Stranger #33, 39–41, World’s Finest #223, 227, The Forever People #9–10, Challengers of the Unknown #74",
     yearsCovered: "1967-1977",
+    releaseDate: { year: 2026, month: 5 },
     creators: "Drake, Grandenetti, Adams",
+    writers: "Arnold Drake, Neal Adams, Bob Haney",
+    artists: "Neal Adams",
     description:
       "Boston Brand was a circus acrobat until a bullet ended his life and began his mission -- as Deadman, he possesses the living to seek justice for the murdered and the forgotten across the DC Universe.",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781799507710",
@@ -973,7 +1039,10 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     end: { year: 1980, quarter: 3 },
     issuesCollected: "The Demon #1–16 (1972–1973); The Brave and the Bold #109, #137; Batman Family (1975) #17; Detective Comics #482-485, Wonder Woman #280-282",
     yearsCovered: "1972-1980",
+    releaseDate: { year: 2026, month: 2 },
     creators: "Kirby, Wein, Conway",
+    writers: "Jack Kirby, Jim Starlin, Bob Rozakis",
+    artists: "Jack Kirby, Juan Manuel Ortiz",
     description:
       "Etrigan's explosive Jack Kirby debut through his Bronze Age evolution, exploring the cursed bond between Jason Blood and the demon across centuries of dark magic and betrayal.",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781799507437",
@@ -991,7 +1060,10 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     end: { year: 1966, quarter: 1 },
     issuesCollected: "The Brave and the Bold #65; Doom Patrol #86-102; Challengers of the Unknown #48; My Greatest Adventure #80-85; Teen Titans #6",
     yearsCovered: "1963-1966",
+    releaseDate: { year: 2025, month: 2 },
     creators: "Drake, Haney, Premiani",
+    writers: "Arnold Drake",
+    artists: "Bruno Premiani, Bob Brown",
     description:
       "The earliest appearances of the unconventional super-team, starting with their 1963 debut -- Robotman, Negative Man, and Elasti-Girl banding together as the world's strangest heroes.",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781799500353",
@@ -1008,7 +1080,10 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     end: { year: 1979, quarter: 1 },
     issuesCollected: "Showcase #94-96, Superman Family #191-193, and Doom Patrol #103-121",
     yearsCovered: "1966-1979",
+    releaseDate: { year: 2026, month: 1 },
     creators: "Various",
+    writers: "Arnold Drake",
+    artists: "Bruno Premiani",
     description:
       "The conclusion of the Doom Patrol's original saga -- the team faces its deadliest enemies yet, including General Immortus and the Brotherhood of Evil, with only self-sacrifice left to save the world.",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781799506690",
@@ -1025,7 +1100,10 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     end: { year: 1995, quarter: 1 },
     issuesCollected: "Doom Patrol #64–87; Vertigo Jam #1; and Doom Patrol Annual #2",
     yearsCovered: "1993-1995",
+    releaseDate: { year: 2026, month: 10 },
     creators: "Pollack, McKeever",
+    writers: "Rachel Pollack",
+    artists: "Ted McKeever, Linda Medley, Stan Woch",
     description:
       "Rachel Pollack's complete, boundary-pushing Vertigo run -- a fractured epic of shape-shifting magicians, sex ghosts, pirate robot brains, and a war over the very idea of identity itself.",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781799509318",
@@ -1043,7 +1121,10 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     end: { year: 1985, quarter: 4 },
     issuesCollected: "Swamp Thing #39; Batman #389-391; Detective Comics #555-558; Justice League of America #244; Green Lantern #194; Wonder Woman #327; DC Comics Presents #78; Infinity, Inc. #18-19; The Fury of Firestorm #41; All-Star Squadron #50-52; Crisis on Infinite Earths #1-4; The Losers Special #1",
     yearsCovered: "1985",
+    releaseDate: { year: 2025, month: 10 },
     creators: "Wolfman, Perez",
+    writers: "Marv Wolfman",
+    artists: "George Pérez",
     description:
       "The ultimate battle for the multiverse begins as Marv Wolfman and George Perez unite Wonder Woman, Superman, Green Lantern, and the Justice Society against a cosmic threat that erases entire universes.",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781799503040",
@@ -1060,7 +1141,10 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     end: { year: 1986, quarter: 1 },
     issuesCollected: "DC Comics Presents #86 and #95, Infinity, Inc. #20-22, Infinity, Inc. Annual #1, The New Teen Titans #13-14, Swamp Thing #44-46, Wonder Woman #328-329, Legends of the DC Universe: Crisis on Infinite Earths #1, Crisis on Infinite Earths #5, All-Star Squadron #53-56, and Superman #413",
     yearsCovered: "1986",
+    releaseDate: { year: 2026, month: 8 },
     creators: "Wolfman, Thomas",
+    writers: "Marv Wolfman",
+    artists: "George Pérez",
     description:
       "As the multiverse begins to die, every hero's story becomes part of the battle for existence -- the crossover spreads far beyond its core series, reshaping destinies and ending eras across the Bronze Age DC Universe.",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781799510284",
@@ -1077,7 +1161,10 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     end: { year: 1986, quarter: 2 },
     issuesCollected: "Justice League of America #245; Superman #414–415; Green Lantern #195–196; DC Comics Presents #87–88; Legion of Super-Heroes #16, #18; Infinity, Inc. #23-24; Justice League of America Annual #3; Crisis on Infinite Earths #6–9; The Vigilante #22; The Omega Men #31; and Blue Devil #17–18.",
     yearsCovered: "1986",
+    releaseDate: { year: 2026, month: 11 },
     creators: "Wolfman, Perez",
+    writers: "Marv Wolfman",
+    artists: "George Pérez",
     description:
       "The DC Multiverse reaches its breaking point as heroes, legacies, and entire worlds are pushed past their limits -- hope falters and the fate of every universe hangs on choices no hero is ready to face.",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781799510314",
@@ -1095,7 +1182,10 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     issuesCollected:
       "Crisis on Infinite Earths #10-12; All-Star Squadron #57-60; Amethyst: Princess of Gemworld #13; Blue Devil #19; Christmas with the Super-Heroes #2; DC Comics Presents #94; Green Lantern #197-198; History of the DC Universe #1-2; Infinity, Inc. #25; JLA: Incarnations #5; Secret Origins Annual #2; Starman Annual #1; The Fury of Firestorm #42; The Omega Men #33; and Who’s Who: The Definitive Directory of the DC Universe #10 and #16-18.",
     yearsCovered: "1986",
+    releaseDate: { year: 2027, month: 2 },
     creators: "Marv Wolfman, George Perez, Jerry Ordway",
+    writers: "Marv Wolfman",
+    artists: "George Pérez",
     description:
       "Reality itself is rewritten as the Crisis reaches its epic conclusion in the final chapter of the Multiverse-shattering event.\n\nEverything ends here.\n\nAs the Crisis reaches its apocalyptic climax, the battle to save existence itself comes to a breaking point. Heroes from across worlds face impossible odds as reality collapses, and the fate of the entire Multiverse hangs in the balance.\n\nIn the midst of cosmic destruction, alliances are tested, sacrifices are made, and the universe is forever changed. When the dust settles, nothing will be the same—and the world that remains will reshape the future of every hero.\n\nBringing together the concluding chapters of Crisis on Infinite Earths alongside key tie-in stories, this volume captures the final transformation of the DC Universe in one sweeping, interconnected collection.",
     coverUrl: eventsCrisisPartFourCover,
@@ -1112,7 +1202,10 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     end: { year: 1986, quarter: 4 },
     issuesCollected: "Legends #1–3; Infinity Inc. #34-36; Hawkman #5-6; Secret Origins #10, Crisis on Infinite Earths #12, Batman #401; Detective Comics #568; Justice League of America #258; Green Lantern Corps #207-208; The Fury of Firestorm #55–56; Blue Beetle #9; Cosmic Boy #1–2; Booster Gold #13",
     yearsCovered: "1986",
+    releaseDate: { year: 2026, month: 11 },
     creators: "Ostrander, Wein, Byrne",
+    writers: "John Ostrander, Paul Levitz",
+    artists: "John Byrne, Luke McDonnell",
     description:
       "DC's first major post-Crisis crossover -- Darkseid doesn't just attack cities, he attacks faith in Superman, Batman, and every costumed legend on Earth.",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781799509622",
@@ -1129,7 +1222,10 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     end: { year: 1994, quarter: 2 },
     issuesCollected: "Superman #93, The Flash #94, L.E.G.I.O.N. #70, Green Lantern #55, Superman: The Man of Steel #37, Team Titans #24, The Darkstars #24, Valor #23, Batman #511, Batman: Shadow of the Bat #31, Detective Comics #678, Legionnaires #18, Hawkman #13, Showcase '94 #8-9, Steel #8, Superboy #8, Outsiders #11, and Zero Hour: Crisis in Time #3-4",
     yearsCovered: "1994",
+    releaseDate: { year: 2024, month: 12 },
     creators: "Jurgens, Simonson, Moench",
+    writers: "Dan Jurgens",
+    artists: "Dan Jurgens, Jerry Ordway",
     description:
       "The first half of the time-bending Zero Hour event, as a mysterious figure unravels DC history itself and heroes across the universe race against the collapse of time.",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781779528506",
@@ -1146,7 +1242,10 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     end: { year: 1994, quarter: 4 },
     issuesCollected: "The Flash #0; Green Arrow #90; Adventures of Superman #516; Justice League America #92; Action Comics #703; Justice League International #68; Legion of Super-Heroes #61; Green Lantern #0; Superman: The Man of Steel #0; Guy Gardner: Warrior #24; Justice League Task Force #16; Catwoman #14; Robin #10; Showcase '94 #10; Damage #0, #6; Zero Hour: Crisis in Time #0-2; Anima #7",
     yearsCovered: "1994",
+    releaseDate: { year: 2025, month: 5 },
     creators: "Jurgens, Ordway",
+    writers: "Dan Jurgens",
+    artists: "Dan Jurgens, Jerry Ordway",
     description:
       "Zero Hour concludes with major status quo changes across the DC Universe, including a legendary Green Lantern's fall, told through a wave of zero-issue tie-ins.",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781799501305",
@@ -1164,7 +1263,10 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     end: { year: 1961, quarter: 3 },
     issuesCollected: "Showcase #4, 8, 13, 14; The Flash #105-123",
     yearsCovered: "1956-1961",
+    releaseDate: { year: 2024, month: 11 },
     creators: "Kanigher, Broome, Infantino",
+    writers: "Robert Kanigher, John Broome",
+    artists: "Carmine Infantino, Joe Kubert",
     description:
       "Barry Allen's Silver Age debut in Showcase #4 kicks off the adventures of the second Flash, introducing rogues Captain Cold, Mirror Master, and Gorilla Grodd along the way.",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781779528360",
@@ -1181,7 +1283,10 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     end: { year: 1974, quarter: 3 },
     issuesCollected: "World’s Finest Comics #198, The Flash #200–204, 206–212, 214–229, and The Brave and the Bold #99.",
     yearsCovered: "1970-1974",
+    releaseDate: { year: 2026, month: 3 },
     creators: "Kanigher, Various",
+    writers: "Robert Kanigher, Cary Bates",
+    artists: "Irv Novick",
     description:
       "Barry Allen races through cultists, cursed rings, alternate realities, and psychic breakdowns as the Flash's Bronze Age world expands into sci-fi weirdness and social turmoil.",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781799503026",
@@ -1199,7 +1304,10 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     end: { year: 1971, quarter: 3 },
     issuesCollected: "Mister Miracle #1–4, The Forever People #1–5, The New Gods #1–4, Superman’s Pal Jimmy Olsen #133–141, and Superman’s Girl Friend Lois Lane #115",
     yearsCovered: "1970-1971",
+    releaseDate: { year: 2026, month: 6 },
     creators: "Kirby",
+    writers: "Jack Kirby",
+    artists: "Jack Kirby, Vince Colletta",
     description:
       "Jack Kirby's cosmic saga launches, pitting the New Gods of New Genesis against the dark forces of Apokolips -- the rise of Mister Miracle, Orion, and Darkseid.",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781799508311",
@@ -1217,7 +1325,10 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     issuesCollected:
       "Superman #244; The New Gods #4-8; The Forever People #5-8; Mister Miracle #5-8; Superman's Pal Jimmy Olsen #144-148, and Superman's Girl Friend Lois Lane #116-119",
     yearsCovered: "1971-1972",
+    releaseDate: { year: 2027, month: 6 },
     creators: "Jack Kirby, Robert Kanigher, Werner Roth",
+    writers: "Jack Kirby, Robert Kanighter",
+    artists: "Jack Kirby, Werner Roth",
     description:
       "Gods, heroes, and worlds all collide in this sweeping cosmic saga featuring an expansive collection of interconnected stories from legendary comics master Jack Kirby.\nA war is spreading—one that reaches across worlds, ideologies, and the fate of entire civilizations.\nAs powerful forces prepare for conflict, heroes are drawn into a growing struggle where survival depends on strength, strategy, and belief. Across multiple storylines, each battle reveals a larger threat, pulling together characters and stories into an expanding, high-stakes confrontation.\nFrom cosmic-scale battles to personal struggles, Jack Kirby's epic tales combine to form a sweeping narrative about power, control, and the fight for freedom—where every decision shapes the outcome of a larger war.\nCollecting interconnected stories from across several series, this volume delivers a wide-ranging, immersive reading experience that brings together action, science fiction, and mythic storytelling.",
     // PLACEHOLDER cover -- see the import comment above. TODO: confirm/replace.
@@ -1236,7 +1347,10 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     end: { year: 1988, quarter: 3 },
     issuesCollected: "Detective Comics Annual #1, Green Arrow #1-8, Green Arrow Annual #1, The Question #17-18, The Question Annual #1, Green Arrow: The Longbow Hunters #1-3",
     yearsCovered: "1987-1988",
+    releaseDate: { year: 2025, month: 1 },
     creators: "Grell",
+    writers: "Mike Grell",
+    artists: "Mike Grell, Ed Hannigan, Dick Giordano",
     description:
       "Mike Grell's acclaimed Longbow Hunters reinvents Oliver Queen as a street-level, no-trick-arrows hero -- grittier, more grounded, and paired with a reintroduced Black Canary.",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781779529916",
@@ -1253,7 +1367,10 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     end: { year: 1989, quarter: 3 },
     issuesCollected: "Green Arrow #9–20, Green Arrow Annual #2, The Question Annual #2, Secret Origins #38, and key Black Canary material from Action Comics #609–616 and #624–635",
     yearsCovered: "1988-1989",
+    releaseDate: { year: 2026, month: 2 },
     creators: "Grell, Stern",
+    writers: "Mike Grell, Sharon Wright",
+    artists: "Dan Jurgens, Ed Hannigan",
     description:
       "Justice has a price. After the Longbow Hunters, Oliver Queen faces black ops conspiracies, Yakuza assassins, devastating personal losses, and one fatal mistake that could destroy everything.",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781799510246",
@@ -1271,7 +1388,10 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     end: { year: 1965, quarter: 3 },
     issuesCollected: "Green Lantern 19-39, Flash 143, Brave & The Bold 59",
     yearsCovered: "1963-1965",
+    releaseDate: { year: 2024, month: 12 },
     creators: "Broome, Fox, Kane",
+    writers: "John Broome, Gardner Fox",
+    artists: "Gil Kane, Joe Giella",
     description:
       "Hal Jordan faces Star Sapphire, Doctor Light, the Time Commander, and his archenemy Sinestro in these classic Silver Age tales from John Broome and Gil Kane.",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781779528483",
@@ -1288,7 +1408,10 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     end: { year: 1968, quarter: 2 },
     issuesCollected: "The Flash #168; Green Lantern #40-61; The Brave and the Bold #69",
     yearsCovered: "1965-1968",
+    releaseDate: { year: 2025, month: 11 },
     creators: "Broome, Fox, Kane",
+    writers: "John Broome, Gardner Fox",
+    artists: "Gil Kane, Sid Greene",
     description:
       "Multiverse-spanning adventures from the origins of the Guardians of the Universe through battles with Sinestro and Major Disaster -- and the first appearance of Guy Gardner as another wielder of the Emerald Ring.",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781799503262",
@@ -1305,7 +1428,10 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     end: { year: 1971, quarter: 1 },
     issuesCollected: "Green Lantern #62–82, The Flash #191, and World’s Finest Comics #201",
     yearsCovered: "1968-1971",
+    releaseDate: { year: 2026, month: 7 },
     creators: "O'Neil, Adams",
+    writers: "Dennis O'Neil, John Broome",
+    artists: "Neal Adams, Gil Kane",
     description:
       "Green Lantern and Green Arrow hit the road across America, confronting racism, poverty, and corruption in Dennis O'Neil and Neal Adams's landmark socially conscious run.",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781799510277",
@@ -1322,7 +1448,10 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     end: { year: 1987, quarter: 4 },
     issuesCollected: "Secret Origins #7; Action Comics #589; Green Lantern #201–205; Tales of the Green Lantern Corps Annual #2; Green Lantern Corps #206–219; and Green Lantern Annual #3.",
     yearsCovered: "1986-1987",
+    releaseDate: { year: 2026, month: 9 },
     creators: "Englehart, Staton",
+    writers: "Steve Englehart",
+    artists: "Joe Staton, Ian Gibson",
     description:
       "The Corps becomes a true ensemble: Hal Jordan reconnects with Earth, Guy Gardner seizes the spotlight, John Stewart and Katma Tui navigate love and duty, and the team confronts villains old and new.",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781799510291",
@@ -1340,7 +1469,10 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     end: { year: 2001, quarter: 2 },
     issuesCollected: "Action Comics #765; Batman: Legends of the Dark Knight #126; The Batman Adventures #12; Azrael: Agent of the Bat #60; Batman #570, #573-574; Batman: Shadow of the Bat #93; Detective Comics #737, #740-741; Catwoman #82-84, #89; The Batman Adventures: Mad Love #1; The Batgirl Adventures #1; Batman: Harley Quinn #1; Batman: Gotham Knights #14; Harley Quinn #1-8",
     yearsCovered: "1993-2001",
+    releaseDate: { year: 2025, month: 2 },
     creators: "Dini, Timm, Kesel",
+    writers: "Paul Dini, Karl Kesel",
+    artists: "Bruce Timm",
     description:
       "Harley's earliest comics adventures, from her Batman: The Animated Series debut into mainline DC continuity, including the Eisner Award-winning Mad Love and the first eight issues of her own ongoing series.",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781799500483",
@@ -1357,7 +1489,10 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     end: { year: 2002, quarter: 4 },
     issuesCollected: "Harley Quinn #9-25, Harley Quinn: Our Worlds at War, Harley and Ivy: Love on the Lam, and Gotham Girls #1-5",
     yearsCovered: "2001-2002",
+    releaseDate: { year: 2026, month: 9 },
     creators: "Kesel, Dodson",
+    writers: "Karl Kesel",
+    artists: "Terry Dodson, Rachel Dodson",
     description:
       "Harley's journey from the Joker's wayward henchgirl to chaotic, complicated leading lady, as Karl Kesel and Terry and Rachel Dodson take over her first solo series.",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781799509127",
@@ -1375,7 +1510,10 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     end: { year: 1966, quarter: 3 },
     issuesCollected: "The Brave and the Bold #34-36, #42-44; Mystery in Space #87-90; The Atom #7; Hawkman #1-16",
     yearsCovered: "1961-1966",
+    releaseDate: { year: 2025, month: 8 },
     creators: "Fox, Kubert, Anderson",
+    writers: "Gardner Fox",
+    artists: "Joe Kubert, Murphy Anderson",
     description:
       "Hawkman and Hawkgirl's earliest adventures as Thanagarian warriors protecting Earth, including Zatanna's first story, battles with flying gorillas, and team-ups with the Atom.",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781799502500",
@@ -1393,7 +1531,10 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     end: { year: 1970, quarter: 2 },
     issuesCollected: "House of Secrets #81-85, House of Mystery #180-185, The Phantom Stranger #5, The Witching Hour #3-7, and The Unexpected #113-117",
     yearsCovered: "1969-1970",
+    releaseDate: { year: 2025, month: 9 },
     creators: "Wein, Adams, Wrightson",
+    writers: "Gerry Conway, Marv Wolfman",
+    artists: "Alex Toth, Bernie Wrightson",
     description:
       "Bone-chilling horror anthology tales from House of Secrets, House of Mystery, The Witching Hour, The Phantom Stranger, and The Unexpected, drawn by masters of the genre including Bernie Wrightson and Alex Toth.",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781799502807",
@@ -1410,7 +1551,10 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     end: { year: 1971, quarter: 1 },
     issuesCollected: "House of Secrets #86–90; House of Mystery #186–190; The Phantom Stranger #7; The Witching Hour #8–12; and The Unexpected #118–123",
     yearsCovered: "1970-1971",
+    releaseDate: { year: 2026, month: 10 },
     creators: "Wein, Wolfman, Wrightson",
+    writers: "Gerry Conway, Marv Wolfman",
+    artists: "Alex Toth, Bernie Wrightson",
     description:
       "More spine-tingling tales from DC's classic horror anthologies, with work from Len Wein, Bernie Wrightson, Gerry Conway, and Marv Wolfman.",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781799509325",
@@ -1428,7 +1572,10 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     end: { year: 1981, quarter: 3 },
     issuesCollected: "Batman #251, #260, #286, #291–294, #321, Detective Comics #475–476, #504, Justice League of America #77, Wonder Woman #280–283, The Brave and the Bold #111, #118, #129–130, #141, and The Joker #1–10",
     yearsCovered: "1968-1981",
+    releaseDate: { year: 2026, month: 4 },
     creators: "O'Neil, Various",
+    writers: "Dennis O'Neil, Bob Haney, Elliot S. Maggin",
+    artists: "Frank Springer, John Calnan",
     description:
       "Iconic Silver and Bronze Age Joker stories including 'The Joker's Five-Way Revenge,' plus the villain's own short-lived solo series, as Denny O'Neil and others redefine the Clown Prince of Crime as a serious threat.",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781799510253",
@@ -1446,7 +1593,10 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     end: { year: 1963, quarter: 2 },
     issuesCollected: "The Brave and the Bold #28–30, Justice League of America #1–19, and Mystery in Space #75",
     yearsCovered: "1960-1963",
+    releaseDate: { year: 2026, month: 3 },
     creators: "Fox, Sekowsky",
+    writers: "Gardner Fox",
+    artists: "Mike Sekowsky, Sid Greene, Bernard Sachs",
     description:
       "Starro the Conqueror forces DC's greatest champions to unite, launching the first Justice League and sparking a legacy of team-based storytelling -- with battles against Despero, Felix Faust, and Kanjar Ro.",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781799507734",
@@ -1463,7 +1613,10 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     end: { year: 1969, quarter: 2 },
     issuesCollected: "Justice League of America 45-72",
     yearsCovered: "1966-1969",
+    releaseDate: { year: 2024, month: 11 },
     creators: "Fox, O'Neil, Sekowsky",
+    writers: "Gardner Fox",
+    artists: "Mike Sekowsky, Sid Greene, Dick Dillin",
     description:
       "Gardner Fox and Dennis O'Neil continue the League's late-'60s adventures with artist Mike Sekowsky, bridging Earth-1 and Earth-2 as the team's roster and mythology expand.",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781779528377",
@@ -1480,7 +1633,10 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     end: { year: 1976, quarter: 2 },
     issuesCollected: "Justice League of America #103-132",
     yearsCovered: "1972-1976",
+    releaseDate: { year: 2026, month: 8 },
     creators: "Wein, Conway, Dillin",
+    writers: "Len Wein, Gerry Conway",
+    artists: "Dick Dillin",
     description:
       "Members of the JLA and the Earth-2 Justice Society are unexpectedly transported to Earth-X, where they must help that world's heroes defeat a Nazi regime that won World War II.",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781799508830",
@@ -1497,7 +1653,10 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     end: { year: 1987, quarter: 1 },
     issuesCollected: "Justice League of America #241-261; Infinity, Inc. #19; Justice League of America Annual #3",
     yearsCovered: "1985-1987",
+    releaseDate: { year: 2025, month: 8 },
     creators: "Conway, McDonnell",
+    writers: "Gerry Conway",
+    artists: "Luke McDonnell, Bill Wray",
     description:
       "Gerry Conway's run pits a rebuilt League -- Steel, Martian Manhunter, Zatanna, Elongated Man, and Vixen -- against Amazo and the Brotherhood of Evil.",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781799502449",
@@ -1515,7 +1674,10 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     end: { year: 1942, quarter: 3 },
     issuesCollected: "AII-Star Comics #3-12",
     yearsCovered: "1940-1942",
+    releaseDate: { year: 2024, month: 12 },
     creators: "Fox, Mayer, Burnley",
+    writers: "Gardner Fox",
+    artists: "Sheldon Mayer, Jack Burnley",
     description:
       "The earliest stories starring comics' first super-team, written almost entirely by Gardner Fox, who created or co-created the Flash, Hawkman, and Doctor Fate for the era.",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781779528476",
@@ -1532,7 +1694,10 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     end: { year: 1945, quarter: 1 },
     issuesCollected: "All-Star Comics #13-24",
     yearsCovered: "1942-1945",
+    releaseDate: { year: 2025, month: 7 },
     creators: "Fox",
+    writers: "Gardner Fox",
+    artists: "Joe Gallagher, Stan Aschmeier",
     description:
       "A pivotal Golden Age arc in JSA history -- the Justice Society encounters the Psycho-Pirate, a powerful new foe with the ability to manipulate their emotions.",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781799502074",
@@ -1550,7 +1715,10 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     end: { year: 1974, quarter: 3 },
     issuesCollected: "Action Comics #378-387 and #389-392, Adventure Comics #374-380 and #403, and Superboy #172-173, #176, #183-184, 188, 190-191, 193, 195, and #197-203",
     yearsCovered: "1968-1974",
+    releaseDate: { year: 2024, month: 12 },
     creators: "Shooter, Bates, Cockrum",
+    writers: "Jim Shooter, Cary Bates",
+    artists: "Win Mortimer, Dave Cockrum",
     description:
       "Long out-of-print Legion tales including 'War of the Wraith-Mates,' 'The Fatal Five Who Twisted Time,' and 'The Impossible Target,' from the team's late-'60s and early-'70s adventures.",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781779528490",
@@ -1568,7 +1736,10 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     issuesCollected:
       "DC Comics Presents #43, The Legion of Super-Heroes #284-300, World’s Finest Comics #284, The Best of DC: Blue Ribbon Digest #24, The Legion of Super-Heroes Annual #1",
     yearsCovered: "1982-1983",
+    releaseDate: { year: 2027, month: 3 },
     creators: "Paul Levitz, Keith Giffen, Pat Broderick",
+    writers: "Paul Levitz",
+    artists: "Keith Giffen, Pat Broderick",
     description:
       "A group of young heroes faces a mysterious force threatening the entire galaxy in this massive, future-set superhero epic.\n\nIn the 31st century, a team of young superheroes from across the galaxy unites to prevent Armageddon.\n\nWhen a powerful and unseen enemy begins manipulating events across space, the Legion of Super-Heroes races to discover the true identity behind the threat that spans worlds, timelines, and entire civilizations. As the danger escalates, the team is pushed to its limits, facing impossible odds and uncovering a force powerful enough to reshape the universe itself.\n\nBlending action, suspense, and expansive world-building, this landmark storyline delivers a high-stakes adventure where teamwork, sacrifice, and resilience define the fate of the future.",
     coverUrl: legionGreatDarknessSagaCover,
@@ -1586,7 +1757,10 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     end: { year: 1968, quarter: 2 },
     issuesCollected: "Justice League of America #42; The Brave and the Bold #57-58, #66, #68, #88, #101; Metamorpho #1-17",
     yearsCovered: "1965-1968",
+    releaseDate: { year: 2025, month: 6 },
     creators: "Haney, Fradon",
+    writers: "Bob Haney",
+    artists: "Ramona Fradon, Sal Trapani, Joe Orlando, Mike Sekowsky, Jim Aparo",
     description:
       "Rex Mason is transformed by an unlikely accident into Metamorpho, the Element Man -- able to transmute his body into any natural compound at will, be it solid, liquid, or gas.",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781799501848",
@@ -1612,7 +1786,10 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     issuesCollected:
       "Metamorpho (1993) #1-4; Metamopho: Year One #1-6; Outsiders: Five of a Kind - Metamorpho / Aquaman #1; The Sandman #20; Wednesday Comics (2009) #1-12 [Metamorpho Stories]; 1st Issue Special #3; Action Comics #413-418; Brave and the Bold #123 and #154; DC Comics Presents #40; and World's Finest Comics #217-220, #224, #226, AND #228-229",
     yearsCovered: "1972-2009",
+    releaseDate: { year: 2027, month: 4 },
     creators: "Dan Jurgens, Mike W. Barr, Mike Norton (Illustrated by), Jim Aparo",
+    writers: "various",
+    artists: "various",
     description:
       "A shape-shifting hero pushed to new limits—Metamorpho faces bigger challenges, team-ups, and unexpected transformations.\nRex Mason is no ordinary hero—he can transform into any element on Earth.\nAs Metamorpho, his powers allow him to reshape his body into anything from steel to smoke to fire, making him one of the most unpredictable heroes in the DC Universe. But with those abilities comes a challenge: holding onto his humanity while constantly changing.\nAcross a wide range of adventures, DC's most versatile of champions takes on new challenges, teams up with other heroes, and navigates increasingly complex threats while struggling with the personal cost of his powers.\nCollecting stories from across multiple series, this volume offers a broad and energetic look at one of DC's most unusual characters—blending science fiction, superhero action, and character-driven storytelling.",
     coverUrl: "https://m.media-amazon.com/images/I/815PF+lh3pL._SL1500_.jpg",
@@ -1630,7 +1807,10 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     end: { year: 1993, quarter: 3 },
     issuesCollected: "Fightin' Five #40-41; Suicide Squad #27-30; Checkmate #16-26, #28, #32-33; Eclipso #11-13; Showcase '93 #6-11; Peacemaker #1-4; The Vigilante #36-38, #41-43; The Peacemaker #1-5",
     yearsCovered: "1966-1993",
+    releaseDate: { year: 2025, month: 4 },
     creators: "Gill, Kupperberg, Boyette",
+    writers: "Joe Gill, Paul Kupperberg",
+    artists: "Pat Boyette",
     description:
       "The earliest days of Christopher Smith, a man who loves peace so much he's willing to kill for it -- decades before the character's TV adaptation, across his Charlton origin and DC guest appearances.",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781799500988",
@@ -1648,7 +1828,10 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     end: { year: 1944, quarter: 1 },
     issuesCollected: "Police Comics #1-36; Plastic Man #1-2",
     yearsCovered: "1941-1944",
+    releaseDate: { year: 2025, month: 3 },
     creators: "Cole",
+    writers: "Jack Cole",
+    artists: "Jack Cole",
     description:
       "Jack Cole's original, long-out-of-print Plastic Man stories -- after an accident leaves criminal Eel O'Brian's body transformed into living rubber, Plastic Man is born.",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781799500650",
@@ -1666,7 +1849,10 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     end: { year: 1975, quarter: 3 },
     issuesCollected: "Batman (1940) #184, #192, #202, #213, #227, #229-231, #234-236, #239-242, #244-245, #248-250, #252, #254, AND #259; Detective Comics (1937) #342, #386, #390, #391, #394-395, #398-403, #445, #447, and #450-451; Superman's' Pal: Jimmy Olsen (1954) #111 AND #130; World's Finest Comics (1941) #141, #147, #195, and #200",
     yearsCovered: "1964-1975",
+    releaseDate: { year: 2026, month: 6 },
     creators: "Friedrich, Broome, Moldoff",
+    writers: "Mike Friedrich, Elliot S. Maggin",
+    artists: "Gil Kane, Irv Novick",
     description:
       "Dick Grayson's evolution from circus acrobat to Batman's trusted partner, tracing his Silver and Bronze Age solo appearances and team-ups with Superman.",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781799508298",
@@ -1692,7 +1878,10 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     issuesCollected:
       "Secret Origins #50; Batman #333-334, #337-339, and #341-343; Detective Comics #481-495; DC Comics Presents #58; and The Batman Family #4, #6-9, and #11-20",
     yearsCovered: "1976-1983",
+    releaseDate: { year: 2027, month: 5 },
     creators: "Various",
+    writers: "various",
+    artists: "various",
     description:
       "Robin takes center stage in this DC Finest collection of classic adventures beyond the shadow of Batman!\nRobin may be Batman's partner, but some adventures belong entirely to him.\nAs Dick Grayson continues to grow into a hero in his own right, he takes on dangerous criminals, mysterious conspiracies, supernatural threats, and globe-spanning adventures that test his courage, intelligence, and leadership. Whether working alone, joining forces with Batgirl, or teaming with heroes from across the DC Universe, Robin proves that he is more than a sidekick—he is a hero capable of carrying the spotlight himself.\nFrom college campuses and traveling carnivals to hidden criminal organizations and extraordinary mysteries, these stories showcase the variety and excitement that defined Robin during the late Bronze Age. Along the way, Dick develops friendships, faces personal challenges, and gains the confidence that will help shape his future as one of DC's most enduring heroes.\nTogether, these stories capture the moment Dick Grayson begins to feel like a hero with his own world, his own instincts, and his own future beyond Batman.",
     coverUrl: "https://m.media-amazon.com/images/I/91W5aOuGyKL._SL1500_.jpg",
@@ -1710,7 +1899,10 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     end: { year: 1954, quarter: 4 },
     issuesCollected: "Action Comics #183-196; Strange Adventures #35-48; Mystery in Space #16-22",
     yearsCovered: "1953-1954",
+    releaseDate: { year: 2025, month: 7 },
     creators: "Broome, Fox, Anderson",
+    writers: "John Broome, Gardner Fox",
+    artists: "Murphy Anderson",
     description:
       "An anthology of Gorilla World, an alternate reality where great apes reign supreme, plus other classic science fiction tales from the pre-Adam Strange era.",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781799502159",
@@ -1728,7 +1920,10 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     end: { year: 1962, quarter: 3 },
     issuesCollected: "G.I. Combat #68 and Our Army at War #81–122",
     yearsCovered: "1959-1962",
+    releaseDate: { year: 2026, month: 5 },
     creators: "Kanigher, Kubert",
+    writers: "Robert Kanigher, Bob Haney",
+    artists: "Joe Kubert",
     description:
       "The earliest and most iconic stories of Sgt. Frank Rock and his legendary unit, Easy Company, blending explosive WWII action with emotional depth.",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781799508090",
@@ -1746,7 +1941,10 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     end: { year: 1988, quarter: 3 },
     issuesCollected: "Adventure Comics #431-440; Showcase #60-61, #64; The Spectre #2 #1-10; The Brave and the Bold #72; All-Star Squadron #27-28; Ghosts #97-99; Wrath of the Spectre #4",
     yearsCovered: "1966-1988",
+    releaseDate: { year: 2025, month: 9 },
     creators: "Fleisher, Various",
+    writers: "Gardner Fox, Michael Fleisher",
+    artists: "Murphy Anderson, Jim Aparo",
     description:
       "DC's grim arbiter of justice returns to enact bloody vengeance on evildoers, resurfacing in the 1960s for all-new -- and sometimes controversial -- stories that show the true scale of his wrath.",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781799502814",
@@ -1764,7 +1962,10 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     end: { year: 1994, quarter: 2 },
     issuesCollected: "Static #1-15, Superman: The Man of Steel #36, Superboy #7, and Worlds Collide #1",
     yearsCovered: "1993-1994",
+    releaseDate: { year: 2025, month: 10 },
     creators: "McDuffie, Cowan",
+    writers: "Dwayne McDuffie, Robert L. Washington III",
+    artists: "John Paul Leon",
     description:
       "Static's electrifying origin from Milestone Comics -- Virgil Hawkins gains electromagnetic powers in a gang riot gone wrong, then crosses over with Superman and Superboy in \"Worlds Collide.\"",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781799502944",
@@ -1782,7 +1983,10 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     end: { year: 1976, quarter: 2 },
     issuesCollected: "Swamp Thing #1–22; The House of Secrets #92, #140; The Phantom Stranger #14; The Brave and the Bold #122",
     yearsCovered: "1971-1976",
+    releaseDate: { year: 2026, month: 12 },
     creators: "Wein, Wrightson",
+    writers: "Len Wein",
+    artists: "Bernie Wrightson, Nestor Redondo",
     description:
       "The era-defining Bronze Age saga that birthed DC's most haunting monster hero, from his House of Secrets debut through Len Wein and Bernie Wrightson's slow-burn tragedy of loss, guilt, and transformation.",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781799509837",
@@ -1800,7 +2004,10 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     end: { year: 1955, quarter: 2 },
     issuesCollected: "Adventure Comics #199-216; Superboy #33-43",
     yearsCovered: "1954-1955",
+    releaseDate: { year: 2025, month: 5 },
     creators: "Binder, Sikela, Swan",
+    writers: "Otto Binder",
+    artists: "John Sikela, Curt Swan",
     description:
       "Krypto's first-ever comics appearance in \"The Super-Dog from Krypton,\" plus early Superboy adventures like \"Superboy Meets Superlad\" and \"The Super Brat of Smallville.\"",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781799501367",
@@ -1818,7 +2025,10 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     end: { year: 1979, quarter: 3 },
     issuesCollected: "Limited Collectors' Edition #41, Limited Collectors' Edition #46, and Super Friends #1-26",
     yearsCovered: "1976-1979",
+    releaseDate: { year: 2025, month: 11 },
     creators: "Various",
+    writers: "E. Nelson Bridwell",
+    artists: "Ramona Fradon, Bob Smith",
     description:
       "Batman, Superman, Wonder Woman, and Aquaman battle the Penguin, Poison Ivy, and time-traveling foes, including the first comic book appearances of the Wonder Twins and Gleek.",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781799503163",
@@ -1836,7 +2046,10 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     end: { year: 1962, quarter: 2 },
     issuesCollected: "Action Comics #252-288, Adventure Comics #278, Superman #139-140 and #144, Superboy #80, Superman’s Girl Friend Lois Lane #14 and #20, and Superman’s Pal, Jimmy Olsen #40, #46, #51, and #57",
     yearsCovered: "1959-1962",
+    releaseDate: { year: 2025, month: 1 },
     creators: "Binder, Siegel, Plastino",
+    writers: "Otto Binder, Jerry Siegel",
+    artists: "Jim Mooney",
     description:
       "Kara Zor-El lands on Earth and discovers she shares her cousin Superman's powers -- inspired by her famous kin, she adopts a secret identity and starts using her abilities to help those in need.",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781779529909",
@@ -1853,7 +2066,10 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     end: { year: 1998, quarter: 1 },
     issuesCollected: "Showcase ’96 #8, Supergirl #1-18, Supergirl Annual #1-2, and Supergirl Plus #1",
     yearsCovered: "1996-1998",
+    releaseDate: { year: 2025, month: 10 },
     creators: "David, Frank",
+    writers: "Peter David",
+    artists: "Gary Frank, Leonard Kirk",
     description:
       "Peter David's astonishing reinvention of Supergirl begins: Matrix, the protoplasmic entity posing as Supergirl, fuses with the near-dead Linda Danvers, and together they become the new Girl of Steel.",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781799510260",
@@ -1870,7 +2086,10 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     end: { year: 1999, quarter: 3 },
     issuesCollected: "Adventure Comics 80-Page Giant #1, Resurrection Man #16–17, Supergirl #19–35, Supergirl #1 ML, Supergirl/Prysm Double-Shot #1, Team Superman #1, and Team Superman Secret Files #1",
     yearsCovered: "1998-1999",
+    releaseDate: { year: 2026, month: 5 },
     creators: "David, Kirk",
+    writers: "Peter David",
+    artists: "Leonard Kirk, Robin Riggs",
     description:
       "Kara Zor-El's resilience is put to the test as she battles powerful enemies and uncovers shocking truths about her destiny, in the continuation of Peter David's acclaimed run.",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781799513605",
@@ -1888,7 +2107,10 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     end: { year: 1940, quarter: 2 },
     issuesCollected: "Action Comics #1-25, Superman #1-5, and New York World’s Fair Comics #1",
     yearsCovered: "1938-1940",
+    releaseDate: { year: 2024, month: 11 },
     creators: "Siegel, Shuster",
+    writers: "Jerry Siegel",
+    artists: "Joe Shuster, Paul Cassidy",
     description:
       "The first two years of Superman adventures, starting with 1938's legendary Action Comics #1 -- Jerry Siegel and Joe Shuster's creation that launched the entire superhero genre.",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781779528339",
@@ -1905,7 +2127,10 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     end: { year: 1941, quarter: 3 },
     issuesCollected: "Action Comics #26-40, World’s Finest Comics #2-3, Superman #6-11, World’s Best Comics #1, and New York World’s Fair #2",
     yearsCovered: "1940-1941",
+    releaseDate: { year: 2025, month: 12 },
     creators: "Siegel, Shuster",
+    writers: "Jerry Siegel",
+    artists: "Joe Shuster, Jack Burnley, Paul Cassidy, Wayne Boring, Leo Nowak",
     description:
       "More of Superman's iconic Golden Age adventures, including major first-ever moments for his nemesis Lex Luthor.",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781799503323",
@@ -1922,7 +2147,10 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     end: { year: 1951, quarter: 3 },
     issuesCollected: "Action Comics #144–159, Superman #64–70, and World’s Finest Comics #46–53",
     yearsCovered: "1950-1951",
+    releaseDate: { year: 2026, month: 2 },
     creators: "Various",
+    writers: "Al Plastino, Alvin Schwartz, Edmond Hamilton, Jack Schiff",
+    artists: "Al Plastino, Wayne Boring",
     description:
       "Classic Superman adventures from the dawn of the Silver Age, spanning Action Comics, Superman, and World's Finest Comics as the Man of Steel's mythology continues to expand.",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781799507420",
@@ -1939,7 +2167,10 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     end: { year: 1971, quarter: 4 },
     issuesCollected: "Action Comics #393-406; Superman #233-238, #240-246",
     yearsCovered: "1970-1971",
+    releaseDate: { year: 2025, month: 6 },
     creators: "O'Neil, Swan",
+    writers: "Dennis O'Neil, Leo Dorfman",
+    artists: "Curt Swan, Murphy Anderson",
     description:
       "The Man of Steel's status quo turns upside down as his powers slowly fade and a doppelganger Superman arrives with strange powers of its own -- any contact between the two could destroy the planet.",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781799501657",
@@ -1957,7 +2188,10 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     issuesCollected:
       "Collects Action Comics #421-437, Superman #261-277, Limited Collectors Edition #31, Wanted: The Worlds Most Dangerous Villains #9, Secret Origins #1, The Amazing World of Superman #1, Aurora Comics Scenes #185, and DC 100-Page Super Spectacular #18",
     yearsCovered: "1973-1974",
+    releaseDate: { year: 2027, month: 5 },
     creators: "Cary Bates, Elliot S! Maggin, Curt Swan",
+    writers: "Cary Bates, Elliot S! Maggin",
+    artists: "Curt Swan",
     description:
       "Classic adventures from one of the most imaginative eras of Superman's history.\nSuperman's adventures could take him anywhere.\nDuring this dynamic era, the Man of Steel confronts alien threats, scientific mysteries, cosmic dangers, and challenges that test both his powers and his character.\nAlongside trusted allies and a growing cast of supporting characters, Superman faces everything from ordinary human conflicts to extraordinary adventures that stretch across the universe.\nFilled with action and optimism, these tales showcase the wide-ranging appeal of Superman during the Bronze Age, when every issue introduced new ideas, new dangers, and new opportunities for heroism.\nCollecting a substantial chapter of Superman's publishing, this volume offers readers the chance to experience the evolution of the character and his world through a broad selection of stories from across the era.",
     coverUrl: supermanKryptonConnectionCover,
@@ -1974,7 +2208,10 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     end: { year: 1987, quarter: 2 },
     issuesCollected: "The Man of Steel #1–6; Superman #1–6; Adventures of Superman #424–429; and Action Comics #584–588",
     yearsCovered: "1986-1987",
+    releaseDate: { year: 2026, month: 11 },
     creators: "Byrne, Wolfman",
+    writers: "John Byrne, Marv Wolfman",
+    artists: "John Byrne, Jerry Ordway",
     description:
       "John Byrne and Marv Wolfman reimagine the Last Son of Krypton for the post-Crisis era, revealing a Clark Kent rooted in humanity, a driven Lois Lane, and a Lex Luthor redefined as a ruthless corporate tyrant.",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781799510321",
@@ -1991,7 +2228,10 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     end: { year: 1991, quarter: 2 },
     issuesCollected: "Superman #49–56, Starman #28, Adventures of Superman #472–479, and Action Comics #659–666",
     yearsCovered: "1990-1991",
+    releaseDate: { year: 2026, month: 3 },
     creators: "Jurgens, Ordway, Stern",
+    writers: "Dan Jurgens, Jerry Ordway, Roger Stern",
+    artists: "Dan Jurgens, Jerry Ordway, Bob McLeod",
     description:
       "When time splinters, Superman becomes the tether holding history together -- cast from Nazi-occupied Europe to the kingdoms of Camelot by forces beyond his control, marking the start of the 'Triangle Era.'",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781799508106",
@@ -2009,7 +2249,10 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     end: { year: 1961, quarter: 3 },
     issuesCollected: "Action Comics #266, #277; Superman #142-143, #147; Superman's Girl Friend Lois Lane #19-28; Superman's Pal, Jimmy Olsen #47-56",
     yearsCovered: "1960-1961",
+    releaseDate: { year: 2025, month: 4 },
     creators: "Bernstein, Siegel, Swan",
+    writers: "Robert Bernstein, Jerry Siegel",
+    artists: "Curt Swan, Kurt Schaffenberger",
     description:
       "Some of Superman, Lois, and Jimmy's wackiest and wildest Silver Age adventures, including the debut of the infamous Giant Turtle Man.",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781799501107",
@@ -2027,7 +2270,10 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     issuesCollected:
       "Superman’s Pal, Jimmy Olsen #163 and Superman’s Girl Friend, Lois Lane #136; and stories from Superman #271, #275, #279, #282, and #286-287; Action Comics #436, #438, #440-441, #461-462, #465, #467-468, #472, and #475; and Superman Family #164, #166-167, #169-170, #172-173, #175-176, #178-179, and #181-186",
     yearsCovered: "1974-1977",
+    releaseDate: { year: 2027, month: 3 },
     creators: "Cary Bates, Kurt Schaffenberger, Curt Swan",
+    writers: "Cary Bates",
+    artists: "Curt Swan, Kurt Schaffenberger",
     description:
       "Heroes, friends, and one super-powered dog—adventures from across the Superman Family in a new DC Finest collection.\n\nSuperman isn’t the only hero in Metropolis. From Lois Lane to Jimmy Olsen to Krypto the Superdog, the Superman Family is filled with characters who each bring their own adventures, challenges, and personalities to the world of heroes.\n\nIn these stories, brave reporters chase dangerous leads, young heroes step into their own, and loyal companions—both human and animal—prove that heroism comes in many forms. Whether solving mysteries, facing unusual threats, or helping those in need, every member of the Superman Family has a role to play.\n\nFilled with imagination, humor, and heart, this collection captures a time when Superman’s world expanded beyond one hero into a full cast of unforgettable characters, including this book's titular Superdog, Krypto.",
     coverUrl: supermanFamilyStraySuperdogCover,
@@ -2045,7 +2291,10 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     end: { year: 1988, quarter: 1 },
     issuesCollected: "Suicide Squad #1-10; Secret Origins #14; Detective Comics #582; The Fury of Firestorm #62-64; Firestorm: The Nuclear Man Annual #5; Legends #1-6; Millennium #4",
     yearsCovered: "1986-1988",
+    releaseDate: { year: 2025, month: 3 },
     creators: "Ostrander, Wein, McDonnell",
+    writers: "John Ostrander, Len Wein",
+    artists: "Luke McDonnell",
     description:
       "The thrilling first incarnation of Task Force X -- John Ostrander sends Deadshot, Captain Boomerang, and a rotating cast of expendable villains on black-ops missions where death is always on the table.",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781799500759",
@@ -2062,7 +2311,10 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     end: { year: 1988, quarter: 4 },
     issuesCollected: "Suicide Squad #11–20, Suicide Squad Annual #1, The Doom Patrol and Suicide Squad Special #1, The Flash #12, Manhunter #1 and #6, Justice League International #13, Deadshot #1–4, Checkmate #1 (1997), and Checkmate #8 (1988)",
     yearsCovered: "1988",
+    releaseDate: { year: 2026, month: 7 },
     creators: "Ostrander, Greenberger, McDonnell",
+    writers: "John Ostrander",
+    artists: "Luke McDonnell",
     description:
       "The Squad faces betrayal, black ops, and a descent into the supernatural as Nightshade's past comes back to haunt them.",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781799508595",
@@ -2080,7 +2332,10 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     end: { year: 1976, quarter: 3 },
     issuesCollected: "The Brave and the Bold (1955) #106–130; Stories From Super-Team Family #2 (the Creeper and Wildcat in “Showdown in San Lorenza” by Dennis O’Neil & Ric Estrada); And #3 (Hawkman and the Flash in “The End of the World” by Steve Skeates & Ric Estrada); Covers to Super-Team Family #1, #4–7",
     yearsCovered: "1973-1976",
+    releaseDate: { year: 2026, month: 6 },
     creators: "Haney, Drake, Aparo",
+    writers: "Bob Haney",
+    artists: "Jim Aparo",
     description:
       "Thrilling and unexpected pairings from DC's Bronze Age -- Batman teams with Mister Miracle, Green Arrow, Wonder Woman, Deadman, and even Kamandi in classic Brave and the Bold stories.",
     coverUrl: "https://m.media-amazon.com/images/I/81SaXmVh6fL._SL1500_.jpg",
@@ -2097,7 +2352,10 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     end: { year: 1979, quarter: 3 },
     issuesCollected: "DC Comics Presents #1-14; The Brave and the Bold #141-155",
     yearsCovered: "1978-1979",
+    releaseDate: { year: 2025, month: 3 },
     creators: "Haney, Pasko, Aparo",
+    writers: "Bob Haney, Martin Pasko",
+    artists: "Jim Aparo, José Luis García-López",
     description:
       "Some of the best and most memorable team-ups of the 1970s, including an iconic race between Superman and the Flash.",
     coverUrl: "https://m.media-amazon.com/images/I/91+qXxcESLL._SL1500_.jpg",
@@ -2115,7 +2373,10 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     end: { year: 1983, quarter: 2 },
     issuesCollected: "The New Teen Titans #21–32; The New Teen Titans Annual #1; Tales of the New Teen Titans #1–4; The New Teen Titans (Drug Awareness) #1–3; and Action Comics #536",
     yearsCovered: "1982-1983",
+    releaseDate: { year: 2026, month: 10 },
     creators: "Wolfman, Perez",
+    writers: "Marv Wolfman",
+    artists: "George Pérez",
     description:
       "Marv Wolfman and George Perez introduce Terra, a new hero who may not be everything she seems -- her arrival kicks off one of the most celebrated eras in Teen Titans history.",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781799509332",
@@ -2132,7 +2393,10 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     end: { year: 1984, quarter: 3 },
     issuesCollected: "Action Comics #546; World's Finest Comics #300; The New Teen Titans #33-40; The New Teen Titans Annual #2; Tales of the Teen Titans #41-47; Tales of the Teen Titans Annual #3; The Vigilante #3; and more",
     yearsCovered: "1983-1984",
+    releaseDate: { year: 2025, month: 2 },
     creators: "Wolfman, Perez",
+    writers: "Marv Wolfman",
+    artists: "George Pérez",
     description:
       "The story that defined the Teen Titans for decades to come -- Terra infiltrates the team and works to unmake it for good, in one of comics' most shocking betrayals.",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781799500254",
@@ -2150,7 +2414,10 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     end: { year: 1957, quarter: 1 },
     issuesCollected: "Our Army at War #54-57, Star Spangled War Stories #53-56, G.I. Combat #44-47, Blackhawk #108-111, Our Fighting Forces #17-20, and All-American Men of War #41-44",
     yearsCovered: "1957",
+    releaseDate: { year: 2025, month: 11 },
     creators: "Various, Kubert, Heath",
+    writers: "Robert Kanigher, Bob Haney",
+    artists: "Joe Kubert, Ross Andru",
     description:
       "An explosive collection spanning DC's five war titles plus Blackhawk -- trenches, aerial dogfights, perilous seas, infantry battles, and covert missions brought to life by legendary artists like Joe Kubert and Russ Heath.",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781799503248",
@@ -2168,7 +2435,10 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     end: { year: 1973, quarter: 2 },
     issuesCollected: "Weird Western Tales #12-17; All-Star Western #2-8, #10-11; Super DC Giant #15; Tomahawk #130-140",
     yearsCovered: "1970-1973",
+    releaseDate: { year: 2026, month: 4 },
     creators: "Kanigher, Mooney, Sherman",
+    writers: "Robert Kanigher, John Albano",
+    artists: "Joe Kubert, Tony DeZuniga",
     description:
       "DC's Western anthologies gallop into the gray morality of America's frontier -- haunted riders like El Diablo, brutal justice-dealers like Jonah Hex, and conflicted outlaws, told with grit and reckoning.",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781799507727",
@@ -2185,7 +2455,10 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     end: { year: 1977, quarter: 4 },
     issuesCollected: "Weird Western Tales #18-43, Jonah Hex #1-7, and a never-before-reprinted Jonah Hex parody story from The Amazing World of DC Comics #13.",
     yearsCovered: "1973-1977",
+    releaseDate: { year: 2026, month: 12 },
     creators: "Michael Fleisher, José Luis García-López, John Albano, Tony DeZuniga, Dick Ayers, George Moliterni, Noly Panaligan, and more",
+    writers: "Michael Fleisher, John Albano",
+    artists: "Tony DeZuniga, Dick Ayers, George Moliterni, José Luis García-López, Noly Panaligan",
     description:
       "Get ready to hit the trail once more with the second DC Finest: Western volume, which introduces the most steely-eyed and scar-faced stalwart of justice to ever ride the range: Jonah Hex! DC Finest: Western: Requiem for a Gunfighter features a wagon train’s worth of frontier adventures from the bygone years of 1973 through 1977—all crafted by some of comics’ most accomplished hands, including Michael Fleisher, José Luis García-López, John Albano, Tony DeZuniga, Dick Ayers, George Moliterni, Noly Panaligan, and more.",
     coverUrl: jonahHexRequiemForAGunfighterCover,
@@ -2203,7 +2476,10 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     end: { year: 1943, quarter: 2 },
     issuesCollected: "Wonder Woman #1-4; All-Star Comics #8; Sensation Comics #1-18; Comic Cavalcade #1-2",
     yearsCovered: "1941-1943",
+    releaseDate: { year: 2025, month: 12 },
     creators: "Marston, Peter",
+    writers: "William Moulton Marston",
+    artists: "H. G. Peter",
     description:
       "The origin of Wonder Woman: her arrival in Man's World with the wounded Steve Trevor, and her secret identity of Diana Prince.",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781799503361",
@@ -2220,7 +2496,10 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     end: { year: 1944, quarter: 3 },
     issuesCollected: "Wonder Woman #5–9, Sensation Comics #19–34, Comic Cavalcade #3–7, and All-Star Comics #20",
     yearsCovered: "1943-1944",
+    releaseDate: { year: 2026, month: 2 },
     creators: "Marston, Peter",
+    writers: "William Moulton Marston",
+    artists: "H. G. Peter",
     description:
       "Wonder Woman faces one of her earliest and most dangerous enemies -- the Cheetah -- as Diana battles jealousy, deception, and fierce foes with courage and compassion.",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781799507444",
@@ -2238,7 +2517,10 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     issuesCollected:
       "Wonder Woman #280-305, The New Teen Titans #11-12, the special 16-page preview story from DC Comics Presents #41, and the never-before-reprinted promotional comic Superman: The Computer Masters of Metropolis #1.",
     yearsCovered: "1981-1983",
+    releaseDate: { year: 2027, month: 1 },
     creators: "Paul Levitz, Dan Mishkin, Gene Colan",
+    writers: "various",
+    artists: "various",
     description:
       "A sweeping collection of Wonder Woman adventures—mythology, action, and cosmic stakes in an expansive, accessible DC Finest collection.\n\nWonder Woman faces gods, monsters, and threats that stretch far beyond the mortal world.\n\nAs Diana’s adventures grow in scale and ambition, she is drawn into battles that test her strength, her compassion, and her role as a champion of both humanity and the divine. From mythological trials to universe-spanning conflicts, each story pushes her further as a hero and a warrior.\n\nSpanning a major run of stories, this volume brings together action, fantasy, and adventure in one immersive collection—offering a wide-ranging look at Wonder Woman’s world and the challenges she must overcome.",
     coverUrl: wonderWomanJudgementInInfinityCover,
@@ -2255,7 +2537,10 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     end: { year: 1986, quarter: 3 },
     issuesCollected: "Wonder Woman #306-329; DC Comics Presents #76; Blue Devil #10; The Legend of Wonder Woman #1-4",
     yearsCovered: "1983-1986",
+    releaseDate: { year: 2025, month: 7 },
     creators: "Mishkin, Heck, Busiek",
+    writers: "Dan Mishkin, Kurt Busiek",
+    artists: "Don Heck, Trina Robbins",
     description:
       "Long out-of-print Wonder Woman stories from the 1980s, from Dan Mishkin's run through Kurt Busiek and Trina Robbins's The Legend of Wonder Woman miniseries.",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781799502012",
@@ -2272,7 +2557,10 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     end: { year: 2009, quarter: 3 },
     issuesCollected: "Wonder Woman (2006) #14-35, Brave & Bold #7, Outsiders: Five of a Kind - Wonder Woman and Grace #1",
     yearsCovered: "2007-2009",
+    releaseDate: { year: 2024, month: 11 },
     creators: "Simone, Dodson, Lopresti",
+    writers: "Gail Simone",
+    artists: "Terry Dodson, Aaron Lopresti, Bernard Chang",
     description:
       "Gail Simone's beloved run begins with 'The Circle,' continuing through 'Ends of the Earth,' 'Rise of the Olympian,' and 'Warkiller' -- Diana's most personal and mythic threats yet.",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781779528346",
@@ -2289,7 +2577,10 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     end: { year: 2010, quarter: 3 },
     issuesCollected: "Wonder Woman #36–44 and #600, Secret Six #10–14, Blackest Night: Wonder Woman #1–3, and DCU Halloween Special '09 #1",
     yearsCovered: "2009-2010",
+    releaseDate: { year: 2026, month: 5 },
     creators: "Simone, Scott, Rucka",
+    writers: "Gail Simone",
+    artists: "Nicola Scott",
     description:
       "Diana's world comes under siege from enemies without and doubts within -- Paradise Island descends into strife, a celestial invasion looms, and Wonder Woman faces betrayal, rebirth, and supernatural reckoning.",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781799508113",
@@ -2308,7 +2599,10 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     issuesCollected:
       "The Demon Annual #2, The Demon #42-45 and #52-54, Batman Chronicles #4, Hitman #1-14, and pages from JLA #5",
     yearsCovered: "1993-1997",
+    releaseDate: { year: 2027, month: 4 },
     creators: "Garth Ennis, John McCrea",
+    writers: "Garth Ennis",
+    artists: "John McCrea",
     description:
       "DC Finest spotlights the origin of Hitman, as Garth Ennis and John McCrea launch a cult-classic antihero saga in Gotham's criminal underworld.\n\nTommy Monaghan is a Gotham City hitman with an unusual advantage: telepathy, X-ray vision, and a talent for surviving situations that should kill him.\n\nWorking among organized crime, corrupt officials, supernatural threats, and costumed vigilantes, Tommy navigates a dangerous world where loyalty is rare, and every job could be his last. Armed with a sharp sense of humor and a practical view of life, he quickly discovers that superpowers create just as many problems as they solve.\n\nBefore starring in his own series, Tommy first appeared alongside Etrigan the Demon, becoming an unlikely ally in a series of supernatural adventures that helped establish his place within the DC Universe. These stories chart his evolution from supporting player to leading man, laying the foundation for one of DC's most acclaimed cult-classic antiheroes.\n\nWritten by Garth Ennis and illustrated by John McCrea, Hitman combines crime fiction, black comedy, supernatural action, and genuine emotional depth into a uniquely entertaining series that remains a fan favorite decades after its debut.",
     coverUrl: hitmanRageInArkhamCover,
@@ -2327,7 +2621,10 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     issuesCollected:
       "Falling in Love #58-61, Girls’ Romances #91-94, Girls’ Love Stories #94-97, Heart Throbs #83-85, and Secret Hearts #86-89",
     yearsCovered: "1963",
+    releaseDate: { year: 2027, month: 1 },
     creators: "John Romita, Robert Kanigher, Mike Sekowsky, Phyllis Reed, and more",
+    writers: "Robert Kanigher, Phyllis Reed",
+    artists: "John Romita Sr., Mike Sekowsky",
     description:
       "Love—and heartbreak—is in the air in this new DC Finest volume!\n\nReturn to those moonstruck days of the Silver Age, when comics readers everywhere could find an endless supply of romantic inspiration for 12 cents an issue in the peerless pages of DC’s legendary line of love story anthologies.\n\nThese passionate tales of romance and intrigue—carefully crafted by a host of comics’ finest hands, including John Romita, Robert Kanigher, Mike Sekowsky, Phyllis Reed, and more—will leave you breathless and yearning for more! Known for their bold storytelling and iconic imagery, many of these panels later became touchstones in the broader art world, influencing the graphic language of pop art and artists.",
     coverUrl: romanceEscapeFromLonelinessCover,
@@ -2346,7 +2643,10 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     issuesCollected:
       "The Atom #1-15, Showcase #34-36, The Brave and the Bold #53 and #55, Strange Adventures #135 and #145, and Justice League of America #7, #14, and #18.",
     yearsCovered: "1961-1964",
+    releaseDate: { year: 2027, month: 5 },
     creators: "Gardner Fox, Gil Kane",
+    writers: "Gardner Fox",
+    artists: "Gil Kane",
     description:
       "A microscopic hero with massive challenges—discover the origin and early adventures of the Atom, in an accessible and comprehensive DC Finest presentation.\nRay Palmer is a scientist who discovers a way to shrink himself to microscopic size-becoming a superhero unlike any other.\nAs the Atom, he uses his incredible abilities to take on threats both large and small, navigating a world where danger can exist at any scale. From high-stakes battles to scientific discoveries, each adventure pushes him to master his powers and find his place as a hero.\nAcross a wide range of stories, these early adventures introduce a character driven by curiosity, ingenuity, and determination—bringing science fiction concepts and superhero action together in a unique and engaging way.\nCollecting foundational stories and key appearances, this volume offers an accessible introduction to one of DC's most inventive and unconventional heroes.",
     coverUrl: theAtomBirthOfTheAtomCover,
@@ -2365,7 +2665,10 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     issuesCollected:
       "The Question #1-15, Blue Beetle (Charlton) #1-5, Americomics Special #1, Mysterious Suspense #1, Blue Beetle (DC) #4-7, Who’s Who Update ‘87 #4, Who’s Who: The Definitive Directory of the DC Universe #19, and The Charlton Bullseye #1 and #5",
     yearsCovered: "1967-1989",
+    releaseDate: { year: 2027, month: 3 },
     creators: "Steve Ditko, Dennis O'Neil, Denys Cowan",
+    writers: "Dennis O'Neil",
+    artists: "Denys Cowan",
     description:
       "A dark, thought‑provoking crime saga—the Question confronts corruption, identity, and moral truth in this expansive DC Finest collection of early stories.\n\nIn a city where corruption runs deep, justice is anything but simple.\n\nVic Sage operates as the Question, a faceless investigator determined to expose the truth—no matter the cost. But in Hub City, every answer leads to another question, and every case pulls him deeper into a system built on power, fear, and control.\n\nAs his search for justice continues, Sage is forced to confront not only the criminals around him, but his own beliefs, identity, and what it truly means to do the right thing in a broken world.\n\nSpanning a major run of stories that include all the character’s original appearances in the Charlton titles from creator Steve Ditko as well as the first 15 issues of his celebrated revival by Dennis O’Neil and Denys Cowan in the 1980s, this volume offers a wide-ranging look at the Question’s evolution, blending crime storytelling, action, and philosophical depth in one immersive collection.",
     coverUrl: theQuestionZenAndViolenceCover,
@@ -2383,7 +2686,10 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     end: { year: 1980, quarter: 3 },
     issuesCollected: "Warlord #1-36 and 1st Issue Special #8",
     yearsCovered: "1975-1980",
+    releaseDate: { year: 2027, month: 2 },
     creators: "Mike Grell",
+    writers: "Mike Grell",
+    artists: "Mike Grell",
     description:
       "Adventure, survival, and fantasy collide in this DC Finest spotlight on a modern man lost in a dangerous, hidden world.\n\nTravis Morgan was a pilot—until a crash changed everything.\n\nAfter flying into a mysterious opening at the North Pole, he finds himself in Skartaris, a hidden world filled with ancient kingdoms, deadly creatures, powerful sorcery, and constant danger. Stranded far from home, Morgan must rely on his skill, determination, and instincts to survive.\n\nAs he navigates this unpredictable land, he becomes a reluctant hero, forging alliances, facing powerful enemies, and shaping the fate of a world he never knew existed.\n\nCombining fast-paced action with fantasy and adventure, these stories introduce a hero caught between two worlds; one familiar and one full of endless possibilities.\n\nThis volume collects the earliest adventures of the Warlord, offering an accessible entry point into one of DC’s most unique and beloved fantasy series.",
     coverUrl: warlordTheSavageWorldCover,
