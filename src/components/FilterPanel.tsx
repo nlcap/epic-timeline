@@ -1,19 +1,24 @@
 import { useEffect, useState, type ReactNode } from "react";
-import type { OwnershipStatus, ReadingStatus } from "../types";
+import type { FilterMode, OwnershipStatus, ReadingStatus } from "../types";
 import { OWNERSHIP_META, OWNERSHIP_ORDER } from "../lib/ownership";
 import { READING_STATUS_META, READING_STATUS_ORDER } from "../lib/readingStatus";
 import { useSlidePanel } from "../hooks/useSlidePanel";
 import { useEscapeToClose } from "../hooks/useEscapeToClose";
 
-/** One checkbox row -- custom rather than a native <input type="checkbox">
- * to match the icon+label rows used everywhere else in the app (see
- * StatusDropdown's option rows). */
-function FilterCheckboxRow({
+/** One checkbox (Any mode) or radio (All mode) row -- custom rather than a
+ * native <input> to match the icon+label rows used everywhere else in the
+ * app (see StatusDropdown's option rows). Only the indicator's shape and
+ * fill differ between variants; selecting/clearing is the caller's job
+ * (see toggleShelving/toggleReading below for the radio-style
+ * replace-on-select behavior). */
+function FilterSelectableRow({
+  variant,
   selected,
   onToggle,
   icon,
   label,
 }: {
+  variant: "checkbox" | "radio";
   selected: boolean;
   onToggle: () => void;
   icon: ReactNode;
@@ -27,28 +32,60 @@ function FilterCheckboxRow({
       className="flex w-full items-center gap-2.5 rounded-md px-2 py-2 text-left text-sm text-white hover:bg-neutral-800"
     >
       <span
-        className={`flex h-4 w-4 shrink-0 items-center justify-center rounded border ${
-          selected ? "border-white bg-white" : "border-neutral-600"
-        }`}
+        className={`flex h-4 w-4 shrink-0 items-center justify-center border ${
+          variant === "radio" ? "rounded-full" : "rounded"
+        } ${selected ? "border-white bg-white" : "border-neutral-600"}`}
       >
-        {selected && (
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth={3}
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            className="h-3 w-3 text-neutral-950"
-          >
-            <path d="M5 13l4 4L19 7" />
-          </svg>
-        )}
+        {selected &&
+          (variant === "radio" ? (
+            <span className="h-1.5 w-1.5 rounded-full bg-neutral-950" />
+          ) : (
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth={3}
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              className="h-3 w-3 text-neutral-950"
+            >
+              <path d="M5 13l4 4L19 7" />
+            </svg>
+          ))}
       </span>
       {icon}
       {label}
     </button>
+  );
+}
+
+/** Section heading used above each facet's rows -- adds a right-justified
+ * "Clear" that only resets this one facet's draft, distinct from the
+ * panel-wide "Clear all filters" above the sections. */
+function FilterSectionHeading({
+  label,
+  onClear,
+  disabled,
+}: {
+  label: string;
+  onClear: () => void;
+  disabled: boolean;
+}) {
+  return (
+    <div className="flex items-center justify-between">
+      <h3 className="text-xs font-semibold uppercase tracking-wide text-neutral-500">{label}</h3>
+      <button
+        type="button"
+        disabled={disabled}
+        onClick={onClear}
+        className={`text-xs font-medium ${
+          disabled ? "cursor-not-allowed text-neutral-600" : "text-blue-400 hover:text-blue-300"
+        }`}
+      >
+        Clear
+      </button>
+    </div>
   );
 }
 
@@ -97,11 +134,19 @@ function FilterTagChip({
 /**
  * Right-side slide-out panel for filtering the visible lines -- shelving
  * and reading status (per-volume facets) plus tags (a per-line facet).
- * Shelving/reading: a line passes if it has at least one volume matching
- * one of that facet's checked statuses. Tags: a line passes if its own
- * Line.tags includes one of the checked tags. Facets with nothing checked
- * don't filter anything; a line must pass every active facet (see the AND
- * across facets in App.tsx's statusFilteredLineIds).
+ * Facets with nothing checked don't filter anything; a line must pass
+ * every active facet (see the AND across facets in App.tsx's
+ * statusFilteredLineIds).
+ *
+ * The Any/All mode toggle controls how a facet's own multiple checked
+ * values combine: "any" is OR (a line passes if it matches at least one),
+ * "all" is AND (must match all of them at once). AND is only meaningful
+ * for a multi-valued field, so in "all" mode Shelving/Reading -- single-
+ * valued per volume -- switch from checkboxes to radios instead of
+ * offering a combination that could never match anything; Tags stays
+ * checkboxes since "has every one of these tags" is a real query. Flipping
+ * the mode either direction clears all three draft facets rather than
+ * silently keeping a selection whose meaning just changed underneath it.
  *
  * Draft/apply, same as VolumeFormDrawer/LineFormDrawer: checking boxes here
  * only edits local state, seeded from the currently-applied filters on
@@ -110,6 +155,7 @@ function FilterTagChip({
  * just discards it.
  */
 export function FilterPanel({
+  filterMode,
   shelvingFilter,
   readingFilter,
   tagFilter,
@@ -117,16 +163,23 @@ export function FilterPanel({
   onApply,
   onClose,
 }: {
+  filterMode: FilterMode;
   shelvingFilter: ReadonlySet<OwnershipStatus>;
   readingFilter: ReadonlySet<ReadingStatus>;
   tagFilter: ReadonlySet<string>;
   /** Every tag used anywhere on the current timeline (see App.tsx's
    * timelineTags) -- the full set of chips this panel can offer. */
   timelineTags: string[];
-  onApply: (shelving: Set<OwnershipStatus>, reading: Set<ReadingStatus>, tags: Set<string>) => void;
+  onApply: (
+    mode: FilterMode,
+    shelving: Set<OwnershipStatus>,
+    reading: Set<ReadingStatus>,
+    tags: Set<string>
+  ) => void;
   onClose: () => void;
 }) {
   const { visible, closeThen } = useSlidePanel();
+  const [draftMode, setDraftMode] = useState<FilterMode>(filterMode);
   const [draftShelving, setDraftShelving] = useState<Set<OwnershipStatus>>(
     () => new Set(shelvingFilter)
   );
@@ -135,8 +188,23 @@ export function FilterPanel({
   );
   const [draftTags, setDraftTags] = useState<Set<string>>(() => new Set(tagFilter));
 
+  // Switching mode clears every facet's draft rather than translating an
+  // existing selection -- collapsing a multi-checked shelving selection
+  // down to "just the first one" would be a silent, surprising pick made
+  // on the user's behalf, so this asks them to re-pick under the new mode
+  // instead. Applies both directions (All -> Any clears too) so there's
+  // one rule, not a direction-dependent exception.
+  const setMode = (mode: FilterMode) => {
+    if (mode === draftMode) return;
+    setDraftMode(mode);
+    setDraftShelving(new Set());
+    setDraftReading(new Set());
+    setDraftTags(new Set());
+  };
+
   const toggleShelving = (status: OwnershipStatus) => {
     setDraftShelving((prev) => {
+      if (draftMode === "all") return prev.has(status) ? new Set() : new Set([status]);
       const next = new Set(prev);
       if (next.has(status)) next.delete(status);
       else next.add(status);
@@ -145,6 +213,7 @@ export function FilterPanel({
   };
   const toggleReading = (status: ReadingStatus) => {
     setDraftReading((prev) => {
+      if (draftMode === "all") return prev.has(status) ? new Set() : new Set([status]);
       const next = new Set(prev);
       if (next.has(status)) next.delete(status);
       else next.add(status);
@@ -173,12 +242,12 @@ export function FilterPanel({
     const onKeyDown = (e: KeyboardEvent) => {
       if ((e.metaKey || e.ctrlKey) && e.key === "Enter") {
         e.preventDefault();
-        closeThen(() => onApply(draftShelving, draftReading, draftTags));
+        closeThen(() => onApply(draftMode, draftShelving, draftReading, draftTags));
       }
     };
     window.addEventListener("keydown", onKeyDown);
     return () => window.removeEventListener("keydown", onKeyDown);
-  }, [closeThen, onApply, draftShelving, draftReading, draftTags]);
+  }, [closeThen, onApply, draftMode, draftShelving, draftReading, draftTags]);
 
   return (
     <div
@@ -205,7 +274,33 @@ export function FilterPanel({
             </button>
           </div>
 
-          <div className="mt-1">
+          <div className="mt-4 flex items-center justify-between">
+            <div className="flex rounded-md border border-neutral-700 p-1">
+              <button
+                type="button"
+                onClick={() => setMode("any")}
+                aria-pressed={draftMode === "any"}
+                className={`rounded px-3 py-1 text-xs font-medium transition-colors ${
+                  draftMode === "any"
+                    ? "bg-white text-neutral-950"
+                    : "text-neutral-400 hover:text-white"
+                }`}
+              >
+                Any
+              </button>
+              <button
+                type="button"
+                onClick={() => setMode("all")}
+                aria-pressed={draftMode === "all"}
+                className={`rounded px-3 py-1 text-xs font-medium transition-colors ${
+                  draftMode === "all"
+                    ? "bg-white text-neutral-950"
+                    : "text-neutral-400 hover:text-white"
+                }`}
+              >
+                All
+              </button>
+            </div>
             <button
               type="button"
               disabled={!hasDraftSelections}
@@ -224,16 +319,19 @@ export function FilterPanel({
             </button>
           </div>
 
-          <div className="mt-4">
-            <h3 className="text-xs font-semibold uppercase tracking-wide text-neutral-500">
-              Shelving Status
-            </h3>
+          <div className="mt-6">
+            <FilterSectionHeading
+              label="Shelving Status"
+              disabled={draftShelving.size === 0}
+              onClear={() => setDraftShelving(new Set())}
+            />
             <div className="mt-2 flex flex-col gap-0.5">
               {OWNERSHIP_ORDER.map((status) => {
                 const meta = OWNERSHIP_META[status];
                 return (
-                  <FilterCheckboxRow
+                  <FilterSelectableRow
                     key={status}
+                    variant={draftMode === "all" ? "radio" : "checkbox"}
                     selected={draftShelving.has(status)}
                     onToggle={() => toggleShelving(status)}
                     icon={<img src={meta.iconUrl} alt="" className="h-3 w-3 shrink-0" />}
@@ -245,15 +343,18 @@ export function FilterPanel({
           </div>
 
           <div className="mt-6">
-            <h3 className="text-xs font-semibold uppercase tracking-wide text-neutral-500">
-              Reading Status
-            </h3>
+            <FilterSectionHeading
+              label="Reading Status"
+              disabled={draftReading.size === 0}
+              onClear={() => setDraftReading(new Set())}
+            />
             <div className="mt-2 flex flex-col gap-0.5">
               {READING_STATUS_ORDER.map((status) => {
                 const meta = READING_STATUS_META[status];
                 return (
-                  <FilterCheckboxRow
+                  <FilterSelectableRow
                     key={status}
+                    variant={draftMode === "all" ? "radio" : "checkbox"}
                     selected={draftReading.has(status)}
                     onToggle={() => toggleReading(status)}
                     icon={
@@ -270,9 +371,11 @@ export function FilterPanel({
 
           {timelineTags.length > 0 && (
             <div className="mt-6">
-              <h3 className="text-xs font-semibold uppercase tracking-wide text-neutral-500">
-                Tags
-              </h3>
+              <FilterSectionHeading
+                label="Tags"
+                disabled={draftTags.size === 0}
+                onClear={() => setDraftTags(new Set())}
+              />
               <div className="mt-2 flex flex-wrap gap-1.5">
                 {timelineTags.map((tag) => (
                   <FilterTagChip
@@ -299,7 +402,9 @@ export function FilterPanel({
           </button>
           <button
             type="button"
-            onClick={() => closeThen(() => onApply(draftShelving, draftReading, draftTags))}
+            onClick={() =>
+              closeThen(() => onApply(draftMode, draftShelving, draftReading, draftTags))
+            }
             className="flex-1 rounded-md bg-white px-4 py-2 text-sm font-semibold text-neutral-950 hover:bg-neutral-200"
           >
             Apply Filters

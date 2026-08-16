@@ -55,6 +55,15 @@ export const OWNED_STATUSES: ReadonlySet<OwnershipStatus> = new Set([
  */
 export type ReadingStatus = "not_started" | "reading" | "finished" | "paused" | "dropped";
 
+/**
+ * Filter-panel match mode (see FilterPanel.tsx). "any" combines each
+ * facet's checked values with OR; "all" requires every checked value at
+ * once, which is only possible for a multi-valued field like Line.tags --
+ * shelving/reading are single-valued per volume, so "all" restricts those
+ * two facets to a single selection instead.
+ */
+export type FilterMode = "any" | "all";
+
 export interface Collection {
   id: string;
   name: string;

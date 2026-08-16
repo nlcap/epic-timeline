@@ -1,7 +1,15 @@
 import { useCallback, useEffect, useMemo, useRef, useState, type UIEvent } from "react";
 import { COLLECTIONS } from "./data/collections";
 import { COLLECTION_DATA } from "./data/collectionData";
-import type { Line, OwnershipStatus, QuarterPoint, ReadingStatus, TimelineEntry, Volume } from "./types";
+import type {
+  FilterMode,
+  Line,
+  OwnershipStatus,
+  QuarterPoint,
+  ReadingStatus,
+  TimelineEntry,
+  Volume,
+} from "./types";
 import { CollectionBanner } from "./components/CollectionBanner";
 import { TopNav, NAV_HEIGHT } from "./components/TopNav";
 import { TimelineAxis } from "./components/TimelineAxis";
@@ -153,6 +161,13 @@ export default function App() {
   const [shelvingFilter, setShelvingFilter] = useState<Set<OwnershipStatus>>(new Set());
   const [readingFilter, setReadingFilter] = useState<Set<ReadingStatus>>(new Set());
   const [tagFilter, setTagFilter] = useState<Set<string>>(new Set());
+  // How the above facets combine with each other's own multiple checked
+  // values -- "any" (OR) is the default; "all" (AND) is only offered
+  // because Tags is multi-valued per line. A collection switch or "Clear
+  // all filters" resets the facet selections above but deliberately leaves
+  // this alone -- it's a "how do I want to search" preference, not itself
+  // a filter selection.
+  const [filterMode, setFilterMode] = useState<FilterMode>("any");
   const [filterPanelOpen, setFilterPanelOpen] = useState(false);
   // Owned here (not locally in TopNav like Export/Import/Reset/Storage
   // debug) because the "?" global shortcut needs to be able to open it too
@@ -385,13 +400,19 @@ export default function App() {
     if (tagsActive) {
       const tagMatches = new Set<string>();
       for (const line of visibleLines) {
-        if (line.tags?.some((t) => tagFilter.has(t))) tagMatches.add(line.id);
+        // "any" mode: has at least one checked tag. "all" mode: checked
+        // tags must be a subset of the line's own tags.
+        const matches =
+          filterMode === "all"
+            ? [...tagFilter].every((t) => line.tags?.includes(t))
+            : line.tags?.some((t) => tagFilter.has(t));
+        if (matches) tagMatches.add(line.id);
       }
       matchSets.push(tagMatches);
     }
 
     return matchSets.reduce((acc, set) => new Set([...acc].filter((id) => set.has(id))));
-  }, [resolvedEntries, shelvingFilter, readingFilter, tagFilter, visibleLines]);
+  }, [resolvedEntries, shelvingFilter, readingFilter, tagFilter, filterMode, visibleLines]);
 
   // Search filters by line title; the filter panel's facets (above) narrow
   // it further by status. Either, both, or neither can be active at once.
@@ -877,11 +898,13 @@ export default function App() {
 
       {filterPanelOpen && (
         <FilterPanel
+          filterMode={filterMode}
           shelvingFilter={shelvingFilter}
           readingFilter={readingFilter}
           tagFilter={tagFilter}
           timelineTags={timelineTags}
-          onApply={(shelving, reading, tags) => {
+          onApply={(mode, shelving, reading, tags) => {
+            setFilterMode(mode);
             setShelvingFilter(shelving);
             setReadingFilter(reading);
             setTagFilter(tags);
