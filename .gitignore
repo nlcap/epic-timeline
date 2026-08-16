@@ -7,8 +7,3 @@ dist
 *.tsbuildinfo
 vite.config.js
 vite.config.d.ts
-
-# Personal collection data. The app seeds every volume as "announced" and
-# keeps what you own in localStorage instead, so nothing here belongs in the
-# repo -- it's one person's shelf, not project data.
-data-backups/

@@ -14,6 +14,11 @@ Then open the printed local URL. No Supabase project is required to try it
 out -- the app runs on local seed data and stores your ownership-status
 changes in `localStorage` until a backend is wired up.
 
+Every volume seeds as "announced", so a fresh install starts with an empty
+shelf. To see the timeline with a collection behind it, load
+`sample-data/ownership-overrides.json` -- see `sample-data/README.md` for the
+one-liner.
+
 To connect Supabase later: create a project, copy `.env.example` to
 `.env.local`, fill in `VITE_SUPABASE_URL` and `VITE_SUPABASE_ANON_KEY`, and
 replace the `TODO`s in `src/hooks/useOwnership.ts` with real reads/writes
