@@ -624,6 +624,7 @@ export default function App() {
       onToggleSpeculationMode: toggleSpeculationMode,
       onShowShortcuts: () => setShortcutsOpen(true),
     },
+    COLLECTIONS.length,
     !overlaysOpen
   );
 

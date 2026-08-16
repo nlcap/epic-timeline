@@ -1,15 +1,13 @@
 import { SettingsModal } from "./SettingsModal";
+import { COLLECTIONS } from "../data/collections";
+import { globalShortcutHelp } from "../hooks/useGlobalShortcuts";
 
-const GLOBAL_SHORTCUTS: { keys: string; label: string }[] = [
-  { keys: "/", label: "Focus the search box" },
-  { keys: "F", label: "Open filters" },
-  { keys: "N", label: "Add a line" },
-  { keys: "1 – 5", label: "Jump to a collection tab" },
-  { keys: "+ / -", label: "Zoom in / out" },
-  { keys: "S", label: "Toggle Speculation Mode" },
-  { keys: "?", label: "Show this cheat sheet" },
-];
+const GLOBAL_SHORTCUTS = globalShortcutHelp(COLLECTIONS.length);
 
+/** Unlike the global list above, these aren't one hook's doing -- Escape
+ * comes from useEscapeToClose, Cmd/Ctrl+Enter from each form drawer's and
+ * FilterPanel's own submit listener, and "E" from VolumeDetailPanel -- so
+ * there's no single definition to derive them from. */
 const PANEL_SHORTCUTS: { keys: string; label: string }[] = [
   { keys: "Esc", label: "Close the open panel" },
   { keys: "⌘/Ctrl Enter", label: "Save, or apply filters" },

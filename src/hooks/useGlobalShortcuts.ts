@@ -1,12 +1,35 @@
 import { useEffect, useRef } from "react";
 import { isTypingTarget } from "../lib/keyboard";
 
+/**
+ * The cheat sheet's "Anywhere" rows (see KeyboardShortcutsModal), built from
+ * the same collection count the "1".."N" handler below uses.
+ *
+ * Lives here, next to the switch it documents, because it's a hand-written
+ * mirror of it: as two separate lists they could drift silently, and did --
+ * "=" as an alias for zoom-in was never listed, and the range was hardcoded
+ * to "1 - 5" so a sixth collection would have shipped an undocumented
+ * (and, before this, entirely dead) key.
+ */
+export function globalShortcutHelp(collectionCount: number): { keys: string; label: string }[] {
+  return [
+    { keys: "/", label: "Focus the search box" },
+    { keys: "F", label: "Open filters" },
+    { keys: "N", label: "Add a line" },
+    { keys: `1 – ${collectionCount}`, label: "Jump to a collection tab" },
+    { keys: "+ / =", label: "Zoom in" },
+    { keys: "-", label: "Zoom out" },
+    { keys: "S", label: "Toggle Speculation Mode" },
+    { keys: "?", label: "Show this cheat sheet" },
+  ];
+}
+
 interface GlobalShortcutHandlers {
   onFocusSearch: () => void;
   onOpenFilters: () => void;
   onAddLine: () => void;
-  /** 1-indexed, matching the "1".."5" keys to the nav's collection order
-   * left to right -- App.tsx maps this to COLLECTIONS[index - 1]. */
+  /** 1-indexed, matching the number keys to the nav's collection order left
+   * to right -- App.tsx maps this to COLLECTIONS[index - 1]. */
   onSelectCollection: (oneBasedIndex: number) => void;
   onZoomIn: () => void;
   onZoomOut: () => void;
@@ -36,7 +59,14 @@ interface GlobalShortcutHandlers {
  * open, so those live locally in that panel instead (see useEscapeToClose
  * and each form drawer/FilterPanel's own submit-on-Cmd+Enter listener).
  */
-export function useGlobalShortcuts(handlers: GlobalShortcutHandlers, enabled = true) {
+export function useGlobalShortcuts(
+  handlers: GlobalShortcutHandlers,
+  /** How many number keys map to collection tabs -- App passes
+   * COLLECTIONS.length so adding a sixth collection wires up "6" and
+   * relabels the cheat sheet without touching this file. */
+  collectionCount: number,
+  enabled = true
+) {
   // Every handler App.tsx passes is an inline arrow, so the old
   // eight-entry dependency array changed identity on literally every
   // render -- tearing down and re-adding the window listener each time,
@@ -53,9 +83,13 @@ export function useGlobalShortcuts(handlers: GlobalShortcutHandlers, enabled = t
       if (isTypingTarget(e.target)) return;
       const h = handlersRef.current;
 
-      if (e.key >= "1" && e.key <= "5") {
+      // Number.isInteger rather than a "1" <= key <= "9" string comparison,
+      // so this can't be fooled by a multi-character key name that happens
+      // to sort into the range.
+      const digit = Number(e.key);
+      if (Number.isInteger(digit) && digit >= 1 && digit <= collectionCount) {
         e.preventDefault();
-        h.onSelectCollection(Number(e.key));
+        h.onSelectCollection(digit);
         return;
       }
 
@@ -93,5 +127,5 @@ export function useGlobalShortcuts(handlers: GlobalShortcutHandlers, enabled = t
     };
     window.addEventListener("keydown", onKeyDown);
     return () => window.removeEventListener("keydown", onKeyDown);
-  }, [enabled]);
+  }, [enabled, collectionCount]);
 }
