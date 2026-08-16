@@ -58,10 +58,12 @@ export function VolumeDetailPanel({
 
   const formattedDescription = formatLineBreaks(volume.description);
 
-  // Either credit can be missing (the Star Wars sub-lines have neither), so
-  // the separators are joined rather than hardcoded -- otherwise a volume
-  // with no credits trails a stray bullet after the years.
-  const credits = [volume.writers, volume.artists].filter(Boolean).join(" • ");
+  // Credits read as lead-in phrases ("Written by ...") rather than labelled
+  // fields, following the "Collects ..." line below the description -- though
+  // unlike that line they're set roman, not italic. Either can be missing --
+  // the Star Wars sub-lines have neither -- so each renders independently and
+  // the block disappears entirely when both are absent.
+  const hasCredits = !!(volume.writers || volume.artists);
 
   return (
     <div
@@ -122,9 +124,7 @@ export function VolumeDetailPanel({
 
         <h2 className="mt-4 text-xl font-bold text-white">{volume.title}</h2>
         <p className="text-sm italic text-neutral-300">
-          {[`Vol. ${volumeBadgeText(volume)}, ${volume.yearsCovered}`, credits]
-            .filter(Boolean)
-            .join(" • ")}
+          Vol. {volumeBadgeText(volume)}, {volume.yearsCovered}
         </p>
         {volume.releaseDate && (
           <p className="mt-1 text-xs text-neutral-400">
@@ -157,6 +157,13 @@ export function VolumeDetailPanel({
                 ),
               }))}
             />
+          </div>
+        )}
+
+        {hasCredits && (
+          <div className="mt-4 text-sm text-neutral-400">
+            {volume.writers && <p>Written by {volume.writers}</p>}
+            {volume.artists && <p>Art by {volume.artists}</p>}
           </div>
         )}
 
