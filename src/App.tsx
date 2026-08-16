@@ -36,6 +36,8 @@ import { useVisibleRowRange } from "./hooks/useVisibleRowRange";
 import { useAddVolumeCellHover } from "./hooks/useAddVolumeCellHover";
 import { useGlobalShortcuts } from "./hooks/useGlobalShortcuts";
 import { useOverlaysOpen } from "./hooks/useOverlay";
+import { useTimelineFilters } from "./hooks/useTimelineFilters";
+import { volumeMatchesStatusFilters } from "./lib/filters";
 import { hexToRgba, SPECULATION_ACCENT_HEX } from "./lib/color";
 import { safeSetItem } from "./lib/storage";
 import { useEraBarCollapseProgress } from "./hooks/useEraBarCollapseProgress";
@@ -86,33 +88,6 @@ function loadStoredCollectionId(): string {
     // Storage unavailable (e.g. private browsing) -- fall through to default.
   }
   return COLLECTIONS[0].id;
-}
-
-/**
- * Whether a volume matches every currently-active filter-panel facet (see
- * FilterPanel.tsx) -- an empty facet doesn't restrict anything, so a
- * volume only needs to satisfy the facets that actually have a selection.
- * Shared by statusFilteredLineIds (which decides whether a line has a
- * matching volume at all) and entriesByLine (which decides which of that
- * line's volume tiles actually render) so the two can't disagree about
- * what counts as a match -- e.g. one volume Ordered-but-not-Finished and a
- * different volume Finished-but-not-Ordered must NOT combine to make a
- * line pass an "Ordered AND Finished" filter, since no single volume of
- * it actually satisfies both.
- */
-function volumeMatchesStatusFilters(
-  volume: Volume,
-  shelvingFilter: ReadonlySet<OwnershipStatus>,
-  readingFilter: ReadonlySet<ReadingStatus>
-): boolean {
-  if (shelvingFilter.size > 0 && !shelvingFilter.has(volume.ownershipStatus)) return false;
-  if (
-    readingFilter.size > 0 &&
-    !(volume.readingStatus !== undefined && readingFilter.has(volume.readingStatus))
-  ) {
-    return false;
-  }
-  return true;
 }
 
 export default function App() {
@@ -373,82 +348,22 @@ export default function App() {
     );
   }, [data, resolveEntries, lines, getStatus, getReadingStatus]);
 
-  // Nav filter panel's facets (see FilterPanel.tsx). Shelving/reading match
-  // at the volume level -- a line passes that pair if it has at least one
-  // volume matching every active one of them at once (see
-  // volumeMatchesStatusFilters). Tags live on the line itself, not a
-  // volume, so that facet is checked separately against Line.tags and
-  // intersected in afterward. null means no facet is active at all, i.e.
-  // don't restrict searchFilteredLines below.
-  const statusFilteredLineIds = useMemo(() => {
-    const shelvingOrReadingActive = shelvingFilter.size > 0 || readingFilter.size > 0;
-    const tagsActive = tagFilter.size > 0;
-    if (!shelvingOrReadingActive && !tagsActive) return null;
-
-    const matchSets: Set<string>[] = [];
-    if (shelvingOrReadingActive) {
-      const volumeMatches = new Set<string>();
-      for (const entry of resolvedEntries) {
-        if (
-          entry.kind === "volume" &&
-          volumeMatchesStatusFilters(entry, shelvingFilter, readingFilter)
-        ) {
-          volumeMatches.add(entry.lineId);
-        }
-      }
-      // Speculative lines pass this facet unconditionally, matching the
-      // exemption entriesByLine already gives speculative *volumes* below:
-      // neither carries a shelving or reading status to be judged on. Only
-      // official volumes are scanned above, so without this a speculative
-      // line -- which by definition has no official volumes -- could never
-      // land in volumeMatches, and the entire speculative layer silently
-      // vanished the moment any status facet was checked. The tag facet
-      // still applies to them normally; tags live on the line itself, and
-      // speculative lines do carry them.
-      if (speculationMode) {
-        for (const id of speculativeLineIdSet) volumeMatches.add(id);
-      }
-      matchSets.push(volumeMatches);
-    }
-    if (tagsActive) {
-      const tagMatches = new Set<string>();
-      for (const line of visibleLines) {
-        // "any" mode: has at least one checked tag. "all" mode: checked
-        // tags must be a subset of the line's own tags.
-        const matches =
-          filterMode === "all"
-            ? [...tagFilter].every((t) => line.tags?.includes(t))
-            : line.tags?.some((t) => tagFilter.has(t));
-        if (matches) tagMatches.add(line.id);
-      }
-      matchSets.push(tagMatches);
-    }
-
-    return matchSets.reduce((acc, set) => new Set([...acc].filter((id) => set.has(id))));
-  }, [
-    resolvedEntries,
+  // Nav search box + filter panel, resolved down to the lines actually on
+  // screen -- see lib/filters.ts for the matching rules themselves. This
+  // decides which lines survive; entriesByLine below independently decides
+  // which of a surviving line's volume tiles render, sharing
+  // volumeMatchesStatusFilters with it so the two can't disagree.
+  const searchFilteredLines = useTimelineFilters({
+    lines: visibleLines,
+    entries: resolvedEntries,
+    searchQuery,
     shelvingFilter,
     readingFilter,
     tagFilter,
     filterMode,
-    visibleLines,
     speculationMode,
-    speculativeLineIdSet,
-  ]);
-
-  // Search filters by line title; the filter panel's facets (above) narrow
-  // it further by status. Either, both, or neither can be active at once.
-  const searchFilteredLines = useMemo(() => {
-    const query = searchQuery.trim().toLowerCase();
-    let result = visibleLines;
-    if (query.length >= 1) {
-      result = result.filter((l) => l.name.toLowerCase().includes(query));
-    }
-    if (statusFilteredLineIds) {
-      result = result.filter((l) => statusFilteredLineIds.has(l.id));
-    }
-    return result;
-  }, [visibleLines, searchQuery, statusFilteredLineIds]);
+    speculativeLineIds: speculativeLineIdSet,
+  });
 
   const sidebarWidth = useSidebarWidth(searchFilteredLines);
   // Volume stepper (see VolumeStepper.tsx): the sidebar column's actual
