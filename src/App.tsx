@@ -37,7 +37,7 @@ import { useAddVolumeCellHover } from "./hooks/useAddVolumeCellHover";
 import { useGlobalShortcuts } from "./hooks/useGlobalShortcuts";
 import { useOverlaysOpen } from "./hooks/useOverlay";
 import { useTimelineFilters } from "./hooks/useTimelineFilters";
-import { volumeMatchesStatusFilters } from "./lib/filters";
+import { volumeMatchesStatusFilters, volumeVisibleUnderSearch } from "./lib/filters";
 import { hexToRgba, SPECULATION_ACCENT_HEX } from "./lib/color";
 import { safeSetItem } from "./lib/storage";
 import { useEraBarCollapseProgress } from "./hooks/useEraBarCollapseProgress";
@@ -348,14 +348,45 @@ export default function App() {
     );
   }, [data, resolveEntries, lines, getStatus, getReadingStatus]);
 
+  // Speculative volumes can be added to an official line too (speculating
+  // about a future volume on an existing line, not just a brand-new one),
+  // so this needs every line in the collection, not just speculative ones.
+  const allLineIds = useMemo(
+    () => new Set([...lines, ...speculativeLines].map((l) => l.id)),
+    [lines, speculativeLines]
+  );
+
+  // Speculative volumes don't track ownership or reading status -- no
+  // getStatus/getReadingStatus overlay.
+  const speculativeResolvedEntries = useMemo(
+    () => resolveSpeculativeEntries(allLineIds),
+    [resolveSpeculativeEntries, allLineIds]
+  );
+  const speculativeVolumeIds = useMemo(
+    () => new Set(speculativeResolvedEntries.map((e) => e.id)),
+    [speculativeResolvedEntries]
+  );
+
+  // Everything the search box reads. Unlike the status facets -- which
+  // speculative content is exempt from, having no status to match -- a
+  // speculative volume's title/credits/description are ordinary text and
+  // should turn up like any other.
+  const searchableEntries = useMemo(
+    () =>
+      speculationMode ? [...resolvedEntries, ...speculativeResolvedEntries] : resolvedEntries,
+    [speculationMode, resolvedEntries, speculativeResolvedEntries]
+  );
+
   // Nav search box + filter panel, resolved down to the lines actually on
   // screen -- see lib/filters.ts for the matching rules themselves. This
   // decides which lines survive; entriesByLine below independently decides
   // which of a surviving line's volume tiles render, sharing
-  // volumeMatchesStatusFilters with it so the two can't disagree.
-  const searchFilteredLines = useTimelineFilters({
+  // volumeMatchesStatusFilters and the same `search` with it so the two
+  // can't disagree.
+  const { lines: searchFilteredLines, search } = useTimelineFilters({
     lines: visibleLines,
     entries: resolvedEntries,
+    searchEntries: searchableEntries,
     searchQuery,
     shelvingFilter,
     readingFilter,
@@ -386,30 +417,9 @@ export default function App() {
     activeCollectionId
   );
 
-  // Speculative volumes can be added to an official line too (speculating
-  // about a future volume on an existing line, not just a brand-new one),
-  // so this needs every line in the collection, not just speculative ones.
-  const allLineIds = useMemo(
-    () => new Set([...lines, ...speculativeLines].map((l) => l.id)),
-    [lines, speculativeLines]
-  );
-
-  // Speculative volumes don't track ownership or reading status -- no
-  // getStatus/getReadingStatus overlay.
-  const speculativeResolvedEntries = useMemo(
-    () => resolveSpeculativeEntries(allLineIds),
-    [resolveSpeculativeEntries, allLineIds]
-  );
-  const speculativeVolumeIds = useMemo(
-    () => new Set(speculativeResolvedEntries.map((e) => e.id)),
-    [speculativeResolvedEntries]
-  );
-
   const entriesByLine = useMemo(() => {
     const map = new Map<string, TimelineEntry[]>();
-    const combined = speculationMode
-      ? [...resolvedEntries, ...speculativeResolvedEntries]
-      : resolvedEntries;
+    const combined = searchableEntries;
     // Deliberately NOT the component-level `filtersActive` above, which also
     // counts tagFilter -- tags are a line-level facet, so they hide whole
     // lines (via statusFilteredLineIds) rather than individual volume tiles
@@ -432,6 +442,12 @@ export default function App() {
       ) {
         continue;
       }
+      // The nav search narrows tiles the same way, one rung down: a line
+      // that survived on its own name keeps everything, while one that only
+      // surfaced through a volume of it keeps just the volumes that matched.
+      if (entry.kind === "volume" && !volumeVisibleUnderSearch(entry, search)) {
+        continue;
+      }
       const list = map.get(entry.lineId) ?? [];
       list.push(entry);
       map.set(entry.lineId, list);
@@ -444,14 +460,7 @@ export default function App() {
       });
     }
     return map;
-  }, [
-    resolvedEntries,
-    speculativeResolvedEntries,
-    speculationMode,
-    shelvingFilter,
-    readingFilter,
-    speculativeVolumeIds,
-  ]);
+  }, [searchableEntries, shelvingFilter, readingFilter, speculativeVolumeIds, search]);
 
   // Scoped to searchFilteredLines (not every line in the collection) so a
   // nav search trims the axis down to just the matching lines' own

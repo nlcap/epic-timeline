@@ -4,7 +4,10 @@ import {
   filterLines,
   lineMatchesTagFilter,
   matchingLineIds,
+  searchMatches,
+  volumeMatchesSearch,
   volumeMatchesStatusFilters,
+  volumeVisibleUnderSearch,
 } from "./filters";
 
 function line(id: string, name: string, tags?: string[]): Line {
@@ -161,20 +164,114 @@ describe("matchingLineIds", () => {
   });
 });
 
+/** A volume carrying searchable text, on top of the status-only `volume`. */
+function textVolume(id: string, lineId: string, fields: Partial<Volume>): Volume {
+  return { ...volume(id, lineId, "announced"), ...fields };
+}
+
+describe("volumeMatchesSearch", () => {
+  const v = textVolume("v", "l", {
+    title: "Great Power",
+    writers: "Stan Lee",
+    artists: "Steve Ditko",
+    issuesCollected: "Amazing Spider-Man #1-17",
+    description: "The foundation of the Marvel Universe.",
+  });
+
+  it("matches on every searchable field", () => {
+    for (const q of ["great power", "stan lee", "ditko", "#1-17", "foundation"]) {
+      expect(volumeMatchesSearch(v, q)).toBe(true);
+    }
+  });
+
+  it("does not match text absent from every field", () => {
+    expect(volumeMatchesSearch(v, "kirby")).toBe(false);
+  });
+
+  it("tolerates volumes missing the optional credit fields", () => {
+    const bare = textVolume("b", "l", { writers: undefined, artists: undefined });
+    expect(() => volumeMatchesSearch(bare, "lee")).not.toThrow();
+    expect(volumeMatchesSearch(bare, "lee")).toBe(false);
+  });
+});
+
+describe("searchMatches", () => {
+  const lines = [line("a", "Amazing Spider-Man"), line("b", "Fantastic Four")];
+  const entries = [
+    textVolume("a1", "a", { title: "Great Power", writers: "Stan Lee" }),
+    textVolume("a2", "a", { title: "Great Responsibility", writers: "Stan Lee" }),
+    textVolume("b1", "b", { title: "The Coming of Galactus", artists: "Jack Kirby" }),
+  ];
+
+  it("returns null for an empty or whitespace query", () => {
+    expect(searchMatches({ query: "", lines, entries })).toBeNull();
+    expect(searchMatches({ query: "   ", lines, entries })).toBeNull();
+  });
+
+  it("matches lines by name and keeps them whole", () => {
+    const m = searchMatches({ query: "spider-man", lines, entries })!;
+    expect([...m.lineIds]).toEqual(["a"]);
+    expect([...m.nameMatchedLineIds]).toEqual(["a"]);
+    // No volume of it needs to have matched for the line to stay whole.
+    expect(m.volumeIds.size).toBe(0);
+  });
+
+  it("surfaces a line through its volumes' text", () => {
+    const m = searchMatches({ query: "kirby", lines, entries })!;
+    expect([...m.lineIds]).toEqual(["b"]);
+    expect(m.nameMatchedLineIds.size).toBe(0);
+    expect([...m.volumeIds]).toEqual(["b1"]);
+  });
+
+  it("unions the two routes when a query hits both", () => {
+    const m = searchMatches({ query: "great", lines, entries })!;
+    expect([...m.volumeIds]).toEqual(["a1", "a2"]);
+    expect([...m.lineIds]).toEqual(["a"]);
+  });
+});
+
+describe("volumeVisibleUnderSearch", () => {
+  const lines = [line("a", "Amazing Spider-Man")];
+  const entries = [
+    textVolume("a1", "a", { title: "Great Power", writers: "Stan Lee" }),
+    textVolume("a2", "a", { title: "Nothing Alike", writers: "Gerry Conway" }),
+  ];
+
+  it("keeps every volume with no search running", () => {
+    expect(volumeVisibleUnderSearch(entries[0], null)).toBe(true);
+    expect(volumeVisibleUnderSearch(entries[1], null)).toBe(true);
+  });
+
+  it("keeps every volume of a line that matched by name", () => {
+    const m = searchMatches({ query: "spider-man", lines, entries })!;
+    expect(volumeVisibleUnderSearch(entries[0], m)).toBe(true);
+    expect(volumeVisibleUnderSearch(entries[1], m)).toBe(true);
+  });
+
+  it("keeps only the matching volumes when the line itself did not match", () => {
+    const m = searchMatches({ query: "stan lee", lines, entries })!;
+    expect(volumeVisibleUnderSearch(entries[0], m)).toBe(true);
+    expect(volumeVisibleUnderSearch(entries[1], m)).toBe(false);
+  });
+});
+
 describe("filterLines", () => {
   const lines = [line("a", "Ultimate Spider-Man"), line("b", "Ultimate X-Men"), line("c", "Thor")];
+  const search = (query: string) => searchMatches({ query, lines, entries: [] });
 
   it("returns the same array reference when nothing filters", () => {
-    expect(filterLines(lines, "", null)).toBe(lines);
-    expect(filterLines(lines, "   ", null)).toBe(lines);
+    expect(filterLines(lines, null, null)).toBe(lines);
+    expect(filterLines(lines, search("   "), null)).toBe(lines);
   });
 
   it("matches the search query case-insensitively anywhere in the title", () => {
-    expect(filterLines(lines, "ULTIMATE", null).map((l) => l.id)).toEqual(["a", "b"]);
-    expect(filterLines(lines, "x-men", null).map((l) => l.id)).toEqual(["b"]);
+    expect(filterLines(lines, search("ULTIMATE"), null).map((l) => l.id)).toEqual(["a", "b"]);
+    expect(filterLines(lines, search("x-men"), null).map((l) => l.id)).toEqual(["b"]);
   });
 
   it("intersects the search query with the facet-matched ids", () => {
-    expect(filterLines(lines, "ultimate", new Set(["b", "c"])).map((l) => l.id)).toEqual(["b"]);
+    expect(filterLines(lines, search("ultimate"), new Set(["b", "c"])).map((l) => l.id)).toEqual([
+      "b",
+    ]);
   });
 });

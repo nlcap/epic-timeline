@@ -125,22 +125,112 @@ export function matchingLineIds({
 }
 
 /**
- * Narrows lines by the nav search box (case-insensitive substring of the
- * line title) and then by the filter panel's already-resolved line ids.
- * Either, both, or neither can be active at once.
+ * The volume fields the nav search reads, in rough order of how likely a
+ * query is to hit them -- `some` short-circuits, and description is both the
+ * longest and the least likely to be what someone typed at.
+ */
+function volumeSearchFields(volume: Volume): (string | undefined)[] {
+  return [
+    volume.title,
+    volume.writers,
+    volume.artists,
+    volume.issuesCollected,
+    volume.description,
+  ];
+}
+
+/** `query` must already be trimmed and lower-cased -- see searchMatches. */
+export function volumeMatchesSearch(volume: Volume, query: string): boolean {
+  return volumeSearchFields(volume).some((field) => field?.toLowerCase().includes(query));
+}
+
+/**
+ * What a nav search query matches, or null when the box is empty (which
+ * restricts nothing).
+ *
+ * A line survives on either its own name or any of its volumes, but the two
+ * mean different things on screen, so they're tracked apart:
+ *
+ * - Name match ("batman") is about the whole line, so every volume of it
+ *   stays -- narrowing to volumes that happen to repeat the line's name in
+ *   their own text would hide most of the run for no good reason.
+ * - Volume match ("kirby") is about those volumes specifically, so the line
+ *   comes back trimmed to just them -- the same "clear out what didn't
+ *   match" behavior the shelving/reading facets already have at tile level.
+ *
+ * A line can be in both sets; name match wins, since it's the broader claim.
+ */
+export interface SearchMatch {
+  /** Lines whose own name matched -- these keep every volume. */
+  nameMatchedLineIds: Set<string>;
+  /** Volumes that matched on their own text. */
+  volumeIds: Set<string>;
+  /** Every line the query turned up, by either route. */
+  lineIds: Set<string>;
+}
+
+export function searchMatches({
+  query,
+  lines,
+  entries,
+}: {
+  query: string;
+  lines: readonly Line[];
+  /** Everything on the timeline the search should see -- official plus, when
+   * Speculation Mode is on, speculative entries. */
+  entries: readonly TimelineEntry[];
+}): SearchMatch | null {
+  const q = query.trim().toLowerCase();
+  if (!q) return null;
+
+  const nameMatchedLineIds = new Set<string>();
+  for (const line of lines) {
+    if (line.name.toLowerCase().includes(q)) nameMatchedLineIds.add(line.id);
+  }
+
+  const volumeIds = new Set<string>();
+  const lineIds = new Set(nameMatchedLineIds);
+  for (const entry of entries) {
+    if (entry.kind !== "volume") continue;
+    if (!volumeMatchesSearch(entry, q)) continue;
+    volumeIds.add(entry.id);
+    lineIds.add(entry.lineId);
+  }
+
+  return { nameMatchedLineIds, volumeIds, lineIds };
+}
+
+/**
+ * Whether a volume tile still renders under an active search. Lines that
+ * matched by name keep everything; lines that only matched through their
+ * volumes keep just those. Gaps and notes aren't volumes and never reach
+ * this -- they ride along with whatever line survived, same as they do
+ * under the status facets.
+ */
+export function volumeVisibleUnderSearch(
+  volume: Volume,
+  search: SearchMatch | null
+): boolean {
+  if (!search) return true;
+  if (search.nameMatchedLineIds.has(volume.lineId)) return true;
+  return search.volumeIds.has(volume.id);
+}
+
+/**
+ * Narrows lines by the nav search box and then by the filter panel's
+ * already-resolved line ids. Either, both, or neither can be active at once.
  */
 export function filterLines(
   lines: Line[],
-  searchQuery: string,
+  search: SearchMatch | null,
   matchedLineIds: ReadonlySet<string> | null
 ): Line[] {
-  const query = searchQuery.trim().toLowerCase();
   // Deliberately not a defensive copy -- with neither filter active this
   // hands back the very same array, so the caller's memo keeps a stable
   // reference for the (common) unfiltered case.
   let result = lines;
-  if (query.length >= 1) {
-    result = result.filter((line) => line.name.toLowerCase().includes(query));
+  if (search) {
+    result = result.filter((line) => search.lineIds.has(line.id));
   }
   if (matchedLineIds) {
     result = result.filter((line) => matchedLineIds.has(line.id));
