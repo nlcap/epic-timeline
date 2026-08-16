@@ -427,13 +427,21 @@ export default function App() {
     // the same value.
     const volumeFacetsActive = shelvingFilter.size > 0 || readingFilter.size > 0;
     for (const entry of combined) {
+      // A gap says "nothing was published across this stretch", which is only
+      // true of the line's full run. Once anything is narrowing the tiles,
+      // what's left is a subset, and a gap spanning the volumes that got
+      // filtered out would be claiming a hole that isn't there -- so gaps sit
+      // out any filtered view and come back when it's cleared.
+      if (entry.kind === "gap" && (volumeFacetsActive || search)) {
+        continue;
+      }
       // Filter panel's facets (see statusFilteredLineIds above, which hides
       // a line entirely once none of its volumes match) also hide individual
       // non-matching volume tiles within a line that does still have a
       // match -- same "clear it out" behavior as the text search, just at
-      // volume instead of line granularity. Gaps/notes and speculative
-      // volumes (which don't track either status -- see VolumeDetailPanel)
-      // always pass through untouched.
+      // volume instead of line granularity. Notes and speculative volumes
+      // (which don't track either status -- see VolumeDetailPanel) always
+      // pass through untouched.
       if (
         volumeFacetsActive &&
         entry.kind === "volume" &&
