@@ -37,9 +37,14 @@ function marvelIcon(filename: string): string {
 // Iron Fist, Thunderbolts, X-Factor, X-Force) fall back to that book's own
 // launch date -- see FALLBACK comments below.
 //
-// Ownership: sheet has separate Own/Digi/Omni/Read checkboxes. Own -> shelved,
-// Digi or Omni (owned in another format, no physical Epic Collection) ->
-// alt_format, otherwise announced. Read wasn't imported (same call as DC Finest).
+// Ownership: every volume seeds as "announced" -- the seed describes what
+// Marvel has published, not what anyone owns. It used to carry Nick's own
+// shelving (imported from the sheet's Own/Digi/Omni checkboxes), but that
+// shipped one person's collection to every user; a reader starts from a
+// clean slate now and tracks their own. Their changes live in localStorage
+// as absolute values (see useStatusOverrides), so nothing here overwrites
+// what they've already set. The old values are in
+// data-backups/ownership-snapshot-2026-08-16.json.
 //
 // creators/description aren't in the source spreadsheet -- most have been
 // filled in since, but a handful are still blank (same known-gap treatment as
@@ -447,7 +452,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "The tragic origin that started it all, plus the first appearances of the Daily Bugle and J. Jonah Jameson, and the debuts of the Green Goblin, Doctor Octopus, the Sandman, the Vulture, and Electro.",
     coverUrl: "https://m.media-amazon.com/images/I/81q1x5ASYoL._SL1500_.jpg",
-    ownershipStatus: "alt_format",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -465,7 +470,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "Gwen Stacy's first appearance, Peter's high-school graduation, landmark battles with the Green Goblin, and a team-up with Doctor Strange, capped by the harrowing Master Planner saga.",
     coverUrl: "https://m.media-amazon.com/images/I/81QS4LiSAGL._SL1500_.jpg",
-    ownershipStatus: "alt_format",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -483,7 +488,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "John Romita Sr. joins as artist, opening with a Green Goblin epic and bringing the Rhino, the Shocker, Kraven the Hunter, an all-new Vulture, and the first appearances of the Kingpin and Mary Jane Watson.",
     coverUrl: "https://m.media-amazon.com/images/I/91A0isJMV-L._SL1500_.jpg",
-    ownershipStatus: "alt_format",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -501,7 +506,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "Norman Osborn regains his memory and the Green Goblin returns for a 58-page magazine showdown -- Spider-Man's most dangerous foe, and the only villain to know he's Peter Parker.",
     coverUrl: "https://m.media-amazon.com/images/I/81rzW0AF5BL._SL1500_.jpg",
-    ownershipStatus: "alt_format",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -519,7 +524,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "Two crime lords race to decode an ancient tablet's secrets, the Prowler debuts, the Black Widow gets her spy gear, and the origin of Peter's parents is revealed.",
     coverUrl: "https://m.media-amazon.com/images/I/81aNBRoxj6L._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -537,7 +542,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "Gwen Stacy's father becomes collateral damage in a battle between Spider-Man and Doctor Octopus, forever changing Peter's life, while Norman Osborn spirals into addiction as the Green Goblin's shadow looms.",
     coverUrl: "https://m.media-amazon.com/images/I/81ZRB4K3i3L._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -555,7 +560,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "The Gibbon debuts and old foes return, building to \"The Night Gwen Stacy Died\" -- the loss that ends the original Green Goblin's reign and defines a generation of Spider-Man stories.",
     coverUrl: "https://m.media-amazon.com/images/I/911xmFWgixL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -573,7 +578,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "Col. John Jameson is cursed as the Man-Wolf, Harry Osborn spirals toward his own green costume, the Punisher makes his debut, and Aunt May shocks everyone by marrying Doctor Octopus.",
     coverUrl: "https://m.media-amazon.com/images/I/81jpFptB-dL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -591,7 +596,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "The Jackal clones both Gwen Stacy and Spider-Man in one of Spidey's greatest personal tragedies, as Doc Ock returns with the ghost of Hammerhead and Peter and MJ share their first kiss.",
     coverUrl: "https://m.media-amazon.com/images/I/81bY-JIWqCL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -609,7 +614,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "J. Jonah Jameson gets proof Peter Parker is Spider-Man, dinosaurs battle the Lizard on Broadway, the Green Goblin rides again, and Peter proposes to Mary Jane.",
     coverUrl: "https://m.media-amazon.com/images/I/81mQixP55tL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -627,7 +632,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "Spidey swings toward his historic 200th issue as Aunt May hangs on by a thread, Felicia Hardy debuts as the Black Cat, and a gang war forces an uneasy team-up with the Punisher.",
     coverUrl: "https://m.media-amazon.com/images/I/81MFTw49c5L._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -645,7 +650,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "Dennis O'Neil and John Romita Jr. debut on the title with Madame Web's first appearance, a marathon-day assassination plot, and two Frank Miller-drawn Annuals co-starring Doctor Strange and the Punisher.",
     coverUrl: "https://m.media-amazon.com/images/I/91wcC7iRJoL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -663,7 +668,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "Roger Stern and John Romita Jr. begin one of Spider-Man's greatest eras, introducing the Hobgoblin and Monica Rambeau/Captain Marvel while delivering the definitive Juggernaut showdown.",
     coverUrl: "https://m.media-amazon.com/images/I/91neQSL5WaL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -681,7 +686,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "The Hobgoblin returns hunting Norman Osborn's journals, Spidey battles the symbiote costume, Silver Sable and Slyde debut, and Mary Jane reveals the secrets of her childhood.",
     coverUrl: "https://m.media-amazon.com/images/I/91kcohOTWZL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -699,7 +704,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "An all-time-classic Wolverine encounter changes Spidey's life, leading into Kraven's Last Hunt -- one of comics' most psychological sagas, as Kraven goes to extreme lengths to prove himself superior before Peter and MJ's wedding.",
     coverUrl: "https://m.media-amazon.com/images/I/91w1T5hdErL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -717,7 +722,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "Eddie Brock and the alien costume combine their mutual hatred of Spider-Man to become Venom, as Spidey returns to the classic red-and-blue and Speedball makes his heroic debut.",
     coverUrl: "https://m.media-amazon.com/images/I/81vkQionFoL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -735,7 +740,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "David Michelinie and Todd McFarlane's fan-favorite run rolls on with a Venom rematch, the demonic threat of Inferno, and international espionage in the Assassin Nation Plot alongside Silver Sable and Captain America.",
     coverUrl: "https://m.media-amazon.com/images/I/91ezDVHd-VL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -753,7 +758,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "A science experiment enhances Spider-Man's powers just as a cabal of villains launches unpredictable attacks across his three titles, leading to a Punisher team-up and a shrunken showdown with Psycho-Man.",
     coverUrl: "https://m.media-amazon.com/images/I/71IPSk4y9BL._SL1400_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -771,7 +776,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "Doctor Octopus reassembles the Sinister Six, and after defeating them Peter's sense of responsibility drives him to give up his powers, while a Scottish honeymoon with Mary Jane turns into a haunted second one.",
     coverUrl: "https://m.media-amazon.com/images/I/91zhsHJdqGL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -789,7 +794,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "Spidey teams with Nova against the Tri-Sentinel before the guest-star-packed Round Robin story, bookended by three Annuals pitting Spidey, Iron Man, and Black Panther against Ultron, Kingpin, and the Ghost.",
     coverUrl: "https://m.media-amazon.com/images/I/91DHCa3NCTL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -807,7 +812,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "Venom's offspring transforms psychopath Cletus Kasady into Carnage, forcing Peter to make the hardest decision of his life and turn to Venom for help, while the New Warriors join a hunt for the vengeful ghost of Kraven.",
     coverUrl: "https://m.media-amazon.com/images/I/81YsU6dG6CL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -825,7 +830,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "Deadly Spider-Slayer robots attack on sight, Venom stands trial for his crimes, Peter's parents return home under a mysterious watcher's eye, and Spidey duels demons alongside Doctor Strange.",
     coverUrl: "https://m.media-amazon.com/images/I/81U7TEvNQuL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -843,7 +848,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "Carnage assembles an army of Spider-Man's criminally insane foes -- Carrion, Demogoblin, Shriek, and the Doppelganger -- forcing Spidey to recruit Black Cat, Cloak & Dagger, Firestar, Captain America, Iron Fist, Deathlok, and Venom in one of the most iconic Spider-Man stories ever told.",
     coverUrl: "https://m.media-amazon.com/images/I/91rNFxpNtjL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -861,7 +866,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "Mary and Richard Parker's return from the dead proves too good to be true as Peter teeters on the edge, battling the Hulk, the Jury, the Vulture, the Chameleon, Shriek, and Carrion.",
     coverUrl: "https://m.media-amazon.com/images/I/81QQFujFuIL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -879,7 +884,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "Spider-Man's clone is back. Spidey thought Ben Reilly was long dead -- but where has he been for five years, why has he returned, and is he Peter Parker's dark side or his better half?",
     coverUrl: "https://m.media-amazon.com/images/I/81Xx34sV28L._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -897,7 +902,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "With Peter poisoned, his best hope lies in the tentacled arms of Doctor Octopus, but Otto may pay a high price for the mercy. Aunt May fights for her life, Mary Jane drops a bombshell, and Ben Reilly is stalked by the Grim Hunter and the mysterious Kaine.",
     coverUrl: "https://m.media-amazon.com/images/I/91Fa-m4hV+L._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -953,7 +958,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "Henry Pym's earliest adventures as Ant-Man, growing into the size-changing Giant-Man alongside the Wasp.",
     coverUrl: "https://m.media-amazon.com/images/I/81pJCJHPtOL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -971,7 +976,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "Hank Pym's later years as Goliath and Yellowjacket, plus the debuts of Bill Foster as Black Goliath and Scott Lang as the second Ant-Man.",
     coverUrl: "https://m.media-amazon.com/images/I/81dG-dWv4nL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   // --- Avengers ---
   {
@@ -990,7 +995,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "Iron Man, Thor, the Hulk, Ant-Man, and the Wasp band together to stop Loki, with Captain America joining soon after -- the origin of Earth's Mightiest Heroes.",
     coverUrl: "https://m.media-amazon.com/images/I/81RcN5HpztL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -1008,7 +1013,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "The founding Avengers step aside for Captain America's \"Kooky Quartet\" -- Hawkeye, Quicksilver, and the Scarlet Witch -- as the team's roster philosophy is reinvented.",
     coverUrl: "https://m.media-amazon.com/images/I/914OCFSno8L._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -1026,7 +1031,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "Baron Zemo assembles the Masters of Evil against the team, and Hercules and the Black Panther join the Avengers' ranks.",
     coverUrl: "https://m.media-amazon.com/images/I/81jwUwfTCOL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -1044,7 +1049,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "The android Vision debuts and joins the team, forming an unlikely bond with the Scarlet Witch as new threats target the Avengers.",
     coverUrl: "https://m.media-amazon.com/images/I/81yH7qrCdBL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -1062,7 +1067,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "The Kree-Skrull War begins, pitting the Avengers against a galaxy-spanning conflict that threatens to consume Earth, with the Vision and the Scarlet Witch's romance deepening.",
     coverUrl: "https://m.media-amazon.com/images/I/81yJo3eGriL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -1080,7 +1085,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "The Kree-Skrull War reaches its climax, followed by a mole hunt within the team's own ranks as a hidden traitor works against the Avengers from the inside.",
     coverUrl: "https://m.media-amazon.com/images/I/91BHOsd-4JL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -1098,7 +1103,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "The Avengers and the Defenders clash in comics' first great crossover war -- Captain America vs. Namor, Thor vs. the Hulk -- while the Squadron Sinister pulls strings from the shadows.",
     coverUrl: "https://m.media-amazon.com/images/I/81rraydydmL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -1116,7 +1121,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "The \"Celestial Madonna\" saga unfolds as Kang, Rama-Tut, and Immortus collide across time, leading to the Vision and Scarlet Witch's wedding and new members Beast, Hellcat, and Moondragon joining the team.",
     coverUrl: "https://m.media-amazon.com/images/I/81TkK6iUftL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -1134,7 +1139,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "George Perez joins as artist as the team battles the Squadron Supreme and faces threats built to test the Avengers at their very core.",
     coverUrl: "https://m.media-amazon.com/images/I/71fJmZr6aNL._SL1400_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -1152,7 +1157,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "The Korvac Saga -- one of the Avengers' most acclaimed stories -- pits the team against Michael Korvac, a being who has ascended to god-like cosmic power.",
     coverUrl: "https://m.media-amazon.com/images/I/81DUSrXnX2L._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -1170,7 +1175,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "Henry Peter Gyrich tries to strip Earth's Mightiest Heroes of their government charter as the Grey Gargoyle crashes the hearing, and the mysterious Taskmaster debuts, able to replicate any hero's fighting skills.",
     coverUrl: "https://m.media-amazon.com/images/I/81aaXKqaRSL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -1188,7 +1193,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "Hank Pym's downward spiral leads to a court-martial that will haunt him for years, while the Vision and the Scarlet Witch settle into married life in their own limited series.",
     coverUrl: "https://m.media-amazon.com/images/I/81rjQnOFekL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -1206,7 +1211,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "The Avengers welcome the powerful new Captain Marvel, Monica Rambeau, into their ranks just in time to witness the trial of Hank Pym.",
     coverUrl: "https://m.media-amazon.com/images/I/81ui1EqHRnL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -1224,7 +1229,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "Roger Stern crafts a Vision epic for the ages, as the android Avenger's ambitions to link with the world's computer networks put him on a collision course with the team he loves.",
     coverUrl: "https://m.media-amazon.com/images/I/81REJLhRPnL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -1242,7 +1247,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "Baron Zemo's rebuilt Masters of Evil launch a devastating assault on Avengers Mansion, laying siege to the team's home in one of the era's most brutal storylines.",
     coverUrl: "https://m.media-amazon.com/images/I/81iv3LnQcnL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -1260,7 +1265,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "Doctor Doom seizes control of the world through mind control in Emperor Doom, while the Avengers and X-Men come to blows over Magneto.",
     coverUrl: "https://m.media-amazon.com/images/I/71JgmglkCZL._SL1400_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -1278,7 +1283,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "Walt Simonson brings his singular artistic vision to the team, as the Avengers face down cosmic and terrestrial threats alike in a stretch fans still point to as a high-water mark.",
     coverUrl: "https://m.media-amazon.com/images/I/91bZxJDebXL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -1296,7 +1301,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "A revamped Avengers roster -- including Quasar, She-Hulk, and the Black Panther -- gets swept into Acts of Vengeance, as a cabal of villains swaps targets to attack heroes unfamiliar with their tactics.",
     coverUrl: "https://m.media-amazon.com/images/I/91LSf5Ts-AL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -1314,7 +1319,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "Fabian Nicieza takes the reins as the team navigates internal shakeups and outside threats testing the very idea of what makes an Avenger.",
     coverUrl: "https://m.media-amazon.com/images/I/817HAoYcYfL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -1332,7 +1337,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "The Taskmaster's Vault prison break sends the Avengers scrambling, in a collection built around the team's fascination with their own history and legacy.",
     coverUrl: "https://m.media-amazon.com/images/I/91325ejeuEL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -1350,7 +1355,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "The Kree-Shi'ar war explodes across the Marvel Universe as every Avengers team gets pulled into the biggest crossover event of the early '90s, forcing brutal choices about which side to save.",
     coverUrl: "https://m.media-amazon.com/images/I/81mBaYwHOmL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -1368,7 +1373,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "The demonic return of the Grim Reaper -- and his shambling Legion of the Unliving -- teaches the Avengers to fear death itself, with guest turns from the Starjammers and X-Men.",
     coverUrl: "https://m.media-amazon.com/images/I/71wdmiCemKL._SL1400_.jpg",
-    ownershipStatus: "alt_format",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -1386,7 +1391,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "The mysterious Gatherers -- warriors pulled from across time and space by an enigmatic leader -- launch a coordinated strike against the Avengers.",
     coverUrl: "https://m.media-amazon.com/images/I/91eSdaVq5nL._SL1500_.jpg",
-    ownershipStatus: "alt_format",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -1404,7 +1409,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "The Gatherers' true purpose comes to light as the team faces a crossover with the X-Men, forcing a reckoning with the enemy pulling the strings behind recent attacks.",
     coverUrl: "https://m.media-amazon.com/images/I/91EhyVFanFL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -1422,7 +1427,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "A.I.M. makes a play against the Avengers as the team's roster and status quo continue to shift heading into the mid-1990s, with a Vision limited series exploring the android's fractured identity.",
     coverUrl: "https://m.media-amazon.com/images/I/914TC+myIXL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -1440,7 +1445,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "The fallout from the controversial \"Crossing\" storyline sends the team scrambling through time, setting the stage for the Onslaught crossover that reshapes the entire Marvel Universe.",
     coverUrl: "https://m.media-amazon.com/images/I/91Z7kmKApUL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -1476,7 +1481,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "Hawkeye leads a new West Coast branch of the Avengers -- with Mockingbird, Wonder Man, Tigra, and Iron Man -- setting up shop on the opposite coast from the original team.",
     coverUrl: "https://m.media-amazon.com/images/I/812mBfSrdgL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -1494,7 +1499,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "The Council of Kangs storyline sends the team scattered across time, as the West Coast squad grapples with an enemy who exists as countless versions of himself simultaneously.",
     coverUrl: "https://m.media-amazon.com/images/I/81um6Nc-ZUL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -1512,7 +1517,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "Scorpio's Zodiac targets the West Coast Avengers while Moon Knight hunts down the last surviving member of the original Zodiac, and Doctor Doom seizes control of the world in Emperor Doom.",
     coverUrl: "https://m.media-amazon.com/images/I/91S4WXTxKgL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -1530,7 +1535,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "John Byrne takes charge as writer/artist and immediately leaves his mark with a startling change for the Vision, while the Scarlet Witch descends into darkness and learns shocking revelations about her children.",
     coverUrl: "https://m.media-amazon.com/images/I/918pAIHxtzL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -1548,7 +1553,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "The Scarlet Witch's grip on reality frays further as John Byrne pushes the fallout from Vision's transformation to its breaking point.",
     coverUrl: "https://m.media-amazon.com/images/I/81XcMN56E0L._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -1566,7 +1571,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "Roy and Dann Thomas take the team through a run of stand-alone threats and simmering subplots as the West Coast squad settles into a new creative era.",
     coverUrl: "https://m.media-amazon.com/images/I/91Clfofx-hL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -1584,7 +1589,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "Ultron breaks free once more, forcing the West Coast Avengers into a desperate fight against the genocidal robot in the team's final major storyline before the branch folds.",
     coverUrl: "https://m.media-amazon.com/images/I/91nlne1bJZL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -1621,7 +1626,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "Don McGregor's landmark run sends T'Challa across Wakanda's jungles and mountains to confront Erik Killmonger's coup for the throne, in one of the earliest sustained Black superhero narratives in mainstream comics.",
     coverUrl: "https://m.media-amazon.com/images/I/81DhE7m3-EL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -1639,7 +1644,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "Jack Kirby returns to co-create the character for a self-written solo series, sending T'Challa after the secret of King Solomon's frog and into battles with alien races and eternal samurai warriors.",
     coverUrl: "https://m.media-amazon.com/images/I/91XVbyNzStL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -1657,7 +1662,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "The winged menace called Solomon Prey swears vengeance on the king of Wakanda, in the second and third chapters of Don McGregor's epic Wakandan trilogy.",
     coverUrl: "https://m.media-amazon.com/images/I/91csL5+WbYL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   // --- Black Widow ---
   {
@@ -1676,7 +1681,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "Natasha Romanoff's earliest Cold War missions as the Black Widow, debuting her classic black bodysuit and spy gear while crossing paths with the Avengers and Daredevil.",
     coverUrl: "https://m.media-amazon.com/images/I/81i3ilNv2bL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -1694,7 +1699,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "A collection of Black Widow's graphic novels and specials from the '80s and '90s, teaming her with the Punisher, Daredevil, and Nick Fury on espionage missions across the globe.",
     coverUrl: "https://m.media-amazon.com/images/I/913+LXODo4L._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "gap",
@@ -1721,7 +1726,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "Blade, Frank Drake, and the former vampire Hannibal King band together as the Nightstalkers to hunt the supernatural threats of the Midnight Sons era.",
     coverUrl: "https://m.media-amazon.com/images/I/91bKyQOsr6L._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -1766,7 +1771,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "Steve Rogers is discovered frozen in ice and revived by the Avengers, launching his own solo feature as he readjusts to a modern world that's moved on without him.",
     coverUrl: "https://m.media-amazon.com/images/I/910VGD7Bt-L._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -1784,7 +1789,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "Baron Zemo returns to menace Cap in a saga guest-starring Nick Fury and the Black Panther, as the Red Skull's Cosmic Cube switches bodies with Cap -- leaving only Sam Wilson, the Falcon, able to set things right.",
     coverUrl: "https://m.media-amazon.com/images/I/81ZGgaenTEL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -1802,7 +1807,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "Cap goes behind enemy lines in Vietnam and teams with the Falcon against the radical Diamond Heads before hitting the road coast-to-coast -- and Bucky Barnes returns from the grave.",
     coverUrl: "https://m.media-amazon.com/images/I/71f8x5aRInL._SL1400_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -1820,7 +1825,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "Steve Rogers takes a job as one of New York's finest, joining the police force as he searches for renewed purpose beyond the shield.",
     coverUrl: "https://m.media-amazon.com/images/I/81-uffXiXLL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -1838,7 +1843,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "Steve Englehart and Sal Buscema unravel a conspiracy reaching to the very top of the U.S. government, as the Secret Empire's shocking scheme leaves Cap questioning what his shield stands for.",
     coverUrl: "https://m.media-amazon.com/images/I/8111Xp6qG9L._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -1856,7 +1861,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "Watergate-era disillusionment drives Steve Rogers to renounce the Captain America identity and become Nomad, a man without a country, building toward Jack Kirby's Bicentennial return and his classic \"Madbomb\" saga.",
     coverUrl: "https://m.media-amazon.com/images/I/81w1q6XAlqL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -1874,7 +1879,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "Jack Kirby returns to write and draw his own creation, debuting the mutated menace Arnim Zola and bringing back the Red Skull for one of the character's most unabashedly wild eras.",
     coverUrl: "https://m.media-amazon.com/images/I/91MT2yUcAaL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -1892,7 +1897,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "Roger Stern and John Byrne redefine Cap for a new decade, sharpening his rogues gallery and supporting cast in a run widely regarded as one of the character's finest.",
     coverUrl: "https://m.media-amazon.com/images/I/91J7ScB6MkL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -1910,7 +1915,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "Baron Helmut Zemo takes up his father's villainous mantle in a complex plan of revenge against Captain America, as Steve Rogers' childhood friend Arnie Roth resurfaces in deadly danger.",
     coverUrl: "https://m.media-amazon.com/images/I/81uhlaOfXjL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -1928,7 +1933,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "J.M. DeMatteis pushes Cap into more introspective, psychologically charged territory, spinning the Falcon off into his own miniseries along the way.",
     coverUrl: "https://m.media-amazon.com/images/I/81qxoBNSIrL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -1946,7 +1951,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "The sinister Sidewinder assembles the Serpent Society, and Captain America must face this army of villains alone while his partner Nomad questions his own sense of self after an encounter with Madcap.",
     coverUrl: "https://m.media-amazon.com/images/I/81Zf-JxN+4L._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -1964,7 +1969,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "A super villain serial killer marked by the epitaph \"Justice is served!\" targets criminals across the city, drawing in the Scourge, Blue Streak, Flag-Smasher, and Wolverine.",
     coverUrl: "https://m.media-amazon.com/images/I/81wfngNsJ2L._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -1982,7 +1987,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "When Steve Rogers refuses to become a government operative, a new Captain America -- John Walker -- takes up the uniform and shield, while Rogers reinvents himself as the Captain and trades blows with Iron Man before the Red Skull's return forces the two Caps onto a collision course.",
     coverUrl: "https://m.media-amazon.com/images/I/810p5gFpANL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -2000,7 +2005,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "Steve Rogers reclaims the shield and identity of Captain America, then sets off on a globe-trotting hunt for the shards of the mystical Bloodstone.",
     coverUrl: "https://m.media-amazon.com/images/I/81tSxgZgxQL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -2018,7 +2023,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "A new super-drug called Ice hits the streets of Washington, D.C., and Captain America wages a personal war against it -- with tragic consequences for those closest to him.",
     coverUrl: "https://m.media-amazon.com/images/I/819MYhq7dkL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -2036,7 +2041,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "Captain America faces a threat like never before when Superia raises an army of female super villains -- from Anaconda to M.O.D.A.M. -- and the roguish gun-for-hire Paladin lends a hand.",
     coverUrl: "https://m.media-amazon.com/images/I/91oxTL-V9-L._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -2054,7 +2059,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "Captain America and the Punisher find themselves on opposite sides of a mercenary war for blood diamonds in a war-torn African nation, testing how far apart their codes of justice really are.",
     coverUrl: "https://m.media-amazon.com/images/I/816+15ZGwcL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -2072,7 +2077,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "John Walker's tenure as U.S.Agent gets its own spotlight while Captain America teams with Ghost Rider against a supernatural fear-based threat.",
     coverUrl: "https://m.media-amazon.com/images/I/81mQf-VPYzL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -2090,7 +2095,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "Mark Gruenwald continues his marathon run with crossovers pulling in Nomad and Nick Fury, as Cap's rogues gallery of shadowy government operations keeps expanding.",
     coverUrl: "https://m.media-amazon.com/images/I/91VfV4OBzvL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -2108,7 +2113,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "Mark Gruenwald's final stretch on the title he steered longer than any other writer, closing out an era before the character's mid-'90s relaunch.",
     coverUrl: "https://m.media-amazon.com/images/I/91Iw-yZnfzL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -2126,7 +2131,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "Mark Waid takes over as Steve Rogers is declared a man without a country after a shadowy conspiracy strips his citizenship, forcing him to decide what Captain America means without a nation behind him.",
     coverUrl: "https://m.media-amazon.com/images/I/81P0BGMbxDL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -2144,7 +2149,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "A new era begins for Captain America, helmed by Mark Waid -- the world is happy to have him back, but as his popularity rises to a fever pitch of \"Capmania,\" something sinister lurks behind the scenes.",
     coverUrl: "https://m.media-amazon.com/images/I/81nx5YfTjeL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -2198,7 +2203,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "Cletus Kasady bonds with Venom's spawned symbiote to become Carnage, unleashing his first rampages against Spider-Man and building to the citywide Maximum Carnage crossover.",
     coverUrl: "https://m.media-amazon.com/images/I/91VHHeb7EEL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -2216,7 +2221,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "Cletus Kasady escapes captivity once again, and when the Planet of the Symbiotes invades Earth, a fifty-foot Carnage rampages through the city.",
     coverUrl: "https://m.media-amazon.com/images/I/81W2T3J6PuL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -2234,7 +2239,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "The Carnage symbiote sets its sights on the Silver Surfer as a host, then vents its rage on Venom with the offspring symbiote Toxin caught in the middle.",
     coverUrl: "https://m.media-amazon.com/images/I/819-saXPygL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   // --- Daredevil ---
   {
@@ -2253,7 +2258,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "Matt Murdock is blinded by radioactive waste while saving a man's life, but gains superhuman senses in return -- becoming Daredevil, a gritty hero protecting the downtrodden.",
     coverUrl: "https://m.media-amazon.com/images/I/81Yc-CWY53L._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -2271,7 +2276,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "Matt Murdock juggles his double life by inventing a fake twin brother, Mike Murdock, and even swaps bodies with Doctor Doom in one of comics' first crossovers, alongside the debut of the Emissaries of Evil.",
     coverUrl: "https://m.media-amazon.com/images/I/8159ia6UUxL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -2289,7 +2294,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "Gene Colan's definitive art run takes hold as Matt Murdock's double life grows more complicated, with new threats testing the Man Without Fear's resolve.",
     coverUrl: "https://m.media-amazon.com/images/I/81qVliRR6pL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -2307,7 +2312,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "Daredevil heads to the West Coast to win back Karen Page's love, and one of his most iconic eras begins as his relationship with the Black Widow takes flight.",
     coverUrl: "https://m.media-amazon.com/images/I/81YmjbNxQkL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -2325,7 +2330,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "Daredevil and the Black Widow relocate to San Francisco, settling into a new life together while classic foes track them down on the opposite coast.",
     coverUrl: "https://m.media-amazon.com/images/I/81Gb1LZnO1L._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -2343,7 +2348,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "Daredevil, the Black Widow, and Shanna the She-Devil uncover the secret leaders of Black Spectre, a massive saga culminating in a battle on the White House lawn -- and Bullseye, the madman with perfect aim, makes his deadly debut.",
     coverUrl: "https://m.media-amazon.com/images/I/81GBq1AQi7L._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -2361,7 +2366,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "A gritty saga traps Daredevil in Rikers Island prison, forcing him to survive among the very criminals he put behind bars.",
     coverUrl: "https://m.media-amazon.com/images/I/81i8MzUizXL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -2379,7 +2384,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "One of the most influential runs in Marvel history begins as Frank Miller takes over as artist and then writer, remaking the mythos of the Man Without Fear -- introducing Elektra, the assassin with surprising ties to Matt Murdock's past, and the Hand, a clan of killer ninjas.",
     coverUrl: "https://m.media-amazon.com/images/I/91BVcHJ1KEL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -2397,7 +2402,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "Klaw, Master of Sound, makes some noise, Chance tries his luck, and the savage Sabretooth crosses Daredevil's path right in the middle of the Mutant Massacre.",
     coverUrl: "https://m.media-amazon.com/images/I/812IWkgMwIL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -2415,7 +2420,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "Typhoid Mary, the lethally seductive assassin unleashed by the Kingpin, targets Matt Murdock with one personality and Daredevil with another as Ann Nocenti and John Romita Jr. begin their acclaimed run.",
     coverUrl: "https://m.media-amazon.com/images/I/91-jiQXAhRL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -2433,7 +2438,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "Daredevil is caught between the diabolical Mephisto and his monstrous son Blackheart, forcing the Man Without Fear and his allies to confront their own demons.",
     coverUrl: "https://m.media-amazon.com/images/I/81lJnZAr28L._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -2451,7 +2456,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "Ann Nocenti's run reaches its climax with a groundbreaking stretch drawn by John Romita Jr., pushing Daredevil's rogues gallery and psyche to their breaking points.",
     coverUrl: "https://m.media-amazon.com/images/I/81jQbHDt4bL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -2469,7 +2474,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "The Kingpin falls and the Owl moves to seize control of New York's underworld, as Tombstone, Hammerhead, Silvermane, Hydra, and the Hand all converge on a high-stakes Vegas gathering.",
     coverUrl: "https://m.media-amazon.com/images/I/91E-QciZ9QL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -2487,7 +2492,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "Daredevil and the Black Widow reunite for a globe-trotting hunt against the assassin's guild called Abattoir, alongside Frank Miller and John Romita Jr.'s definitive retelling of the Man Without Fear's origin.",
     coverUrl: "https://m.media-amazon.com/images/I/81hyxuUFzRL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -2505,7 +2510,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "Elektra returns to the Marvel Universe as the Hand unleashes a super-virus on New York, and Daredevil dons a new armored costume with help from his resurrected past love.",
     coverUrl: "https://m.media-amazon.com/images/I/91VE+978o9L._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -2523,7 +2528,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "Elektra's own miniseries digs into her past as an assassin, while Daredevil contends with the ongoing fallout from the Kingpin's power vacuum.",
     coverUrl: "https://m.media-amazon.com/images/I/81wETLGV1KL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -2541,7 +2546,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "J.M. DeMatteis and Karl Kesel guide Daredevil through some of his darkest and most spiritually charged material yet, oscillating between damnation and redemption.",
     coverUrl: "https://m.media-amazon.com/images/I/91HOE-0F69L._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -2559,7 +2564,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "Gene \"The Dean\" Colan draws Daredevil once again as Mister Fear launches a new campaign of terror, and Matt comes between his ex-love Black Widow and the mutant Omega Red.",
     coverUrl: "https://m.media-amazon.com/images/I/716oYonB6ZL._SL1400_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   // --- Deadpool ---
   {
@@ -2578,7 +2583,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "The Merc with a Mouth's first appearance and earliest mercenary jobs, building to his own Circle Chase miniseries and first ongoing series.",
     coverUrl: "https://m.media-amazon.com/images/I/91yRWw9O+7L._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -2596,7 +2601,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "Deadpool's own ongoing series debuts, growing his supporting cast of Blind Al, Weasel, and the Vanisher while he chases down Black Tom Cassidy and Juggernaut.",
     coverUrl: "https://m.media-amazon.com/images/I/81sXMrXlrmL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -2614,7 +2619,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "Joe Kelly digs into Wade Wilson's tragic past and his complicated relationship with Death herself, deepening Deadpool beyond the wisecracks.",
     coverUrl: "https://m.media-amazon.com/images/I/81oPPPFMqRL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -2632,7 +2637,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "Joe Kelly and James Felder wrap the Wade Wilson origin threads and character confrontations that defined the series' first ongoing run.",
     coverUrl: "https://m.media-amazon.com/images/I/91omIakCwGL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -2650,7 +2655,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "Christopher Priest's entire Deadpool run, sending the Merc with a Mouth into the courts of Wakanda and Asgard and forcing him to interact with two of Marvel's mightiest monarchs.",
     coverUrl: "https://m.media-amazon.com/images/I/81L+8cX6HML._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -2712,7 +2717,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "Doctor Strange, the Hulk, and Namor the Sub-Mariner form a loose, non-team of misfits and outcasts too dangerous or strange for the mainstream Marvel Universe, birthing the \"non-team\" concept of the Defenders.",
     coverUrl: "https://m.media-amazon.com/images/I/81z9bTWSZYL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -2730,7 +2735,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "The bizarre Headmen -- a mismatched trio of body-swapping villains -- launch a scheme against the Defenders as the team's roster of oddballs continues to expand.",
     coverUrl: "https://m.media-amazon.com/images/I/91d2Nle1NFL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -2748,7 +2753,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "Steve Gerber steers the team into one of the most creative and beloved eras of the non-team's history, mixing absurdist humor with genuine cosmic stakes.",
     coverUrl: "https://m.media-amazon.com/images/I/91VMmHxGYeL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -2766,7 +2771,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "J.M. DeMatteis takes Doctor Strange, the Hulk, Nighthawk, Hellcat, and the Son of Satan on wild journeys into the occult, beginning with a broken Eternity and building to a double-sized issue #100 extravaganza featuring Dracula and the Devil-Slayer.",
     coverUrl: "https://m.media-amazon.com/images/I/91ImonznJTL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -2784,7 +2789,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "The Defenders' occult adventures continue under J.M. DeMatteis as the team's ever-shifting roster faces new threats drawn from the shadows of the Marvel Universe.",
     coverUrl: "https://m.media-amazon.com/images/I/71NUe2d60JL._SL1031_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -2802,7 +2807,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "The team evolves into the New Defenders with a fresh roster, new headquarters, and new leadership -- a Valkyrie, a gargoyle, a cosmic psychic, a sentient cloud, and a pair of ex-X-Men.",
     coverUrl: "https://m.media-amazon.com/images/I/91uVI5FCptL._SL1500_.jpg",
-    ownershipStatus: "alt_format",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -2820,7 +2825,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "Peter B. Gillis brings the long-running New Defenders series to its close, wrapping up the team's saga before the title's cancellation.",
     coverUrl: "https://m.media-amazon.com/images/I/910RSYR-9SL._SL1500_.jpg",
-    ownershipStatus: "alt_format",
+    ownershipStatus: "announced",
   },
   // --- Doctor Doom ---
   {
@@ -2876,7 +2881,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "The debut of Baron Mordo, Eternity, Dormammu, and the Mindless Ones -- as well as Strange's faithful servant Wong and the mystic Clea -- in Stan Lee and Steve Ditko's psychedelic origin run.",
     coverUrl: "https://m.media-amazon.com/images/I/91HOosKJs4L._SL1500_.jpg",
-    ownershipStatus: "alt_format",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -2894,7 +2899,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "Doctor Strange gets his own solo series and one of his greatest creative teams, pitting the Master of the Mystic Arts against Eternity and Dormammu with Clea and Victoria Bentley's lives hanging in the balance.",
     coverUrl: "https://m.media-amazon.com/images/I/81dZdETl95L._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -2912,7 +2917,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "Steve Englehart and Frank Brunner create the classic \"Sise-Neg Genesis\" and \"Silver Dagger\" sagas, some of the most acclaimed Doctor Strange stories ever told.",
     coverUrl: "https://m.media-amazon.com/images/I/8142aY2RPvL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -2930,7 +2935,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "A rotating cast of top creators -- including Marv Wolfman and Jim Starlin -- send Doctor Strange up against threats that test the very fabric of reality itself.",
     coverUrl: "https://m.media-amazon.com/images/I/91cQ-EOvwZL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -2948,7 +2953,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "Roger Stern and Chris Claremont pit Doctor Strange against Nightmare, D'Spayre, and the Dream Weaver in a war fought across the landscape of the subconscious.",
     coverUrl: "https://m.media-amazon.com/images/I/81s5SMENnXL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -2966,7 +2971,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "Peter B. Gillis launches the Sorcerer Supreme era, and in Triumph and Torment, Doctor Strange makes a bargain with Doctor Doom to save Doom's mother's soul from eternal torment.",
     coverUrl: "https://m.media-amazon.com/images/I/81b6btyWCoL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -2984,7 +2989,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "The return of the vampires -- Doctor Strange faces bloodsuckers rising again, beginning with one uncomfortably close to Stephen himself.",
     coverUrl: "https://m.media-amazon.com/images/I/81dqj6VRzmL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -3002,7 +3007,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "Doctor Strange is swept up in the galaxy-spanning Infinity War event, teaming with the Silver Surfer and Spider-Man as reality itself is threatened by an army of villainous doppelgangers.",
     coverUrl: "https://m.media-amazon.com/images/I/81CPwAsMtxL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -3020,7 +3025,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "Clea's actions accidentally free Dormammu and Doctor Strange loses his magical powers, forcing the Defenders to reunite against Dormammu while Nightmare sets his sights on the powerless sorcerer.",
     coverUrl: "https://m.media-amazon.com/images/I/8140e5359rL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -3038,7 +3043,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "David Quinn takes over the Sorcerer Supreme, sending Stephen through some of the wildest twists and turns of his solo series as the Midnight Sons era winds down.",
     coverUrl: "https://m.media-amazon.com/images/I/91geVCUhLsL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -3056,7 +3061,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "Kurt Busiek and Warren Ellis close out the Sorcerer Supreme series, bringing Doctor Strange's decades-long run to a reflective, era-ending conclusion.",
     coverUrl: "https://m.media-amazon.com/images/I/71gw-WOrvRL._SL1400_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   // --- Excalibur ---
   {
@@ -3075,7 +3080,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "Captain Britain and Meggan band together with former X-Men Nightcrawler and Kitty Pryde when Gatecrasher's Technet is sent to capture Rachel \"Phoenix\" Summers, forming Excalibur from their lighthouse base.",
     coverUrl: "https://m.media-amazon.com/images/I/91BML1v+uBL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -3093,7 +3098,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "England's premier superteam takes their show on the road in an interdimensional odyssey, as Kitty Pryde, Nightcrawler, Rachel Summers, Captain Britain, and Meggan journey through a string of bizarre alternate dimensions.",
     coverUrl: "https://m.media-amazon.com/images/I/918x5X5kkEL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -3111,7 +3116,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "Kitty Pryde reunites with the team as Excalibur navigates a run of standalone genre romps -- from a haunted possession story to a trip through the girls' school from Heck.",
     coverUrl: "https://m.media-amazon.com/images/I/91x+fR9U6bL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -3129,7 +3134,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "Alan Davis takes over as writer and artist, steering Shadowcat, Nightcrawler, Phoenix, Captain Britain, and Meggan to new heights of greatness -- and madness.",
     coverUrl: "https://m.media-amazon.com/images/I/916-61MnRIL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -3147,7 +3152,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "The Phoenix-powered Rachel Summers returns fresh from a battle with Galactus as faces from Captain Britain's past resurface -- and dark days lie ahead as the team travels to Rachel's own nightmarish timeline, the Days of Future Past.",
     coverUrl: "https://m.media-amazon.com/images/I/912u53jXo7L._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -3165,7 +3170,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "John Arcudi and Bryan Hitch take the reins as the team faces a wave of crossovers alongside Colossus and a Kitty Pryde S.H.I.E.L.D. spinoff.",
     coverUrl: "https://m.media-amazon.com/images/I/81LZaqvXoeL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -3183,7 +3188,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "The original Excalibur series builds to its conclusion around a wedding for Captain Britain and Meggan, before Chris Claremont relaunches the team in an all-new volume.",
     coverUrl: "https://m.media-amazon.com/images/I/91i9OUZVyeL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -3220,7 +3225,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "Stan Lee and Jack Kirby lay the foundation of the entire Marvel Universe, launching Reed Richards, Sue Storm, Johnny Storm, and Ben Grimm as the world's first family of superheroes.",
     coverUrl: "https://m.media-amazon.com/images/I/81NeChPsXGL._SL1500_.jpg",
-    ownershipStatus: "alt_format",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -3238,7 +3243,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "The Thing battles the Hulk, the Sub-Mariner makes a play for Sue Storm, and the FF tangle with the X-Men, plus two jam-packed annuals featuring Namor's invasion of New York and the origin of Doctor Doom.",
     coverUrl: "https://m.media-amazon.com/images/I/71vxDJVBxeL._SL1400_.jpg",
-    ownershipStatus: "alt_format",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -3256,7 +3261,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "The Frightful Four and the Inhumans debut, Galactus and the Silver Surfer arrive to threaten Earth, and Reed Richards and Sue Storm celebrate the first superhero wedding in comics.",
     coverUrl: "https://m.media-amazon.com/images/I/81R9ZPB3gQL._SL1500_.jpg",
-    ownershipStatus: "alt_format",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -3274,7 +3279,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "Stan Lee and Jack Kirby unveil the debut of the world's first Black superhero, the Black Panther, and his kingdom of Wakanda.",
     coverUrl: "https://m.media-amazon.com/images/I/912oGI9juOL._SL1500_.jpg",
-    ownershipStatus: "alt_format",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -3292,7 +3297,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "The FF struggle against the Mad Thinker's android army, travel into the Microverse, journey to the Inhumans' Himalayan refuge, venture into the Negative Zone, witness the birth of Franklin Richards, and battle Doctor Doom in Latveria.",
     coverUrl: "https://m.media-amazon.com/images/I/91OmkgpoP5L._SL1500_.jpg",
-    ownershipStatus: "alt_format",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -3310,7 +3315,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "The final stretch of Lee and Kirby's original run sends the FF to war with Prince Namor's undersea kingdom of Atlantis.",
     coverUrl: "https://m.media-amazon.com/images/I/91uQbykSGWL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -3328,7 +3333,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "Stan Lee's final issues as regular writer give way to Archie Goodwin and John Buscema, pitting the team against a rotating cast of giant monsters and cosmic-level threats.",
     coverUrl: "https://m.media-amazon.com/images/I/81+lFWjY7GL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -3346,7 +3351,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "The origin of Annihilus in the Negative Zone unfolds alongside classic battles with Thundra and the Hulk, plus the return of Doctor Doom.",
     coverUrl: "https://m.media-amazon.com/images/I/81IjOry99CL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -3364,7 +3369,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "The strained relationship of Reed and Sue Richards worsens as Sue joins Namor in an invasion of New York City, the Frightful Four resurface, the Femizons and Mahkizmo face off, and the Silver Surfer returns.",
     coverUrl: "https://m.media-amazon.com/images/I/81Zcd7uE-3L._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -3382,7 +3387,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "Roy Thomas, Len Wein, and a young George Perez bring some of the greatest Fantastic Four tales of the 1970s, including the High Evolutionary's Counter-Earth reaching its explosive endgame.",
     coverUrl: "https://m.media-amazon.com/images/I/91O64A8Z7XL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -3400,7 +3405,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "The Fantastic Four celebrate their landmark 200th issue as the team splits apart, only for Doctor Doom's evil machinations to reunite Marvel's First Family for an FF #200 extravaganza.",
     coverUrl: "https://m.media-amazon.com/images/I/81WuJ8GtvgL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -3418,7 +3423,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "A possessed Franklin Richards threatens all reality, alongside stories featuring giant monsters and a cosmic-scale war with the Skrulls.",
     coverUrl: "https://m.media-amazon.com/images/I/91DAq5tVe5L._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -3436,7 +3441,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "The Thing returns to the Fantastic Four as Alicia Masters marries the Human Torch with the Puppet Master lurking nearby, and Mr. Fantastic and Invisible Woman step away so Crystal and the new Ms. Marvel can join the team.",
     coverUrl: "https://m.media-amazon.com/images/I/91N5eec1cQL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -3454,7 +3459,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "An era of transformation for Marvel's First Family as the Thing adjusts to his new role leading a lineup that now includes the Human Torch, Crystal, and Sharon \"Ms. Marvel\" Ventura.",
     coverUrl: "https://m.media-amazon.com/images/I/91hb7bPU-+L._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -3472,7 +3477,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "Steve Englehart's run reaches its controversial climax as the team faces a shakeup that will redefine the FF's status quo -- collected alongside Doctor Strange's bargain with Doctor Doom in Triumph and Torment.",
     coverUrl: "https://m.media-amazon.com/images/I/81CGjsBdLOL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -3490,7 +3495,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "Legendary Thor writer Walt Simonson takes over the Fantastic Four, sending the team through a mind-bending trip across the timestream.",
     coverUrl: "https://m.media-amazon.com/images/I/910iee6ZkAL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -3508,7 +3513,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "With Reed, Sue, Ben, and Johnny out of commission, an all-new lineup comes together to hold down the fort: Spider-Man, Wolverine, Ghost Rider, and the Hulk.",
     coverUrl: "https://m.media-amazon.com/images/I/91t7TSbZ9YL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -3526,7 +3531,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "Tom DeFalco and Paul Ryan settle into a long, stable run on the team, weathering the early-'90s Marvel landscape with street-level threats and cosmic stakes alike.",
     coverUrl: "https://m.media-amazon.com/images/I/81ZDdaFPEHL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -3544,7 +3549,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "Tom DeFalco and Paul Ryan continue their run as the team's oldest enemies close in, driving home the volume's grim promise that nobody gets out alive.",
     coverUrl: "https://m.media-amazon.com/images/I/81k+1OfCAXL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -3562,7 +3567,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "The Invisible Woman searches for her missing husband, Mister Fantastic, the Thing seeks payback on Wolverine, and the sorceress Morgan Le Fay forces the sunken continent of Atlantis back above the waves.",
     coverUrl: "https://m.media-amazon.com/images/I/91409lHZD7L._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -3580,7 +3585,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "Tom DeFalco and Paul Ryan's run heads into its final stretch as the team is swept up in the Onslaught crossover that reshapes the Marvel Universe.",
     coverUrl: "https://m.media-amazon.com/images/I/81fsHNECdKL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -3633,7 +3638,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "",
     coverUrl: "https://m.media-amazon.com/images/I/91KItekal6L._SL1500_.jpg",
-    ownershipStatus: "ordered",
+    ownershipStatus: "announced",
   },
   // --- Generation X ---
   {
@@ -3652,7 +3657,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "Banshee and Emma Frost open the Xavier School's Massachusetts Academy to a new class of teenage mutants, introducing Jubilee, Chamber, Skin, Husk, M, and Synch as Generation X.",
     coverUrl: "https://m.media-amazon.com/images/I/912Mm-wQ5QL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -3670,7 +3675,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "M's monstrous brother Emplate returns to menace the students of the Massachusetts Academy, forcing the young team to confront the sibling trauma at the root of M's condition.",
     coverUrl: "https://m.media-amazon.com/images/I/81Pw1O7QuNL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -3688,7 +3693,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "Shocking secrets about M's true nature and origin come to light, testing the bonds between the students of Generation X.",
     coverUrl: "https://m.media-amazon.com/images/I/81WrjznpUHL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -3706,7 +3711,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "Larry Hama takes over as the students face guilt, grief, and a holiday-season crossover with Dracula himself.",
     coverUrl: "https://m.media-amazon.com/images/I/81RzM-wcn8L._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -3761,7 +3766,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "Stunt cyclist Johnny Blaze sells his soul to save his adoptive father, transforming into the hellfire-skulled Ghost Rider in Gary Friedrich and Mike Ploog's atmospheric debut.",
     coverUrl: "https://m.media-amazon.com/images/I/81Ys9k4wfeL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -3779,7 +3784,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "Ghost Rider faces the Orb, Gladiator, the Eel, and the Enforcer across America's backroads, teaming with Hawkeye and the Two-Gun Kid before joining Man-Thing, Morbius, and Werewolf by Night as the Legion of Monsters.",
     coverUrl: "https://m.media-amazon.com/images/I/81D9e5I90bL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -3797,7 +3802,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "Michael Fleisher and Don Perlin begin their long tenure on the title, delivering a reckoning for both the mortal and demon sides of Ghost Rider and a time-traveling team-up with the original Western Ghost Rider.",
     coverUrl: "https://m.media-amazon.com/images/I/81FzK7LhhzL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -3834,7 +3839,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "A new era for the Spirit of Vengeance begins as Danny Ketch becomes the new Ghost Rider, riding into a gang war between the Kingpin and Deathwatch.",
     coverUrl: "https://m.media-amazon.com/images/I/81xsn5NHnnL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -3852,7 +3857,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "Ghost Rider, Johnny Blaze, and their fellow Midnight Sons confront demon queen Lilith's hellish Lilin spawn and her unholy alliance with Zarathos.",
     coverUrl: "https://m.media-amazon.com/images/I/918-9lKFrhL._SL1500_.jpg",
-    ownershipStatus: "ordered",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -3889,7 +3894,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "A thousand years from now, Vance Astro, Yondu, Martinex, and Charlie-27 -- the original Guardians of the Galaxy -- rise to retake the Solar System from reptilian raiders, joined by present-day heroes like Captain America, Doctor Strange, the Thing, and the Hulk.",
     coverUrl: "https://m.media-amazon.com/images/I/91RkgoKJUQL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -3907,7 +3912,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "As the Guardians pursue the cosmic threat Korvac from the 31st century back to the present, Major Victory leads a quest to find Captain America's long-lost shield, pitting the team against Iron Man's twisted legacy and the alien cyborgs called the Stark.",
     coverUrl: "https://m.media-amazon.com/images/I/81NvPmK6m4L._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -3925,7 +3930,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "Jim Valentino writes and draws the 31st-century Marvel Universe as the Guardians land on the World of Mutants amid a rebellion against Wolverine's descendant Rancor, rescue Firelord, and clash with Ghost Rider and the 31st century's own Punisher.",
     coverUrl: "https://m.media-amazon.com/images/I/91ZdJCvQTrL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   // --- Hawkeye ---
   {
@@ -3944,7 +3949,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "Clint Barton's career from his debut as a foe of Iron Man and love interest of the Black Widow, through reforming to join the Avengers, his size-changing stint as Goliath, and his first solo miniseries.",
     coverUrl: "https://m.media-amazon.com/images/I/81OMXKUyCzL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -3962,7 +3967,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "The true origin of Hawkeye is revealed -- young Clint Barton joins a traveling carnival where the Swordsman teaches him archery -- as Trick Shot returns to issue his one-time protégé a death challenge and Clint's marriage to Mockingbird hits turbulence.",
     coverUrl: "https://m.media-amazon.com/images/I/91b4lMh6faL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -3980,7 +3985,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "Hawkeye and Mockingbird are wanted for a string of robberies committed by impostors in their costumes, and when Clint ends up in the hospital, Tony Stark builds him a new armored suit.",
     coverUrl: "https://m.media-amazon.com/images/I/91rpIy6lc1L._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -3998,7 +4003,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "Mourning his ex-wife Mockingbird, a reclusive Hawkeye takes on the shadowy Secret Empire, mentors two junior Avengers, and becomes a heartbreaking casualty when the Scarlet Witch disassembles the team -- though death is not the end.",
     coverUrl: "https://m.media-amazon.com/images/I/81xn3jOUZsL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "gap",
@@ -4033,7 +4038,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "Gamma radiation transforms Dr. Bruce Banner into the Hulk, a raging behemoth hunted by the military and hounded by General \"Thunderbolt\" Ross, in the character's earliest, most experimental appearances.",
     coverUrl: "https://m.media-amazon.com/images/I/81dYhLa-YqL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -4051,7 +4056,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "The Hulk battles General Ross, the Leader and his Humanoids, and the Executioner, faces off with Hercules, meets the newly introduced Abomination, and goes cosmic alongside the Silver Surfer and the High Evolutionary.",
     coverUrl: "https://m.media-amazon.com/images/I/91R1iL22KLL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -4069,7 +4074,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "The Hulk's archnemesis the Leader returns, and Herb Trimpe makes his debut as the artist who will define the Jade Giant's travelogue of destruction across the Mandarin, the Inhumans, the Sandman, and the entire Savage Land.",
     coverUrl: "https://m.media-amazon.com/images/I/91grv6HilFL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -4087,7 +4092,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "Bare-fisted battles against the Sub-Mariner, the Inhumans, and the swamp beast the Glob, as Bruce Banner marries Betty Ross with Reed Richards' help before the Hulk clashes with the Avengers and the hordes of Hydra.",
     coverUrl: "https://m.media-amazon.com/images/I/91Qt9gv9w9L._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -4105,7 +4110,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "A rotating cast of legendary writers -- including Harlan Ellison and Gerry Conway -- send the Hulk across the Marvel Universe, questioning whether he's a menace to be judged or a hero to be understood.",
     coverUrl: "https://m.media-amazon.com/images/I/91qreg73MGL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -4123,7 +4128,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "The Hulk is banished to the High Evolutionary's genetically engineered world of Counter-Earth, facing off with strange new threats far from home.",
     coverUrl: "https://m.media-amazon.com/images/I/81jebCQsOfL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -4141,7 +4146,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "Len Wein writes some of his greatest Hulk stories, including the first appearance of Wolverine, as the Hulk smashes through the Mole Man, the Gremlin, the Shaper of Worlds, Doc Samson, and the Abomination.",
     coverUrl: "https://m.media-amazon.com/images/I/8140SCRTWpL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -4159,7 +4164,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "Triumph and tragedy for the Hulk as he falls for Jarella and journeys to her microscopic world of K'ai, only for a devastating return to Earth to spark a rampage that not even S.H.I.E.L.D., the Defenders, or Doc Samson can stop.",
     coverUrl: "https://m.media-amazon.com/images/I/81Lp8SaAQKL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -4177,7 +4182,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "The Hulk goes after Moonstone, tangles with Machine Man, chases the golden treasures Goldbug is after, and takes on It the Living Colossus, with annuals featuring a Hulk/Sasquatch showdown and the return of Steve Ditko to the art chores.",
     coverUrl: "https://m.media-amazon.com/images/I/91SqxNmGFBL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -4195,7 +4200,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "Bill Mantlo's seminal five-year run on the Hulk begins as the Jade Giant unleashes his rage on Gamma Base, leading to exile on Jarella's world and a double-sized 250th issue team-up with the Silver Surfer.",
     coverUrl: "https://m.media-amazon.com/images/I/91YeClWyKyL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -4213,7 +4218,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "Bill Mantlo's long-running Hulk saga pushes toward a crossroads, sending the Jade Giant into conflict with Alpha Flight as classic subplots reach a breaking point.",
     coverUrl: "https://m.media-amazon.com/images/I/81gfA6o5w0L._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -4231,7 +4236,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "Doc Samson's plan to separate Bruce Banner and the Hulk for good sends the planet reeling from a rampaging, Banner-less Hulk -- and the Hulk who returns is surlier, craftier, and gray, setting the stage for Peter David's legendary run.",
     coverUrl: "https://m.media-amazon.com/images/I/91OzNzGboBL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -4249,7 +4254,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "Peter David's character-defining eleven-year run kicks off with a fan-favorite collaboration with Todd McFarlane, as Rick Jones's days as a rampaging Hulk are numbered -- unless Bruce Banner can force his own transformation into the gray goliath.",
     coverUrl: "https://m.media-amazon.com/images/I/91IN2YMNEBL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -4267,7 +4272,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "An epic clash between the Hulk, the Leader, and the U-Foes builds toward the Hulk's offer to lead the Pantheon, a secret organization of superhumans working from the shadows.",
     coverUrl: "https://m.media-amazon.com/images/I/81S8hiHB1HL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -4285,7 +4290,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "One of Peter David's all-time great Hulk tales -- is the Hulk destined to rule a ravaged future world with a gamma fist as the despotic Maestro, or can a time-torn Bruce Banner change his own nightmarish fate?",
     coverUrl: "https://m.media-amazon.com/images/I/81Xbo2-vJ4L._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -4303,7 +4308,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "The Hulk and the Pantheon face a painful loss as Hela claims the Hulk in an Asgardian underworld epic, tearing the Pantheon apart from within while Doc Samson strives to save Bruce's mind and Betty battles for her life.",
     coverUrl: "https://m.media-amazon.com/images/I/81WITjPtldL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -4321,7 +4326,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "Major Matt Talbot, nephew of the Hulk's old foe Glenn, hunts the Jade Giant with Hulkbusters and the Ringmaster, while a terror group called the Alliance pushes the world toward nuclear war -- until Onslaught physically separates Bruce Banner from the Hulk.",
     coverUrl: "https://m.media-amazon.com/images/I/91RPV12KAPL._SL1500_.jpg",
-    ownershipStatus: "out_of_print",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -4339,7 +4344,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "Peter David's celebrated run winds toward its conclusion, sending the Hulk through crossovers with the Sub-Mariner and X-Man as the character's status quo heads for another dramatic shift.",
     coverUrl: "https://m.media-amazon.com/images/I/91qajNPLOIL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -4357,7 +4362,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "",
     coverUrl: "https://m.media-amazon.com/images/I/911jdfFwtaL._SL1500_.jpg",
-    ownershipStatus: "ordered",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -4410,7 +4415,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "Wall-to-wall kung fu action as Danny Rand runs a gauntlet through the Kara-Kai death cult and ninja adversaries with Misty Knight and Colleen Wing at his side, building to a final showdown with the Steel Serpent.",
     coverUrl: "https://m.media-amazon.com/images/I/81aMvagIEmL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   // --- Iron Man ---
   {
@@ -4429,7 +4434,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "Tony Stark, a jet-setting playboy and brilliant scientist, is injured by a battlefield explosion and builds a suit of armor to survive -- Stan Lee and Don Heck's earliest adventures that turned Iron Man into a cultural icon.",
     coverUrl: "https://m.media-amazon.com/images/I/81ALQJXXBPL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -4447,7 +4452,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "Tony Stark is brought before the United States Senate to divulge the secrets of Stark Enterprises, risking the life of his friend Happy Hogan, as Iron Man battles the Mandarin, Whiplash, and the Titanium Man.",
     coverUrl: "https://m.media-amazon.com/images/I/81WyAKPGdAL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -4465,7 +4470,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "Iron Man's archnemesis the Mandarin pits him against the Incredible Hulk and discovers his secret identity to tear down Tony Stark, while Tony finds himself replaced by his own S.H.I.E.L.D. Life-Model Decoy.",
     coverUrl: "https://m.media-amazon.com/images/I/91u7Qa8HIOL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -4483,7 +4488,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "A revolution in Latin America and conflicts with the Spymaster's elite team send Iron Man teaming with Nick Fury, Daredevil, and Madame Masque against the Spymaster and the Zodiac Key, with the debuts of the Controller, Firebrand, Howard Stark, and the Guardsman.",
     coverUrl: "https://m.media-amazon.com/images/I/91KBlKyyl3L._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -4501,7 +4506,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "Tony Stark's ESP-empowered fiancée Marianne Rodgers is tormented by visions of Iron Man's death as the Stark Industries board tries to force Tony out, while the first appearances of Thanos, Drax the Destroyer, and Moondragon arrive alongside Roy Thomas and Barry Windsor-Smith's retelling of Iron Man's origin.",
     coverUrl: "https://m.media-amazon.com/images/I/81uMfEu9okL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -4519,7 +4524,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "The mysterious Black Lama pits villain against villain for ultimate power -- the Mandarin against the Yellow Claw, M.O.D.O.K. against the Mad Thinker -- all converging on Iron Man, alongside the threat of Ultimo and a rescue mission back in Vietnam.",
     coverUrl: "https://m.media-amazon.com/images/I/819naxDYHSL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -4537,7 +4542,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "Celebrating 100 issues of Iron Man, Bill Mantlo becomes the new writer and delves deeper into Tony Stark's supporting cast, adding industrial intrigue and bringing back iconic adversaries.",
     coverUrl: "https://m.media-amazon.com/images/I/91ci7oKr3aL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -4555,7 +4560,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "Tony Stark's battle with alcoholism reaches its breaking point, forcing Jim Rhodes to don the armor and become Iron Man for the first time.",
     coverUrl: "https://m.media-amazon.com/images/I/71fzpDc+zXL._SL1400_.jpg",
-    ownershipStatus: "alt_format",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -4573,7 +4578,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "While Tony Stark battles the bottle, James Rhodes soars to ever greater heights in the red and gold, becoming a West Coast Avenger before his fiercest rival of all -- the original Iron Man, returned -- forces the two Shellheads to battle their demons and each other.",
     coverUrl: "https://m.media-amazon.com/images/I/91XIMRS7wrL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -4591,7 +4596,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "David Michelinie and Bob Layton's celebrated Demon in a Bottle-era run continues as Tony Stark rebuilds his company and his armor from the ground up amid corporate warfare and personal reckoning.",
     coverUrl: "https://m.media-amazon.com/images/I/917hpLu2OOL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -4609,7 +4614,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "The Ghost returns as Tony Stark struggles with the fallout of the Armor Wars and must convince the world there's a new Iron Man, while Blacklash, Blizzard, and Boomerang face off against Rhodey and threats from the Mandarin to Doctor Doom loom.",
     coverUrl: "https://m.media-amazon.com/images/I/91R5MLfD4zL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -4627,7 +4632,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "Tony Stark is left paralyzed from the waist down after an attack by a crazed stalker, caught in a war between the Maggia, A.I.M., and Hydra, before being sent to the future with Doctor Doom to join a reborn Arthur and Merlin in battle.",
     coverUrl: "https://m.media-amazon.com/images/I/71ESFi+R9wL._SL1400_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -4663,7 +4668,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "Fresh off his debut, James Rhodes takes up the War Machine armor for the first time as Len Kaminski begins his run exploring Rhodey's own corner of the Iron Man mythos.",
     coverUrl: "https://m.media-amazon.com/images/I/91XBjt48xWL._SL1500_.jpg",
-    ownershipStatus: "alt_format",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -4681,7 +4686,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "Tony Stark returns to the armor after his paralysis, reclaiming the Iron Man identity from James Rhodes as the two heroes redefine their partnership.",
     coverUrl: "https://m.media-amazon.com/images/I/814DLzrUiRL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -4699,7 +4704,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "Iron Man forms Force Works, a new team assembled to strike preemptively against threats before they escalate, as Kaminski's run digs deeper into the moral cost of Tony's new proactive strategy.",
     coverUrl: "https://m.media-amazon.com/images/I/81Syduw4DSL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -4717,7 +4722,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "Kang the Conqueror weaves a complicated plot that pits the Avengers against Tony Stark, as murders at the mansion shake the team to its core and Tony's unexplained blackouts suggest he might be the killer.",
     coverUrl: "https://m.media-amazon.com/images/I/91lHag6iIiL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -4735,7 +4740,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "Iron Man is revealed as a traitor, and the Avengers turn to a younger Tony Stark from an alternate past -- exploring whether Teen Tony will join their cross-dimensional mission, and what happens when Iron Man battles Iron Man.",
     coverUrl: "https://m.media-amazon.com/images/I/91iNm+1529L._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -4788,7 +4793,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "",
     coverUrl: "https://m.media-amazon.com/images/I/91YJvD9ISJL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   // --- Killraven ---
   {
@@ -4807,7 +4812,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "A Martian invasion of Earth has left the planet shattered and humankind enslaved, and Killraven rises with a singular mission to free Earth -- Don McGregor and P. Craig Russell's compelling, nuanced 1970s masterwork.",
     coverUrl: "https://m.media-amazon.com/images/I/81Yi+BVnJvL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   // --- Luke Cage ---
   {
@@ -4826,7 +4831,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "Luke Cage bursts onto the scene as the historic first Black character to headline his own series, bringing 1970s New York City grit to his origin, his growing relationship with Claire Temple, the first appearance of Cottonmouth, and a battle against Iron Man.",
     coverUrl: "https://m.media-amazon.com/images/I/81DD0AkNa5L._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -4844,7 +4849,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "Luke defends the streets of New York City and the outer boroughs against Moses Magnum, the Mace, and other 1970s Times Square menaces, featuring the debut of Bill Foster as Black Goliath and Piranha Jones.",
     coverUrl: "https://m.media-amazon.com/images/I/81LBsK1dKPL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   // --- Marvel Two-In-One ---
   {
@@ -4863,7 +4868,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "The Thing gets his own team-up series, guest-starring Marvel's greatest heroes as he battles the Incredible Hulk, the minions of Thanos, and the giant monster Braggadoom, and brings the Guardians of the Galaxy back into the fold.",
     coverUrl: "https://m.media-amazon.com/images/I/91yWQ+T8rnL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -4881,7 +4886,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "The Thing, the FF, the Invaders, and the Liberty Legion travel back in time to World War II to battle the Third Reich, and Deathlok arrives on an assassination mission that pulls in Thor, Iron Fist, Black Goliath, Nick Fury, the Sub-Mariner, Shang-Chi, and Spider-Woman.",
     coverUrl: "https://m.media-amazon.com/images/I/81GVQ08DM8L._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -4899,7 +4904,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "Jim Starlin's famous two-part cosmic epic pits the Avengers and the Thing against Thanos and his Infinity Gems, with the debut of Project P.E.G.A.S.U.S., a reality-bending Cosmic Cube, and an android army of Visions.",
     coverUrl: "https://m.media-amazon.com/images/I/81YQxE5jaML._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -4951,7 +4956,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "Shang-Chi is born to be the world's most fearsome fighter, but discovers the truth about his father, the villainous Fu Manchu -- the series that captured the '70s kung fu craze and became one of Marvel's most groundbreaking comics.",
     coverUrl: "https://m.media-amazon.com/images/I/71JuJ38mjiL._SL1400_.jpg",
-    ownershipStatus: "alt_format",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -4969,7 +4974,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "Doug Moench and Paul Gulacy blend kung fu action with globetrotting espionage in the \"Crystal Connection,\" debuting the whip-cracking Pavane and the savage Razor-Fist, building to a showdown on Mordillo's Island and the Return of Fu Manchu.",
     coverUrl: "https://m.media-amazon.com/images/I/71zLN+lLBJL._SL1500_.jpg",
-    ownershipStatus: "alt_format",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -4986,7 +4991,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "Shang-Chi faces a rogue MI-6 agent driven mad by experimental treatments into the insane embodiment of history's greatest warriors, then is tested by Skull-Crusher, the Cat, and Pavane in a storyline marking Mike Zeck's debut as artist.",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781302901370",
-    ownershipStatus: "alt_format",
+    ownershipStatus: "announced",
   },
   // --- Moon Knight ---
   {
@@ -5005,7 +5010,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "Marc Spector's multiple-personality Fist of Khonshu battles to find his place in the Marvel Universe, from his debut as a nemesis of the Werewolf by Night through an unlikely stint with the Defenders and encounters with Spider-Man and the Thing.",
     coverUrl: "https://m.media-amazon.com/images/I/819rmson-ML._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -5023,7 +5028,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "Marvel's multiple-personality midnight marauder fights a range of rogues including Arsenal, Stained Glass Scarlet, the Jester, and Morpheus, as old foes Midnight Man and Bushman return to plague Marc Spector.",
     coverUrl: "https://m.media-amazon.com/images/I/71AAjabhJfL._SL1400_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -5041,7 +5046,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "Doug Moench and Bill Sienkiewicz's acclaimed run heads toward its conclusion, pushing Marc Spector's fractured psyche and gritty street-level cases to their limit.",
     coverUrl: "https://m.media-amazon.com/images/I/91pWIP5hXKL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -5059,7 +5064,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "A new creative era spans a short-lived second series and the launch of Marc Spector: Moon Knight, as the character is reinvented for the late '80s with a grittier, more psychologically driven approach.",
     coverUrl: "https://m.media-amazon.com/images/I/91lJR8TwwPL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -5077,7 +5082,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "Marc Spector joins deadly mercenaries to free Burunda from his old nemesis Bushman, only for the lethal Arsenal to hunt them both -- and his past catches up with him as he's put on trial for murder, needing help from Spider-Man and the Punisher.",
     coverUrl: "https://m.media-amazon.com/images/I/81xUh-LWWnL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -5095,7 +5100,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "Moon Knight faces a deadly reunion with Stained Glass Scarlet, and as her secret history is revealed, questions arise about whether there can be any redemption for her after what she's done.",
     coverUrl: "https://m.media-amazon.com/images/I/811GQyhlMaL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -5113,7 +5118,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "Moon Knight faces a mysterious illness, encounters Doctor Doom, gets caught up in the Infinity War, and embarks on a quest to find his own successor.",
     coverUrl: "https://m.media-amazon.com/images/I/91VIzO6QuIL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -5150,7 +5155,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "Dr. Michael Morbius is cursed by an experiment gone wrong into an unquenchable thirst for blood -- though his heart beats like any other man's -- from his first appearance through his own black-and-white anthology adventures.",
     coverUrl: "https://m.media-amazon.com/images/I/91gpccknlML._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -5168,7 +5173,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "The first era in the dark saga of Marvel's living vampire concludes as Morbius must save Martine Bancroft from the other-dimensional clutches of Helleyes, while CIA agent Simon Stroud stalks him at every turn.",
     coverUrl: "https://m.media-amazon.com/images/I/81PGHkFac6L._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   // --- Ms. Marvel ---
   {
@@ -5187,7 +5192,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "Carol Danvers, whose life has long been intertwined with the alien Kree and their Earthbound soldier Mar-Vell, comes to terms with her new life as a superhero, facing the Scorpion, the Doomsday Man, Grotesk, and M.O.D.O.K. -- but her deadliest foe may be Deathbird.",
     coverUrl: "https://m.media-amazon.com/images/I/91F8I3QAbvL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -5205,7 +5210,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "Chris Claremont weaves complex plots and compelling characterization in the conclusion of Carol Danvers' original adventures -- as Ms. Marvel, she meets the Avengers for the first time, and the shape-shifting Mystique makes her debut.",
     coverUrl: "https://m.media-amazon.com/images/I/91KULDakNYL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   // --- Namor, The Sub-Mariner ---
   {
@@ -5224,7 +5229,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "An icon of comics' Golden Age hadn't been seen for nearly a decade when Stan Lee and Jack Kirby reintroduced Namor in 1962 -- his early Silver Age appearances, building to his own Tales to Astonish serial and a quest for the Trident of Neptune to claim the throne of Atlantis.",
     coverUrl: "https://m.media-amazon.com/images/I/81CyvH5SkKL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -5242,7 +5247,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "Namor takes on the bloodthirsty Tiger Shark before the man called Destiny returns with the powerful Serpent Crown, whose evil influence threatens everyone he loves, and the alien Stalker robs him of his ability to fly and breathe underwater, stranding him on land as Public Enemy No. 1.",
     coverUrl: "https://m.media-amazon.com/images/I/81IL2CwfmeL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -5260,7 +5265,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "Roy Thomas and Sal Buscema steer Namor through Bronze Age threats to Atlantis and the surface world alike, including a team-up with Daredevil and the return of old undersea rivalries.",
     coverUrl: "https://m.media-amazon.com/images/I/91k909YWnWL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -5278,7 +5283,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "Series creator Bill Everett returns to the character late in his career, alongside Steve Gerber, as Namor's series heads into its final stretch of Bronze Age adventures.",
     coverUrl: "https://m.media-amazon.com/images/I/91RoOByHK1L._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -5314,7 +5319,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "Young mutants Karma, Wolfsbane, Sunspot, Cannonball, and Moonstar find their footing at the Xavier School, from Karma's first meeting with Spider-Man and the Fantastic Four through battles against Sentinels, the Silver Samurai, and the Hellfire Club.",
     coverUrl: "https://m.media-amazon.com/images/I/71UD463c43L._SL1400_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -5332,7 +5337,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "Visionary artist Bill Sienkiewicz transforms the New Mutants as new recruits Magma and Magik find their footing, a rescue mission for Kitty Pryde risks the team joining the rival Hellions, and the Demon Bear that haunts Dani Moonstar bares its teeth.",
     coverUrl: "https://m.media-amazon.com/images/I/81IqpSf5mVL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -5350,7 +5355,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "The team's search for Karma spans from Madripoor to Asgard, as the Enchantress attacks and scatters the New Mutants across the realm of the gods.",
     coverUrl: "https://m.media-amazon.com/images/I/91MWhU8-aSL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -5368,7 +5373,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "Tragedy strikes a local high school after a mutant student is bullied, as the New Mutants face evil future versions of themselves and mutant-hunting Sentinels, while Sunspot and Warlock hang out with Madrox, Siryn, Boom-Boom, and the Vanisher in the paradise of Coconut Grove.",
     coverUrl: "https://m.media-amazon.com/images/I/811QK72QyXL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -5386,7 +5391,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "Louise Simonson takes over as writer, sending the New Mutants against the demon-summoning Sentinel program known as Project: Wideawake and delivering one of the team's most shocking losses.",
     coverUrl: "https://m.media-amazon.com/images/I/81hKoPUFpAL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -5404,7 +5409,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "The New Mutants escape Magik's dark domain during Inferno as S'ym and his demons threaten Earth, and when Hela's evil spell corrupts Mirage's Valkyrie side, the team must travel to Asgard while Hela schemes to murder Odin and conquer it.",
     coverUrl: "https://m.media-amazon.com/images/I/91nykqvh+NL._SL1500_.jpg",
-    ownershipStatus: "alt_format",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -5422,7 +5427,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "Cable makes his explosive debut, transforming the New Mutants into a harder-edged strike force as Rob Liefeld's artwork and Louise Simonson's scripts push the team toward the militarized future that will become X-Force.",
     coverUrl: "https://m.media-amazon.com/images/I/916kPPP355L._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -5440,7 +5445,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "The New Mutants series comes to a close as Cable's militarized vision for the team crystallizes, crossing over with X-Factor and the Uncanny X-Men to set the stage for X-Force's launch.",
     coverUrl: "https://m.media-amazon.com/images/I/81OA+TTHWpL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   // --- Power Man and Iron Fist ---
   {
@@ -5459,7 +5464,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "Luke Cage partners with the mystic kung fu master Iron Fist to become heroes for hire, taking on any job so long as the client can meet the price, with guest appearances by the X-Men and the Daughters of the Dragon against classic villains including Bushmaster and Sabretooth.",
     coverUrl: "https://m.media-amazon.com/images/I/810-e5cTg8L._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -5477,7 +5482,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "Luke takes revenge when Warhawk beats Danny, and the tag-team of Sabretooth and Constrictor targets Power Man and Iron Fist's friends and allies.",
     coverUrl: "https://m.media-amazon.com/images/I/71u9fLN6xoL._SL1400_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -5495,7 +5500,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "Encounters with Unus the Untouchable and Hammerhead give way to battles against the Eel and Man-Mountain Marko, the new Chemistro, Fera the She-Beast, Shades and Comanche, and the soul-stealing Master Khan.",
     coverUrl: "https://m.media-amazon.com/images/I/91E4WWhtDQL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -5513,7 +5518,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "Christopher Priest steers the duo through their final stretch as a team, closing out the long partnership between Luke Cage and Danny Rand before the series' cancellation.",
     coverUrl: "https://m.media-amazon.com/images/I/81Q+BZux81L._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   // --- Punisher ---
   {
@@ -5532,7 +5537,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "Frank Castle steps out on his own in the miniseries that made him a phenomenon, forging an uneasy alliance with the tech-genius Microchip and clashing with the deadly assassin Jigsaw. Starting behind bars and ending in an all-out war on organized crime, this is the origin of the Punisher as a solo ongoing force in the Marvel Universe.",
     coverUrl: "https://m.media-amazon.com/images/I/81YOOpfBxmL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -5550,7 +5555,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "Frank Castle sets his sights on toppling Wilson Fisk, the Kingpin of Crime, going undercover as a substitute teacher at Malcolm Shabazz High School and tracking a ninja assassin known as the Shadowmaster to Las Vegas. The war on crime gets personal as the Punisher takes the fight straight to the top of New York's underworld.",
     coverUrl: "https://m.media-amazon.com/images/I/91lqd87nNjL._SL1500_.jpg",
-    ownershipStatus: "alt_format",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -5569,7 +5574,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "Frank Castle's disfigured archenemy Jigsaw returns, allied with the fanatical Reverend Sammy Smith, forcing the Punisher to pick up the pieces of his own life while taking down arms dealers, drug traffickers, and the mob. Castle even goes undercover as a cab driver while hunting a killer loose on the streets of New York.",
     coverUrl: "https://m.media-amazon.com/images/I/81+1pDEyMJL._SL1500_.jpg",
-    ownershipStatus: "alt_format",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -5588,7 +5593,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "The Punisher heads to Europe and London in pursuit of the assassin Snakebite, crossing paths with the British vigilante Outlaw. Their uneasy alliance survives a deadly chase across the continent involving mercenaries from Batroc to the Tarantula, before Castle heads to the Big Easy for one more brutal reckoning.",
     coverUrl: "https://m.media-amazon.com/images/I/71JKPN4060L._SL1200_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -5631,7 +5636,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "",
     coverUrl: punisherCapitalPunishmentCover,
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -5649,7 +5654,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "",
     coverUrl: punisherSurvivalCover,
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   // --- Sgt. Fury ---
   {
@@ -5668,7 +5673,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "Sgt. Nick Fury and the Howling Commandos storm onto the scene in an instant hit that would go on to inspire Quentin Tarantino's Inglourious Basterds. Dum Dum Dugan, Gabe Jones, and the rest of the squad take on death-defying WWII missions behind enemy lines against overwhelming odds.",
     coverUrl: "https://m.media-amazon.com/images/I/91sGZhKkgqL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -5686,7 +5691,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "The Howling Commandos protect the Manhattan Project and its atomic secrets from Nazi spies and saboteurs, unmask an undercover agent who is none other than the Red Skull, root out a traitor in their own ranks, and go mano a mano with Baron Strucker in war-torn France. This volume also reveals the origin of Nick Fury's eyepatch and sends Dum Dum Dugan solo behind enemy lines.",
     coverUrl: "https://m.media-amazon.com/images/I/81U--IdmRwL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   // --- She-Hulk ---
   {
@@ -5705,7 +5710,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "John Byrne launches She-Hulk's second solo series with a twist: Shulkie knows she's a character in a comic book. As the jade giantess smashes through the glass ceiling at her new law firm, she breaks the fourth wall right along with it, quipping with readers and arguing with her own creative team while taking on the Circus of Crime, the Toad Men, Stilt-Man, and Xemnu the Titan.",
     coverUrl: "https://m.media-amazon.com/images/I/81IdXq6ebsL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -5723,7 +5728,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "Howard the Duck joins She-Hulk for a journey through alternate realities and the titular Cosmic Squish Principle, including a realm filled with floating lunch meats. Along the way Shulkie shares adventures with Nosferata, crosses paths with the All-Winners Squad and the Blonde Phantom, and squares off with the bounty hunter Death's Head across the timestream.",
     coverUrl: "https://m.media-amazon.com/images/I/819M2NzeN4L._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -5741,7 +5746,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "The sensational She-Hulk meets the savage She-Hulk in a bizarre tale that sends Jen Walters up against an old version of herself, along with the Gopher, Man-Elephant, Titania, and the Rumbler. This volume rounds out Jen's solo adventures in Los Angeles before the character heads into a new era.",
     coverUrl: "https://m.media-amazon.com/images/I/81P2pEscIhL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -5778,7 +5783,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "The Silver Surfer debuts as the herald of the world-devourer Galactus in Fantastic Four, a stoic alien entity touched by human compassion who rebels against his master. Trapped on Earth by Galactus, the Surfer struggles to understand his adopted world, clashing with the Thing and the Hulk, venturing into the Microverse, and facing his own Power Cosmic at the hands of Doctor Doom.",
     coverUrl: "https://m.media-amazon.com/images/I/71oEnwVG-YL._SL1400_.jpg",
-    ownershipStatus: "alt_format",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -5796,7 +5801,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "The Silver Surfer breaks free of Galactus's planetary barrier and returns to the stars with his full Power Cosmic restored, setting a course for his lost love and homeworld of Zenn-La. But as the old saying goes, you can't go home again -- Norrin Radd's long-awaited freedom comes with a price he never expected.",
     coverUrl: "https://m.media-amazon.com/images/I/91BhcF772uL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -5814,7 +5819,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "Galactus feasts once more, this time in the company of the mighty Elders of the Universe, while Norrin Radd's relationship with Nova is strained by Firelord and Ego the Living Planet sets its sights on consuming the Surfer. Stan Lee scripts two standout sagas: Mephisto bedevils the Surfer in a graphic novel drawn by John Buscema, and Moebius illustrates an epic in which the Surfer alone can stop Galactus from leading mankind to its doom.",
     coverUrl: "https://m.media-amazon.com/images/I/81RTfpJ9hAL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -5832,7 +5837,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "The Silver Surfer is manipulated into a second Kree-Skrull War, putting his homeworld of Zenn-La in the crossfire. Meanwhile, Death has resurrected Thanos of Titan, and the Mad Titan intends to kill half of all living beings in the universe -- setting the stage for the cosmic epics still to come.",
     coverUrl: "https://m.media-amazon.com/images/I/81RXmF4Y-3L._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -5850,7 +5855,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "The Silver Surfer may believe he has killed Thanos, but the Mad Titan still lives -- and his great love for Death sends him on a space-faring search for the Infinity Gems. Jim Starlin builds the pieces into place for the cosmic showdown that becomes Infinity Gauntlet.",
     coverUrl: "https://m.media-amazon.com/images/I/71OXQhLmSNL._SL1000_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -5868,7 +5873,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "The Sentinel of the Spaceways is swept into a Marvel Universe-spanning cosmic extravaganza against the Mad Titan Thanos, now wielding the omnipotent Infinity Gauntlet. As reality itself buckles under Thanos's will, the Surfer becomes one of the last lines of defense standing between the Mad Titan and total annihilation.",
     coverUrl: "https://m.media-amazon.com/images/I/71xBY8EH7iL._SL1400_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -5886,7 +5891,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "As the Infinity Wars rage across the Marvel Universe, the Silver Surfer joins Nova, Galactus, and Doctor Strange on a cosmic quest, but the World-Eater has taken a new herald named Morg. To save countless lives, the Surfer unites his fellow former heralds -- Nova, Firelord, Terrax, and a reactivated Gabriel the Air-Walker -- to stand against Morg, though not all of them will survive the executioner's ax.",
     coverUrl: "https://m.media-amazon.com/images/I/91IxfCXZZ8L._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -5904,7 +5909,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "The Silver Surfer aids the Jack of Hearts, survives an encounter with the deadly Nebula, and faces the Kree double threat of Captain Atlas and Doctor Minerva, while Galactus's heralds Morg and Terrax clash over the same executioner's ax. The Sentinel of the Spaceways then joins Adam Warlock and the Infinity Watch in Mephisto's clutches for the Resurrection saga.",
     coverUrl: "https://m.media-amazon.com/images/I/91zJfvpLzOL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -5925,7 +5930,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     // one was the Silver Surfer #123 single-issue cover, not the collection's.
     // See the coverUrl note in this file's header for the variant convention.
     coverUrl: "https://cdn.marvel.com/u/prod/marvel/i/mg/9/00/67dc8a3a3431c/detail.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -5943,7 +5948,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "The Silver Surfer returns to Earth after the Fantastic Four and Avengers have fallen in the wake of Onslaught, aided by his old friend Alicia Masters. A journey through time and space brings the Surfer face to face with Mephisto and his own inner demons, with guest turns from Spider-Man, Daredevil, and the Puppet Master along the way.",
     coverUrl: "https://m.media-amazon.com/images/I/715cBlZGNJL._SL1200_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -5961,7 +5966,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "The Silver Surfer and Alicia Masters reach the end of their journey together, but before they part ways they must survive the manipulations of Tenebrae and an emotionally charged battle against Psycho-Man in the Microverse. When Galactus's unceasing hunger drives him mad and he turns to devour the Earth, Marvel's greatest heroes rally against the cosmic threat -- and the Surfer makes the greatest sacrifice of all.",
     coverUrl: "https://m.media-amazon.com/images/I/91QVOeRfunL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -5997,7 +6002,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "Dr. Donald Blake discovers a strange, gnarled cane in Norway, and upon striking it transforms into Thor, God of Thunder. Stan Lee and Jack Kirby lay the foundation of Asgard and the Marvel Universe's mightiest hero from the ground up.",
     coverUrl: "https://m.media-amazon.com/images/I/71UkYQa1XlL._SL1400_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -6015,7 +6020,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "Asgardian adventures escalate with a fight between Thor and the Incredible Hulk, the return of the Grey Gargoyle, and the debuts of the Absorbing Man and the Destroyer. The volume closes with an epic team-up adventure pitting Thor against Hercules that concludes in Pluto's Underworld.",
     coverUrl: "https://m.media-amazon.com/images/I/81+ZftH7E3L._SL1500_.jpg",
-    ownershipStatus: "alt_format",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -6033,7 +6038,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "Thor's saga reaches new heights with the debuts of Ego the Living Planet, the High Evolutionary, Ulik the Troll, and the Destroyer. Loki conspires to have Odin strip Thor of his power and banish him to Earth, forcing Thor to survive his scheming brother's machinations while attempting to regain Odin's favor.",
     coverUrl: "https://m.media-amazon.com/images/I/71jNvCFUl0L._SL1400_.jpg",
-    ownershipStatus: "alt_format",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -6051,7 +6056,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "Mangog threatens to unsheathe the Odinsword and bring Ragnarok upon the Norse gods in this run of Asgardian classics. The volume also features a cosmic battle between Galactus and Ego the Living Planet, the return of \"Him\" (later Adam Warlock), and the origin of Galactus himself, alongside personal revelations about Donald Blake and the dramatic dance between Balder and the Norn queen Karnilla.",
     coverUrl: "https://m.media-amazon.com/images/I/71e3dqMqPaL._SL1400_.jpg",
-    ownershipStatus: "alt_format",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -6069,7 +6074,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "The mountain giants are on the march, Surtur has broken free, and Odin sleeps while Loki claims the throne of Asgard -- in short, all Ragnarok is about to break loose. When the dust settles, Loki's spells lead to a body swap between the God of Thunder and his mischievous half-brother, while John Buscema steps in to carry the hammer alongside Stan Lee, pitting Thor against Doctor Doom, Hela, and the Silver Surfer.",
     coverUrl: "https://m.media-amazon.com/images/I/91z7CjMbckL._SL1500_.jpg",
-    ownershipStatus: "alt_format",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -6087,7 +6092,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "Loki looses the Mangog, a monster powered by the anger and hatred of a billion beings, leading to the tragic death of Odin. When Pluto comes to claim Odin's soul, a war with Hela, queen of the dead, erupts across Asgard and beyond.",
     coverUrl: "https://m.media-amazon.com/images/I/91upZAYCPvL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -6105,7 +6110,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "Thor teams up with Hercules as they battle into Pluto's underworld, then joins Sif and Balder to stop the mysterious Black Stars from destroying the Rigellian homeworld. Galactus's herald Firelord makes his debut, the origin of Ego the Living Planet is revealed, and the Absorbing Man joins forces with Ulik the Troll.",
     coverUrl: "https://m.media-amazon.com/images/I/81q-6IiCbsL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -6123,7 +6128,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "Thor embarks on an adventure with Zarrko the Tomorrow Man against the Time-Twisters, fights the Firelord in the jungles of Latin America with Jane Foster's help, and faces Mangog in Asgard on a quest to save Odin.",
     coverUrl: "https://m.media-amazon.com/images/I/81DF7FZWFJL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -6141,7 +6146,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "Odin has disappeared, and Asgard needs its All-Father, so Thor ventures across the vastness of space to find him -- a quest that brings him into conflict with the Enchantress, the Executioner, the Destroyer, and Loki. This volume features the death of Balder, the Midgard Serpent, a new Norse Thor, a team-up with the Guardians of the Galaxy against Korvac, and the beginning of the epic Eternals saga.",
     coverUrl: "https://m.media-amazon.com/images/I/81a-ekcIxqL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -6159,7 +6164,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "One of the greatest Thor stories of all time arrives with the coming of the Eternals, as Thor confronts Odin with questions about Ragnarok, his mother, and the looming threat of the Celestials. The quest leads Thor to meet the Eternals themselves and face the Fourth Host of the Celestials.",
     coverUrl: "https://m.media-amazon.com/images/I/81EUBEZvAtL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -6177,7 +6182,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "Thor returns to Earth, but the enemies of Asgard aren't waiting for him back home, from the Wrecking Crew and Galactus's heralds Gabriel and Firelord to the Frost Giants and Drax the Destroyer. Thor teams up with Iron Man to confront some of the strangest villains in the Marvel Universe, while Loki conspires to pit his half-brother against the stone men of Easter Island and the great dragon Fafnir.",
     coverUrl: "https://m.media-amazon.com/images/I/81RYt1vKLoL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -6195,7 +6200,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "A battle for Asgard erupts when Loki and the war god Tyr steal the Golden Apples of Immortality and unleash the Midgard Serpent, leaving Thor, Sif, and the Warriors Three to face this world-destroying menace or age and die like mortal men. Thor and Sif also embark on a quest into the cosmic depths of the Runestaff to save Jane Foster.",
     coverUrl: "https://m.media-amazon.com/images/I/71ziLiot60L._SL1400_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -6213,7 +6218,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "With Asgard adrift in space, Thor must sacrifice all when he finds himself in a losing battle to protect the planet Pangoria against the unimaginably powerful Celestials. When Seth the Serpent God unleashes an all-out assault on Asgard, the Norse gods must defeat his ruthless army without their greatest warrior. Thor also takes on the Hulk, clashes with a Celtic Lord of Lightning, and tackles Quicksand and the Mongoose alongside Spider-Man.",
     coverUrl: "https://m.media-amazon.com/images/I/91P6jke4zNL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -6231,7 +6236,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "Thor makes the ultimate sacrifice to spare a life, and with his friend Eric Masterson's fate hanging in the balance, Thor finds himself bonded to mortal form once again. Villains including Quicksand, the Mongoose, and a new Executioner menace an untethered Asgard as it drifts into the Negative Zone, while Hercules returns and Thor teams with She-Hulk against two Dooms and with the New Warriors against the Juggernaut.",
     coverUrl: "https://m.media-amazon.com/images/I/81RcSD6PgML._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -6249,7 +6254,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "When the High Evolutionary plans a new race of immortals in the Black Galaxy, Hercules and the Celestials play a part in a spacefaring saga with major implications for Thor and his new mortal host, Eric Masterson. Thor will experience flame, frost, and fury courtesy of Surtur and Ymir, while on Earth, Code Blue protects New York from superhuman dangers -- until Thor and Excalibur must team up against the unstoppable Juggernaut.",
     coverUrl: "https://m.media-amazon.com/images/I/91NNr0nt0OL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -6267,7 +6272,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "Eric Masterson settles into his role as replacement Thor and joins forces with Beta Ray Bill and Dargo Ktor, the 26th-century Thunder God. Zarrko the Tomorrow Man recruits a cadre of classic Thor villains from across the timestream, including Loki, while Operation: Galactic Storm takes Thor into space and Dargo meets the Guardians of the Galaxy.",
     coverUrl: "https://m.media-amazon.com/images/I/81UEJkZDfYL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -6285,7 +6290,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "The true Odinson is located at last, and Eric Masterson's time as the God of Thunder comes to an end, leading to a battle between Thor and Thor and a new heroic legacy waiting in the wings. Thor battles the Super-Skrull, Drax, and Pluto as the Infinity Crusade rocks the Marvel Universe, and the Thor Corps reunites.",
     coverUrl: "https://m.media-amazon.com/images/I/91xRaZgfU-L._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -6303,7 +6308,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "The God of Thunder has gone mad, with Beta Ray Bill and Sif hoping to talk him down, while Adam Warlock, Doctor Strange, and the Silver Surfer intend to cure him -- and Thanos is spoiling for a fight. The Blood and Thunder crossover pulls in the Infinity Watch as Thor's madness threatens to consume everyone around him.",
     coverUrl: "https://m.media-amazon.com/images/I/81khATepnnL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -6321,7 +6326,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "Thor discovers Don Blake is alive and well, and confronts Odin when the all-powerful Destroyer interrupts his quest for answers. Kurse returns backed by undead allies and threatens to destroy New York City, and the Hulk helps Thor fight his way to Hel and back.",
     coverUrl: "https://m.media-amazon.com/images/I/91Nc2ToGn4L._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -6339,7 +6344,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "Visionary writer Warren Ellis and artist Mike Deodato Jr. unite to change everything for a Thunder God forsaken by his father and left mortal in Manhattan. Thor faces death and potential Ragnarok while finding solace with the Enchantress and attempting to save Yggdrasil, the World Tree.",
     coverUrl: "https://m.media-amazon.com/images/I/91ljrU+3axL._SL1500_.jpg",
-    ownershipStatus: "out_of_print",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -6357,7 +6362,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "Thor is gone and Asgard destroyed, its gods scattered across the Earth living mortal lives with no memory of their past selves. Sif, Balder, Ulik the Troll, the Warriors Three, the Enchantress, and the other Lost Gods must discover the truth about themselves in time to stop the world-destroying plot of Seth, the Egyptian God of Death.",
     coverUrl: "https://m.media-amazon.com/images/I/91IGPUO8MSL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -6375,7 +6380,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "The Mighty Thor ushers in a new era following the world-shattering events of Heroes Reborn, as the Odinson returns to find Asgard in ruins and the other pantheons under siege. Dan Jurgens and John Romita Jr. relaunch the God of Thunder for a new age of dark gods and old enemies.",
     coverUrl: "https://m.media-amazon.com/images/I/91dbxoj4SgL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -6393,7 +6398,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "",
     coverUrl: "https://m.media-amazon.com/images/I/81irVHSFtoL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "gap",
@@ -6420,7 +6425,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "A team of villains in disguise, led by Baron Zemo, poses as a new team of heroes to fill the void left by the Avengers and Fantastic Four -- who have seemingly perished. As the ruse deepens, some members begin to doubt the plan, leading to explosive confrontations when the real heroes return.",
     coverUrl: "https://m.media-amazon.com/images/I/91C7mek8SsL._SL1500_.jpg",
-    ownershipStatus: "alt_format",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -6438,7 +6443,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "Baron Zemo's master plan collapses and the Thunderbolts are exposed as villains in disguise, kidnapped to the alien realm of Kosmos. Back on Earth, the team is pursued by S.H.I.E.L.D. and by Zemo himself, out for blood, while Hawkeye the Marksman offers them a shot at redemption -- with a very high price attached.",
     coverUrl: "https://m.media-amazon.com/images/I/91wPeTRAocL._SL1500_.jpg",
-    ownershipStatus: "alt_format",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -6456,7 +6461,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "The Thunderbolts have a new leader in Hawkeye, a new headquarters, a new ship, and a new mission: to prove themselves as heroes by taking down the biggest villains at large. MACH-1 is now behind bars, surrounded by the super villains who used to be his peers and who now want him dead.",
     coverUrl: "https://m.media-amazon.com/images/I/91rhvBCjGhL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -6474,7 +6479,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "The Thunderbolts face off against the Avengers with Hawkeye caught in the middle, and a showdown looms with Count Nefaria, master of ionic energy. Old friends return, a new Scourge attacks, and sparks fly between Songbird and Captain Marvel as the team's path toward true redemption reaches a turning point.",
     coverUrl: "https://m.media-amazon.com/images/I/91NPgsavm5L._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -6510,7 +6515,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "When Spider-Man learns that his black costume is secretly an alien symbiote, he rejects the suit -- and the spurned creature soon finds a new host. Disgraced reporter Eddie Brock has reasons of his own to hate Spider-Man, and together the two merge into the twisted engine of revenge known as Venom: bigger, stronger, and privy to Spidey's secret identity.",
     coverUrl: "https://m.media-amazon.com/images/I/81owZ-obW9L._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -6528,7 +6533,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "Eddie Brock evolves from Spider-Man's deadliest foe into a twisted new hero as Venom forges a fresh future in San Francisco, targeting those who prey on the weak. The Lethal Protector saga marks Venom's turn from villain to anti-hero, setting the tone for the character for years to come.",
     coverUrl: "https://m.media-amazon.com/images/I/812mUtFJF5L._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -6546,7 +6551,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "The lethal protector continues his symbiotic crusade when Venom bonds with a second parasitic life-form, and Eddie Brock must fight to keep from succumbing to the madness of yet another voice in his head. The sinister symbiote clashes with some of Marvel's greatest powerhouses, from Iron Man and the Hulk to Darkhawk and Nightwatch.",
     coverUrl: "https://m.media-amazon.com/images/I/71P6N8m-SmL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -6564,7 +6569,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "Eddie Brock and Venom suffer separation anxiety as the symbiote gets caught in the web of Spider-Man's clone, the Scarlet Spider, forcing the question of whether Eddie and the symbiote can reunite or will be stopped by the Life Foundation symbiotes. Venom will need to be at full strength when a hit video game gives Cletus Kasady the opportunity to unleash Carnage once more.",
     coverUrl: "https://m.media-amazon.com/images/I/8104Rpn8f6L._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -6600,7 +6605,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "The former villain's transformation into Marvel's unlikely antihero continues as the symbiote's hunger for brains threatens to consume Eddie Brock entirely -- if the suit doesn't eat gray matter, it will die. Venom stands trial, goes on the run, and confronts old enemies in a string of adventures that push him ever further from his villainous roots.",
     coverUrl: "https://m.media-amazon.com/images/I/91ntd4KXYeL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -6634,7 +6639,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "Wolverine travels to Madripoor, an East Indian island full of pirates, cutthroats, and smugglers, where he takes on ruthless crimelord Roche, meets the cunning Tyger Tiger, wields the mystical Black Blade, and battles the superhuman enforcers Roughhouse and Bloodsport.",
     coverUrl: "https://m.media-amazon.com/images/I/81s00ABSW5L._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -6652,7 +6657,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "An old friend's death leads Logan to Nick Fury and the terrorist organization Swift Sword, with questions swirling around the new Scorpio's secret identity. Wolverine also travels to the Savage Land to fight cyborgs, then follows a trail from Madripoor to Central America involving Roughhouse and Tiger Shark.",
     coverUrl: "https://m.media-amazon.com/images/I/91TpT+MS8bL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -6670,7 +6675,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "Wolverine investigates a destructive new designer drug in Madripoor, then heads to the Yukon on vacation and encounters the mythical Hunter in Darkness. Lady Deathstrike attacks Wolverine and Puck, casting them into a time vortex where they relive the Spanish Civil War, while the Reavers create the cyborgs Albert and Elsie-Dee, and Sabretooth returns convinced he's Wolverine's father.",
     coverUrl: "https://m.media-amazon.com/images/I/81oVS16wQqL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -6688,7 +6693,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "Magneto tears Wolverine's world apart, and Logan intervenes in a Hydra experiment gone wrong with a nanite infection. Wolverine takes Rogue and Jubilee on a mission to the Savage Land where Sauron has risen, then battles a sentient Sentinel in Australia alongside Jubilee.",
     coverUrl: "https://m.media-amazon.com/images/I/91TXbnGYURL._SL1500_.jpg",
-    ownershipStatus: "alt_format",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -6706,7 +6711,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "Magneto stripped the adamantium from Wolverine's bones, and his healing factor is almost gone -- he's coming out fighting with claws made of bone. Wolverine heads to Canada to see old friends but faces enemies including Lady Deathstrike, Bloodscream, Cylla, and Cyber, and even with help from Alpha Flight and Excalibur, Logan is about to take a beating like never before.",
     coverUrl: "https://m.media-amazon.com/images/I/91mK307Q9oL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -6724,7 +6729,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "Wolverine has lost his adamantium skeleton and his healing factor is on the fritz, and the dark path Logan is on threatens to cost him his humanity, perhaps forever. Team-ups with Gambit, Deadpool, and Ghost Rider all lead to one of the greatest Wolverine/Sabretooth battles of all time.",
     coverUrl: "https://m.media-amazon.com/images/I/916wZvmLe-L._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -6742,7 +6747,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "A tormented and animalistic Wolverine, horribly transformed from a failed attempt to regain his adamantium, teeters on the brink of going completely feral. Elektra helps fight him back from the edge, mentoring Logan in the martial arts and challenging him to re-forge his humanity, while Yukio and Amiko become targets in Japan and Wolverine teams up with Venom on an interdimensional adventure.",
     coverUrl: "https://m.media-amazon.com/images/I/81IXn-uvU4L._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -6760,7 +6765,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "Wolverine takes on the Marvel Universe, with an alien encounter pitting Logan against the Avengers and a host of Earth's heroes, and a kidnapping to outer space to face the Collector and Galactus. Apocalypse turns the feral X-Man's life upside down, transforming him into the lethal Horseman of Death, and Wolverine's struggle to regain his freedom pits him against the X-Men and forces him to face his past.",
     coverUrl: "https://m.media-amazon.com/images/I/8128ZJ24mSL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -6778,7 +6783,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "Wolverine's adopted daughter Amiko finds herself in the middle of a blood feud, and Logan must return to Japan and lay his life on the line for hers in a saga involving the Silver Samurai and the Clan Yashida. Wolverine and Deadpool grudgingly join forces to battle an author-turned-werewolf, and this volume reveals the origin story of sickly young James Howlett, the boy who will one day become Wolverine.",
     coverUrl: "https://m.media-amazon.com/images/I/91KV1lJ8AuL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -6796,7 +6801,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "The shadow of Weapon X once again falls over Wolverine, as the sadistic agency that implanted his adamantium skeleton returns. Imprisoned and accused of killing a senator, Wolverine is \"rescued\" by the resurrected Weapon X Program -- but what's really going on? Logan faces Mr. X, a martial-arts master obsessed with becoming \"the best there is,\" battles through a bloody Madripoor tournament, and deals with Bloodscream, Mauvais, the Wendigo, and his undead former mentor Ogun.",
     coverUrl: "https://m.media-amazon.com/images/I/910TQc7ZI9L._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -6814,7 +6819,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "Sabretooth escapes from the revived Weapon X Program after stealing their files on Logan's past, then recruits Lady Deathstrike and Omega Red to target Wolverine's loved ones. This volume marks the end of an era as Wolverine's longest-running series comes to a close.",
     coverUrl: "https://m.media-amazon.com/images/I/91ShItEkuGL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   // --- X-Factor ---
   {
@@ -6833,7 +6838,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "When Jean Grey is found alive, with a little help from the Avengers and Fantastic Four, she reunites with the rest of Xavier's original class to form X-Factor. As Cyclops, Marvel Girl, Beast, Angel, and Iceman face new enemies Tower and Frenzy, little do they realize the villains are part of an Alliance of Evil led by Apocalypse.",
     coverUrl: "https://m.media-amazon.com/images/I/81HnTwvvWDL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -6851,7 +6856,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "X-Factor is coping with the loss of Angel when the team is rocked by a traitor -- their former publicist Cameron Hodge, who harbors an anti-mutant agenda and army. Apocalypse unveils his fourth Horseman, Death, who turns out to be a very familiar face.",
     coverUrl: "https://m.media-amazon.com/images/I/81fxlas2zTL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -6869,7 +6874,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "During the Inferno crossover, Madelyne Pryor -- now the Goblin Queen -- targets her and Cyclops's infant son, Nathan, and X-Factor must survive an onslaught of demons to keep him safe. Afterward, a Celestial kidnaps the team and their sentient Ship, stranding them on an alien world in the middle of the devastating Judgment War.",
     coverUrl: "https://m.media-amazon.com/images/I/91undWVsNFL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -6887,7 +6892,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "Havok takes charge of a new government-sanctioned mutant squad with recruits including Polaris, Wolfsbane, Quicksilver, Strong Guy, and Multiple Man. The new X-Factor must deal with murder mysteries, identity crises, and smear campaigns while facing Mr. Sinister and his Nasty Boys, along with the Mutant Liberation Front and the Brotherhood of Evil Mutants.",
     coverUrl: "https://m.media-amazon.com/images/I/91oKl-eQrWL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -6905,7 +6910,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "X-Factor battles X-Force as Stryfe's plans come to fruition. Following the X-Cutioner's Song crossover, the team gets counseling and encounters the mercenary Random and the Chalker brothers while investigating the mysterious Haven.",
     coverUrl: "https://m.media-amazon.com/images/I/91-duMnQgkL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -6923,7 +6928,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "Jamie Madrox's death leaves X-Factor struggling to cope with their first major loss, while Alex Summers questions his role as leader. Polaris seeks vengeance on whoever hired Random, and Lorna follows Alex to Hawaii where she encounters Malice, Mister Sinister, and the Nasty Boys, before the techno-organic threat of the Phalanx unites X-Factor, X-Force, and Excalibur.",
     coverUrl: "https://m.media-amazon.com/images/I/91tbUr9+WlL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -6978,7 +6983,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "The New Mutants graduate into X-Force, with Cable turning his young charges into a mutant militia that means business, including Cannonball, Boom Boom, Warpath, Domino, Shatterstar, and Feral. They're on the hunt for the mysterious Stryfe and his Mutant Liberation Front, but what is the villain's uncanny connection to Cable?",
     coverUrl: "https://m.media-amazon.com/images/I/91jYVpir+hL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -6996,7 +7001,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "Stryfe's long-brewing schemes come to a head as Cable's mysterious past is revealed, and the X-teams hunt X-Force when Cable becomes the prime suspect in an attack on Professor X. Mister Sinister, the Horsemen of Apocalypse, and the Mutant Liberation Front all become embroiled in the sprawling X-Cutioner's Song crossover.",
     coverUrl: "https://m.media-amazon.com/images/I/81WipmCZtSL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -7014,7 +7019,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "With Cable thought dead and Xavier's pacifist dream behind them, the members of X-Force carve out their own aggressive destiny -- beginning with a trip to Cable's space station, Graymalkin. When S.H.I.E.L.D. and War Machine come looking for answers, things get explosive, and the young mutants must grow up fast in battles against the Friends of Humanity and their former teacher Magneto.",
     coverUrl: "https://m.media-amazon.com/images/I/91SF5luyj0L._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -7050,7 +7055,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "The U.S. government's mutant-hunting Prime Sentinels target the villainous Mutant Liberation Front with X-Force caught in the middle, as Dani Moonstar's involvement with the MLF draws the team deeper into danger before they're captured by the Sentinels themselves.",
     coverUrl: "https://m.media-amazon.com/images/I/814vASw032L._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -7068,7 +7073,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "X-Force's newest member Jesse Bedlam reunites with his long-lost brother, but \"King Bedlam\" plans to awaken the deadly Armageddon Man. The team also risks facing Magneto on a mission to Genosha, with team-ups against the Champions and the returns of Rictor and Shatterstar along the way.",
     coverUrl: "https://m.media-amazon.com/images/I/81OertSj0wL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -7105,7 +7110,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "The X-Men debut with the beginning of Professor X's teen team and their mission for peace and brotherhood between man and mutant. This foundational volume features the team's first battle with arch-foe Magneto, and the dynamic debuts of Juggernaut, the Sentinels, Quicksilver, the Scarlet Witch, and the Brotherhood of Evil Mutants.",
     coverUrl: "https://m.media-amazon.com/images/I/71Zcgt3e2fL._SL1400_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -7123,7 +7128,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "The original X-Men -- Cyclops, Marvel Girl, Beast, Angel, and Iceman -- take on adventures that include the first appearance of Banshee, the brief tenure of Mimic, the complete Factor Three saga, and the debut of new costumes for the team.",
     coverUrl: "https://m.media-amazon.com/images/I/81uFQ2psT9L._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -7141,7 +7146,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "Writer Roy Thomas and artist Neal Adams revitalize the X-Men title in stories that define the team to this day. The volume introduces characters like Cyclops's brother Havok, the vampiric villain Sauron, the Savage Land Mutates, and X-Man-to-be Sunfire, along with the Living Pharaoh, a team-up with Ka-Zar, and the return of Magneto.",
     coverUrl: "https://m.media-amazon.com/images/I/813PEkP9OoL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -7159,7 +7164,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "Hank McCoy transforms into the Beast through a scientific experiment as the X-Men are pursued by a secret adversary, and the team joins forces with Captain America to save the nation and rescue their mutant comrades. This volume also features the first appearances of Wolverine and Madrox the Multiple Man, plus an X-Men/Avengers battle against Magneto.",
     coverUrl: "https://m.media-amazon.com/images/I/816+rghw1jL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -7177,7 +7182,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "The title relaunches with an all-new team, welcoming Storm, Colossus, Nightcrawler, and Wolverine alongside the returning Cyclops. This volume lays the groundwork for the modern X-Men as Chris Claremont begins the run that will define the franchise for decades.",
     coverUrl: "https://m.media-amazon.com/images/I/81kYokf5sfL._SL1500_.jpg",
-    ownershipStatus: "alt_format",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -7195,7 +7200,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "Claremont and Byrne's iconic X-Men run continues as the team faces the reality-warping mutant menace Proteus. Alpha Flight makes its debut, Arcade toys with the heroes, and the first pieces of Wolverine's origin are revealed.",
     coverUrl: "https://m.media-amazon.com/images/I/81sTNdOefxL._SL1500_.jpg",
-    ownershipStatus: "alt_format",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -7213,7 +7218,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "Of Claremont and Byrne's many iconic X-Men stories, none was more epic or influential than the Dark Phoenix Saga. Jean Grey has gained power beyond all comprehension, corrupting her into the Dark Phoenix, and the X-Men must fight the woman they cherish or her unquenchable fire will consume the universe itself.",
     coverUrl: "https://m.media-amazon.com/images/I/91yUQK28MTL._SL1500_.jpg",
-    ownershipStatus: "alt_format",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -7231,7 +7236,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "Chris Claremont reunites with Dave Cockrum for a run of X-Men classics, featuring the all-new, all-different mutants in action-packed adventures through Arcade, Doctor Doom, and Garokk, culminating with the return of Magneto in an anniversary extravaganza. The collection also includes the iconic first appearance of Rogue as she and her fellow Evil Mutants battle the Avengers.",
     coverUrl: "https://m.media-amazon.com/images/I/81FkEKTGt1L._SL1500_.jpg",
-    ownershipStatus: "alt_format",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -7249,7 +7254,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "The complete Brood Saga blends space opera featuring the X-Men, the Starjammers, and the Shi'ar with the deadly and sadistic alien Brood. This volume features art by X-icons Dave Cockrum and Paul Smith at their finest.",
     coverUrl: "https://m.media-amazon.com/images/I/81vtNNFbG7L._SL1500_.jpg",
-    ownershipStatus: "alt_format",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -7267,7 +7272,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "Artist Paul Smith joins the series to cover the growing romance between Kitty Pryde and Colossus, along with the first appearances of Callisto and the Morlocks and the debut of Rogue on the team. The volume also includes the classic graphic novel God Loves, Man Kills, in which charismatic evangelist William Stryker starts a violent campaign against mutants, forcing the X-Men to join forces with Magneto after Professor Xavier is captured.",
     coverUrl: "https://m.media-amazon.com/images/I/81Hqqu9yn1L._SL1500_.jpg",
-    ownershipStatus: "alt_format",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -7285,7 +7290,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "A barbarian nightmare involving Kulan Gath forces the X-Men, Avengers, and Spider-Man to restore the world to normal, while the trickster god Loki offers Earth a gift that comes with a steep price. This volume also features Nightcrawler's solo adventure into another dimension.",
     coverUrl: "https://m.media-amazon.com/images/I/71Qo0qmPTNL._SL1400_.jpg",
-    ownershipStatus: "alt_format",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -7321,7 +7326,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "The X-Men are brought to their lowest point as the team slowly breaks apart -- but who will rise to take their place? Psylocke finds herself transformed into the Mandarin's ninja assassin, but Jubilee and a grievously injured Wolverine work to bring her back to the light, while a new team forms on Muir Island and the mutant thief Gambit makes his uncanny entrance as superstar Jim Lee debuts for an X-citing new era.",
     coverUrl: "https://m.media-amazon.com/images/I/91R0k4HH-OL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -7339,7 +7344,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "The end of an era arrives for the X-Men as the original team, now known as X-Factor, takes center stage when Proteus returns from the grave. Apocalypse infects Cyclops's son Nathan with a deadly virus, and Professor X's old foe the Shadow King rises to take over Muir Island, setting the stage for the two teams to become one.",
     coverUrl: "https://m.media-amazon.com/images/I/81xeKz6t7nL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -7357,7 +7362,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "Bishop arrives from the future pursuing escaped convicts through time and finds himself stranded in the present. Raised to idolize the X-Men, Bishop knows a deadly secret waiting in their future, one that will shape the team's fate for years to come.",
     coverUrl: "https://m.media-amazon.com/images/I/91ESOr0FeGL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -7375,7 +7380,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "Cyclops and Phoenix are kidnapped and Cable seemingly assassinates Xavier, sending the X-Men, X-Factor, and X-Force to war with each other. Epic battles unfold across the globe and on the moon as Mister Sinister's plan for vengeance on Apocalypse comes to light, along with major revelations about Cable and Stryfe.",
     coverUrl: "https://m.media-amazon.com/images/I/81JnAsKatDL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -7393,7 +7398,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "Magneto and Stryfe cast a long shadow over mutantkind as the X-Men travel to Russia when Colossus visits his sister Illyana, only to find the sadistic Soul Skinner loose. The team's many legacies -- personal and cosmic -- come due in this volume.",
     coverUrl: "https://m.media-amazon.com/images/I/81a04NMcDjL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -7411,7 +7416,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "Magneto tears apart Wolverine's world as the Legacy Virus spreads among mutantkind, building to a final showdown between the X-Men and Magneto that costs Professor X and the team dearly. This volume closes the Classic Marvel Epic Collection era with one of the X-Men's most consequential clashes.",
     coverUrl: "https://m.media-amazon.com/images/I/91GuC+BQM8L._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "gap",

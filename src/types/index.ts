@@ -32,8 +32,10 @@ export interface MonthPoint {
 /**
  * Shelved and Ordered both render with the "owned" tile treatment (35%/65%
  * opacity). Out of Print, Announced, and Alt Format render with the "unowned"
- * tile treatment (15%/20% opacity). Every volume defaults to "announced" -- if it's in the system,
- * it's been solicited/listed somewhere (PRH, Amazon, etc).
+ * tile treatment (15%/20% opacity). Every volume seeds as "announced" -- if
+ * it's in the system, it's been solicited/listed somewhere (PRH, Amazon,
+ * etc), and the seed makes no claim about who owns it. Anything else is a
+ * reader's own doing, kept as a localStorage override (useOwnership).
  */
 export type OwnershipStatus =
   | "announced"

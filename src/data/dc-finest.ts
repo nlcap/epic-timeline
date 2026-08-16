@@ -634,7 +634,7 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     description:
       "The earliest Silver Age stories starring the King of the Seas, drawn by Ramona Fradon and Nick Cardy as Aquaman graduates from backup feature to headlining his own title.",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781779529893",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -674,7 +674,7 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     description:
       "Batman's earliest Golden Age cases, including his own origin and the debut of the Joker, the Catwoman, and Robin the Boy Wonder.",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781799506706",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -693,7 +693,7 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     description:
       "The debut of Ra's al Ghul and the Lazarus Pit, as Denny O'Neil, Frank Robbins, and Neal Adams pull Batman out of the campy '60s and into a darker, globe-trotting era.",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781799510307",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -753,7 +753,7 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     description:
       "From Gotham's dark alleys to the literal red skies of Crisis on Infinite Earths -- the debut of Black Mask, Hugo Strange's schemes, and showdowns with Two-Face, Catwoman, and the False Face Society.",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781799502739",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -772,7 +772,7 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     description:
       "Frank Miller and David Mazzucchelli's definitive Year One origin, followed by Mike W. Barr and Alan Davis's Year Two, chronicling Bruce Wayne's earliest days as Batman.",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781779528353",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -791,7 +791,7 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     description:
       "Alan Moore and Brian Bolland's The Killing Joke, one of the most influential Batman stories ever told, alongside Mike W. Barr and Jerry Bingham's Son of the Demon, which explores Batman's relationship with Talia al Ghul.",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781799501459",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -810,7 +810,7 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     description:
       "In 1988, comics readers were given the chance to decide the outcome of one of the medium's most controversial quandaries: should the Joker kill the Boy Wonder?",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781799508571",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -829,7 +829,7 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     description:
       "Bruce Wayne is accused of espionage and faces the loss of his company, reputation, and freedom, as Batman investigates a conspiracy tied to a forgotten chapter of his own past -- and meets the mysterious mentor Henri Ducard.",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781799513162",
-    ownershipStatus: "ordered",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -889,7 +889,7 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     description:
       "Key early appearances of Cassandra Cain, the daughter of assassins who became a vastly different kind of Batgirl -- facing Lady Shiva in a battle to the death and teaming with Superboy and Supergirl.",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781799501046",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   // --- Blue Beetle ---
   {
@@ -909,7 +909,7 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     description:
       "The original Charlton Comics adventures of Ted Kord as Blue Beetle, from his earliest team-ups with Captain Atom through the character's Bronze Age revival.",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781799502487",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   // --- Catwoman ---
   {
@@ -929,7 +929,7 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     description:
       "The early history of Catwoman as a solo protagonist in her own right, from Mindy Newell's 1989 debut miniseries through the first year of Jo Duffy and Jim Balent's ongoing series.",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781779528469",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -948,7 +948,7 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     description:
       "Selina Kyle's ferocious and stylish mid-'90s solo adventures continue under Jo Duffy and then Chuck Dixon, with art by Jim Balent throughout.",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781799501756",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -1007,7 +1007,7 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     description:
       "Boston Brand was a circus acrobat until a bullet ended his life and began his mission -- as Deadman, he possesses the living to seek justice for the murdered and the forgotten across the DC Universe.",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781799507710",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   // --- Demon ---
   {
@@ -1027,7 +1027,7 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     description:
       "Etrigan's explosive Jack Kirby debut through his Bronze Age evolution, exploring the cursed bond between Jason Blood and the demon across centuries of dark magic and betrayal.",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781799507437",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   // --- Doom Patrol ---
   {
@@ -1047,7 +1047,7 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     description:
       "The earliest appearances of the unconventional super-team, starting with their 1963 debut -- Robotman, Negative Man, and Elasti-Girl banding together as the world's strangest heroes.",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781799500353",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -1066,7 +1066,7 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     description:
       "The conclusion of the Doom Patrol's original saga -- the team faces its deadliest enemies yet, including General Immortus and the Brotherhood of Evil, with only self-sacrifice left to save the world.",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781799506690",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -1085,7 +1085,7 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     description:
       "Rachel Pollack's complete, boundary-pushing Vertigo run -- a fractured epic of shape-shifting magicians, sex ghosts, pirate robot brains, and a war over the very idea of identity itself.",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781799509318",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   // --- Events ---
   {
@@ -1105,7 +1105,7 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     description:
       "The ultimate battle for the multiverse begins as Marv Wolfman and George Perez unite Wonder Woman, Superman, Green Lantern, and the Justice Society against a cosmic threat that erases entire universes.",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781799503040",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -1124,7 +1124,7 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     description:
       "As the multiverse begins to die, every hero's story becomes part of the battle for existence -- the crossover spreads far beyond its core series, reshaping destinies and ending eras across the Bronze Age DC Universe.",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781799510284",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -1143,7 +1143,7 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     description:
       "The DC Multiverse reaches its breaking point as heroes, legacies, and entire worlds are pushed past their limits -- hope falters and the fate of every universe hangs on choices no hero is ready to face.",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781799510314",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -1182,7 +1182,7 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     description:
       "DC's first major post-Crisis crossover -- Darkseid doesn't just attack cities, he attacks faith in Superman, Batman, and every costumed legend on Earth.",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781799509622",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -1201,7 +1201,7 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     description:
       "The first half of the time-bending Zero Hour event, as a mysterious figure unravels DC history itself and heroes across the universe race against the collapse of time.",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781779528506",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -1220,7 +1220,7 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     description:
       "Zero Hour concludes with major status quo changes across the DC Universe, including a legendary Green Lantern's fall, told through a wave of zero-issue tie-ins.",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781799501305",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   // --- Flash ---
   {
@@ -1240,7 +1240,7 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     description:
       "Barry Allen's Silver Age debut in Showcase #4 kicks off the adventures of the second Flash, introducing rogues Captain Cold, Mirror Master, and Gorilla Grodd along the way.",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781779528360",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -1259,7 +1259,7 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     description:
       "Barry Allen races through cultists, cursed rings, alternate realities, and psychic breakdowns as the Flash's Bronze Age world expands into sci-fi weirdness and social turmoil.",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781799503026",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   // --- The Fourth World ---
   {
@@ -1279,7 +1279,7 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     description:
       "Jack Kirby's cosmic saga launches, pitting the New Gods of New Genesis against the dark forces of Apokolips -- the rise of Mister Miracle, Orion, and Darkseid.",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781799508311",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -1320,7 +1320,7 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     description:
       "Mike Grell's acclaimed Longbow Hunters reinvents Oliver Queen as a street-level, no-trick-arrows hero -- grittier, more grounded, and paired with a reintroduced Black Canary.",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781779529916",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -1339,7 +1339,7 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     description:
       "Justice has a price. After the Longbow Hunters, Oliver Queen faces black ops conspiracies, Yakuza assassins, devastating personal losses, and one fatal mistake that could destroy everything.",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781799510246",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   // --- Green Lantern ---
   {
@@ -1359,7 +1359,7 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     description:
       "Hal Jordan faces Star Sapphire, Doctor Light, the Time Commander, and his archenemy Sinestro in these classic Silver Age tales from John Broome and Gil Kane.",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781779528483",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -1378,7 +1378,7 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     description:
       "Multiverse-spanning adventures from the origins of the Guardians of the Universe through battles with Sinestro and Major Disaster -- and the first appearance of Guy Gardner as another wielder of the Emerald Ring.",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781799503262",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -1397,7 +1397,7 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     description:
       "Green Lantern and Green Arrow hit the road across America, confronting racism, poverty, and corruption in Dennis O'Neil and Neal Adams's landmark socially conscious run.",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781799510277",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -1416,7 +1416,7 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     description:
       "The Corps becomes a true ensemble: Hal Jordan reconnects with Earth, Guy Gardner seizes the spotlight, John Stewart and Katma Tui navigate love and duty, and the team confronts villains old and new.",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781799510291",
-    ownershipStatus: "ordered",
+    ownershipStatus: "announced",
   },
   // --- Harley Quinn ---
   {
@@ -1436,7 +1436,7 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     description:
       "Harley's earliest comics adventures, from her Batman: The Animated Series debut into mainline DC continuity, including the Eisner Award-winning Mad Love and the first eight issues of her own ongoing series.",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781799500483",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -1455,7 +1455,7 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     description:
       "Harley's journey from the Joker's wayward henchgirl to chaotic, complicated leading lady, as Karl Kesel and Terry and Rachel Dodson take over her first solo series.",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781799509127",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   // --- Hawkman ---
   {
@@ -1475,7 +1475,7 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     description:
       "Hawkman and Hawkgirl's earliest adventures as Thanagarian warriors protecting Earth, including Zatanna's first story, battles with flying gorillas, and team-ups with the Atom.",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781799502500",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   // --- Horror ---
   {
@@ -1495,7 +1495,7 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     description:
       "Bone-chilling horror anthology tales from House of Secrets, House of Mystery, The Witching Hour, The Phantom Stranger, and The Unexpected, drawn by masters of the genre including Bernie Wrightson and Alex Toth.",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781799502807",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -1534,7 +1534,7 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     description:
       "Iconic Silver and Bronze Age Joker stories including 'The Joker's Five-Way Revenge,' plus the villain's own short-lived solo series, as Denny O'Neil and others redefine the Clown Prince of Crime as a serious threat.",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781799510253",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   // --- Justice League of America ---
   {
@@ -1554,7 +1554,7 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     description:
       "Starro the Conqueror forces DC's greatest champions to unite, launching the first Justice League and sparking a legacy of team-based storytelling -- with battles against Despero, Felix Faust, and Kanjar Ro.",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781799507734",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -1573,7 +1573,7 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     description:
       "Gardner Fox and Dennis O'Neil continue the League's late-'60s adventures with artist Mike Sekowsky, bridging Earth-1 and Earth-2 as the team's roster and mythology expand.",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781779528377",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -1592,7 +1592,7 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     description:
       "Members of the JLA and the Earth-2 Justice Society are unexpectedly transported to Earth-X, where they must help that world's heroes defeat a Nazi regime that won World War II.",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781799508830",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -1611,7 +1611,7 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     description:
       "Gerry Conway's run pits a rebuilt League -- Steel, Martian Manhunter, Zatanna, Elongated Man, and Vixen -- against Amazo and the Brotherhood of Evil.",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781799502449",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   // --- Justice Society of America ---
   {
@@ -1631,7 +1631,7 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     description:
       "The earliest stories starring comics' first super-team, written almost entirely by Gardner Fox, who created or co-created the Flash, Hawkman, and Doctor Fate for the era.",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781779528476",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -1650,7 +1650,7 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     description:
       "A pivotal Golden Age arc in JSA history -- the Justice Society encounters the Psycho-Pirate, a powerful new foe with the ability to manipulate their emotions.",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781799502074",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   // --- Legion of the Super-Heroes ---
   {
@@ -1670,7 +1670,7 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     description:
       "Long out-of-print Legion tales including 'War of the Wraith-Mates,' 'The Fatal Five Who Twisted Time,' and 'The Impossible Target,' from the team's late-'60s and early-'70s adventures.",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781779528490",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -1710,7 +1710,7 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     description:
       "Rex Mason is transformed by an unlikely accident into Metamorpho, the Element Man -- able to transmute his body into any natural compound at will, be it solid, liquid, or gas.",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781799501848",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "gap",
@@ -1760,7 +1760,7 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     description:
       "The earliest days of Christopher Smith, a man who loves peace so much he's willing to kill for it -- decades before the character's TV adaptation, across his Charlton origin and DC guest appearances.",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781799500988",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   // --- Plastic Man ---
   {
@@ -1780,7 +1780,7 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     description:
       "Jack Cole's original, long-out-of-print Plastic Man stories -- after an accident leaves criminal Eel O'Brian's body transformed into living rubber, Plastic Man is born.",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781799500650",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   // --- Robin ---
   {
@@ -1800,7 +1800,7 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     description:
       "Dick Grayson's evolution from circus acrobat to Batman's trusted partner, tracing his Silver and Bronze Age solo appearances and team-ups with Superman.",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781799508298",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "gap",
@@ -1846,7 +1846,7 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     description:
       "An anthology of Gorilla World, an alternate reality where great apes reign supreme, plus other classic science fiction tales from the pre-Adam Strange era.",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781799502159",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   // --- Sgt. Rock ---
   {
@@ -1866,7 +1866,7 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     description:
       "The earliest and most iconic stories of Sgt. Frank Rock and his legendary unit, Easy Company, blending explosive WWII action with emotional depth.",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781799508090",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   // --- The Spectre ---
   {
@@ -1886,7 +1886,7 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     description:
       "DC's grim arbiter of justice returns to enact bloody vengeance on evildoers, resurfacing in the 1960s for all-new -- and sometimes controversial -- stories that show the true scale of his wrath.",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781799502814",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   // --- Static ---
   {
@@ -1906,7 +1906,7 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     description:
       "Static's electrifying origin from Milestone Comics -- Virgil Hawkins gains electromagnetic powers in a gang riot gone wrong, then crosses over with Superman and Superboy in \"Worlds Collide.\"",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781799502944",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   // --- Swamp Thing ---
   {
@@ -1946,7 +1946,7 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     description:
       "Krypto's first-ever comics appearance in \"The Super-Dog from Krypton,\" plus early Superboy adventures like \"Superboy Meets Superlad\" and \"The Super Brat of Smallville.\"",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781799501367",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   // --- Superfriends ---
   {
@@ -1966,7 +1966,7 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     description:
       "Batman, Superman, Wonder Woman, and Aquaman battle the Penguin, Poison Ivy, and time-traveling foes, including the first comic book appearances of the Wonder Twins and Gleek.",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781799503163",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   // --- Supergirl ---
   {
@@ -1986,7 +1986,7 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     description:
       "Kara Zor-El lands on Earth and discovers she shares her cousin Superman's powers -- inspired by her famous kin, she adopts a secret identity and starts using her abilities to help those in need.",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781779529909",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -2005,7 +2005,7 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     description:
       "Peter David's astonishing reinvention of Supergirl begins: Matrix, the protoplasmic entity posing as Supergirl, fuses with the near-dead Linda Danvers, and together they become the new Girl of Steel.",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781799510260",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -2024,7 +2024,7 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     description:
       "Kara Zor-El's resilience is put to the test as she battles powerful enemies and uncovers shocking truths about her destiny, in the continuation of Peter David's acclaimed run.",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781799513605",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   // --- Superman ---
   {
@@ -2044,7 +2044,7 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     description:
       "The first two years of Superman adventures, starting with 1938's legendary Action Comics #1 -- Jerry Siegel and Joe Shuster's creation that launched the entire superhero genre.",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781779528339",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -2063,7 +2063,7 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     description:
       "More of Superman's iconic Golden Age adventures, including major first-ever moments for his nemesis Lex Luthor.",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781799503323",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -2101,7 +2101,7 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     description:
       "The Man of Steel's status quo turns upside down as his powers slowly fade and a doppelganger Superman arrives with strange powers of its own -- any contact between the two could destroy the planet.",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781799501657",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -2140,7 +2140,7 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     description:
       "John Byrne and Marv Wolfman reimagine the Last Son of Krypton for the post-Crisis era, revealing a Clark Kent rooted in humanity, a driven Lois Lane, and a Lex Luthor redefined as a ruthless corporate tyrant.",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781799510321",
-    ownershipStatus: "ordered",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -2159,7 +2159,7 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     description:
       "When time splinters, Superman becomes the tether holding history together -- cast from Nazi-occupied Europe to the kingdoms of Camelot by forces beyond his control, marking the start of the 'Triangle Era.'",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781799508106",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   // --- Superman Family ---
   {
@@ -2179,7 +2179,7 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     description:
       "Some of Superman, Lois, and Jimmy's wackiest and wildest Silver Age adventures, including the debut of the infamous Giant Turtle Man.",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781799501107",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -2219,7 +2219,7 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     description:
       "The thrilling first incarnation of Task Force X -- John Ostrander sends Deadshot, Captain Boomerang, and a rotating cast of expendable villains on black-ops missions where death is always on the table.",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781799500759",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -2238,7 +2238,7 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     description:
       "The Squad faces betrayal, black ops, and a descent into the supernatural as Nightshade's past comes back to haunt them.",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781799508595",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   // --- Team-Ups ---
   {
@@ -2258,7 +2258,7 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     description:
       "Thrilling and unexpected pairings from DC's Bronze Age -- Batman teams with Mister Miracle, Green Arrow, Wonder Woman, Deadman, and even Kamandi in classic Brave and the Bold stories.",
     coverUrl: "https://m.media-amazon.com/images/I/81SaXmVh6fL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -2277,7 +2277,7 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     description:
       "Some of the best and most memorable team-ups of the 1970s, including an iconic race between Superman and the Flash.",
     coverUrl: "https://m.media-amazon.com/images/I/91+qXxcESLL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   // --- Teen Titans ---
   {
@@ -2297,7 +2297,7 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     description:
       "Marv Wolfman and George Perez introduce Terra, a new hero who may not be everything she seems -- her arrival kicks off one of the most celebrated eras in Teen Titans history.",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781799509332",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -2316,7 +2316,7 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     description:
       "The story that defined the Teen Titans for decades to come -- Terra infiltrates the team and works to unmake it for good, in one of comics' most shocking betrayals.",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781799500254",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   // --- War ---
   {
@@ -2336,7 +2336,7 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     description:
       "An explosive collection spanning DC's five war titles plus Blackhawk -- trenches, aerial dogfights, perilous seas, infantry battles, and covert missions brought to life by legendary artists like Joe Kubert and Russ Heath.",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781799503248",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   // --- Western ---
   {
@@ -2356,7 +2356,7 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     description:
       "DC's Western anthologies gallop into the gray morality of America's frontier -- haunted riders like El Diablo, brutal justice-dealers like Jonah Hex, and conflicted outlaws, told with grit and reckoning.",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781799507727",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -2395,7 +2395,7 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     description:
       "The origin of Wonder Woman: her arrival in Man's World with the wounded Steve Trevor, and her secret identity of Diana Prince.",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781799503361",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -2414,7 +2414,7 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     description:
       "Wonder Woman faces one of her earliest and most dangerous enemies -- the Cheetah -- as Diana battles jealousy, deception, and fierce foes with courage and compassion.",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781799507444",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -2454,7 +2454,7 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     description:
       "Long out-of-print Wonder Woman stories from the 1980s, from Dan Mishkin's run through Kurt Busiek and Trina Robbins's The Legend of Wonder Woman miniseries.",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781799502012",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -2473,7 +2473,7 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     description:
       "Gail Simone's beloved run begins with 'The Circle,' continuing through 'Ends of the Earth,' 'Rise of the Olympian,' and 'Warkiller' -- Diana's most personal and mythic threats yet.",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781779528346",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -2492,7 +2492,7 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     description:
       "Diana's world comes under siege from enemies without and doubts within -- Paradise Island descends into strife, a celestial invasion looms, and Wonder Woman faces betrayal, rebirth, and supernatural reckoning.",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781799508113",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   // --- Hitman ---
   {

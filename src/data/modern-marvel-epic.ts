@@ -44,9 +44,10 @@ function modernIcon(filename: string): string {
 // releaseDate from the same tables' Released column. A volume Wikipedia
 // hasn't credited yet (its cells read "TBC") simply has neither field --
 // never store the placeholder itself.
-// ownershipStatus defaults to "announced" for all of them: this pull has
-// no signal on Nick's personal shelf/order status, only that Marvel has
-// solicited or released the book.
+//
+// ownershipStatus is "announced" for all of them, same as every other
+// collection -- the seed says what Marvel has solicited or released, never
+// what a reader owns. See classic-marvel-epic.ts's header for why.
 
 export const MODERN_MARVEL_LINES: Line[] = [
   {
@@ -341,7 +342,7 @@ export const MODERN_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "The modern era of Spider-Man storytelling begins, introducing an enigmatic stranger who will forever change the way Peter Parker views himself and the origins of his amazing alter ego. Plus, the web-slinger struggles with the most horrific tragedy ever to befall his city: the events of September 11.",
     coverUrl: "https://m.media-amazon.com/images/I/91unY4AjsSL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -359,7 +360,7 @@ export const MODERN_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "Peter Parker always believed the radioactive spider-bite that granted him his powers was an accident. Now the mysterious Ezekiel offers Peter a shockingly different explanation, while Peter's career as a teacher intersects with his life as Spider-Man in a touching story about family devotion.",
     coverUrl: "https://m.media-amazon.com/images/I/91Ev5iPP-2L._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -412,7 +413,7 @@ export const MODERN_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "Peter Parker has finally hit the big time: he's a full-fledged Avenger, he just landed a high-paying science job, and he has an amazing new girlfriend. But big-time living means big-time pressure, and when the Hobgoblin returns, Spidey will need a slick new edge to defeat him.",
     coverUrl: "https://m.media-amazon.com/images/I/81PuJS4GT2L._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -544,7 +545,7 @@ export const MODERN_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "Cyclops and Emma Frost re-form the X-Men as the world's greatest super team, with Wolverine, Kitty Pryde, and Beast completing the initial roster. They plan to astonish the world, but when unexpected news about the mutant gene hits the airwaves, will it derail their dreams? As demand for the \"mutant cure\" reaches near-riot levels, the X-Men go head-to-head with the enigmatic Ord.",
     coverUrl: "https://m.media-amazon.com/images/I/81wBK6uioKL._SL1500_.jpg",
-    ownershipStatus: "alt_format",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -562,7 +563,7 @@ export const MODERN_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "Things go from peculiar to just plain bizarre for the X-Men, as Emma Frost's erratic behavior sends the team into a nonstop downward spiral and the new Hellfire Club makes its move. Plus, the X-Man destined to destroy the Breakworld stands revealed -- and the team must protect Earth from certain destruction at the Breakworld's hands.",
     coverUrl: "https://m.media-amazon.com/images/I/818gI-uUPDL._SL1500_.jpg",
-    ownershipStatus: "alt_format",
+    ownershipStatus: "announced",
   },
   // --- Black Widow ---
   {
@@ -581,7 +582,7 @@ export const MODERN_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "Natasha Romanoff has always led a life of adventure -- a former Soviet spy who defected to the West and became a super hero and an Avenger, earning a reputation as a consummate professional, coldly efficient and as deadly as her namesake. But now her time as Black Widow may be running out: Yelena Belova is the first student in the history of the Red Room to exceed Natasha's skills, and now she's gunning for the mantle she feels was stolen from her.",
     coverUrl: "https://m.media-amazon.com/images/I/81zkOC-vceL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -617,7 +618,7 @@ export const MODERN_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "The Black Widow searches for atonement for her past as a KGB assassin. In Russia, Natasha goes undercover but discovers a deadly plot that spans the entire globe, and on a snowy night in Prague, she must find her way out of disaster alongside the Winter Soldier. Elsewhere, Natasha fights against -- or alongside? -- the Punisher for access to a deadly criminal network.",
     coverUrl: "https://m.media-amazon.com/images/I/91SJUzsGkqL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "gap",
@@ -652,7 +653,7 @@ export const MODERN_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "The shocking murder of the Red Skull leaves an unfinished Cosmic Cube at large, and a cadre of the Skull's followers plans to ignite bombs in the hearts of Paris, London, and Manhattan. Racing against a rapidly ticking clock, Captain America must solve the mystery of his nemesis's murder and find the Cube before it can be used to rewrite reality -- but there's a lethal assassin on the loose with an all-too-familiar face.",
     coverUrl: "https://m.media-amazon.com/images/I/81C03HpuP2L._SL1500_.jpg",
-    ownershipStatus: "alt_format",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -670,7 +671,7 @@ export const MODERN_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "A battle to save London from the Red Skull reunites Steve Rogers with one old friend, the Winter Soldier, but the Superhuman Registration Act tears him apart from another, Iron Man. As Steve's allies find their loyalties divided, Captain America's life is torn apart, and when the Civil War is over, it is taken from him.",
     coverUrl: "https://m.media-amazon.com/images/I/81JmEIQOwtL._SL1500_.jpg",
-    ownershipStatus: "alt_format",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -688,7 +689,7 @@ export const MODERN_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "In the wake of Steve Rogers's tragic death, Bucky Barnes wields the shield and succeeds his fallen friend as Captain America. But the collapse of Steve's dream was just the first step in the wicked machinations of the Red Skull, who is determined to see the death of America follow soon after the death of the Captain.",
     coverUrl: "https://m.media-amazon.com/images/I/81D9-FnO8vL._SL1500_.jpg",
-    ownershipStatus: "alt_format",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -706,7 +707,7 @@ export const MODERN_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "Sharon Carter's dreams are forcing her to relive Steve Rogers's death, and her time under the control of Dr. Faustus, but will these dreams also reveal hidden secrets about what she saw -- and did -- the day Steve died? The Red Skull's greatest plan to destroy Captain America stands revealed, and its completion is at hand.",
     coverUrl: "https://m.media-amazon.com/images/I/81rIHECNhYL._SL1500_.jpg",
-    ownershipStatus: "alt_format",
+    ownershipStatus: "announced",
   },
   // --- Carnage ---
   {
@@ -779,7 +780,7 @@ export const MODERN_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "Industry legend Brian Michael Bendis begins his acclaimed five-year Daredevil run. When the staff that once belonged to his mentor is stolen, Daredevil is determined to get it back, even if that means joining an ancient ninja battle between the Seven and the Hand. Ambitious gangster Sammy Silke has inspired Wilson Fisk's lieutenants to rise up against the Kingpin of Crime -- but what is the connection between Silke's coup and the contract on Matt Murdock's life?",
     coverUrl: "https://m.media-amazon.com/images/I/91tocJQ0bvL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -797,7 +798,7 @@ export const MODERN_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "The world learns Matt Murdock's biggest secret -- that Daredevil's mask hides a pair of blind eyes. As his double identity is publicly exposed, Matt may be forced to know true fear for the first time, and must reckon with the consequences for those close to him and the legal ramifications that result.",
     coverUrl: "https://m.media-amazon.com/images/I/91KUbDMHLHL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -815,7 +816,7 @@ export const MODERN_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "Maya Lopez once nearly took down Daredevil, believing him to be the one who killed her father, and after learning it was actually Wilson Fisk who was responsible, she shot him and left New York. Meanwhile, Fisk is gone, and Daredevil is the new Kingpin of Hell's Kitchen -- but that just means an army of foes want Matt's newfound power for themselves.",
     coverUrl: "https://m.media-amazon.com/images/I/81mJ4m+roPL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -833,7 +834,7 @@ export const MODERN_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "Bendis and Maleev bring their storied Daredevil run to a blistering conclusion: who was the Kingpin before the Kingpin, and what was his relationship to Matt? Prepare to find out exactly what happened during Daredevil's year-long reign as the new Kingpin, and his historic cleaning of Hell's Kitchen revealed in all its bloody detail.",
     coverUrl: "https://m.media-amazon.com/images/I/91hjOvn8GbL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -851,7 +852,7 @@ export const MODERN_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "For the past few years, Matt Murdock's life has been teetering on the edge of destruction. Now, pushed beyond the limit, Matt finds himself with no clear way out, the people he calls friends slowly deserting him and Hell's Kitchen slipping out of control. Blaming himself for Foggy Nelson's death, Matt runs wild behind bars in Rykers -- but he's not alone in Cell-Block D, and there are some familiar faces looking for vengeance.",
     coverUrl: "https://m.media-amazon.com/images/I/81abiWn7XNL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   // --- Dark Avengers ---
   {
@@ -959,7 +960,7 @@ export const MODERN_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "Wade Wilson must take down an army of dead presidents, and things only get wilder from there: Deadpool is hired by a demon to reclaim damned souls, gets in touch with his feminine side, targets a man with aquatic powers, and teams up with the Superior Spider-Man. Comedy writing partners Brian Posehn and Gerry Duggan bring Deadpool's crazy antics into the modern era.",
     coverUrl: "https://m.media-amazon.com/images/I/81rcs-n2nOL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   // --- Guardians of the Galaxy ---
   {
@@ -978,7 +979,7 @@ export const MODERN_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "As the Marvel Universe is rocked by another Annihilation event, Peter Quill suits up as Star-Lord and joins the fight alongside a motley crew including Mantis, Groot, and Rocket Raccoon. With the boundaries of reality weakened by cosmic conflicts and dark gods and monsters seeping through the cracks, heavy hitters like Gamora, Drax, and Adam Warlock join this offbeat squad of butt-kickers to become the modern-day Guardians of the Galaxy.",
     coverUrl: "https://m.media-amazon.com/images/I/81bcdx07uCL._SL1500_.jpg",
-    ownershipStatus: "alt_format",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -996,7 +997,7 @@ export const MODERN_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "When two absolute powerhouses, Black Bolt and Vulcan, square off, and their respective peoples, the Inhumans and the Shi'ar, ravage entire planets, the Guardians of the Galaxy are stuck in the middle. But when the Fault, a massive rift in reality, threatens to destroy the cosmos, the bruised and battered Guardians must avert the unthinkable.",
     coverUrl: "https://m.media-amazon.com/images/I/814YMwxlyWL._SL1500_.jpg",
-    ownershipStatus: "alt_format",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -1124,7 +1125,7 @@ export const MODERN_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "Tony Stark -- billionaire industrialist, Invincible Iron Man, and now director of S.H.I.E.L.D. -- faces the most overwhelming challenge of his life. Ezekiel Stane, the son of Tony's late business rival and archenemy Obadiah Stane, has set his sights, his genius, and his considerable fortune on the task of destroying the Stark legacy, and he's every bit Tony's equal -- except younger, faster, smarter, and immeasurably evil.",
     coverUrl: "https://m.media-amazon.com/images/I/818f1X0cfuL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -1142,7 +1143,7 @@ export const MODERN_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "He's outrun Norman Osborn and kept the database of superhuman secret identities safe and secure, but in doing so, Tony Stark has lost just about everything: his armor, his power, even his very mind. Now at his absolute lowest point, it will take Tony's last reservoir of will -- and allies including Thor, Captain America, War Machine, and Black Widow -- to keep him from losing it all.",
     coverUrl: "https://m.media-amazon.com/images/I/71i1I08f5hL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -1332,7 +1333,7 @@ export const MODERN_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "From the ashes, a new team will rise! On the Avengers' darkest day, they are torn apart by one of their own -- the Scarlet Witch. But when a super-villain breakout at the Raft unites Captain America and Iron Man with a surprising group of allies -- including Spider-Man, Wolverine, Spider-Woman, and Luke Cage -- a new day dawns, and these disparate heroes form the New Avengers. But will the Sentry become their strongest member... or the world's greatest threat?",
     coverUrl: "https://m.media-amazon.com/images/I/81tCLOxhyGL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -1350,7 +1351,7 @@ export const MODERN_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "The momentous events of Civil War rip the New Avengers apart. Brian Michael Bendis' roster is completed with the mysterious masked Ronin, and in the wake of House of M, a new threat emerges that may be impossible to stop. When Civil War breaks out across the Marvel Universe, Iron Man and Captain America find themselves on opposite sides -- and their team is torn in two.",
     coverUrl: "https://m.media-amazon.com/images/I/91a5pjRvSkL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -1421,7 +1422,7 @@ export const MODERN_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "Writer Grant Morrison propels the X-Men into the 21st century. Cassandra Nova will stop at nothing to see all mutants exterminated, and her wild Sentinels' first strike on Genosha brings death and horror beyond belief. Joined by telepath Emma Frost and the mysterious Xorn, the X-Men go public and expand Xavier's school to train a new generation of mutants -- but can they withstand Cassandra's return, backed by the full might of the Shi'ar Imperial Guard?",
     coverUrl: "https://m.media-amazon.com/images/I/81Nw7MQRLaL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -1439,7 +1440,7 @@ export const MODERN_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "Continuing Grant Morrison's Eisner Award-winning run that reinvigorated the X-Men franchise. A riot breaks out in Mutant Town, and Professor X establishes an X-Corp office in Paris for mutants in need. Romantic sparks fly between Scott Summers and Emma Frost, Polaris returns amid the wreckage of Genosha, and the Xavier Mansion is rocked by a shocking murder -- or is everything not quite as it seems?",
     coverUrl: "https://m.media-amazon.com/images/I/91s6YcauUaL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -1457,7 +1458,7 @@ export const MODERN_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "Concluding Grant Morrison's revolutionary New X-Men run. Logan and Cyclops join the mysterious Fantomex in an exploration of the Weapon Plus Program that created Wolverine, and Magneto -- the X-Men's greatest adversary -- returns for a fiery final confrontation with the Phoenix. Once the dust settles, flash-forward 150 years to an Earth where humanity is decimated, and what's left of the X-Men fight the forces of genetic homogenization.",
     coverUrl: "https://m.media-amazon.com/images/I/712vYNbJY+L._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   // --- Spider-Girl ---
   {
@@ -1476,7 +1477,7 @@ export const MODERN_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "What if Peter Parker and Mary Jane had a daughter? The answer is May \"Mayday\" Parker -- Spider-Girl! The teenage Mayday inherits spider-powers and dons her retired father's red-and-blues, facing threats old and new -- from the Venom symbiote and Kaine to Crazy Eight and the Dragon King -- as she wrestles with whether to follow in Spider-Man's footsteps.",
     coverUrl: "https://m.media-amazon.com/images/I/818+N3fKcSL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -1844,7 +1845,7 @@ export const MODERN_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "The glory of Asgard begins anew! Thor and the Asgardians recently perished, swallowed up by Ragnarok, but when Mjolnir crash-lands in Oklahoma, the hammer attracts the attention of the Fantastic Four -- and Doctor Doom. Awoken from the slumber of death, Thor must reckon with the mythic Norse kingdom's legacy and the awakening of its immortal heroes, in a world that may not want them back.",
     coverUrl: "https://m.media-amazon.com/images/I/81RMeypGiWL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
@@ -1862,7 +1863,7 @@ export const MODERN_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "One of Thor's most acclaimed runs ever reaches a climax in a massive siege of Asgard! Loki has woven intricate scheming throughout every level of Thor's existence, involving the likes of Doctor Doom, Hela, Norman Osborn and even Mephisto -- but when the plans spiral out of control, culminating in the Siege of Asgard and the return of an ancient evil, it's up to Thor and his fellow Asgardians to save the day.",
     coverUrl: "https://m.media-amazon.com/images/I/81g7raHhfzL._SL1500_.jpg",
-    ownershipStatus: "shelved",
+    ownershipStatus: "announced",
   },
   {
     kind: "volume",
