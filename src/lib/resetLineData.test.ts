@@ -143,6 +143,38 @@ describe("resetLineData", () => {
     );
   });
 
+  // Ownership and reading status are the same volumeId -> status shape and
+  // now go through one shared helper (resetStatusStore), so this pins down
+  // that both are actually scoped -- reading status was added later and had
+  // no coverage of its own.
+  it("clears ownership and reading status alike, for targeted lines only", () => {
+    const OTHER_COLLECTION_VOLUME_ID = "batman-g1"; // a DC Finest seed volume
+    storage.setItem(
+      "epic-timeline:ownership-overrides",
+      JSON.stringify({
+        [ULTIMATE_VOLUME_ID]: "shelved",
+        [OTHER_COLLECTION_VOLUME_ID]: "ordered",
+      })
+    );
+    storage.setItem(
+      "epic-timeline:reading-status-overrides",
+      JSON.stringify({
+        [ULTIMATE_VOLUME_ID]: "finished",
+        [OTHER_COLLECTION_VOLUME_ID]: "reading",
+      })
+    );
+
+    resetLineData({ collectionIds: ["ultimate"], scopes: ["main"] });
+
+    const ownership = JSON.parse(storage.getItem("epic-timeline:ownership-overrides")!);
+    expect(ownership).not.toHaveProperty(ULTIMATE_VOLUME_ID);
+    expect(ownership).toHaveProperty(OTHER_COLLECTION_VOLUME_ID);
+
+    const reading = JSON.parse(storage.getItem("epic-timeline:reading-status-overrides")!);
+    expect(reading).not.toHaveProperty(ULTIMATE_VOLUME_ID);
+    expect(reading).toHaveProperty(OTHER_COLLECTION_VOLUME_ID);
+  });
+
   it("is a no-op for stores that don't exist in localStorage yet", () => {
     expect(() => resetLineData({ collectionIds: ["ultimate"], scopes: ["main", "speculative"] })).not.toThrow();
   });

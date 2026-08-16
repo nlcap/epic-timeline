@@ -54,6 +54,33 @@ function filterLineStore(
 }
 
 /**
+ * Clears every entry of a volumeId-keyed status store (ownership, reading
+ * status) whose volume belongs to one of `lineIds`, and writes the survivors
+ * back.
+ *
+ * A status override carries no lineId of its own -- just volumeId -> status
+ * -- so the owning line is resolved the same two ways a volume tombstone is:
+ * from the volume override store when the volume was added or edited
+ * locally, otherwise from the seed map. A volumeId that resolves to neither
+ * is left alone, same as everywhere else here.
+ */
+function resetStatusStore(
+  key: string,
+  volumeOverrides: Record<string, EntryChange>,
+  lineIds: Set<string>
+): void {
+  const stored = readJson<Record<string, string>>(key) ?? {};
+  const kept: Record<string, string> = {};
+  for (const [volumeId, status] of Object.entries(stored)) {
+    const change = volumeOverrides[volumeId];
+    const lineId = change && change !== DELETED ? change.lineId : SEED_ENTRY_LINE[volumeId];
+    if (lineId !== undefined && lineIds.has(lineId)) continue;
+    kept[volumeId] = status;
+  }
+  safeSetItem(key, JSON.stringify(kept));
+}
+
+/**
  * Wipes local overrides/additions back to the shipped seed data, scoped to
  * whichever collections and timeline layers the caller asks for. E.g.
  * `{ collectionIds: ["ultimate", "marvel-licensed-epic"], scopes: ["main"] }`
@@ -108,26 +135,11 @@ export function resetLineData({
     }
     safeSetItem(VOLUME_OVERRIDES_KEY, JSON.stringify(keptVolumes));
 
-    const ownershipOverrides = readJson<Record<string, string>>(OWNERSHIP_OVERRIDES_KEY) ?? {};
-    const keptOwnership: Record<string, string> = {};
-    for (const [volumeId, status] of Object.entries(ownershipOverrides)) {
-      const change = volumeOverrides[volumeId];
-      const lineId = change && change !== DELETED ? change.lineId : SEED_ENTRY_LINE[volumeId];
-      if (lineId !== undefined && lineIds.has(lineId)) continue;
-      keptOwnership[volumeId] = status;
-    }
-    safeSetItem(OWNERSHIP_OVERRIDES_KEY, JSON.stringify(keptOwnership));
-
-    const readingStatusOverrides =
-      readJson<Record<string, string>>(READING_STATUS_OVERRIDES_KEY) ?? {};
-    const keptReadingStatus: Record<string, string> = {};
-    for (const [volumeId, status] of Object.entries(readingStatusOverrides)) {
-      const change = volumeOverrides[volumeId];
-      const lineId = change && change !== DELETED ? change.lineId : SEED_ENTRY_LINE[volumeId];
-      if (lineId !== undefined && lineIds.has(lineId)) continue;
-      keptReadingStatus[volumeId] = status;
-    }
-    safeSetItem(READING_STATUS_OVERRIDES_KEY, JSON.stringify(keptReadingStatus));
+    // Resolved against the pre-filter volumeOverrides snapshot above, not
+    // the written-back keptVolumes -- a volume that was just cleared out of
+    // that store is exactly the one whose statuses need clearing too.
+    resetStatusStore(OWNERSHIP_OVERRIDES_KEY, volumeOverrides, lineIds);
+    resetStatusStore(READING_STATUS_OVERRIDES_KEY, volumeOverrides, lineIds);
   }
 
   if (scopeSet.has("speculative")) {
