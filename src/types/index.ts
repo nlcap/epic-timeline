@@ -158,8 +158,27 @@ export interface Volume {
   issuesCollected: string;
   /** e.g. "1962-1963" -- shown in the detail panel */
   yearsCovered: string;
-  /** e.g. "Lee, Kirby" */
+  /**
+   * When the trade paperback itself hit shelves -- the real-world publish
+   * date, NOT the story-time span that start/end/yearsCovered track. Month
+   * precision, since solicitations rarely give an exact day. Undefined
+   * wherever it hasn't been sourced yet, same known-gap treatment as
+   * coverUrl.
+   */
+  releaseDate?: MonthPoint;
+  /**
+   * e.g. "Lee, Kirby". Superseded by the `writers`/`artists` split below --
+   * still the populated field across every collection's seed data, so it
+   * stays as the fallback until those two are backfilled.
+   */
   creators: string;
+  /**
+   * Writer credits, split out from the combined `creators` string. Optional
+   * while the two coexist: undefined means "not split yet, read `creators`".
+   */
+  writers?: string;
+  /** Artist credits -- see `writers`. */
+  artists?: string;
   description: string;
   coverUrl?: string;
   ownershipStatus: OwnershipStatus;

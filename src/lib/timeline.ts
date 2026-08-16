@@ -327,6 +327,16 @@ export function monthIndex(point: MonthPoint): number {
   return point.year * 12 + (point.month - 1);
 }
 
+export const MONTH_NAMES = [
+  "January", "February", "March", "April", "May", "June",
+  "July", "August", "September", "October", "November", "December",
+];
+
+/** e.g. "March 2020" -- for a volume's releaseDate in the detail panel. */
+export function formatMonthPoint(point: MonthPoint): string {
+  return `${MONTH_NAMES[point.month - 1]} ${point.year}`;
+}
+
 /** e.g. "1962-1963", or just "1962" when start/end fall in the same year --
  * shared between VolumeFormDrawer's own submit and the timeline's drag-to-
  * resize handles (see VolumeTile.tsx), so both keep a volume's stored

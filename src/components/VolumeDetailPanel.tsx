@@ -3,6 +3,7 @@ import type { OwnershipStatus, ReadingStatus, Volume } from "../types";
 import { OWNERSHIP_META, OWNERSHIP_ORDER } from "../lib/ownership";
 import { READING_STATUS_META, READING_STATUS_ORDER } from "../lib/readingStatus";
 import { volumeBadgeText } from "../lib/era";
+import { formatMonthPoint } from "../lib/timeline";
 import { formatLineBreaks } from "../lib/text";
 import { isTypingTarget } from "../lib/keyboard";
 import { useSlidePanel } from "../hooks/useSlidePanel";
@@ -56,6 +57,11 @@ export function VolumeDetailPanel({
   }, [onEdit, volume, closeThen]);
 
   const formattedDescription = formatLineBreaks(volume.description);
+
+  // writers/artists are mid-migration off the combined `creators` string --
+  // whichever a volume actually has populated is what shows here.
+  const credits =
+    [volume.writers, volume.artists].filter(Boolean).join(" • ") || volume.creators;
 
   return (
     <div
@@ -116,8 +122,13 @@ export function VolumeDetailPanel({
 
         <h2 className="mt-4 text-xl font-bold text-white">{volume.title}</h2>
         <p className="text-sm italic text-neutral-300">
-          Vol. {volumeBadgeText(volume)}, {volume.yearsCovered} • {volume.creators}
+          Vol. {volumeBadgeText(volume)}, {volume.yearsCovered} • {credits}
         </p>
+        {volume.releaseDate && (
+          <p className="mt-1 text-xs text-neutral-400">
+            Released {formatMonthPoint(volume.releaseDate)}
+          </p>
+        )}
         {!speculative && (
           <div className="mt-4 flex flex-wrap items-center gap-2">
             <StatusDropdown

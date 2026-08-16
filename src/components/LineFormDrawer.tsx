@@ -2,16 +2,12 @@ import { useEffect, useRef, useState, type ChangeEvent, type FormEvent } from "r
 import type { Era, Line } from "../types";
 import { earliestEraWithIcon, ERA_META, ERA_ORDER } from "../lib/era";
 import { getPastedImageFile, readFileAsDataUrl } from "../lib/imageCompression";
+import { MONTH_NAMES } from "../lib/timeline";
 import { LineIcon } from "./LineIcon";
 import { ImageCropModal } from "./ImageCropModal";
 import { TagInput } from "./TagInput";
 import { useSlidePanel } from "../hooks/useSlidePanel";
 import { useEscapeToClose } from "../hooks/useEscapeToClose";
-
-const MONTHS = [
-  "January", "February", "March", "April", "May", "June",
-  "July", "August", "September", "October", "November", "December",
-];
 
 const HEX_PATTERN = /^#[0-9a-f]{6}$/i;
 const DEFAULT_HEX = "#FF00D9";
@@ -471,7 +467,7 @@ export function LineFormDrawer({
                 disabled={fieldsLocked}
                 className="w-full appearance-none rounded-md border border-neutral-700 bg-neutral-900 px-3 py-2 pr-8 text-sm text-white focus:border-neutral-500 focus:outline-none disabled:opacity-40"
               >
-                {MONTHS.map((m, i) => (
+                {MONTH_NAMES.map((m, i) => (
                   <option key={m} value={i + 1}>
                     {m}
                   </option>

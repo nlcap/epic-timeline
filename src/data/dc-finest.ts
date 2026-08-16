@@ -2360,11 +2360,11 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     number: "1",
     era: "silver",
     title: "Zen and Violence",
-    start: { year: 1963, quarter: 3 },
+    start: { year: 1967, quarter: 2 },
     end: { year: 1989, quarter: 1 },
     issuesCollected:
       "The Question #1-15, Blue Beetle (Charlton) #1-5, Americomics Special #1, Mysterious Suspense #1, Blue Beetle (DC) #4-7, Who’s Who Update ‘87 #4, Who’s Who: The Definitive Directory of the DC Universe #19, and The Charlton Bullseye #1 and #5",
-    yearsCovered: "1963-1989",
+    yearsCovered: "1967-1989",
     creators: "Steve Ditko, Dennis O'Neil, Denys Cowan",
     description:
       "A dark, thought‑provoking crime saga—the Question confronts corruption, identity, and moral truth in this expansive DC Finest collection of early stories.\n\nIn a city where corruption runs deep, justice is anything but simple.\n\nVic Sage operates as the Question, a faceless investigator determined to expose the truth—no matter the cost. But in Hub City, every answer leads to another question, and every case pulls him deeper into a system built on power, fear, and control.\n\nAs his search for justice continues, Sage is forced to confront not only the criminals around him, but his own beliefs, identity, and what it truly means to do the right thing in a broken world.\n\nSpanning a major run of stories that include all the character’s original appearances in the Charlton titles from creator Steve Ditko as well as the first 15 issues of his celebrated revival by Dennis O’Neil and Denys Cowan in the 1980s, this volume offers a wide-ranging look at the Question’s evolution, blending crime storytelling, action, and philosophical depth in one immersive collection.",

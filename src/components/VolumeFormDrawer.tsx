@@ -2,7 +2,7 @@ import { useEffect, useRef, useState, type ChangeEvent, type FormEvent } from "r
 import type { Era, OwnershipStatus, Quarter, QuarterPoint, TimelineEntry } from "../types";
 import { OWNERSHIP_META, OWNERSHIP_ORDER } from "../lib/ownership";
 import { eraForQuarterPoint, ERA_META, ERA_ORDER } from "../lib/era";
-import { quarterIndex, quarterPointFromIndex, yearsCoveredLabel } from "../lib/timeline";
+import { MONTH_NAMES, quarterIndex, quarterPointFromIndex, yearsCoveredLabel } from "../lib/timeline";
 import { compressImageFile, getPastedImageFile } from "../lib/imageCompression";
 import { useSlidePanel } from "../hooks/useSlidePanel";
 import { useEscapeToClose } from "../hooks/useEscapeToClose";
@@ -194,7 +194,18 @@ export function VolumeFormDrawer({
   const [ownershipStatus, setOwnershipStatus] = useState<OwnershipStatus>(
     editingVolume?.ownershipStatus ?? "announced"
   );
+  // Blank year means "not sourced yet" -- releaseDate stays undefined rather
+  // than defaulting to some placeholder date. The month select still needs a
+  // value to show, so it sits at January until a year is filled in.
+  const [releaseYear, setReleaseYear] = useState(
+    editingVolume?.releaseDate ? String(editingVolume.releaseDate.year) : ""
+  );
+  const [releaseMonth, setReleaseMonth] = useState(
+    String(editingVolume?.releaseDate?.month ?? 1)
+  );
   const [creators, setCreators] = useState(editingVolume?.creators ?? "");
+  const [writers, setWriters] = useState(editingVolume?.writers ?? "");
+  const [artists, setArtists] = useState(editingVolume?.artists ?? "");
   const [description, setDescription] = useState(
     editingVolume?.description ?? editingNote?.notes ?? ""
   );
@@ -353,6 +364,13 @@ export function VolumeFormDrawer({
       return;
     }
 
+    const releaseYearNum = Number(releaseYear);
+    const hasReleaseDate = releaseYear.trim() !== "";
+    if (hasReleaseDate && (!Number.isInteger(releaseYearNum) || releaseYearNum < 1900 || releaseYearNum > 2100)) {
+      setError("Enter a valid release year, or leave it blank.");
+      return;
+    }
+
     closeThen(() =>
       onSave({
         kind: "volume",
@@ -365,7 +383,12 @@ export function VolumeFormDrawer({
         end,
         issuesCollected: issuesCollected.trim(),
         yearsCovered: yearsCoveredLabel(startYearNum, endYearNum),
+        releaseDate: hasReleaseDate
+          ? { year: releaseYearNum, month: Number(releaseMonth) }
+          : undefined,
         creators: creators.trim(),
+        writers: writers.trim() || undefined,
+        artists: artists.trim() || undefined,
         description: description.trim(),
         coverUrl,
         ownershipStatus,
@@ -663,8 +686,81 @@ export function VolumeFormDrawer({
               </label>
             )}
 
+            <fieldset className="mt-4">
+              <legend className="text-sm font-medium text-neutral-300">Release date</legend>
+              <p className="mt-0.5 text-xs font-normal text-neutral-500">
+                When this trade paperback was published -- not the years its
+                stories originally ran. Leave the year blank if unknown.
+              </p>
+              <div className="mt-1 flex gap-3">
+                {/* appearance-none + a manual chevron -- an unstyled <select>
+                 * relies on the OS's native control chrome, which some
+                 * browsers (Safari in particular) size to the selected
+                 * option's text instead of filling the box the way a plain
+                 * <input> does. */}
+                <div className="relative flex-1">
+                  <select
+                    value={releaseMonth}
+                    onChange={(e) => setReleaseMonth(e.target.value)}
+                    className="w-full appearance-none rounded-md border border-neutral-700 bg-neutral-900 px-3 py-2 pr-8 text-sm text-white focus:border-neutral-500 focus:outline-none"
+                  >
+                    {MONTH_NAMES.map((m, i) => (
+                      <option key={m} value={i + 1}>
+                        {m}
+                      </option>
+                    ))}
+                  </select>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth={1.75}
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    className="pointer-events-none absolute right-2.5 top-1/2 h-4 w-4 -translate-y-1/2 text-neutral-500"
+                  >
+                    <path d="M6 9l6 6 6-6" />
+                  </svg>
+                </div>
+                <input
+                  type="number"
+                  value={releaseYear}
+                  onChange={(e) => setReleaseYear(e.target.value)}
+                  placeholder="Year"
+                  className="w-24 rounded-md border border-neutral-700 bg-neutral-900 px-3 py-2 text-sm text-white placeholder:text-neutral-600 focus:border-neutral-500 focus:outline-none"
+                />
+              </div>
+            </fieldset>
+
+            <label className="mt-4 block text-sm font-medium text-neutral-300">
+              Writers
+              <input
+                type="text"
+                value={writers}
+                onChange={(e) => setWriters(e.target.value)}
+                placeholder="e.g. Bendis"
+                className="mt-1 w-full rounded-md border border-neutral-700 bg-neutral-900 px-3 py-2 text-sm text-white placeholder:text-neutral-600 focus:border-neutral-500 focus:outline-none"
+              />
+            </label>
+
+            <label className="mt-4 block text-sm font-medium text-neutral-300">
+              Artists
+              <input
+                type="text"
+                value={artists}
+                onChange={(e) => setArtists(e.target.value)}
+                placeholder="e.g. Bagley"
+                className="mt-1 w-full rounded-md border border-neutral-700 bg-neutral-900 px-3 py-2 text-sm text-white placeholder:text-neutral-600 focus:border-neutral-500 focus:outline-none"
+              />
+            </label>
+
             <label className="mt-4 block text-sm font-medium text-neutral-300">
               Creators
+              <p className="mt-0.5 text-xs font-normal text-neutral-500">
+                Being replaced by Writers/Artists -- still what the detail
+                panel falls back to when those two are empty.
+              </p>
               <input
                 type="text"
                 value={creators}
