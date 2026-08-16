@@ -85,7 +85,7 @@ function SearchBox({
         type="text"
         value={value}
         onChange={(e) => onChange(e.target.value)}
-        placeholder="Search lines & volumes..."
+        placeholder="Search"
         aria-label="Search lines and volumes"
         className="h-9 w-full rounded-md border border-neutral-700 bg-transparent px-3 text-sm text-white placeholder:text-neutral-600 focus:border-neutral-500 focus:bg-neutral-900 focus:outline-none"
         style={{ paddingRight: showClear ? "3.25rem" : "1.75rem" }}
