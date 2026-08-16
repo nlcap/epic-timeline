@@ -1,8 +1,8 @@
 import type { Line, TimelineEntry } from "../types";
 
 // A handful of one-off volume covers that predate the Amazon-hosted-URL
-// convention most coverUrl fields below use (see the comment near the
-// bottom of this file) -- these three were never migrated, so they're
+// convention most coverUrl fields below use (see the coverUrl note in the
+// block comment further down) -- these three were never migrated, so they're
 // plain imported assets instead, same as any other static image in the app.
 import ghostRiderBadToTheBoneCover from "../assets/covers/Ghost Rider - Bad to the Bone.jpg";
 import punisherCapitalPunishmentCover from "../assets/covers/Punisher - Capital Punishment.jpg";
@@ -44,6 +44,18 @@ function marvelIcon(filename: string): string {
 // creators/description aren't in the source spreadsheet -- most have been
 // filled in since, but a handful are still blank (same known-gap treatment as
 // cover images, see README).
+//
+// coverUrl is an Amazon flat scan (m.media-amazon.com, upgraded to _SL1500_)
+// for most volumes. Marvel's own CDN is the better source when Amazon's
+// listing image is wrong -- Amazon sometimes shows the single-issue cover
+// instead of the collection's (Silver Surfer Vol. 12 did). Marvel URLs come
+// from the book's marvel.com/comics/collection/<id>/<slug> page and end in a
+// size variant: portrait_medium 100x150, portrait_xlarge 150x225,
+// portrait_fantastic 168x252, portrait_incredible 216x324, portrait_uncanny
+// 300x450, detail 550x848, clean 1751x2700. Prefer `detail` -- the panel
+// renders covers ~288px wide, so it still covers 2x displays at ~140KB,
+// where `clean` is ~1.2MB for detail nobody sees. They hotlink fine
+// cross-origin.
 //
 // releaseDate/writers/artists were bulk-backfilled from the "Epic Collections"
 // tables on https://en.wikipedia.org/wiki/Marvel_Epic_Collection -- that
@@ -5909,7 +5921,10 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     artists: "Tom Grindberg, Scot Eaton, Claudio Castellini",
     description:
       "The legendary George Pérez takes the writing reins on the Silver Surfer, sending the Sentinel of the Spaceways to the edge of reality and beyond. Given an ominous warning by the enigmatic Watcher to quell a terrible disturbance in the universe, the Surfer must face an adversary whose power may dwarf even his own.",
-    coverUrl: "https://m.media-amazon.com/images/I/914Gm1FfnGL._SL1500_.jpg",
+    // Marvel's own CDN rather than Amazon -- the Amazon listing image for this
+    // one was the Silver Surfer #123 single-issue cover, not the collection's.
+    // See the coverUrl note in this file's header for the variant convention.
+    coverUrl: "https://cdn.marvel.com/u/prod/marvel/i/mg/9/00/67dc8a3a3431c/detail.jpg",
     ownershipStatus: "shelved",
   },
   {
