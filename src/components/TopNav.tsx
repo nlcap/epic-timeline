@@ -118,6 +118,15 @@ function SearchBox({
   );
 }
 
+/** One entry in the settings list. The desktop dropdown and the mobile
+ * hamburger menu offer the identical set in the identical order -- they're
+ * two renderings of one list (see TopNav's settingsItems), not two lists
+ * that have to be kept in step by hand. */
+interface SettingsItem {
+  label: string;
+  onOpen: () => void;
+}
+
 /**
  * Just the dropdown trigger + menu -- the four dialogs it opens
  * (Export/Import/Reset/Storage debug) are owned and rendered by the parent
@@ -129,18 +138,10 @@ function SearchBox({
  */
 function SettingsMenu({
   className = "",
-  onOpenExport,
-  onOpenImport,
-  onOpenReset,
-  onOpenStorageDebug,
-  onOpenShortcuts,
+  items,
 }: {
   className?: string;
-  onOpenExport: () => void;
-  onOpenImport: () => void;
-  onOpenReset: () => void;
-  onOpenStorageDebug: () => void;
-  onOpenShortcuts: () => void;
+  items: SettingsItem[];
 }) {
   const [menuOpen, setMenuOpen] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
@@ -192,61 +193,20 @@ function SettingsMenu({
           role="menu"
           className="absolute right-0 top-full z-50 mt-2 w-44 overflow-hidden rounded-md border border-neutral-700 bg-neutral-900 py-1 shadow-xl"
         >
-          <button
-            type="button"
-            role="menuitem"
-            onClick={() => {
-              onOpenExport();
-              setMenuOpen(false);
-            }}
-            className="block w-full px-3 py-2 text-left text-sm text-neutral-300 hover:bg-neutral-800 hover:text-white"
-          >
-            Export data
-          </button>
-          <button
-            type="button"
-            role="menuitem"
-            onClick={() => {
-              onOpenImport();
-              setMenuOpen(false);
-            }}
-            className="block w-full px-3 py-2 text-left text-sm text-neutral-300 hover:bg-neutral-800 hover:text-white"
-          >
-            Import data
-          </button>
-          <button
-            type="button"
-            role="menuitem"
-            onClick={() => {
-              onOpenReset();
-              setMenuOpen(false);
-            }}
-            className="block w-full px-3 py-2 text-left text-sm text-neutral-300 hover:bg-neutral-800 hover:text-white"
-          >
-            Reset line data
-          </button>
-          <button
-            type="button"
-            role="menuitem"
-            onClick={() => {
-              onOpenStorageDebug();
-              setMenuOpen(false);
-            }}
-            className="block w-full px-3 py-2 text-left text-sm text-neutral-300 hover:bg-neutral-800 hover:text-white"
-          >
-            Storage debug
-          </button>
-          <button
-            type="button"
-            role="menuitem"
-            onClick={() => {
-              onOpenShortcuts();
-              setMenuOpen(false);
-            }}
-            className="block w-full px-3 py-2 text-left text-sm text-neutral-300 hover:bg-neutral-800 hover:text-white"
-          >
-            Keyboard shortcuts
-          </button>
+          {items.map(({ label, onOpen }) => (
+            <button
+              key={label}
+              type="button"
+              role="menuitem"
+              onClick={() => {
+                onOpen();
+                setMenuOpen(false);
+              }}
+              className="block w-full px-3 py-2 text-left text-sm text-neutral-300 hover:bg-neutral-800 hover:text-white"
+            >
+              {label}
+            </button>
+          ))}
         </div>
       )}
     </div>
@@ -283,6 +243,17 @@ export function TopNav({
   const [importOpen, setImportOpen] = useState(false);
   const [resetOpen, setResetOpen] = useState(false);
   const [storageDebugOpen, setStorageDebugOpen] = useState(false);
+
+  // The single source for both the desktop dropdown and the mobile menu --
+  // they render it differently (dropdown rows vs. full-width menu rows) but
+  // must always offer the same items in the same order.
+  const settingsItems: SettingsItem[] = [
+    { label: "Export data", onOpen: () => setExportOpen(true) },
+    { label: "Import data", onOpen: () => setImportOpen(true) },
+    { label: "Reset line data", onOpen: () => setResetOpen(true) },
+    { label: "Storage debug", onOpen: () => setStorageDebugOpen(true) },
+    { label: "Keyboard shortcuts", onOpen: onOpenShortcuts },
+  ];
 
   useEffect(() => {
     if (!menuOpen) return;
@@ -332,13 +303,7 @@ export function TopNav({
             inputRef={searchInputRef}
             className="w-48"
           />
-          <SettingsMenu
-            onOpenExport={() => setExportOpen(true)}
-            onOpenImport={() => setImportOpen(true)}
-            onOpenReset={() => setResetOpen(true)}
-            onOpenStorageDebug={() => setStorageDebugOpen(true)}
-            onOpenShortcuts={onOpenShortcuts}
-          />
+          <SettingsMenu items={settingsItems} />
         </div>
 
         <button
@@ -422,56 +387,19 @@ export function TopNav({
             </div>
 
             <div className="mt-auto flex flex-col gap-1 border-t border-neutral-800 pt-4">
-              <button
-                type="button"
-                onClick={() => {
-                  setExportOpen(true);
-                  setMenuOpen(false);
-                }}
-                className="rounded-md px-3 py-2.5 text-left text-sm font-medium text-neutral-400 transition-colors hover:bg-neutral-900 hover:text-white"
-              >
-                Export data
-              </button>
-              <button
-                type="button"
-                onClick={() => {
-                  setImportOpen(true);
-                  setMenuOpen(false);
-                }}
-                className="rounded-md px-3 py-2.5 text-left text-sm font-medium text-neutral-400 transition-colors hover:bg-neutral-900 hover:text-white"
-              >
-                Import data
-              </button>
-              <button
-                type="button"
-                onClick={() => {
-                  setResetOpen(true);
-                  setMenuOpen(false);
-                }}
-                className="rounded-md px-3 py-2.5 text-left text-sm font-medium text-neutral-400 transition-colors hover:bg-neutral-900 hover:text-white"
-              >
-                Reset line data
-              </button>
-              <button
-                type="button"
-                onClick={() => {
-                  setStorageDebugOpen(true);
-                  setMenuOpen(false);
-                }}
-                className="rounded-md px-3 py-2.5 text-left text-sm font-medium text-neutral-400 transition-colors hover:bg-neutral-900 hover:text-white"
-              >
-                Storage debug
-              </button>
-              <button
-                type="button"
-                onClick={() => {
-                  onOpenShortcuts();
-                  setMenuOpen(false);
-                }}
-                className="rounded-md px-3 py-2.5 text-left text-sm font-medium text-neutral-400 transition-colors hover:bg-neutral-900 hover:text-white"
-              >
-                Keyboard shortcuts
-              </button>
+              {settingsItems.map(({ label, onOpen }) => (
+                <button
+                  key={label}
+                  type="button"
+                  onClick={() => {
+                    onOpen();
+                    setMenuOpen(false);
+                  }}
+                  className="rounded-md px-3 py-2.5 text-left text-sm font-medium text-neutral-400 transition-colors hover:bg-neutral-900 hover:text-white"
+                >
+                  {label}
+                </button>
+              ))}
             </div>
           </div>
         </div>
