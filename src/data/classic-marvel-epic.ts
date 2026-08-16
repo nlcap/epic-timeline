@@ -38,13 +38,9 @@ function marvelIcon(filename: string): string {
 // launch date -- see FALLBACK comments below.
 //
 // Ownership: every volume seeds as "announced" -- the seed describes what
-// Marvel has published, not what anyone owns. It used to carry Nick's own
-// shelving (imported from the sheet's Own/Digi/Omni checkboxes), but that
-// shipped one person's collection to every user; a reader starts from a
-// clean slate now and tracks their own. Their changes live in localStorage
-// as absolute values (see useStatusOverrides), so nothing here overwrites
-// what they've already set. The old values are in
-// data-backups/ownership-snapshot-2026-08-16.json.
+// Marvel has published, never who owns it. What a reader owns lives in
+// localStorage as absolute per-volume values (see useStatusOverrides), so
+// the seed can change without disturbing anything they've set.
 //
 // creators/description aren't in the source spreadsheet -- most have been
 // filled in since, but a handful are still blank (same known-gap treatment as
@@ -3595,13 +3591,14 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     title: "Back to the Basics",
     start: { year: 1981, quarter: 2 },
     end: { year: 1982, quarter: 3 },
-    issuesCollected: "",
+    issuesCollected:
+      "Fantastic Four (1961) #232-248, Fantastic Four Roast (1982) #1, and material from What If? (1977) #36",
     yearsCovered: "1981-1982",
     releaseDate: { year: 2026, month: 2 },
-    writers: "John Byrne",
-    artists: "John Byrne",
+    writers: "John Byrne, Stan Lee",
+    artists: "John Byrne, Jack Kirby",
     description:
-      "",
+      "John Byrne's timeless run as writer/artist starts here!\nThe Fantastic Four are going back to the basics, back to Byrne: The debut of John Byrne in his celebrated run as FF writer/artist begins in this Epic Collection! Byrne's deft creative balance—renewing the characters' core, revitalizing old foes and introducing new concepts—gave the FF a bold vitality, restoring them to the lofty heights of the Stan Lee and Jack Kirby era. The Invisible Girl's powers go through a dramatic evolution, Galactus gets a surprising new herald and the FF join their most hated rival, Doctor Doom, in a fight for Latveria! Restored from a trove of original Byrne art, and including cool bonus items like Fred Hembeck's riotous FF Roast and Byrne's excursion into the world of What If?",
     coverUrl: "https://m.media-amazon.com/images/I/811CADZn4aL._SL1500_.jpg",
     ownershipStatus: "announced",
   },
@@ -3613,13 +3610,15 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     title: "Into the Negative Zone",
     start: { year: 1982, quarter: 4 },
     end: { year: 1983, quarter: 4 },
-    issuesCollected: "",
+    issuesCollected:
+      "Fantastic Four (1961) #249-264, Fantastic Four Annual (1963) #17, Avengers (1963) #233, Alpha Flight (1983) #4",
     yearsCovered: "1982-1983",
     releaseDate: { year: 2027, month: 5 },
-    writers: "John Byrne",
+    writers: "John Byrne, Roger Stern",
     artists: "John Byrne",
     description:
-      "",
+      "Writer/artist John Byrne's franchise-revitalizing run continues!\nBlending cosmic spectacle with heartfelt character drama, Byrne sends Marvel's First Family on daring adventures into the Negative Zone and the farthest reaches of the cosmos, while Earth faces threats only the FF can stop. Annihilus strikes the Baxter Building, Galactus returns with the Skrull homeworld in his sights, and Terrax the Terrible rises under Doctor Doom's command. The saga crescendos with the classic \"Trial of Reed Richards\" as the Shi'ar hold Reed accountable for saving Galactus. Joined by allies like Daredevil and the Avengers, the FF confront universe-shaking dangers and personal crossroads in one of Marvel's greatest creative runs. Plus: Doctor Doom secures the Power Cosmic, but he may not survive the experience!",
+    coverUrl: "https://m.media-amazon.com/images/I/91SsjmqAGCL._SL1500_.jpg",
     ownershipStatus: "announced",
   },
   {
