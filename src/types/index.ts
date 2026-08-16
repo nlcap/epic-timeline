@@ -154,9 +154,9 @@ export interface Volume {
   title: string;
   start: QuarterPoint;
   end: QuarterPoint;
-  /** e.g. "Ultimate Spider-Man (2000) #1-13" */
+  /** e.g. "Fantastic Four #1-18" */
   issuesCollected: string;
-  /** e.g. "1962-1963" -- shown in the detail panel */
+  /** e.g. "1961-1963" -- shown in the detail panel */
   yearsCovered: string;
   /**
    * When the trade paperback itself hit shelves -- the real-world publish

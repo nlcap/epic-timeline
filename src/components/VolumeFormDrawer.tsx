@@ -497,7 +497,7 @@ export function VolumeFormDrawer({
                 type="text"
                 value={title}
                 onChange={(e) => setTitle(e.target.value)}
-                placeholder="e.g. Learning Curve"
+                placeholder="e.g. The World's Greatest Comic Magazine"
                 // Adding focuses here outright; editing focuses the same
                 // field via titleRef's effect above (caret only, nothing
                 // selected) so the drawer is paste-ready on open.
@@ -551,7 +551,7 @@ export function VolumeFormDrawer({
               <textarea
                 value={issuesCollected}
                 onChange={(e) => setIssuesCollected(e.target.value)}
-                placeholder="e.g. Ultimate Spider-Man (2000) #1-13"
+                placeholder="e.g. Fantastic Four #1-18"
                 rows={3}
                 className="mt-1 w-full rounded-md border border-neutral-700 bg-neutral-900 px-3 py-2 text-sm text-white placeholder:text-neutral-600 focus:border-neutral-500 focus:outline-none"
               />
@@ -737,7 +737,7 @@ export function VolumeFormDrawer({
                 type="text"
                 value={writers}
                 onChange={(e) => setWriters(e.target.value)}
-                placeholder="e.g. Bendis"
+                placeholder="e.g. Stan Lee"
                 className="mt-1 w-full rounded-md border border-neutral-700 bg-neutral-900 px-3 py-2 text-sm text-white placeholder:text-neutral-600 focus:border-neutral-500 focus:outline-none"
               />
             </label>
@@ -748,7 +748,7 @@ export function VolumeFormDrawer({
                 type="text"
                 value={artists}
                 onChange={(e) => setArtists(e.target.value)}
-                placeholder="e.g. Bagley"
+                placeholder="e.g. Jack Kirby"
                 className="mt-1 w-full rounded-md border border-neutral-700 bg-neutral-900 px-3 py-2 text-sm text-white placeholder:text-neutral-600 focus:border-neutral-500 focus:outline-none"
               />
             </label>
