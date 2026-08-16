@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState, type PointerEvent } from "react";
 import { createPortal } from "react-dom";
 import type { Era } from "../types";
+import { useOverlay } from "../hooks/useOverlay";
 
 const VIEWPORT_SIZE = 280;
 const OUTPUT_SIZE = 512;
@@ -45,6 +46,20 @@ export function ImageCropModal({
   const [selectedEra, setSelectedEra] = useState<Era | undefined>(
     initialEra ?? eraOptions?.[0]?.era
   );
+
+  useOverlay();
+
+  // Escape cancels the crop. The parent drawer deliberately suppresses its
+  // own Escape handler while this is up (see useEscapeToClose's `enabled`)
+  // so the whole form doesn't close out from under an in-progress crop --
+  // which left Escape doing nothing at all until this handler existed.
+  useEffect(() => {
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") onCancel();
+    };
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, [onCancel]);
   const imgRef = useRef<HTMLImageElement | null>(null);
   const [naturalSize, setNaturalSize] = useState<{ width: number; height: number } | null>(null);
   // scale = baseScale * zoom. baseScale is the "cover fit" scale computed

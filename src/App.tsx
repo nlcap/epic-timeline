@@ -35,6 +35,7 @@ import { useExitingLines } from "./hooks/useExitingLines";
 import { useVisibleRowRange } from "./hooks/useVisibleRowRange";
 import { useAddVolumeCellHover } from "./hooks/useAddVolumeCellHover";
 import { useGlobalShortcuts } from "./hooks/useGlobalShortcuts";
+import { useOverlaysOpen } from "./hooks/useOverlay";
 import { hexToRgba, SPECULATION_ACCENT_HEX } from "./lib/color";
 import { safeSetItem } from "./lib/storage";
 import { useEraBarCollapseProgress } from "./hooks/useEraBarCollapseProgress";
@@ -395,6 +396,18 @@ export default function App() {
           volumeMatches.add(entry.lineId);
         }
       }
+      // Speculative lines pass this facet unconditionally, matching the
+      // exemption entriesByLine already gives speculative *volumes* below:
+      // neither carries a shelving or reading status to be judged on. Only
+      // official volumes are scanned above, so without this a speculative
+      // line -- which by definition has no official volumes -- could never
+      // land in volumeMatches, and the entire speculative layer silently
+      // vanished the moment any status facet was checked. The tag facet
+      // still applies to them normally; tags live on the line itself, and
+      // speculative lines do carry them.
+      if (speculationMode) {
+        for (const id of speculativeLineIdSet) volumeMatches.add(id);
+      }
       matchSets.push(volumeMatches);
     }
     if (tagsActive) {
@@ -412,7 +425,16 @@ export default function App() {
     }
 
     return matchSets.reduce((acc, set) => new Set([...acc].filter((id) => set.has(id))));
-  }, [resolvedEntries, shelvingFilter, readingFilter, tagFilter, filterMode, visibleLines]);
+  }, [
+    resolvedEntries,
+    shelvingFilter,
+    readingFilter,
+    tagFilter,
+    filterMode,
+    visibleLines,
+    speculationMode,
+    speculativeLineIdSet,
+  ]);
 
   // Search filters by line title; the filter panel's facets (above) narrow
   // it further by status. Either, both, or neither can be active at once.
@@ -473,7 +495,12 @@ export default function App() {
     const combined = speculationMode
       ? [...resolvedEntries, ...speculativeResolvedEntries]
       : resolvedEntries;
-    const filtersActive = shelvingFilter.size > 0 || readingFilter.size > 0;
+    // Deliberately NOT the component-level `filtersActive` above, which also
+    // counts tagFilter -- tags are a line-level facet, so they hide whole
+    // lines (via statusFilteredLineIds) rather than individual volume tiles
+    // within a surviving one. Named apart from it so the two don't read as
+    // the same value.
+    const volumeFacetsActive = shelvingFilter.size > 0 || readingFilter.size > 0;
     for (const entry of combined) {
       // Filter panel's facets (see statusFilteredLineIds above, which hides
       // a line entirely once none of its volumes match) also hide individual
@@ -483,7 +510,7 @@ export default function App() {
       // volumes (which don't track either status -- see VolumeDetailPanel)
       // always pass through untouched.
       if (
-        filtersActive &&
+        volumeFacetsActive &&
         entry.kind === "volume" &&
         !speculativeVolumeIds.has(entry.id) &&
         !volumeMatchesStatusFilters(entry, shelvingFilter, readingFilter)
@@ -664,19 +691,26 @@ export default function App() {
   // the pointer -- see useAddVolumeCellHover.ts.
   useAddVolumeCellHover();
 
-  useGlobalShortcuts({
-    onFocusSearch: () => searchInputRef.current?.focus(),
-    onOpenFilters: () => setFilterPanelOpen(true),
-    onAddLine: () => setAddLineOpen(true),
-    onSelectCollection: (oneBasedIndex) => {
-      const target = COLLECTIONS[oneBasedIndex - 1];
-      if (target) switchCollection(target.id);
+  // Suspended while any drawer/panel/dialog is layered over the timeline --
+  // see useOverlay for what was going wrong without this.
+  const overlaysOpen = useOverlaysOpen();
+
+  useGlobalShortcuts(
+    {
+      onFocusSearch: () => searchInputRef.current?.focus(),
+      onOpenFilters: () => setFilterPanelOpen(true),
+      onAddLine: () => setAddLineOpen(true),
+      onSelectCollection: (oneBasedIndex) => {
+        const target = COLLECTIONS[oneBasedIndex - 1];
+        if (target) switchCollection(target.id);
+      },
+      onZoomIn: zoomIn,
+      onZoomOut: zoomOut,
+      onToggleSpeculationMode: toggleSpeculationMode,
+      onShowShortcuts: () => setShortcutsOpen(true),
     },
-    onZoomIn: zoomIn,
-    onZoomOut: zoomOut,
-    onToggleSpeculationMode: toggleSpeculationMode,
-    onShowShortcuts: () => setShortcutsOpen(true),
-  });
+    !overlaysOpen
+  );
 
   const eraBarHeight = isDcFinest
     ? ERA_BAR_HEIGHT - eraBarCollapseProgress * (ERA_BAR_HEIGHT - ERA_BAR_COLLAPSED_HEIGHT)

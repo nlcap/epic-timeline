@@ -1,5 +1,6 @@
 import { createPortal } from "react-dom";
-import type { ReactNode } from "react";
+import { useEffect, type ReactNode } from "react";
+import { useOverlay } from "../hooks/useOverlay";
 
 /**
  * Shared portal + backdrop + centered-card shell behind every settings-menu
@@ -34,6 +35,25 @@ export function SettingsModal({
   scrollable?: boolean;
   children: ReactNode;
 }) {
+  // Every centered settings dialog goes through this shell, so this is the
+  // one place that needs to tell useGlobalShortcuts to stand down while one
+  // is up -- see useOverlay.
+  useOverlay();
+
+  // Escape closes, same as the backdrop and the Close ✕. The side panels
+  // have had this since useEscapeToClose (which is built around
+  // useSlidePanel's closeThen, and so doesn't fit a dialog that pops rather
+  // than slides), but none of the five dialogs built on this shell did --
+  // including the keyboard-shortcuts cheat sheet, which listed
+  // "Esc -- Close the open panel" and then ignored it.
+  useEffect(() => {
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") onClose();
+    };
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, [onClose]);
+
   return createPortal(
     <div className="fixed inset-0 z-[70] overflow-y-auto bg-black/60 p-6" onClick={onClose}>
       <div className="flex min-h-full items-center justify-center">

@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useState } from "react";
+import { useOverlay } from "./useOverlay";
 
 /**
  * Drives the open/close transition for a side-drawer / detail-panel overlay
@@ -17,6 +18,10 @@ import { useCallback, useEffect, useState } from "react";
  */
 export function useSlidePanel(durationMs = 200) {
   const [visible, setVisible] = useState(false);
+
+  // Every side panel goes through this hook, so this is the one place that
+  // needs to tell useGlobalShortcuts to stand down while one is up.
+  useOverlay();
 
   useEffect(() => {
     const raf = requestAnimationFrame(() => setVisible(true));
