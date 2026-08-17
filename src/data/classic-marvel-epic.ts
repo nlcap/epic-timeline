@@ -5217,7 +5217,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     id: "namor-the-sub-mariner-1",
     lineId: "namor-the-sub-mariner",
     number: "1",
-    title: "Enter The Sub-mariner",
+    title: "Enter The Sub-Mariner",
     start: { year: 1962, quarter: 3 },
     end: { year: 1966, quarter: 1 },
     issuesCollected: "Fantastic Four #4, 6, 9, 14, 27, 33, Annual #1,; Avengers #3-4,; X-Men #6,; Daredevil #7,; and material from; Strange Tales #107, 125,; Tales to Astonish #70-76",
