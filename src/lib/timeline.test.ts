@@ -3,6 +3,7 @@ import type { Gap, Volume } from "../types";
 import {
   addCellWindowQuarters,
   assignLanes,
+  isFutureMonth,
   lineHeight,
   quarterBeforeMonthPoint,
   quarterIndex,
@@ -204,6 +205,30 @@ describe("quarterBeforeMonthPoint", () => {
 
   it("rolls back into Q4 of the prior year for a Q1 month", () => {
     expect(quarterBeforeMonthPoint({ year: 2000, month: 2 })).toEqual({ year: 1999, quarter: 4 });
+  });
+});
+
+describe("isFutureMonth", () => {
+  const now = new Date(2026, 7, 16); // 16 August 2026
+
+  it("is true for a later month in the same year", () => {
+    expect(isFutureMonth({ year: 2026, month: 9 }, now)).toBe(true);
+  });
+
+  it("is true for any month of a later year", () => {
+    expect(isFutureMonth({ year: 2027, month: 1 }, now)).toBe(true);
+  });
+
+  it("is false for the current month, part-way through it", () => {
+    expect(isFutureMonth({ year: 2026, month: 8 }, now)).toBe(false);
+  });
+
+  it("is false for an earlier month in the same year", () => {
+    expect(isFutureMonth({ year: 2026, month: 7 }, now)).toBe(false);
+  });
+
+  it("is false for December of the prior year", () => {
+    expect(isFutureMonth({ year: 2025, month: 12 }, now)).toBe(false);
   });
 });
 

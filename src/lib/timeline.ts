@@ -337,6 +337,19 @@ export function formatMonthPoint(point: MonthPoint): string {
   return `${MONTH_NAMES[point.month - 1]} ${point.year}`;
 }
 
+/**
+ * Whether a release month is still ahead of us -- the detail panel says
+ * "Releases March 2027" rather than "Released" for announced volumes that
+ * haven't shipped yet. A releaseDate only carries a month, so the current
+ * month counts as released: a volume dated this month is as likely to be on
+ * shelves already as not, and "Released" is the safer read of the two once
+ * the month has started. `now` is injectable for the tests.
+ */
+export function isFutureMonth(point: MonthPoint, now: Date = new Date()): boolean {
+  const current = { year: now.getFullYear(), month: now.getMonth() + 1 };
+  return monthIndex(point) > monthIndex(current);
+}
+
 /** e.g. "1962-1963", or just "1962" when start/end fall in the same year --
  * shared between VolumeFormDrawer's own submit and the timeline's drag-to-
  * resize handles (see VolumeTile.tsx), so both keep a volume's stored

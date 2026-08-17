@@ -3,7 +3,7 @@ import type { OwnershipStatus, ReadingStatus, Volume } from "../types";
 import { OWNERSHIP_META, OWNERSHIP_ORDER } from "../lib/ownership";
 import { READING_STATUS_META, READING_STATUS_ORDER } from "../lib/readingStatus";
 import { volumeBadgeText } from "../lib/era";
-import { formatMonthPoint } from "../lib/timeline";
+import { formatMonthPoint, isFutureMonth } from "../lib/timeline";
 import { formatLineBreaks } from "../lib/text";
 import { isTypingTarget } from "../lib/keyboard";
 import { useSlidePanel } from "../hooks/useSlidePanel";
@@ -184,7 +184,8 @@ export function VolumeDetailPanel({
         </p>
         {volume.releaseDate && (
           <p className="mt-1 text-xs text-neutral-400">
-            Released {formatMonthPoint(volume.releaseDate)}
+            {isFutureMonth(volume.releaseDate) ? "Releases" : "Released"}{" "}
+            {formatMonthPoint(volume.releaseDate)}
           </p>
         )}
         {!speculative && (
