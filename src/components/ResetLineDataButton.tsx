@@ -2,63 +2,13 @@ import { useEffect, useState } from "react";
 import { COLLECTIONS } from "../data/collections";
 import { COLLECTION_DATA_UPDATED_AT } from "../lib/collectionUpdatedAt";
 import { resetLineData, type TimelineScope } from "../lib/resetLineData";
+import { CheckRow } from "./CheckRow";
 import { SettingsModal } from "./SettingsModal";
 
 const TIMELINE_SCOPES: { id: TimelineScope; label: string }[] = [
   { id: "main", label: "Main Timeline" },
   { id: "speculative", label: "Speculative Timeline" },
 ];
-
-function CheckRow({
-  label,
-  subtitle,
-  checked,
-  onToggle,
-}: {
-  label: string;
-  /** Collection rows only -- e.g. "Last updated: August 4, 2026", so a user
-   * considering a reset can see how stale the seed data they'd fall back to
-   * is before wiping their own edits. */
-  subtitle?: string;
-  checked: boolean;
-  onToggle: () => void;
-}) {
-  return (
-    <button
-      type="button"
-      role="checkbox"
-      aria-checked={checked}
-      onClick={onToggle}
-      className="flex w-full items-center gap-2.5 rounded-md px-2 py-2 text-left text-sm text-neutral-300 transition-colors hover:bg-neutral-800 hover:text-white"
-    >
-      <span
-        className={`flex h-4 w-4 shrink-0 items-center justify-center rounded border transition-colors ${
-          checked ? "border-white bg-white" : "border-neutral-600"
-        }`}
-      >
-        {checked && (
-          <svg
-            viewBox="0 0 16 16"
-            fill="none"
-            stroke="black"
-            strokeWidth={2.5}
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            className="h-3 w-3"
-          >
-            <path d="M3.5 8.5l3 3 6-7" />
-          </svg>
-        )}
-      </span>
-      <span className="flex flex-col">
-        {label}
-        {subtitle && (
-          <span className="text-xs italic text-neutral-500">{subtitle}</span>
-        )}
-      </span>
-    </button>
-  );
-}
 
 /**
  * Wipes local overrides/additions back to the shipped seed data, scoped to

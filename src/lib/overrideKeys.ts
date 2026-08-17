@@ -25,6 +25,17 @@ export const SPECULATIVE_KEYS = [
 // Everything ExportDataButton/ImportDataButton read and write.
 export const EXPORT_KEYS = [...OVERRIDE_KEYS, ...SPECULATIVE_KEYS] as const;
 
+export type ExportKey = (typeof EXPORT_KEYS)[number];
+
+// Describes which slice of the data an export file holds (see Selection in
+// lib/collectionScope.ts), so the import picker can pre-select what the
+// file actually covers instead of inferring it from record counts alone.
+// Double-underscored so it can never collide with a store key, and ignored
+// by anything that only looks for EXPORT_KEYS -- which is what makes the
+// format compatible in both directions with exports made before it existed.
+export const EXPORT_META_KEY = "__meta";
+export const EXPORT_FORMAT_VERSION = 1;
+
 // The two override stores keyed by line id (Record<lineId, Line | "deleted">).
 // Line carries iconUrl/eraIconUrls, which don't survive an export/import
 // round-trip: a seeded line's icon is a build-hashed asset path that can
