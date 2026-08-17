@@ -73,11 +73,31 @@ export function VolumeDetailPanel({
       onClick={() => closeThen(onClose)}
     >
       <div
-        className={`flex h-full w-full max-w-sm flex-col overflow-y-auto border-l border-neutral-800 bg-[#252526]/50 p-6 backdrop-blur-sm transition-transform duration-200 ease-out ${
+        className={`relative flex h-full w-full max-w-sm flex-col overflow-hidden border-l border-neutral-800 bg-[#252526]/35 backdrop-blur-sm transition-transform duration-200 ease-out ${
           visible ? "translate-x-0" : "translate-x-full"
         }`}
         onClick={(e) => e.stopPropagation()}
       >
+        {/* Panel colour, deepening downwards -- what the cover wash below
+         * fades out into. A darker grey than the panel's own #252526 so the
+         * scrim reads as shadow rather than more panel, at alphas low enough
+         * to leave the timeline faintly visible through it. Sits outside the
+         * scroller so it stays put. Written out as a gradient rather than
+         * from-/via-/to- utilities because Tailwind drops the via and to
+         * stops when the colour is arbitrary and carries an opacity
+         * modifier, leaving a fade to transparent. */}
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-0"
+          style={{
+            backgroundImage:
+              "linear-gradient(to bottom, rgba(26,26,27,0.55) 0%, rgba(26,26,27,0.86) 50%, rgba(26,26,27,0.93) 100%)",
+          }}
+        />
+
+        {/* isolate keeps the wash's -z-10 inside this scroller, above the
+         * gradient behind it rather than underneath. */}
+        <div className="relative isolate flex flex-1 flex-col overflow-y-auto overflow-x-hidden p-6">
         <div className="flex items-center">
           {onEdit && (
             <button
@@ -111,11 +131,47 @@ export function VolumeDetailPanel({
         </div>
 
         {volume.coverUrl ? (
-          <img
-            src={volume.coverUrl}
-            alt=""
-            className="mx-auto mt-4 h-auto w-full max-w-[75%] rounded-md"
-          />
+          // The cover twice over: a blown-up, heavily blurred copy sitting
+          // behind the real one as a wash of the book's own colours -- the
+          // product-page treatment. It runs off the top and both sides of the
+          // panel (the overhang is wider than the blur radius, so no soft
+          // edge creeps back into view) and only resolves at the bottom,
+          // where the mask fades it into the panel colour across the gap
+          // between the title and the status pills. No object-fit: the copy
+          // is stretched to fill the box rather than cropped, which spreads
+          // the cover's colours further apart and blurs into a softer wash.
+          // -z-10 keeps it behind the text while staying above the panel's
+          // own background.
+          // -z-10 on the whole cover group so it paints before the panel's
+          // in-flow text: wrapping the cover in a positioned element had put
+          // it in the positioned-paint pass, which draws after in-flow
+          // content, so its shadow was falling across the title below it.
+          <div className="relative -z-10 mt-4">
+            <div
+              aria-hidden
+              className="pointer-events-none absolute inset-x-[-72px] -top-48 bottom-[-130px] -z-10"
+            >
+              <img
+                src={volume.coverUrl}
+                alt=""
+                className="h-full w-full opacity-30 blur-3xl"
+                style={{
+                  maskImage:
+                    "linear-gradient(to bottom, #000 0, #000 calc(100% - 114px), transparent 100%)",
+                  WebkitMaskImage:
+                    "linear-gradient(to bottom, #000 0, #000 calc(100% - 114px), transparent 100%)",
+                }}
+              />
+            </div>
+            {/* Two shadows: a deep one pulled back in under the cover by its
+             * negative spread, and a lighter, wider one with positive spread
+             * that pushes past the edges so the cover lifts off the wash. */}
+            <img
+              src={volume.coverUrl}
+              alt=""
+              className="mx-auto h-auto w-full max-w-[75%] rounded-md shadow-[0_24px_80px_-40px_rgba(0,0,0,0.5),0_32px_90px_24px_rgba(0,0,0,0.35)]"
+            />
+          </div>
         ) : (
           <div className="mt-4 flex h-64 w-full items-center justify-center rounded-md bg-neutral-800 text-sm text-neutral-500">
             Cover image
@@ -219,6 +275,7 @@ export function VolumeDetailPanel({
             )}
           </div>
         )}
+        </div>
       </div>
     </div>
   );
