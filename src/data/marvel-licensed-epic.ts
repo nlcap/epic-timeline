@@ -1060,6 +1060,10 @@ export const LICENSED_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Star Wars: Jedi – The Dark Side #1–5, Star Wars: Qui-Gon & Obi-Wan – The Aurorient Express #1–2, Star Wars: Qui-Gon & Obi-Wan – Last Stand on Ord Mantell #1–3, Star Wars: Jedi Council – Acts of War #1–4; material from Star Wars (1998) #4–6, Star Wars Tales #1, 3–5, 7, 9–10, 13–14, 24",
     yearsCovered: "1999-2004",
     releaseDate: { year: 2015, month: 8 },
+    writers:
+      "Scott Allie, Randy Stradley, Jan Strnad, Ryder Windham, Mike Kennedy, Jim Woodring, John Ostrander, Dean Motter, Dave McCaig, Christian Read, Haden Blackman, Jim Krueger, Jason Hall, Fabian Nicieza, Chris Eliopoulos, Rob Williams",
+    artists:
+      "Mahmud Asrar, Davide Fabri, Ramon F. Bachs, John Nadeau, Lucas Marangon, Robert Teranishi, Jan Duursema, Jesús Sáiz, Francisco Ruiz Velasco, Dave McCaig, Chris Slane, Michael Zulli, Kagan McLeod, Timothy Green II, Jon Sommariva, Cully Hamner",
     description: "",
     coverUrl: "https://m.media-amazon.com/images/I/716+H6k5WEL._SL1500_.jpg",
     ownershipStatus: "announced",
@@ -1075,6 +1079,10 @@ export const LICENSED_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Star Wars #0–3, Star Wars: Darth Maul #1–4, Star Wars: Episode I – The Phantom Menace #½, 1–4, Star Wars: Episode I: Anakin Skywalker, Queen Amidala, Qui-Gon Jinn, Obi-Wan Kenobi; material from Star Wars #4–6 and Star Wars Tales #3, 5, 7, 14, 20",
     yearsCovered: "1998-2004",
     releaseDate: { year: 2017, month: 11 },
+    writers:
+      "Jan Strnad, Henry Gilroy, Ron Marz, Ryder Windham, Timothy Truman, Mark Schultz, Terry Moore, Kevin Rubio, Stan Sakai, Tony Millionaire",
+    artists:
+      "Anthony Winn, Jan Duursema, Rodolfo Damaggio, Martin Egeland, Robert Teranishi, Galen Showman, Steve Crespo, John Nadeau, Tom Fowler, Cliff Richards, Lucas Marangon, Stan Sakai, Tony Millionaire",
     description: "",
     coverUrl: "https://m.media-amazon.com/images/I/710U2pkykxL._SL1500_.jpg",
     ownershipStatus: "announced",
