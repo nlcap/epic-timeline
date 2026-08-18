@@ -629,8 +629,9 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Adventure Comics #229-280, #282, and #284: Action Comics #272; Detective Comics #293-300; World’s Finest Comics #125; Showcase #30-33; Superman’s Girl Friend Lois Lane #12; and Aquaman #1-3",
     yearsCovered: "1956-1962",
     releaseDate: { year: 2025, month: 1 },
-    writers: "Jack Miller, Robert Bernstein",
-    pencillers: "Ramona Fradon, Nick Cardy",
+    writers: "Robert Bernstein, Jack Miller, Otto Binder, George Kashdan, Joe Millard",
+    pencillers: "Ramona Fradon, Nick Cardy, Jim Mooney, Joe Certa, Sheldon Moldoff",
+    inkers: "Ramona Fradon, Nick Cardy, Charles Paris, Jim Mooney, Sheldon Moldoff",
     description:
       "The earliest Silver Age stories starring the King of the Seas, drawn by Ramona Fradon and Nick Cardy as Aquaman graduates from backup feature to headlining his own title.",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781779529893",
@@ -649,8 +650,9 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
       "Aquaman #4-24; The Brave and the Bold #51; World's Finest Comics #126-133, #135, #137, and #139; Superman's Girl Friend, Lois Lane #29; and Superman's Pal, Jimmy Olsen #55 and #78",
     yearsCovered: "1962-1965",
     releaseDate: { year: 2027, month: 6 },
-    writers: "Jack Miller",
-    pencillers: "Ramona Fradon, Nick Cardy",
+    writers: "Jack Miller, Bob Haney, Dave Wood",
+    pencillers: "Nick Cardy, Ramona Fradon, Howard Purcell",
+    inkers: "Nick Cardy, Ramona Fradon, Howard Purcell",
     description:
       "Part of the DC Finest line, this deep-diving collection spotlights Aquaman's early adventures!\nAs king of Atlantis and protector of the seas, Aquaman faces threats both above and below the surface-but some dangers are stranger and more unpredictable than anything he's encountered before. From cursed forces rising out of the deep to mysterious enemies that blur the line between science and sorcery, these adventures transform the ocean into a place of wonder, danger, and suspense.\nBlending action, suspense, and imaginative world-building, these stories showcase a defining era of Aquaman's legacy; where superhero storytelling meets eerie, atmospheric adventure.",
     coverUrl: aquamanHauntedSeaCover,
@@ -1771,8 +1773,10 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Action Comics #378-387 and #389-392, Adventure Comics #374-380 and #403, and Superboy #172-173, #176, #183-184, 188, 190-191, 193, 195, and #197-203",
     yearsCovered: "1968-1974",
     releaseDate: { year: 2024, month: 12 },
-    writers: "Jim Shooter, Cary Bates",
-    pencillers: "Win Mortimer, Dave Cockrum",
+    writers: "Cary Bates, Jim Shooter, E. Nelson Bridwell",
+    pencillers: "Win Mortimer, Dave Cockrum, Jim Shooter, George Tuska, Curt Swan, Mike Grell",
+    inkers:
+      "Jack Abel, Dave Cockrum, Murphy Anderson, Win Mortimer, George Tuska, Mike Grell, Mike Esposito, Vince Colletta",
     description:
       "Long out-of-print Legion tales including 'War of the Wraith-Mates,' 'The Fatal Five Who Twisted Time,' and 'The Impossible Target,' from the team's late-'60s and early-'70s adventures.",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781779528490",
@@ -1791,8 +1795,11 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
       "DC Comics Presents #43, The Legion of Super-Heroes #284-300, World’s Finest Comics #284, The Best of DC: Blue Ribbon Digest #24, The Legion of Super-Heroes Annual #1",
     yearsCovered: "1982-1983",
     releaseDate: { year: 2027, month: 3 },
-    writers: "Paul Levitz",
-    pencillers: "Keith Giffen, Pat Broderick",
+    writers: "Paul Levitz, Dan Mishkin, Paul Kupperberg",
+    pencillers:
+      "Keith Giffen, Pat Broderick, Curt Swan, Howard Bender, Carmine Infantino, Dave Cockrum, Ernie Colon, Jim Sherman, Joe Staton, Kurt Schaffenberger",
+    inkers:
+      "Larry Mahlstedt, Bruce D. Patterson, Dave Hunt, Dan Adkins, Dave Cockrum, Dick Giordano, Ernie Colon, Frank Giacoia, Jim Sherman, Kurt Schaffenberger, Rodin Rodriguez",
     description:
       "A group of young heroes faces a mysterious force threatening the entire galaxy in this massive, future-set superhero epic.\n\nIn the 31st century, a team of young superheroes from across the galaxy unites to prevent Armageddon.\n\nWhen a powerful and unseen enemy begins manipulating events across space, the Legion of Super-Heroes races to discover the true identity behind the threat that spans worlds, timelines, and entire civilizations. As the danger escalates, the team is pushed to its limits, facing impossible odds and uncovering a force powerful enough to reshape the universe itself.\n\nBlending action, suspense, and expansive world-building, this landmark storyline delivers a high-stakes adventure where teamwork, sacrifice, and resilience define the fate of the future.",
     coverUrl: legionGreatDarknessSagaCover,
@@ -1842,8 +1849,12 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     releaseDate: { year: 2027, month: 4 },
     // Split by hand from `creators` -- Wikipedia only says "various" for this
     // one. The sheet's "(Illustrated by)" marked where the artists started.
-    writers: "Dan Jurgens, Mike W. Barr",
-    pencillers: "Mike Norton, Jim Aparo",
+    writers:
+      "Bob Haney, Mike W. Barr, Gerry Conway, Len Wein, Keith Giffen, J.M. DeMatteis, William Messner-Loebs, Bill Mantlo, Steve Englehart",
+    pencillers:
+      "Jim Aparo, John Calnan, Dick Dillin, Bart Sears, Alan Davis, Irv Novick, Ramona Fradon, David Ross, Joe Staton, Keith Giffen, Bill Wray, Brian Bolland, Curt Swan, Dan Spiegle, Erik Larsen, Howard Simpson, Joe Orlando, Jonathan Peterson, Kurt Schaffenberger",
+    inkers:
+      "Jim Aparo, John Calnan, Murphy Anderson, Pablo Marcos, Alan Davis, Bart Sears, Frank McLaughlin, Joe Giella, Ramona Fradon, Tex Blaisdell, Joe Rubinstein, Dan Adkins, Dick Giordano, Ian Gibson, Tom Christopher, Bill Wray, Al Vey, Bob Smith, Brian Bolland, Dan Spiegle, Erik Larsen, Joe Orlando, Joe Staton, Kurt Schaffenberger, Robert Orzechowski",
     description:
       "A shape-shifting hero pushed to new limits—Metamorpho faces bigger challenges, team-ups, and unexpected transformations.\nRex Mason is no ordinary hero—he can transform into any element on Earth.\nAs Metamorpho, his powers allow him to reshape his body into anything from steel to smoke to fire, making him one of the most unpredictable heroes in the DC Universe. But with those abilities comes a challenge: holding onto his humanity while constantly changing.\nAcross a wide range of adventures, DC's most versatile of champions takes on new challenges, teams up with other heroes, and navigates increasingly complex threats while struggling with the personal cost of his powers.\nCollecting stories from across multiple series, this volume offers a broad and energetic look at one of DC's most unusual characters—blending science fiction, superhero action, and character-driven storytelling.",
     coverUrl: "https://m.media-amazon.com/images/I/815PF+lh3pL._SL1500_.jpg",
@@ -1862,8 +1873,9 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Fightin' Five #40-41; Suicide Squad #27-30; Checkmate #16-26, #28, #32-33; Eclipso #11-13; Showcase '93 #6-11; Peacemaker #1-4; The Vigilante #36-38, #41-43; The Peacemaker #1-5",
     yearsCovered: "1966-1993",
     releaseDate: { year: 2025, month: 4 },
-    writers: "Joe Gill, Paul Kupperberg",
-    pencillers: "Pat Boyette",
+    writers: "Joe Gill, Mike Baron, Paul Kupperberg",
+    pencillers: "Pat Boyette, Bill Montez, Tod Smith, Cary Nord, Gary Barker",
+    inkers: "Pat Boyette, José Marzan Jr., Ernie Bache, Pablo Marcos",
     description:
       "The earliest days of Christopher Smith, a man who loves peace so much he's willing to kill for it -- decades before the character's TV adaptation, across his Charlton origin and DC guest appearances.",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781799500988",
