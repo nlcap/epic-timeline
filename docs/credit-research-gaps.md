@@ -23,6 +23,9 @@ person worked on.
 | Supergirl: Body & Soul | **Supergirl Plus #1** | No page on DC Fandom. |
 | Supergirl: Die and Let Live | **Supergirl/Prysm Double-Shot #1**, **Team Superman Secret Files #1**, **Supergirl #1 (Million/ML)** | No pages found under the obvious names. |
 
+| Teen Titans: The Judas Contract | **The Vigilante #3** | No page under that name. |
+| Teen Titans: Terra in the Night! | **New Teen Titans (Drug Awareness) #1-3** | Promotional giveaways; no obvious page names. |
+
 **comics.org (Grand Comics Database)** would likely resolve most of these — it records per-story
 credits and reprint data. It is behind a Cloudflare bot-verification wall, and I won't work
 around bot detection, so it needs a human. It's the single best next step for this whole list.

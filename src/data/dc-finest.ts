@@ -1371,8 +1371,11 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Detective Comics Annual #1, Green Arrow #1-8, Green Arrow Annual #1, The Question #17-18, The Question Annual #1, Green Arrow: The Longbow Hunters #1-3",
     yearsCovered: "1987-1988",
     releaseDate: { year: 2025, month: 1 },
-    writers: "Mike Grell",
-    pencillers: "Mike Grell, Ed Hannigan, Dick Giordano",
+    writers: "Mike Grell, Dennis O'Neil, Sharon Wright",
+    pencillers:
+      "Ed Hannigan, Lurene Haines, Mike Grell, Denys Cowan, Eduardo Barreto, Paris Cullins, Randy DuBurke, Tom Artis",
+    inkers:
+      "Dick Giordano, Mike Grell, Lurene Haines, Rick Magyar, Arne Starr, Frank McLaughlin, Gary Martin, Tim Dzon",
     description:
       "Mike Grell's acclaimed Longbow Hunters reinvents Oliver Queen as a street-level, no-trick-arrows hero -- grittier, more grounded, and paired with a reintroduced Black Canary.",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781779529916",
@@ -1390,8 +1393,11 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Green Arrow #9–20, Green Arrow Annual #2, The Question Annual #2, Secret Origins #38, and key Black Canary material from Action Comics #609–616 and #624–635",
     yearsCovered: "1988-1989",
     releaseDate: { year: 2026, month: 2 },
-    writers: "Mike Grell, Sharon Wright",
-    pencillers: "Dan Jurgens, Ed Hannigan",
+    writers: "Mike Grell, Sharon Wright, Dennis O'Neil, Sarah Byam, Mark Verheiden",
+    pencillers:
+      "Ed Hannigan, Randy DuBurke, Eduardo Barreto, Dan Jurgens, Bill Wray, Dick Giordano, Hannibal King",
+    inkers:
+      "Dick Giordano, Pablo Marcos, John Nyberg, Frank McLaughlin, Arne Starr, Bill Wray, Joe Rubinstein",
     description:
       "Justice has a price. After the Longbow Hunters, Oliver Queen faces black ops conspiracies, Yakuza assassins, devastating personal losses, and one fatal mistake that could destroy everything.",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781799510246",
@@ -2413,8 +2419,10 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     issuesCollected: "The New Teen Titans #21–32; The New Teen Titans Annual #1; Tales of the New Teen Titans #1–4; The New Teen Titans (Drug Awareness) #1–3; and Action Comics #536",
     yearsCovered: "1982-1983",
     releaseDate: { year: 2026, month: 10 },
-    writers: "Marv Wolfman",
-    pencillers: "George Pérez",
+    writers: "Marv Wolfman, George Pérez, Gerry Conway, Paul Kupperberg",
+    pencillers: "George Pérez, Curt Swan, Ernie Colon, Gene Colan, Romeo Tanghal, Ross Andru",
+    inkers:
+      "Romeo Tanghal, Bob Smith, Brett Breeding, Dave Hunt, Dick Giordano, Ernie Colon, Gene Day, Pablo Marcos",
     description:
       "Marv Wolfman and George Perez introduce Terra, a new hero who may not be everything she seems -- her arrival kicks off one of the most celebrated eras in Teen Titans history.",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781799509332",
@@ -2432,8 +2440,9 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Action Comics #546; World's Finest Comics #300; The New Teen Titans #33-40; The New Teen Titans Annual #2; Tales of the Teen Titans #41-47; Tales of the Teen Titans Annual #3; The Vigilante #3; and more",
     yearsCovered: "1983-1984",
     releaseDate: { year: 2025, month: 2 },
-    writers: "Marv Wolfman",
-    pencillers: "George Pérez",
+    writers: "Marv Wolfman, George Pérez, Mike W. Barr",
+    pencillers: "George Pérez, Keith Pollard, Pablo Marcos",
+    inkers: "Romeo Tanghal, Mike DeCarlo, Dick Giordano, Pablo Marcos",
     description:
       "The story that defined the Teen Titans for decades to come -- Terra infiltrates the team and works to unmake it for good, in one of comics' most shocking betrayals.",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781799500254",
