@@ -960,8 +960,9 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Catwoman (1989) 1-4, Catwoman: Defiant, Catwoman (1993) 1-12, Showcase '93",
     yearsCovered: "1988-1994",
     releaseDate: { year: 2024, month: 12 },
-    writers: "Mindy Newell, Jo Duffy",
-    pencillers: "J. J. Birch, Jim Balent",
+    writers: "Jo Duffy, Doug Moench, Mindy Newell, Chuck Dixon, Peter Milligan",
+    pencillers: "Jim Balent, Ed Hannigan, Joe Brozowski, J.J. Birch, Tom Grindberg",
+    inkers: "Dick Giordano, Ande Parks, Michael Bair, Fred Fredericks, Ed Hannigan, Rick Burchett",
     description:
       "The early history of Catwoman as a solo protagonist in her own right, from Mindy Newell's 1989 debut miniseries through the first year of Jo Duffy and Jim Balent's ongoing series.",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781779528469",
@@ -979,8 +980,10 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Catwoman #0, #13-32; and Catwoman Annual #2-3",
     yearsCovered: "1994-1996",
     releaseDate: { year: 2025, month: 6 },
-    writers: "Doug Moench, Chuck Dixon, Jo Duffy",
-    pencillers: "Jim Balent",
+    writers:
+      "Chuck Dixon, Deborah Pomerantz, Doug Moench, Jo Duffy, Alan Grant, Jim Balent, Joan Weis, Jordan B. Gorfinkel",
+    pencillers: "Jim Balent, Dick Giordano, Brian Stelfreeze, James Hodgkins, Michal Dutkiewicz",
+    inkers: "Bob Smith, James Hodgkins, Dick Giordano, Gerry Fernandez, Jim Balent",
     description:
       "Selina Kyle's ferocious and stylish mid-'90s solo adventures continue under Jo Duffy and then Chuck Dixon, with art by Jim Balent throughout.",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781799501756",
@@ -998,8 +1001,10 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Catwoman #33–53; Catwoman Annual #3-4; DC Universe Holiday Bash #1; and Batman Secret Files #1",
     yearsCovered: "1996-1997",
     releaseDate: { year: 2026, month: 12 },
-    writers: "Doug Moench, Chuck Dixon, Jo Duffy",
-    pencillers: "Jim Balent",
+    writers: "Doug Moench, Chuck Dixon, Devin Grayson, Michael Jan Friedman, Scott Beatty",
+    pencillers: "Jim Balent, Javier Saltares, Roger Robinson",
+    inkers:
+      "Bob Smith, John Stanisci, Ray McCarthy, Mark Pennington, Rob Leigh, Bob McLeod, Norm Breyfogle, Robert Campanella, Sal Buscema, Scott Hanna, Stan Woch, Phyllis Novin",
     description:
       "Doug Moench and Chuck Dixon bring sleek noir rhythms and high-velocity Gotham storytelling to Selina Kyle's ongoing series, with art from Jim Balent and Mark Pennington.",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781799509813",
@@ -1018,8 +1023,9 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
       "Catwoman #54-71, Catwoman/Wildcat #1-4, Catwoman Plus #1, Catwoman #1000000, and a 10-page story from Batman 80-Page Giant #1.",
     yearsCovered: "1998-1999",
     releaseDate: { year: 2027, month: 6 },
-    writers: "Devin Grayson, Beau Smith, Chuck Dixon",
+    writers: "Devin Grayson, Chuck Dixon, Beau Smith, Jim Balent",
     pencillers: "Jim Balent, Sergio Cariello",
+    inkers: "John Stanisci, Tom Palmer, Marlo Alquiza",
     description:
       "A master thief is pushed to her limits in this pivotal DC Finest collection, as Catwoman faces ever-escalating danger!\n\nSelina Kyle knows how to steal—but will she be able to stay alive long enough to enjoy her ill-gotten gains?\n\nAs Catwoman's world expands beyond Gotham, the potential scores grow bigger, and the risks get more personal. From dangerous encounters with some of the city’s most unpredictable figures to high-stakes jobs that take her into dangerously unfamiliar territories, every move will test her hard-earned skills and instincts to their limits.\n\nBringing together a wide range of stories from one of Catwoman’s greatest eras, this volume blends crime, action, and character-driven storytelling—showcasing Catwoman at her most resourceful, cunning, and complex.",
     coverUrl: catwomanToCatchAThiefCover,
@@ -1394,8 +1400,9 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Green Lantern 19-39, Flash 143, Brave & The Bold 59",
     yearsCovered: "1963-1965",
     releaseDate: { year: 2024, month: 12 },
-    writers: "John Broome, Gardner Fox",
-    pencillers: "Gil Kane, Joe Giella",
+    writers: "Gardner Fox, John Broome, Bob Haney",
+    pencillers: "Gil Kane, Carmine Infantino, Ramona Fradon",
+    inkers: "Sid Greene, Joe Giella, Murphy Anderson, Frank Giacoia, Charles Paris",
     description:
       "Hal Jordan faces Star Sapphire, Doctor Light, the Time Commander, and his archenemy Sinestro in these classic Silver Age tales from John Broome and Gil Kane.",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781779528483",
@@ -1413,8 +1420,9 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     issuesCollected: "The Flash #168; Green Lantern #40-61; The Brave and the Bold #69",
     yearsCovered: "1965-1968",
     releaseDate: { year: 2025, month: 11 },
-    writers: "John Broome, Gardner Fox",
-    pencillers: "Gil Kane, Sid Greene",
+    writers: "John Broome, Gardner Fox, Bob Haney, Mike Friedrich",
+    pencillers: "Gil Kane, Carmine Infantino, Win Mortimer",
+    inkers: "Sid Greene, Gil Kane, Win Mortimer",
     description:
       "Multiverse-spanning adventures from the origins of the Guardians of the Universe through battles with Sinestro and Major Disaster -- and the first appearance of Guy Gardner as another wielder of the Emerald Ring.",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781799503262",
@@ -1432,8 +1440,11 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Green Lantern #62–82, The Flash #191, and World’s Finest Comics #201",
     yearsCovered: "1968-1971",
     releaseDate: { year: 2026, month: 7 },
-    writers: "Dennis O'Neil, John Broome",
-    pencillers: "Neal Adams, Gil Kane",
+    writers: "Dennis O'Neil, John Broome, Gardner Fox, Mike Friedrich",
+    pencillers:
+      "Gil Kane, Neal Adams, Dick Dillin, Mike Sekowsky, Jack Sparling, Ross Andru, Sid Greene",
+    inkers:
+      "Joe Giella, Dick Giordano, Frank Giacoia, Murphy Anderson, Sid Greene, Bernie Wrightson, Dan Adkins, Mike Esposito, Mike Peppe, Vince Colletta, Wally Wood",
     description:
       "Green Lantern and Green Arrow hit the road across America, confronting racism, poverty, and corruption in Dennis O'Neil and Neal Adams's landmark socially conscious run.",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781799510277",
@@ -1451,8 +1462,11 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Secret Origins #7; Action Comics #589; Green Lantern #201–205; Tales of the Green Lantern Corps Annual #2; Green Lantern Corps #206–219; and Green Lantern Annual #3.",
     yearsCovered: "1986-1987",
     releaseDate: { year: 2026, month: 9 },
-    writers: "Steve Englehart",
-    pencillers: "Joe Staton, Ian Gibson",
+    writers: "Steve Englehart, John Byrne, Roy Thomas, Alan Moore, Mindy Newell, Paul Kupperberg",
+    pencillers:
+      "Joe Staton, Ian Gibson, Bill Willingham, Ernie Colon, John Byrne, Michael Bair, George Freeman, Kevin O'Neill, Trevor von Eeden",
+    inkers:
+      "Mark Farmer, Dick Giordano, Robert Campanella, Rodin Rodriguez, Steve Montano, George Freeman, Joe Rubinstein, Kevin O'Neill, Trevor von Eeden",
     description:
       "The Corps becomes a true ensemble: Hal Jordan reconnects with Earth, Guy Gardner seizes the spotlight, John Stewart and Katma Tui navigate love and duty, and the team confronts villains old and new.",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781799510291",
@@ -2466,8 +2480,9 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Wonder Woman #1-4; All-Star Comics #8; Sensation Comics #1-18; Comic Cavalcade #1-2",
     yearsCovered: "1941-1943",
     releaseDate: { year: 2025, month: 12 },
-    writers: "William Moulton Marston",
-    pencillers: "H. G. Peter",
+    writers: "William Moulton Marston, Joyce Murchison",
+    pencillers: "Harry G. Peter, Frank Godwin",
+    inkers: "Harry G. Peter, Frank Godwin",
     description:
       "The origin of Wonder Woman: her arrival in Man's World with the wounded Steve Trevor, and her secret identity of Diana Prince.",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781799503361",
@@ -2485,8 +2500,9 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Wonder Woman #5–9, Sensation Comics #19–34, Comic Cavalcade #3–7, and All-Star Comics #20",
     yearsCovered: "1943-1944",
     releaseDate: { year: 2026, month: 2 },
-    writers: "William Moulton Marston",
-    pencillers: "H. G. Peter",
+    writers: "William Moulton Marston, Gardner Fox",
+    pencillers: "Harry G. Peter, Frank Godwin, Joe Gallagher",
+    inkers: "Harry G. Peter, Frank Godwin, Joe Gallagher",
     description:
       "Wonder Woman faces one of her earliest and most dangerous enemies -- the Cheetah -- as Diana battles jealousy, deception, and fierce foes with courage and compassion.",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781799507444",
@@ -2506,8 +2522,12 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     yearsCovered: "1981-1983",
     releaseDate: { year: 2027, month: 1 },
     // Split by hand from `creators` -- Wikipedia only says "various" here.
-    writers: "Paul Levitz, Dan Mishkin",
-    pencillers: "Gene Colan",
+    writers:
+      "Paul Levitz, Roy Thomas, Dan Mishkin, Joey Cavalieri, Marv Wolfman, Gerry Conway, Paul Kupperberg, Dann Thomas, Robert Kanigher",
+    pencillers:
+      "Gene Colan, Joe Staton, Jose Delbo, Mike DeCarlo, Don Heck, George Pérez, Curt Swan, Dick Giordano, Jan Duursema, Keith Giffen, Keith Pollard, Michael Bair, Rich Buckler, Ross Andru",
+    inkers:
+      "Frank McLaughlin, Romeo Tanghal, Dave Hunt, Steve Mitchell, Bob Smith, Bruce Patterson, Jerry Ordway, Larry Mahlstedt, Tony DeZuniga, Adrian Gonzales, Dick Giordano, Keith Pollard, Mike DeCarlo, Pablo Marcos, Rich Buckler, Rick Bryant, Sal Trapani, Tom Mandrake",
     description:
       "A sweeping collection of Wonder Woman adventures—mythology, action, and cosmic stakes in an expansive, accessible DC Finest collection.\n\nWonder Woman faces gods, monsters, and threats that stretch far beyond the mortal world.\n\nAs Diana’s adventures grow in scale and ambition, she is drawn into battles that test her strength, her compassion, and her role as a champion of both humanity and the divine. From mythological trials to universe-spanning conflicts, each story pushes her further as a hero and a warrior.\n\nSpanning a major run of stories, this volume brings together action, fantasy, and adventure in one immersive collection—offering a wide-ranging look at Wonder Woman’s world and the challenges she must overcome.",
     coverUrl: wonderWomanJudgementInInfinityCover,
@@ -2525,8 +2545,12 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Wonder Woman #306-329; DC Comics Presents #76; Blue Devil #10; The Legend of Wonder Woman #1-4",
     yearsCovered: "1983-1986",
     releaseDate: { year: 2025, month: 7 },
-    writers: "Dan Mishkin, Kurt Busiek",
-    pencillers: "Don Heck, Trina Robbins",
+    writers:
+      "Dan Mishkin, Joey Cavalieri, Kurt Busiek, Trina Robbins, Mindy Newell, Gary Cohn, Gerry Conway",
+    pencillers:
+      "Don Heck, Mark Beachum, Tim Burgard, Trina Robbins, Michael Bair, Stan Woch, Dan Spiegle, Eduardo Barreto, Irv Novick, Pablo Marcos, Rod Whigham",
+    inkers:
+      "Don Heck, Gary Martin, Rick Magyar, Trina Robbins, Frank Giacoia, Stan Woch, Pablo Marcos, Rodin Rodriguez, Dan Spiegle, Eduardo Barreto, Mike DeCarlo, Rick Bryant",
     description:
       "Long out-of-print Wonder Woman stories from the 1980s, from Dan Mishkin's run through Kurt Busiek and Trina Robbins's The Legend of Wonder Woman miniseries.",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781799502012",
@@ -2544,8 +2568,11 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Wonder Woman (2006) #14-35, Brave & Bold #7, Outsiders: Five of a Kind - Wonder Woman and Grace #1",
     yearsCovered: "2007-2009",
     releaseDate: { year: 2024, month: 11 },
-    writers: "Gail Simone",
-    pencillers: "Terry Dodson, Aaron Lopresti, Bernard Chang",
+    writers: "Gail Simone, Marc Andreyko, Mark Waid, Tony Bedard",
+    pencillers:
+      "Aaron Lopresti, Bernard Chang, Terry Dodson, Ron Randall, Cliff Richards, George Pérez",
+    inkers:
+      "Matt Ryan, Bernard Chang, Rachel Dodson, Ron Randall, Art Thibert, Bob Wiacek, John Holdredge",
     description:
       "Gail Simone's beloved run begins with 'The Circle,' continuing through 'Ends of the Earth,' 'Rise of the Olympian,' and 'Warkiller' -- Diana's most personal and mythic threats yet.",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781779528346",
@@ -2563,8 +2590,12 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Wonder Woman #36–44 and #600, Secret Six #10–14, Blackest Night: Wonder Woman #1–3, and DCU Halloween Special '09 #1",
     yearsCovered: "2009-2010",
     releaseDate: { year: 2026, month: 5 },
-    writers: "Gail Simone",
-    pencillers: "Nicola Scott",
+    writers:
+      "Gail Simone, Greg Rucka, Amanda Conner, Geoff Johns, J. Michael Straczynski, Louise Simonson, Mandy McMurray",
+    pencillers:
+      "Nicola Scott, Aaron Lopresti, Fernando Dagnino, Eduardo Pansica, Amanda Conner, Bernard Chang, Chris Batista, Don Kramer, George Pérez, Scott Clark, Scott Kolins, Travis Moore",
+    inkers:
+      "Doug Hazlewood, Mark McKenna, Matt Ryan, BIT, Jonathan Glapion, Amanda Conner, Bernard Chang, Bob Wiacek, David Beaty, Drew Geraci, Eber Ferreira, Michael Babinski, Mike Sellers, Prentis Rollins, Raul Fernandez, Scott Clark, Scott Koblish, Scott Kolins, Walden Wong",
     description:
       "Diana's world comes under siege from enemies without and doubts within -- Paradise Island descends into strife, a celestial invasion looms, and Wonder Woman faces betrayal, rebirth, and supernatural reckoning.",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781799508113",
