@@ -28,6 +28,8 @@ person worked on.
 
 | Peacemaker: Kill for Peace | **Fightin' Five #40-41** | No page under that name; the Charlton series may be filed differently. |
 
+| Harley Quinn: Birth of the Mirth | **The Batman Adventures: Mad Love #1** | No page under any obvious name. |
+
 **comics.org (Grand Comics Database)** would likely resolve most of these — it records per-story
 credits and reprint data. It is behind a Cloudflare bot-verification wall, and I won't work
 around bot detection, so it needs a human. It's the single best next step for this whole list.

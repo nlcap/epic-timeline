@@ -903,8 +903,12 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
       "Batgirl #1-6; Batgirl Annual #1; Batman: No Man’s Land #0; Batman #567 and #569, Detective Comics #732 and #734; Batman: Legends of the Dark Knight #120; Azrael: Agent of the Bat #56-57 and #60-61; The Batman Chronicles #18; Batman: Gotham Knights #2; and the long-out-of-print crossover series Ghost/Batgirl #1-4.",
     yearsCovered: "1999-2000",
     releaseDate: { year: 2027, month: 1 },
-    writers: "Kelley Puckett, Scott Peterson, Various",
-    pencillers: "Damion Scott, Various",
+    writers:
+      "Scott Peterson, Kelley Puckett, Mike Kennedy, Greg Rucka, Janet Harvey, Jordan B. Gorfinkel",
+    pencillers:
+      "Damion Scott, Ryan Benjamin, Greg Land, Mike Deodato Jr., Pablo Raimondi, Sergio Cariello",
+    inkers:
+      "Robert Campanella, Michael Bair, Randy Emberlin, Ryan Benjamin, Drew Geraci, Howard Shum, John Stanisci, Matt Ryan, Sal Regla, Walden Wong",
     description:
       "Cassandra Cain’s journey continues, as she expands her role in Gotham and beyond in a powerful story of growth, identity, and action.\n\nAt age 17, the teenaged assassin Cassandra Cain is literally a fighter like no other. Remorselessly trained by her mercenary father to be the ultimate human weapon, Cassandra cannot speak or write, but her uncanny ability to read body language allows her to take down opponents three times her size without batting an eye.\n\nBut when she rebels against her programming on the lawless streets of No Man’s Land-era Gotham City, the Dark Knight Detective sees a possible successor to the role of Batgirl. Under the tutelage of the original Batgirl, Barbara Gordon, Cassandra must now reinvent herself as a protector instead of a predator—and prove to both her newfound family and herself that even someone who was born to kill can be worthy to take up the cowl of a legend!\n\nWitness the origin of one of the DC Universe’s most celebrated heroes in this landmark volume showcasing Cassandra’s first appearances and foundational adventures.",
     coverUrl: batgirlSilentKnightCover,
@@ -922,8 +926,9 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Batgirl #7-27, Superboy #85, and Supergirl #63",
     yearsCovered: "2000-2002",
     releaseDate: { year: 2025, month: 4 },
-    writers: "Kelley Puckett, Joe Kelly",
-    pencillers: "Damion Scott",
+    writers: "Kelley Puckett, Chuck Dixon, Jonathan Peterson",
+    pencillers: "Damion Scott, Coy Turnbull, Dale Eaglesham, Phil Noto, Vincent Giarrano",
+    inkers: "Robert Campanella, Andrew Hennessy, Dan Davis, Jesse Delperdang, John Lowe",
     description:
       "Key early appearances of Cassandra Cain, the daughter of assassins who became a vastly different kind of Batgirl -- facing Lady Shiva in a battle to the death and teaming with Superboy and Supergirl.",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781799501046",
@@ -1514,8 +1519,11 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Action Comics #765; Batman: Legends of the Dark Knight #126; The Batman Adventures #12; Azrael: Agent of the Bat #60; Batman #570, #573-574; Batman: Shadow of the Bat #93; Detective Comics #737, #740-741; Catwoman #82-84, #89; The Batman Adventures: Mad Love #1; The Batgirl Adventures #1; Batman: Harley Quinn #1; Batman: Gotham Knights #14; Harley Quinn #1-8",
     yearsCovered: "1993-2001",
     releaseDate: { year: 2025, month: 2 },
-    writers: "Paul Dini, Karl Kesel",
-    pencillers: "Bruce Timm",
+    writers: "Karl Kesel, Paul Dini, Bronwyn Carlton, Kelley Puckett",
+    pencillers:
+      "Terry Dodson, Craig Rousseau, Mike Deodato Jr., Pete Woods, Rick Burchett, Ronnie Del Carmen, Staz Johnson, Tom Morgan, Yvel Guichet, Mike Parobeck",
+    inkers:
+      "Rachel Dodson, David Roach, Mark Lipka, Rick Burchett, Ronnie Del Carmen, Wayne Faucher, Aaron Sowd",
     description:
       "Harley's earliest comics adventures, from her Batman: The Animated Series debut into mainline DC continuity, including the Eisner Award-winning Mad Love and the first eight issues of her own ongoing series.",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781799500483",
@@ -1533,8 +1541,10 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Harley Quinn #9-25, Harley Quinn: Our Worlds at War, Harley and Ivy: Love on the Lam, and Gotham Girls #1-5",
     yearsCovered: "2001-2002",
     releaseDate: { year: 2026, month: 9 },
-    writers: "Karl Kesel",
-    pencillers: "Terry Dodson, Rachel Dodson",
+    writers: "Karl Kesel, Paul Storrie",
+    pencillers:
+      "Terry Dodson, Jennifer Graves, Craig Rousseau, Brandon Badeaux, Pete Woods, Phil Noto, Rick Burchett",
+    inkers: "Rachel Dodson, Dan Davis, J. Bone, Mark Lipka, Phil Noto, Rodney Ramos",
     description:
       "Harley's journey from the Joker's wayward henchgirl to chaotic, complicated leading lady, as Karl Kesel and Terry and Rachel Dodson take over her first solo series.",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781799509127",
@@ -1915,8 +1925,12 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Batman (1940) #184, #192, #202, #213, #227, #229-231, #234-236, #239-242, #244-245, #248-250, #252, #254, AND #259; Detective Comics (1937) #342, #386, #390, #391, #394-395, #398-403, #445, #447, and #450-451; Superman's' Pal: Jimmy Olsen (1954) #111 AND #130; World's Finest Comics (1941) #141, #147, #195, and #200",
     yearsCovered: "1964-1975",
     releaseDate: { year: 2026, month: 6 },
-    writers: "Mike Friedrich, Elliot S. Maggin",
-    pencillers: "Gil Kane, Irv Novick",
+    writers:
+      "Mike Friedrich, Elliot S. Maggin, Frank Robbins, Bob Rozakis, Gardner Fox, Dennis O'Neil, E. Nelson Bridwell, John Broome",
+    pencillers:
+      "Irv Novick, Gil Kane, Rich Buckler, Chic Stone, Dick Dillin, Sheldon Moldoff, Al Milgrom, Bob Brown, Ross Andru, A. Martinez, Mike Grell",
+    inkers:
+      "Dick Giordano, Joe Giella, Vince Colletta, Murphy Anderson, Frank McLaughlin, Mike Esposito, Rich Buckler, Sid Greene, Terry Austin, Frank Giacoia, Mazzaroli, Mike Grell",
     description:
       "Dick Grayson's evolution from circus acrobat to Batman's trusted partner, tracing his Silver and Bronze Age solo appearances and team-ups with Superman.",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781799508298",
@@ -1943,6 +1957,12 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
       "Secret Origins #50; Batman #333-334, #337-339, and #341-343; Detective Comics #481-495; DC Comics Presents #58; and The Batman Family #4, #6-9, and #11-20",
     yearsCovered: "1976-1983",
     releaseDate: { year: 2027, month: 5 },
+    writers:
+      "Bob Rozakis, Jack C. Harris, Gerry Conway, Dennis O'Neil, Elliot S. Maggin, Marv Wolfman, Mike W. Barr, Paul Kupperberg",
+    pencillers:
+      "Irv Novick, Kurt Schaffenberger, Charles Nicholas, Don Heck, Don Newton, Curt Swan, Juan Ortiz, Trevor von Eeden, Alex Saviuk, George Pérez, Jim Aparo, Jose Delbo, Lee Elias, Marshall Rogers",
+    inkers:
+      "Vince Colletta, Dave Hunt, John Celardo, Bob Wiacek, Bruce D. Patterson, Frank Chiaramonte, Joe Giella, Larry Mahlstedt, Dan Adkins, Frank McLaughlin, George Pérez, Jack Abel, Jim Aparo, John Calnan, Mike DeCarlo, Rodin Rodriguez",
     description:
       "Robin takes center stage in this DC Finest collection of classic adventures beyond the shadow of Batman!\nRobin may be Batman's partner, but some adventures belong entirely to him.\nAs Dick Grayson continues to grow into a hero in his own right, he takes on dangerous criminals, mysterious conspiracies, supernatural threats, and globe-spanning adventures that test his courage, intelligence, and leadership. Whether working alone, joining forces with Batgirl, or teaming with heroes from across the DC Universe, Robin proves that he is more than a sidekick—he is a hero capable of carrying the spotlight himself.\nFrom college campuses and traveling carnivals to hidden criminal organizations and extraordinary mysteries, these stories showcase the variety and excitement that defined Robin during the late Bronze Age. Along the way, Dick develops friendships, faces personal challenges, and gains the confidence that will help shape his future as one of DC's most enduring heroes.\nTogether, these stories capture the moment Dick Grayson begins to feel like a hero with his own world, his own instincts, and his own future beyond Batman.",
     coverUrl: "https://m.media-amazon.com/images/I/91W5aOuGyKL._SL1500_.jpg",
