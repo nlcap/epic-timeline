@@ -1338,8 +1338,9 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Mister Miracle #1–4, The Forever People #1–5, The New Gods #1–4, Superman’s Pal Jimmy Olsen #133–141, and Superman’s Girl Friend Lois Lane #115",
     yearsCovered: "1970-1971",
     releaseDate: { year: 2026, month: 6 },
-    writers: "Jack Kirby",
-    pencillers: "Jack Kirby, Vince Colletta",
+    writers: "Jack Kirby, Robert Kanigher",
+    pencillers: "Jack Kirby, Al Plastino, Dick Giordano, Werner Roth",
+    inkers: "Vince Colletta, Murphy Anderson, Dick Giordano",
     description:
       "Jack Kirby's cosmic saga launches, pitting the New Gods of New Genesis against the dark forces of Apokolips -- the rise of Mister Miracle, Orion, and Darkseid.",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781799508311",
@@ -1358,8 +1359,9 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
       "Superman #244; The New Gods #4-8; The Forever People #5-8; Mister Miracle #5-8; Superman's Pal Jimmy Olsen #144-148, and Superman's Girl Friend Lois Lane #116-119",
     yearsCovered: "1971-1972",
     releaseDate: { year: 2027, month: 6 },
-    writers: "Jack Kirby, Robert Kanighter",
-    pencillers: "Jack Kirby, Werner Roth",
+    writers: "Jack Kirby, Robert Kanigher, Dennis O'Neil",
+    pencillers: "Jack Kirby, Werner Roth, Rich Buckler, Curt Swan, Dick Giordano, Jeff Jones",
+    inkers: "Mike Royer, Vince Colletta, Dick Giordano, Murphy Anderson, Jack Kirby",
     description:
       "Gods, heroes, and worlds all collide in this sweeping cosmic saga featuring an expansive collection of interconnected stories from legendary comics master Jack Kirby.\nA war is spreading—one that reaches across worlds, ideologies, and the fate of entire civilizations.\nAs powerful forces prepare for conflict, heroes are drawn into a growing struggle where survival depends on strength, strategy, and belief. Across multiple storylines, each battle reveals a larger threat, pulling together characters and stories into an expanding, high-stakes confrontation.\nFrom cosmic-scale battles to personal struggles, Jack Kirby's epic tales combine to form a sweeping narrative about power, control, and the fight for freedom—where every decision shapes the outcome of a larger war.\nCollecting interconnected stories from across several series, this volume delivers a wide-ranging, immersive reading experience that brings together action, science fiction, and mythic storytelling.",
     // PLACEHOLDER cover -- see the import comment above. TODO: confirm/replace.
@@ -2084,8 +2086,9 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Limited Collectors' Edition #41, Limited Collectors' Edition #46, and Super Friends #1-26",
     yearsCovered: "1976-1979",
     releaseDate: { year: 2025, month: 11 },
-    writers: "E. Nelson Bridwell",
-    pencillers: "Ramona Fradon, Bob Smith",
+    writers: "E. Nelson Bridwell, Dennis O'Neil",
+    pencillers: "Ramona Fradon, Kurt Schaffenberger, Ric Estrada",
+    inkers: "Bob Smith, Vince Colletta, Joe Orlando",
     description:
       "Batman, Superman, Wonder Woman, and Aquaman battle the Penguin, Poison Ivy, and time-traveling foes, including the first comic book appearances of the Wonder Twins and Gleek.",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781799503163",
@@ -2368,8 +2371,10 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Suicide Squad #1-10; Secret Origins #14; Detective Comics #582; The Fury of Firestorm #62-64; Firestorm: The Nuclear Man Annual #5; Legends #1-6; Millennium #4",
     yearsCovered: "1986-1988",
     releaseDate: { year: 2025, month: 3 },
-    writers: "John Ostrander, Len Wein",
-    pencillers: "Luke McDonnell",
+    writers: "John Ostrander, Len Wein, Jo Duffy, Steve Englehart",
+    pencillers: "Luke McDonnell, John Byrne, Joe Brozowski, Joe Staton, Norm Breyfogle",
+    inkers:
+      "Karl Kesel, Bob Lewis, Dick Giordano, Dave Hunt, Dennis Janke, Ian Gibson, Pablo Marcos, Sam De La Rosa",
     description:
       "The thrilling first incarnation of Task Force X -- John Ostrander sends Deadshot, Captain Boomerang, and a rotating cast of expendable villains on black-ops missions where death is always on the table.",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781799500759",
@@ -2387,8 +2392,9 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Suicide Squad #11–20, Suicide Squad Annual #1, The Doom Patrol and Suicide Squad Special #1, The Flash #12, Manhunter #1 and #6, Justice League International #13, Deadshot #1–4, Checkmate #1 (1997), and Checkmate #8 (1988)",
     yearsCovered: "1988",
     releaseDate: { year: 2026, month: 7 },
-    writers: "John Ostrander",
-    pencillers: "Luke McDonnell",
+    writers: "John Ostrander, Kim Yale, Paul Kupperberg",
+    pencillers: "Luke McDonnell, Erik Larsen, Graham Nolan, Keith Giffen, Steve Erwin",
+    inkers: "Bob Lewis, Luke McDonnell, Al Vey, Bob Oksner, Malcolm Jones III, Tim Dzon",
     description:
       "The Squad faces betrayal, black ops, and a descent into the supernatural as Nightshade's past comes back to haunt them.",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781799508595",
@@ -2407,8 +2413,9 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     issuesCollected: "The Brave and the Bold (1955) #106–130; Stories From Super-Team Family #2 (the Creeper and Wildcat in “Showdown in San Lorenza” by Dennis O’Neil & Ric Estrada); And #3 (Hawkman and the Flash in “The End of the World” by Steve Skeates & Ric Estrada); Covers to Super-Team Family #1, #4–7",
     yearsCovered: "1973-1976",
     releaseDate: { year: 2026, month: 6 },
-    writers: "Bob Haney",
-    pencillers: "Jim Aparo",
+    writers: "Bob Haney, Dennis O'Neil, Steve Skeates",
+    pencillers: "Jim Aparo, Ric Estrada",
+    inkers: "Jim Aparo, Bill Draut, John Calnan, Wally Wood",
     description:
       "Thrilling and unexpected pairings from DC's Bronze Age -- Batman teams with Mister Miracle, Green Arrow, Wonder Woman, Deadman, and even Kamandi in classic Brave and the Bold stories.",
     coverUrl: "https://m.media-amazon.com/images/I/81SaXmVh6fL._SL1500_.jpg",
@@ -2426,8 +2433,12 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     issuesCollected: "DC Comics Presents #1-14; The Brave and the Bold #141-155",
     yearsCovered: "1978-1979",
     releaseDate: { year: 2025, month: 3 },
-    writers: "Bob Haney, Martin Pasko",
-    pencillers: "Jim Aparo, José Luis García-López",
+    writers:
+      "Bob Haney, Paul Levitz, Len Wein, Cary Burkett, Martin Pasko, Cary Bates, Steve Englehart, David Michelinie, Jack C. Harris, Mike W. Barr",
+    pencillers:
+      "Jim Aparo, Joe Staton, José Luis García-López, Dick Dillin, Dick Giordano, Murphy Anderson, Curt Swan, Don Newton, Rich Buckler, Romeo Tanghal",
+    inkers:
+      "Jim Aparo, Dick Giordano, Frank Chiaramonte, Dan Adkins, Jack Abel, José Luis García-López, Murphy Anderson, Bob Smith, Frank McLaughlin",
     description:
       "Some of the best and most memorable team-ups of the 1970s, including an iconic race between Superman and the Flash.",
     coverUrl: "https://m.media-amazon.com/images/I/91+qXxcESLL._SL1500_.jpg",
@@ -2696,6 +2707,7 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     releaseDate: { year: 2027, month: 4 },
     writers: "Garth Ennis",
     pencillers: "John McCrea",
+    inkers: "John McCrea, D'Israeli, Luke McDonnell",
     description:
       "DC Finest spotlights the origin of Hitman, as Garth Ennis and John McCrea launch a cult-classic antihero saga in Gotham's criminal underworld.\n\nTommy Monaghan is a Gotham City hitman with an unusual advantage: telepathy, X-ray vision, and a talent for surviving situations that should kill him.\n\nWorking among organized crime, corrupt officials, supernatural threats, and costumed vigilantes, Tommy navigates a dangerous world where loyalty is rare, and every job could be his last. Armed with a sharp sense of humor and a practical view of life, he quickly discovers that superpowers create just as many problems as they solve.\n\nBefore starring in his own series, Tommy first appeared alongside Etrigan the Demon, becoming an unlikely ally in a series of supernatural adventures that helped establish his place within the DC Universe. These stories chart his evolution from supporting player to leading man, laying the foundation for one of DC's most acclaimed cult-classic antiheroes.\n\nWritten by Garth Ennis and illustrated by John McCrea, Hitman combines crime fiction, black comedy, supernatural action, and genuine emotional depth into a uniquely entertaining series that remains a fan favorite decades after its debut.",
     coverUrl: hitmanRageInArkhamCover,
