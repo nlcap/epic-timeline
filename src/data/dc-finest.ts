@@ -1562,8 +1562,12 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     issuesCollected: "House of Secrets #81-85, House of Mystery #180-185, The Phantom Stranger #5, The Witching Hour #3-7, and The Unexpected #113-117",
     yearsCovered: "1969-1970",
     releaseDate: { year: 2025, month: 9 },
-    writers: "Gerry Conway, Marv Wolfman",
-    pencillers: "Alex Toth, Bernie Wrightson",
+    writers:
+      "Gerry Conway, Marv Wolfman, Dave Wood, Steve Skeates, Robert Kanigher, Len Wein, Carl Wessler, George Kashdan, Jack Oleck, Mike Friedrich, Alan Riefe, Murray Boltinoff, D.J. Arneson, E. Nelson Bridwell, Gil Kane, Jerry Grandenetti, Joe Gill, John Costanza, Otto Binder",
+    pencillers:
+      "Jack Sparling, Bernie Wrightson, Jerry Grandenetti, Alex Toth, Bill Draut, Gil Kane, Pat Boyette, Art Saaf, Curt Swan, Sid Greene, Dick Dillin, Ed Robbins, Jose Delbo, Wayne Howard, Werner Roth, Al Williamson, Bruno Premiani, Dick Giordano, Don Heck, George Roussos, George Tuska, Jack Abel, John Celardo, John Costanza, Mike Roy, Mike Sekowsky, Ralph Reese, Stanley Pitt",
+    inkers:
+      "Bernie Wrightson, Bill Draut, Jack Sparling, Alex Toth, Pat Boyette, Vince Colletta, Wally Wood, Dick Giordano, George Roussos, Jack Abel, Jerry Grandenetti, Sid Greene, Art Saaf, Frank Giacoia, Jose Delbo, Mike Peppe, Neal Adams, Wayne Howard, Al Williamson, Bruno Premiani, Don Heck, Ed Robbins, George Tuska, John Costanza, Mike Esposito, Murphy Anderson, Nick Cardy, Ralph Reese",
     description:
       "Bone-chilling horror anthology tales from House of Secrets, House of Mystery, The Witching Hour, The Phantom Stranger, and The Unexpected, drawn by masters of the genre including Bernie Wrightson and Alex Toth.",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781799502807",
@@ -1581,8 +1585,12 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     issuesCollected: "House of Secrets #86–90; House of Mystery #186–190; The Phantom Stranger #7; The Witching Hour #8–12; and The Unexpected #118–123",
     yearsCovered: "1970-1971",
     releaseDate: { year: 2026, month: 10 },
-    writers: "Gerry Conway, Marv Wolfman",
-    pencillers: "Alex Toth, Bernie Wrightson",
+    writers:
+      "Carl Wessler, George Kashdan, Gerry Conway, Murray Boltinoff, Robert Kanigher, Steve Skeates, Jack Oleck, Marv Wolfman, Sergio Aragonés, Alex Toth, Dave Wood, Jack Miller, Len Wein, Mike Friedrich, Neal Adams, Nick Cardy, Raymond Marais",
+    pencillers:
+      "George Tuska, Jerry Grandenetti, Alex Toth, Bernie Wrightson, Dick Dillin, Gray Morrow, Bill Draut, John Calnan, Neal Adams, Rich Buckler, Ross Andru, Bob Brown, Don Heck, Gil Kane, Jack Sparling, Jim Aparo, John Celardo, Murphy Anderson, Nick Cardy, Ric Estrada, Sid Greene, Tom Sutton, Tony DeZuniga, Wayne Howard, Werner Roth, Win Mortimer",
+    inkers:
+      "George Tuska, Alex Toth, Jerry Grandenetti, Bernie Wrightson, Gray Morrow, Bill Draut, Frank Giacoia, Murphy Anderson, Vince Colletta, Wally Wood, Dick Giordano, Mike Esposito, Neal Adams, Dan Adkins, Dick Dillin, Don Heck, Jack Abel, Jack Sparling, Jim Aparo, Mike Kaluta, Mike Peppe, Nick Cardy, Rich Buckler, Tom Sutton, Tony DeZuniga",
     description:
       "More spine-tingling tales from DC's classic horror anthologies, with work from Len Wein, Bernie Wrightson, Gerry Conway, and Marv Wolfman.",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781799509325",
@@ -2697,8 +2705,9 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
       "The Atom #1-15, Showcase #34-36, The Brave and the Bold #53 and #55, Strange Adventures #135 and #145, and Justice League of America #7, #14, and #18.",
     yearsCovered: "1961-1964",
     releaseDate: { year: 2027, month: 5 },
-    writers: "Gardner Fox",
-    pencillers: "Gil Kane",
+    writers: "Gardner Fox, Bob Haney, John Broome",
+    pencillers: "Gil Kane, Mike Sekowsky, Alex Toth, Murphy Anderson, Ramona Fradon",
+    inkers: "Murphy Anderson, Sid Greene, Bernard Sachs, Alex Toth, Charles Paris, Mike Sekowsky",
     description:
       "A microscopic hero with massive challenges—discover the origin and early adventures of the Atom, in an accessible and comprehensive DC Finest presentation.\nRay Palmer is a scientist who discovers a way to shrink himself to microscopic size-becoming a superhero unlike any other.\nAs the Atom, he uses his incredible abilities to take on threats both large and small, navigating a world where danger can exist at any scale. From high-stakes battles to scientific discoveries, each adventure pushes him to master his powers and find his place as a hero.\nAcross a wide range of stories, these early adventures introduce a character driven by curiosity, ingenuity, and determination—bringing science fiction concepts and superhero action together in a unique and engaging way.\nCollecting foundational stories and key appearances, this volume offers an accessible introduction to one of DC's most inventive and unconventional heroes.",
     coverUrl: theAtomBirthOfTheAtomCover,
@@ -2743,6 +2752,7 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     releaseDate: { year: 2027, month: 2 },
     writers: "Mike Grell",
     pencillers: "Mike Grell",
+    inkers: "Mike Grell, Vince Colletta, Joe Rubinstein",
     description:
       "Adventure, survival, and fantasy collide in this DC Finest spotlight on a modern man lost in a dangerous, hidden world.\n\nTravis Morgan was a pilot—until a crash changed everything.\n\nAfter flying into a mysterious opening at the North Pole, he finds himself in Skartaris, a hidden world filled with ancient kingdoms, deadly creatures, powerful sorcery, and constant danger. Stranded far from home, Morgan must rely on his skill, determination, and instincts to survive.\n\nAs he navigates this unpredictable land, he becomes a reluctant hero, forging alliances, facing powerful enemies, and shaping the fate of a world he never knew existed.\n\nCombining fast-paced action with fantasy and adventure, these stories introduce a hero caught between two worlds; one familiar and one full of endless possibilities.\n\nThis volume collects the earliest adventures of the Warlord, offering an accessible entry point into one of DC’s most unique and beloved fantasy series.",
     coverUrl: warlordTheSavageWorldCover,
