@@ -1088,8 +1088,9 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     issuesCollected: "The Brave and the Bold #65; Doom Patrol #86-102; Challengers of the Unknown #48; My Greatest Adventure #80-85; Teen Titans #6",
     yearsCovered: "1963-1966",
     releaseDate: { year: 2025, month: 2 },
-    writers: "Arnold Drake",
-    pencillers: "Bruno Premiani, Bob Brown",
+    writers: "Arnold Drake, Bob Haney, Howard Purcell",
+    pencillers: "Bruno Premiani, Bob Brown, Dick Giordano, Howard Purcell",
+    inkers: "Bruno Premiani, Bob Brown, Howard Purcell, Sal Trapani",
     description:
       "The earliest appearances of the unconventional super-team, starting with their 1963 debut -- Robotman, Negative Man, and Elasti-Girl banding together as the world's strangest heroes.",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781799500353",
@@ -1107,8 +1108,9 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Showcase #94-96, Superman Family #191-193, and Doom Patrol #103-121",
     yearsCovered: "1966-1979",
     releaseDate: { year: 2026, month: 1 },
-    writers: "Arnold Drake",
-    pencillers: "Bruno Premiani",
+    writers: "Arnold Drake, Gerry Conway, Paul Kupperberg, Scott Edelman",
+    pencillers: "Bruno Premiani, Arvell Jones, Joe Staton",
+    inkers: "Bruno Premiani, Romeo Tanghal, Bruce Patterson, Frank Chiaramonte, Joe Staton",
     description:
       "The conclusion of the Doom Patrol's original saga -- the team faces its deadliest enemies yet, including General Immortus and the Brotherhood of Evil, with only self-sacrifice left to save the world.",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781799506690",
@@ -1127,7 +1129,10 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     yearsCovered: "1993-1995",
     releaseDate: { year: 2026, month: 10 },
     writers: "Rachel Pollack",
-    pencillers: "Ted McKeever, Linda Medley, Stan Woch",
+    pencillers:
+      "Ted McKeever, Linda Medley, Richard Case, Arnold Pander, Eric Shanower, Jamie Tolagson, Mark Wheatley, Scot Eaton",
+    inkers:
+      "Ted McKeever, Tom Sutton, Graham Higgins, Stan Woch, Arnold Pander, Eric Shanower, Gene Fama, Mark Wheatley, Matt Howarth",
     description:
       "Rachel Pollack's complete, boundary-pushing Vertigo run -- a fractured epic of shape-shifting magicians, sex ghosts, pirate robot brains, and a war over the very idea of identity itself.",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781799509318",
@@ -1526,7 +1531,8 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     yearsCovered: "1961-1966",
     releaseDate: { year: 2025, month: 8 },
     writers: "Gardner Fox",
-    pencillers: "Joe Kubert, Murphy Anderson",
+    pencillers: "Murphy Anderson, Joe Kubert, Carmine Infantino",
+    inkers: "Murphy Anderson, Joe Kubert",
     description:
       "Hawkman and Hawkgirl's earliest adventures as Thanagarian warriors protecting Earth, including Zatanna's first story, battles with flying gorillas, and team-ups with the Atom.",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781799502500",
@@ -1844,6 +1850,7 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     releaseDate: { year: 2025, month: 3 },
     writers: "Jack Cole",
     pencillers: "Jack Cole",
+    inkers: "Jack Cole",
     description:
       "Jack Cole's original, long-out-of-print Plastic Man stories -- after an accident leaves criminal Eel O'Brian's body transformed into living rubber, Plastic Man is born.",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781799500650",
@@ -2013,8 +2020,10 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Adventure Comics #199-216; Superboy #33-43",
     yearsCovered: "1954-1955",
     releaseDate: { year: 2025, month: 5 },
-    writers: "Otto Binder",
-    pencillers: "John Sikela, Curt Swan",
+    writers:
+      "Otto Binder, William Woolfolk, Bill Finger, Jerry Coleman, Edmond Hamilton, Alvin Schwartz",
+    pencillers: "Curt Swan, John Sikela",
+    inkers: "John Sikela, George Klein, Sy Barry, Stan Kaye, Bruno Premiani, Ray Burnley",
     description:
       "Krypto's first-ever comics appearance in \"The Super-Dog from Krypton,\" plus early Superboy adventures like \"Superboy Meets Superlad\" and \"The Super Brat of Smallville.\"",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781799501367",
@@ -2053,8 +2062,9 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Action Comics #252-288, Adventure Comics #278, Superman #139-140 and #144, Superboy #80, Superman’s Girl Friend Lois Lane #14 and #20, and Superman’s Pal, Jimmy Olsen #40, #46, #51, and #57",
     yearsCovered: "1959-1962",
     releaseDate: { year: 2025, month: 1 },
-    writers: "Otto Binder, Jerry Siegel",
-    pencillers: "Jim Mooney",
+    writers: "Jerry Siegel, Otto Binder, Leo Dorfman, Robert Bernstein",
+    pencillers: "Jim Mooney, Curt Swan, Al Plastino, Wayne Boring",
+    inkers: "Jim Mooney, Al Plastino, John Forte, George Klein, Stan Kaye",
     description:
       "Kara Zor-El lands on Earth and discovers she shares her cousin Superman's powers -- inspired by her famous kin, she adopts a secret identity and starts using her abilities to help those in need.",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781779529909",
@@ -2072,8 +2082,12 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Showcase ’96 #8, Supergirl #1-18, Supergirl Annual #1-2, and Supergirl Plus #1",
     yearsCovered: "1996-1998",
     releaseDate: { year: 2025, month: 10 },
-    writers: "Peter David",
-    pencillers: "Gary Frank, Leonard Kirk",
+    writers:
+      "Peter David, Chuck Dixon, Barbara Kesel, Darren Vincenzo, Gary Frank, Joe R. Lansdale, Karl Kesel, Neal Barrett Jr., Tom Peyer",
+    pencillers:
+      "Gary Frank, Leonard Kirk, Greg Land, Anthony Castrillo, Dick Giordano, Robert Teranishi, Ron Wagner, Terry Dodson",
+    inkers:
+      "Cam Smith, Prentis Rollins, Bill Reinhold, Chuck Drost, George Pérez, Jordi Ensign, Karl Story, Stan Woch",
     description:
       "Peter David's astonishing reinvention of Supergirl begins: Matrix, the protoplasmic entity posing as Supergirl, fuses with the near-dead Linda Danvers, and together they become the new Girl of Steel.",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781799510260",
@@ -2091,8 +2105,11 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Adventure Comics 80-Page Giant #1, Resurrection Man #16–17, Supergirl #19–35, Supergirl #1 ML, Supergirl/Prysm Double-Shot #1, Team Superman #1, and Team Superman Secret Files #1",
     yearsCovered: "1998-1999",
     releaseDate: { year: 2026, month: 5 },
-    writers: "Peter David",
-    pencillers: "Leonard Kirk, Robin Riggs",
+    writers: "Peter David, Andy Lanning, Dan Abnett, Joan Weis, Mark Millar",
+    pencillers:
+      "Leonard Kirk, Georges Jeanty, Jackson Guice, Jason Orfalas, Louis Small Jr., Sean Phillips",
+    inkers:
+      "Robin Riggs, Cam Smith, Doug Hazlewood, Jackson Guice, Prentis Rollins, John Stanisci, Sean Phillips",
     description:
       "Kara Zor-El's resilience is put to the test as she battles powerful enemies and uncovers shocking truths about her destiny, in the continuation of Peter David's acclaimed run.",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781799513605",

@@ -20,6 +20,9 @@ person worked on.
 | Batman: A Lonely Place of Dying | **Batman Villains Secret Files 2005 #1** | Only the *1998* issue (`Batman Villains Secret Files and Origins Vol 1 1`) exists on the wiki. The 2005 book appears to be absent. |
 | The Question: Zen and Violence | **Who's Who #19** and **Who's Who Update '87 #4** | Both issues exist, and both confirm a Question entry, but Who's Who credits dozens of artists per issue without mapping them to individual entries — the Question page's artist can't be isolated. |
 
+| Supergirl: Body & Soul | **Supergirl Plus #1** | No page on DC Fandom. |
+| Supergirl: Die and Let Live | **Supergirl/Prysm Double-Shot #1**, **Team Superman Secret Files #1**, **Supergirl #1 (Million/ML)** | No pages found under the obvious names. |
+
 **comics.org (Grand Comics Database)** would likely resolve most of these — it records per-story
 credits and reprint data. It is behind a Cloudflare bot-verification wall, and I won't work
 around bot detection, so it needs a human. It's the single best next step for this whole list.
