@@ -714,9 +714,9 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     // Split by hand from `creators` -- Wikipedia lists this volume's credits
     // as "TBC", so the names carried over from Nick's own sheet.
     writers:
-      "Frank Robbins, Archie Goodwin, Denny O'Neil, Elliot S. Maggin, Len Wein, Bob Rozakis, Martin Pasko, Mike W. Barr, Sal Amendola, Steve Englehart, Vin Amendola",
+      "Frank Robbins, Archie Goodwin, Denny O'Neil, Elliot S. Maggin, Len Wein, E. Nelson Bridwell, Bob Rozakis, Martin Pasko, Mike W. Barr, Sal Amendola, Steve Englehart, Vin Amendola",
     artists:
-      "Dick Giordano, Irv Novick, Walt Simonson, Murphy Anderson, Bob Brown, Dick Dillin, Jim Aparo, Frank McLaughlin, Don Heck, Neal Adams, Sal Amendola, Alex Toth, Ernie Chan, Frank Giacoia, Frank Robbins, Howard Chaykin, Mike Grell, Nick Cardy, Pat Broderick",
+      "Dick Giordano, Irv Novick, Walt Simonson, Murphy Anderson, Bob Brown, Dick Dillin, Jim Aparo, Frank McLaughlin, Don Heck, Neal Adams, Sal Amendola, Alex Toth, Ernie Chan, Frank Giacoia, Frank Robbins, Howard Chaykin, Mike Grell, Nick Cardy, Pat Broderick, Rich Buckler",
     description:
       "Batman faces crime, mystery, and psychological threats in a darker, more dangerous Gotham in these defining Bronze Age adventures.<br />\nGotham City is changing—and Batman must change with it.<br />\n\nAs crime grows more unpredictable and dangerous, the Dark Knight is drawn into cases that push him beyond traditional detective work. From high-stakes battles with some of his most dangerous enemies to tense investigations that uncover Gotham’s rampant corruption, every encounter tests his instincts, restraint, and resolve.<br />\n\nBringing together core Batman stories with rare and unexpected material, this DC Finest volume delivers an immersive, wide-ranging collection that captures the tone and evolution of the Dark Knight Detective during this pivotal period.",
     coverUrl: batmanNightOfTheStalkerCover,
@@ -1756,7 +1756,7 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     start: { year: 1972, quarter: 3 },
     end: { year: 2009, quarter: 3 },
     issuesCollected:
-      "Metamorpho (1993) #1-4; Metamopho: Year One #1-6; Outsiders: Five of a Kind - Metamorpho / Aquaman #1; The Sandman #20; Wednesday Comics (2009) #1-12 [Metamorpho Stories]; 1st Issue Special #3; Action Comics #413-418; Brave and the Bold #123 and #154; DC Comics Presents #40; and World's Finest Comics #217-220, #224, #226, AND #228-229",
+      "Action Comics #413-415; Justice League of America #101 (pages 1-9); Action Comics #416-418; World's Finest Comics #217-220, #224, #226, and #228-229; 1st Issue Special #3 (w/ the Making of Metamorpho 1-page text); The Brave and the Bold #123 and #154; DC Comics Presents #40; Batman and the Outsiders #1-2, #16-18; Batman and the Outsiders #19 (page 17); Batman and the Outsiders #24; Batman and the Outsiders #25 (pages 1-2, 4-5 w/ removed panels); Batman and the Outsiders Annual #2; The Outsiders #4 [and pinups from #6, #8]; The Outsiders #18; The Outsiders #19 (pages 2-3); The Outsiders #20 [Geo-Force and Metamorpho in \"Gross Encounters\"]; The Outsiders #21-22, #25-26; Millennium #1 (pages 12-22); The Outsiders #27; Invasion! #3 (pages 1, 54); Justice League Europe #2 (pages 17-21) and 3 pages from #4; Justice League Europe #5, #11-12",
     yearsCovered: "1972-2009",
     releaseDate: { year: 2027, month: 4 },
     // Split by hand from `creators` -- Wikipedia only says "various" for this
@@ -2069,7 +2069,8 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     yearsCovered: "1938-1940",
     releaseDate: { year: 2024, month: 11 },
     writers: "Jerry Siegel",
-    artists: "Joe Shuster, Paul Cassidy",
+    artists:
+      "Joe Shuster, Paul Cassidy, Paul Lauretta, Wayne Boring, Dennis Neville",
     description:
       "The first two years of Superman adventures, starting with 1938's legendary Action Comics #1 -- Jerry Siegel and Joe Shuster's creation that launched the entire superhero genre.",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781779528339",
@@ -2088,7 +2089,8 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     yearsCovered: "1940-1941",
     releaseDate: { year: 2025, month: 12 },
     writers: "Jerry Siegel",
-    artists: "Joe Shuster, Jack Burnley, Paul Cassidy, Wayne Boring, Leo Nowak",
+    artists:
+      "Paul Cassidy, Wayne Boring, Leo Nowak, Shuster Shop, Jack Burnley, Joe Shuster, Paul Lauretta, Don Komisarow, Dennis Neville, Ed Dobrotka, John Sikela, Joseph Sulman",
     description:
       "More of Superman's iconic Golden Age adventures, including major first-ever moments for his nemesis Lex Luthor.",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781799503323",
@@ -2106,8 +2108,9 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Action Comics #144–159, Superman #64–70, and World’s Finest Comics #46–53",
     yearsCovered: "1950-1951",
     releaseDate: { year: 2026, month: 2 },
-    writers: "Al Plastino, Alvin Schwartz, Edmond Hamilton, Jack Schiff",
-    artists: "Al Plastino, Wayne Boring",
+    writers:
+      "Alvin Schwartz, William Woolfolk, Edmond Hamilton, Dorothy Woolfolk",
+    artists: "Stan Kaye, Wayne Boring, Al Plastino, Curt Swan",
     description:
       "Classic Superman adventures from the dawn of the Silver Age, spanning Action Comics, Superman, and World's Finest Comics as the Man of Steel's mythology continues to expand.",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781799507420",
@@ -2125,8 +2128,9 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Action Comics #393-406; Superman #233-238, #240-246",
     yearsCovered: "1970-1971",
     releaseDate: { year: 2025, month: 6 },
-    writers: "Dennis O'Neil, Leo Dorfman",
-    artists: "Curt Swan, Murphy Anderson",
+    writers: "Leo Dorfman, Dennis O'Neil, Cary Bates, Len Wein",
+    artists:
+      "Curt Swan, Murphy Anderson, Ross Andru, Mike Esposito, Dick Giordano",
     description:
       "The Man of Steel's status quo turns upside down as his powers slowly fade and a doppelganger Superman arrives with strange powers of its own -- any contact between the two could destroy the planet.",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781799501657",
@@ -2145,8 +2149,9 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
       "Collects Action Comics #421-437, Superman #261-277, Limited Collectors Edition #31, Wanted: The Worlds Most Dangerous Villains #9, Secret Origins #1, The Amazing World of Superman #1, Aurora Comics Scenes #185, and DC 100-Page Super Spectacular #18",
     yearsCovered: "1973-1974",
     releaseDate: { year: 2027, month: 5 },
-    writers: "Cary Bates, Elliot S! Maggin",
-    artists: "Curt Swan",
+    writers: "Elliot S. Maggin, Cary Bates, Martin Pasko",
+    artists:
+      "Curt Swan, Murphy Anderson, Vince Colletta, Bob Oksner, Dick Dillin, Dick Giordano, Frank Giacoia, Frank McLaughlin, Joe Giella, Kurt Schaffenberger",
     description:
       "Classic adventures from one of the most imaginative eras of Superman's history.\nSuperman's adventures could take him anywhere.\nDuring this dynamic era, the Man of Steel confronts alien threats, scientific mysteries, cosmic dangers, and challenges that test both his powers and his character.\nAlongside trusted allies and a growing cast of supporting characters, Superman faces everything from ordinary human conflicts to extraordinary adventures that stretch across the universe.\nFilled with action and optimism, these tales showcase the wide-ranging appeal of Superman during the Bronze Age, when every issue introduced new ideas, new dangers, and new opportunities for heroism.\nCollecting a substantial chapter of Superman's publishing, this volume offers readers the chance to experience the evolution of the character and his world through a broad selection of stories from across the era.",
     coverUrl: supermanKryptonConnectionCover,
@@ -2164,8 +2169,9 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     issuesCollected: "The Man of Steel #1–6; Superman #1–6; Adventures of Superman #424–429; and Action Comics #584–588",
     yearsCovered: "1986-1987",
     releaseDate: { year: 2026, month: 11 },
-    writers: "John Byrne, Marv Wolfman",
-    artists: "John Byrne, Jerry Ordway",
+    writers: "John Byrne, Marv Wolfman, Jerry Ordway",
+    artists:
+      "John Byrne, Dick Giordano, Jerry Ordway, Karl Kesel, Terry Austin, Mike Machlan, Keith Williams",
     description:
       "John Byrne and Marv Wolfman reimagine the Last Son of Krypton for the post-Crisis era, revealing a Clark Kent rooted in humanity, a driven Lois Lane, and a Lex Luthor redefined as a ruthless corporate tyrant.",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781799510321",
@@ -2183,8 +2189,9 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Superman #49–56, Starman #28, Adventures of Superman #472–479, and Action Comics #659–666",
     yearsCovered: "1990-1991",
     releaseDate: { year: 2026, month: 3 },
-    writers: "Dan Jurgens, Jerry Ordway, Roger Stern",
-    artists: "Dan Jurgens, Jerry Ordway, Bob McLeod",
+    writers: "Roger Stern, Jerry Ordway, Dan Jurgens, James Hudnall, Karl Kesel",
+    artists:
+      "Dan Jurgens, Brett Breeding, Jerry Ordway, Dennis Janke, Bob McLeod, Art Thibert, Ed Hannigan, Karl Kesel, Will Blyberg, Kerry Gammill, Curt Swan, Tom Grummett, John Byrne, Scott Hanna, José Marzan Jr., Dave Hoover",
     description:
       "When time splinters, Superman becomes the tether holding history together -- cast from Nazi-occupied Europe to the kingdoms of Camelot by forces beyond his control, marking the start of the 'Triangle Era.'",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781799508106",
@@ -2203,8 +2210,10 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Action Comics #266, #277; Superman #142-143, #147; Superman's Girl Friend Lois Lane #19-28; Superman's Pal, Jimmy Olsen #47-56",
     yearsCovered: "1960-1961",
     releaseDate: { year: 2025, month: 4 },
-    writers: "Robert Bernstein, Jerry Siegel",
-    artists: "Curt Swan, Kurt Schaffenberger",
+    writers:
+      "Jerry Siegel, Otto Binder, Robert Bernstein, Edmond Hamilton, Jerry Coleman, Leo Dorfman",
+    artists:
+      "Curt Swan, Kurt Schaffenberger, John Forte, Stan Kaye, Al Plastino, George Papp, Jim Mooney, Sheldon Moldoff, George Klein",
     description:
       "Some of Superman, Lois, and Jimmy's wackiest and wildest Silver Age adventures, including the debut of the infamous Giant Turtle Man.",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781799501107",
@@ -2220,11 +2229,13 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     start: { year: 1974, quarter: 1 },
     end: { year: 1977, quarter: 4 },
     issuesCollected:
-      "Superman’s Pal, Jimmy Olsen #163 and Superman’s Girl Friend, Lois Lane #136; and stories from Superman #271, #275, #279, #282, and #286-287; Action Comics #436, #438, #440-441, #461-462, #465, #467-468, #472, and #475; and Superman Family #164, #166-167, #169-170, #172-173, #175-176, #178-179, and #181-186",
+      "Superman’s Pal, Jimmy Olsen #163 and Superman’s Girl Friend, Lois Lane #136-137; and stories from Superman #271, #275, #279, #282, and #286-287; Action Comics #436, #438, #440-441, #461-462, #465, #467-468, #472, and #475; and Superman Family #164, #166-167, #169-170, #172-173, #175-176, #178-179, and #181-186",
     yearsCovered: "1974-1977",
     releaseDate: { year: 2027, month: 3 },
-    writers: "Cary Bates",
-    artists: "Curt Swan, Kurt Schaffenberger",
+    writers:
+      "Cary Bates, Leo Dorfman, Bob Toomey, Jack C. Harris, Paul Kupperberg, Gerry Conway, Tom DeFalco, Bill Kunkel, E. Nelson Bridwell, Elliot S. Maggin, Martin Pasko, Bill Dennehy, Bob Rozakis, Jane Aruns, John Warner",
+    artists:
+      "Kurt Schaffenberger, Vince Colletta, Curt Swan, Tex Blaisdell, John Rosenberger, Jose Delbo, Al Milgrom, Bob Oksner, John Calnan, Ken Landgraf, Romeo Tanghal, Joe Giella, Juan Ortiz, Steve Mitchell, Win Mortimer, Alan Weiss, Bill Draut, Bob Brown, Bob Layton, Bob Smith, Carl Potts, Chic Stone, Ernie Chan, Frank Springer, Jim Mooney, Joe Orlando, Joe Rubinstein, John Forte, Marshall Rogers, Mike Vosburg, Pete Costanza",
     description:
       "Heroes, friends, and one super-powered dog—adventures from across the Superman Family in a new DC Finest collection.\n\nSuperman isn’t the only hero in Metropolis. From Lois Lane to Jimmy Olsen to Krypto the Superdog, the Superman Family is filled with characters who each bring their own adventures, challenges, and personalities to the world of heroes.\n\nIn these stories, brave reporters chase dangerous leads, young heroes step into their own, and loyal companions—both human and animal—prove that heroism comes in many forms. Whether solving mysteries, facing unusual threats, or helping those in need, every member of the Superman Family has a role to play.\n\nFilled with imagination, humor, and heart, this collection captures a time when Superman’s world expanded beyond one hero into a full cast of unforgettable characters, including this book's titular Superdog, Krypto.",
     coverUrl: supermanFamilyStraySuperdogCover,
