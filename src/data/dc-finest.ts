@@ -1934,8 +1934,12 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Action Comics #183-196; Strange Adventures #35-48; Mystery in Space #16-22",
     yearsCovered: "1953-1954",
     releaseDate: { year: 2025, month: 7 },
-    writers: "John Broome, Gardner Fox",
-    pencillers: "Murphy Anderson",
+    writers:
+      "Sid Gerson, Otto Binder, John Broome, Jack Miller, Arthur Wallace, Gardner Fox, Jerry Coleman, Manny Rubin",
+    pencillers:
+      "Gil Kane, Carmine Infantino, Murphy Anderson, Mort Drucker, Sy Barry, Jim Mooney, Frank Giacoia, Howard Sherman, Henry Sharp, Irwin Hasen, Jerry Grandenetti, Virgil Finlay",
+    inkers:
+      "Bernard Sachs, Joe Giella, Murphy Anderson, Sy Barry, Jim Mooney, Howard Sherman, Frank Giacoia, Carmine Infantino, Ray Burnley",
     description:
       "An anthology of Gorilla World, an alternate reality where great apes reign supreme, plus other classic science fiction tales from the pre-Adam Strange era.",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781799502159",
@@ -2469,8 +2473,12 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Our Army at War #54-57, Star Spangled War Stories #53-56, G.I. Combat #44-47, Blackhawk #108-111, Our Fighting Forces #17-20, and All-American Men of War #41-44",
     yearsCovered: "1957",
     releaseDate: { year: 2025, month: 11 },
-    writers: "Robert Kanigher, Bob Haney",
-    pencillers: "Joe Kubert, Ross Andru",
+    writers:
+      "Robert Kanigher, Bob Haney, Bill Finger, Dave Wood, Ed Herron, Robert Bernstein, Jack Miller, France Herron",
+    pencillers:
+      "Ross Andru, Dick Dillin, Joe Kubert, Russ Heath, Jerry Grandenetti, Arthur Peddy, Jack Abel, Bob Brown, Gene Colan, Gil Kane, Irv Novick, Mort Drucker",
+    inkers:
+      "Mike Esposito, Chuck Cuidera, Joe Kubert, Russ Heath, Jerry Grandenetti, Arthur Peddy, Jack Abel, Sheldon Moldoff, Bob Brown, Irv Novick, Joe Giella, Mort Drucker, Robert Stuart",
     description:
       "An explosive collection spanning DC's five war titles plus Blackhawk -- trenches, aerial dogfights, perilous seas, infantry battles, and covert missions brought to life by legendary artists like Joe Kubert and Russ Heath.",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781799503248",
@@ -2489,8 +2497,12 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Weird Western Tales #12-17; All-Star Western #2-8, #10-11; Super DC Giant #15; Tomahawk #130-140",
     yearsCovered: "1970-1973",
     releaseDate: { year: 2026, month: 4 },
-    writers: "Robert Kanigher, John Albano",
-    pencillers: "Joe Kubert, Tony DeZuniga",
+    writers:
+      "Robert Kanigher, John Albano, Cary Bates, Joe Kubert, Sergio Aragonés, Dennis O'Neil, Sam Glanzman, Gil Kane, John Broome, Bob Haney, Don Kraar, France Herron, George Kashdan, Jack Oleck, Jerry DeFuccio, Len Wein, Marv Wolfman, Norman Maurer",
+    pencillers:
+      "Frank Thorne, Tony DeZuniga, Gil Kane, Gray Morrow, Joe Kubert, Neal Adams, Nick Cardy, Sam Glanzman, Alan Weiss, Alfredo Alcala, Alex Toth, Bill Draut, Carmine Infantino, Fred Ray, Jim Aparo, Jim McArdle, John Severin, Mike Sekowsky, Norman Maurer, Sonny Trinidad",
+    inkers:
+      "Tony DeZuniga, Frank Thorne, Gray Morrow, Gil Kane, Joe Kubert, Sam Glanzman, Alfredo Alcala, Dick Giordano, Neal Adams, Nick Cardy, Alex Toth, Bernie Wrightson, Bill Draut, Fred Ray, Jim Aparo, Jim McArdle, John Severin, Norman Maurer, Sonny Trinidad, Sy Barry",
     description:
       "DC's Western anthologies gallop into the gray morality of America's frontier -- haunted riders like El Diablo, brutal justice-dealers like Jonah Hex, and conflicted outlaws, told with grit and reckoning.",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781799507727",
@@ -2508,8 +2520,12 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Weird Western Tales #18-43, Jonah Hex #1-7, and a never-before-reprinted Jonah Hex parody story from The Amazing World of DC Comics #13.",
     yearsCovered: "1973-1977",
     releaseDate: { year: 2026, month: 12 },
-    writers: "Michael Fleisher, John Albano",
-    pencillers: "Tony DeZuniga, Dick Ayers, George Moliterni, José Luis García-López, Noly Panaligan",
+    writers:
+      "Michael Fleisher, John Albano, Arnold Drake, Cary Bates, E. Nelson Bridwell, Sergio Aragonés, Steve Skeates",
+    pencillers:
+      "Tony DeZuniga, Dick Ayers, George Moliterni, Noly Panaligan, José Luis García-López, Alfredo Alcala, Bill Draut, Doug Wildey, Gil Kane, Luis Dominguez, Rich Buckler",
+    inkers:
+      "George Evans, Frank Springer, Alfredo Alcala, George Moliterni, Gil Kane, José Luis García-López, Oscar Novelle",
     description:
       "Get ready to hit the trail once more with the second DC Finest: Western volume, which introduces the most steely-eyed and scar-faced stalwart of justice to ever ride the range: Jonah Hex! DC Finest: Western: Requiem for a Gunfighter features a wagon train’s worth of frontier adventures from the bygone years of 1973 through 1977—all crafted by some of comics’ most accomplished hands, including Michael Fleisher, José Luis García-López, John Albano, Tony DeZuniga, Dick Ayers, George Moliterni, Noly Panaligan, and more.",
     coverUrl: jonahHexRequiemForAGunfighterCover,
@@ -2685,7 +2701,9 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     yearsCovered: "1963",
     releaseDate: { year: 2027, month: 1 },
     writers: "Robert Kanigher, Phyllis Reed",
-    pencillers: "John Romita Sr., Mike Sekowsky",
+    pencillers:
+      "Arthur Peddy, Bernard Sachs, John Romita Sr., Bill Draut, Werner Roth, John Rosenberger, Mike Sekowsky, Tony Abruzzo",
+    inkers: "Bernard Sachs, John Romita Sr., Arthur Peddy, Jay Scott Pike, John Rosenberger",
     description:
       "Love—and heartbreak—is in the air in this new DC Finest volume!\n\nReturn to those moonstruck days of the Silver Age, when comics readers everywhere could find an endless supply of romantic inspiration for 12 cents an issue in the peerless pages of DC’s legendary line of love story anthologies.\n\nThese passionate tales of romance and intrigue—carefully crafted by a host of comics’ finest hands, including John Romita, Robert Kanigher, Mike Sekowsky, Phyllis Reed, and more—will leave you breathless and yearning for more! Known for their bold storytelling and iconic imagery, many of these panels later became touchstones in the broader art world, influencing the graphic language of pop art and artists.",
     coverUrl: romanceEscapeFromLonelinessCover,
