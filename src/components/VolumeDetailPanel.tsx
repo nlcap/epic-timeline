@@ -60,10 +60,11 @@ export function VolumeDetailPanel({
 
   // Credits read as lead-in phrases ("Written by ...") rather than labelled
   // fields, following the "Collects ..." line below the description -- though
-  // unlike that line they're set roman, not italic. Either can be missing --
-  // the Star Wars sub-lines have neither -- so each renders independently and
-  // the block disappears entirely when both are absent.
-  const hasCredits = !!(volume.writers || volume.artists);
+  // unlike that line they're set roman, not italic. Any of the three can be
+  // missing -- the Star Wars sub-lines have none, and only volumes rebuilt
+  // from issue-by-issue research carry inkers -- so each renders
+  // independently and the block disappears entirely when all are absent.
+  const hasCredits = !!(volume.writers || volume.pencillers || volume.inkers);
 
   return (
     <div
@@ -217,21 +218,6 @@ export function VolumeDetailPanel({
           </div>
         )}
 
-        {hasCredits && (
-          <div className="mt-4 flex flex-col gap-1 text-sm text-neutral-400">
-            {volume.writers && (
-              <p>
-                <span className="font-semibold text-neutral-300">Written by</span> {volume.writers}
-              </p>
-            )}
-            {volume.artists && (
-              <p>
-                <span className="font-semibold text-neutral-300">Art by</span> {volume.artists}
-              </p>
-            )}
-          </div>
-        )}
-
         <div className="mt-4 text-sm leading-relaxed text-neutral-200">
           {formattedDescription.split("\n").map((paragraph, i) => (
             // Each Enter press in the editor's textarea is one paragraph
@@ -244,6 +230,33 @@ export function VolumeDetailPanel({
             </p>
           ))}
         </div>
+
+        {hasCredits && (
+          <div className="mt-4 flex flex-col gap-1 text-sm text-neutral-400">
+            {volume.writers && (
+              <p>
+                <span className="font-semibold text-neutral-300">Written by</span> {volume.writers}
+              </p>
+            )}
+            {volume.pencillers && (
+              <p>
+                {/* "Art by" covers two cases: a volume we haven't split by role
+                 * yet, and one where the same people pencilled and inked
+                 * throughout -- true of the Golden Age books, where printing
+                 * the identical list twice would just be noise. */}
+                <span className="font-semibold text-neutral-300">
+                  {volume.inkers && volume.inkers !== volume.pencillers ? "Pencils by" : "Art by"}
+                </span>{" "}
+                {volume.pencillers}
+              </p>
+            )}
+            {volume.inkers && volume.inkers !== volume.pencillers && (
+              <p>
+                <span className="font-semibold text-neutral-300">Inks by</span> {volume.inkers}
+              </p>
+            )}
+          </div>
+        )}
 
         <p className="mt-3 text-sm italic text-neutral-400">
           Collects {volume.issuesCollected}.

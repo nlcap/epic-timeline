@@ -204,7 +204,8 @@ export function VolumeFormDrawer({
     String(editingVolume?.releaseDate?.month ?? 1)
   );
   const [writers, setWriters] = useState(editingVolume?.writers ?? "");
-  const [artists, setArtists] = useState(editingVolume?.artists ?? "");
+  const [pencillers, setPencillers] = useState(editingVolume?.pencillers ?? "");
+  const [inkers, setInkers] = useState(editingVolume?.inkers ?? "");
   const [description, setDescription] = useState(
     editingVolume?.description ?? editingNote?.notes ?? ""
   );
@@ -386,7 +387,8 @@ export function VolumeFormDrawer({
           ? { year: releaseYearNum, month: Number(releaseMonth) }
           : undefined,
         writers: writers.trim() || undefined,
-        artists: artists.trim() || undefined,
+        pencillers: pencillers.trim() || undefined,
+        inkers: inkers.trim() || undefined,
         description: description.trim(),
         coverUrl,
         ownershipStatus,
@@ -743,12 +745,23 @@ export function VolumeFormDrawer({
             </label>
 
             <label className="mt-4 block text-sm font-medium text-neutral-300">
-              Artists
+              Pencillers
               <input
                 type="text"
-                value={artists}
-                onChange={(e) => setArtists(e.target.value)}
+                value={pencillers}
+                onChange={(e) => setPencillers(e.target.value)}
                 placeholder="e.g. Jack Kirby"
+                className="mt-1 w-full rounded-md border border-neutral-700 bg-neutral-900 px-3 py-2 text-sm text-white placeholder:text-neutral-600 focus:border-neutral-500 focus:outline-none"
+              />
+            </label>
+
+            <label className="mt-4 block text-sm font-medium text-neutral-300">
+              Inkers
+              <input
+                type="text"
+                value={inkers}
+                onChange={(e) => setInkers(e.target.value)}
+                placeholder="e.g. Joe Sinnott"
                 className="mt-1 w-full rounded-md border border-neutral-700 bg-neutral-900 px-3 py-2 text-sm text-white placeholder:text-neutral-600 focus:border-neutral-500 focus:outline-none"
               />
             </label>

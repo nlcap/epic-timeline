@@ -173,7 +173,7 @@ describe("volumeMatchesSearch", () => {
   const v = textVolume("v", "l", {
     title: "Great Power",
     writers: "Stan Lee",
-    artists: "Steve Ditko",
+    pencillers: "Steve Ditko",
     issuesCollected: "Amazing Spider-Man #1-17",
     description: "The foundation of the Marvel Universe.",
   });
@@ -189,7 +189,7 @@ describe("volumeMatchesSearch", () => {
   });
 
   it("tolerates volumes missing the optional credit fields", () => {
-    const bare = textVolume("b", "l", { writers: undefined, artists: undefined });
+    const bare = textVolume("b", "l", { writers: undefined, pencillers: undefined });
     expect(() => volumeMatchesSearch(bare, "lee")).not.toThrow();
     expect(volumeMatchesSearch(bare, "lee")).toBe(false);
   });
@@ -200,7 +200,7 @@ describe("searchMatches", () => {
   const entries = [
     textVolume("a1", "a", { title: "Great Power", writers: "Stan Lee" }),
     textVolume("a2", "a", { title: "Great Responsibility", writers: "Stan Lee" }),
-    textVolume("b1", "b", { title: "The Coming of Galactus", artists: "Jack Kirby" }),
+    textVolume("b1", "b", { title: "The Coming of Galactus", pencillers: "Jack Kirby" }),
   ];
 
   it("returns null for an empty or whitespace query", () => {

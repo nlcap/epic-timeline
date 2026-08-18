@@ -133,7 +133,8 @@ function volumeSearchFields(volume: Volume): (string | undefined)[] {
   return [
     volume.title,
     volume.writers,
-    volume.artists,
+    volume.pencillers,
+    volume.inkers,
     volume.issuesCollected,
     volume.description,
   ];

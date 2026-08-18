@@ -169,16 +169,25 @@ export interface Volume {
    */
   releaseDate?: MonthPoint;
   /**
-   * Credits, split by role. Either can be undefined where the source had
-   * nothing usable -- notably the Star Wars (Legends) sub-lines, whose
+   * Credits, split by role. Any of these can be undefined where the source
+   * had nothing usable -- notably the Star Wars (Legends) sub-lines, whose
    * Wikipedia tables carry no creator columns at all. Undefined means "not
-   * known", so the detail panel omits the credits rather than showing a
+   * known", so the detail panel omits that line rather than showing a
    * placeholder; don't store "TBC"/"various" here.
    *
-   * These replaced a single combined `creators` string (e.g. "Lee, Kirby").
+   * These replaced a single combined `creators` string (e.g. "Lee, Kirby"),
+   * and `artists` was later split into `pencillers`/`inkers` so a volume can
+   * say who drew it and who inked it separately.
+   *
+   * Caveat on `pencillers`: only volumes rebuilt from issue-by-issue research
+   * have a true penciller/inker split. Everything else still holds the older
+   * combined credit -- a mix of both roles -- parked in `pencillers` by the
+   * `artists` migration, with `inkers` left undefined. So an undefined
+   * `inkers` means "not researched yet", not "nobody inked it".
    */
   writers?: string;
-  artists?: string;
+  pencillers?: string;
+  inkers?: string;
   description: string;
   coverUrl?: string;
   ownershipStatus: OwnershipStatus;
