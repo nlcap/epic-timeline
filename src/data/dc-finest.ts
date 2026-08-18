@@ -877,11 +877,11 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     yearsCovered: "1989-1990",
     releaseDate: { year: 2027, month: 4 },
     writers:
-      "Marv Wolfman, Alan Grant, George Pérez, Dave Gibbons, Grant Morrison, Mike W. Barr",
+      "Marv Wolfman, Alan Grant, George Pérez, Neil Gaiman, Dave Gibbons, Grant Morrison, Mike W. Barr, Mark Verheiden",
     pencillers:
-      "Norm Breyfogle, Jim Aparo, Pat Broderick, Tom Grummett, George Pérez, Dave McKean, Gray Morrow, Keith Giffen",
+      "Norm Breyfogle, Jim Aparo, Pat Broderick, Tom Grummett, George Pérez, Dave McKean, Gray Morrow, Keith Giffen, Mike Hoffman, Sam Kieth, Bernie Mireault",
     inkers:
-      "Steve Mitchell, Mike DeCarlo, John Beatty, Bob McLeod, Al Gordon, Al Vey, Dave McKean, Gray Morrow, Michael Bair",
+      "Steve Mitchell, Mike DeCarlo, John Beatty, Bob McLeod, Al Gordon, Al Vey, Dave McKean, Gray Morrow, Michael Bair, Kevin Nowlan, Sam Kieth, Matt Wagner, Dick Giordano",
     description:
       "A new Robin—Tim Drake—rises as Batman faces one of the darkest chapters of his life in this essential DC Finest collection.\n\nBatman is at his lowest point.\n\nIn the aftermath of devastating loss, Bruce Wayne becomes increasingly reckless in his war on crime, pushing away allies and abandoning the balance that once made him Gotham City’s greatest hero.\n\nBut one young detective sees what no one else can: Batman needs a Robin.\n\nDetermined to help, Tim Drake sets out on a journey that will change both his life and Batman’s forever. What follows is the story of how a new Robin emerges, bringing hope back to Gotham and laying the foundation for a new era of the Bat-Family.\n\nCollected alongside key stories from one of the most important periods in Batman history, these adventures capture the return of Robin and the beginning of Tim Drake’s journey as one of DC’s most beloved heroes.",
     coverUrl: batmanLonelyPlaceOfDyingCover,
@@ -1024,8 +1024,8 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     yearsCovered: "1998-1999",
     releaseDate: { year: 2027, month: 6 },
     writers: "Devin Grayson, Chuck Dixon, Beau Smith, Jim Balent",
-    pencillers: "Jim Balent, Sergio Cariello",
-    inkers: "John Stanisci, Tom Palmer, Marlo Alquiza",
+    pencillers: "Jim Balent, Sergio Cariello, Brian Stelfreeze",
+    inkers: "John Stanisci, Tom Palmer, Marlo Alquiza, Brian Stelfreeze",
     description:
       "A master thief is pushed to her limits in this pivotal DC Finest collection, as Catwoman faces ever-escalating danger!\n\nSelina Kyle knows how to steal—but will she be able to stay alive long enough to enjoy her ill-gotten gains?\n\nAs Catwoman's world expands beyond Gotham, the potential scores grow bigger, and the risks get more personal. From dangerous encounters with some of the city’s most unpredictable figures to high-stakes jobs that take her into dangerously unfamiliar territories, every move will test her hard-earned skills and instincts to their limits.\n\nBringing together a wide range of stories from one of Catwoman’s greatest eras, this volume blends crime, action, and character-driven storytelling—showcasing Catwoman at her most resourceful, cunning, and complex.",
     coverUrl: catwomanToCatchAThiefCover,
@@ -1462,11 +1462,12 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Secret Origins #7; Action Comics #589; Green Lantern #201–205; Tales of the Green Lantern Corps Annual #2; Green Lantern Corps #206–219; and Green Lantern Annual #3.",
     yearsCovered: "1986-1987",
     releaseDate: { year: 2026, month: 9 },
-    writers: "Steve Englehart, John Byrne, Roy Thomas, Alan Moore, Mindy Newell, Paul Kupperberg",
+    writers:
+      "Steve Englehart, Alan Moore, John Byrne, Roy Thomas, Mike Carlin, Kurt Busiek, Richard Bruning, Joey Cavalieri, Mindy Newell, Paul Kupperberg",
     pencillers:
-      "Joe Staton, Ian Gibson, Bill Willingham, Ernie Colon, John Byrne, Michael Bair, George Freeman, Kevin O'Neill, Trevor von Eeden",
+      "Joe Staton, Ian Gibson, Bill Willingham, Ernie Colon, John Byrne, Michael Bair, George Freeman, Kevin O'Neill, Trevor von Eeden, Paris Cullins, José Luis García-López, Kevin Nowlan, Greg Brooks",
     inkers:
-      "Mark Farmer, Dick Giordano, Robert Campanella, Rodin Rodriguez, Steve Montano, George Freeman, Joe Rubinstein, Kevin O'Neill, Trevor von Eeden",
+      "Mark Farmer, Dick Giordano, Robert Campanella, Rodin Rodriguez, Steve Montano, George Freeman, Joe Rubinstein, Kevin O'Neill, Trevor von Eeden, Terry Austin, P. Craig Russell, Kevin Nowlan, Bruce Patterson, Kurt Schaffenberger",
     description:
       "The Corps becomes a true ensemble: Hal Jordan reconnects with Earth, Guy Gardner seizes the spotlight, John Stewart and Katma Tui navigate love and duty, and the team confronts villains old and new.",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781799510291",
@@ -1604,7 +1605,8 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     yearsCovered: "1960-1963",
     releaseDate: { year: 2026, month: 3 },
     writers: "Gardner Fox",
-    pencillers: "Mike Sekowsky, Sid Greene, Bernard Sachs",
+    pencillers: "Mike Sekowsky, Carmine Infantino",
+    inkers: "Bernard Sachs, Joe Giella, Murphy Anderson",
     description:
       "Starro the Conqueror forces DC's greatest champions to unite, launching the first Justice League and sparking a legacy of team-based storytelling -- with battles against Despero, Felix Faust, and Kanjar Ro.",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781799507734",
@@ -1622,8 +1624,9 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Justice League of America 45-72",
     yearsCovered: "1966-1969",
     releaseDate: { year: 2024, month: 11 },
-    writers: "Gardner Fox",
-    pencillers: "Mike Sekowsky, Sid Greene, Dick Dillin",
+    writers: "Gardner Fox, Dennis O'Neil",
+    pencillers: "Mike Sekowsky, Dick Dillin",
+    inkers: "Sid Greene, George Roussos, Frank Giacoia, Joe Giella",
     description:
       "Gardner Fox and Dennis O'Neil continue the League's late-'60s adventures with artist Mike Sekowsky, bridging Earth-1 and Earth-2 as the team's roster and mythology expand.",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781779528377",
@@ -1641,8 +1644,9 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Justice League of America #103-132",
     yearsCovered: "1972-1976",
     releaseDate: { year: 2026, month: 8 },
-    writers: "Len Wein, Gerry Conway",
+    writers: "Len Wein, Cary Bates, Elliot S. Maggin, Gerry Conway, Martin Pasko, Dennis O'Neil",
     pencillers: "Dick Dillin",
+    inkers: "Frank McLaughlin, Dick Giordano",
     description:
       "Members of the JLA and the Earth-2 Justice Society are unexpectedly transported to Earth-X, where they must help that world's heroes defeat a Nazi regime that won World War II.",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781799508830",
@@ -1660,8 +1664,9 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Justice League of America #241-261; Infinity, Inc. #19; Justice League of America Annual #3",
     yearsCovered: "1985-1987",
     releaseDate: { year: 2025, month: 8 },
-    writers: "Gerry Conway",
-    pencillers: "Luke McDonnell, Bill Wray",
+    writers: "Gerry Conway, J.M. DeMatteis, Dan Mishkin, Roy Thomas, Dann Thomas",
+    pencillers: "Luke McDonnell, George Tuska, Joe Staton, Rick Hoberg, Todd McFarlane",
+    inkers: "Bill Wray, Mike Machlan, Bob Smith, Bob Lewis, Mike Gustovich, Steve Montano",
     description:
       "Gerry Conway's run pits a rebuilt League -- Steel, Martian Manhunter, Zatanna, Elongated Man, and Vixen -- against Amazo and the Brotherhood of Evil.",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781799502449",
