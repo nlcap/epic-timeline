@@ -1044,8 +1044,12 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Strange Adventures #205–216, Aquaman #50–52, Justice League of America #94, The Brave and the Bold #79, 86, 104, 133, The Phantom Stranger #33, 39–41, World’s Finest #223, 227, The Forever People #9–10, Challengers of the Unknown #74",
     yearsCovered: "1967-1977",
     releaseDate: { year: 2026, month: 5 },
-    writers: "Arnold Drake, Neal Adams, Bob Haney",
-    pencillers: "Neal Adams",
+    writers:
+      "Neal Adams, Jack Miller, Bob Haney, Arnold Drake, Carmine Infantino, Paul Levitz, Dennis O'Neil, Robert Kanigher",
+    pencillers:
+      "Neal Adams, Fred Carrillo, Jim Aparo, Carmine Infantino, George Tuska, John Rosenberger, Mike Grell",
+    inkers:
+      "Neal Adams, Fred Carrillo, George Roussos, Jim Aparo, George Tuska, John Rosenberger, Mike Grell",
     description:
       "Boston Brand was a circus acrobat until a bullet ended his life and began his mission -- as Deadman, he possesses the living to seek justice for the murdered and the forgotten across the DC Universe.",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781799507710",
@@ -1959,7 +1963,8 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     yearsCovered: "1959-1962",
     releaseDate: { year: 2026, month: 5 },
     writers: "Robert Kanigher, Bob Haney",
-    pencillers: "Joe Kubert",
+    pencillers: "Joe Kubert, Jerry Grandenetti, Russ Heath, Irv Novick, Mort Drucker, Ross Andru",
+    inkers: "Joe Kubert, Jerry Grandenetti, Russ Heath, Irv Novick, Mike Esposito, Mort Drucker",
     description:
       "The earliest and most iconic stories of Sgt. Frank Rock and his legendary unit, Easy Company, blending explosive WWII action with emotional depth.",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781799508090",
@@ -2027,8 +2032,9 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Swamp Thing #1–22; The House of Secrets #92, #140; The Phantom Stranger #14; The Brave and the Bold #122",
     yearsCovered: "1971-1976",
     releaseDate: { year: 2026, month: 12 },
-    writers: "Len Wein",
-    pencillers: "Bernie Wrightson, Nestor Redondo",
+    writers: "Len Wein, David Michelinie, Gerry Conway, Bob Haney",
+    pencillers: "Bernie Wrightson, Nestor Redondo, Jim Aparo",
+    inkers: "Bernie Wrightson, Nestor Redondo, Jim Aparo, Mike Kaluta",
     description:
       "The era-defining Bronze Age saga that birthed DC's most haunting monster hero, from his House of Secrets debut through Len Wein and Bernie Wrightson's slow-burn tragedy of loss, guilt, and transformation.",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781799509837",
