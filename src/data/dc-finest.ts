@@ -666,11 +666,13 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     title: "The Case of the Chemical Syndicate",
     start: { year: 1939, quarter: 2 },
     end: { year: 1941, quarter: 2 },
-    issuesCollected: "Batman #1-5 and Detective Comics #27-52",
+    issuesCollected:
+      "Detective Comics #27-51, Batman #1-5, New York World's Fair Comics #2, and World's Best Comics #1",
     yearsCovered: "1939-1941",
     releaseDate: { year: 2026, month: 1 },
-    writers: "Bill Finger, Gardner Fox",
-    artists: "Bob Kane, Jerry Robinson, Sheldon Moldoff, George Roussos",
+    writers: "Bill Finger, Gardner Fox, Whitney Ellsworth",
+    artists:
+      "Bob Kane, Jerry Robinson, George Roussos, Sheldon Moldoff, Jack Burnley",
     description:
       "Batman's earliest Golden Age cases, including his own origin and the debut of the Joker, the Catwoman, and Robin the Boy Wonder.",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781799506706",
@@ -688,8 +690,9 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Batman #231-245 and Detective Comics #410-429",
     yearsCovered: "1971-1972",
     releaseDate: { year: 2026, month: 10 },
-    writers: "Dennis O'Neil, Frank Robbins",
-    artists: "Neal Adams, Dick Giordano, Irv Novick, Bob Brown",
+    writers: "Dennis O'Neil, Frank Robbins, Bernie Wrightson, Harlan Ellison",
+    artists:
+      "Dick Giordano, Irv Novick, Bob Brown, Neal Adams, Frank Robbins, Steve Englehart",
     description:
       "The debut of Ra's al Ghul and the Lazarus Pit, as Denny O'Neil, Frank Robbins, and Neal Adams pull Batman out of the campy '60s and into a darker, globe-trotting era.",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781799510307",
@@ -705,13 +708,15 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     start: { year: 1972, quarter: 4 },
     end: { year: 1975, quarter: 1 },
     issuesCollected:
-      "Batman #246-281?, Detective Comics #430-445, and the never-before-collected five-page Batman story that was included with the Batman model kit released by Aurora in 1974",
+      "Batman #246-261, Detective Comics #430-445, and the never-before-collected five-page Batman story that was included with the Batman model kit released by Aurora in 1974",
     yearsCovered: "1972-1975",
     releaseDate: { year: 2027, month: 2 },
     // Split by hand from `creators` -- Wikipedia lists this volume's credits
     // as "TBC", so the names carried over from Nick's own sheet.
-    writers: "Denny O'Neil, Frank Robbins, Archie Goodwin",
-    artists: "Irv Novick, Jim Aparo, Bob Brown, Neal Adams",
+    writers:
+      "Frank Robbins, Archie Goodwin, Denny O'Neil, Elliot S. Maggin, Len Wein, Bob Rozakis, Martin Pasko, Mike W. Barr, Sal Amendola, Steve Englehart, Vin Amendola",
+    artists:
+      "Dick Giordano, Irv Novick, Walt Simonson, Murphy Anderson, Bob Brown, Dick Dillin, Jim Aparo, Frank McLaughlin, Don Heck, Neal Adams, Sal Amendola, Alex Toth, Ernie Chan, Frank Giacoia, Frank Robbins, Howard Chaykin, Mike Grell, Nick Cardy, Pat Broderick",
     description:
       "Batman faces crime, mystery, and psychological threats in a darker, more dangerous Gotham in these defining Bronze Age adventures.<br />\nGotham City is changing—and Batman must change with it.<br />\n\nAs crime grows more unpredictable and dangerous, the Dark Knight is drawn into cases that push him beyond traditional detective work. From high-stakes battles with some of his most dangerous enemies to tense investigations that uncover Gotham’s rampant corruption, every encounter tests his instincts, restraint, and resolve.<br />\n\nBringing together core Batman stories with rare and unexpected material, this DC Finest volume delivers an immersive, wide-ranging collection that captures the tone and evolution of the Dark Knight Detective during this pivotal period.",
     coverUrl: batmanNightOfTheStalkerCover,
@@ -729,8 +734,10 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Batman #307–324; Detective Comics #482–490; DC Special Series #21; and The Brave and the Bold #159",
     yearsCovered: "1979-1980",
     releaseDate: { year: 2026, month: 11 },
-    writers: "Len Wein, Dennis O'Neil",
-    artists: "Irv Novick, Don Newton",
+    writers:
+      "Len Wein, Dennis O'Neil, Cary Burkett, J.M. DeMatteis, Steve Englehart, Jim Starlin",
+    artists:
+      "Irv Novick, Frank McLaughlin, Dan Adkins, Don Newton, Dick Giordano, Bob Smith, John Calnan, Vince Colletta, Walt Simonson, Frank Miller, Jim Aparo, Steve Mitchell, Jim Starlin, P. Craig Russell, Dick Dillin",
     description:
       "Denny O'Neil and Len Wein fuse crime noir and gothic horror as Batman faces a freezer-killer, an arsonist, Ra's al Ghul's assassins, and the Joker treating murder as performance art -- plus the pivotal debut of Lucius Fox.",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781799509615",
@@ -745,11 +752,13 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     title: "Red Skies",
     start: { year: 1985, quarter: 3 },
     end: { year: 1986, quarter: 3 },
-    issuesCollected: "Secret Origins #6, Batman Annual #10, Batman #386-400, and Detective Comics #553-567",
+    issuesCollected:
+      "Batman #388-400, Batman Annual #10, Detective Comics #554-567, and stories from Secret Origins #6",
     yearsCovered: "1985-1986",
     releaseDate: { year: 2025, month: 9 },
-    writers: "Doug Moench",
-    artists: "Gene Colan, Tom Mandrake, Klaus Janson",
+    writers: "Doug Moench, Roy Thomas, Harlan Ellison",
+    artists:
+      "Gene Colan, Bob Smith, Tom Mandrake, Paul Gulacy, Ricardo Villagran, Terry Austin, Klaus Janson, Alfredo Alcala, Marshall Rogers, Steve Lightle, George Pérez, Paris Cullins, Bill Sienkiewicz, Arthur Adams, Tom Sutton, Steve Leialoha, Joe Kubert, Ken Steacy, Rick Leonardi, Brian Bolland, John Byrne, Denys Cowan, Jan Duursema, Karl Kesel, Larry Mahlstedt, Bruce D. Patterson",
     description:
       "From Gotham's dark alleys to the literal red skies of Crisis on Infinite Earths -- the debut of Black Mask, Hugo Strange's schemes, and showdowns with Two-Face, Catwoman, and the False Face Society.",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781799502739",
@@ -767,8 +776,10 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Batman 401-412, Annual 11, Detective Comics #568-579",
     yearsCovered: "1986-1987",
     releaseDate: { year: 2024, month: 11 },
-    writers: "Frank Miller, Mike W. Barr, Max Allan Collins",
-    artists: "David Mazzucchelli, Alan Davis, Todd McFarlane",
+    writers:
+      "Mike W. Barr, Max Allan Collins, Frank Miller, Barbara Kesel, Joey Cavalieri, Alan Moore",
+    artists:
+      "Alan Davis, Paul Neary, David Mazzucchelli, Dave Cockrum, Todd McFarlane, Alfredo Alcala, Dick Giordano, Don Heck, Mike DeCarlo, Norm Breyfogle, Trevor von Eeden, Jim Starlin, Denys Cowan, Chris Warner, Ross Andru, George Freeman, Klaus Janson, Terry Beatty, Carmine Infantino, E.R. Cruz, Dick Sprang, Al Vey, Greg Brooks",
     description:
       "Frank Miller and David Mazzucchelli's definitive Year One origin, followed by Mike W. Barr and Alan Davis's Year Two, chronicling Bruce Wayne's earliest days as Batman.",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781779528353",
@@ -786,8 +797,10 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Batman: The Killing Joke #1; Batman #413-422; Detective Comics #580-589; and Batman: Son of the Demon #1.",
     yearsCovered: "1988",
     releaseDate: { year: 2025, month: 5 },
-    writers: "Alan Moore, Mike W. Barr, Jim Starlin, Alan Grant, John Wagner",
-    artists: "Brian Bolland, Jerry Bingham, Jim Aparo, Norm Breyfogle",
+    writers:
+      "Jim Starlin, Alan Grant, John Wagner, Mike W. Barr, Jo Duffy, Alan Moore, Lewis Klahr, Steve Piersall",
+    artists:
+      "Mike DeCarlo, Norm Breyfogle, Jim Aparo, Jim Baikie, Jerry Bingham, Pablo Marcos, Steve Mitchell, Kieron Dwyer, Kim DeMulder, Ricardo Villagran, Dick Giordano, Joe Rubinstein, Mark Bright, Dean Haspiel, Denis Rodier, Brian Bolland",
     description:
       "Alan Moore and Brian Bolland's The Killing Joke, one of the most influential Batman stories ever told, alongside Mike W. Barr and Jerry Bingham's Son of the Demon, which explores Batman's relationship with Talia al Ghul.",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781799501459",
@@ -805,8 +818,10 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Batman #423-429, Batman Annual #12, Batman: The Cult #1-4, Detective Comics #590-595, Detective Comics Annual #1",
     yearsCovered: "1988-1989",
     releaseDate: { year: 2026, month: 4 },
-    writers: "Jim Starlin, Alan Grant",
-    artists: "Jim Aparo, Bernie Wrightson, Norm Breyfogle, Mike DeCarlo",
+    writers:
+      "Jim Starlin, Alan Grant, John Wagner, Mike Baron, Robert Greenberger, Dennis O'Neil, Jeff O'Hare",
+    artists:
+      "Norm Breyfogle, Mike DeCarlo, Bernie Wrightson, Jim Aparo, Steve Mitchell, Mark Bright, Ross Andru, Pablo Marcos, Denis Rodier, Dave Cockrum, Klaus Janson, Tony DeZuniga, Irv Novick, Roderick Delgado, Jerry Acerno",
     description:
       "In 1988, comics readers were given the chance to decide the outcome of one of the medium's most controversial quandaries: should the Joker kill the Boy Wonder?",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781799508571",
@@ -821,11 +836,14 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     title: "Blind Justice",
     start: { year: 1989, quarter: 2 },
     end: { year: 1989, quarter: 3 },
-    issuesCollected: "Batman (1940) #430-435, An #13; Detective Comics (1937) #596-603; Secret Origins (1986) #36, #39",
+    issuesCollected:
+      "Batman #430-435, Batman Annual #13, Detective Comics #596-603, Detective Comics Annual #2, and stories from Secret Origins #36 and #39",
     yearsCovered: "1989",
     releaseDate: { year: 2026, month: 7 },
-    writers: "Sam Hamm, Alan Grant",
-    artists: "Denys Cowan, Jim Aparo, Dick Giordano",
+    writers:
+      "Alan Grant, Sam Hamm, Jim Owsley, John Byrne, John Wagner, Neil Gaiman, Jim Starlin, Jan Strnad, Kevin Dooley, Mark Waid, Brian Augustyn",
+    artists:
+      "Jim Aparo, Mike DeCarlo, Steve Mitchell, Norm Breyfogle, Denys Cowan, Dick Giordano, Frank McLaughlin, Eduardo Barreto, Michael Bair, Kevin Nowlan, Mark Buckingham, Malcolm Jones III, Gray Morrow, Val Semeiks",
     description:
       "Bruce Wayne is accused of espionage and faces the loss of his company, reputation, and freedom, as Batman investigates a conspiracy tied to a forgotten chapter of his own past -- and meets the mysterious mentor Henri Ducard.",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781799513162",
@@ -844,8 +862,10 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
       "Arkham Asylum graphic novel, Batman #436-444, Detective Comics #604-609, The New Titans #60-61 and #65, Secret Origins #44, Secret Origins Special #1, and select stories from Batman Villains Secret Files 2005 #1 and Christmas with the Super-Heroes #2.",
     yearsCovered: "1989-1990",
     releaseDate: { year: 2027, month: 4 },
-    writers: "Marv Wolfman, Alan Grant, Grant Morrison",
-    artists: "Pat Broderick, Jim Aparo, Norm Breyfogle",
+    writers:
+      "Marv Wolfman, Alan Grant, George Pérez, Dave Gibbons, Grant Morrison, Mike W. Barr",
+    artists:
+      "Norm Breyfogle, Steve Mitchell, Jim Aparo, Mike DeCarlo, Pat Broderick, John Beatty, Tom Grummett, George Pérez, Bob McLeod, Al Gordon, Dave McKean, Gray Morrow, Keith Giffen, Michael Bair, Al Vey",
     description:
       "A new Robin—Tim Drake—rises as Batman faces one of the darkest chapters of his life in this essential DC Finest collection.\n\nBatman is at his lowest point.\n\nIn the aftermath of devastating loss, Bruce Wayne becomes increasingly reckless in his war on crime, pushing away allies and abandoning the balance that once made him Gotham City’s greatest hero.\n\nBut one young detective sees what no one else can: Batman needs a Robin.\n\nDetermined to help, Tim Drake sets out on a journey that will change both his life and Batman’s forever. What follows is the story of how a new Robin emerges, bringing hope back to Gotham and laying the foundation for a new era of the Bat-Family.\n\nCollected alongside key stories from one of the most important periods in Batman history, these adventures capture the return of Robin and the beginning of Tim Drake’s journey as one of DC’s most beloved heroes.",
     coverUrl: batmanLonelyPlaceOfDyingCover,
@@ -1022,8 +1042,10 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     issuesCollected: "The Demon #1–16 (1972–1973); The Brave and the Bold #109, #137; Batman Family (1975) #17; Detective Comics #482-485, Wonder Woman #280-282",
     yearsCovered: "1972-1980",
     releaseDate: { year: 2026, month: 2 },
-    writers: "Jack Kirby, Jim Starlin, Bob Rozakis",
-    artists: "Jack Kirby, Juan Manuel Ortiz",
+    writers:
+      "Jack Kirby, Len Wein, Gerry Conway, Bob Haney, Bob Rozakis",
+    artists:
+      "Jack Kirby, Mike Royer, Steve Ditko, Jose Delbo, Dave Hunt, Michael Golden, Jim Aparo, John Calnan, Bob McLeod, Dick Giordano",
     description:
       "Etrigan's explosive Jack Kirby debut through his Bronze Age evolution, exploring the cursed bond between Jason Blood and the demon across centuries of dark magic and betrayal.",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781799507437",
@@ -1623,11 +1645,13 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     title: "For America and Democracy",
     start: { year: 1940, quarter: 4 },
     end: { year: 1942, quarter: 3 },
-    issuesCollected: "AII-Star Comics #3-12",
+    issuesCollected: "All-Star Comics #3-12",
     yearsCovered: "1940-1942",
     releaseDate: { year: 2024, month: 12 },
-    writers: "Gardner Fox",
-    artists: "Sheldon Mayer, Jack Burnley",
+    writers:
+      "Gardner Fox, Evelyn Gaines, Jerry Siegel, Ken Fitch, Sheldon Mayer, Bill O'Connor, Charles Reizenstein",
+    artists:
+      "Everett E. Hibbard, Stan Aschmeier, Bernard Baily, Sheldon Moldoff, Ben Flinton, Jack Burnley, Cliff Young, Howard Sherman, Jon L. Blummer, Sheldon Mayer, Martin Nodell, Chad Grothkopf, Irwin Hasen, Bernard Klein, Harold Wilson Sharp, Harry G. Peter",
     description:
       "The earliest stories starring comics' first super-team, written almost entirely by Gardner Fox, who created or co-created the Flash, Hawkman, and Doctor Fate for the era.",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781779528476",
@@ -1645,8 +1669,10 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     issuesCollected: "All-Star Comics #13-24",
     yearsCovered: "1942-1945",
     releaseDate: { year: 2025, month: 7 },
-    writers: "Gardner Fox",
-    artists: "Joe Gallagher, Stan Aschmeier",
+    writers:
+      "Gardner Fox, Jack Kirby, William Moulton Marston, Evelyn Gaines, Jack Miller",
+    artists:
+      "Joe Gallagher, Stan Aschmeier, Sheldon Moldoff, Bernard Baily, Jon L. Blummer, Howard Sherman, Jack Kirby, Joe Simon, Jack Burnley, Pierce Rice, Ed Dobrotka, Arthur Cazeneuve, Joe Kubert, Chester Kozlak, Cliff Young, Harry G. Peter, Howard Ferguson, Lou Ferstadt, Martin Naydel, Paul Reinman, Sam Burlockoff, Sheldon Mayer, Steve Brodie",
     description:
       "A pivotal Golden Age arc in JSA history -- the Justice Society encounters the Psycho-Pirate, a powerful new foe with the ability to manipulate their emotions.",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781799502074",
@@ -1898,11 +1924,14 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     title: "Playing with Fire",
     start: { year: 1993, quarter: 2 },
     end: { year: 1994, quarter: 2 },
-    issuesCollected: "Static #1-15, Superman: The Man of Steel #36, Superboy #7, and Worlds Collide #1",
+    issuesCollected:
+      "Static #1-15, Superman: The Man of Steel #36, Superboy #7, Steel (Vol. 2) #7, and Worlds Collide #1",
     yearsCovered: "1993-1994",
     releaseDate: { year: 2025, month: 10 },
-    writers: "Dwayne McDuffie, Robert L. Washington III",
-    artists: "John Paul Leon",
+    writers:
+      "Robert L. Washington III, Dwayne McDuffie, Louise Simonson, Kurt Busiek, Ivan Velez Jr., Karl Kesel, Sholly Fisch",
+    artists:
+      "John Paul Leon, Prentis Rollins, Rober Quijano, Steve Mitchell, Shawn Martinbrough, Bobby Rae, Chris Batista, Denys Cowan, Tom Grummett, Wilfred Santiago, Art Nichols, Brian O'Connell, ChrisCross, Dennis Janke, Doug Hazlewood, Humberto Ramos, Jon Bogdanove, Maria Beccari, Mark Bright, Neil Vokes, Rich Faber, Romeo Tanghal, Stan Woch",
     description:
       "Static's electrifying origin from Milestone Comics -- Virgil Hawkins gains electromagnetic powers in a gang riot gone wrong, then crosses over with Superman and Superboy in \"Worlds Collide.\"",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781799502944",
@@ -2571,8 +2600,10 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
       "The Question #1-15, Blue Beetle (Charlton) #1-5, Americomics Special #1, Mysterious Suspense #1, Blue Beetle (DC) #4-7, Who’s Who Update ‘87 #4, Who’s Who: The Definitive Directory of the DC Universe #19, and The Charlton Bullseye #1 and #5",
     yearsCovered: "1967-1989",
     releaseDate: { year: 2027, month: 3 },
-    writers: "Dennis O'Neil",
-    artists: "Denys Cowan",
+    writers:
+      "Dennis O'Neil, Steve Ditko, D.C. Glanzman, Len Wein, Steve Skeates, Roger Stern, Michael Uslan, Benjamin Smith",
+    artists:
+      "Denys Cowan, Rick Magyar, Steve Ditko, Paris Cullins, Bruce D. Patterson, Alex Toth, Bob McLeod, Del Barras, Albert Val, Bill Black, Dan Reed",
     description:
       "A dark, thought‑provoking crime saga—the Question confronts corruption, identity, and moral truth in this expansive DC Finest collection of early stories.\n\nIn a city where corruption runs deep, justice is anything but simple.\n\nVic Sage operates as the Question, a faceless investigator determined to expose the truth—no matter the cost. But in Hub City, every answer leads to another question, and every case pulls him deeper into a system built on power, fear, and control.\n\nAs his search for justice continues, Sage is forced to confront not only the criminals around him, but his own beliefs, identity, and what it truly means to do the right thing in a broken world.\n\nSpanning a major run of stories that include all the character’s original appearances in the Charlton titles from creator Steve Ditko as well as the first 15 issues of his celebrated revival by Dennis O’Neil and Denys Cowan in the 1980s, this volume offers a wide-ranging look at the Question’s evolution, blending crime storytelling, action, and philosophical depth in one immersive collection.",
     coverUrl: theQuestionZenAndViolenceCover,
