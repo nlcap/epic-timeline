@@ -53,6 +53,11 @@ around bot detection, so it needs a human. It's the single best next step for th
 - **Pierce Rice** (JSA: Psycho-Pirate) — the issue page (All-Star #18) credits him as penciller;
   the collected page lists him as an inker. He's in both fields currently.
 
+- **Metamorpho: The Element Man / The Brave and the Bold #88** — the seed lists this issue, but
+  its only story is "Batman and Wildcat: Count to Ten" with no Metamorpho anywhere in it. I
+  excluded it, which means Irv Novick is not credited. Either the seed's issue list is wrong or
+  Metamorpho appears uncredited in the character data.
+
 - **The Stray Superdog** — the "stories from" sources are filtered to Superman Family characters
   (Krypto, Supergirl, Lois, Jimmy et al.), excluding Superman solo stories, per Nick's rule.
   That's a character judgment applied across ~30 issues rather than a contents list, since this

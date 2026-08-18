@@ -940,8 +940,12 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Captain Atom (1965) #83-86; Blue Beetle (1964) #1-5; Blue Beetle (1965) #1-5, #50-54, Charlton Bullseye #1",
     yearsCovered: "1964-1981",
     releaseDate: { year: 2025, month: 8 },
-    writers: "Joe Gill, Steve Ditko, Benjamin Smith",
-    pencillers: "Steve Ditko, Bill Fraccio, Tony Tallarico, Dan Reed",
+    writers:
+      "Steve Ditko, Joe Gill, D.C. Glanzman, David Kaler, Gary Friedrich, Steve Skeates, Benjamin Smith, Roy Thomas",
+    pencillers:
+      "Steve Ditko, Bill Fraccio, Bill Molno, Frank McLaughlin, Rocke Mastroserio, Bill Montes, Dan Reed, Oscar Novelle, Tony Tallarico",
+    inkers:
+      "Tony Tallarico, Steve Ditko, Bill Molno, Rocke Mastroserio, Frank McLaughlin, Vincent Alascia, Albert Val, Bill Black, Bob McLeod, Dan Reed, Jon D'Agostino, Oscar Novelle",
     description:
       "The original Charlton Comics adventures of Ted Kord as Blue Beetle, from his earliest team-ups with Captain Atom through the character's Bronze Age revival.",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781799502487",
@@ -1613,8 +1617,12 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Batman #251, #260, #286, #291–294, #321, Detective Comics #475–476, #504, Justice League of America #77, Wonder Woman #280–283, The Brave and the Bold #111, #118, #129–130, #141, and The Joker #1–10",
     yearsCovered: "1968-1981",
     releaseDate: { year: 2026, month: 4 },
-    writers: "Dennis O'Neil, Bob Haney, Elliot S. Maggin",
-    pencillers: "Frank Springer, John Calnan",
+    writers:
+      "Dennis O'Neil, Bob Haney, Elliot S. Maggin, David Vern Reed, Martin Pasko, Steve Englehart, Gerry Conway, Len Wein, Paul Kupperberg, Paul Levitz",
+    pencillers:
+      "Irv Novick, Jim Aparo, John Calnan, Marshall Rogers, Dick Dillin, Don Newton, Ernie Chua, Joe Staton, José Luis García-López, Neal Adams, Walt Simonson",
+    inkers:
+      "Tex Blaisdell, Jim Aparo, Dick Giordano, José Luis García-López, Terry Austin, Vince Colletta, Bob Wiacek, Dan Adkins, Frank McLaughlin, Joe Giella, Neal Adams, Steve Mitchell",
     description:
       "Iconic Silver and Bronze Age Joker stories including 'The Joker's Five-Way Revenge,' plus the villain's own short-lived solo series, as Denny O'Neil and others redefine the Clown Prince of Crime as a serious threat.",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781799510253",
@@ -1801,8 +1809,9 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Justice League of America #42; The Brave and the Bold #57-58, #66, #68, #88, #101; Metamorpho #1-17",
     yearsCovered: "1965-1968",
     releaseDate: { year: 2025, month: 6 },
-    writers: "Bob Haney",
-    pencillers: "Ramona Fradon, Sal Trapani, Joe Orlando, Mike Sekowsky, Jim Aparo",
+    writers: "Bob Haney, Gardner Fox",
+    pencillers: "Ramona Fradon, Sal Trapani, Joe Orlando, Mike Sekowsky, Jack Sparling, Jim Aparo",
+    inkers: "Charles Paris, Sal Trapani, Bernard Sachs, Mike Esposito, Jack Sparling, Jim Aparo",
     description:
       "Rex Mason is transformed by an unlikely accident into Metamorpho, the Element Man -- able to transmute his body into any natural compound at will, be it solid, liquid, or gas.",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781799501848",
