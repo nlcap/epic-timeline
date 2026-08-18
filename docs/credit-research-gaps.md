@@ -97,5 +97,16 @@ Dave / David Mazzucchelli · Elliot S! Maggin / Elliot S. Maggin ·
 "Rober Quijano" (Static, appears in 5 issues — almost certainly Robert) ·
 "Shuster Shop" (a studio credit, not a person — kept deliberately)
 
-Already merged as plain typos, one wiki with two spellings for one story:
-Arthur Cazenueve → Arthur Cazeneuve · Doug Hazelwood → Doug Hazlewood
+Already merged, same person under two forms in the same volume's credits:
+Arthur Cazenueve → Arthur Cazeneuve · Doug Hazelwood → Doug Hazlewood ·
+Bernie Sachs → Bernard Sachs · Seymour Barry → Sy Barry ·
+Denny O'Neil → Dennis O'Neil *(only within Flash: The Fastest Man Dead, where both forms
+appeared in the same field — one person listed twice. Cross-volume the two forms still stand
+as published.)*
+
+**Page-name traps.** Several series are filed under names that don't match the seed's wording.
+Worth checking before concluding a source is missing: Green Lantern #201-205 are under *Green
+Lantern Corps* (post-renumbering); *New Teen Titans*, *Infinity Inc.* and *Spectre* drop
+articles/punctuation the seed includes; *Batman 80-Page Giant* has no colon; *Catwoman: Defiant*
+has no volume suffix; the Doom Patrol collected page is under "**The** Doom Patrol". A missing
+page usually means a naming mismatch, not absent data.

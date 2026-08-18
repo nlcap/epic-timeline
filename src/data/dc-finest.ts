@@ -1286,8 +1286,9 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Showcase #4, 8, 13, 14; The Flash #105-123",
     yearsCovered: "1956-1961",
     releaseDate: { year: 2024, month: 11 },
-    writers: "Robert Kanigher, John Broome",
-    pencillers: "Carmine Infantino, Joe Kubert",
+    writers: "John Broome, Robert Kanigher, Gardner Fox",
+    pencillers: "Carmine Infantino",
+    inkers: "Joe Giella, Murphy Anderson, Frank Giacoia, Joe Kubert",
     description:
       "Barry Allen's Silver Age debut in Showcase #4 kicks off the adventures of the second Flash, introducing rogues Captain Cold, Mirror Master, and Gorilla Grodd along the way.",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781779528360",
@@ -1305,8 +1306,12 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     issuesCollected: "World’s Finest Comics #198, The Flash #200–204, 206–212, 214–229, and The Brave and the Bold #99.",
     yearsCovered: "1970-1974",
     releaseDate: { year: 2026, month: 3 },
-    writers: "Robert Kanigher, Cary Bates",
-    pencillers: "Irv Novick",
+    writers:
+      "Cary Bates, Dennis O'Neil, Robert Kanigher, Steve Skeates, Len Wein, Bob Haney, Gardner Fox, Mike Friedrich",
+    pencillers:
+      "Irv Novick, Dick Dillin, Dick Giordano, Neal Adams, Carmine Infantino, Bob Brown, Murphy Anderson",
+    inkers:
+      "Dick Giordano, Murphy Anderson, Frank McLaughlin, Joe Giella, Bernard Sachs, Frank Giacoia, Neal Adams, Nick Cardy, Tex Blaisdell",
     description:
       "Barry Allen races through cultists, cursed rings, alternate realities, and psychic breakdowns as the Flash's Bronze Age world expands into sci-fi weirdness and social turmoil.",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781799503026",
@@ -1955,8 +1960,12 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Adventure Comics #431-440; Showcase #60-61, #64; The Spectre #2 #1-10; The Brave and the Bold #72; All-Star Squadron #27-28; Ghosts #97-99; Wrath of the Spectre #4",
     yearsCovered: "1966-1988",
     releaseDate: { year: 2025, month: 9 },
-    writers: "Gardner Fox, Michael Fleisher",
-    pencillers: "Murphy Anderson, Jim Aparo",
+    writers:
+      "Michael Fleisher, Gardner Fox, Mike Friedrich, Neal Adams, Dennis O'Neil, Russell Carley, Paul Kupperberg, Roy Thomas, Bob Haney, Mark Hanerfeld, Steve Skeates",
+    pencillers:
+      "Jim Aparo, Jerry Grandenetti, Neal Adams, Murphy Anderson, Ernie Chan, Frank Thorne, Bernie Wrightson, Dick Dillin, Jack Sparling, Michael Adams, Richard Howell, Carmine Infantino",
+    inkers:
+      "Jim Aparo, Murphy Anderson, Neal Adams, Bernie Wrightson, Bill Draut, George Roussos, Jack Sparling, Sid Greene, Mike DeCarlo, Tex Blaisdell, Chuck Cuidera, Gerald Forton, Larry Houston, Pablo Marcos, Richard Howell, Tony DeZuniga",
     description:
       "DC's grim arbiter of justice returns to enact bloody vengeance on evildoers, resurfacing in the 1960s for all-new -- and sometimes controversial -- stories that show the true scale of his wrath.",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781799502814",
