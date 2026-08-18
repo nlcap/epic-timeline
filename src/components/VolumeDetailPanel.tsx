@@ -218,9 +218,17 @@ export function VolumeDetailPanel({
         )}
 
         {hasCredits && (
-          <div className="mt-4 text-sm text-neutral-400">
-            {volume.writers && <p>Written by {volume.writers}</p>}
-            {volume.artists && <p>Art by {volume.artists}</p>}
+          <div className="mt-4 flex flex-col gap-1 text-sm text-neutral-400">
+            {volume.writers && (
+              <p>
+                <span className="font-semibold text-neutral-300">Written by</span> {volume.writers}
+              </p>
+            )}
+            {volume.artists && (
+              <p>
+                <span className="font-semibold text-neutral-300">Art by</span> {volume.artists}
+              </p>
+            )}
           </div>
         )}
 
