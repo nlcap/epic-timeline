@@ -122,3 +122,70 @@ Lantern Corps* (post-renumbering); *New Teen Titans*, *Infinity Inc.* and *Spect
 articles/punctuation the seed includes; *Batman 80-Page Giant* has no colon; *Catwoman: Defiant*
 has no volume suffix; the Doom Patrol collected page is under "**The** Doom Patrol". A missing
 page usually means a naming mismatch, not absent data.
+
+---
+
+## 5. The Events volumes (added last — the seven crossovers)
+
+Events is the one line where a character-relevance filter is useless: every volume spans 20+
+titles, and a crossover chapter told from another character's side looks irrelevant right up
+until you read it. Everything below was decided from contents lists, not from character matching.
+
+**Only three of the seven have a collected page on the wiki** — Crisis Part One, and both Zero
+Hour volumes. Crisis Parts Two/Three/Four and Legends Part One have none, so for those I took
+every non-reprint story in each collected issue. That is right for these books, which collect
+crossover chapters whole, but it will over-count if DC actually collected only part of an issue.
+Those four are the least certain of the 99.
+
+**The IssueList is not always complete.** This is new, and it means a collected page is not by
+itself sufficient:
+
+- *Crisis Part One* — the IssueList omits the second story in All-Star Squadron #52,
+  "Shanghaied into Hyperspace! – Interlude One". DC's own roster lists Gardner Fox, Sheldon
+  Moldoff, Al Dellinges and Joe Kubert, who appear nowhere else in the book, which is how I
+  found it. Added.
+- *Zero Hour Part One* — the IssueList is missing Outsiders #11 and both Showcase '94 #8–9
+  stories, all three of which the seed's contents list names. Outsiders #11 accounts for Mike W.
+  Barr, Paul Pelletier and Robert Campanella. Added.
+
+Cross-checking the per-story tally against the collected page's own Writer/Penciler/Inker roster
+is what caught both. It should stay part of the method.
+
+### Judgment calls in this line
+
+**The "Shanghaied into Hyperspace!" interludes** (All-Star Squadron #52, #55, #56, #58, #59) are
+recreated Golden Age Hawkman chapters — Gardner Fox and Sheldon Moldoff's original story, redrawn
+by Al Dellinges, with new framing credited to Roy Thomas. **I counted them.** They are not marked
+as reprints on the wiki, Roy Thomas has a new-writing credit, and DC lists all four creators in
+the collected roster. If you'd rather treat recreations as reprints, these are the stories to pull.
+
+**Who's Who #10 and #16–18 are excluded from Crisis Part Four.** The wiki files each Who's Who
+issue as a single story slot carrying every contributor to that alphabetical range — 20 to 29
+pencillers apiece, most of them drawing characters with no Crisis connection. DC Finest collects
+only selected entries and the wiki gives no per-entry breakdown, so including them would have
+added roughly sixty names on no evidence. Excluding them loses a handful of real credits; the
+alternative corrupts the list. **Worth doing by hand from the physical book.**
+
+**Partial issues taken.** Christmas with the Super-Heroes #2 → only the Deadman story "Should
+Auld Acquaintance Be Forgot" (Alan Brennert / Dick Giordano), the Crisis epilogue; the other five
+are unrelated Christmas shorts. The Omega Men #33 → only "Storm Warnings", the crossover chapter,
+not the "Demon with the Healing Mind" backup. Both are inferences from content, not from a
+contents list — check if you have the books.
+
+### Unresolved
+
+- **Justine Mara Andersen** is listed as an inker on *both* Zero Hour collected pages but is not
+  credited on any story in either volume on the wiki. Not included. Likely an uncredited assist.
+- **Dennis Cramer** is the reverse: credited on Legionnaires #18 on the issue page, but absent
+  from DC's roster for Zero Hour Part One. Included — the issue page is the better source.
+
+### More page-name traps
+
+*Amethyst, Princess of Gemworld* #13 is under **Amethyst Vol 2** (the 1985 ongoing; Vol 1 is the
+1983 maxi). *JLA: Incarnations* has **no colon** — "JLA Incarnations Vol 1 5". *Legends of the DC
+Universe: Crisis on Infinite Earths* is a one-shot filed at the bare series name with **no issue
+suffix**. The 1993 *Outsiders* is Vol 2.
+
+`Rus Sever` redirects to **Russ Sever**, and `Pete Krause` is **Peter Krause** — both now merged.
+Checking whether a name is a wiki redirect is a quick way to settle a spelling disagreement
+between an issue page and a collected page.

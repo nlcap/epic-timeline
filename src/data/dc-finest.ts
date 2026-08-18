@@ -1166,8 +1166,12 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Swamp Thing #39; Batman #389-391; Detective Comics #555-558; Justice League of America #244; Green Lantern #194; Wonder Woman #327; DC Comics Presents #78; Infinity, Inc. #18-19; The Fury of Firestorm #41; All-Star Squadron #50-52; Crisis on Infinite Earths #1-4; The Losers Special #1",
     yearsCovered: "1985",
     releaseDate: { year: 2025, month: 10 },
-    writers: "Marv Wolfman",
-    pencillers: "George Pérez",
+    writers:
+      "Doug Moench, Roy Thomas, Marv Wolfman, Dann Thomas, Robert Greenberger, Len Wein, Gerry Conway, Steve Englehart, Alan Moore, Robert Kanigher, Mindy Newell, Gardner Fox, Sheldon Moldoff",
+    pencillers:
+      "George Pérez, Gene Colan, Arvell Jones, Tom Mandrake, Mike Clark, Todd McFarlane, Joe Staton, Curt Swan, Rafael Kayanan, Steve Bissette, Judith Hunt, Sam Glanzman, Don Heck, Joe Kubert, Al Dellinges",
+    inkers:
+      "Bob Smith, Dick Giordano, Tom Mandrake, Vince Colletta, Mike DeCarlo, Dave Hunt, Tony DeZuniga, Alfredo Alcala, Ian Akin, Brian Garvey, Pablo Marcos, Bruce Patterson, Steve Montano, Mike Machlan, John Totleben, Mike Esposito, Don Heck, Al Dellinges",
     description:
       "The ultimate battle for the multiverse begins as Marv Wolfman and George Perez unite Wonder Woman, Superman, Green Lantern, and the Justice Society against a cosmic threat that erases entire universes.",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781799503040",
@@ -1185,8 +1189,12 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     issuesCollected: "DC Comics Presents #86 and #95, Infinity, Inc. #20-22, Infinity, Inc. Annual #1, The New Teen Titans #13-14, Swamp Thing #44-46, Wonder Woman #328-329, Legends of the DC Universe: Crisis on Infinite Earths #1, Crisis on Infinite Earths #5, All-Star Squadron #53-56, and Superman #413",
     yearsCovered: "1986",
     releaseDate: { year: 2026, month: 8 },
-    writers: "Marv Wolfman",
-    pencillers: "George Pérez",
+    writers:
+      "Roy Thomas, Dann Thomas, Marv Wolfman, Alan Moore, Gardner Fox, Paul Kupperberg, Tony Isabella, Alan Gold, Mindy Newell, Gerry Conway, Cary Bates",
+    pencillers:
+      "Todd McFarlane, Mike Clark, Arvell Jones, Eduardo Barreto, Steve Bissette, Don Heck, Mike Harris, Rick Hoberg, Richard Howell, Michael Bair, Ron Harris, Ron Randall, Stan Woch, Pablo Marcos, Paul Ryan, George Pérez, Jerry Acerno, Tim Burgard, Curt Swan",
+    inkers:
+      "Tony DeZuniga, Vince Colletta, Alfredo Alcala, Steve Montano, Romeo Tanghal, John Totleben, Don Heck, Dave Hunt, Murphy Anderson, Dick Giordano, Richard Howell, Pablo Marcos, Bob McLeod, Jerry Ordway, Jerry Acerno, Tim Burgard, Al Williamson",
     description:
       "As the multiverse begins to die, every hero's story becomes part of the battle for existence -- the crossover spreads far beyond its core series, reshaping destinies and ending eras across the Bronze Age DC Universe.",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781799510284",
@@ -1204,8 +1212,12 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Justice League of America #245; Superman #414–415; Green Lantern #195–196; DC Comics Presents #87–88; Legion of Super-Heroes #16, #18; Infinity, Inc. #23-24; Justice League of America Annual #3; Crisis on Infinite Earths #6–9; The Vigilante #22; The Omega Men #31; and Blue Devil #17–18.",
     yearsCovered: "1986",
     releaseDate: { year: 2026, month: 11 },
-    writers: "Marv Wolfman",
-    pencillers: "George Pérez",
+    writers:
+      "Marv Wolfman, Elliot S. Maggin, Steve Englehart, Dan Mishkin, Paul Levitz, Dann Thomas, Roy Thomas, Gary Cohn, Gerry Conway, Cary Bates, Paul Kupperberg, Todd Klein",
+    pencillers:
+      "Curt Swan, George Pérez, Joe Staton, Todd McFarlane, Alan Kupperberg, Luke McDonnell, Keith Giffen, Steve Lightle, Greg LaRocque, Ron Harris, Rick Hoberg, Tod Smith, Ernie Colon, Shawn McManus",
+    inkers:
+      "Al Williamson, Jerry Ordway, Mike Machlan, Bruce Patterson, Tony DeZuniga, Dick Giordano, Karl Kesel, Bob Smith, Larry Mahlstedt, Steve Montano, Leonard Starr, Mike Gustovich, Steve Mitchell, Bill Collins, Shawn McManus, Mark Farmer, Rick Magyar",
     description:
       "The DC Multiverse reaches its breaking point as heroes, legacies, and entire worlds are pushed past their limits -- hope falters and the fate of every universe hangs on choices no hero is ready to face.",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781799510314",
@@ -1224,8 +1236,12 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
       "Crisis on Infinite Earths #10-12; All-Star Squadron #57-60; Amethyst: Princess of Gemworld #13; Blue Devil #19; Christmas with the Super-Heroes #2; DC Comics Presents #94; Green Lantern #197-198; History of the DC Universe #1-2; Infinity, Inc. #25; JLA: Incarnations #5; Secret Origins Annual #2; Starman Annual #1; The Fury of Firestorm #42; The Omega Men #33; and Who’s Who: The Definitive Directory of the DC Universe #10 and #16-18.",
     yearsCovered: "1986",
     releaseDate: { year: 2027, month: 2 },
-    writers: "Marv Wolfman",
-    pencillers: "George Pérez",
+    writers:
+      "Roy Thomas, Marv Wolfman, Dan Mishkin, Gary Cohn, Dann Thomas, John Ostrander, Gardner Fox, Robert Loren Fleming, Alan Kupperberg, Steve Englehart, James Robinson, George Pérez, Keith Giffen, Alan Brennert, Robert Greenberger, Barbara Randall, William Messner-Loebs, Gerry Conway, Todd Klein",
+    pencillers:
+      "George Pérez, Alan Kupperberg, Arvell Jones, Mike Clark, Joe Staton, Jerry Ordway, Richard Howell, Rick Hoberg, Ron Harris, Ernie Colon, Dick Giordano, Tom Mandrake, Todd McFarlane, Val Semeiks, Norm Breyfogle, Eric Battle, Mike Collins, Carmine Infantino, Craig Hamilton, Bret Blevins, J.H. Williams III, Rafael Kayanan, Shawn McManus",
+    inkers:
+      "Vince Colletta, Jerry Ordway, Tony DeZuniga, Karl Kesel, Rick Magyar, Gary Martin, George Pérez, Bruce Patterson, Alfredo Alcala, Richard Howell, Rick Hoberg, Jerry Acerno, Mike Gustovich, Dick Giordano, Don Heck, Prentis Rollins, Kevin Conrad, Joe Rubinstein, Keith Champagne, Frank McLaughlin, Murphy Anderson, Ray Snyder, Bret Blevins, Mick Gray, Ian Akin, Shawn McManus",
     description:
       "Reality itself is rewritten as the Crisis reaches its epic conclusion in the final chapter of the Multiverse-shattering event.\n\nEverything ends here.\n\nAs the Crisis reaches its apocalyptic climax, the battle to save existence itself comes to a breaking point. Heroes from across worlds face impossible odds as reality collapses, and the fate of the entire Multiverse hangs in the balance.\n\nIn the midst of cosmic destruction, alliances are tested, sacrifices are made, and the universe is forever changed. When the dust settles, nothing will be the same—and the world that remains will reshape the future of every hero.\n\nBringing together the concluding chapters of Crisis on Infinite Earths alongside key tie-in stories, this volume captures the final transformation of the DC Universe in one sweeping, interconnected collection.",
     coverUrl: eventsCrisisPartFourCover,
@@ -1243,8 +1259,12 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Legends #1–3; Infinity Inc. #34-36; Hawkman #5-6; Secret Origins #10, Crisis on Infinite Earths #12, Batman #401; Detective Comics #568; Justice League of America #258; Green Lantern Corps #207-208; The Fury of Firestorm #55–56; Blue Beetle #9; Cosmic Boy #1–2; Booster Gold #13",
     yearsCovered: "1986",
     releaseDate: { year: 2026, month: 11 },
-    writers: "John Ostrander, Paul Levitz",
-    pencillers: "John Byrne, Luke McDonnell",
+    writers:
+      "John Ostrander, Len Wein, Dann Thomas, Roy Thomas, Paul Levitz, Tony Isabella, Steve Englehart, Mike W. Barr, Dan Mishkin, Alan Moore, George Pérez, Marv Wolfman, Barbara Kesel, Joey Cavalieri, J.M. DeMatteis, Dan Jurgens",
+    pencillers:
+      "John Byrne, Todd McFarlane, Richard Howell, Joe Staton, Joe Brozowski, Keith Giffen, Jim Aparo, José Luis García-López, Ernie Colon, Joe Orlando, George Pérez, Jerry Ordway, Trevor von Eeden, Klaus Janson, Luke McDonnell, Paris Cullins, Dan Jurgens",
+    inkers:
+      "Karl Kesel, Tony DeZuniga, Bob Smith, Don Heck, Mark Farmer, Steve Mitchell, Ernie Colon, Jim Aparo, José Luis García-López, Pablo Marcos, Joe Orlando, George Pérez, Jerry Ordway, Trevor von Eeden, Klaus Janson, Del Barras, Gary Martin",
     description:
       "DC's first major post-Crisis crossover -- Darkseid doesn't just attack cities, he attacks faith in Superman, Batman, and every costumed legend on Earth.",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781799509622",
@@ -1262,8 +1282,12 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Superman #93, The Flash #94, L.E.G.I.O.N. #70, Green Lantern #55, Superman: The Man of Steel #37, Team Titans #24, The Darkstars #24, Valor #23, Batman #511, Batman: Shadow of the Bat #31, Detective Comics #678, Legionnaires #18, Hawkman #13, Showcase '94 #8-9, Steel #8, Superboy #8, Outsiders #11, and Zero Hour: Crisis in Time #3-4",
     yearsCovered: "1994",
     releaseDate: { year: 2024, month: 12 },
-    writers: "Dan Jurgens",
-    pencillers: "Dan Jurgens, Jerry Ordway",
+    writers:
+      "Dan Jurgens, Louise Simonson, Mark Waid, Chuck Dixon, Doug Moench, Ron Marz, Michael Jan Friedman, Tom McCraw, Kurt Busiek, Karl Kesel, William Messner-Loebs, Alan Grant, Tom Peyer, Jeff Jensen, Phil Jimenez, Mike W. Barr",
+    pencillers:
+      "Dan Jurgens, Derec Aucoin, Frank Fosco, Graham Nolan, Chris Batista, Carlos Pacheco, Mike Manley, Jon Bogdanove, Craig Hamilton, Darryl Banks, Mike Collins, Chris Gardner, Colleen Doran, Tom Grummett, Steve Lieber, Bret Blevins, Arnie Jorgensen, Nigel Tully, Paul Pelletier",
+    inkers:
+      "Ken Branch, Andrew Pepoy, Jerry Ordway, Joe Rubinstein, Dan Davis, Bob McLeod, Rich Faber, José Marzan Jr., Wayne Faucher, Dennis Janke, Craig Hamilton, Romeo Tanghal, Dennis Cramer, Dave Cooper, Doug Hazlewood, Curt Shoultz, Bret Blevins, James Pascoe, Russ Sever, Robert Campanella",
     description:
       "The first half of the time-bending Zero Hour event, as a mysterious figure unravels DC history itself and heroes across the universe race against the collapse of time.",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781779528506",
@@ -1281,8 +1305,12 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     issuesCollected: "The Flash #0; Green Arrow #90; Adventures of Superman #516; Justice League America #92; Action Comics #703; Justice League International #68; Legion of Super-Heroes #61; Green Lantern #0; Superman: The Man of Steel #0; Guy Gardner: Warrior #24; Justice League Task Force #16; Catwoman #14; Robin #10; Showcase '94 #10; Damage #0, #6; Zero Hour: Crisis in Time #0-2; Anima #7",
     yearsCovered: "1994",
     releaseDate: { year: 2025, month: 5 },
-    writers: "Dan Jurgens",
-    pencillers: "Dan Jurgens, Jerry Ordway",
+    writers:
+      "Dan Jurgens, Christopher Priest, Mark Waid, Tom Joyner, Karl Kesel, David Michelinie, Kevin Dooley, Beau Smith, Tom McCraw, Chuck Dixon, Jo Duffy, Elizabeth Hand, Paul Witcover, Mike McAvennie, Ron Marz, Louise Simonson",
+    pencillers:
+      "Dan Jurgens, Jackson Guice, Phil Jimenez, Bill Marimon, Peter Krause, Eduardo Barreto, Mitch Byrd, Howard Porter, Mike Parobeck, Stuart Immonen, Luke Ross, Greg LaRocque, Tom Grummett, Jim Balent, Brent Anderson, Jason Armstrong, Darryl Banks, Mike Wieringo, Jon Bogdanove",
+    inkers:
+      "Jerry Ordway, José Marzan Jr., Don Hillsman, Jackson Guice, Denis Rodier, Eduardo Barreto, Dan Davis, Ron Boyd, Matt Banning, Dennis Cramer, Wayne Faucher, Rich Rankin, John Stokes, Ray Kryssing, Bob Smith, Will Blyberg, Stan Woch, Romeo Tanghal, Dennis Janke",
     description:
       "Zero Hour concludes with major status quo changes across the DC Universe, including a legendary Green Lantern's fall, told through a wave of zero-issue tie-ins.",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781799501305",
