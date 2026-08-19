@@ -448,7 +448,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     inkers: "Steve Ditko, Jack Kirby",
     description:
       "The tragic origin that started it all, plus the first appearances of the Daily Bugle and J. Jonah Jameson, and the debuts of the Green Goblin, Doctor Octopus, the Sandman, the Vulture, and Electro.",
-    coverUrl: "https://m.media-amazon.com/images/I/81q1x5ASYoL._SL1500_.jpg",
+    coverUrl: "https://m.media-amazon.com/images/I/91UhdxMxaML._SL1500_.jpg",
     ownershipStatus: "announced",
   },
   {
@@ -467,7 +467,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     inkers: "Steve Ditko",
     description:
       "Gwen Stacy's first appearance, Peter's high-school graduation, landmark battles with the Green Goblin, and a team-up with Doctor Strange, capped by the harrowing Master Planner saga.",
-    coverUrl: "https://m.media-amazon.com/images/I/81QS4LiSAGL._SL1500_.jpg",
+    coverUrl: "https://m.media-amazon.com/images/I/91IhuPRGIaL._SL1500_.jpg",
     ownershipStatus: "announced",
   },
   {
@@ -505,7 +505,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     inkers: "Mike Esposito, Jim Mooney, Don Heck, Bill Everett, Marie Severin, John Tartaglione",
     description:
       "Norman Osborn regains his memory and the Green Goblin returns for a 58-page magazine showdown -- Spider-Man's most dangerous foe, and the only villain to know he's Peter Parker.",
-    coverUrl: "https://m.media-amazon.com/images/I/81rzW0AF5BL._SL1500_.jpg",
+    coverUrl: "https://m.media-amazon.com/images/I/91gYU8DH7JL._SL1500_.jpg",
     ownershipStatus: "announced",
   },
   {
@@ -524,7 +524,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     inkers: "Jim Mooney, Mike Esposito",
     description:
       "Two crime lords race to decode an ancient tablet's secrets, the Prowler debuts, the Black Widow gets her spy gear, and the origin of Peter's parents is revealed.",
-    coverUrl: "https://m.media-amazon.com/images/I/81aNBRoxj6L._SL1500_.jpg",
+    coverUrl: "https://m.media-amazon.com/images/I/919ESWpGnWL._SL1500_.jpg",
     ownershipStatus: "announced",
   },
   {
@@ -543,7 +543,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     inkers: "Frank Giacoia, John Romita Sr., Tony Mortellaro, Jim Mooney, Sal Buscema",
     description:
       "Gwen Stacy's father becomes collateral damage in a battle between Spider-Man and Doctor Octopus, forever changing Peter's life, while Norman Osborn spirals into addiction as the Green Goblin's shadow looms.",
-    coverUrl: "https://m.media-amazon.com/images/I/81ZRB4K3i3L._SL1500_.jpg",
+    coverUrl: "https://m.media-amazon.com/images/I/91hFCn1Au8L._SL1500_.jpg",
     ownershipStatus: "announced",
   },
   {
@@ -582,7 +582,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
       "Frank Giacoia, Dave Hunt, Tony Mortellaro, John Romita Sr., Jim Mooney, Paul Reinman, Mike Esposito",
     description:
       "Col. John Jameson is cursed as the Man-Wolf, Harry Osborn spirals toward his own green costume, the Punisher makes his debut, and Aunt May shocks everyone by marrying Doctor Octopus.",
-    coverUrl: "https://m.media-amazon.com/images/I/81jpFptB-dL._SL1500_.jpg",
+    coverUrl: "https://m.media-amazon.com/images/I/917JLtCeV4L._SL1500_.jpg",
     ownershipStatus: "announced",
   },
   {
@@ -601,7 +601,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     inkers: "Mike Esposito, Frank Giacoia, Dave Hunt, John Romita Sr.",
     description:
       "The Jackal clones both Gwen Stacy and Spider-Man in one of Spidey's greatest personal tragedies, as Doc Ock returns with the ghost of Hammerhead and Peter and MJ share their first kiss.",
-    coverUrl: "https://m.media-amazon.com/images/I/81bY-JIWqCL._SL1500_.jpg",
+    coverUrl: "https://m.media-amazon.com/images/I/91voVMlBEIL._SL1500_.jpg",
     ownershipStatus: "announced",
   },
   {
@@ -622,7 +622,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
       "Mike Esposito, Jim Mooney, Frank Giacoia, Tony DeZuniga, Bob McLeod, Tom Palmer, Pablo Marcos, John Verpoorten, Joe Sinnott",
     description:
       "J. Jonah Jameson gets proof Peter Parker is Spider-Man, dinosaurs battle the Lizard on Broadway, the Green Goblin rides again, and Peter proposes to Mary Jane.",
-    coverUrl: "https://m.media-amazon.com/images/I/81mQixP55tL._SL1500_.jpg",
+    coverUrl: "https://m.media-amazon.com/images/I/917aHZIb8IL._SL1500_.jpg",
     ownershipStatus: "announced",
   },
   {
@@ -728,7 +728,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
       "Bob McLeod, Vince Colletta, Jim Fern, Bob Wiacek, Al Williamson, Art Nichols, Kyle Baker, Steve Geiger, Keith Williams, Jack Abel",
     description:
       "An all-time-classic Wolverine encounter changes Spidey's life, leading into Kraven's Last Hunt -- one of comics' most psychological sagas, as Kraven goes to extreme lengths to prove himself superior before Peter and MJ's wedding.",
-    coverUrl: "https://m.media-amazon.com/images/I/91w1T5hdErL._SL1500_.jpg",
+    coverUrl: "https://m.media-amazon.com/images/I/A1OHg0YPNwL._SL1500_.jpg",
     ownershipStatus: "announced",
   },
   {
@@ -870,7 +870,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
       "Randy Emberlin, Mark Beachum, Michael Bair, Mark Texeira, David Day, Dan Day, Aaron Lopresti, Mark Stegbauer, Dan Panosian, Al Milgrom, Scott Hanna",
     description:
       "Deadly Spider-Slayer robots attack on sight, Venom stands trial for his crimes, Peter's parents return home under a mysterious watcher's eye, and Spidey duels demons alongside Doctor Strange.",
-    coverUrl: "https://m.media-amazon.com/images/I/81U7TEvNQuL._SL1500_.jpg",
+    coverUrl: "https://m.media-amazon.com/images/I/91zWpFomoJL._SL1500_.jpg",
     ownershipStatus: "announced",
   },
   {
@@ -910,7 +910,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     inkers: "Randy Emberlin, Al Milgrom, Bud LaRosa, Scott Hanna, Sal Buscema, Stephen Baskerville",
     description:
       "Mary and Richard Parker's return from the dead proves too good to be true as Peter teeters on the edge, battling the Hulk, the Jury, the Vulture, the Chameleon, Shriek, and Carrion.",
-    coverUrl: "https://m.media-amazon.com/images/I/81QQFujFuIL._SL1500_.jpg",
+    coverUrl: "https://m.media-amazon.com/images/I/9165KKlpijL._SL1500_.jpg",
     ownershipStatus: "announced",
   },
   {
@@ -1017,7 +1017,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     inkers: "Dick Ayers, Don Heck, Paul Reinman, Sol Brodsky, Steve Ditko",
     description:
       "Henry Pym's earliest adventures as Ant-Man, growing into the size-changing Giant-Man alongside the Wasp.",
-    coverUrl: "https://m.media-amazon.com/images/I/81pJCJHPtOL._SL1500_.jpg",
+    coverUrl: "https://m.media-amazon.com/images/I/91fiFss7crL._SL1500_.jpg",
     ownershipStatus: "announced",
   },
   {
@@ -1039,7 +1039,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
       "Bob Layton, Vince Colletta, Don Heck, Paul Reinman, Chic Stone, Herb Trimpe, George Roussos, Dick Ayers, Frank Giacoia, John Giunta, Mike Esposito, Mike Trimpe, Dan Adkins, Mark Kersey, Jim Janes, Frank Bolle, Frank Chiaramonte, Dave Hunt, Fred Kida, Keith Pollard",
     description:
       "Hank Pym's later years as Goliath and Yellowjacket, plus the debuts of Bill Foster as Black Goliath and Scott Lang as the second Ant-Man.",
-    coverUrl: "https://m.media-amazon.com/images/I/81dG-dWv4nL._SL1500_.jpg",
+    coverUrl: "https://m.media-amazon.com/images/I/91UdJBAwwuL._SL1500_.jpg",
     ownershipStatus: "announced",
   },
   // --- Avengers ---
@@ -1060,7 +1060,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
       "Dick Ayers, Chic Stone, Paul Reinman, George Roussos, Mike Esposito, Carl Hubbell, Wally Wood",
     description:
       "Iron Man, Thor, the Hulk, Ant-Man, and the Wasp band together to stop Loki, with Captain America joining soon after -- the origin of Earth's Mightiest Heroes.",
-    coverUrl: "https://m.media-amazon.com/images/I/81RcN5HpztL._SL1500_.jpg",
+    coverUrl: "https://m.media-amazon.com/images/I/919RNucw--L._SL1500_.jpg",
     ownershipStatus: "announced",
   },
   {
@@ -1181,7 +1181,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
       "Mike Esposito, Don Heck, Frank McLaughlin, Dave Cockrum, Joe Staton, Frank Bolle, Joe Sinnott, Frank Giacoia, John Romita Sr., Dan Adkins, Klaus Janson",
     description:
       "The Avengers and the Defenders clash in comics' first great crossover war -- Captain America vs. Namor, Thor vs. the Hulk -- while the Squadron Sinister pulls strings from the shadows.",
-    coverUrl: "https://m.media-amazon.com/images/I/81rraydydmL._SL1500_.jpg",
+    coverUrl: "https://m.media-amazon.com/images/I/91gjVKdBDdL._SL1500_.jpg",
     ownershipStatus: "announced",
   },
   {
@@ -1202,7 +1202,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
       "Vince Colletta, Joe Staton, Sam Grainger, John Tartaglione, Frank Chiaramonte, Mike Esposito, Dave Cockrum, Joe Giella",
     description:
       "The \"Celestial Madonna\" saga unfolds as Kang, Rama-Tut, and Immortus collide across time, leading to the Vision and Scarlet Witch's wedding and new members Beast, Hellcat, and Moondragon joining the team.",
-    coverUrl: "https://m.media-amazon.com/images/I/81TkK6iUftL._SL1500_.jpg",
+    coverUrl: "https://m.media-amazon.com/images/I/91zPh3+5CnL._SL1500_.jpg",
     ownershipStatus: "announced",
   },
   {
@@ -1246,7 +1246,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
       "Pablo Marcos, Klaus Janson, Dan Green, Joe Rubinstein, Diverse Hands, Ricardo Villamonte, Al Gordon, Terry Austin, Dave Hunt, Bob McLeod, Rick Bryant, Win Mortimer, Rudy Nebres, Mike Esposito, Gene Day, Frank Springer, Jack Abel",
     description:
       "The Korvac Saga -- one of the Avengers' most acclaimed stories -- pits the team against Michael Korvac, a being who has ascended to god-like cosmic power.",
-    coverUrl: "https://m.media-amazon.com/images/I/81DUSrXnX2L._SL1500_.jpg",
+    coverUrl: "https://m.media-amazon.com/images/I/91xvxjUa6QL._SL1500_.jpg",
     ownershipStatus: "announced",
   },
   {
@@ -1268,7 +1268,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
       "Dan Green, Joe Rubinstein, Jack Abel, Mike Esposito, Ricardo Villamonte, Vince Colletta, Brett Breeding, Al Milgrom, Gene Day, Armando Gil, Joe Sinnott, Frank Giacoia, Bob Wiacek",
     description:
       "Henry Peter Gyrich tries to strip Earth's Mightiest Heroes of their government charter as the Grey Gargoyle crashes the hearing, and the mysterious Taskmaster debuts, able to replicate any hero's fighting skills.",
-    coverUrl: "https://m.media-amazon.com/images/I/81aaXKqaRSL._SL1500_.jpg",
+    coverUrl: "https://m.media-amazon.com/images/I/91SzXmjVDgL._SL1500_.jpg",
     ownershipStatus: "announced",
   },
   {
@@ -1430,7 +1430,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
       "Tom Palmer, Christopher \"Chris\" Ivy, Diverse Hands, Fred Fredericks, Sam de la Rosa, Randy Emberlin, Mark McKenna, Keith Williams, Jeff Albrecht, Reggie Jones, Tom Morgan",
     description:
       "Fabian Nicieza takes the reins as the team navigates internal shakeups and outside threats testing the very idea of what makes an Avenger.",
-    coverUrl: "https://m.media-amazon.com/images/I/817HAoYcYfL._SL1500_.jpg",
+    coverUrl: "https://m.media-amazon.com/images/I/91TTMBej0-L._SL1500_.jpg",
     ownershipStatus: "announced",
   },
   {
@@ -1452,7 +1452,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
       "Tom Palmer, Fred Fredericks, Jim Sanders, Mike Witherby, Al Milgrom, Erik Larsen, Tom Morgan, Danny Bulanadi, Margeaux Pepoy, Bob Wiacek, Tony DeZuniga, Robert Jones, Charles Barnett",
     description:
       "The Taskmaster's Vault prison break sends the Avengers scrambling, in a collection built around the team's fascination with their own history and legacy.",
-    coverUrl: "https://m.media-amazon.com/images/I/91325ejeuEL._SL1500_.jpg",
+    coverUrl: "https://m.media-amazon.com/images/I/A1qJ0s2nexL._SL1500_.jpg",
     ownershipStatus: "announced",
   },
   {
@@ -1474,7 +1474,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
       "Danny Bulanadi, Tim Dzon, Tom Palmer, Dan Panosian, Bob Wiacek, Al Milgrom, Keith Williams, Harry Candelario, Fred Fredericks, Jan Anton Harps, Art Nichols, Bud LaRosa",
     description:
       "The Kree-Shi'ar war explodes across the Marvel Universe as every Avengers team gets pulled into the biggest crossover event of the early '90s, forcing brutal choices about which side to save.",
-    coverUrl: "https://m.media-amazon.com/images/I/81mBaYwHOmL._SL1500_.jpg",
+    coverUrl: "https://m.media-amazon.com/images/I/A1tWz2HOYVL._SL1500_.jpg",
     ownershipStatus: "announced",
   },
   {
@@ -1537,7 +1537,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
       "Tom Palmer, Don Hudson, Grant Miehm, Matt Ryan, Tim Dzon, Dan Green, Kevin Yates, Al Milgrom, John Buscema, George Pérez",
     description:
       "The Gatherers' true purpose comes to light as the team faces a crossover with the X-Men, forcing a reckoning with the enemy pulling the strings behind recent attacks.",
-    coverUrl: "https://m.media-amazon.com/images/I/91EhyVFanFL._SL1500_.jpg",
+    coverUrl: "https://m.media-amazon.com/images/I/A13LZloUHCL._SL1500_.jpg",
     ownershipStatus: "announced",
   },
   {
@@ -1705,7 +1705,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
       "Danny Bulanadi, Paul Ryan, Tom Palmer, Keith Williams, Randy Emberlin, Brad Vancata, Christopher \"Chris\" Ivy, Jeff Albrecht, Terry Austin",
     description:
       "The Scarlet Witch's grip on reality frays further as John Byrne pushes the fallout from Vision's transformation to its breaking point.",
-    coverUrl: "https://m.media-amazon.com/images/I/81XcMN56E0L._SL1500_.jpg",
+    coverUrl: "https://m.media-amazon.com/images/I/816sHUXbCBL._SL1500_.jpg",
     ownershipStatus: "announced",
   },
   {
@@ -2032,7 +2032,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
       "Vince Colletta, Frank McLaughlin, John Verpoorten, Tony Mortellaro, Alan Weiss, Frank Giacoia, John Tartaglione, George Roussos",
     description:
       "Steve Englehart and Sal Buscema unravel a conspiracy reaching to the very top of the U.S. government, as the Secret Empire's shocking scheme leaves Cap questioning what his shield stands for.",
-    coverUrl: "https://m.media-amazon.com/images/I/8111Xp6qG9L._SL1500_.jpg",
+    coverUrl: "https://m.media-amazon.com/images/I/91pzeTlx-KL._SL1500_.jpg",
     ownershipStatus: "announced",
   },
   {
@@ -2053,7 +2053,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
       "Frank Giacoia, Vince Colletta, D. Bruce Berry, Frank Chiaramonte, Joe Giella, Mike Esposito, Barry Windsor-Smith",
     description:
       "Watergate-era disillusionment drives Steve Rogers to renounce the Captain America identity and become Nomad, a man without a country, building toward Jack Kirby's Bicentennial return and his classic \"Madbomb\" saga.",
-    coverUrl: "https://m.media-amazon.com/images/I/81w1q6XAlqL._SL1500_.jpg",
+    coverUrl: "https://m.media-amazon.com/images/I/912yX7ic22L._SL1500_.jpg",
     ownershipStatus: "announced",
   },
   {
@@ -2136,7 +2136,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
       "John Beatty, Mike Gustovich, Roy Richardson, Dennis Janke, Kim DeMulder, Vince Colletta, Steve Leialoha, Jack Abel, Ed Barreto, Joe Rubinstein, Brett Breeding, Sam de la Rosa",
     description:
       "J.M. DeMatteis pushes Cap into more introspective, psychologically charged territory, spinning the Falcon off into his own miniseries along the way.",
-    coverUrl: "https://m.media-amazon.com/images/I/81qxoBNSIrL._SL1500_.jpg",
+    coverUrl: "https://m.media-amazon.com/images/I/91EvRLIqWnL._SL1500_.jpg",
     ownershipStatus: "announced",
   },
   {
@@ -2194,7 +2194,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     inkers: "Al Milgrom, Dave Hunt, Tom Morgan, Tony DeZuniga, Bob Layton",
     description:
       "When Steve Rogers refuses to become a government operative, a new Captain America -- John Walker -- takes up the uniform and shield, while Rogers reinvents himself as the Captain and trades blows with Iron Man before the Red Skull's return forces the two Caps onto a collision course.",
-    coverUrl: "https://m.media-amazon.com/images/I/810p5gFpANL._SL1500_.jpg",
+    coverUrl: "https://m.media-amazon.com/images/I/917EtLfjVFS._SL1500_.jpg",
     ownershipStatus: "announced",
   },
   {
@@ -2213,7 +2213,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     inkers: "Danny Bulanadi, Al Milgrom",
     description:
       "Steve Rogers reclaims the shield and identity of Captain America, then sets off on a globe-trotting hunt for the shards of the mystical Bloodstone.",
-    coverUrl: "https://m.media-amazon.com/images/I/81tSxgZgxQL._SL1500_.jpg",
+    coverUrl: "https://m.media-amazon.com/images/I/91InP0gFNLL._SL1500_.jpg",
     ownershipStatus: "announced",
   },
   {
@@ -2290,7 +2290,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
       "Danny Bulanadi, Keith Williams, Al Williamson, Kathryn Bolinger, Pam Eklund, Charles Barnett",
     description:
       "John Walker's tenure as U.S.Agent gets its own spotlight while Captain America teams with Ghost Rider against a supernatural fear-based threat.",
-    coverUrl: "https://m.media-amazon.com/images/I/81mQf-VPYzL._SL1500_.jpg",
+    coverUrl: "https://m.media-amazon.com/images/I/91osHNf9bOL._SL1500_.jpg",
     ownershipStatus: "announced",
   },
   {
@@ -2435,7 +2435,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
       "Randy Emberlin, Don Hudson, Scott Hanna, Sal Buscema, Jim Sanders III, Al Milgrom, Sam de la Rosa, Bud LaRosa",
     description:
       "Cletus Kasady bonds with Venom's spawned symbiote to become Carnage, unleashing his first rampages against Spider-Man and building to the citywide Maximum Carnage crossover.",
-    coverUrl: "https://m.media-amazon.com/images/I/91VHHeb7EEL._SL1500_.jpg",
+    coverUrl: "https://m.media-amazon.com/images/I/A1uH4BbPJQL._SL1500_.jpg",
     ownershipStatus: "announced",
   },
   {
@@ -2457,7 +2457,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
       "Joe Rubinstein, Randy Emberlin, Larry Mahlstedt, Kyle Hotz, Derek Fisher, Sal Buscema, Bill Sienkiewicz, Sam de la Rosa, Ralph Cabrera, Greg Adams, Armando Gil, Arne Starr, Steve Lightle, Klaus Janson, Al Williamson, Al Milgrom, Art Thibert, John Stanisci",
     description:
       "Cletus Kasady escapes captivity once again, and when the Planet of the Symbiotes invades Earth, a fifty-foot Carnage rampages through the city.",
-    coverUrl: "https://m.media-amazon.com/images/I/81W2T3J6PuL._SL1500_.jpg",
+    coverUrl: "https://m.media-amazon.com/images/I/91Ek2HjBsqL._SL1500_.jpg",
     ownershipStatus: "announced",
   },
   {
@@ -2500,7 +2500,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
       "Wally Wood, Frank Giacoia, Vince Colletta, Bill Everett, John Romita Sr., Steve Ditko, Sol Brodsky, Dick Ayers",
     description:
       "Matt Murdock is blinded by radioactive waste while saving a man's life, but gains superhuman senses in return -- becoming Daredevil, a gritty hero protecting the downtrodden.",
-    coverUrl: "https://m.media-amazon.com/images/I/81Yc-CWY53L._SL1500_.jpg",
+    coverUrl: "https://m.media-amazon.com/images/I/911+V2xPicL._SL1500_.jpg",
     ownershipStatus: "announced",
   },
   {
@@ -2519,7 +2519,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     inkers: "John Tartaglione, Frank Giacoia, Dick Ayers, George Tuska, Joe Sinnott",
     description:
       "Matt Murdock juggles his double life by inventing a fake twin brother, Mike Murdock, and even swaps bodies with Doctor Doom in one of comics' first crossovers, alongside the debut of the Emissaries of Evil.",
-    coverUrl: "https://m.media-amazon.com/images/I/8159ia6UUxL._SL1500_.jpg",
+    coverUrl: "https://m.media-amazon.com/images/I/91Kz7Sero6L._SL1500_.jpg",
     ownershipStatus: "announced",
   },
   {
@@ -2557,7 +2557,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     inkers: "Syd Shores, Tom Palmer, Jack Abel, Mike Esposito, Bill Everett",
     description:
       "Daredevil heads to the West Coast to win back Karen Page's love, and one of his most iconic eras begins as his relationship with the Black Widow takes flight.",
-    coverUrl: "https://m.media-amazon.com/images/I/81YmjbNxQkL._SL1500_.jpg",
+    coverUrl: "https://m.media-amazon.com/images/I/91VV7uxuhmL._SL1500_.jpg",
     ownershipStatus: "announced",
   },
   {
@@ -2578,7 +2578,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
       "Tom Palmer, Ernie Chan, Sal Trapani, Frank Giacoia, Syd Shores, John Tartaglione, Don Perlin, Sal Buscema, Mike Esposito",
     description:
       "Daredevil and the Black Widow relocate to San Francisco, settling into a new life together while classic foes track them down on the opposite coast.",
-    coverUrl: "https://m.media-amazon.com/images/I/81Gb1LZnO1L._SL1500_.jpg",
+    coverUrl: "https://m.media-amazon.com/images/I/91rZ7kHhnqL._SL1500_.jpg",
     ownershipStatus: "announced",
   },
   {
@@ -2598,7 +2598,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
       "Vince Colletta, Klaus Janson, Don Heck, Paul Gulacy, Joe Sinnott, Frank Chiaramonte, Jim Mooney, Frank Giacoia",
     description:
       "Daredevil, the Black Widow, and Shanna the She-Devil uncover the secret leaders of Black Spectre, a massive saga culminating in a battle on the White House lawn -- and Bullseye, the madman with perfect aim, makes his deadly debut.",
-    coverUrl: "https://m.media-amazon.com/images/I/81GBq1AQi7L._SL1500_.jpg",
+    coverUrl: "https://m.media-amazon.com/images/I/91UWLZr3L1L._SL1500_.jpg",
     ownershipStatus: "announced",
   },
   {
@@ -2620,7 +2620,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
       "Jim Mooney, Klaus Janson, Al Milgrom, Vince Colletta, Don Perlin, Frank Chiaramonte, Keith Pollard, Dan Green, Tony DeZuniga, Steve Leialoha, Alan Weiss, Tom Sutton",
     description:
       "A gritty saga traps Daredevil in Rikers Island prison, forcing him to survive among the very criminals he put behind bars.",
-    coverUrl: "https://m.media-amazon.com/images/I/81i8MzUizXL._SL1500_.jpg",
+    coverUrl: "https://m.media-amazon.com/images/I/91Rwx4zCXgL._SL1500_.jpg",
     ownershipStatus: "announced",
   },
   {
@@ -2649,8 +2649,8 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     lineId: "daredevil",
     number: "12",
     title: "It Comes with the Claws",
-    start: { year: 1986, quarter: 1 },
-    end: { year: 1987, quarter: 4 },
+    start: { year: 1986, quarter: 3 },
+    end: { year: 1987, quarter: 1 },
     issuesCollected: "Daredevil #234-252",
     yearsCovered: "1986-1987",
     releaseDate: { year: 2022, month: 11 },
@@ -2662,7 +2662,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
       "Al Williamson, Danny Bulanadi, Tony DeZuniga, Klaus Janson, Barry Windsor-Smith, Bob Wiacek, Steve Leialoha, Geof Isherwood, Al Milgrom, Dave Hunt",
     description:
       "Klaw, Master of Sound, makes some noise, Chance tries his luck, and the savage Sabretooth crosses Daredevil's path right in the middle of the Mutant Massacre.",
-    coverUrl: "https://m.media-amazon.com/images/I/812IWkgMwIL._SL1500_.jpg",
+    coverUrl: "https://m.media-amazon.com/images/I/91IKiH1EuEL._SL1500_.jpg",
     ownershipStatus: "announced",
   },
   {
@@ -2703,7 +2703,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
       "Al Williamson, Sam de la Rosa, Cam Kennedy, Neil Hansen, Larry Mahlstedt, Tom Christopher",
     description:
       "Daredevil is caught between the diabolical Mephisto and his monstrous son Blackheart, forcing the Man Without Fear and his allies to confront their own demons.",
-    coverUrl: "https://m.media-amazon.com/images/I/81lJnZAr28L._SL1500_.jpg",
+    coverUrl: "https://m.media-amazon.com/images/I/A1jcWmCp5DL._SL1500_.jpg",
     ownershipStatus: "announced",
   },
   {
@@ -2742,7 +2742,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     inkers: "Bud LaRosa, Christopher \"Chris\" Ivy, Mark McKenna, Fred Fredericks",
     description:
       "The Kingpin falls and the Owl moves to seize control of New York's underworld, as Tombstone, Hammerhead, Silvermane, Hydra, and the Hand all converge on a high-stakes Vegas gathering.",
-    coverUrl: "https://m.media-amazon.com/images/I/91E-QciZ9QL._SL1500_.jpg",
+    coverUrl: "https://m.media-amazon.com/images/I/91KUHgLYsdL._SL1500_.jpg",
     ownershipStatus: "announced",
   },
   {
@@ -2866,7 +2866,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
       "Tony DeZuniga, Bud LaRosa, Rob Liefeld, Mark Farmer, Harry Candelario, Jason Temujin Minor, Mark McKenna, Dan Panosian, Al Milgrom, Ariane Lenshoek, Don Hudson, Philip Moy, Tom Wegrzyn, W.C. Carani",
     description:
       "The Merc with a Mouth's first appearance and earliest mercenary jobs, building to his own Circle Chase miniseries and first ongoing series.",
-    coverUrl: "https://m.media-amazon.com/images/I/91yRWw9O+7L._SL1500_.jpg",
+    coverUrl: "https://m.media-amazon.com/images/I/91W0p43kPiL._SL1500_.jpg",
     ownershipStatus: "announced",
   },
   {
@@ -2887,7 +2887,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
       "Nathan Massengill, Norman Lee, Tim Townsend, Mark Farmer, Vince Russell, Mark Pennington, Mark Morales, Bud LaRosa, Rachel Dodson, Jon Holdredge",
     description:
       "Deadpool's own ongoing series debuts, growing his supporting cast of Blind Al, Weasel, and the Vanisher while he chases down Black Tom Cassidy and Juggernaut.",
-    coverUrl: "https://m.media-amazon.com/images/I/81sXMrXlrmL._SL1500_.jpg",
+    coverUrl: "https://m.media-amazon.com/images/I/91+hwQ5CUJL._SL1500_.jpg",
     ownershipStatus: "announced",
   },
   {
@@ -2969,7 +2969,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     inkers: "Udon Studios, Mark McKenna, Marcelo Sosa, Rob Ross, Kyle Hotz",
     description:
       "Deadpool's memory and identity are scrambled by a telepathic villain, leading into Gail Simone's Agent X -- a mysterious new mercenary with a mangled, unreliable version of Wade's old life.",
-    coverUrl: "https://m.media-amazon.com/images/I/81tY0zPX7SL._SL1500_.jpg",
+    coverUrl: "https://m.media-amazon.com/images/I/81gb0+xaqIL._SL1500_.jpg",
     ownershipStatus: "announced",
   },
   {
@@ -3019,7 +3019,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
       "Frank McLaughlin, Mike Esposito, Jim Mooney, Frank Bolle, Bill Everett, Frank Giacoia, Tom Palmer, Johnny Craig, Herb Trimpe, Sal Buscema, John Verpoorten",
     description:
       "Doctor Strange, the Hulk, and Namor the Sub-Mariner form a loose, non-team of misfits and outcasts too dangerous or strange for the mainstream Marvel Universe, birthing the \"non-team\" concept of the Defenders.",
-    coverUrl: "https://m.media-amazon.com/images/I/81z9bTWSZYL._SL1500_.jpg",
+    coverUrl: "https://m.media-amazon.com/images/I/91-eynqoVOL._SL1500_.jpg",
     ownershipStatus: "announced",
   },
   {
@@ -3041,7 +3041,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
       "Klaus Janson, Mike Esposito, Dan Green, Vince Colletta, Jack Abel, Al Milgrom, Frank Giacoia, Sal Trapani, Dan Adkins, Jim Mooney, Don Newton, Bob McLeod, Bob Powell, Angelo Torres, Doug Wildey",
     description:
       "The bizarre Headmen -- a mismatched trio of body-swapping villains -- launch a scheme against the Defenders as the team's roster of oddballs continues to expand.",
-    coverUrl: "https://m.media-amazon.com/images/I/91d2Nle1NFL._SL1500_.jpg",
+    coverUrl: "https://m.media-amazon.com/images/I/91Ysl2e89cL._SL1500_.jpg",
     ownershipStatus: "announced",
   },
   {
@@ -3102,7 +3102,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
       "Jack Abel, Kim DeMulder, Andy Mushynsky, Mike Gustovich, Mike Esposito, Hilary Barta, Mike Mignola, Diverse Hands, Al Milgrom, Alan Kupperberg",
     description:
       "The Defenders' occult adventures continue under J.M. DeMatteis as the team's ever-shifting roster faces new threats drawn from the shadows of the Marvel Universe.",
-    coverUrl: "https://m.media-amazon.com/images/I/71NUe2d60JL._SL1031_.jpg",
+    coverUrl: "https://m.media-amazon.com/images/I/A1ymhCs6AVL._SL1500_.jpg",
     ownershipStatus: "announced",
   },
   {
@@ -3225,7 +3225,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
       "Dan Adkins, Bill Everett, Tom Palmer, Marie Severin, Herb Trimpe, Joe Sinnott, Steve Ditko, George Klein, Sam Grainger",
     description:
       "Doctor Strange gets his own solo series and one of his greatest creative teams, pitting the Master of the Mystic Arts against Eternity and Dormammu with Clea and Victoria Bentley's lives hanging in the balance.",
-    coverUrl: "https://m.media-amazon.com/images/I/81dZdETl95L._SL1500_.jpg",
+    coverUrl: "https://m.media-amazon.com/images/I/91EbY6Z2PzL._SL1500_.jpg",
     ownershipStatus: "announced",
   },
   {
@@ -3247,7 +3247,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
       "Dick Giordano, Tom Palmer, Frank Giacoia, Crusty Bunkers, Frank Brunner, Dave Hunt, Ernie Chan, Johnny Craig, Herb Trimpe, Dan Adkins, Don Perlin, Sal Buscema, Ralph Reese, Mike Esposito, Alan Weiss, Bob Wiacek",
     description:
       "Steve Englehart and Frank Brunner create the classic \"Sise-Neg Genesis\" and \"Silver Dagger\" sagas, some of the most acclaimed Doctor Strange stories ever told.",
-    coverUrl: "https://m.media-amazon.com/images/I/8142aY2RPvL._SL1500_.jpg",
+    coverUrl: "https://m.media-amazon.com/images/I/A1Jmf8mENgS._SL1500_.jpg",
     ownershipStatus: "announced",
   },
   {
@@ -3290,7 +3290,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
       "Dan Green, Terry Austin, Tom Sutton, Rudy Nebres, Al Milgrom, Frank Brunner, Ernie Chan, P. Craig Russell, Pablo Marcos, Ricardo Villamonte, Jack Abel, Frank Giacoia, Bob Wiacek, Wendy Pini, Walter \"Walt\" Simonson, Tom Palmer, Joe Rubinstein, Diverse Hands",
     description:
       "Roger Stern and Chris Claremont pit Doctor Strange against Nightmare, D'Spayre, and the Dream Weaver in a war fought across the landscape of the subconscious.",
-    coverUrl: "https://m.media-amazon.com/images/I/81s5SMENnXL._SL1500_.jpg",
+    coverUrl: "https://m.media-amazon.com/images/I/91vspXk7YxL._SL1500_.jpg",
     ownershipStatus: "announced",
   },
   {
@@ -3309,7 +3309,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     inkers: "Jackson Guice, José Marzan Jr., Randy Emberlin, Tony DeZuniga, Mark Badger",
     description:
       "Peter B. Gillis launches the Sorcerer Supreme era, and in Triumph and Torment, Doctor Strange makes a bargain with Doctor Doom to save Doom's mother's soul from eternal torment.",
-    coverUrl: "https://m.media-amazon.com/images/I/81b6btyWCoL._SL1500_.jpg",
+    coverUrl: "https://m.media-amazon.com/images/I/914NyYdgw7L._SL1500_.jpg",
     ownershipStatus: "announced",
   },
   {
@@ -3330,7 +3330,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
       "Mark McKenna, Tony DeZuniga, Jackson Guice, Gene Colan, Doug Hazlewood, Kelley Jones, Sam de la Rosa, Jimmy Palmiotti, Mark Texeira",
     description:
       "The return of the vampires -- Doctor Strange faces bloodsuckers rising again, beginning with one uncomfortably close to Stephen himself.",
-    coverUrl: "https://m.media-amazon.com/images/I/81dqj6VRzmL._SL1500_.jpg",
+    coverUrl: "https://m.media-amazon.com/images/I/91JzWmued5L._SL1500_.jpg",
     ownershipStatus: "announced",
   },
   {
@@ -3351,7 +3351,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
       "Geof Isherwood, Jim Sanders III, Christopher \"Chris\" Ivy, Don Hudson, Sam de la Rosa, Margeaux Pepoy, Bob Petrecca, E.R. Cruz, Tom Christopher, Mark Beachum, Michael Bair, Mark Texeira",
     description:
       "Doctor Strange is swept up in the galaxy-spanning Infinity War event, teaming with the Silver Surfer and Spider-Man as reality itself is threatened by an army of villainous doppelgangers.",
-    coverUrl: "https://m.media-amazon.com/images/I/81CPwAsMtxL._SL1500_.jpg",
+    coverUrl: "https://m.media-amazon.com/images/I/91nFgXueoXL._SL1500_.jpg",
     ownershipStatus: "announced",
   },
   {
@@ -3372,7 +3372,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
       "Geof Isherwood, Bob Petrecca, Don Hudson, Fred Harper, Armando Gil, Vince Colletta, Charles Barnett, Mike Witherby, Dave Simons, Sandu Florea",
     description:
       "Clea's actions accidentally free Dormammu and Doctor Strange loses his magical powers, forcing the Defenders to reunite against Dormammu while Nightmare sets his sights on the powerless sorcerer.",
-    coverUrl: "https://m.media-amazon.com/images/I/8140e5359rL._SL1500_.jpg",
+    coverUrl: "https://m.media-amazon.com/images/I/91ATvEbrvAL._SL1500_.jpg",
     ownershipStatus: "announced",
   },
   {
@@ -3544,7 +3544,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
       "Scott Koblish, Paul Neary, Mark Pennington, Sergio Melia, Rick Ketcham, Rob Haynes, Casey Jones, Bryan Hitch, Robin Riggs, Rachel Pinnock, Tom Simmons, Jason Martin, Aaron Lopresti, Nathan Massengill",
     description:
       "John Arcudi and Bryan Hitch take the reins as the team faces a wave of crossovers alongside Colossus and a Kitty Pryde S.H.I.E.L.D. spinoff.",
-    coverUrl: "https://m.media-amazon.com/images/I/81LZaqvXoeL._SL1500_.jpg",
+    coverUrl: "https://m.media-amazon.com/images/I/915jwMP9MIL._SL1500_.jpg",
     ownershipStatus: "announced",
   },
   {
@@ -3645,7 +3645,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     inkers: "Joe Sinnott, Chic Stone, Vince Colletta, Wally Wood, Frank Giacoia",
     description:
       "The Frightful Four and the Inhumans debut, Galactus and the Silver Surfer arrive to threaten Earth, and Reed Richards and Sue Storm celebrate the first superhero wedding in comics.",
-    coverUrl: "https://m.media-amazon.com/images/I/81R9ZPB3gQL._SL1500_.jpg",
+    coverUrl: "https://m.media-amazon.com/images/I/91Gi53MmPNL._SL1500_.jpg",
     ownershipStatus: "announced",
   },
   {
@@ -3721,7 +3721,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     inkers: "Joe Sinnott, John Verpoorten, Frank Giacoia, Jim Mooney",
     description:
       "Stan Lee's final issues as regular writer give way to Archie Goodwin and John Buscema, pitting the team against a rotating cast of giant monsters and cosmic-level threats.",
-    coverUrl: "https://m.media-amazon.com/images/I/81+lFWjY7GL._SL1500_.jpg",
+    coverUrl: "https://m.media-amazon.com/images/I/914gsS-fqEL._SL1500_.jpg",
     ownershipStatus: "announced",
   },
   {
@@ -3740,7 +3740,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     inkers: "Joe Sinnott, Frank Giacoia",
     description:
       "The origin of Annihilus in the Negative Zone unfolds alongside classic battles with Thundra and the Hulk, plus the return of Doctor Doom.",
-    coverUrl: "https://m.media-amazon.com/images/I/81IjOry99CL._SL1500_.jpg",
+    coverUrl: "https://m.media-amazon.com/images/I/91OMF1YJoVL._SL1500_.jpg",
     ownershipStatus: "announced",
   },
   {
@@ -3762,7 +3762,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
       "Joe Sinnott, Chic Stone, Joe Staton, John Romita Sr., Jim Mooney, Frank Giacoia, Mike Esposito, Paul Reinman, Rich Buckler, Vince Colletta",
     description:
       "The strained relationship of Reed and Sue Richards worsens as Sue joins Namor in an invasion of New York City, the Frightful Four resurface, the Femizons and Mahkizmo face off, and the Silver Surfer returns.",
-    coverUrl: "https://m.media-amazon.com/images/I/81Zcd7uE-3L._SL1500_.jpg",
+    coverUrl: "https://m.media-amazon.com/images/I/91X88OojAYL._SL1500_.jpg",
     ownershipStatus: "announced",
   },
   {
@@ -3887,7 +3887,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     inkers: "Romeo Tanghal, Joe Sinnott, Tony DeZuniga, Mark Badger",
     description:
       "Steve Englehart's run reaches its controversial climax as the team faces a shakeup that will redefine the FF's status quo -- collected alongside Doctor Strange's bargain with Doctor Doom in Triumph and Torment.",
-    coverUrl: "https://m.media-amazon.com/images/I/81CGjsBdLOL._SL1500_.jpg",
+    coverUrl: "https://m.media-amazon.com/images/I/91d7UZlAkwL._SL1500_.jpg",
     ownershipStatus: "announced",
   },
   {
@@ -3948,7 +3948,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     inkers: "Danny Bulanadi, Raymond Kryssing, Christopher \"Chris\" Ivy, Brad Vancata, Bud LaRosa",
     description:
       "Tom DeFalco and Paul Ryan settle into a long, stable run on the team, weathering the early-'90s Marvel landscape with street-level threats and cosmic stakes alike.",
-    coverUrl: "https://m.media-amazon.com/images/I/81ZDdaFPEHL._SL1500_.jpg",
+    coverUrl: "https://m.media-amazon.com/images/I/91kr-P4RxdL._SL1500_.jpg",
     ownershipStatus: "announced",
   },
   {
@@ -3968,7 +3968,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     inkers: "Danny Bulanadi, Geof Isherwood, Don Hudson, Joe Sinnott, Ralph Cabrera, John Byrne",
     description:
       "Tom DeFalco and Paul Ryan continue their run as the team's oldest enemies close in, driving home the volume's grim promise that nobody gets out alive.",
-    coverUrl: "https://m.media-amazon.com/images/I/81k+1OfCAXL._SL1500_.jpg",
+    coverUrl: "https://m.media-amazon.com/images/I/91w4BZhCLsL._SL1500_.jpg",
     ownershipStatus: "announced",
   },
   {
@@ -4140,7 +4140,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
       "Al Vey, Scott Hanna, Howard M. Shum, Jason Martin, Bud LaRosa, Joe Pimentel, Eric Cannon, Chris Bachalo, Jon Holdredge, Lary Stucker, Rob Hunter, Al Williamson, Jim Mahfood, Mark Irwin",
     description:
       "Shocking secrets about M's true nature and origin come to light, testing the bonds between the students of Generation X.",
-    coverUrl: "https://m.media-amazon.com/images/I/81WrjznpUHL._SL1500_.jpg",
+    coverUrl: "https://m.media-amazon.com/images/I/91MPlSGmNaL._SL1500_.jpg",
     ownershipStatus: "announced",
   },
   {
@@ -4161,7 +4161,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
       "Rachel Dodson, Walden Wong, Sean Parsons, Scott Hanna, Cabin Boy, Rob Leigh, Edwin Rosell, Vince Russell, Jon Holdredge, Margeaux Pepoy, Troy Hubbs, Bob Wiacek, Rich Faber, Mark Morales",
     description:
       "Larry Hama takes over as the students face guilt, grief, and a holiday-season crossover with Dracula himself.",
-    coverUrl: "https://m.media-amazon.com/images/I/81RzM-wcn8L._SL1500_.jpg",
+    coverUrl: "https://m.media-amazon.com/images/I/81b-hYQDhzL._SL1500_.jpg",
     ownershipStatus: "announced",
   },
   {
@@ -4223,7 +4223,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
       "Sal Trapani, Syd Shores, Frank Monte, Jim Mooney, John Tartaglione, Mike Ploog, Chic Stone, Frank Chiaramonte, Vince Colletta, Jack Abel, George Roussos, Don Perlin",
     description:
       "Stunt cyclist Johnny Blaze sells his soul to save his adoptive father, transforming into the hellfire-skulled Ghost Rider in Gary Friedrich and Mike Ploog's atmospheric debut.",
-    coverUrl: "https://m.media-amazon.com/images/I/81Ys9k4wfeL._SL1500_.jpg",
+    coverUrl: "https://m.media-amazon.com/images/I/A1hQ5gyuIbL._SL1500_.jpg",
     ownershipStatus: "announced",
   },
   {
@@ -4534,7 +4534,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     inkers: "Dick Ayers, Paul Reinman, Steve Ditko, George Roussos, Chic Stone",
     description:
       "Gamma radiation transforms Dr. Bruce Banner into the Hulk, a raging behemoth hunted by the military and hounded by General \"Thunderbolt\" Ross, in the character's earliest, most experimental appearances.",
-    coverUrl: "https://m.media-amazon.com/images/I/81dYhLa-YqL._SL1500_.jpg",
+    coverUrl: "https://m.media-amazon.com/images/I/91XEAr5bEOL._SL1500_.jpg",
     ownershipStatus: "announced",
   },
   {
@@ -4634,7 +4634,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     inkers: "Jack Abel, Sal Trapani, Herb Trimpe, John Romita Sr.",
     description:
       "The Hulk is banished to the High Evolutionary's genetically engineered world of Counter-Earth, facing off with strange new threats far from home.",
-    coverUrl: "https://m.media-amazon.com/images/I/81jebCQsOfL._SL1500_.jpg",
+    coverUrl: "https://m.media-amazon.com/images/I/91Rcp0WrlNL._SL1500_.jpg",
     ownershipStatus: "announced",
   },
   {
@@ -4653,7 +4653,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     inkers: "Joe Staton, Herb Trimpe, Jack Abel, Marie Severin",
     description:
       "Len Wein writes some of his greatest Hulk stories, including the first appearance of Wolverine, as the Hulk smashes through the Mole Man, the Gremlin, the Shaper of Worlds, Doc Samson, and the Abomination.",
-    coverUrl: "https://m.media-amazon.com/images/I/8140SCRTWpL._SL1500_.jpg",
+    coverUrl: "https://m.media-amazon.com/images/I/91EhQ3Cjj5L._SL1500_.jpg",
     ownershipStatus: "announced",
   },
   {
@@ -4673,7 +4673,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
       "Ernie Chan, Joe Staton, Joe Rubinstein, Alfredo Alcala, Frank Giacoia, Mike Esposito, Tom Palmer, Joe Sinnott",
     description:
       "Triumph and tragedy for the Hulk as he falls for Jarella and journeys to her microscopic world of K'ai, only for a devastating return to Earth to spark a rampage that not even S.H.I.E.L.D., the Defenders, or Doc Samson can stop.",
-    coverUrl: "https://m.media-amazon.com/images/I/81Lp8SaAQKL._SL1500_.jpg",
+    coverUrl: "https://m.media-amazon.com/images/I/91bs4U0cy7L._SL1500_.jpg",
     ownershipStatus: "announced",
   },
   {
@@ -4732,7 +4732,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     inkers: "Gerry Talaoc, Al Williamson",
     description:
       "Bill Mantlo's long-running Hulk saga pushes toward a crossroads, sending the Jade Giant into conflict with Alpha Flight as classic subplots reach a breaking point.",
-    coverUrl: "https://m.media-amazon.com/images/I/81gfA6o5w0L._SL1500_.jpg",
+    coverUrl: "https://m.media-amazon.com/images/I/911PZaKMjhL._SL1500_.jpg",
     ownershipStatus: "announced",
   },
   {
@@ -4834,7 +4834,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
       "Robin Riggs, Cam Smith, Al Milgrom, John Estes, Bill Anderson, David Day, Dan Day, Joe Rubinstein, Fred Fredericks, Ron Boyd, Gary Martin",
     description:
       "The Hulk and the Pantheon face a painful loss as Hela claims the Hulk in an Asgardian underworld epic, tearing the Pantheon apart from within while Doc Samson strives to save Bruce's mind and Betty battles for her life.",
-    coverUrl: "https://m.media-amazon.com/images/I/81WITjPtldL._SL1500_.jpg",
+    coverUrl: "https://m.media-amazon.com/images/I/918GCo2tWWL._SL1500_.jpg",
     ownershipStatus: "announced",
   },
   {
@@ -4955,7 +4955,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
       "Frank Chiaramonte, Dick Giordano, Dan Adkins, Dan Green, Vince Colletta, Al McWilliams, Dave Hunt, Klaus Janson, Aubrey Bradford, Bob McLeod",
     description:
       "Wall-to-wall kung fu action as Danny Rand runs a gauntlet through the Kara-Kai death cult and ninja adversaries with Misty Knight and Colleen Wing at his side, building to a final showdown with the Steel Serpent.",
-    coverUrl: "https://m.media-amazon.com/images/I/81aMvagIEmL._SL1500_.jpg",
+    coverUrl: "https://m.media-amazon.com/images/I/91qyUhrzlyL._SL1500_.jpg",
     ownershipStatus: "announced",
   },
   // --- Iron Man ---
@@ -4976,7 +4976,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
       "Don Heck, Dick Ayers, Mike Esposito, Chic Stone, Paul Reinman, Vince Colletta, Wally Wood",
     description:
       "Tony Stark, a jet-setting playboy and brilliant scientist, is injured by a battlefield explosion and builds a suit of armor to survive -- Stan Lee and Don Heck's earliest adventures that turned Iron Man into a cultural icon.",
-    coverUrl: "https://m.media-amazon.com/images/I/81ALQJXXBPL._SL1500_.jpg",
+    coverUrl: "https://m.media-amazon.com/images/I/91eg0bPYpeL._SL1500_.jpg",
     ownershipStatus: "announced",
   },
   {
@@ -5055,7 +5055,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     inkers: "Mike Esposito, Vince Colletta, Frank Giacoia, Jim Mooney, Bill Everett",
     description:
       "Tony Stark's ESP-empowered fiancée Marianne Rodgers is tormented by visions of Iron Man's death as the Stark Industries board tries to force Tony out, while the first appearances of Thanos, Drax the Destroyer, and Moondragon arrive alongside Roy Thomas and Barry Windsor-Smith's retelling of Iron Man's origin.",
-    coverUrl: "https://m.media-amazon.com/images/I/81uMfEu9okL._SL1500_.jpg",
+    coverUrl: "https://m.media-amazon.com/images/I/91AGe1AZD7L._SL1500_.jpg",
     ownershipStatus: "announced",
   },
   {
@@ -5076,7 +5076,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
       "Vince Colletta, Mike Esposito, Marie Severin, Jack Abel, Chic Stone, Jim Mooney, Dick Ayers, John Tartaglione, Bob Layton",
     description:
       "The mysterious Black Lama pits villain against villain for ultimate power -- the Mandarin against the Yellow Claw, M.O.D.O.K. against the Mad Thinker -- all converging on Iron Man, alongside the threat of Ultimo and a rescue mission back in Vietnam.",
-    coverUrl: "https://m.media-amazon.com/images/I/819naxDYHSL._SL1500_.jpg",
+    coverUrl: "https://m.media-amazon.com/images/I/915B3kxeiTL._SL1500_.jpg",
     ownershipStatus: "announced",
   },
   {
@@ -5257,7 +5257,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
       "Steve Mitchell, Ralph Cabrera, Fred Fredericks, Brad Vancata, Tim Dzon, Frank Percy, Christopher \"Chris\" Ivy, Eliot Brown, Steve Ditko, Karl Kesel, Vince Colletta, Bruce Patterson, Armando Gil, Jim Sanders III, Ian Akin, Brian Garvey",
     description:
       "Tony Stark returns to the armor after his paralysis, reclaiming the Iron Man identity from James Rhodes as the two heroes redefine their partnership.",
-    coverUrl: "https://m.media-amazon.com/images/I/814DLzrUiRL._SL1500_.jpg",
+    coverUrl: "https://m.media-amazon.com/images/I/91tLtswbRKL._SL1500_.jpg",
     ownershipStatus: "announced",
   },
   {
@@ -5278,7 +5278,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
       "Tom Morgan, Pam Eklund, Rey Garcia, Reggie Jones, Lawrence Brown, Michael Worley, Rob Haynes, Hector Collazo, Scott Elmer, Sam de la Rosa, Bob Wiacek, Andy Lanning, Johnny Greene",
     description:
       "Iron Man forms Force Works, a new team assembled to strike preemptively against threats before they escalate, as Kaminski's run digs deeper into the moral cost of Tony's new proactive strategy.",
-    coverUrl: "https://m.media-amazon.com/images/I/81Syduw4DSL._SL1500_.jpg",
+    coverUrl: "https://m.media-amazon.com/images/I/91wJgJoPv1L._SL1500_.jpg",
     ownershipStatus: "announced",
   },
   {
@@ -5403,7 +5403,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
       "P. Craig Russell, Jack Abel, Frank Chiaramonte, Dan Adkins, Frank McLaughlin, Frank Giacoia, Yolande Pijcke, Klaus Janson, Herb Trimpe, Dan Green, D. Bruce Berry, Sonny Trinidad, Al Milgrom, Mike Esposito, Dave Hunt",
     description:
       "A Martian invasion of Earth has left the planet shattered and humankind enslaved, and Killraven rises with a singular mission to free Earth -- Don McGregor and P. Craig Russell's compelling, nuanced 1970s masterwork.",
-    coverUrl: "https://m.media-amazon.com/images/I/81Yi+BVnJvL._SL1500_.jpg",
+    coverUrl: "https://m.media-amazon.com/images/I/A1VpASQ6+eL._SL1500_.jpg",
     ownershipStatus: "announced",
   },
   // --- Luke Cage ---
@@ -5445,7 +5445,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
       "Vince Colletta, Dave Hunt, Frank Giacoia, Tom Palmer, Alex Nino, Lee Elias, Fred Kida, Ricardo Villamonte, Al McWilliams, Crusty Bunkers, Frank Springer, Aubrey Bradford, Jim Mooney, Klaus Janson, Bob Smith",
     description:
       "Luke defends the streets of New York City and the outer boroughs against Moses Magnum, the Mace, and other 1970s Times Square menaces, featuring the debut of Bill Foster as Black Goliath and Piranha Jones.",
-    coverUrl: "https://m.media-amazon.com/images/I/81LBsK1dKPL._SL1500_.jpg",
+    coverUrl: "https://m.media-amazon.com/images/I/917673FqCOL._SL1500_.jpg",
     ownershipStatus: "announced",
   },
   // --- Marvel Two-In-One ---
@@ -5487,7 +5487,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     inkers: "Pablo Marcos, Sam Grainger, John Tartaglione, Ernie Chan, George Roussos",
     description:
       "The Thing, the FF, the Invaders, and the Liberty Legion travel back in time to World War II to battle the Third Reich, and Deathlok arrives on an assassination mission that pulls in Thor, Iron Fist, Black Goliath, Nick Fury, the Sub-Mariner, Shang-Chi, and Spider-Woman.",
-    coverUrl: "https://m.media-amazon.com/images/I/81GVQ08DM8L._SL1500_.jpg",
+    coverUrl: "https://m.media-amazon.com/images/I/91PCAgy6FIL._SL1500_.jpg",
     ownershipStatus: "announced",
   },
   {
@@ -5629,7 +5629,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
       "Klaus Janson, Bill Sienkiewicz, Howie Perlin, Don Perlin, Dan Green, Mike Royer, Mike Esposito, Bob McLeod, Frank Springer, Keith Giffen, John Tartaglione, Dave Cockrum, Bruce Patterson, Pablo Marcos, Tony DeZuniga, Frank Giacoia, Tom Palmer",
     description:
       "Marc Spector's multiple-personality Fist of Khonshu battles to find his place in the Marvel Universe, from his debut as a nemesis of the Werewolf by Night through an unlikely stint with the Defenders and encounters with Spider-Man and the Thing.",
-    coverUrl: "https://m.media-amazon.com/images/I/819rmson-ML._SL1500_.jpg",
+    coverUrl: "https://m.media-amazon.com/images/I/71VeXE7NwQL._SL1500_.jpg",
     ownershipStatus: "announced",
   },
   {
@@ -5693,7 +5693,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
       "Mark Farmer, E.R. Cruz, Mike Esposito, Danny Bulanadi, Alan Kupperberg, Geof Isherwood, Al Williamson, Stan Drake, Bill Sienkiewicz, Jim Fern, Russ Heath, Mike Gustovich",
     description:
       "A new creative era spans a short-lived second series and the launch of Marc Spector: Moon Knight, as the character is reinvented for the late '80s with a grittier, more psychologically driven approach.",
-    coverUrl: "https://m.media-amazon.com/images/I/91lJR8TwwPL._SL1500_.jpg",
+    coverUrl: "https://m.media-amazon.com/images/I/91iU8OuuEGL._SL1500_.jpg",
     ownershipStatus: "announced",
   },
   {
@@ -5903,7 +5903,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
       "Mike Esposito, Dan Adkins, Johnny Craig, Frank Giacoia, Jim Mooney, George Klein, Marie Severin, Joe Sinnott, Vince Colletta",
     description:
       "Namor takes on the bloodthirsty Tiger Shark before the man called Destiny returns with the powerful Serpent Crown, whose evil influence threatens everyone he loves, and the alien Stalker robs him of his ability to fly and breathe underwater, stranding him on land as Public Enemy No. 1.",
-    coverUrl: "https://m.media-amazon.com/images/I/81IL2CwfmeL._SL1500_.jpg",
+    coverUrl: "https://m.media-amazon.com/images/I/91z+b7Ny9lL._SL1500_.jpg",
     ownershipStatus: "announced",
   },
   {
@@ -5986,7 +5986,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
       "Bob McLeod, Tom Mandrake, Tom Palmer, Mike Gustovich, Bob Wiacek, Kevin Dzuban, John Tartaglione, Armando Gil",
     description:
       "Young mutants Karma, Wolfsbane, Sunspot, Cannonball, and Moonstar find their footing at the Xavier School, from Karma's first meeting with Spider-Man and the Fantastic Four through battles against Sentinels, the Silver Samurai, and the Hellfire Club.",
-    coverUrl: "https://m.media-amazon.com/images/I/71UD463c43L._SL1400_.jpg",
+    coverUrl: "https://m.media-amazon.com/images/I/91qGctawfwL._SL1500_.jpg",
     ownershipStatus: "announced",
   },
   {
@@ -6068,7 +6068,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
       "Terry Austin, Bret Blevins, Jon J. Muth, Joe Rubinstein, Bob McLeod, Al Williamson, Al Milgrom",
     description:
       "Louise Simonson takes over as writer, sending the New Mutants against the demon-summoning Sentinel program known as Project: Wideawake and delivering one of the team's most shocking losses.",
-    coverUrl: "https://m.media-amazon.com/images/I/81hKoPUFpAL._SL1500_.jpg",
+    coverUrl: "https://m.media-amazon.com/images/I/91UQPdEUADL._SL1500_.jpg",
     ownershipStatus: "announced",
   },
   {
@@ -6131,7 +6131,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
       "Joe Rubinstein, Al Milgrom, Art Thibert, Scott Williams, Rob Liefeld, Dan Panosian, Jeff Albrecht, Art Nichols",
     description:
       "The New Mutants series comes to a close as Cable's militarized vision for the team crystallizes, crossing over with X-Factor and the Uncanny X-Men to set the stage for X-Force's launch.",
-    coverUrl: "https://m.media-amazon.com/images/I/81OA+TTHWpL._SL1500_.jpg",
+    coverUrl: "https://m.media-amazon.com/images/I/81sOYI5rxXL._SL1500_.jpg",
     ownershipStatus: "announced",
   },
   // --- Power Man and Iron Fist ---
@@ -6173,7 +6173,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
       "Ricardo Villamonte, Carl Potts, Armando Gil, Vince Colletta, Al Milgrom, Klaus Janson, Joe Chiodo, Steve Mitchell, Dave Simons, Diverse Hands",
     description:
       "Luke takes revenge when Warhawk beats Danny, and the tag-team of Sabretooth and Constrictor targets Power Man and Iron Fist's friends and allies.",
-    coverUrl: "https://m.media-amazon.com/images/I/71u9fLN6xoL._SL1400_.jpg",
+    coverUrl: "https://m.media-amazon.com/images/I/812XeJbxquL._SL1500_.jpg",
     ownershipStatus: "announced",
   },
   {
@@ -6213,7 +6213,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
       "Jerry Acerno, Andy Mushynsky, Danny Bulanadi, Brad Joyce, Keith Williams, Mike Esposito",
     description:
       "Christopher Priest steers the duo through their final stretch as a team, closing out the long partnership between Luke Cage and Danny Rand before the series' cancellation.",
-    coverUrl: "https://m.media-amazon.com/images/I/81Q+BZux81L._SL1500_.jpg",
+    coverUrl: "https://m.media-amazon.com/images/I/91EOLkBXZNL._SL1500_.jpg",
     ownershipStatus: "announced",
   },
   // --- Punisher ---
@@ -6275,7 +6275,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
       "Mark Farmer, Russ Heath, John Beatty, Bill Reinhold, Mike Vosburg, Neil Hansen, Jorge Zaffino",
     description:
       "Frank Castle's disfigured archenemy Jigsaw returns, allied with the fanatical Reverend Sammy Smith, forcing the Punisher to pick up the pieces of his own life while taking down arms dealers, drug traffickers, and the mob. Castle even goes undercover as a cab driver while hunting a killer loose on the streets of New York.",
-    coverUrl: "https://m.media-amazon.com/images/I/81+1pDEyMJL._SL1500_.jpg",
+    coverUrl: "https://m.media-amazon.com/images/I/91R83NyFsnS._SL1500_.jpg",
     ownershipStatus: "announced",
   },
   {
@@ -6297,7 +6297,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
       "Mark Farmer, Mark Texeira, Danny Bulanadi, Jim Sherman, John Nyberg, Bill Reinhold, Mike Harris, Neil Hansen, Bob Wiacek, José Marzan Jr., Jimmy Palmiotti, Tom Morgan",
     description:
       "The Punisher heads to Europe and London in pursuit of the assassin Snakebite, crossing paths with the British vigilante Outlaw. Their uneasy alliance survives a deadly chase across the continent involving mercenaries from Batroc to the Tarantula, before Castle heads to the Big Easy for one more brutal reckoning.",
-    coverUrl: "https://m.media-amazon.com/images/I/71JKPN4060L._SL1200_.jpg",
+    coverUrl: "https://m.media-amazon.com/images/I/91hrdxxZoVL._SL1500_.jpg",
     ownershipStatus: "announced",
   },
   {
@@ -6408,7 +6408,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     inkers: "John Tartaglione, Frank Giacoia, Carl Hubbell",
     description:
       "The Howling Commandos protect the Manhattan Project and its atomic secrets from Nazi spies and saboteurs, unmask an undercover agent who is none other than the Red Skull, root out a traitor in their own ranks, and go mano a mano with Baron Strucker in war-torn France. This volume also reveals the origin of Nick Fury's eyepatch and sends Dum Dum Dugan solo behind enemy lines.",
-    coverUrl: "https://m.media-amazon.com/images/I/81U--IdmRwL._SL1500_.jpg",
+    coverUrl: "https://m.media-amazon.com/images/I/91CtpXBy3YL._SL1500_.jpg",
     ownershipStatus: "announced",
   },
   // --- She-Hulk ---
@@ -6431,7 +6431,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
       "Bob Wiacek, Al Milgrom, Joe Rubinstein, Al Gordon, Stan Drake, Walter \"Walt\" Simonson, Randy Emberlin, Trina Robbins, José Marzan Jr., Don Perlin",
     description:
       "John Byrne launches She-Hulk's second solo series with a twist: Shulkie knows she's a character in a comic book. As the jade giantess smashes through the glass ceiling at her new law firm, she breaks the fourth wall right along with it, quipping with readers and arguing with her own creative team while taking on the Circus of Crime, the Toad Men, Stilt-Man, and Xemnu the Titan.",
-    coverUrl: "https://m.media-amazon.com/images/I/81IdXq6ebsL._SL1500_.jpg",
+    coverUrl: "https://m.media-amazon.com/images/I/91EQJYhHm8L._SL1500_.jpg",
     ownershipStatus: "announced",
   },
   {
@@ -6452,7 +6452,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
       "Jim Sanders III, John Beatty, Keith Williams, Mark G. Heike, K. Stan Wilson, Tony DeZuniga",
     description:
       "Howard the Duck joins She-Hulk for a journey through alternate realities and the titular Cosmic Squish Principle, including a realm filled with floating lunch meats. Along the way Shulkie shares adventures with Nosferata, crosses paths with the All-Winners Squad and the Blonde Phantom, and squares off with the bounty hunter Death's Head across the timestream.",
-    coverUrl: "https://m.media-amazon.com/images/I/819M2NzeN4L._SL1500_.jpg",
+    coverUrl: "https://m.media-amazon.com/images/I/91OBXl6fQxL._SL1500_.jpg",
     ownershipStatus: "announced",
   },
   {
@@ -6481,7 +6481,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     kind: "volume",
     id: "she-hulk-vol-ms5fpulv",
     lineId: "she-hulk",
-    number: "4",
+    number: "5",
     title: "Interrupted Melody",
     start: { year: 1991, quarter: 3 },
     end: { year: 1993, quarter: 1 },
@@ -6557,7 +6557,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
       "Joe Rubinstein, Tom Christopher, Keith Williams, Moebius, Al Milgrom, Dave Cockrum, Romeo Tanghal, Vince Mielcarek, John Buscema",
     description:
       "Galactus feasts once more, this time in the company of the mighty Elders of the Universe, while Norrin Radd's relationship with Nova is strained by Firelord and Ego the Living Planet sets its sights on consuming the Surfer. Stan Lee scripts two standout sagas: Mephisto bedevils the Surfer in a graphic novel drawn by John Buscema, and Moebius illustrates an epic in which the Surfer alone can stop Galactus from leading mankind to its doom.",
-    coverUrl: "https://m.media-amazon.com/images/I/81RTfpJ9hAL._SL1500_.jpg",
+    coverUrl: "https://m.media-amazon.com/images/I/91Gasin27YL._SL1500_.jpg",
     ownershipStatus: "announced",
   },
   {
@@ -6577,7 +6577,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
       "Tom Christopher, Randy Emberlin, Keith Williams, Joe Sinnott, Joe Rubinstein, José Marzan Jr., Christopher \"Chris\" Ivy",
     description:
       "The Silver Surfer is manipulated into a second Kree-Skrull War, putting his homeworld of Zenn-La in the crossfire. Meanwhile, Death has resurrected Thanos of Titan, and the Mad Titan intends to kill half of all living beings in the universe -- setting the stage for the cosmic epics still to come.",
-    coverUrl: "https://m.media-amazon.com/images/I/81RXmF4Y-3L._SL1500_.jpg",
+    coverUrl: "https://m.media-amazon.com/images/I/91XQhxAlP+L._SL1500_.jpg",
     ownershipStatus: "announced",
   },
   {
@@ -6596,7 +6596,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     inkers: "Tom Christopher, John Beatty, Christopher \"Chris\" Ivy, Jim Sherman, Keith Williams",
     description:
       "The Silver Surfer may believe he has killed Thanos, but the Mad Titan still lives -- and his great love for Death sends him on a space-faring search for the Infinity Gems. Jim Starlin builds the pieces into place for the cosmic showdown that becomes Infinity Gauntlet.",
-    coverUrl: "https://m.media-amazon.com/images/I/71OXQhLmSNL._SL1000_.jpg",
+    coverUrl: "https://m.media-amazon.com/images/I/A1X-L2bzNPL._SL1500_.jpg",
     ownershipStatus: "announced",
   },
   {
@@ -6702,7 +6702,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     inkers: "Bob Wiacek, Matt Ryan, Ed Benes, Eddie Wagner, Klaus Janson, Ralph Cabrera",
     description:
       "The Silver Surfer returns to Earth after the Fantastic Four and Avengers have fallen in the wake of Onslaught, aided by his old friend Alicia Masters. A journey through time and space brings the Surfer face to face with Mephisto and his own inner demons, with guest turns from Spider-Man, Daredevil, and the Puppet Master along the way.",
-    coverUrl: "https://m.media-amazon.com/images/I/715cBlZGNJL._SL1200_.jpg",
+    coverUrl: "https://m.media-amazon.com/images/I/91naN0FYiRL._SL1500_.jpg",
     ownershipStatus: "announced",
   },
   {
@@ -6880,7 +6880,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
       "Joe Sinnott, Mike Esposito, Chic Stone, Dick Giordano, Sal Buscema, Jim Mooney, Terry Austin, Klaus Janson, Vince Colletta",
     description:
       "Thor teams up with Hercules as they battle into Pluto's underworld, then joins Sif and Balder to stop the mysterious Black Stars from destroying the Rigellian homeworld. Galactus's herald Firelord makes his debut, the origin of Ego the Living Planet is revealed, and the Absorbing Man joins forces with Ulik the Troll.",
-    coverUrl: "https://m.media-amazon.com/images/I/81q-6IiCbsL._SL1500_.jpg",
+    coverUrl: "https://m.media-amazon.com/images/I/91jcuWRUnDL._SL1500_.jpg",
     ownershipStatus: "announced",
   },
   {
@@ -6899,7 +6899,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     inkers: "Tony DeZuniga, Joe Sinnott",
     description:
       "Thor embarks on an adventure with Zarrko the Tomorrow Man against the Time-Twisters, fights the Firelord in the jungles of Latin America with Jane Foster's help, and faces Mangog in Asgard on a quest to save Odin.",
-    coverUrl: "https://m.media-amazon.com/images/I/81DF7FZWFJL._SL1500_.jpg",
+    coverUrl: "https://m.media-amazon.com/images/I/91iV5k-+XrL._SL1500_.jpg",
     ownershipStatus: "announced",
   },
   {
@@ -6920,7 +6920,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
       "Tony DeZuniga, Tom Palmer, Ernie Chan, Joe Sinnott, Klaus Janson, Chic Stone, Pablo Marcos",
     description:
       "Odin has disappeared, and Asgard needs its All-Father, so Thor ventures across the vastness of space to find him -- a quest that brings him into conflict with the Enchantress, the Executioner, the Destroyer, and Loki. This volume features the death of Balder, the Midgard Serpent, a new Norse Thor, a team-up with the Guardians of the Galaxy against Korvac, and the beginning of the epic Eternals saga.",
-    coverUrl: "https://m.media-amazon.com/images/I/81a-ekcIxqL._SL1500_.jpg",
+    coverUrl: "https://m.media-amazon.com/images/I/91slo0N00bL._SL1500_.jpg",
     ownershipStatus: "announced",
   },
   {
@@ -6982,7 +6982,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
       "Vince Colletta, Jim Mooney, Chic Stone, Diverse Hands, John Tartaglione, Ricardo Villamonte, Jon D'Agostino, Herb Trimpe, John Bolton",
     description:
       "A battle for Asgard erupts when Loki and the war god Tyr steal the Golden Apples of Immortality and unleash the Midgard Serpent, leaving Thor, Sif, and the Warriors Three to face this world-destroying menace or age and die like mortal men. Thor and Sif also embark on a quest into the cosmic depths of the Runestaff to save Jane Foster.",
-    coverUrl: "https://m.media-amazon.com/images/I/71ziLiot60L._SL1400_.jpg",
+    coverUrl: "https://m.media-amazon.com/images/I/A1ac9ZdpdoL._SL1500_.jpg",
     ownershipStatus: "announced",
   },
   {
@@ -7021,7 +7021,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     inkers: "Joe Sinnott, Hector Collazo, Don Heck, Herb Trimpe",
     description:
       "Thor makes the ultimate sacrifice to spare a life, and with his friend Eric Masterson's fate hanging in the balance, Thor finds himself bonded to mortal form once again. Villains including Quicksand, the Mongoose, and a new Executioner menace an untethered Asgard as it drifts into the Negative Zone, while Hercules returns and Thor teams with She-Hulk against two Dooms and with the New Warriors against the Juggernaut.",
-    coverUrl: "https://m.media-amazon.com/images/I/81RcSD6PgML._SL1500_.jpg",
+    coverUrl: "https://m.media-amazon.com/images/I/A13VdHi0vNL._SL1500_.jpg",
     ownershipStatus: "announced",
   },
   {
@@ -7100,7 +7100,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
       "Mike DeCarlo, Bob Almond, Harry Candelario, Tom Christopher, Keith Williams, John Nyberg, Bill Anderson, Pat Redding, Al Milgrom, Bob Petrecca",
     description:
       "The God of Thunder has gone mad, with Beta Ray Bill and Sif hoping to talk him down, while Adam Warlock, Doctor Strange, and the Silver Surfer intend to cure him -- and Thanos is spoiling for a fight. The Blood and Thunder crossover pulls in the Infinity Watch as Thor's madness threatens to consume everyone around him.",
-    coverUrl: "https://m.media-amazon.com/images/I/81khATepnnL._SL1500_.jpg",
+    coverUrl: "https://m.media-amazon.com/images/I/91v1yywykCL._SL1500_.jpg",
     ownershipStatus: "announced",
   },
   {
@@ -7350,7 +7350,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
       "Sam de la Rosa, Randy Emberlin, Sam Kieth, Al Milgrom, Keith Williams, Joe Rubinstein, Bill Reinhold, Dwayne Turner, David Day, Dan Day, Don Hudson, Joe Kubert, Tom Mandrake, Arthur Adams, Dan Panosian, Todd Smith",
     description:
       "Eddie Brock evolves from Spider-Man's deadliest foe into a twisted new hero as Venom forges a fresh future in San Francisco, targeting those who prey on the weak. The Lethal Protector saga marks Venom's turn from villain to anti-hero, setting the tone for the character for years to come.",
-    coverUrl: "https://m.media-amazon.com/images/I/812mUtFJF5L._SL1500_.jpg",
+    coverUrl: "https://m.media-amazon.com/images/I/91Y5LK-TYTL._SL1500_.jpg",
     ownershipStatus: "announced",
   },
   {
@@ -7393,7 +7393,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
       "Stephen Baskerville, Sam de la Rosa, Joe Rubinstein, Randy Emberlin, Scott Hanna, Scott Koblish, Jimmy Palmiotti, Ken Branch, Jeff Albrecht, Keith Aiken, Ralph Cabrera, Al Williamson, Bill Anderson",
     description:
       "Eddie Brock and Venom suffer separation anxiety as the symbiote gets caught in the web of Spider-Man's clone, the Scarlet Spider, forcing the question of whether Eddie and the symbiote can reunite or will be stopped by the Life Foundation symbiotes. Venom will need to be at full strength when a hit video game gives Cletus Kasady the opportunity to unleash Carnage once more.",
-    coverUrl: "https://m.media-amazon.com/images/I/8104Rpn8f6L._SL1500_.jpg",
+    coverUrl: "https://m.media-amazon.com/images/I/91C5T9LlNfL._SL1500_.jpg",
     ownershipStatus: "announced",
   },
   {
@@ -7515,7 +7515,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     inkers: "Dan Green, Paul Neary, Marc Silvestri, Al Milgrom, John Buscema",
     description:
       "Wolverine investigates a destructive new designer drug in Madripoor, then heads to the Yukon on vacation and encounters the mythical Hunter in Darkness. Lady Deathstrike attacks Wolverine and Puck, casting them into a time vortex where they relive the Spanish Civil War, while the Reavers create the cyborgs Albert and Elsie-Dee, and Sabretooth returns convinced he's Wolverine's father.",
-    coverUrl: "https://m.media-amazon.com/images/I/81oVS16wQqL._SL1500_.jpg",
+    coverUrl: "https://m.media-amazon.com/images/I/91bBuGArogS._SL1500_.jpg",
     ownershipStatus: "announced",
   },
   {
@@ -7599,7 +7599,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
       "Chad Hunt, Dan Green, Al Milgrom, Vince Russell, Tim Townsend, Mark Buckingham, Harry Candelario, Nathan Massengill, Norman Lee, Shawn Martinbrough, Keith Aiken",
     description:
       "A tormented and animalistic Wolverine, horribly transformed from a failed attempt to regain his adamantium, teeters on the brink of going completely feral. Elektra helps fight him back from the edge, mentoring Logan in the martial arts and challenging him to re-forge his humanity, while Yukio and Amiko become targets in Japan and Wolverine teams up with Venom on an interdimensional adventure.",
-    coverUrl: "https://m.media-amazon.com/images/I/81IXn-uvU4L._SL1500_.jpg",
+    coverUrl: "https://m.media-amazon.com/images/I/91hiCD7Kb1L._SL1500_.jpg",
     ownershipStatus: "announced",
   },
   {
@@ -7620,7 +7620,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
       "Jon Sibal, Dexter Vines, Scott Koblish, Andy Owens, Vince Russell, Sal Buscema, Mike Christian, Nathan Massengill, Armando Durruthy, Derek Fridolfs, Jimmy Palmiotti, Lary Stucker, Rodney Ramos, Bob Wiacek, Johnny Greene, Matt Banning, Mark Pennington",
     description:
       "Wolverine takes on the Marvel Universe, with an alien encounter pitting Logan against the Avengers and a host of Earth's heroes, and a kidnapping to outer space to face the Collector and Galactus. Apocalypse turns the feral X-Man's life upside down, transforming him into the lethal Horseman of Death, and Wolverine's struggle to regain his freedom pits him against the X-Men and forces him to face his past.",
-    coverUrl: "https://m.media-amazon.com/images/I/8128ZJ24mSL._SL1500_.jpg",
+    coverUrl: "https://m.media-amazon.com/images/I/913Oa+j2M3L._SL1500_.jpg",
     ownershipStatus: "announced",
   },
   {
@@ -7805,7 +7805,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
       "Al Milgrom, Bruce Patterson, Keith Williams, Sam de la Rosa, Steve Moncuse, Terry Austin, Andy Lanning, Kevin Conrad, Harry Candelario, John Livesay, Philip Moy, W.C. Carani, John Floyd",
     description:
       "Jamie Madrox's death leaves X-Factor struggling to cope with their first major loss, while Alex Summers questions his role as leader. Polaris seeks vengeance on whoever hired Random, and Lorna follows Alex to Hawaii where she encounters Malice, Mister Sinister, and the Nasty Boys, before the techno-organic threat of the Phalanx unites X-Factor, X-Force, and Excalibur.",
-    coverUrl: "https://m.media-amazon.com/images/I/91tbUr9+WlL._SL1500_.jpg",
+    coverUrl: "https://m.media-amazon.com/images/I/91ABjm2FnXL._SL1500_.jpg",
     ownershipStatus: "announced",
   },
   {
@@ -7953,7 +7953,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
       "Mark Morales, Rob Stull, Guillermo Zubiaga, Al Milgrom, Rich Perrotta, Mark Prudeaux, Walden Wong, Scott Hanna, Sean Parsons, Mike Miller, Ray McCarthy",
     description:
       "The U.S. government's mutant-hunting Prime Sentinels target the villainous Mutant Liberation Front with X-Force caught in the middle, as Dani Moonstar's involvement with the MLF draws the team deeper into danger before they're captured by the Sentinels themselves.",
-    coverUrl: "https://m.media-amazon.com/images/I/814vASw032L._SL1500_.jpg",
+    coverUrl: "https://m.media-amazon.com/images/I/91HciEAmosL._SL1500_.jpg",
     ownershipStatus: "announced",
   },
   {
@@ -7974,7 +7974,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
       "Mark Morales, Rob Stull, Scott Koblish, Harry Candelario, Bud LaRosa, Derek Mei, Hector Collazo, Rodney Ramos, Rich Perrotta, Scott Elmer, Sean Parsons, Al Williamson, Jon Holdredge, Jimmy Palmiotti, Rod Ramos, John Czop",
     description:
       "X-Force's newest member Jesse Bedlam reunites with his long-lost brother, but \"King Bedlam\" plans to awaken the deadly Armageddon Man. The team also risks facing Magneto on a mission to Genosha, with team-ups against the Champions and the returns of Rictor and Shatterstar along the way.",
-    coverUrl: "https://m.media-amazon.com/images/I/81OertSj0wL._SL1500_.jpg",
+    coverUrl: "https://m.media-amazon.com/images/I/91rETp8oWmL._SL1500_.jpg",
     ownershipStatus: "announced",
   },
   {
@@ -8079,7 +8079,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
       "Mike Esposito, Frank Giacoia, Vince Colletta, Jack Abel, John Romita Sr., John Severin, Syd Shores, Mike Ploog, Steve Mitchell, Jim Mooney, John Tartaglione, Frank McLaughlin, Sal Trapani, Dave Hunt, Klaus Janson, Herb Trimpe, Joe Sinnott",
     description:
       "Hank McCoy transforms into the Beast through a scientific experiment as the X-Men are pursued by a secret adversary, and the team joins forces with Captain America to save the nation and rescue their mutant comrades. This volume also features the first appearances of Wolverine and Madrox the Multiple Man, plus an X-Men/Avengers battle against Magneto.",
-    coverUrl: "https://m.media-amazon.com/images/I/816+rghw1jL._SL1500_.jpg",
+    coverUrl: "https://m.media-amazon.com/images/I/91OrgHiVPiL._SL1500_.jpg",
     ownershipStatus: "announced",
   },
   {
@@ -8158,7 +8158,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
       "Joe Rubinstein, Bob McLeod, Armando Gil, Bob Wiacek, Michael Golden, Al Milgrom, Terry Austin, Dave Cockrum",
     description:
       "Chris Claremont reunites with Dave Cockrum for a run of X-Men classics, featuring the all-new, all-different mutants in action-packed adventures through Arcade, Doctor Doom, and Garokk, culminating with the return of Magneto in an anniversary extravaganza. The collection also includes the iconic first appearance of Rogue as she and her fellow Evil Mutants battle the Avengers.",
-    coverUrl: "https://m.media-amazon.com/images/I/81FkEKTGt1L._SL1500_.jpg",
+    coverUrl: "https://m.media-amazon.com/images/I/91u9kpw8HJL._SL1500_.jpg",
     ownershipStatus: "announced",
   },
   {
@@ -8177,7 +8177,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     inkers: "Bob Wiacek, Joe Rubinstein, Hilary Barta",
     description:
       "The complete Brood Saga blends space opera featuring the X-Men, the Starjammers, and the Shi'ar with the deadly and sadistic alien Brood. This volume features art by X-icons Dave Cockrum and Paul Smith at their finest.",
-    coverUrl: "https://m.media-amazon.com/images/I/81vtNNFbG7L._SL1500_.jpg",
+    coverUrl: "https://m.media-amazon.com/images/I/91ZoRtxhpLL._SL1500_.jpg",
     ownershipStatus: "announced",
   },
   {
@@ -8277,7 +8277,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     inkers: "Joe Rubinstein, Scott Williams, Art Thibert, Hilary Barta, Task Force X, Michael Bair",
     description:
       "The end of an era arrives for the X-Men as the original team, now known as X-Factor, takes center stage when Proteus returns from the grave. Apocalypse infects Cyclops's son Nathan with a deadly virus, and Professor X's old foe the Shadow King rises to take over Muir Island, setting the stage for the two teams to become one.",
-    coverUrl: "https://m.media-amazon.com/images/I/81xeKz6t7nL._SL1500_.jpg",
+    coverUrl: "https://m.media-amazon.com/images/I/A1ZSdluv62L._SL1500_.jpg",
     ownershipStatus: "announced",
   },
   {
@@ -8298,7 +8298,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
       "Art Thibert, Scott Williams, Joe Rubinstein, Bob Wiacek, Dan Panosian, Bill Sienkiewicz, Jim Lee, Mike Witherby, Karl Altstaetter, Al Milgrom, Christopher \"Chris\" Ivy, P. Craig Russell, Harry Candelario, Mark Texeira, Brian Stelfreeze, Jan Anton Harps",
     description:
       "Bishop arrives from the future pursuing escaped convicts through time and finds himself stranded in the present. Raised to idolize the X-Men, Bishop knows a deadly secret waiting in their future, one that will shape the team's fate for years to come.",
-    coverUrl: "https://m.media-amazon.com/images/I/91ESOr0FeGL._SL1500_.jpg",
+    coverUrl: "https://m.media-amazon.com/images/I/A1cVkXU5n0L._SL1500_.jpg",
     ownershipStatus: "announced",
   },
   {
@@ -8319,7 +8319,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
       "Scott Williams, Al Milgrom, Dan Panosian, Terry Austin, Mark Pennington, Harry Candelario, Bob Wiacek, Joe Rubinstein, Art Thibert, Karl Altstaetter, Hilary Barta, Trevor Scott, Andy Kubert",
     description:
       "Cyclops and Phoenix are kidnapped and Cable seemingly assassinates Xavier, sending the X-Men, X-Factor, and X-Force to war with each other. Epic battles unfold across the globe and on the moon as Mister Sinister's plan for vengeance on Apocalypse comes to light, along with major revelations about Cable and Stryfe.",
-    coverUrl: "https://m.media-amazon.com/images/I/81JnAsKatDL._SL1500_.jpg",
+    coverUrl: "https://m.media-amazon.com/images/I/9106meHIsgL._SL1500_.jpg",
     ownershipStatus: "announced",
   },
   {
@@ -8340,7 +8340,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
       "Dan Panosian, Mark Pennington, Bob Wiacek, Jimmy Palmiotti, Al Williamson, Al Milgrom, Dan Green, Mark Farmer",
     description:
       "Magneto and Stryfe cast a long shadow over mutantkind as the X-Men travel to Russia when Colossus visits his sister Illyana, only to find the sadistic Soul Skinner loose. The team's many legacies -- personal and cosmic -- come due in this volume.",
-    coverUrl: "https://m.media-amazon.com/images/I/81a04NMcDjL._SL1500_.jpg",
+    coverUrl: "https://m.media-amazon.com/images/I/91SoSD7RrAL._SL1500_.jpg",
     ownershipStatus: "announced",
   },
   {

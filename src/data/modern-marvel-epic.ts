@@ -1569,7 +1569,7 @@ export const MODERN_MARVEL_ENTRIES: TimelineEntry[] = [
       "Andy Lanning, Igor Kordey, Avalon Studios, Bill Sienkiewicz, Norm Rapmund, Tim Townsend",
     description:
       "Continuing Grant Morrison's Eisner Award-winning run that reinvigorated the X-Men franchise. A riot breaks out in Mutant Town, and Professor X establishes an X-Corp office in Paris for mutants in need. Romantic sparks fly between Scott Summers and Emma Frost, Polaris returns amid the wreckage of Genosha, and the Xavier Mansion is rocked by a shocking murder -- or is everything not quite as it seems?",
-    coverUrl: "https://m.media-amazon.com/images/I/91s6YcauUaL._SL1500_.jpg",
+    coverUrl: "https://m.media-amazon.com/images/I/91cOIMcPlkL._SL1500_.jpg",
     ownershipStatus: "announced",
   },
   {
