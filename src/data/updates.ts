@@ -80,9 +80,9 @@ export const UPDATES: UpdateRelease[] = [
     entries: [
       {
         kind: "data",
-        title: "Marvel, Ultimate and Licensed volumes are credited from the issues",
+        title: "Every collection is credited from the issues themselves",
         description:
-          "475 volumes across the three Marvel collections now list writers, pencillers and inkers read from the issues each book collects, naming 1,472 creators in place of the two or three marquee names the seed shipped with. Rom Vol. 5 alone credits eleven inkers where it previously named none.",
+          "571 volumes across the four Marvel collections now list writers, pencillers and inkers read from the issues each book collects, joining DC Finest to cover 671 of the 677 volumes on the shelf. Rom Vol. 5 alone credits eleven inkers where it previously named none.",
       },
     ],
   },
