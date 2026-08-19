@@ -1,6 +1,13 @@
 import { createPortal } from "react-dom";
 import type { ReactNode } from "react";
 
+/** Fixed rendered width of the card below (`w-72`) -- exported so callers
+ * that need to anchor the card by an edge rather than its cursor-centered
+ * default (see useTilePreviewPosition's auto-preview positioning) can
+ * convert a target edge into the center-point `left` this component
+ * actually expects, without duplicating the Tailwind width as a raw number. */
+export const PREVIEW_CARD_WIDTH_PX = 288;
+
 /**
  * Shared floating hover-preview card behind VolumeTile/NoteTile -- a cover
  * image beside title/subtitle text. Portaled straight to document.body:

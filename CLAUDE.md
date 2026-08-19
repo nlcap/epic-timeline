@@ -10,9 +10,20 @@ array in `src/data/updates.ts` (newest release first -- `updates.test.ts`
 enforces the ordering). Match the existing entries' voice: a short title, a
 description written for a reader who never saw the commit message, kept to
 1-2 sentences -- the headline fact and the one detail that makes it
-concrete, not the full story from the commit. `kind: "new"` for a feature
-or `kind: "data"` for a substantial content/data effort (a big credit
-rebuild, a source migration, a correction pass across many records).
+concrete, not the full story from the commit.
+
+`kind: "new"` vs `kind: "data"` is worth getting right, not just picking
+whichever sounds bigger. `new` is a capability the app didn't have before
+-- a control, a field, a way to see or do something that wasn't possible
+last release. `data` is that same capability applied to more or better
+content -- researching, correcting or backfilling the records behind a
+field that already existed, no matter how large the effort (a big credit
+rebuild, a source migration, a correction pass across hundreds of
+records). Size doesn't move an entry from `data` to `new`; only "did this
+add a capability" does. When one commit does both -- adds a field *and*
+backfills it -- tag it `new` for the capability, and only split out a
+separate `data` entry if the backfill itself is a second, independently
+newsworthy effort.
 
 **Don't add an entry for**, since the modal filters these out of the public
 view on purpose (see `HIDDEN_KINDS` in `UpdatesModal.tsx`):

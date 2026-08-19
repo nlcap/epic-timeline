@@ -65,6 +65,9 @@ export function LineRow({
   onResizeEntry,
   onStepScroll,
   stepScrolling,
+  autoPreviewVolumeId,
+  autoPreviewDelta,
+  onVolumeHover,
 }: {
   line: Line;
   entries: TimelineEntry[];
@@ -155,10 +158,26 @@ export function LineRow({
    * disable resizing entirely. */
   onResizeEntry?: (entry: TimelineEntry, start: QuarterPoint, end: QuarterPoint) => void;
   /** Volume stepper (see VolumeStepper.tsx): called with the scroll
-   * container's target scrollLeft after a chevron click picks the next/
-   * previous volume -- LineRow itself has no ref to the actual scroll
-   * container (that lives in App.tsx), so it just reports the target back up. */
-  onStepScroll: (targetScrollLeft: number) => void;
+   * container's target scrollLeft, plus the volume being stepped to, after a
+   * chevron click picks the next/previous volume -- LineRow itself has no ref
+   * to the actual scroll container (that lives in App.tsx), so it just reports
+   * both back up. App.tsx drives the scroll and owns the auto-preview state
+   * the volume id feeds (see autoPreviewVolumeId below). */
+  onStepScroll: (targetScrollLeft: number, targetVolumeId: string) => void;
+  /** Volume stepper auto-preview: the one volume in the whole timeline (if
+   * any) currently showing its hover preview because a chevron stepped to it.
+   * Owned by App.tsx, not per-row -- see its comment there for why. Compared
+   * against each `entry.id` below rather than forwarded raw, so the memoized
+   * tiles only re-render where the derived boolean actually flips. */
+  autoPreviewVolumeId: string | null;
+  /** Paired with autoPreviewVolumeId -- how far the timeline is about to
+   * scroll, so the stepped-to tile can position its preview at its final
+   * resting spot immediately instead of waiting out the animation. */
+  autoPreviewDelta: number;
+  /** Fired on a genuine mouse hover of any volume/note tile in this row --
+   * retires the stepper's auto-preview so a lingering panel gives way to
+   * whatever the user actually moved onto. */
+  onVolumeHover: () => void;
   /** True for the duration of a chevron-triggered smooth scroll (see
    * handleStepScroll in App.tsx). Does two things: gates the pill's hover
    * handlers below so the pinning transform's own frame-to-frame jitter
@@ -477,6 +496,10 @@ export function LineRow({
         addCellWindowQuarters={addCellWindowQuarters}
         inViewport={inViewport}
         onResizeEntry={onResizeEntry}
+        autoPreviewVolumeId={autoPreviewVolumeId}
+        autoPreviewDelta={autoPreviewDelta}
+        onVolumeHover={onVolumeHover}
+        stepScrolling={stepScrolling}
       />
     </div>
   );
@@ -515,6 +538,10 @@ const LineTimelineLane = memo(function LineTimelineLane({
   addCellWindowQuarters,
   inViewport,
   onResizeEntry,
+  autoPreviewVolumeId,
+  autoPreviewDelta,
+  onVolumeHover,
+  stepScrolling,
 }: {
   line: Line;
   entries: TimelineEntry[];
@@ -533,6 +560,34 @@ const LineTimelineLane = memo(function LineTimelineLane({
   addCellWindowQuarters: number;
   inViewport: boolean;
   onResizeEntry?: (entry: TimelineEntry, start: QuarterPoint, end: QuarterPoint) => void;
+  /** Volume stepper (see VolumeStepper.tsx): id of the volume, if any, that
+   * a chevron click is currently stepping to -- set the instant the click
+   * happens (see LineRow's own doc comment on this state), passed through
+   * to that one entry's VolumeTile as `autoPreview` to pop its hover
+   * preview open immediately. Compared against `entry.id` per-entry below
+   * (not forwarded as the raw id) so TimelineEntryTile's own memo only
+   * re-renders the (at most two) tiles whose derived boolean actually
+   * flips, not every entry in the row. */
+  autoPreviewVolumeId: string | null;
+  /** Paired with autoPreviewVolumeId -- how many px the timeline is about
+   * to scroll by, so the one tile with autoPreview=true can compute its
+   * OWN final on-screen position from its current (pre-scroll) rect
+   * instead of waiting for the scroll to actually get there. Same value
+   * for every entry (only the matching tile ever uses it). */
+  autoPreviewDelta: number;
+  /** Fired on a genuine mouse hover of any tile here -- retires the stepper's
+   * auto-preview. Stable (a useCallback in App.tsx), so handing it to every
+   * memoized tile below costs nothing. */
+  onVolumeHover: () => void;
+  /** True for the duration of a chevron-triggered smooth scroll -- passed
+   * straight through to every entry's tile (VolumeTile/NoteTile) to
+   * suppress any REAL hover preview it would otherwise open as the scroll
+   * sweeps it under a stationary cursor. Unlike autoPreviewVolumeId (which
+   * only touches the one landing tile), this is the same value for every
+   * entry -- see LineRow's own doc comment on this prop for why threading
+   * it here (a value that only changes twice per click) doesn't fight this
+   * component's scroll-position memo boundary. */
+  stepScrolling: boolean;
 }) {
   // Drag-to-resize (see VolumeTile.tsx's edge handles): dragStartXRef holds
   // the mousedown clientX so mousemove can compute a running pixel delta
@@ -719,6 +774,10 @@ const LineTimelineLane = memo(function LineTimelineLane({
             onResizeStart={entryLocked || !onResizeEntry ? undefined : handleResizeStart}
             renderStart={renderStart}
             renderEnd={renderEnd}
+            autoPreview={entry.id === autoPreviewVolumeId}
+            autoPreviewDelta={autoPreviewDelta}
+            onVolumeHover={onVolumeHover}
+            stepScrolling={stepScrolling}
           />
         );
       })}
@@ -761,6 +820,10 @@ const TimelineEntryTile = memo(function TimelineEntryTile({
   onResizeStart,
   renderStart,
   renderEnd,
+  autoPreview,
+  autoPreviewDelta,
+  onVolumeHover,
+  stepScrolling,
 }: {
   entry: TimelineEntry;
   line: Line;
@@ -781,6 +844,20 @@ const TimelineEntryTile = memo(function TimelineEntryTile({
   onResizeStart?: (entryId: string, edge: "start" | "end", clientX: number) => void;
   renderStart: QuarterPoint;
   renderEnd: QuarterPoint;
+  /** Volume stepper: true only for the one entry (if any) a chevron click
+   * is currently stepping to -- see LineTimelineLane's own doc comment
+   * above. No-op for gap/note entries, which VolumeStepper never targets. */
+  autoPreview: boolean;
+  /** Paired with autoPreview -- see LineTimelineLane's own doc comment. */
+  autoPreviewDelta: number;
+  /** Fired on a genuine mouse hover of this tile -- see LineTimelineLane's
+   * own doc comment. Forwarded to VolumeTile/NoteTile (not GapSegment, which
+   * has no preview of its own to swap in). */
+  onVolumeHover: () => void;
+  /** True for the duration of a chevron-triggered smooth scroll -- see
+   * LineTimelineLane's own doc comment above. Forwarded to VolumeTile/
+   * NoteTile (not GapSegment, which has no hover preview to suppress). */
+  stepScrolling: boolean;
 }) {
   const { left, width } = spanToPx(axisStart, renderStart, renderEnd, pxPerQuarter);
   // Every lane's tile is the same fixed height as a single-lane tile at
@@ -814,6 +891,10 @@ const TimelineEntryTile = memo(function TimelineEntryTile({
           onResizeStart={
             onResizeStart ? (edge, clientX) => onResizeStart(entry.id, edge, clientX) : undefined
           }
+          autoPreview={autoPreview}
+          autoPreviewDelta={autoPreviewDelta}
+          onHoverStart={onVolumeHover}
+          stepScrolling={stepScrolling}
         />
       ) : entry.kind === "gap" ? (
         <GapSegment
@@ -836,6 +917,8 @@ const TimelineEntryTile = memo(function TimelineEntryTile({
           onResizeStart={
             onResizeStart ? (edge, clientX) => onResizeStart(entry.id, edge, clientX) : undefined
           }
+          onHoverStart={onVolumeHover}
+          stepScrolling={stepScrolling}
         />
       )}
     </div>

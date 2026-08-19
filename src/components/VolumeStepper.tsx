@@ -83,7 +83,11 @@ export function VolumeStepper({
   labelOpacity: number;
   scrollLeft: number;
   zoomLevel: ZoomLevel;
-  onStepScroll: (targetScrollLeft: number) => void;
+  /** Called with the landing scroll position AND the volume being stepped
+   * to -- the id lets the caller (LineRow) pop that volume's hover preview
+   * open for a few seconds once the scroll settles, standing in for a real
+   * hover the cursor (parked on this panel, not the tile) never makes. */
+  onStepScroll: (targetScrollLeft: number, targetVolumeId: string) => void;
 }) {
   // Tracks the pill's own current (content, not reserved) width -- collapsed
   // to icon-only, full sidebarWidth at rest, or hover-expanded to fit a
@@ -234,12 +238,12 @@ export function VolumeStepper({
 
   const handleForward = () => {
     if (!forwardTarget) return;
-    onStepScroll(scrollTargetFor(forwardTarget));
+    onStepScroll(scrollTargetFor(forwardTarget), forwardTarget.id);
   };
 
   const handleBackward = () => {
     if (!backwardTarget) return;
-    onStepScroll(scrollTargetFor(backwardTarget));
+    onStepScroll(scrollTargetFor(backwardTarget), backwardTarget.id);
   };
 
   // STEPPER_BUTTON_SIZE_PX (22px, not the icon's own 16px) -- the extra 3px

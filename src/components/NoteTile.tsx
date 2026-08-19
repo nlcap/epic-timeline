@@ -25,6 +25,8 @@ export function NoteTile({
   zoomLevel,
   locked = false,
   onResizeStart,
+  onHoverStart,
+  stepScrolling = false,
 }: {
   note: Note;
   line: Line;
@@ -35,6 +37,15 @@ export function NoteTile({
    * VolumeTile/GapSegment's locked. */
   locked?: boolean;
   onResizeStart?: (edge: "start" | "end", clientX: number) => void;
+  /** Fired when a genuine mouse hover of this tile begins -- lets the app
+   * retire a lingering stepper auto-preview elsewhere in favour of whatever
+   * the user actually moved onto. See useTilePreviewPosition. */
+  onHoverStart?: () => void;
+  /** True for the duration of a chevron-triggered smooth scroll (see
+   * LineRow.tsx) -- suppresses any REAL hover preview this tile would
+   * otherwise open from the scroll sweeping it under a stationary cursor.
+   * See useTilePreviewPosition. */
+  stepScrolling?: boolean;
 }) {
   // 40% as opaque as a speculative volume's tile fill (see
   // speculativeTileBackground), and an 85%-opacity border, so a note reads
@@ -72,7 +83,7 @@ export function NoteTile({
   const iconUrl = (note.era && line.eraIconUrls?.[note.era]) ?? lineIconUrl(line);
 
   const { buttonRef, hovered, flipBelow, previewTop, mouseX, handleMouseEnter, handleMouseMove, handleMouseLeave } =
-    useTilePreviewPosition();
+    useTilePreviewPosition(false, stepScrolling, 0, onHoverStart);
 
   return (
     <div

@@ -113,6 +113,57 @@ export default function App() {
   // for the animation's duration, so a stationary cursor can't trigger a
   // spurious expand/collapse from the pinning math's own jitter.
   const [stepScrolling, setStepScrolling] = useState(false);
+  // Volume stepper auto-preview (see VolumeStepper.tsx / LineRow.tsx): which
+  // volume, if any, is currently showing its hover preview because a chevron
+  // click stepped to it -- standing in for a real hover the cursor, parked on
+  // the stepper panel, never makes.
+  //
+  // Owned HERE rather than per-LineRow, even though only one row's tile ever
+  // uses it, because every rule about it is global: at most one auto-preview
+  // exists across the whole timeline at a time, a step on one line has to
+  // retire whatever a previous step left showing on another (each row's own
+  // 8s timer used to keep running independently, which is exactly how a
+  // Daredevil panel outlived several Black Widow steps), and -- see
+  // handleVolumeHover below -- a real hover anywhere retires it too. A single
+  // piece of state up here makes all three of those structural: setting it
+  // replaces the previous one, so there is nothing to coordinate between rows.
+  const [autoPreviewVolumeId, setAutoPreviewVolumeId] = useState<string | null>(null);
+  // How far the timeline is about to scroll for the current auto-preview
+  // (target minus current scrollLeft) -- lets the destination tile compute its
+  // FINAL on-screen position from its pre-scroll rect, so the preview can be
+  // shown the instant the chevron is clicked instead of waiting out the
+  // animation. See useTilePreviewPosition.
+  const [autoPreviewDelta, setAutoPreviewDelta] = useState(0);
+  const autoPreviewTimeoutRef = useRef<number | null>(null);
+  // Shared by every path that retires an auto-preview (a new step, a real
+  // hover, unmount) so the pending 8s timer never outlives the panel it was
+  // started for and clear a LATER one out from under itself.
+  const clearAutoPreview = useCallback(() => {
+    if (autoPreviewTimeoutRef.current !== null) {
+      window.clearTimeout(autoPreviewTimeoutRef.current);
+      autoPreviewTimeoutRef.current = null;
+    }
+    setAutoPreviewVolumeId(null);
+  }, []);
+  // Any genuine mouse hover on any volume/note tile anywhere retires the
+  // stepper's auto-preview: once the user is hovering things themselves, the
+  // "here's what you stepped to" affordance has done its job, and leaving it
+  // up means two panels on screen at once. Fires for the stepped-to tile
+  // itself too, which is seamless rather than a flicker -- the real hover
+  // keeps the card visible (see previewVisible) and just re-anchors it to the
+  // cursor instead of the tile's left edge. Suppressed for the duration of a
+  // step's own scroll (see useTilePreviewPosition's suppressHover), so the
+  // tiles sweeping under a stationary cursor mid-animation can't trigger it.
+  const handleVolumeHover = useCallback(() => {
+    clearAutoPreview();
+  }, [clearAutoPreview]);
+  useEffect(() => {
+    return () => {
+      if (autoPreviewTimeoutRef.current !== null) {
+        window.clearTimeout(autoPreviewTimeoutRef.current);
+      }
+    };
+  }, []);
   const [zoomLevel, setZoomLevel] = useState<ZoomLevel>(DEFAULT_ZOOM_LEVEL);
   const [addLineOpen, setAddLineOpen] = useState(false);
   const [editingLine, setEditingLine] = useState<Line | null>(null);
@@ -542,9 +593,24 @@ export default function App() {
   // lands it a fixed one-quarter-width clear of the stepper panel -- this is
   // the only thing that actually owns timelineScrollRef, so it's the one
   // place that can drive it. Empty deps: only touches a ref, never stale.
-  const handleStepScroll = useCallback((targetScrollLeft: number) => {
+  const handleStepScroll = useCallback((targetScrollLeft: number, targetVolumeId: string) => {
     const el = timelineScrollRef.current;
     if (!el) return;
+    // Set BEFORE the scroll starts, not after it settles -- the destination
+    // tile derives its final position from autoPreviewDelta (see the state's
+    // own comment above), so the panel can appear immediately, already sitting
+    // where the tile is about to glide into, with no lag behind the click.
+    // Assigning here also retires whatever a previous step left showing,
+    // wherever it was: one piece of state, so the old value is simply gone.
+    if (autoPreviewTimeoutRef.current !== null) {
+      window.clearTimeout(autoPreviewTimeoutRef.current);
+    }
+    setAutoPreviewVolumeId(targetVolumeId);
+    setAutoPreviewDelta(targetScrollLeft - el.scrollLeft);
+    autoPreviewTimeoutRef.current = window.setTimeout(() => {
+      autoPreviewTimeoutRef.current = null;
+      setAutoPreviewVolumeId(null);
+    }, 8000);
     setStepScrolling(true);
     // Whichever fires first (native scroll settling, or the fallback in
     // case `scrollend` never fires -- e.g. the target was already the
@@ -799,6 +865,9 @@ export default function App() {
                       onResizeEntry={handleResizeEntry}
                       onStepScroll={handleStepScroll}
                       stepScrolling={stepScrolling}
+                      autoPreviewVolumeId={autoPreviewVolumeId}
+                      autoPreviewDelta={autoPreviewDelta}
+                      onVolumeHover={handleVolumeHover}
                       speculative={lineIsSpeculative}
                       locked={speculationMode && !lineIsSpeculative}
                       speculativeVolumeIds={speculativeVolumeIds}

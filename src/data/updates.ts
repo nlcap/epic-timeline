@@ -79,6 +79,12 @@ export const UPDATES: UpdateRelease[] = [
     date: "2026-08-19",
     entries: [
       {
+        kind: "new",
+        title: "Stepping to a volume pops its preview",
+        description:
+          "The next/previous chevrons on a line now open the volume's cover preview the instant you click, rather than once the timeline finishes gliding there — the same card hovering gives you, lined up with the volume's start. It clears itself after a few seconds, or the moment you step again or hover something else.",
+      },
+      {
         kind: "data",
         title: "Every collection is credited from the issues themselves",
         description:

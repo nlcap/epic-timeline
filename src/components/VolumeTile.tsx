@@ -24,6 +24,10 @@ export function VolumeTile({
   speculative = false,
   locked = false,
   onResizeStart,
+  autoPreview = false,
+  autoPreviewDelta = 0,
+  onHoverStart,
+  stepScrolling = false,
 }: {
   volume: Volume;
   line: Line;
@@ -43,6 +47,29 @@ export function VolumeTile({
    * the one that knows pxPerQuarter and controls this tile's on-screen
    * position/width. */
   onResizeStart?: (edge: "start" | "end", clientX: number) => void;
+  /** Volume stepper (see VolumeStepper.tsx): true the instant a chevron
+   * click picks this tile as its target -- pops the hover preview open
+   * immediately, as if the cursor were over it, even though it's actually
+   * parked on the stepper panel and the tile itself likely hasn't finished
+   * scrolling into place yet. See useTilePreviewPosition. */
+  autoPreview?: boolean;
+  /** Paired with autoPreview: how many px the timeline is about to scroll
+   * by, so the preview can be positioned at this tile's FINAL resting spot
+   * (current rect minus this delta) instead of its pre-scroll one -- shows
+   * instantly, already sitting where the tile is about to glide into,
+   * rather than waiting for the scroll to actually get there. See
+   * useTilePreviewPosition. */
+  autoPreviewDelta?: number;
+  /** Fired when a genuine mouse hover of this tile begins -- lets the app
+   * retire a lingering stepper auto-preview elsewhere in favour of whatever
+   * the user actually moved onto. See useTilePreviewPosition. */
+  onHoverStart?: () => void;
+  /** True for the duration of a chevron-triggered smooth scroll (see
+   * LineRow.tsx) -- suppresses any REAL hover preview this tile would
+   * otherwise open from the scroll sweeping it under a stationary cursor,
+   * so nothing but the eventual destination's own autoPreview opens during
+   * a step. See useTilePreviewPosition. */
+  stepScrolling?: boolean;
 }) {
   const owned = OWNED_STATUSES.has(volume.ownershipStatus);
   // Speculative fill/border are dialed back to 60%/65% opacity (off the
@@ -109,8 +136,17 @@ export function VolumeTile({
   // below instead of the button itself -- otherwise moving from the
   // button onto a handle would fire the button's onMouseLeave and hide
   // the handles out from under the cursor mid-reach.
-  const { buttonRef, hovered, flipBelow, previewTop, mouseX, handleMouseEnter, handleMouseMove, handleMouseLeave } =
-    useTilePreviewPosition();
+  const {
+    buttonRef,
+    hovered,
+    previewVisible,
+    flipBelow,
+    previewTop,
+    mouseX,
+    handleMouseEnter,
+    handleMouseMove,
+    handleMouseLeave,
+  } = useTilePreviewPosition(autoPreview, stepScrolling, autoPreviewDelta, onHoverStart);
 
   return (
     <div
@@ -199,7 +235,7 @@ export function VolumeTile({
         zoomLevel={zoomLevel}
         onResizeStart={onResizeStart}
       />
-      {hovered && (
+      {previewVisible && (
         <TilePreviewCard
           left={mouseX}
           top={previewTop}
