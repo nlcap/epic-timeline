@@ -5,6 +5,7 @@ import { ExportDataButton } from "./ExportDataButton";
 import { ImportDataButton } from "./ImportDataButton";
 import { ResetLineDataButton } from "./ResetLineDataButton";
 import { StorageDebugPanel } from "./StorageDebugPanel";
+import { UpdatesModal } from "./UpdatesModal";
 
 const NAV_HEIGHT = 48;
 export { NAV_HEIGHT };
@@ -243,6 +244,7 @@ export function TopNav({
   const [importOpen, setImportOpen] = useState(false);
   const [resetOpen, setResetOpen] = useState(false);
   const [storageDebugOpen, setStorageDebugOpen] = useState(false);
+  const [updatesOpen, setUpdatesOpen] = useState(false);
 
   // The single source for both the desktop dropdown and the mobile menu --
   // they render it differently (dropdown rows vs. full-width menu rows) but
@@ -253,6 +255,7 @@ export function TopNav({
     { label: "Reset line data", onOpen: () => setResetOpen(true) },
     { label: "Storage debug", onOpen: () => setStorageDebugOpen(true) },
     { label: "Keyboard shortcuts", onOpen: onOpenShortcuts },
+    { label: "Updates", onOpen: () => setUpdatesOpen(true) },
   ];
 
   useEffect(() => {
@@ -409,6 +412,7 @@ export function TopNav({
       <ImportDataButton open={importOpen} onClose={() => setImportOpen(false)} />
       <ResetLineDataButton open={resetOpen} onClose={() => setResetOpen(false)} />
       <StorageDebugPanel open={storageDebugOpen} onClose={() => setStorageDebugOpen(false)} />
+      <UpdatesModal open={updatesOpen} onClose={() => setUpdatesOpen(false)} />
     </>
   );
 }
