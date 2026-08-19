@@ -274,7 +274,8 @@ export const LICENSED_ENTRIES: TimelineEntry[] = [
     pencillers: "Barry Windsor-Smith, Marie Severin, Gil Kane",
     inkers:
       "Sal Buscema, Dan Adkins, Tom Palmer, Barry Windsor-Smith, Frank Giacoia, Tom Sutton, John Severin, Gil Kane, Bernie Wrightson",
-    description: "",
+    description:
+      "The greatest saga in sword-and-sorcery history begins! Born on a battlefield in the frozen lands of Cimmeria, Conan has spent his life fighting his way across the untamed Hyborian kingdoms — sparing no man, woman or wizard his wrath. His adventures will become legend. He will become king. He is Conan the Barbarian! Roy Thomas and Barry Windsor-Smith brought Robert E. Howard's iconic creation to four-color life with work that set new standards for comic book storytelling. In these early exploits, Conan ventures from his homeland for the first time, honing his skills as a thief and mercenary — and above all, a warrior!",
     coverUrl: "https://m.media-amazon.com/images/I/71Uz8zng8FL._SL1500_.jpg",
     ownershipStatus: "announced",
   },
@@ -293,7 +294,8 @@ export const LICENSED_ENTRIES: TimelineEntry[] = [
     pencillers: "Barry Windsor-Smith, Gil Kane, John Buscema, Val Mayerik, P. Craig Russell",
     inkers:
       "Dan Adkins, Sal Buscema, Barry Windsor-Smith, Ralph Reese, Chic Stone, John Severin, Ernie Chan",
-    description: "",
+    description:
+      "Conan signs on as a mercenary for the warring kingdom of Turan, where palace intrigue may prove more dangerous than any foe — especially after bedding a wizard's woman. Conan then joins Red Sonja for a multipart adventure, followed by Roy Thomas and Gil Kane's complete adaptation of \"The Hour of the Dragon,\" which tells how Conan became king and conqueror.",
     coverUrl: "https://m.media-amazon.com/images/I/91XhMr-LRlL._SL1500_.jpg",
     ownershipStatus: "announced",
   },
@@ -311,7 +313,8 @@ export const LICENSED_ENTRIES: TimelineEntry[] = [
     writers: "Roy Thomas",
     pencillers: "John Buscema, Neal Adams, Rich Buckler",
     inkers: "Ernie Chan, John Buscema, Neal Adams",
-    description: "",
+    description:
+      "Roy Thomas and John Buscema join forces to build Conan the Barbarian into one of the greatest comic book series of all time. The collection adapts Robert E. Howard classics like \"The Blood of Belshazzar\" and the fan-favorite \"The Shadow in the Tomb,\" with Neal Adams illustrating \"The Curse of the Golden Skull,\" teaming Conan with Juma against the wicked sorcerer Rotath.",
     coverUrl: "https://m.media-amazon.com/images/I/81GAz6lXf2L._SL1500_.jpg",
     ownershipStatus: "announced",
   },
@@ -330,7 +333,8 @@ export const LICENSED_ENTRIES: TimelineEntry[] = [
     pencillers: "John Buscema, Tim Conrad, Mike Ploog",
     inkers:
       "Dick Giordano, Terry Austin, Tom Palmer, Neal Adams, Ralph Reese, Larry Hama, Crusty Bunkers, Dan Adkins, Pablo Marcos, Steve Gan, Ernie Chan, Joe Sinnott, Tim Conrad, Frank Springer, Mike Ploog",
-    description: "",
+    description:
+      "Conan meets the Queen of the Black Coast in one of the most captivating pairings in comics. The volume concludes with the debut and origin of Bêlit, the pirate queen who would become Conan's partner in love and war.",
     coverUrl: "https://m.media-amazon.com/images/I/91zwmwisGiL._SL1500_.jpg",
     ownershipStatus: "announced",
   },
@@ -348,7 +352,8 @@ export const LICENSED_ENTRIES: TimelineEntry[] = [
     writers: "Roy Thomas",
     pencillers: "John Buscema, Jim Starlin, Val Mayerik, Vicente Alcázar",
     inkers: "Steve Gan, The Tribe, Ernie Chan, Al Milgrom, John Buscema, Yong Montano",
-    description: "",
+    description:
+      "Conan and Bêlit reave a path across the high seas and into the jungles of the Hyborian Age, encountering the Lord of the Lions and battling for the honored name of Amra in one of the greatest Conan adventures of all time. Master storytellers Roy Thomas and John Buscema bring Conan, Kull and Red Sonja together, alongside full-color editions of black-and-white Conan stories by Jim Starlin and John Buscema.",
     coverUrl: "https://m.media-amazon.com/images/I/81oVEv5OT5L._SL1500_.jpg",
     ownershipStatus: "announced",
   },
@@ -366,7 +371,8 @@ export const LICENSED_ENTRIES: TimelineEntry[] = [
     writers: "Roy Thomas, Ed Summer",
     pencillers: "John Buscema, Howard Chaykin, Ernie Chan",
     inkers: "Ernie Chan, Pablo Marcos",
-    description: "",
+    description:
+      "Conan the Barbarian and the pirate queen Bêlit continue their quest to reclaim her rightful place on the throne of Asgalun, descending deep down the River Styx into Luxur, the capital city of Stygia, land of snake-worshippers, in search of Bêlit's father.",
     coverUrl: "https://m.media-amazon.com/images/I/81a35e3gTvL._SL1500_.jpg",
     ownershipStatus: "announced",
   },
@@ -386,7 +392,8 @@ export const LICENSED_ENTRIES: TimelineEntry[] = [
     pencillers:
       "Cary Nord, Tom Yeates, Joseph Michael Linsner, Leinil Yu, Greg Ruth, Tom Mandrake, Bruce Timm, John Severin",
     inkers: "Tom Yeates, Leinil Yu, Joseph Michael Linsner, Greg Ruth, Tom Mandrake",
-    description: "",
+    description:
+      "The legend returns! Conan the Barbarian stars in epic tales by comics veteran Kurt Busiek — including classics adapted from the works of original author Robert E. Howard. Whether he's warring with the violent Vanir or meeting a Frost Giant's daughter, Conan's savage sword is always close at hand and ready for battle. The story of \"The God in the Bowl\" is presented in all its terrifying detail — introducing Conan's notorious adversary, Thoth-Amon. But who is Janissa the Widowmaker, and what role will she play in the Cimmerian warrior's life? Beware the Horror on Uskuth Hill — and the Thing in the Temple!",
     coverUrl: "https://m.media-amazon.com/images/I/71L+DvE2mVL._SL1500_.jpg",
     ownershipStatus: "announced",
   },
@@ -404,7 +411,8 @@ export const LICENSED_ENTRIES: TimelineEntry[] = [
     writers: "Robert E. Howard, Timothy Truman, Mike Mignola, Kurt Busiek",
     pencillers:
       "Cary Nord, Paul Lee, Greg Ruth, Timothy Truman, Rafael Kayanan, Tony Harris, Mike Kaluta, Eric Powell",
-    description: "",
+    description:
+      "\"The Tower of the Elephant\" and other stories! Conan the Barbarian stars in more legendary tales filled with swords, sorcery, giant spiders and monstrous creatures — including stories adapted from the original works of Robert E. Howard. Stealing the priceless gem the Heart of the Elephant from an unguarded tower seems like child's play, but nothing's ever easy for Conan. Then a dalliance with a magistrate's wife spells trouble, and Conan's adventures in the City of Thieves continue as he runs a gauntlet of threats both human and inhuman. But what grotesque horrors await him in the Hall of the Dead?",
     coverUrl: "https://m.media-amazon.com/images/I/71uwpcMYetL._SL1500_.jpg",
     ownershipStatus: "announced",
   },
@@ -423,7 +431,8 @@ export const LICENSED_ENTRIES: TimelineEntry[] = [
     pencillers:
       "Tomás Giorello, Richard Corben, Frank Cho, Cary Nord, Greg Ruth, Paul Lee, Ernie Chan, John Buscema, Tony Harris, Joe Kubert",
     inkers: "Frank Cho, Tomás Giorello, Richard Corben, Cary Nord, Joe Kubert",
-    description: "",
+    description:
+      "\"Rogues in the House\" and other tales of Conan! The Barbarian finds himself in the middle of a power struggle in an inspired adaptation of one of Robert E. Howard's most acclaimed short stories. Then a lingering curse follows Conan on his journey back to his homeland, and great darkness lies ahead in a doomed city. The barbaric land of Conan's birth is a welcome change from the treacherous cities of the East — but when a tentative truce with the Aesir is threatened by the first woman Conan ever loved, he again finds himself at the heart of a conflict that will test his formidable strength, cunning mind and passionate heart.",
     coverUrl: "https://m.media-amazon.com/images/I/71+M8DIPh8L._SL1500_.jpg",
     ownershipStatus: "announced",
   },
@@ -442,7 +451,8 @@ export const LICENSED_ENTRIES: TimelineEntry[] = [
     pencillers:
       "Tomás Giorello, Joseph Michael Linsner, Timothy Truman, Paul Lee, Joe Kubert, Justin Sweet, Jim Keegan, Ruth Keegan",
     inkers: "Joseph Michael Linsner, Tomás Giorello, Jim Keegan, Ruth Keegan",
-    description: "",
+    description:
+      "Conan leaves his trials behind for a new life — as a mercenary! Presenting all-action adaptations of classic Robert E. Howard tales, plus original adventures of everyone's favorite barbarian. Howard's \"Black Colossus\" sees Conan face his bloodiest battle yet, when the mercenaries of Amalric clash with the demonic hordes of Natohk. Then Conan becomes the leader of Princess Yasmela's Khorajan army — but another princess wants him for herself: the immortal and vampiric Akivasha. The Cimmerian spends a tumultuous time fighting and looting with the Kozaki, a wild group of fellow mercenaries also known as the Free Companions.",
     coverUrl: "https://m.media-amazon.com/images/I/71cjGnRgXAL._SL1500_.jpg",
     ownershipStatus: "announced",
   },
@@ -460,7 +470,8 @@ export const LICENSED_ENTRIES: TimelineEntry[] = [
     writers: "Roy Thomas, Brian Wood",
     pencillers: "Mike Hawthorne, Becky Cloonan, James Harren, Dan Panosian, John Lucas",
     inkers: "John Lucas",
-    description: "",
+    description:
+      "Legendary scribe Roy Thomas returns to Cimmeria! When the beautiful Olivia appears aboard a captured ship, telling tales of prophetic dreams and great fortunes, Conan is set on a new path: the Road of Kings. It's a route full of terrors — one that may lead him straight to the executioner's ax. Conan must brave zombie Hyborians, dragons and assassins, as well as the underground catacombs beneath Aquilonia, where lurk creatures more hideous and deadly than anything he's ever encountered on the surface. Plus: an action-packed adaptation of the classic Robert E. Howard tale \"Queen of the Black Coast.\"",
     coverUrl: "https://m.media-amazon.com/images/I/81ttv6SlDVL._SL1500_.jpg",
     ownershipStatus: "announced",
   },
@@ -479,7 +490,8 @@ export const LICENSED_ENTRIES: TimelineEntry[] = [
     pencillers:
       "Declan Shalvey, Davide Gianfelice, Paul Azaceta, Jim Keegan, Riccardo Burchielli, Ruth Keegan, Vasilis Lolos, Massimo Carnevale, Mirko Colak, Becky Cloonan, Andrea Mutti, Leandro Fernández",
     inkers: "Vasilis Lolos, Pierluigi Baldassini",
-    description: "",
+    description:
+      "The Queen of the Black Coast! Conan the Barbarian and the maritime monarch Bêlit are the undisputed masters of the Western Ocean, their names whispered in fearful awe. But strange new threats are arriving from unexpected shores, and Conan must return to Cimmeria to hunt an impostor destroying villages in his name — only to discover a shocking connection to his own past. In the wake of an unthinkable tragedy, Conan and Bêlit find their bond buckling, and as Bêlit returns to her childhood home, what she discovers in the sands of Shem could separate her from Conan — forever.",
     coverUrl: "https://m.media-amazon.com/images/I/81t6x0f776L._SL1500_.jpg",
     ownershipStatus: "announced",
   },
@@ -498,7 +510,8 @@ export const LICENSED_ENTRIES: TimelineEntry[] = [
     pencillers:
       "Brian Ching, Jim Keegan, Ruth Keegan, Eduardo Francisco, Guiu Vilanova, Daryl Mandryk, Iain McCaig, Kilian Plunkett, Philip Tan, Romulo Fajardo Jr., Fiona Staples, Dan Scott, John Picacio",
     inkers: "Brian Ching, Eduardo Francisco",
-    description: "",
+    description:
+      "Four savage tales of Conan! When a case of mistaken identity leaves him accused of sorcery, the Cimmerian finds himself the target of a powerful and deadly witch hunter — but what is the true evil that stalks the shadows of Kush? A quest for legendary treasure brings Conan and his comrades into battle with an army of brigands. Cast into the desert and dying of thirst, Conan and the former slave Natala arrive in Xuthal, the city of eternal dreamers, where a mysterious horror lurks. And a call for help from a mysterious lighthouse beckons Conan amidst the scorching sands — but he realizes too late that he's stumbled into a trap, for this is an oasis of blood.",
     coverUrl: "https://m.media-amazon.com/images/I/81N0Ba87xML._SL1500_.jpg",
     ownershipStatus: "announced",
   },
@@ -516,7 +529,8 @@ export const LICENSED_ENTRIES: TimelineEntry[] = [
     writers: "Cullen Bunn, Fred Van Lente, Robert E. Howard",
     pencillers: "Sergio Fernandez Davila, Brian Ching, Jose Luis, Admira Wijaya, Dheeraj Verma",
     inkers: "Andy Owens",
-    description: "",
+    description:
+      "Conan's chronicles conclude! When the beloved queen of Khauran is secretly replaced by the evil witch Salome, only one man sees through the deception: Conan, captain of Khauran's royal guard. But can Conan stand against Salome's villainous ally Constantius and his mighty mercenary army? Conan will be crucified and left for dead — but he shall have his vengeance. Then a new saga begins as Conan stumbles into a camp of Kozak raiders alone, unarmed and half-dead, and finds a new ally in the Kozaki chief. And as the Turanians plot to end Conan's life, a Nemedian princess lures him to the remote island of Xapur, where lurks the monstrous Devil in Iron.",
     coverUrl: "https://m.media-amazon.com/images/I/81p4rsHX6oL._SL1500_.jpg",
     ownershipStatus: "announced",
   },
@@ -536,7 +550,8 @@ export const LICENSED_ENTRIES: TimelineEntry[] = [
     pencillers:
       "Tomás Giorello, Will Conrad, Attila Futaki, Wellinton Alves, Jason Shawn Alexander, Howard Chaykin, Sean Phillips",
     inkers: "Tomás Giorello, Jason Shawn Alexander, Will Conrad",
-    description: "",
+    description:
+      "Uneasy lies the head that wears a crown! Conan has won the throne of the kingdom of Aquilonia — and the hand of a beautiful bride. Is it time for the barbarian to lay down his sword? Don't count on it. When an evil sorcerer attacks, King Conan must strike back with all his might. Securing a crown is one thing, but holding on to it is a whole other challenge — especially with scheming conspirators in Conan's court, though the traitors may have chosen the wrong ally in Thoth-Amon. Plus: King Conan is haunted by the ghost of his first — and perhaps greatest — love.",
     coverUrl: "https://m.media-amazon.com/images/I/81DTgDZzqyL._SL1500_.jpg",
     ownershipStatus: "announced",
   },
@@ -555,7 +570,8 @@ export const LICENSED_ENTRIES: TimelineEntry[] = [
     writers: "Doug Moench, Gerry Conway",
     pencillers: "Alfredo Alcala, George Tuska, Mike Ploog",
     inkers: "Alfredo Alcala, Mike Esposito, Frank Chiaramonte, Tony Mortellaro",
-    description: "",
+    description:
+      "The simian sci-fi staple, in the mighty Marvel manner! Relive the classic films Planet of the Apes and Beneath the Planet of the Apes as Marvel's 1970s color comic adaptations are collected in one action-packed volume. When a crew of astronauts crash-lands on a strange and desolate world, they discover a society of apes with heightened intelligence and speech — and a race of mute humans as their slaves. Can the mission's leader, Taylor, fight his way free and hold onto his humanity? What is the shocking secret of this Planet of the Apes, and what unfathomable danger lies beneath the surface? Find out when a second spaceship makes its way to this uncanny world and another astronaut faces a battle for survival, with the fate of the entire planet at stake.",
     coverUrl: "https://m.media-amazon.com/images/I/81uwsPDJ61L._SL1500_.jpg",
     ownershipStatus: "announced",
   },
@@ -862,7 +878,8 @@ export const LICENSED_ENTRIES: TimelineEntry[] = [
       "Carmine Infantino, Howard Chaykin, Tom Palmer, Alan Kupperberg, Walter \"Walt\" Simonson, Herb Trimpe",
     inkers:
       "Bob Wiacek, Terry Austin, Steve Leialoha, Tom Palmer, Gene Day, Howard Chaykin, Rick Hoberg, Bill Wray, Frank Springer, Allen Milgrom",
-    description: "",
+    description:
+      "May the Force be with you, in the mighty Marvel manner! The classic original Star Wars comic-book series begins with an action-packed adaptation of Episode IV: A New Hope, then continues the story of Luke Skywalker and his rebel friends as they fight on against the Empire in the dark shadow of Darth Vader. New planets and new perils await — like the Cloud Riders, the Behemoth and the space pirate Crimson Jack, plus the cult hero Jaxxon.",
     coverUrl: "https://m.media-amazon.com/images/I/91zL0Mx8f7L._SL1500_.jpg",
     ownershipStatus: "announced",
   },
@@ -880,7 +897,8 @@ export const LICENSED_ENTRIES: TimelineEntry[] = [
     writers: "Archie Goodwin, Mary Jo Duffy, Chris Claremont, Michael Golden",
     pencillers: "Carmine Infantino, Mike Vosburg, Michael Golden",
     inkers: "Bob Wiacek, Gene Day, Steve Leialoha, Terry Austin",
-    description: "",
+    description:
+      "Marvel's original exploration of the Star Wars galaxy continues with Luke and Leia trapped in a siege at Yavin, Obi-Wan Kenobi fighting alone, and cyborgs clashing when Darth Vader takes on bounty hunter Beilert Valance. Han and Chewie answer the question \"Whatever happened to Jabba?\" Lightsabers clash, there's thunder in the stars, and a red queen rises as the Dark Lord of the Sith finally discovers the identity of the young Jedi who destroyed the Death Star — with a Skywalker showdown setting the stage for The Empire Strikes Back. Plus: rarely seen tales from the United Kingdom.",
     coverUrl: "https://m.media-amazon.com/images/I/71Z7eJgaV4L._SL1500_.jpg",
     ownershipStatus: "announced",
   },
@@ -900,7 +918,8 @@ export const LICENSED_ENTRIES: TimelineEntry[] = [
     pencillers: "Al Williamson, Carlos Garzón, Carmine Infantino, Walter \"Walt\" Simonson",
     inkers:
       "Tom Palmer, Carlos Garzón, Al Williamson, Gene Day, Chic Stone, Walter \"Walt\" Simonson, Alan Kupperberg, Al Milgrom, Frank Giacoia",
-    description: "",
+    description:
+      "The Empire Strikes Back! Marvel's classic Star Wars saga continues with the official adaptation of the second film in the original trilogy — and Darth Vader's ruthless revenge! In the wake of Luke Skywalker's deadly duel with the Dark Lord, the rebels' adventures continue, and a living nightmare stalks the universe. But can R2-D2 and C-3PO beat terrible odds to survive Droid World? With everyone's favorite smuggler lost, the rebel crew is on a search for Solo — but Han will have to wait when the Crimson Forever poses a more immediate problem, and so will the Empire's latest, greatest super-weapon. Plus: rarely seen Star Wars tales from the United Kingdom.",
     coverUrl: "https://m.media-amazon.com/images/I/A1FXTh-Ax5L._SL1500_.jpg",
     ownershipStatus: "announced",
   },
@@ -920,7 +939,8 @@ export const LICENSED_ENTRIES: TimelineEntry[] = [
     pencillers:
       "Walter \"Walt\" Simonson, Ron Frenz, Tom Palmer, Gene Day, Joe Brozowski, Carmine Infantino, Kerry Gammill",
     inkers: "Tom Palmer, Vince Colletta, Rudy Nebres",
-    description: "",
+    description:
+      "The search for Solo! The loveable rogue, frozen in carbonite, has been taken to Jabba the Hutt, and our favorite rebels want Han back. But as Lando Calrissian returns to find Cloud City a death trap, R2-D2 and C-3PO face a dangerous spacewalk. Elsewhere, Luke Skywalker braves a beast on Bazarre and joins Chewbacca inside a Mind Spider; Leia undertakes an explosive mission; Shira Brie shares the story of her people; and in the wake of tragedy, Luke becomes a pariah. The hunt for Han soon leads the crew to bounty hunters Dengar, Bossk and IG-88, and the bizarre discovery of a golden statue of their lost friend leads to revelations from Han and Chewie's past.",
     coverUrl: "https://m.media-amazon.com/images/I/91z32STpAUL._SL1500_.jpg",
     ownershipStatus: "announced",
   },
@@ -941,7 +961,8 @@ export const LICENSED_ENTRIES: TimelineEntry[] = [
       "Ron Frenz, Al Williamson, Bob McLeod, Carlos Garzón, Luke McDonnell, Klaus Janson, David Mazzucchelli, Tom Palmer",
     inkers:
       "Tom Palmer, Carlos Garzón, Al Williamson, Bob Layton, Klaus Janson, Tom Mandrake, Mandy Hands, Bob McLeod",
-    description: "",
+    description:
+      "The Rebel Alliance races to rescue Han Solo from his carbonite prison while Darth Vader schemes to capture Luke Skywalker, building to a comic-book adaptation of Return of the Jedi.",
     coverUrl: "https://m.media-amazon.com/images/I/A1SRU-oQAjL._SL1500_.jpg",
     ownershipStatus: "announced",
   },
@@ -961,7 +982,8 @@ export const LICENSED_ENTRIES: TimelineEntry[] = [
       "Cynthia Martin, Jan Duursema, Sal Buscema, Bret Blevins, Bob McLeod, Tony Salmons, Al Williamson, Ron Frenz, Steve Leialoha, Giuseppe Camuncoli, Andrea Broccardo, Kerry Gammill, Ze Carlos, Stefano Landini, Luke Ross, Leonard Kirk",
     inkers:
       "Tom Palmer, Art Nichols, Sam de la Rosa, Ken Steacy, Bret Blevins, Tom Mandrake, Steve Leialoha, Bob Wiacek, Al Williamson, Whilce Portacio, Cam Smith",
-    description: "",
+    description:
+      "The classic Marvel era of Star Wars concludes with stories set in the aftermath of Return of the Jedi, where the heroes of the Rebellion face new challenges and new dangers. Leia must choose between joining a new Republic government or continuing as a warrior for peace, and Han Solo and Lando Calrissian find themselves in a tough spot when Chewbacca's family is threatened. Luke Skywalker is haunted by thoughts of his dead father, Darth Vader, as he faces another Dark Lord — and a new foe, the dark lady Lumiya.",
     coverUrl: "https://m.media-amazon.com/images/I/81XMT6RtglL._SL1500_.jpg",
     ownershipStatus: "announced",
   },
@@ -998,7 +1020,8 @@ export const LICENSED_ENTRIES: TimelineEntry[] = [
       "Russ Manning, Rick Hoberg, Brian Snoddy, Alfredo Alcala, Al Williamson, Tanya Roberts, Davidé Fabbri, Ryan Odagawa",
     inkers:
       "Al Williamson, Alfredo Alcala, Perry McNamee, Elsa Charretier, Russ Manning, Dave Stevens, Christian Dalla Vecchia, Igor Kordey",
-    description: "",
+    description:
+      "The Star Wars newspaper strip makes its Epic Collection debut! Featuring the spectacular art of Russ Manning and Al Williamson, both of whom influenced a young George Lucas, these are the earliest Star Wars comic-strip adventures — set in the era before, and just after, A New Hope.",
     coverUrl: "https://m.media-amazon.com/images/I/71BMWuzC3KL._SL1500_.jpg",
     ownershipStatus: "announced",
   },
@@ -1016,7 +1039,8 @@ export const LICENSED_ENTRIES: TimelineEntry[] = [
     writers: "Archie Goodwin",
     pencillers: "Al Williamson, Allen Nunis",
     inkers: "Al Williamson",
-    description: "",
+    description:
+      "Luke Skywalker, Princess Leia, Han Solo, Chewbacca, C-3PO and R2-D2 continue to take the fight to the Empire. Luke is enslaved by the Serpent Masters, Doctor Arakkus prepares a death trap, and the rebels' base is besieged. There are dangers in the depths of Aquaris, and an ancient threat lurks in the heart of Yavin's moon. As the story progresses, the Rebel Alliance prepares to relocate to the ice planet Hoth, Luke gears up for a climactic showdown with Darth Vader, and Han Solo faces a rogues' gallery of bounty hunters, including the mysterious Boba Fett.",
     coverUrl: "https://m.media-amazon.com/images/I/914ElHcKIbL._SL1500_.jpg",
     ownershipStatus: "announced",
   },
@@ -1035,7 +1059,8 @@ export const LICENSED_ENTRIES: TimelineEntry[] = [
     writers: "John Ostrander",
     pencillers: "Jan Duursema",
     inkers: "Dan Parsons",
-    description: "",
+    description:
+      "The origins of the Jedi order are revealed! Journey all the way back to the beginning, more than 25,000 years before the saga of the Skywalkers, and discover how the Jedi began — before lightsabers, before hyperspace travel, before the Jedi's message spread throughout the galaxy, when connections to the Force were strange and new. On a distant planet, a group of beings strives to balance the mysterious Force. Behold the Je'daii! But a stranger is coming, one who has a connection to the Force all his own — and the doors to the galaxy are about to swing wide open.",
     coverUrl: "https://m.media-amazon.com/images/I/81oHPFn7YTL._SL1500_.jpg",
     ownershipStatus: "announced",
   },
@@ -1054,7 +1079,8 @@ export const LICENSED_ENTRIES: TimelineEntry[] = [
     pencillers: "Dario Carrasco Jr., Chris Gossett, David Roach, Tony Akins, Janine Johnston",
     inkers:
       "Mark G. Heike, Bill Black, David Jacob Beckett, Mike Barreiro, Denis Rodier, Stan Woch",
-    description: "",
+    description:
+      "The history of the Old Republic! Five thousand years before Luke Skywalker, the Sith Empire rules the galaxy at the height of its powers — but the Great Hyperspace War could lead to their downfall. Then, a millennium later, two Jedi legends emerge: Nomi Sunrider, who takes up her murdered husband's lightsaber, and Ulic Qel-Droma, who discovers the final resting place of fallen Jedi Freedon Nadd — who may not be at rest after all. Can they save the Holocron containing all of Jedi history, or will the dark side of the Force prevail?",
     coverUrl: "https://m.media-amazon.com/images/I/915Ev9yHJBL._SL1500_.jpg",
     ownershipStatus: "announced",
   },
@@ -1073,7 +1099,8 @@ export const LICENSED_ENTRIES: TimelineEntry[] = [
     pencillers: "Chris Gossett, Dario Carrasco Jr., Janine Johnston, Art Wetherell, Dustin Weaver",
     inkers:
       "Mike Barreiro, Jordi Ensign, Mark G. Heike, Bill Black, David Jacob Beckett, Chris Gossett, Andrew Pepoy",
-    description: "",
+    description:
+      "The early adventures of the Jedi order conclude! Almost 4,000 years before A New Hope, a young Jedi named Exar Kun steals his master's holocron, intent on learning the secrets of the Sith, and takes on Jedi Knight Ulic Qel-Droma as his apprentice. Will this dark knowledge corrupt them and turn them into Sith as well? Only the Jedi Nomi Sunrider may have the answer to their fate.",
     coverUrl: "https://m.media-amazon.com/images/I/A1HdQhXC5vL._SL1500_.jpg",
     ownershipStatus: "announced",
   },
@@ -1110,7 +1137,8 @@ export const LICENSED_ENTRIES: TimelineEntry[] = [
     pencillers:
       "Bong Dazo, Dustin Weaver, Scott Hepburn, Brian Ching, Alan Robinson, Harvey Tolibao, Colin Wilson",
     inkers: "Dan Parsons, Joe Pimentel, Bong Dazo",
-    description: "",
+    description:
+      "Fugitive Jedi Zayne Carrick continues his adventures on the run, entangled in plots involving the Mandalorians, the mysterious Jedi Covenant and ancient Sith artifacts.",
     coverUrl: "https://m.media-amazon.com/images/I/91ndQAuIrwL._SL1500_.jpg",
     ownershipStatus: "announced",
   },
@@ -1128,7 +1156,8 @@ export const LICENSED_ENTRIES: TimelineEntry[] = [
     writers: "John Jackson Miller, Chris Avellone",
     pencillers: "Brian Ching, Andrea Mutti, Bong Dazo, Dean Zachary, Ron Chan, Dustin Weaver",
     inkers: "Gigi Baldassini",
-    description: "",
+    description:
+      "A new direction for fugitive Jedi Zayne Carrick! With his allies by his side — his best friend Gryph, the mysterious Jarael and the former Mandalorian warrior Rohlan — Zayne sets forth on seat-of-his-pants adventures filled with ghost ships, renegade droids and high-speed racers. A death-defying shootout on the face of a comet leads straight into the heart of one of the galaxy's cruelest organizations: the slave-trading Crucible.",
     coverUrl: "https://m.media-amazon.com/images/I/81IHu1+szUL._SL1500_.jpg",
     ownershipStatus: "announced",
   },
@@ -1149,7 +1178,8 @@ export const LICENSED_ENTRIES: TimelineEntry[] = [
       "David Ross, Andrea Mutti, George Freeman, Alex Sanchez, David Daza, Robert E. Barnes, David Nakayama, Greg Titus",
     inkers:
       "Mark McKenna, Pierluigi Baldassini, Alex Sanchez, Robert E. Barnes, Greg Adams, Julian Washburn",
-    description: "",
+    description:
+      "The Sith Empire has returned to the galaxy, determined to crush the Republic that sent them into exile, launching an attack on the Outer Rim with their sights set on the Core Worlds. The Sith's Dark Council claims to want peace, but both sides have unleashed spies who could turn the tide of war. And on a frozen world, a lost tribe of Sith cut off from the galaxy is about to have its fate changed forever, as a rebellious outcast discovers ancient secrets.",
     coverUrl: "https://m.media-amazon.com/images/I/81f3jkJAkTS._SL1500_.jpg",
     ownershipStatus: "announced",
   },
@@ -1169,7 +1199,8 @@ export const LICENSED_ENTRIES: TimelineEntry[] = [
       "Ramón F. Bachs, Marco Castiello, Ivan Rodriguez, Iban Coello, Federico Dallocchio, David Daza, Paul Lee, Brian Horton",
     inkers:
       "Raul Fernandez, Vincenzo Acunzo, Sergio Abad, Belardino Brabo, Federico Dallocchio, Marcio Loezer, Ivan Rodriguez",
-    description: "",
+    description:
+      "The Old Republic draws to a stunning conclusion! As the Sith overtake the galaxy, a group of brave Jedi continue hit-and-run missions — but Jedi Knight Kerra Holt's first mission goes horribly wrong. Now Kerra intends to liberate as many innocents as possible, and find the truth about her missing family in the process. The collection also explores the origins of the Sith rule of two, one master and one apprentice, as Lord Hoth's Army of Light faces the Brotherhood of Darkness in a bid to end the galactic conflict once and for all.",
     coverUrl: "https://m.media-amazon.com/images/I/818XNJou-yL._SL1500_.jpg",
     ownershipStatus: "announced",
   },
@@ -1191,7 +1222,8 @@ export const LICENSED_ENTRIES: TimelineEntry[] = [
       "Mahmud Asrar, Lucas Marangon, Ramón F. Bachs, Davidé Fabbri, Anthony Winn, Robert Teranishi, Michael Zulli, Kagan McLeod, Timothy II, Jesús Saiz, Ben Templesmith, Jon Sommariva, Chris Slane, Cully Hamner, Jan Duursema, Francisco Ruiz Velasco, Dave McCaig, Sergio Aragonés, Kilian Plunkett",
     inkers:
       "Robert Jones, Raul Fernandez, Christian Dalla Vecchia, Howard M. Shum, Fernando Blanco, Ben Templesmith, Pierre-Andre Dery, Robert Teranishi, Rick Magyar, Lucas Marangon, Kilian Plunkett",
-    description: "",
+    description:
+      "Tales of Star Wars Legends that lead up to the events of Episode I: The Phantom Menace! When young Jedi Master Qui-Gon Jinn is dispatched to prevent a civil war, he has a close encounter with the dark side. Years later, Qui-Gon and his apprentice Obi-Wan Kenobi face an out-of-control cloud cruiser and the lawless world of Ord Mantell, where everyone holds a grudge — and a blaster. And Mace Windu's Jedi Knights face a threat that could shake the Jedi Order to its core.",
     coverUrl: "https://m.media-amazon.com/images/I/716+H6k5WEL._SL1500_.jpg",
     ownershipStatus: "announced",
   },
@@ -1212,7 +1244,8 @@ export const LICENSED_ENTRIES: TimelineEntry[] = [
       "Anthony Winn, Jan Duursema, Rodolfo Damaggio, Steve Crespo, Galen Showman, Robert Teranishi, Martin Egeland, John Nadeau, Cliff Richards, Tom Fowler, Tony Millionaire, Stan Sakai, Lucas Marangon",
     inkers:
       "Robert Jones, Rick Magyar, Al Williamson, P. Craig Russell, George Freeman, Christopher Chuckry, Howard M. Shum, Jordi Ensign, Tom Fowler",
-    description: "",
+    description:
+      "An Empire on the rise — a Rebellion on the horizon! The conflict that will grip the galaxy for generations begins here, with an adaptation of Star Wars: Episode I – The Phantom Menace and tales starring its major players. Anakin Skywalker is a boy with a dark destiny. Jedi Padawan Obi-Wan Kenobi has much to learn from his master, Qui-Gon Jinn. Teenage Queen Amidala faces exile. And Sith Lord Darth Maul must strike down the biggest obstacle in his Master's way. Plus: Mace Windu, Yoda, Jar Jar Binks and more.",
     coverUrl: "https://m.media-amazon.com/images/I/710U2pkykxL._SL1500_.jpg",
     ownershipStatus: "announced",
   },
@@ -1233,7 +1266,8 @@ export const LICENSED_ENTRIES: TimelineEntry[] = [
       "Ramón F. Bachs, Tom Lyle, Brandon Badeaux, Rod Pereira, Rick Leonardi, Al Rio, John Nadeau, Tom Raney, Francis Portela, Jan Duursema",
     inkers:
       "Raul Fernandez, Mark Lipka, Robert Jones, Mark G. Heike, Jordi Ensign, Stephen Hawthorne, Howard M. Shum, Walden Wong",
-    description: "",
+    description:
+      "Delve deep into the dark past of Jango Fett! Find out how Fett became a Mandalorian warrior — and battled his way through war and slavery to become the bounty hunter who caught the eye of Count Dooku. Meanwhile, Ki-Adi-Mundi seeks a wayward Jedi on the backward world of Tatooine, and Jabba the Hutt will help — for a price. But Tusken Raiders and a vicious krayt dragon may mean the end of his mission. And as half the Jedi Council heads to the planet of Malastare on a mission of peace, a phantom menace looms in the shadows. Plus, Mace Windu braves the Smugglers' Moon.",
     coverUrl: "https://m.media-amazon.com/images/I/91-Oyw798PL._SL1500_.jpg",
     ownershipStatus: "announced",
   },
@@ -1254,7 +1288,8 @@ export const LICENSED_ENTRIES: TimelineEntry[] = [
       "Jan Duursema, Ramón F. Bachs, Davidé Fabbri, Randy Green, Sanford Greene, Jerome Opeña, Isaac Buckminster Owens",
     inkers:
       "Rick Magyar, Raul Fernandez, Christian Dalla Vecchia, Ray Kryssing, Andy Owens, Jan Duursema, Kris Kaufman",
-    description: "",
+    description:
+      "Jedi Knight Quinlan Vos has lost his memory and must rediscover his past while searching for his Padawan, Aayla Secura. Meanwhile, the bounty hunter Aurra Sing arrives on Coruscant, slaying Jedi in the very shadow of the Temple.",
     coverUrl: "https://m.media-amazon.com/images/I/91ucxVD+4KL._SL1500_.jpg",
     ownershipStatus: "announced",
   },
@@ -1272,7 +1307,8 @@ export const LICENSED_ENTRIES: TimelineEntry[] = [
     writers: "John Ostrander, Ryder Windham, Ron Marz",
     pencillers: "Davidé Fabbri, Jan Duursema, Pop Mhan, Tom Fowler, Ted Naifeh",
     inkers: "Christian Dalla Vecchia, Ray Kryssing, Norman Lee",
-    description: "",
+    description:
+      "The Jedi Council has revealed their part in a sensitive conflict from the past, and Obi-Wan must confront his feelings about Qui-Gon Jinn's death if he is to train his own new apprentice, Anakin Skywalker. Aayla Secura reunites with her former teacher Quinlan Vos in their deadliest adventure yet, and legendary bounty hunters Zam Wesell and Jango Fett clash as they each try for the biggest score of their lives.",
     coverUrl: "https://m.media-amazon.com/images/I/91kd5crT9iL._SL1500_.jpg",
     ownershipStatus: "announced",
   },
@@ -1293,7 +1329,8 @@ export const LICENSED_ENTRIES: TimelineEntry[] = [
       "Jan Duursema, Ramón F. Bachs, Manuel Garcia, C.P. Smith, Francis Portela, Peter Bagge, Timothy Truman, Adrian Sibar, Will Conrad, Sean Phillips, Homs, Roger Langridge",
     inkers:
       "Ray Kryssing, Raul Fernandez, Jasen Rodriguez, Fernando Blanco, Albert Xiques, Timothy Truman, Jimmy Palmiotti, Sean Phillips",
-    description: "",
+    description:
+      "Obi-Wan Kenobi and Anakin Skywalker are assigned as bodyguards to a senator under threat, while bounty hunter Aurra Sing targets a fallen Jedi. Pirate captain Nym, on the run from the Trade Federation, tracks down fellow pirate Sol Sixxa. Plus: the comics adaptation of Attack of the Clones, young Boba Fett's first mission, and Obi-Wan teaching Anakin a lesson in humility.",
     coverUrl: "https://m.media-amazon.com/images/I/81A6q96abDL._SL1500_.jpg",
     ownershipStatus: "announced",
   },
@@ -1315,7 +1352,8 @@ export const LICENSED_ENTRIES: TimelineEntry[] = [
       "Jan Duursema, Tomás Giorello, Adriana Melo, Stephen Thompson, Brian Ching, Greg Tocchini, HOON, Erik Tiemens",
     inkers:
       "Dan Parsons, Curtis P. Arnold, Jan Duursema, Fabio Laguna, Ray Kryssing, Joe Weems, Eddie Wagner, HOON, Erik Tiemens",
-    description: "",
+    description:
+      "The Republic is rocked by war! As the galaxy descends into conflict, Separatists target the Republic's crucial cloning facility, and only a squadron of starfighters and a battalion of Jedi-led clone troopers stand in the way. Meanwhile, Naboo, home of Padmé Amidala, is the next Separatist target — how will General Obi-Wan Kenobi and his troops hold the line?",
     coverUrl: "https://m.media-amazon.com/images/I/81lHYUIFdzL._SL1500_.jpg",
     ownershipStatus: "announced",
   },
@@ -1334,7 +1372,8 @@ export const LICENSED_ENTRIES: TimelineEntry[] = [
     pencillers:
       "Brian Ching, Jan Duursema, Bruno Redondo, Brandon Badeaux, Tomás Giorello, Steve Pugh",
     inkers: "Victor Llamas, Dan Parsons, Armando Durruthy, Bruno Redondo",
-    description: "",
+    description:
+      "Battles rage during the Clone Wars, with General Kenobi and Anakin Skywalker at the Battle of Jabiim, Anakin partnered with a Tusken Raider-turned-Jedi, and Dark Jedi Asajj Ventress on the hunt. Senator Bail Organa deals with pirates, Quinlan Vos goes undercover in Count Dooku's inner circle, and Mace Windu faces his own reckoning.",
     coverUrl: "https://m.media-amazon.com/images/I/91nRvEC0OmL._SL1500_.jpg",
     ownershipStatus: "announced",
   },
@@ -1355,7 +1394,8 @@ export const LICENSED_ENTRIES: TimelineEntry[] = [
       "Jan Duursema, Brian Ching, Rick Leonardi, Sang Jun Lee, Doug Wheatley, Ben Templesmith, Michael Murnane",
     inkers:
       "Dan Parsons, Mark Pennington, Sang Jun Lee, Doug Wheatley, Brian Ching, Ben Templesmith, Michael Murnane",
-    description: "",
+    description:
+      "Tales of the legendary Clone Wars! Renegade Jedi Quinlan Vos has crept closer than ever to the dark side of the Force, and now he must not only confront his former student Aayla Secura and his old friend Obi-Wan Kenobi, but also place his fate in the hands of the Jedi Council itself. Meanwhile, the newly knighted Anakin Skywalker and the evil Sith apprentice Ventress have become obsessed with defeating one another — could this be their final battle at last? Plus: discover the origin of the murderous villain General Grievous. The race to Episode III: Revenge of the Sith begins here.",
     coverUrl: "https://m.media-amazon.com/images/I/81vUhpjfSEL._SL1500_.jpg",
     ownershipStatus: "announced",
   },
@@ -1375,7 +1415,8 @@ export const LICENSED_ENTRIES: TimelineEntry[] = [
       "Jan Duursema, Juan Frigeri, Doug Wheatley, Lucas Marangon, Nicola Scott, Derek Thompson",
     inkers:
       "Dan Parsons, Mauro Vargas, Doug Wheatley, Lucas Marangon, Nicola Scott, Derek Thompson",
-    description: "",
+    description:
+      "The Clone Wars reach their conclusion, building toward Star Wars: Episode III – Revenge of the Sith. Darth Maul returns for a final reckoning, the Jedi Order faces its darkest hour, and Anakin Skywalker's fateful transformation draws ever closer.",
     coverUrl: "https://m.media-amazon.com/images/I/91hYukf1VNL._SL1500_.jpg",
     ownershipStatus: "announced",
   },
@@ -1432,7 +1473,8 @@ export const LICENSED_ENTRIES: TimelineEntry[] = [
     writers: "Randy Stradley, W. Haden Blackman, Tim Siedell",
     pencillers: "Agustin Alessio, Gabriel Guzman, Doug Wheatley, Stephen Thompson, Iván Fernández",
     inkers: "Mark Irwin, Denis Freitas, Drew Geraci, Jason Gorder",
-    description: "",
+    description:
+      "Dark times for the galaxy! But will the Empire's rise be forestalled when Emperor Palpatine is left at death's door? Or will Darth Vader find a way to save him in the ominous Ghost Prison? As the Dark Lord takes a killer under his wing, it could be grave news for a group of Jedi youths — but when Master Dass Jennir reunites with the Uhumele's ragtag crew, Vader himself will be the target. But the Empire's enforcer does not go down easily; just ask the eight assassins who try and fail. The man who hired them will risk everything on the ninth.",
     coverUrl: "https://m.media-amazon.com/images/I/91jz3FG9B3L._SL1500_.jpg",
     ownershipStatus: "announced",
   },
@@ -1453,7 +1495,8 @@ export const LICENSED_ENTRIES: TimelineEntry[] = [
       "Gabriel Guzman, Art Wetherell, Ian Gibson, John Nadeau, Aaron McBride, John McCrea, Jan Duursema, Dave McCaig, Sunny Lee, Phill Norwood, Todd Nauck, Gilbert Hernandez, Kia Asamiya, Amanda Conner, Davidé Fabbri, Mike Deodato Jr., Todd Demong, Henry Flint, Stewart McKenny, James Kochalka, Lucas Marangon",
     inkers:
       "Monty Sheldon, Ian Gibson, Jim Amash, Jimmy Palmiotti, Aaron McBride, Randy Emberlin, Shannon Denton, Jaime Mendoza, Christian Dalla Vecchia, Neil Nelson, John Wycough",
-    description: "",
+    description:
+      "Bring on the bad guys! A former trooper, left for dead during the Clone Wars, hears word of a new, great warrior worthy of following: Darth Vader! But can he prove himself to the Dark Lord as a storm trooper? Jabba the Hutt steals the spotlight in four stories of bartering, backstabbing and betrayal. And when Vader hires Boba Fett for an important job, will the bounty hunter end up an enemy of the Empire? Plus: young Luke Skywalker goes on a walkabout, Han Solo and Chewbacca have a falling out — and more.",
     coverUrl: "https://m.media-amazon.com/images/I/91EEmGWX6eL._SL1500_.jpg",
     ownershipStatus: "announced",
   },
@@ -1472,7 +1515,8 @@ export const LICENSED_ENTRIES: TimelineEntry[] = [
       "Ryder Windham, Dan Thorsland, Jan Strnad, Anthony Daniels, Gilbert Austin, Rick Geary",
     pencillers: "Bill Hughes, Ian Gibson, Igor Kordey, Gilbert Austin, Rick Geary",
     inkers: "Andy Mushynsky, Keith Williams, Rich Perrotta, Ian Gibson",
-    description: "",
+    description:
+      "R2-D2 and C-3PO steal the spotlight, with the droids having plenty of exciting adventures even before joining the rebellion. With the Empire on the march, the squabbling duo find themselves in trouble in the Kalarba system with a Corellian rogue named Jace Forno, and on the smuggler planet of Nar Shaddaa they encounter con artist Olag Greck as newly deputized droids. The collection includes planet-saving action co-written by C-3PO actor Anthony Daniels.",
     coverUrl: "https://m.media-amazon.com/images/I/91dPO1-jlRL._SL1500_.jpg",
     ownershipStatus: "announced",
   },
@@ -1491,7 +1535,8 @@ export const LICENSED_ENTRIES: TimelineEntry[] = [
     pencillers:
       "Davidé Fabbri, Stéphane Roux, Stéphane Créty, Allen Nunis, Kilian Plunkett, Chris Brunner",
     inkers: "Julien Hugonnard-Bert, Christian Dalla Vecchia",
-    description: "",
+    description:
+      "The Force unleashed! The Empire's power is at its peak — but not every problem requires military might. Sometimes all you need is the right agent, in the right place, with the willingness to get the job done. An agent like Jahan Cross! But when Boba Fett is framed for murder, Cross finds himself in a situation that even he can't handle. Plus: learn the origin of Vader's secret apprentice, Starkiller.",
     coverUrl: "https://m.media-amazon.com/images/I/91kkeNEC4oL._SL1500_.jpg",
     ownershipStatus: "announced",
   },
@@ -1511,7 +1556,8 @@ export const LICENSED_ENTRIES: TimelineEntry[] = [
     pencillers: "Chris Scalf, Carlos Meglia, Ryan Benjamin, John Nadeau, Eric Powell, Joey Mason",
     inkers:
       "Carlos Meglia, Curtis P. Arnold, Jordi Ensign, Drew Geraci, Keith Barnett, Howard M. Shum",
-    description: "",
+    description:
+      "The Empire rules the galaxy — but for how long? When high-level Imperial officers plot to overthrow the Emperor, Vader must stop them, with the help of Boba Fett. Meanwhile, when a survivor of Fett's very first mission surfaces, Fett must choose whether to help him or finish the job. And when Fett is seemingly killed, his child and her mother become unwitting targets. Plus: other bounty hunters circle for the kill.",
     coverUrl: "https://m.media-amazon.com/images/I/81HNGktoQVL._SL1500_.jpg",
     ownershipStatus: "announced",
     swimLanePosition: 4,
@@ -1533,7 +1579,8 @@ export const LICENSED_ENTRIES: TimelineEntry[] = [
       "Doug Wheatley, Eduardo Barreto, Tomás Giorello, Davidé Fabbri, Lucas Marangon, Rick Leonardi, Gary Erskine, John McCrea, Makoto Nakatsuka, Patrick Blaine, Ryan Kinnaird, Martin Egeland, Fillbach Brothers, Sergio Aragonés, Jay Stephens, Scott Kurtz, Feng Zhu",
     inkers:
       "Christian Dalla Vecchia, Eduardo Barreto, Al Williamson, Howard M. Shum, Terry Austin, Gary Erskine, Jimmy Palmiotti, Jay Stephens, Feng Zhu",
-    description: "",
+    description:
+      "General Dodonna uses his strategic skills to outmaneuver the Imperial fleet, Darth Vader hunts for the stolen Death Star plans and crosses paths with Princess Leia, and Imperial pilot Biggs Darklighter journeys toward becoming one of the Rebellion's greatest X-Wing pilots. Plus: the comics adaptation of A New Hope.",
     coverUrl: "https://m.media-amazon.com/images/I/91v8QdS1VaL._SL1500_.jpg",
     ownershipStatus: "announced",
     swimLanePosition: 1,
@@ -1553,7 +1600,8 @@ export const LICENSED_ENTRIES: TimelineEntry[] = [
     writers: "Brian Wood, Darko Macan, Welles Hartley, Dave Land, John Wagner",
     pencillers: "Carlos D'Anda, Dave Gibbons, Davidé Fabbri, Ryan Kelly, Raúl Treviño, Cam Kennedy",
     inkers: "P. Craig Russell, Christian Dalla Vecchia, Carlos D'Anda, Dan Parsons, Raúl Treviño",
-    description: "",
+    description:
+      "When the Death Star falls, what will happen next for the galaxy? Find out in this collection of tales set in the immediate aftermath of Episode IV: A New Hope. Stinging from defeat, Darth Vader is consumed with tracking down the Force-strong young pilot who destroyed his battle station. What would it mean for the Empire if Vader and the evil Emperor Palpatine discover Luke Skywalker's true identity?",
     coverUrl: "https://m.media-amazon.com/images/I/91OIRJlN+xL._SL1500_.jpg",
     ownershipStatus: "announced",
   },
@@ -1572,7 +1620,8 @@ export const LICENSED_ENTRIES: TimelineEntry[] = [
     pencillers:
       "Stéphane Créty, Facundo Percio, Carlos D'Anda, Tomás Giorello, Adriana Melo, Nicola Scott, Brian Ching, Brandon Badeaux, Jeff Johnson, Joe Corroney",
     inkers: "Julien Hugonnard-Bert, Dan Parsons, Carlos D'Anda, Jeff Johnson, Joe Corroney",
-    description: "",
+    description:
+      "The rebels and the Empire — locked in conflict! When Leia announces plans to marry, will the Rebellion lose a princess, or gain a new safe haven? Darth Vader is on a mission to instill fear and discipline into the Imperial ranks using his elite stormtroopers, but as Obi-Wan Kenobi haunts the Dark Lord's dreams, the name Skywalker dominates his mind. Meanwhile, Luke fights side-by-side with a veteran of the Clone Wars, and Han Solo flirts with an old flame. When Leia risks everything for a childhood friend, the whole crew is drawn into danger.",
     coverUrl: "https://m.media-amazon.com/images/I/A1Q4sUGbIWL._SL1500_.jpg",
     ownershipStatus: "announced",
   },
@@ -1592,7 +1641,8 @@ export const LICENSED_ENTRIES: TimelineEntry[] = [
     pencillers:
       "Adriana Melo, Davidé Fabbri, June Brigman, Joe Corroney, Michel Lacombe, Brian Ching, Glen Johnson, Patrick Zircher, Cesar Magsombol",
     inkers: "Christian Dalla Vecchia, Roy Richardson, Michel Lacombe, Jim Nelson, Cesar Magsombol",
-    description: "",
+    description:
+      "Han Solo and Chewbacca get caught up in the River of Chaos, an action-packed adventure that puts their friendship to the test. Meanwhile, the Rebellion's fight against the Empire continues on multiple fronts, with new threats and old rivalries testing the resolve of Luke, Leia and the rest of the Rebel Alliance.",
     coverUrl: "https://m.media-amazon.com/images/I/91YYHt9XXzL._SL1500_.jpg",
     ownershipStatus: "announced",
   },
@@ -1613,7 +1663,8 @@ export const LICENSED_ENTRIES: TimelineEntry[] = [
       "Michel Lacombe, Brandon Badeaux, Colin Wilson, Dustin Weaver, Francisco Ruiz Velasco, Carlos Ezquerra, Chris Brunner, Paco Medina, Davidé Fabbri",
     inkers:
       "Michel Lacombe, Colin Wilson, Wil Glass, Carlos Ezquerra, Chris Brunner, Serge LaPointe, Joe Sanchez, Christian Dalla Vecchia",
-    description: "",
+    description:
+      "The war against the Empire continues! Months after the Death Star's destruction, the Rebel Alliance has begun the fight to dismantle the Empire piece by piece. Rebel strategist Jorin Sol has been rescued from the enemy's clutches, but is he now friend or foe? And Luke Skywalker's childhood pal, Imperial Lieutenant Janek \"Tank\" Sunber, claims he wants to join the Rebellion — but Princess Leia thinks it's a trap. Can Luke still trust his old friend? Plus: the cross-time \"Vector\" saga continues, bounty hunter Boba Fett takes on a series of deadly assignments, and Lando Calrissian moves to Cloud City.",
     coverUrl: "https://m.media-amazon.com/images/I/91AqSB7RaOL._SL1500_.jpg",
     ownershipStatus: "announced",
   },
@@ -1633,7 +1684,8 @@ export const LICENSED_ENTRIES: TimelineEntry[] = [
     pencillers:
       "Chris Sprouse, Marco Castiello, Al Williamson, Carlos Garzón, Nick Choles, Paul Chadwick, Robert Teranishi, Scott Morse, Cary Nord, Sean Murphy, Kilian Plunkett, Lucas Marangon, Tony Millionaire, Jonathan Adams, Jim Campbell, Jason",
     inkers: "Terry Austin, Dan Parsons, Al Williamson, Carlos Garzón, Howard M. Shum",
-    description: "",
+    description:
+      "Luke and Leia journey to a mysterious world in search of an ancient Jedi relic, in an adaptation of the classic novel Splinter of the Mind's Eye. Then Han Solo and Chewbacca pull off a daring heist, before the collection concludes with Luke heading toward Yoda — and learning a truth about his father.",
     coverUrl: "https://m.media-amazon.com/images/I/81bWvuRT5xL._SL1500_.jpg",
     ownershipStatus: "announced",
   },
@@ -1676,7 +1728,8 @@ export const LICENSED_ENTRIES: TimelineEntry[] = [
       "Carlos Ezquerra, Ron Randall, Kilian Plunkett, Lucas Marangon, Timothy II, Christina Chen, Vatche Mavlian, Igor Kordey, Sunny Lee, Todd Nauck, Sean Murphy, Paco Medina, John McCrea, Francisco Ruiz Velasco, Chris Slane, Carlos Meglia, Ramón F. Bachs, Robert Teranishi, Sergio Aragonés, Rick Leonardi, Clayton Henry, John Nadeau, Chris Eliopoulos",
     inkers:
       "Carlos Ezquerra, P. Craig Russell, Kilian Plunkett, Jimmy Palmiotti, Igor Kordey, Randy Emberlin, Jaime Mendoza, Joe Sanchez, Lucas Marangon, Mark Lipka, Jordi Ensign",
-    description: "",
+    description:
+      "Mara Jade, Emperor Palpatine's faithful Hand, must decide whether to complete her final mission of revenge after the Emperor's death following Return of the Jedi. Plus: the story of replica droid assassin Guri, who struggles for her own humanity while her android brain makes her a target.",
     coverUrl: "https://m.media-amazon.com/images/I/81ILqUlKlOL._SL1500_.jpg",
     ownershipStatus: "announced",
   },
@@ -1697,7 +1750,8 @@ export const LICENSED_ENTRIES: TimelineEntry[] = [
       "John Nadeau, Allen Nunis, Edvin Biukovic, Tomás Giorello, Adrian Sibar, Michel Lacombe",
     inkers:
       "Jordi Ensign, Andy Mushynsky, Edvin Biukovic, Monty Sheldon, Serge LaPointe, Andrew Pepoy",
-    description: "",
+    description:
+      "Wedge Antilles and his fellow starfighters protect the New Republic as the crack team of ace pilots known as Rogue Squadron.",
     coverUrl: "https://m.media-amazon.com/images/I/71aHnP4TmQL._SL1500_.jpg",
     ownershipStatus: "announced",
   },
@@ -1715,7 +1769,8 @@ export const LICENSED_ENTRIES: TimelineEntry[] = [
     writers: "Michael A. Stackpole, Jan Strnad",
     pencillers: "John Nadeau, Steve Crespo, Drew Johnson, Gary Erskine, Jim Hall",
     inkers: "Jordi Ensign, Gary Martin, Gary Erskine, Chip Wallace",
-    description: "",
+    description:
+      "Wedge Antilles leads Rogue Squadron into action and adventure! What begins as a straightforward mission introduces Baron Fel, the Empire's answer to Wedge and his elite band of X-wing pilots. And the heroes face their deadliest mission yet when the New Republic must rescue former would-be Emperor Sate Pestage, who is wanted by the Empire for high treason.",
     coverUrl: "https://m.media-amazon.com/images/I/716UC-xvRZL._SL1500_.jpg",
     ownershipStatus: "announced",
   },
@@ -1733,7 +1788,8 @@ export const LICENSED_ENTRIES: TimelineEntry[] = [
     writers: "Mike Baron",
     pencillers: "Olivier Vatine, Terry Dodson, Edvin Biukovic, Fred Blanchard",
     inkers: "Fred Blanchard, Kevin Nowlan, Olivier Vatine, Edvin Biukovic, Eric Shanower",
-    description: "",
+    description:
+      "The Thrawn Trilogy! Five years after the rebel victory against the second Death Star, Luke Skywalker is the first of a new line of Jedi Knights, and Han Solo and Princess Leia are married and have taken on many of the burdens of governing the New Republic.",
     coverUrl: "https://m.media-amazon.com/images/I/91GjSjKl7mL._SL1500_.jpg",
     ownershipStatus: "announced",
   },
@@ -1752,7 +1808,8 @@ export const LICENSED_ENTRIES: TimelineEntry[] = [
     pencillers:
       "Cam Kennedy, Jim Baikie, Paul Lee, Brian Horton, John McCrea, Dario Brizuela, Francisco Paronzini",
     inkers: "Cam Kennedy, Jim Baikie",
-    description: "",
+    description:
+      "The Dark Empire trilogy! Six years after the Battle of Endor, the heroes of the Rebellion work to unite the galaxy. But a new Empire has risen from the chaos to strike back at the former Rebel Alliance, reclaiming its capital of Coruscant and building massive new World Devastators to ravage entire planets. And Jabba the Hutt's ruthless heirs have placed a monumental price on the heads of Princess Leia and Han Solo.",
     coverUrl: "https://m.media-amazon.com/images/I/A1qRZBktNOL._SL1500_.jpg",
     ownershipStatus: "announced",
   },
@@ -1770,7 +1827,8 @@ export const LICENSED_ENTRIES: TimelineEntry[] = [
     writers: "Mike Richardson, Randy Stradley",
     pencillers: "Paul Gulacy, Javier Saltares, Isaac Buckminster Owens",
     inkers: "P. Craig Russell, Randy Emberlin, Christopher \"Chris\" Ivy, Paul Gulacy",
-    description: "",
+    description:
+      "The Crimson Empire trilogy! All the members of Emperor Palpatine's elite Royal Guard have been hunted down and killed after his death, except one: Kir Kanos, the Emperor's most loyal soldier. The man behind the murders is fellow guardsman Carnor Jax, now part of the Imperial ruling council, who wants the throne for himself. Kanos must escape Jax's grasp and find new allies — and a new identity as bounty hunter Kenix Kil. But Kanos's quest puts him in the crosshairs of both the remaining Empire forces and the leaders of the New Republic: Leia Organa, Han Solo and Luke Skywalker.",
     coverUrl: "https://m.media-amazon.com/images/I/81mJitf-9GL._SL1500_.jpg",
     ownershipStatus: "announced",
   },
@@ -1791,7 +1849,8 @@ export const LICENSED_ENTRIES: TimelineEntry[] = [
       "Cam Kennedy, Dario Carrasco Jr., Robert Teranishi, Dusty Abell, Ramón F. Bachs, Brent Anderson, Igor Kordey, Jan Duursema, Dave Gibbons, John Nadeau, Martin Egeland, Kilian Plunkett, Rafael Kayanan, Sean Murphy",
     inkers:
       "Mark G. Heike, Bill Black, David Jacob Beckett, Jim Royal, Cam Kennedy, Kris Justice, Will Blyberg, Igor Kordey, Jan Duursema, Dave Gibbons, Jordi Ensign, Rafael Kayanan, Sean Murphy",
-    description: "",
+    description:
+      "A legend returns, and the future awaits! Boba Fett is alive, and the deadly assignments he takes on next will prove he's still the galaxy's greatest bounty hunter. Then Luke Skywalker has established a new academy to train the next generation of Jedi Knights, and his students are given their first mission — ready or not — to stop an ancient evil on a distant mining colony. Plus: Luke is about to marry Mara Jade, once the Emperor's greatest assassin, but threats from both sides arise to prevent their happy union.",
     coverUrl: "https://m.media-amazon.com/images/I/91hs3AAGTVL._SL1500_.jpg",
     ownershipStatus: "announced",
   },
@@ -1830,7 +1889,8 @@ export const LICENSED_ENTRIES: TimelineEntry[] = [
     pencillers:
       "Jan Duursema, Colin Wilson, Adam DeKraker, Travel Foreman, Sean Cooke, Dan Parsons",
     inkers: "Dan Parsons, Travel Foreman",
-    description: "",
+    description:
+      "More than a hundred years after Return of the Jedi, a new evil has arisen, shattering a resurgent Empire and seeking to put an end to the Jedi once and for all — with the Sith Lord Darth Krayt on the throne and only one hope remaining: the last heir to the Skywalker legacy. Cade may be strong in the Force, but years after tragedy struck his family he's become a bounty hunter, working with Jariah Syn and Deliah Blue. When he reluctantly finds himself at the center of galactic turmoil, Cade may be forced to embrace his heritage at last.",
     coverUrl: "https://m.media-amazon.com/images/I/61mn6+4zuSL._SL1500_.jpg",
     ownershipStatus: "announced",
   },
@@ -1848,7 +1908,8 @@ export const LICENSED_ENTRIES: TimelineEntry[] = [
     writers: "John Ostrander, Jan Duursema",
     pencillers: "Jan Duursema, Omar Francia, Alan Robinson, Kajo Baldisimo",
     inkers: "Dan Parsons",
-    description: "",
+    description:
+      "Admiral Gar Stazi steers his flagship the Indomitable into all-out space combat, Emperor Krayt sets out to teach the galaxy a lesson in obedience, and bounty hunter Cade Skywalker and his ragtag crew settle old scores. Darth Wyyrlok undertakes his own crucial mission, the Mon Calamari face extinction, and Rogue Squadron encounters Mandalorian mayhem — while Celeste Morne arrives from the past as a potential secret weapon to help Cade take down Emperor Krayt.",
     coverUrl: "https://m.media-amazon.com/images/I/91gacah-ZRL._SL1500_.jpg",
     ownershipStatus: "announced",
   },
@@ -1866,7 +1927,8 @@ export const LICENSED_ENTRIES: TimelineEntry[] = [
     writers: "John Ostrander, Jan Duursema",
     pencillers: "Jan Duursema, David Ross",
     inkers: "Dan Parsons",
-    description: "",
+    description:
+      "In the far future of Star Wars, nothing is what it seems! Cade Skywalker and his crew are back to their old pirating ways, but they soon find themselves stranded on Tatooine — with a trio of Black Sun assassins on their trail. Elsewhere, Imperial deep-cover agent Morrigan Corde has plans of her own; she'll stop at nothing to find Cade, but the ghost of Luke Skywalker just might find him first. Meanwhile, with Darth Krayt missing, the evil Sith Darth Wyyrlok has proclaimed himself the new emperor of the galaxy — but the other Sith have their own ideas.",
     coverUrl: "https://m.media-amazon.com/images/I/81HzyEP5oIL._SL1500_.jpg",
     ownershipStatus: "announced",
   },
@@ -1884,7 +1946,8 @@ export const LICENSED_ENTRIES: TimelineEntry[] = [
     writers: "Corinna Bechko, Gabriel Hardman, Jason Hall, Ryan Church, Stephan Martiniere",
     pencillers: "Gabriel Hardman, Brian Albert Thies, Paul Lee",
     inkers: "Brian Albert Thies",
-    description: "",
+    description:
+      "The end of an era! Nearly 140 years after A New Hope, the galaxy is struggling to maintain a newfound peace. Ania Solo is trying to eke out a meager living by salvaging debris from the recently ended war, but when she stumbles upon a damaged communications droid and a stray lightsaber, she and her friends find themselves in deep trouble. Wanted by both the local authorities and a determined Imperial Knight, Ania will soon learn that the lightsaber is at the center of a deadly plot — one that leads straight back to the villainous Sith.",
     coverUrl: "https://m.media-amazon.com/images/I/914IyM-6JPL._SL1500_.jpg",
     ownershipStatus: "announced",
   },
@@ -1905,7 +1968,8 @@ export const LICENSED_ENTRIES: TimelineEntry[] = [
       "Mike Mayhew, Davidé Fabbri, Ryan Benjamin, Drew Johnson, Al Rio, Dan Norton, J.J. Kirby, Sean Cooke, Ryan Kinnaird, Scott Kolins, Kilian Plunkett, Stéphane Roux",
     inkers:
       "Christian Dalla Vecchia, Saleem Crawford, Ray Snyder, Al Rio, Neil Nelson, Mike Mayhew",
-    description: "",
+    description:
+      "What if? The original trilogy is reimagined across a series of tales exploring the endless possibilities of the Star Wars galaxy. One story explores how A New Hope would have gone if Luke Skywalker had missed the target in his attack on the Death Star — with consequences that ripple across the saga that follows.",
     coverUrl: "https://m.media-amazon.com/images/I/815YlkXUIFL._SL1500_.jpg",
     ownershipStatus: "announced",
   },
