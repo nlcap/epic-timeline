@@ -18,7 +18,17 @@
 /** What kind of change an entry is, which decides its badge. Deliberately
  * coarse — five kinds a reader can scan, not a taxonomy. `internal` covers
  * refactors, tests and tooling: things with no visible surface, kept in
- * because "why did nothing change this week" is a fair question. */
+ * because "why did nothing change this week" is a fair question.
+ *
+ * `new` vs `data` is the one pair worth getting right: `new` is a
+ * capability the app didn't have before -- a control, a field, a way to
+ * see or do something that wasn't possible last release (adding
+ * writers/artists to the volume model, splitting credits into pencillers
+ * and inkers). `data` is that same capability applied to more or better
+ * content -- researching, correcting or backfilling the records behind a
+ * field that already existed, no matter how large the effort (rebuilding
+ * DC Finest's credits, fixing 43 titles). A big data effort doesn't
+ * become `new` for being big. */
 export type UpdateKind = "new" | "improved" | "fixed" | "data" | "internal";
 
 export interface UpdateEntry {
@@ -66,6 +76,17 @@ export function formatUpdateDate(iso: string): string {
 
 export const UPDATES: UpdateRelease[] = [
   {
+    date: "2026-08-19",
+    entries: [
+      {
+        kind: "data",
+        title: "The Classic Marvel Epic Collections are credited from the issues",
+        description:
+          "All 386 volumes now list writers, pencillers and inkers read from the issues each book collects, rather than the two or three marquee names the seed shipped with. X-Men Vol. 4 alone goes from two names to nine writers, ten pencillers and thirteen inkers.",
+      },
+    ],
+  },
+  {
     date: "2026-08-18",
     entries: [
       {
@@ -75,7 +96,7 @@ export const UPDATES: UpdateRelease[] = [
           "A volume can now say who drew it and who inked it, instead of folding both into one list. Where the two match — every Golden Age book — it still collapses back to a single \"Art by\" line.",
       },
       {
-        kind: "new",
+        kind: "data",
         title: "Every DC Finest volume is credited from the issues themselves",
         description:
           "All 100 volumes now carry credits built by reading the issues they collect, story by story, against the DC Database — 2,365 credits naming 682 people, replacing the abbreviated marketing copy the seed data shipped with. Anthology and reprint issues are filtered to the stories actually collected, and duplicate name spellings are settled to one consistent form.",
