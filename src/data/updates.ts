@@ -460,3 +460,21 @@ export const UPDATES: UpdateRelease[] = [
     ],
   },
 ];
+
+/** This changelog is public-facing and feature-focused, so bug fixes,
+ * polish and invisible-to-a-reader refactors/tooling sit out of the public
+ * view -- UPDATES above keeps every entry regardless, this is purely a
+ * display filter. A release with nothing left after filtering drops out
+ * entirely rather than showing an empty day. Shared by UpdatesModal (the
+ * full history) and useWhatsNew (just what's landed since a visitor's last
+ * visit), so both agree on what counts as public. */
+const HIDDEN_KINDS: ReadonlySet<UpdateKind> = new Set(["fixed", "internal", "improved"]);
+
+/** `UPDATES`, filtered down to what the public page shows: the hidden
+ * kinds above, plus `inProgress` entries -- daily slices of a still-running
+ * effort like the DC Finest/Licensed credit research -- sit out too; see
+ * `UpdateEntry`'s own doc for why. Still newest-first, same as `UPDATES`. */
+export const PUBLIC_RELEASES: UpdateRelease[] = UPDATES.map((release) => ({
+  ...release,
+  entries: release.entries.filter((entry) => !HIDDEN_KINDS.has(entry.kind) && !entry.inProgress),
+})).filter((release) => release.entries.length > 0);

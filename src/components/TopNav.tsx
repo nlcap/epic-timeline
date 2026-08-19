@@ -224,6 +224,7 @@ export function TopNav({
   onOpenFilters,
   onClearFilters,
   onOpenShortcuts,
+  onOpenUpdates,
   searchInputRef,
 }: {
   collections: Collection[];
@@ -235,6 +236,11 @@ export function TopNav({
   onOpenFilters: () => void;
   onClearFilters: () => void;
   onOpenShortcuts: () => void;
+  /** Fired whenever the Updates dialog opens (settings menu, both
+   * desktop and mobile) -- lets App.tsx's useWhatsNew mark the changelog
+   * seen, since reading it here means the one-time popup has nothing left
+   * to announce. */
+  onOpenUpdates: () => void;
   /** Forwarded to the desktop nav's SearchBox only -- see SearchBox's own
    * inputRef prop. */
   searchInputRef?: RefObject<HTMLInputElement>;
@@ -255,7 +261,13 @@ export function TopNav({
     { label: "Reset line data", onOpen: () => setResetOpen(true) },
     { label: "Storage debug", onOpen: () => setStorageDebugOpen(true) },
     { label: "Keyboard shortcuts", onOpen: onOpenShortcuts },
-    { label: "Updates", onOpen: () => setUpdatesOpen(true) },
+    {
+      label: "Updates",
+      onOpen: () => {
+        setUpdatesOpen(true);
+        onOpenUpdates();
+      },
+    },
   ];
 
   useEffect(() => {

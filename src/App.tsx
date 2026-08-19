@@ -22,6 +22,7 @@ import { VolumeFormDrawer } from "./components/VolumeFormDrawer";
 import { VolumeDetailPanel } from "./components/VolumeDetailPanel";
 import { FilterPanel } from "./components/FilterPanel";
 import { KeyboardShortcutsModal } from "./components/KeyboardShortcutsModal";
+import { WhatsNewModal } from "./components/WhatsNewModal";
 import { ZoomControl } from "./components/ZoomControl";
 import { SpeculationModeToggle } from "./components/SpeculationModeToggle";
 import { useOwnership } from "./hooks/useOwnership";
@@ -37,6 +38,7 @@ import { useAddVolumeCellHover } from "./hooks/useAddVolumeCellHover";
 import { useGlobalShortcuts } from "./hooks/useGlobalShortcuts";
 import { useOverlaysOpen } from "./hooks/useOverlay";
 import { useTimelineFilters } from "./hooks/useTimelineFilters";
+import { useWhatsNew } from "./hooks/useWhatsNew";
 import { volumeMatchesStatusFilters, volumeVisibleUnderSearch } from "./lib/filters";
 import { hexToRgba, SPECULATION_ACCENT_HEX } from "./lib/color";
 import { safeSetItem } from "./lib/storage";
@@ -200,6 +202,12 @@ export default function App() {
   // debug) because the "?" global shortcut needs to be able to open it too
   // -- same reason filterPanelOpen lives here instead of in TopNav.
   const [shortcutsOpen, setShortcutsOpen] = useState(false);
+  // What's-new popup: whichever public releases this visitor hasn't seen
+  // yet (empty on a normal visit), plus markSeen -- fired on dismissal and
+  // also passed to TopNav so opening the full Updates page counts as
+  // having seen everything too. See useWhatsNew for the localStorage
+  // bookkeeping.
+  const { newReleases: unseenUpdates, markSeen: markUpdatesSeen } = useWhatsNew();
   // Imperative focus target for the "/" shortcut -- TopNav forwards this to
   // the desktop nav's search input specifically (not the mobile menu's
   // copy, which only exists in the DOM while that menu is open).
@@ -745,6 +753,7 @@ export default function App() {
         }}
         onSelect={switchCollection}
         onOpenShortcuts={() => setShortcutsOpen(true)}
+        onOpenUpdates={markUpdatesSeen}
         searchInputRef={searchInputRef}
       />
       <div style={{ paddingTop: NAV_HEIGHT }}>
@@ -951,6 +960,7 @@ export default function App() {
       )}
 
       <KeyboardShortcutsModal open={shortcutsOpen} onClose={() => setShortcutsOpen(false)} />
+      <WhatsNewModal releases={unseenUpdates} onDismiss={markUpdatesSeen} />
 
       {(addLineOpen || editingLine) && (
         <LineFormDrawer
