@@ -90,6 +90,12 @@ export const UPDATES: UpdateRelease[] = [
         description:
           "571 volumes across the four Marvel collections now list writers, pencillers and inkers read from the issues each book collects, joining DC Finest to cover 671 of the 677 volumes on the shelf. Rom Vol. 5 alone credits eleven inkers where it previously named none.",
       },
+      {
+        kind: "new",
+        title: "Reset can be scoped to just metadata or just your shelf",
+        description:
+          "Reset line data now asks what to wipe — Volume metadata, Shelving & reading status, or Both — so undoing a title correction no longer means losing every Owned/Wishlist and reading-progress mark on that collection too.",
+      },
     ],
   },
   {
