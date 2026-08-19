@@ -859,7 +859,7 @@ export const LICENSED_ENTRIES: TimelineEntry[] = [
     releaseDate: { year: 2016, month: 10 },
     writers: "Archie Goodwin, Roy Thomas, Howard Chaykin, Donald F. Glut, Chris Claremont",
     pencillers:
-      "Carmine Infantino, Howard Chaykin, Tom Palmer, Alan Kupperberg, Walt Simonson, Herb Trimpe",
+      "Carmine Infantino, Howard Chaykin, Tom Palmer, Alan Kupperberg, Walter \"Walt\" Simonson, Herb Trimpe",
     inkers:
       "Bob Wiacek, Terry Austin, Steve Leialoha, Tom Palmer, Gene Day, Howard Chaykin, Rick Hoberg, Bill Wray, Frank Springer, Allen Milgrom",
     description: "",
@@ -897,9 +897,9 @@ export const LICENSED_ENTRIES: TimelineEntry[] = [
     releaseDate: { year: 2018, month: 7 },
     writers:
       "Archie Goodwin, David Michelinie, Chris Claremont, J. M. DeMatteis, Larry Hama, Mike W. Barr",
-    pencillers: "Al Williamson, Carlos Garzón, Carmine Infantino, Walt Simonson",
+    pencillers: "Al Williamson, Carlos Garzón, Carmine Infantino, Walter \"Walt\" Simonson",
     inkers:
-      "Tom Palmer, Carlos Garzón, Al Williamson, Gene Day, Chic Stone, Walt Simonson, Alan Kupperberg, Al Milgrom, Frank Giacoia",
+      "Tom Palmer, Carlos Garzón, Al Williamson, Gene Day, Chic Stone, Walter \"Walt\" Simonson, Alan Kupperberg, Al Milgrom, Frank Giacoia",
     description: "",
     coverUrl: "https://m.media-amazon.com/images/I/A1FXTh-Ax5L._SL1500_.jpg",
     ownershipStatus: "announced",
@@ -915,9 +915,10 @@ export const LICENSED_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Star Wars (1977) #56–73, Annual #2",
     yearsCovered: "1982-1983",
     releaseDate: { year: 2019, month: 8 },
-    writers: "David Michelinie, Walt Simonson, Mary Jo Duffy, Louise Jones, Michael Fleisher",
+    writers:
+      "David Michelinie, Walter \"Walt\" Simonson, Mary Jo Duffy, Louise Jones, Michael Fleisher",
     pencillers:
-      "Walt Simonson, Ron Frenz, Tom Palmer, Gene Day, Joe Brozowski, Carmine Infantino, Kerry Gammill",
+      "Walter \"Walt\" Simonson, Ron Frenz, Tom Palmer, Gene Day, Joe Brozowski, Carmine Infantino, Kerry Gammill",
     inkers: "Tom Palmer, Vince Colletta, Rudy Nebres",
     description: "",
     coverUrl: "https://m.media-amazon.com/images/I/91z32STpAUL._SL1500_.jpg",

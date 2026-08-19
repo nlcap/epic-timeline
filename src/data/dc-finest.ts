@@ -718,9 +718,9 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     writers:
       "Frank Robbins, Archie Goodwin, Dennis \"Denny\" O'Neil, Elliot S. Maggin, Len Wein, E. Nelson Bridwell, Bob Rozakis, Martin Pasko, Mike W. Barr, Sal Amendola, Steve Englehart, Vin Amendola",
     pencillers:
-      "Irv Novick, Walt Simonson, Bob Brown, Dick Dillin, Dick Giordano, Jim Aparo, Don Heck, Neal Adams, Sal Amendola, Alex Toth, Ernie Chan, Frank Robbins, Howard Chaykin, Mike Grell, Murphy Anderson, Pat Broderick, Rich Buckler",
+      "Irv Novick, Walter \"Walt\" Simonson, Bob Brown, Dick Dillin, Dick Giordano, Jim Aparo, Don Heck, Neal Adams, Sal Amendola, Alex Toth, Ernie Chan, Frank Robbins, Howard Chaykin, Mike Grell, Murphy Anderson, Pat Broderick, Rich Buckler",
     inkers:
-      "Dick Giordano, Walt Simonson, Murphy Anderson, Jim Aparo, Frank McLaughlin, Alex Toth, Ernie Chan, Frank Giacoia, Frank Robbins, Howard Chaykin, Mike Grell, Neal Adams, Nick Cardy, Pat Broderick, Sal Amendola",
+      "Dick Giordano, Walter \"Walt\" Simonson, Murphy Anderson, Jim Aparo, Frank McLaughlin, Alex Toth, Ernie Chan, Frank Giacoia, Frank Robbins, Howard Chaykin, Mike Grell, Neal Adams, Nick Cardy, Pat Broderick, Sal Amendola",
     description:
       "Batman faces crime, mystery, and psychological threats in a darker, more dangerous Gotham in these defining Bronze Age adventures.<br />\nGotham City is changing—and Batman must change with it.<br />\n\nAs crime grows more unpredictable and dangerous, the Dark Knight is drawn into cases that push him beyond traditional detective work. From high-stakes battles with some of his most dangerous enemies to tense investigations that uncover Gotham’s rampant corruption, every encounter tests his instincts, restraint, and resolve.<br />\n\nBringing together core Batman stories with rare and unexpected material, this DC Finest volume delivers an immersive, wide-ranging collection that captures the tone and evolution of the Dark Knight Detective during this pivotal period.",
     coverUrl: batmanNightOfTheStalkerCover,
@@ -741,7 +741,7 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     writers:
       "Len Wein, Dennis \"Denny\" O'Neil, Cary Burkett, J.M. DeMatteis, Steve Englehart, Jim Starlin",
     pencillers:
-      "Irv Novick, Don Newton, John Calnan, Walt Simonson, Dick Dillin, Frank Miller, Jim Aparo, Jim Starlin",
+      "Irv Novick, Don Newton, John Calnan, Walter \"Walt\" Simonson, Dick Dillin, Frank Miller, Jim Aparo, Jim Starlin",
     inkers:
       "Frank McLaughlin, Dan Adkins, Dick Giordano, Bob Smith, Vince Colletta, Jim Aparo, P. Craig Russell, Steve Mitchell",
     description:
@@ -1660,7 +1660,7 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     writers:
       "Dennis \"Denny\" O'Neil, Bob Haney, Elliot S. Maggin, David Vern Reed, Martin Pasko, Steve Englehart, Gerry Conway, Len Wein, Paul Kupperberg, Paul Levitz",
     pencillers:
-      "Irv Novick, Jim Aparo, John Calnan, Marshall Rogers, Dick Dillin, Don Newton, Ernie Chua, Joe Staton, José Luis García-López, Neal Adams, Walt Simonson",
+      "Irv Novick, Jim Aparo, John Calnan, Marshall Rogers, Dick Dillin, Don Newton, Ernie Chua, Joe Staton, José Luis García-López, Neal Adams, Walter \"Walt\" Simonson",
     inkers:
       "Tex Blaisdell, Jim Aparo, Dick Giordano, José Luis García-López, Terry Austin, Vince Colletta, Bob Wiacek, Dan Adkins, Frank McLaughlin, Joe Giella, Neal Adams, Steve Mitchell",
     description:

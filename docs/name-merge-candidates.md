@@ -31,17 +31,18 @@ credits use more often, which is the published one).
 | Michael Carlin (3) | **Mike Carlin** (1) | wiki prefers Michael; credits prefer Mike |
 | Michael Wm Kaluta (1) | **Mike Kaluta** (2) | |
 | Dave Ross (3) | **David Ross** (14) | |
-| Walt Simonson (9) | **Walter Simonson** (28) | see the caveat below |
 | Leinil Francis Yu (2) | **Leinil Yu** (16) | |
 | Howard Shum (1) | **Howard M. Shum** (9) | |
 | Bruce D. Patterson (4) | **Bruce Patterson** (22) | |
 | Malcolm Jones (3) | **Malcolm Jones III** (3) | |
 | Eduardo Berreto (1) | **Eduardo Barreto** (10) | via Ed Barreto |
 
-**Caveat on Walt/Walter Simonson.** The redirect proves one person, but he is
-published overwhelmingly as *Walt*. The count favours *Walter* only because the
-Marvel wiki's own credit fields use the formal name. This is the one merge in
-this table where I'd override the data and keep **Walt**.
+**Walt/Walter Simonson — settled.** The redirect proved one person, but the
+count favoured *Walter* only because the Marvel wiki's own credit fields use the
+formal name, while he is published overwhelmingly as *Walt*. Rather than pick a
+side, all 37 slots now read **`Walter "Walt" Simonson`**, the same bespoke form
+used for `Dennis "Denny" O'Neil`. Louise Simonson is a different person and was
+matched exactly, never by substring.
 
 ## B. Same person, no redirect — needs a call
 

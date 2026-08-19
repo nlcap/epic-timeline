@@ -1386,7 +1386,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Avengers #286-303, Annual #17",
     yearsCovered: "1988-1989",
     releaseDate: { year: 2020, month: 11 },
-    writers: "Walter Simonson, Ralph Macchio, Mark Gruenwald, Roger Stern",
+    writers: "Walter \"Walt\" Simonson, Ralph Macchio, Mark Gruenwald, Roger Stern",
     pencillers: "John Buscema, Rich Buckler, Bob Hall, Mark Bright",
     inkers: "Tom Palmer, Don Heck, Mike Gustovich, Val Gustovich",
     description:
@@ -1595,7 +1595,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     yearsCovered: "1996-1997",
     releaseDate: { year: 2027, month: 3 },
     writers:
-      "Jeph Loeb, Rob Liefeld, Jim Valentino, Walter Simonson, Scott Lobdell, Jim Lee, Brandon Choi",
+      "Jeph Loeb, Rob Liefeld, Jim Valentino, Walter \"Walt\" Simonson, Scott Lobdell, Jim Lee, Brandon Choi",
     pencillers:
       "Chap Yaep, Michael Ryan, Ian Churchill, Rob Liefeld, Brett Booth, Whilce Portacio, Jim Lee, Ryan Benjamin, Ron Lim, Anthony Winn, Ed Benes, Terry Shoemaker, Mike Miller, Joe Bennett",
     inkers:
@@ -1820,11 +1820,11 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     yearsCovered: "1988-1994",
     releaseDate: { year: 2021, month: 3 },
     writers:
-      "Don McGregor, Sandy Plunkett, Richard Bensam, Walter Simonson, Roy Thomas, Don Hillsman",
+      "Don McGregor, Sandy Plunkett, Richard Bensam, Walter \"Walt\" Simonson, Roy Thomas, Don Hillsman",
     pencillers:
       "Gene Colan, Dwayne Turner, Sandy Plunkett, Ron Lim, Denys Cowan, Dave Hoover, Don Hillsman",
     inkers:
-      "Tom Palmer, Dwayne Turner, Scott Hampton, Jim Sanders III, Walter Simonson, Charles Barnett, David DeVries",
+      "Tom Palmer, Dwayne Turner, Scott Hampton, Jim Sanders III, Walter \"Walt\" Simonson, Charles Barnett, David DeVries",
     description:
       "The winged menace called Solomon Prey swears vengeance on the king of Wakanda, in the second and third chapters of Don McGregor's epic Wakandan trilogy.",
     coverUrl: "https://m.media-amazon.com/images/I/91csL5+WbYL._SL1500_.jpg",
@@ -3287,7 +3287,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     pencillers:
       "Gene Colan, Tom Sutton, Marshall Rogers, Frank Brunner, Ricardo Villamonte, Alan Kupperberg, Val Mayerik, Kerry Gammill, Michael Golden, Keith Giffen, Dave Cockrum",
     inkers:
-      "Dan Green, Terry Austin, Tom Sutton, Rudy Nebres, Al Milgrom, Frank Brunner, Ernie Chan, P. Craig Russell, Pablo Marcos, Ricardo Villamonte, Jack Abel, Frank Giacoia, Bob Wiacek, Wendy Pini, Walter Simonson, Tom Palmer, Joe Rubinstein, Diverse Hands",
+      "Dan Green, Terry Austin, Tom Sutton, Rudy Nebres, Al Milgrom, Frank Brunner, Ernie Chan, P. Craig Russell, Pablo Marcos, Ricardo Villamonte, Jack Abel, Frank Giacoia, Bob Wiacek, Wendy Pini, Walter \"Walt\" Simonson, Tom Palmer, Joe Rubinstein, Diverse Hands",
     description:
       "Roger Stern and Chris Claremont pit Doctor Strange against Nightmare, D'Spayre, and the Dream Weaver in a war fought across the landscape of the subconscious.",
     coverUrl: "https://m.media-amazon.com/images/I/81s5SMENnXL._SL1500_.jpg",
@@ -3901,11 +3901,12 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Fantastic Four #334–346, Annual #23; and material from; New Mutants Annual #6,; X-Factor Annual #5 and; Uncanny X-Men Annual #14",
     yearsCovered: "1990",
     releaseDate: { year: 2014, month: 7 },
-    writers: "Walter Simonson, Louise Simonson, Danny Fingeroth, Bob Harras, Chris Claremont",
+    writers:
+      "Walter \"Walt\" Simonson, Louise Simonson, Danny Fingeroth, Bob Harras, Chris Claremont",
     pencillers:
-      "Walter Simonson, Rich Buckler, Ron Lim, Rex Valve, Jackson Guice, Terry Shoemaker, Chris Wozniak, Jon Bogdanove, Arthur Adams",
+      "Walter \"Walt\" Simonson, Rich Buckler, Ron Lim, Rex Valve, Jackson Guice, Terry Shoemaker, Chris Wozniak, Jon Bogdanove, Arthur Adams",
     inkers:
-      "Walter Simonson, Romeo Tanghal, Art Thibert, Mike DeCarlo, Chris Ivy, Geof Isherwood, Harry Candelario, Al Milgrom, Scott Williams, Bob Wiacek, Arthur Adams, Steve Moncuse, Dan Green",
+      "Walter \"Walt\" Simonson, Romeo Tanghal, Art Thibert, Mike DeCarlo, Chris Ivy, Geof Isherwood, Harry Candelario, Al Milgrom, Scott Williams, Bob Wiacek, Arthur Adams, Steve Moncuse, Dan Green",
     description:
       "Legendary Thor writer Walt Simonson takes over the Fantastic Four, sending the team through a mind-bending trip across the timestream.",
     coverUrl: "https://m.media-amazon.com/images/I/910iee6ZkAL._SL1500_.jpg",
@@ -3922,9 +3923,10 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Fantastic Four #347–361, Annual #24; and material from; Marvel Holiday Special #1",
     yearsCovered: "1991-1992",
     releaseDate: { year: 2018, month: 6 },
-    writers: "Walter Simonson, Tom DeFalco, Len Kaminski, Danny Fingeroth, Al Milgrom",
-    pencillers: "Paul Ryan, Arthur Adams, Walter Simonson, Gracine Tanaka, Al Milgrom, Mark Bagley",
-    inkers: "Al Milgrom, Danny Bulanadi, Art Thibert, Walter Simonson, Dan Panosian",
+    writers: "Walter \"Walt\" Simonson, Tom DeFalco, Len Kaminski, Danny Fingeroth, Al Milgrom",
+    pencillers:
+      "Paul Ryan, Arthur Adams, Walter \"Walt\" Simonson, Gracine Tanaka, Al Milgrom, Mark Bagley",
+    inkers: "Al Milgrom, Danny Bulanadi, Art Thibert, Walter \"Walt\" Simonson, Dan Panosian",
     description:
       "With Reed, Sue, Ben, and Johnny out of commission, an all-new lineup comes together to hold down the fort: Spider-Man, Wolverine, Ghost Rider, and the Hulk.",
     coverUrl: "https://m.media-amazon.com/images/I/91t7TSbZ9YL._SL1500_.jpg",
@@ -4025,9 +4027,9 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     releaseDate: { year: 2026, month: 2 },
     writers: "John Byrne, Fred Hembeck, Jim Shooter",
     pencillers:
-      "John Byrne, Kerry Gammill, Fred Hembeck, Al Milgrom, Ron Wilson, Brent Eric Anderson, Bob Hall, Bob Layton, Walter Simonson, Mike Vosburg, Frank Springer, Mike Zeck, Dave Cockrum, Keith Pollard, Michael Golden, Don Perlin, Denys B. Cowan, John Buscema, Frank Miller, Gene Day, Steve Leialoha, John Romita Jr., Sal Buscema, Bill Sienkiewicz, Alan Lee Weiss, Marshall Rogers",
+      "John Byrne, Kerry Gammill, Fred Hembeck, Al Milgrom, Ron Wilson, Brent Eric Anderson, Bob Hall, Bob Layton, Walter \"Walt\" Simonson, Mike Vosburg, Frank Springer, Mike Zeck, Dave Cockrum, Keith Pollard, Michael Golden, Don Perlin, Denys B. Cowan, John Buscema, Frank Miller, Gene Day, Steve Leialoha, John Romita Jr., Sal Buscema, Bill Sienkiewicz, Alan Lee Weiss, Marshall Rogers",
     inkers:
-      "John Byrne, Fred Hembeck, Al Milgrom, Brent Eric Anderson, Terry Austin, Ricardo Villamonte, Joe Sinnott, Bob Layton, Walter Simonson, Frank Springer, John Romita Sr., Dave Cockrum, Keith Pollard, Chic Stone, Michael Golden, Don Perlin, Bob McLeod, John Beatty, Gene Day, Steve Leialoha, Joe Rubinstein, Sal Buscema, Bill Sienkiewicz, Alan Lee Weiss, Klaus Janson, Dan Green, Bill Anderson",
+      "John Byrne, Fred Hembeck, Al Milgrom, Brent Eric Anderson, Terry Austin, Ricardo Villamonte, Joe Sinnott, Bob Layton, Walter \"Walt\" Simonson, Frank Springer, John Romita Sr., Dave Cockrum, Keith Pollard, Chic Stone, Michael Golden, Don Perlin, Bob McLeod, John Beatty, Gene Day, Steve Leialoha, Joe Rubinstein, Sal Buscema, Bill Sienkiewicz, Alan Lee Weiss, Klaus Janson, Dan Green, Bill Anderson",
     description:
       "John Byrne's timeless run as writer/artist starts here!\nThe Fantastic Four are going back to the basics, back to Byrne: The debut of John Byrne in his celebrated run as FF writer/artist begins in this Epic Collection! Byrne's deft creative balance—renewing the characters' core, revitalizing old foes and introducing new concepts—gave the FF a bold vitality, restoring them to the lofty heights of the Stan Lee and Jack Kirby era. The Invisible Girl's powers go through a dramatic evolution, Galactus gets a surprising new herald and the FF join their most hated rival, Doctor Doom, in a fight for Latveria! Restored from a trove of original Byrne art, and including cool bonus items like Fred Hembeck's riotous FF Roast and Byrne's excursion into the world of What If?",
     coverUrl: "https://m.media-amazon.com/images/I/811CADZn4aL._SL1500_.jpg",
@@ -4064,7 +4066,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Fantastic Four (1996) 1-12; etc",
     yearsCovered: "1996-1997",
     releaseDate: { year: 2026, month: 8 },
-    writers: "Jim Lee, Brandon Choi, Jeph Loeb, Peter David, Walter Simonson",
+    writers: "Jim Lee, Brandon Choi, Jeph Loeb, Peter David, Walter \"Walt\" Simonson",
     pencillers:
       "Jim Lee, Brett Booth, Ron Lim, Mike Deodato Jr., Michael Ryan, Anthony Winn, Ed Benes, Terry Shoemaker, Mike Miller, Joe Bennett",
     inkers:
@@ -5562,7 +5564,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     releaseDate: { year: 2018, month: 3 },
     writers: "Doug Moench, Steve Englehart, Jim Starlin, Gerry Conway, Len Wein, Bill Mantlo",
     pencillers:
-      "Paul Gulacy, Jim Starlin, Al Milgrom, Ron Wilson, Keith Pollard, Alan Weiss, Walter Simonson, John Buscema, Aubrey Bradford, Ed Hannigan, Ross Andru, George Tuska",
+      "Paul Gulacy, Jim Starlin, Al Milgrom, Ron Wilson, Keith Pollard, Alan Weiss, Walter \"Walt\" Simonson, John Buscema, Aubrey Bradford, Ed Hannigan, Ross Andru, George Tuska",
     inkers:
       "Al Milgrom, Sal Trapani, Dan Adkins, Jim Starlin, Klaus Janson, Frank Springer, Jack Abel, Vince Colletta, Don Perlin",
     description:
@@ -6426,7 +6428,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     pencillers:
       "John Byrne, Bryan Hitch, June Brigman, Alan Davis, Steve Leialoha, Al Milgrom, Kerry Gammill, Don Perlin",
     inkers:
-      "Bob Wiacek, Al Milgrom, Joe Rubinstein, Al Gordon, Stan Drake, Walter Simonson, Randy Emberlin, Trina Robbins, José Marzan Jr., Don Perlin",
+      "Bob Wiacek, Al Milgrom, Joe Rubinstein, Al Gordon, Stan Drake, Walter \"Walt\" Simonson, Randy Emberlin, Trina Robbins, José Marzan Jr., Don Perlin",
     description:
       "John Byrne launches She-Hulk's second solo series with a twist: Shulkie knows she's a character in a comic book. As the jade giantess smashes through the glass ceiling at her new law firm, she breaks the fourth wall right along with it, quipping with readers and arguing with her own creative team while taking on the Circus of Crime, the Toad Men, Stilt-Man, and Xemnu the Titan.",
     coverUrl: "https://m.media-amazon.com/images/I/81IdXq6ebsL._SL1500_.jpg",
@@ -6913,7 +6915,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     releaseDate: { year: 2023, month: 4 },
     writers: "Len Wein, Roy Thomas, Roger Stern, Don Glut, Maggie Thompson, Don Thompson",
     pencillers:
-      "Walter Simonson, John Buscema, Sal Buscema, Tony DeZuniga, Alan Kupperberg, Wayne Boring, Jim Starlin",
+      "Walter \"Walt\" Simonson, John Buscema, Sal Buscema, Tony DeZuniga, Alan Kupperberg, Wayne Boring, Jim Starlin",
     inkers:
       "Tony DeZuniga, Tom Palmer, Ernie Chan, Joe Sinnott, Klaus Janson, Chic Stone, Pablo Marcos",
     description:
@@ -7193,9 +7195,9 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Thor (1966) 337-356",
     yearsCovered: "1983-1984",
     releaseDate: { year: 2026, month: 3 },
-    writers: "Walter Simonson, Bob Harras",
-    pencillers: "Walter Simonson, Sal Buscema, Jackson Guice",
-    inkers: "Walter Simonson, Terry Austin, Bob Wiacek, Sal Buscema, Bob Layton",
+    writers: "Walter \"Walt\" Simonson, Bob Harras",
+    pencillers: "Walter \"Walt\" Simonson, Sal Buscema, Jackson Guice",
+    inkers: "Walter \"Walt\" Simonson, Terry Austin, Bob Wiacek, Sal Buscema, Bob Layton",
     description:
       "",
     coverUrl: "https://m.media-amazon.com/images/I/81irVHSFtoL._SL1500_.jpg",
@@ -7487,7 +7489,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Wolverine #17–30;; Marvel Graphic Novel No. 50 - Wolverine/Nick Fury: The Scorpio Connection;; Wolverine: The Jungle Adventure",
     yearsCovered: "1989-1990",
     releaseDate: { year: 2019, month: 3 },
-    writers: "Archie Goodwin, Jo Duffy, Walter Simonson, Peter David",
+    writers: "Archie Goodwin, Jo Duffy, Walter \"Walt\" Simonson, Peter David",
     pencillers:
       "John Byrne, John Buscema, Barry Kitson, Howard Chaykin, Mike Mignola, Gene Colan, Klaus Janson, Bill Jaaska",
     inkers:
@@ -7716,8 +7718,9 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "X-Factor #21-36, Annual #3;; Power Pack #35",
     yearsCovered: "1987-1988",
     releaseDate: { year: 2021, month: 5 },
-    writers: "Louise Simonson, Walter Simonson, Tom DeFalco",
-    pencillers: "Walter Simonson, Terry Shoemaker, Sal Buscema, Jon Bogdanove, Steve Lightle",
+    writers: "Louise Simonson, Walter \"Walt\" Simonson, Tom DeFalco",
+    pencillers:
+      "Walter \"Walt\" Simonson, Terry Shoemaker, Sal Buscema, Jon Bogdanove, Steve Lightle",
     inkers: "Bob Wiacek, Hilary Barta, Al Milgrom, Steve Lightle, Joe Rubinstein",
     description:
       "X-Factor is coping with the loss of Angel when the team is rocked by a traitor -- their former publicist Cameron Hodge, who harbors an anti-mutant agenda and army. Apocalypse unveils his fourth Horseman, Death, who turns out to be a very familiar face.",
@@ -7737,8 +7740,8 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     releaseDate: { year: 2023, month: 8 },
     writers: "Louise Simonson, Chris Claremont, Kieron Dwyer, John Byrne",
     pencillers:
-      "Paul Smith, Walter Simonson, Arthur Adams, Marc Silvestri, Rob Liefeld, Kieron Dwyer, Rich Buckler, John Byrne",
-    inkers: "Al Milgrom, Bob Wiacek, Walter Simonson, Dan Green, Hilary Barta",
+      "Paul Smith, Walter \"Walt\" Simonson, Arthur Adams, Marc Silvestri, Rob Liefeld, Kieron Dwyer, Rich Buckler, John Byrne",
+    inkers: "Al Milgrom, Bob Wiacek, Walter \"Walt\" Simonson, Dan Green, Hilary Barta",
     description:
       "During the Inferno crossover, Madelyne Pryor -- now the Goblin Queen -- targets her and Cyclops's infant son, Nathan, and X-Factor must survive an onslaught of demons to keep him safe. Afterward, a Celestial kidnaps the team and their sentient Ship, stranding them on an alien world in the middle of the devastating Judgment War.",
     coverUrl: "https://m.media-amazon.com/images/I/91undWVsNFL._SL1500_.jpg",
@@ -7838,9 +7841,9 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "#10-20, An 2; Power Pack (1984) 27; etc",
     yearsCovered: "1986-1987",
     releaseDate: { year: 2026, month: 11 },
-    writers: "Louise Simonson, Walter Simonson, Peter David, Jo Duffy",
+    writers: "Louise Simonson, Walter \"Walt\" Simonson, Peter David, Jo Duffy",
     pencillers:
-      "Walter Simonson, Sal Buscema, Todd McFarlane, Jon Bogdanove, Marc Silvestri, David Mazzucchelli, June Brigman, Tom Grindberg",
+      "Walter \"Walt\" Simonson, Sal Buscema, Todd McFarlane, Jon Bogdanove, Marc Silvestri, David Mazzucchelli, June Brigman, Tom Grindberg",
     inkers:
       "Bob Wiacek, Sal Buscema, Joe Rubinstein, Jim Sanders, Al Gordon, Dan Green, Randy Emberlin",
     description:
@@ -8190,7 +8193,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     releaseDate: { year: 2024, month: 12 },
     writers: "Chris Claremont, Mark Gruenwald",
     pencillers:
-      "Paul Smith, Frank Miller, Brent Anderson, Walter Simonson, John Romita Jr., Bret Blevins, Michael Golden",
+      "Paul Smith, Frank Miller, Brent Anderson, Walter \"Walt\" Simonson, John Romita Jr., Bret Blevins, Michael Golden",
     inkers:
       "Bob Wiacek, Joe Rubinstein, Brent Anderson, Michael Golden, Steve Leialoha, Sam de la Rosa, Bret Blevins, Tom Mandrake, Al Milgrom, Bill Anderson, Terry Austin, Brett Breeding",
     description:
