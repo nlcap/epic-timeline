@@ -301,7 +301,10 @@ export const MODERN_MARVEL_ENTRIES: TimelineEntry[] = [
     yearsCovered: "2015-2017",
     releaseDate: { year: 2025, month: 12 },
     writers: "Tom Taylor",
-    pencillers: "David López, David Navarrot, Marcio Takara, Ig Guara, Nik Virella, Djibril Morissette-Phan",
+    pencillers:
+      "David Navarrot, David López, Marcio Takara, Nik Virella, Ig Guara, Djibril Morissette-Phan",
+    inkers:
+      "David Navarrot, David López, Marcio Takara, Walden Wong, Scott Hanna, Djibril Morissette-Phan, Nik Virella, Victor Olazaba, Bob Wiacek",
     description:
       "X-23 was created to be a weapon; for a time, that's all she was. But with the help of her mentor -- Logan, the original Wolverine -- she escaped that dark past, and in the wake of his death, Laura Kinney honors his memory as the All-New Wolverine. But with the famous cowl comes a world of misery and mystery, and when Old Man Logan arrives from a dystopian future, he brings a world of carnage Laura's way.",
     coverUrl: "https://m.media-amazon.com/images/I/81YVZpHhK8L._SL1500_.jpg",
@@ -319,7 +322,9 @@ export const MODERN_MARVEL_ENTRIES: TimelineEntry[] = [
     yearsCovered: "2017-2018",
     releaseDate: { year: 2026, month: 12 },
     writers: "Tom Taylor",
-    pencillers: "Leonard Kirk, Juann Cabal, Marco Failla, Djibril Morissette-Phan & Ramon Rosanas",
+    pencillers: "Leonard Kirk, Juan Cabal, Ramón Rosanas, Marco Failla, Djibril Morissette-Phan",
+    inkers:
+      "Juan Cabal, Cory Hamscher, Leonard Kirk, Ramón Rosanas, Terry Pallot, Marc Deering, Marco Failla, Djibril Morissette-Phan",
     description:
       "From the stars comes death: an alien ship, a dying passenger, and two words that will forever change Laura's life, kicking off a nonstop race against a deadly transformative disease as Wolverine faces a battle in a quarantined city against a mysterious villain. Then Daken, Logan's enigmatic son, is kidnapped, and it's up to his \"sister\" to find him -- but the trail leads Wolverine back to the facility where she was created and tortured.",
     coverUrl: "https://m.media-amazon.com/images/I/81eagDqTzKL._SL1500_.jpg",
@@ -338,7 +343,8 @@ export const MODERN_MARVEL_ENTRIES: TimelineEntry[] = [
     yearsCovered: "2001-2002",
     releaseDate: { year: 2025, month: 4 },
     writers: "J. Michael Straczynski",
-    pencillers: "John Romita Jr., J. Scott Campbell",
+    pencillers: "John Romita Jr.",
+    inkers: "Scott Hanna",
     description:
       "The modern era of Spider-Man storytelling begins, introducing an enigmatic stranger who will forever change the way Peter Parker views himself and the origins of his amazing alter ego. Plus, the web-slinger struggles with the most horrific tragedy ever to befall his city: the events of September 11.",
     coverUrl: "https://m.media-amazon.com/images/I/91unY4AjsSL._SL1500_.jpg",
@@ -355,8 +361,9 @@ export const MODERN_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Amazing Spider-Man (vol. 2) #46-58, 500–502",
     yearsCovered: "2002-2003",
     releaseDate: { year: 2026, month: 1 },
-    writers: "J. Michael Straczynski, Fiona Avery",
+    writers: "J. Michael Straczynski, Fiona Avery, Sara Barnes",
     pencillers: "John Romita Jr., John Romita Sr.",
+    inkers: "Scott Hanna",
     description:
       "Peter Parker always believed the radioactive spider-bite that granted him his powers was an accident. Now the mysterious Ezekiel offers Peter a shockingly different explanation, while Peter's career as a teacher intersects with his life as Spider-Man in a touching story about family devotion.",
     coverUrl: "https://m.media-amazon.com/images/I/91Ev5iPP-2L._SL1500_.jpg",
@@ -373,8 +380,9 @@ export const MODERN_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Amazing Spider-Man #503-518, 509 (Director's Cut)",
     yearsCovered: "2004-2005",
     releaseDate: { year: 2026, month: 4 },
-    writers: "J. Michael Straczynski, Fiona Kai Avery",
-    pencillers: "John Romita Jr., Mike Deodato Jr., Mark Brooks",
+    writers: "J. Michael Straczynski, Fiona Avery",
+    pencillers: "Mike Deodato Jr., John Romita Jr., Mark Brooks",
+    inkers: "Joe Pimentel, Scott Hanna, Jaime Mendoza",
     description:
       "Peter Parker delves further into the mysterious totemic origin of his powers when the enigmatic Ezekiel returns -- is he truly Peter's mentor and ally, or something much more? Then a stunning new evil emerges to rock Spider-Man's world, tearing open the worst defeat Peter ever endured just when he thought it was far behind him.",
     coverUrl: "https://m.media-amazon.com/images/I/91N3aLvD1hL._SL1500_.jpg",
@@ -392,7 +400,8 @@ export const MODERN_MARVEL_ENTRIES: TimelineEntry[] = [
     yearsCovered: "2005",
     releaseDate: { year: 2027, month: 1 },
     writers: "J. Michael Straczynski, Peter David, Reginald Hudlin",
-    pencillers: "Mike Deodato Jr., Mike Wieringo & Pat Lee",
+    pencillers: "Mike Deodato Jr., Mike Wieringo, Pat Lee",
+    inkers: "Joe Pimentel, Karl Kesel, Dream Engine, Tom Palmer",
     description:
       "Peter Parker faces death itself in a story that pushes him past the edge of his own mortality and into something stranger. As Morlun's assault leaves Spider-Man clinging to life, Peter is forced to confront just how much of the spider is really inside him -- and what he'll have to shed to survive.",
     ownershipStatus: "announced",
@@ -408,8 +417,11 @@ export const MODERN_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Amazing Spider-Man #648 (A story), 649–662, 654.1",
     yearsCovered: "2010-2011",
     releaseDate: { year: 2025, month: 9 },
-    writers: "Dan Slott, Christos N. Gage",
-    pencillers: "Humberto Ramos, Reilly Brown",
+    writers: "Dan Slott, Fred Van Lente, Christos N. Gage",
+    pencillers:
+      "Stefano Caselli, Humberto Ramos, Marcos Martín, Reilly Brown, Ty Templeton, Nuno Plati, Javier Pulido, Mike McKone",
+    inkers:
+      "Stefano Caselli, Carlos Cuevas, Victor Olazaba, Marcos Martín, Joseph Damon, Scott Hanna, Ty Templeton, Nuno Plati, Javier Pulido, Mike McKone",
     description:
       "Peter Parker has finally hit the big time: he's a full-fledged Avenger, he just landed a high-paying science job, and he has an amazing new girlfriend. But big-time living means big-time pressure, and when the Hobgoblin returns, Spidey will need a slick new edge to defeat him.",
     coverUrl: "https://m.media-amazon.com/images/I/81PuJS4GT2L._SL1500_.jpg",
@@ -426,8 +438,10 @@ export const MODERN_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Amazing Spider-Man #663-676; Amazing Spider-Man: Infested; FCBD: Spider-Man (2011); Spider-Island: Deadly Foes",
     yearsCovered: "2011-2012",
     releaseDate: { year: 2026, month: 9 },
-    writers: "Dan Slott",
-    pencillers: "Humberto Ramos, Giuseppe Camuncoli, Barry Kitson",
+    writers: "Dan Slott, Christos N. Gage",
+    pencillers: "Humberto Ramos, Giuseppe Camuncoli, Stefano Caselli, Ryan Stegman",
+    inkers:
+      "Victor Olazaba, Carlos Cuevas, Klaus Janson, Stefano Caselli, Michael Babinski, Karl Kesel, Giuseppe Camuncoli",
     description:
       "New York City is infested, and eight million normal people have gained arachnid abilities -- but not all of them realize that with great power, there must also come great responsibility. As the fearsome Jackal returns to organize an army of spider-powered soldiers, how can the heroes of NYC hope to contain millions of wall-crawling New Yorkers?",
     coverUrl: "https://m.media-amazon.com/images/I/81DNiCz72-L._SL1500_.jpg",
@@ -444,8 +458,11 @@ export const MODERN_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Amazing Spider-Man #677-687, 679.1; Daredevil #8; Avenging Spider Man #8; Amazing Spider-Man: Ends of the Earth #1",
     yearsCovered: "2012",
     releaseDate: { year: 2027, month: 2 },
-    writers: "Mark Waid, Dan Slott, Christopher Yost, Brian Clevinger, Rob Williams & Ty Templeton",
-    pencillers: "Emma Rios, Haim Kano, Humberto Ramos, Matthew Clark, Giuseppe Camuncoli, Stefano Caselli & Thony Silas",
+    writers: "Dan Slott, Mark Waid, Chris Yost, Brian Clevinger, Rob Williams, Ty Templeton",
+    pencillers:
+      "Humberto Ramos, Stefano Caselli, Matthew Clark, Giuseppe Camuncoli, Emma Rios, Kano, Thony Silas",
+    inkers:
+      "Victor Olazaba, Stefano Caselli, Klaus Janson, Emma Rios, Kano, Tom Palmer, Sean Parsons",
     description:
       "The Doc Ock story fans waited fifty years for: Otto Octavius holds the entire Earth hostage with his dying breath, and Spider-Man must rally the Avengers and every hero he can find to stop his former foe's final, planet-scale gambit.",
     ownershipStatus: "announced",
@@ -463,7 +480,8 @@ export const MODERN_MARVEL_ENTRIES: TimelineEntry[] = [
     yearsCovered: "2005-2006",
     releaseDate: { year: 2025, month: 6 },
     writers: "Keith Giffen, Dan Abnett, Andy Lanning, Javier Grillo-Marxuach",
-    pencillers: "Mitch Breitweiser, Ariel Olivetti, Scott Kolins, Kev Walker, Renato Arlem, Gregory Titus",
+    pencillers: "Mitch Breitweiser, Kev Walker, Renato Arlem, Greg Titus, Scott Kolins",
+    inkers: "Mitch Breitweiser, Rick Magyar, Renato Arlem, Greg Titus, Ariel Olivetti",
     description:
       "Drax the Destroyer gets a new look, a fresh purpose, and a surprising friend, but when Annihilus, lord of the Negative Zone, unleashes his monstrous Annihilation Wave on our universe, the galaxy's greatest heroes -- and some you might call villains -- must brace for war. Annihilus's opening salvo devastates the Nova Corps, and Richard Rider's life is changed forever.",
     coverUrl: "https://m.media-amazon.com/images/I/81VHOxuB+-L._SL1500_.jpg",
@@ -480,8 +498,9 @@ export const MODERN_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Annihilation: Ronan (2006) #1-4; Annihilation (2006) #1-6; Annihilation: Heralds Of Galactus (2006) #1-2; Annihilation: Nova Corps Files (2006)",
     yearsCovered: "2006-2007",
     releaseDate: { year: 2025, month: 10 },
-    writers: "Keith Giffen, Simon Furman, Christos N. Gage, Stuart Moore",
-    pencillers: "Andrea Di Vito, Jorge Lucas, Giuseppe Camuncoli, Mike McKone, Scott Kolins",
+    writers: "Keith Giffen, Simon Furman, Christos N. Gage, Michael Hoskin",
+    pencillers: "Andrea DiVito, Jorge Lucas, Giuseppe Camuncoli, Scott Kolins",
+    inkers: "Andrea DiVito, Jorge Lucas, Stefano Landini, Scott Kolins",
     description:
       "Exiled and on the run, Ronan the Accuser faces the deadliest women in the galaxy, including Gamora, while Richard Rider -- the new Nova Prime -- must marshal a united front against Annihilus and his lethal Annihilation Wave. Drax the Destroyer, Star-Lord, Moondragon, and Phyla-Vell join the fight to guard the galaxy, but what chilling plan does Annihilus have for Galactus?",
     coverUrl: "https://m.media-amazon.com/images/I/91Qv+3NFHlL._SL1500_.jpg",
@@ -498,8 +517,10 @@ export const MODERN_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Annihilation: Conquest Prologue; Annihilation: Conquest - Quasar #1-4; Annihilation: Conquest - Starlord #1-4; Annihilation: Saga; Nova (vol. 4) #1-7",
     yearsCovered: "2007",
     releaseDate: { year: 2026, month: 6 },
-    writers: "Christos N. Gage, Keith Giffen, TBC",
-    pencillers: "Mike Lilly, Timothy Green II, TBC",
+    writers: "Dan Abnett, Andy Lanning, Christos N. Gage, Keith Giffen, Michael Hoskin",
+    pencillers:
+      "Sean Chen, Mike Lilly, Timothy Green II, Brian Denham, Mike Perkins, Giuseppe Camuncoli",
+    inkers: "Scott Hanna, Bob Almond, Victor Olazaba, Mike Perkins",
     description:
       "In the grim aftermath of the Annihilation War, a devastated universe struggles to rebuild as civilizations collapse and entire worlds are left smoking ruins. What's next for the battle-weary Nova, what are Ronan's plans for the once-mighty Kree Empire, and now that Peter Quill is once again Star-Lord, which cosmic characters will join his ragtag crew to guard the galaxy?",
     coverUrl: "https://m.media-amazon.com/images/I/81hF0la4GsL._SL1500_.jpg",
@@ -516,6 +537,9 @@ export const MODERN_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Annihilation: Conquest - Wraith #1-4; Nova (vol. 4) #8-12, and Annual #1; Annihilation: Conquest #1-6",
     yearsCovered: "2008",
     releaseDate: { year: 2027, month: 6 },
+    writers: "Dan Abnett, Andy Lanning, Javier Grillo-Marxuach",
+    pencillers: "Tom Raney, Wellinton Alves, Kyle Hotz, Paul Pelletier, Klebs Jr., Mahmud Asrar",
+    inkers: "Scott Hanna, Kyle Hotz, Nelson Pereira, Wellington Diaz, Rick Magyar, Juan Vlasco",
     description:
       "The techno-organic Phalanx sweep across the galaxy, seizing control of the Kree homeworld and dismantling everything the surviving heroes of the Annihilation War fought to rebuild. As Ultron's twisted influence spreads through the conquered Kree Empire, Star-Lord's scattered allies must regroup for one final stand against total conquest.",
     ownershipStatus: "announced",
@@ -542,6 +566,7 @@ export const MODERN_MARVEL_ENTRIES: TimelineEntry[] = [
     releaseDate: { year: 2024, month: 3 },
     writers: "Joss Whedon",
     pencillers: "John Cassaday",
+    inkers: "John Cassaday",
     description:
       "Cyclops and Emma Frost re-form the X-Men as the world's greatest super team, with Wolverine, Kitty Pryde, and Beast completing the initial roster. They plan to astonish the world, but when unexpected news about the mutant gene hits the airwaves, will it derail their dreams? As demand for the \"mutant cure\" reaches near-riot levels, the X-Men go head-to-head with the enigmatic Ord.",
     coverUrl: "https://m.media-amazon.com/images/I/81wBK6uioKL._SL1500_.jpg",
@@ -560,6 +585,7 @@ export const MODERN_MARVEL_ENTRIES: TimelineEntry[] = [
     releaseDate: { year: 2025, month: 3 },
     writers: "Joss Whedon",
     pencillers: "John Cassaday",
+    inkers: "John Cassaday",
     description:
       "Things go from peculiar to just plain bizarre for the X-Men, as Emma Frost's erratic behavior sends the team into a nonstop downward spiral and the new Hellfire Club makes its move. Plus, the X-Man destined to destroy the Breakworld stands revealed -- and the team must protect Earth from certain destruction at the Breakworld's hands.",
     coverUrl: "https://m.media-amazon.com/images/I/818gI-uUPDL._SL1500_.jpg",
@@ -577,8 +603,10 @@ export const MODERN_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Black Widow (1999) #1-3, Black Widow (2001) #1-3, Black Widow: Pale Little Spider (2002) #1-3, Black Widow (2004) #1-6, Black Widow: The Things They Say About Her (2005) #1-6",
     yearsCovered: "1999-2006",
     releaseDate: { year: 2025, month: 4 },
-    writers: "Devin Grayson, Greg Rucka, Richard Morgan",
-    pencillers: "Jeffrey Glen Jones, Scott Hampton, Igor Kordey, Bill Sienkiewicz, Goran Parlov, Sean Phillips",
+    writers: "Richard K. Morgan, Devin Grayson, Greg Rucka",
+    pencillers:
+      "Sean Phillips, Goran Parlov, J.G. Jones, Scott Hampton, Igor Kordey, Bill Sienkiewicz",
+    inkers: "Bill Sienkiewicz, J.G. Jones, Scott Hampton, Igor Kordey",
     description:
       "Natasha Romanoff has always led a life of adventure -- a former Soviet spy who defected to the West and became a super hero and an Avenger, earning a reputation as a consummate professional, coldly efficient and as deadly as her namesake. But now her time as Black Widow may be running out: Yelena Belova is the first student in the history of the Red Room to exceed Natasha's skills, and now she's gunning for the mantle she feels was stolen from her.",
     coverUrl: "https://m.media-amazon.com/images/I/81zkOC-vceL._SL1500_.jpg",
@@ -595,8 +623,12 @@ export const MODERN_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Black Widow Deadly Origin #1-4; Black Widow (vol. 4) #1-8; Widowmaker #1-4; Fear Itself: Black Widow; Black Widow Saga; material from Enter The Heroic Age; Iron Man: Kiss And Kill",
     yearsCovered: "2009-2011",
     releaseDate: { year: 2026, month: 4 },
-    writers: "Paul Cornell, Marjorie Liu, Duane Swierczynski, Jim Mccann",
-    pencillers: "Tom Raney, John Paul Leon, Daniel Acuña, Manuel Garcia, David López",
+    writers:
+      "Marjorie Liu, Duane Swierczynski, Paul Cornell, Jim McCann, Cullen Bunn, John Rhett Thomas, Christos N. Gage, Joe Ahearne",
+    pencillers:
+      "Daniel Acuña, Manuel Garcia, John Paul Leon, Tom Raney, David López, Peter Nguyen, Mike McKone, Brian Ching",
+    inkers:
+      "Daniel Acuña, John Paul Leon, Scott Hanna, Lorenzo Ruggiero, Bit, Álvaro López, Peter Nguyen, Mike McKone, Brian Ching",
     description:
       "Natasha Romanoff's shadowy past once again threatens all she holds dear in a globe-hopping thriller: as the Black Widow's house of cards comes crashing down around her, what will she do to keep her deepest secret buried? When a senator is seduced and assassinated, why does the trail followed by his journalist son lead back to Natasha?",
     coverUrl: "https://m.media-amazon.com/images/I/81sxfyy-jqL._SL1500_.jpg",
@@ -615,6 +647,7 @@ export const MODERN_MARVEL_ENTRIES: TimelineEntry[] = [
     releaseDate: { year: 2024, month: 4 },
     writers: "Nathan Edmondson",
     pencillers: "Phil Noto, Mitch Gerads",
+    inkers: "Phil Noto, Mitch Gerads",
     description:
       "The Black Widow searches for atonement for her past as a KGB assassin. In Russia, Natasha goes undercover but discovers a deadly plot that spans the entire globe, and on a snowy night in Prague, she must find her way out of disaster alongside the Winter Soldier. Elsewhere, Natasha fights against -- or alongside? -- the Punisher for access to a deadly criminal network.",
     coverUrl: "https://m.media-amazon.com/images/I/91SJUzsGkqL._SL1500_.jpg",
@@ -649,7 +682,10 @@ export const MODERN_MARVEL_ENTRIES: TimelineEntry[] = [
     yearsCovered: "2004-2006",
     releaseDate: { year: 2024, month: 6 },
     writers: "Ed Brubaker",
-    pencillers: "Steve Epting, Michael Lark, John Paul Leon, Lee Weeks, Javier Pulido, Marcos Martin",
+    pencillers:
+      "Steve Epting, Michael Lark, Mike Perkins, John Paul Leon, Lee Weeks, Javier Pulido, Marcos Martín",
+    inkers:
+      "Steve Epting, Mike Perkins, Michael Lark, John Paul Leon, Jesse Delperdang, Lee Weeks, Javier Pulido, Marcos Martín",
     description:
       "The shocking murder of the Red Skull leaves an unfinished Cosmic Cube at large, and a cadre of the Skull's followers plans to ignite bombs in the hearts of Paris, London, and Manhattan. Racing against a rapidly ticking clock, Captain America must solve the mystery of his nemesis's murder and find the Cube before it can be used to rewrite reality -- but there's a lethal assassin on the loose with an all-too-familiar face.",
     coverUrl: "https://m.media-amazon.com/images/I/81C03HpuP2L._SL1500_.jpg",
@@ -666,8 +702,11 @@ export const MODERN_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Captain America (vol. 5) #18-30; Captain America #25: Director's Cut; Winter Soldier: Winter Kills; Fallen Son: The Death Of Captain America #1-5",
     yearsCovered: "2006-2007",
     releaseDate: { year: 2024, month: 10 },
-    writers: "Ed Brubaker, Jeph Loeb",
-    pencillers: "Steve Epting, Mike Perkins, Lee Weeks, Leinil Francis Yu, Ed McGuinness, John Romita Jr, David Finch, John Cassaday",
+    writers: "Ed Brubaker, Jeph Loeb, John Rhett Thomas",
+    pencillers:
+      "Steve Epting, Mike Perkins, Rick Hoberg, Stefano Gaudiano, Lee Weeks, Leinil Yu, Ed McGuinness, John Romita Jr., David Finch, John Cassaday",
+    inkers:
+      "Mike Perkins, Steve Epting, Rick Hoberg, Stefano Gaudiano, Lee Weeks, Leinil Yu, Dexter Vines, Klaus Janson, Danny Miki, John Cassaday",
     description:
       "A battle to save London from the Red Skull reunites Steve Rogers with one old friend, the Winter Soldier, but the Superhuman Registration Act tears him apart from another, Iron Man. As Steve's allies find their loyalties divided, Captain America's life is torn apart, and when the Civil War is over, it is taken from him.",
     coverUrl: "https://m.media-amazon.com/images/I/81JmEIQOwtL._SL1500_.jpg",
@@ -685,7 +724,9 @@ export const MODERN_MARVEL_ENTRIES: TimelineEntry[] = [
     yearsCovered: "2007-2009",
     releaseDate: { year: 2025, month: 10 },
     writers: "Ed Brubaker",
-    pencillers: "Steve Epting, Luke Ross, Butch Guice, Mike Perkins, Roberto De La Torre",
+    pencillers: "Steve Epting, Jackson Guice, Luke Ross, Mike Perkins, Roberto De La Torre",
+    inkers:
+      "Steve Epting, Jackson Guice, Rick Magyar, Mike Perkins, Fabio Laguna, Roberto De La Torre, Pablo Laguna, Mark Pennington",
     description:
       "In the wake of Steve Rogers's tragic death, Bucky Barnes wields the shield and succeeds his fallen friend as Captain America. But the collapse of Steve's dream was just the first step in the wicked machinations of the Red Skull, who is determined to see the death of America follow soon after the death of the Captain.",
     coverUrl: "https://m.media-amazon.com/images/I/81D9-FnO8vL._SL1500_.jpg",
@@ -703,7 +744,10 @@ export const MODERN_MARVEL_ENTRIES: TimelineEntry[] = [
     yearsCovered: "2009-2010",
     releaseDate: { year: 2026, month: 10 },
     writers: "Ed Brubaker",
-    pencillers: "Bryan Hitch, Butch Guice, Luke Ross, Gene Colan",
+    pencillers:
+      "Bryan Hitch, Luke Ross, Jackson Guice, David Aja, Mitch Breitweiser, Rafael Albuquerque, Howard Chaykin, Gene Colan",
+    inkers:
+      "Jackson Guice, Rick Magyar, Luke Ross, David Aja, Mitch Breitweiser, Rafael Albuquerque, Howard Chaykin, Dave Gutierrez",
     description:
       "Sharon Carter's dreams are forcing her to relive Steve Rogers's death, and her time under the control of Dr. Faustus, but will these dreams also reveal hidden secrets about what she saw -- and did -- the day Steve died? The Red Skull's greatest plan to destroy Captain America stands revealed, and its completion is at hand.",
     coverUrl: "https://m.media-amazon.com/images/I/81rIHECNhYL._SL1500_.jpg",
@@ -721,8 +765,11 @@ export const MODERN_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Carnage (2010) #1-5; Carnage U.S.A. #1-5; Minimum Carnage: Alpha; Scarlet Spider (2012) #10-11; Venom (2011) #26-27; Minimum Carnage: Omega; Superior Carnage #1-5",
     yearsCovered: "2010-2013",
     releaseDate: { year: 2025, month: 9 },
-    writers: "Zeb Wells, Kevin Shinick, Cullen Bunn, Kevin Shinick",
-    pencillers: "Clayton Crain, Stephen Segovia, Lan Medina, Khoi Pham, Declan Shalvey",
+    writers: "Zeb Wells, Kevin Shinick, Cullen Bunn, Chris Yost",
+    pencillers:
+      "Clayton Crain, Stephen Segovia, Khoi Pham, Declan Shalvey, Lan Medina, Reilly Brown, Dan Mexia",
+    inkers:
+      "Clayton Crain, Dennis Crisostomo, Karl Kesel, Walden Wong, Tom Palmer, Declan Shalvey, Stephen Segovia, Dan Mexia, Cam Smith, Chris Sotomayor, Bit, Jaime Mendoza, Don Ho",
     description:
       "Carnage has returned to resume his symbiotic murder spree, and Spider-Man and Iron Man are first on his hit list. Together with his host, serial killer Cletus Kasady, Carnage looks to wreak some good old-fashioned chaos in the small town of Doverton, Colorado, but standing in his way is a small army of Marvel's finest heroes -- plus a certain symbiotic government operative.",
     coverUrl: "https://m.media-amazon.com/images/I/81eT0ANYijL._SL1500_.jpg",
@@ -739,8 +786,11 @@ export const MODERN_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Superior Carnage Annual (2014); Deadpool vs. Carnage #1-4; AXIS: Carnage #1-3; Nova #26-27; Carnage (vol. 2) #1-10; All-New, All-Different Point One #1 (Carnage Story)",
     yearsCovered: "2014-2016",
     releaseDate: { year: 2026, month: 9 },
-    writers: "Cullen Bunn, Rick Spears, Gerry Duggan, Gerry Conway",
-    pencillers: "Mike Henderson, Aaron Kim Jacinto, Sala Espin, Germán Peralta, John Timms Moreira, Michael Perkins",
+    writers: "Gerry Conway, Cullen Bunn, Rick Spears, Gerry Duggan",
+    pencillers:
+      "Mike Perkins, Germán Peralta, Salvador Espin, John Timms, Mike Henderson, Kim Jacinto",
+    inkers:
+      "Mike Perkins, Germán Peralta, Salvador Espin, Roberto Poggi, Mike Henderson, Kim Jacinto",
     description:
       "Cletus Kasady is behind bars and the Carnage symbiote is in quarantine, but we all know that's never going to last -- it's time to get the band back together, just in time for Carnage to take on Deadpool in an ultimate battle of good crazy vs. bad crazy. Then, as the events of AXIS invert Marvel's heroes and villains, will Carnage emerge as a force for good?",
     coverUrl: "https://m.media-amazon.com/images/I/91hrR4AY26L._SL1500_.jpg",
@@ -758,8 +808,10 @@ export const MODERN_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Daredevil (vol. 2) #0-15, 1/2",
     yearsCovered: "1998-2001",
     releaseDate: { year: 2027, month: 2 },
-    writers: "Kevin Smith, David Mack",
-    pencillers: "Joe Quesada",
+    writers: "Kevin Smith, David Mack, Joe Quesada, Jimmy Palmiotti",
+    pencillers:
+      "Joe Quesada, Jimmy Palmiotti, David Ross, David Mack, John Romita Sr., Kevin Nowlan, J.G. Jones, Steve Dillon, Jae Lee, John Cassaday, Amanda Conner, Rob Haynes",
+    inkers: "Jimmy Palmiotti, Mark Morales, Rob Haynes",
     description:
       "Kevin Smith's era-defining Daredevil run begins: Matt Murdock's world is upended when a mysterious woman claims to be carrying his child, followed by a horrifying vision of the future that shakes his faith to its core. As old enemies circle and a supernatural threat looms over Hell's Kitchen, Matt must decide how far he'll go to protect the people he loves.",
     ownershipStatus: "announced",
@@ -776,7 +828,9 @@ export const MODERN_MARVEL_ENTRIES: TimelineEntry[] = [
     yearsCovered: "2001-2002",
     releaseDate: { year: 2024, month: 2 },
     writers: "Brian Michael Bendis, Bob Gale",
-    pencillers: "Rob Haynes, David Mack, Phil Winslade, Dave Ross, Alex Maleev",
+    pencillers: "Alex Maleev, David Mack, Rob Haynes, Phil Winslade, David Ross",
+    inkers:
+      "Alex Maleev, David Mack, James Hodgkins, Rob Haynes, Mark Pennington, Mark Morales, Pond Scum",
     description:
       "Industry legend Brian Michael Bendis begins his acclaimed five-year Daredevil run. When the staff that once belonged to his mentor is stolen, Daredevil is determined to get it back, even if that means joining an ancient ninja battle between the Seven and the Hand. Ambitious gangster Sammy Silke has inspired Wilson Fisk's lieutenants to rise up against the Kingpin of Crime -- but what is the connection between Silke's coup and the contract on Matt Murdock's life?",
     coverUrl: "https://m.media-amazon.com/images/I/91tocJQ0bvL._SL1500_.jpg",
@@ -794,7 +848,10 @@ export const MODERN_MARVEL_ENTRIES: TimelineEntry[] = [
     yearsCovered: "2002-2003",
     releaseDate: { year: 2024, month: 10 },
     writers: "Brian Michael Bendis",
-    pencillers: "Alex Maleev, Manuel Gutierrez, Terry Dodson",
+    pencillers:
+      "Alex Maleev, Manuel Gutierrez, Terry Dodson, David Mack, Klaus Janson, Gene Colan, John Romita Sr., Joe Quesada, Lee Weeks, Michael Avon Oeming",
+    inkers:
+      "Alex Maleev, Manuel Gutierrez, Rachel Dodson, David Mack, Klaus Janson, Danny Miki, Dave Gutierrez, Tom Palmer, Michael Avon Oeming, Al Milgrom",
     description:
       "The world learns Matt Murdock's biggest secret -- that Daredevil's mask hides a pair of blind eyes. As his double identity is publicly exposed, Matt may be forced to know true fear for the first time, and must reckon with the consequences for those close to him and the legal ramifications that result.",
     coverUrl: "https://m.media-amazon.com/images/I/91KUbDMHLHL._SL1500_.jpg",
@@ -812,7 +869,10 @@ export const MODERN_MARVEL_ENTRIES: TimelineEntry[] = [
     yearsCovered: "2003-2004",
     releaseDate: { year: 2025, month: 2 },
     writers: "Brian Michael Bendis, David Mack",
-    pencillers: "Alex Maleev, Michael Golden, Greg Horn, Philip Russell, Phil Hester, Chris Bachalo, Michael Lark",
+    pencillers:
+      "Alex Maleev, David Mack, Greg Horn, P. Craig Russell, Chris Bachalo, Michael Golden, Jae Lee, David Finch, Frank Quitely, Phil Hester, Michael Lark",
+    inkers:
+      "Alex Maleev, David Mack, Greg Horn, P. Craig Russell, Ande Parks, Michael Golden, Tim Townsend, Jae Lee, David Finch, Frank Quitely, Michael Lark",
     description:
       "Maya Lopez once nearly took down Daredevil, believing him to be the one who killed her father, and after learning it was actually Wilson Fisk who was responsible, she shot him and left New York. Meanwhile, Fisk is gone, and Daredevil is the new Kingpin of Hell's Kitchen -- but that just means an army of foes want Matt's newfound power for themselves.",
     coverUrl: "https://m.media-amazon.com/images/I/81mJ4m+roPL._SL1500_.jpg",
@@ -831,6 +891,7 @@ export const MODERN_MARVEL_ENTRIES: TimelineEntry[] = [
     releaseDate: { year: 2026, month: 2 },
     writers: "Brian Michael Bendis",
     pencillers: "Alex Maleev",
+    inkers: "Alex Maleev",
     description:
       "Bendis and Maleev bring their storied Daredevil run to a blistering conclusion: who was the Kingpin before the Kingpin, and what was his relationship to Matt? Prepare to find out exactly what happened during Daredevil's year-long reign as the new Kingpin, and his historic cleaning of Hell's Kitchen revealed in all its bloody detail.",
     coverUrl: "https://m.media-amazon.com/images/I/91hjOvn8GbL._SL1500_.jpg",
@@ -847,8 +908,9 @@ export const MODERN_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Daredevil (vol. 2) #82-94, Annual (2007)",
     yearsCovered: "2006-2007",
     releaseDate: { year: 2025, month: 7 },
-    writers: "Ed Brubaker",
-    pencillers: "Michael Lark, Ande Parks, David Aja, Lee Weeks, Leandro Fernández",
+    writers: "Ed Brubaker, Ande Parks",
+    pencillers: "Michael Lark, David Aja, Lee Weeks, Leandro Fernández",
+    inkers: "Stefano Gaudiano, Michael Lark, David Aja, Scott Koblish",
     description:
       "For the past few years, Matt Murdock's life has been teetering on the edge of destruction. Now, pushed beyond the limit, Matt finds himself with no clear way out, the people he calls friends slowly deserting him and Hell's Kitchen slipping out of control. Blaming himself for Foggy Nelson's death, Matt runs wild behind bars in Rykers -- but he's not alone in Cell-Block D, and there are some familiar faces looking for vengeance.",
     coverUrl: "https://m.media-amazon.com/images/I/81abiWn7XNL._SL1500_.jpg",
@@ -867,7 +929,10 @@ export const MODERN_MARVEL_ENTRIES: TimelineEntry[] = [
     yearsCovered: "2009-2010",
     releaseDate: { year: 2024, month: 1 },
     writers: "Brian Michael Bendis, Matt Fraction",
-    pencillers: "Mike Deodato, Marc Silvestri, Terry Dodson, Luke Ross, Greg Horn, Chris Bachalo",
+    pencillers:
+      "Mike Deodato Jr., Terry Dodson, Luke Ross, Greg Horn, Tyler Kirkham, Sheldon Mitchell, Eric Basaldua, Marc Silvestri, Michael Broussard, Chris Bachalo",
+    inkers:
+      "Mike Deodato Jr., Rachel Dodson, Rick Magyar, Luke Ross, Mark Pennington, Greg Horn, Will Conrad, Rick Basaldua, Marco Galli, Eric Basaldua, Jason Gorder, Jay Leisten, Sal Regla, Ryan Winn, Jon Sibal, Joe Weems, Al Vey, Tim Townsend, Jaime Mendoza",
     description:
       "Norman Osborn, the former Green Goblin, has been awarded the Avengers franchise, and he's assembling a terrifying team in his own image -- transforming well-known villains into twisted versions of Hawkeye, Spider-Man, Wolverine, and Ms. Marvel, and recruiting heavy hitters like Ares and the Sentry. But can the Dark Avengers prevail against Morgan Le Fay and the Beyonder?",
     coverUrl: "https://m.media-amazon.com/images/I/81l7UQqIH8L._SL1500_.jpg",
@@ -886,7 +951,8 @@ export const MODERN_MARVEL_ENTRIES: TimelineEntry[] = [
     yearsCovered: "2004-2005",
     releaseDate: { year: 2024, month: 8 },
     writers: "Fabian Nicieza",
-    pencillers: "Patch Zircher, Mark Brooks, Marvin Law",
+    pencillers: "Patrick Zircher, Mark Brooks",
+    inkers: "M3th, Rob Ross, Mark Brooks, Alan Tam, Derek Fridolfs",
     description:
       "Marvel's mightiest mercs are back, and stuck with each other: can two grown men armed to the teeth with deadly genetic weaponry live together without driving each other crazy? Action, adventure, black humor, black ops, face-changing viruses, and lots of gunfire mark this legendary pairing of two of Marvel's fan-favorite antiheroes.",
     coverUrl: "https://m.media-amazon.com/images/I/91oKYuXdEZL._SL1500_.jpg",
@@ -904,8 +970,9 @@ export const MODERN_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Wolverine: Origins #21-25; Deadpool (vol. 3) #1-12; Thunderbolts #130-131",
     yearsCovered: "2008-2009",
     releaseDate: { year: 2026, month: 1 },
-    writers: "Daniel Way",
-    pencillers: "Paco Medina, Steve Dillon",
+    writers: "Daniel Way, Andy Diggle",
+    pencillers: "Paco Medina, Steve Dillon, Carlo Barberi, Bong Dazo",
+    inkers: "Juan Vlasco, Steve Dillon, Sandu Florea, Joe Pimentel",
     description:
       "When Deadpool is hired to rub out Wolverine, sparks will fly -- but when both men can regenerate any wound in minutes, how can either one expect to finish off his foe? And whoever wins will have to face Wolverine's murderous son, Daken. Then the Skrulls have infiltrated Earth, but nobody warned them about Deadpool.",
     coverUrl: "https://m.media-amazon.com/images/I/81Nf9bhEeSL._SL1500_.jpg",
@@ -922,8 +989,10 @@ export const MODERN_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Deadpool (vol. 3) #13-31",
     yearsCovered: "2009-2010",
     releaseDate: { year: 2026, month: 7 },
-    writers: "Daniel Way, Duane Swierczynski",
-    pencillers: "Shawn Crystal, Paco Medina, Carlo Barberi, Tan Eng Huat, Philip Bond, Bong Dazo",
+    writers: "Daniel Way",
+    pencillers: "Carlo Barberi, Paco Medina, Shawn Crystal, Tan Eng Huat, Jose Pimentel",
+    inkers:
+      "Juan Vlasco, Sandu Florea, Walden Wong, John Lucas, Jose Pimentel, Shawn Crystal, Tan Eng Huat",
     description:
       "Deadpool wants to be two things in life: a pirate and an X-Man. So, after a stint on the high seas, he decides to make the X-Men love him by assassinating the father of one of their students. Then Wade Wilson pays a visit to a certain wisecracking wall-crawler's friendly neighborhood -- or is it?",
     coverUrl: "https://m.media-amazon.com/images/I/81sLA8QAAEL._SL1500_.jpg",
@@ -940,6 +1009,9 @@ export const MODERN_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Deadpool (vol. 3) #32-49, #33.1, #49.1",
     yearsCovered: "2011-2012",
     releaseDate: { year: 2027, month: 4 },
+    writers: "Daniel Way",
+    pencillers: "Carlo Barberi, Salvador Espin, Bong Dazo, Sheldon Vella, John McCrea",
+    inkers: "Salvador Espin, Walden Wong, Waldon Wong, Sheldon Vella, Joe Pimentel, John McCrea",
     description:
       "A symbiote-infected splinter of Wade Wilson's own psyche breaks loose as \"Evil Deadpool,\" hunting down and absorbing the healing factors of Wolverine's extended family one by one. Deadpool must track down his own murderous doppelganger before the last of his healing powers -- and his sanity -- are gone for good.",
     ownershipStatus: "announced",
@@ -956,7 +1028,8 @@ export const MODERN_MARVEL_ENTRIES: TimelineEntry[] = [
     yearsCovered: "2012-2013",
     releaseDate: { year: 2025, month: 5 },
     writers: "Brian Posehn, Gerry Duggan",
-    pencillers: "Tony Moore, Scott Koblish, Mike Hawthorne, Declan Shalvey",
+    pencillers: "Tony Moore, Mike Hawthorne, Declan Shalvey, Scott Koblish",
+    inkers: "Tony Moore, Mike Hawthorne, Declan Shalvey, Scott Koblish, John Lucas, Jason Gorder",
     description:
       "Wade Wilson must take down an army of dead presidents, and things only get wilder from there: Deadpool is hired by a demon to reclaim damned souls, gets in touch with his feminine side, targets a man with aquatic powers, and teams up with the Superior Spider-Man. Comedy writing partners Brian Posehn and Gerry Duggan bring Deadpool's crazy antics into the modern era.",
     coverUrl: "https://m.media-amazon.com/images/I/81rcs-n2nOL._SL1500_.jpg",
@@ -974,8 +1047,9 @@ export const MODERN_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Annihilation: Conquest - Star-Lord #1-4, Guardians of the Galaxy (vol. 2) #1-12",
     yearsCovered: "2007-2009",
     releaseDate: { year: 2023, month: 9 },
-    writers: "Keith Giffen, Dan Abnett, Andy Lanning",
-    pencillers: "Timothy Green II, Paul Pelletier, Brad Walker, Carlos Magno, Wes Craig",
+    writers: "Dan Abnett, Andy Lanning, Keith Giffen",
+    pencillers: "Paul Pelletier, Timothy Green II, Brad Walker, Wes Craig, Carlos Magno",
+    inkers: "Victor Olazaba, Rick Magyar, Wes Craig, Jack Purcell, John Livesay",
     description:
       "As the Marvel Universe is rocked by another Annihilation event, Peter Quill suits up as Star-Lord and joins the fight alongside a motley crew including Mantis, Groot, and Rocket Raccoon. With the boundaries of reality weakened by cosmic conflicts and dark gods and monsters seeping through the cracks, heavy hitters like Gamora, Drax, and Adam Warlock join this offbeat squad of butt-kickers to become the modern-day Guardians of the Galaxy.",
     coverUrl: "https://m.media-amazon.com/images/I/81bcdx07uCL._SL1500_.jpg",
@@ -993,7 +1067,9 @@ export const MODERN_MARVEL_ENTRIES: TimelineEntry[] = [
     yearsCovered: "2009-2010",
     releaseDate: { year: 2025, month: 1 },
     writers: "Dan Abnett, Andy Lanning",
-    pencillers: "Brad Walker, Wes Craig, Miguel Sepulveda",
+    pencillers: "Brad Walker, Miguel Sepulveda, Wesley Craig, Wes Craig",
+    inkers:
+      "Victor Olazaba, Miguel Sepulveda, Andrew Hennessy, Wesley Craig, Serge LaPointe, John Livesay, Scott Hanna",
     description:
       "When two absolute powerhouses, Black Bolt and Vulcan, square off, and their respective peoples, the Inhumans and the Shi'ar, ravage entire planets, the Guardians of the Galaxy are stuck in the middle. But when the Fault, a massive rift in reality, threatens to destroy the cosmos, the bruised and battered Guardians must avert the unthinkable.",
     coverUrl: "https://m.media-amazon.com/images/I/814YMwxlyWL._SL1500_.jpg",
@@ -1010,8 +1086,9 @@ export const MODERN_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "The Thanos Imperative: Devastation #1; Annihilators #1-4; Annihilators: Earthfall #1-4; Thanos Sourcebook",
     yearsCovered: "2011-2012",
     releaseDate: { year: 2026, month: 12 },
-    writers: "Dan Abnett & Andy Lanning",
-    pencillers: "Miguel Angel Sepulveda, Tan Eng Huat & Timothy Green II",
+    writers: "Dan Abnett, Andy Lanning, Mike O'Sullivan",
+    pencillers: "Tan Eng Huat, Timothy Green II, Miguel Sepulveda",
+    inkers: "Timothy Green II, Victor Olazaba, Andrew Hennessy, Miguel Sepulveda",
     description:
       "The epic Thanos Imperative conflict is over, but who and what has survived? As the answers are revealed, an all-star team of heavy hitters forms to face the Dire Wraiths: Silver Surfer, Beta-Ray Bill, Gladiator, Quasar, and Ronan join forces -- but when a familiar threat returns with Earth as his beachhead, why are the Avengers standing in the Annihilators' way?",
     coverUrl: "https://m.media-amazon.com/images/I/81-zO5khT9L._SL1500_.jpg",
@@ -1029,8 +1106,11 @@ export const MODERN_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "New Avengers: The Reunion #1-4; Hawkeye & Mockingbird #1-6; Widowmaker #1-4; Hawkeye: Blindspot #1-4; Hawkeye & Mockingbird Sketchbook #1; material from Dark Reign: New Nation #1; Enter the Heroic Age #1",
     yearsCovered: "2009-2011",
     releaseDate: { year: 2024, month: 7 },
-    writers: "Jim McCann, Duane Swierczynski",
-    pencillers: "David Lopez, Manuel Garcia, Paco Diaz, Nick Dragotta, Valentine De Landro, Lee Weeks",
+    writers: "Jim McCann, Duane Swierczynski, Sean McQuaid, Fred Van Lente",
+    pencillers:
+      "David López, Paco Diaz, Manuel Garcia, Nick Dragotta, Valentine De Landro, Lee Weeks, Stephane Roux",
+    inkers:
+      "Álvaro López, Paco Diaz, Lorenzo Ruggiero, Bit, Nick Dragotta, Valentine De Landro, Stefano Gaudiano, Julien Hugonnard-Bert, Jamie McKelvie",
     description:
       "Hawkeye, the world's greatest marksman, is reunited with his ex-wife: thought dead for years, the superspy Mockingbird is eager to punch some bad guys. But when Clint tags along on her mission, can they ignore their feelings long enough to save the day, or will old foes Crossfire and the Phantom Rider destroy them first?",
     coverUrl: "https://m.media-amazon.com/images/I/81+SiWA5fBL._SL1500_.jpg",
@@ -1049,7 +1129,8 @@ export const MODERN_MARVEL_ENTRIES: TimelineEntry[] = [
     yearsCovered: "2008-2009",
     releaseDate: { year: 2024, month: 5 },
     writers: "Jeph Loeb",
-    pencillers: "Ed McGuinness, Arthur Adams, Frank Cho, Herb Trimpe",
+    pencillers: "Ed McGuinness, Arthur Adams",
+    inkers: "Dexter Vines, Walden Wong, Mark Farmer",
     description:
       "There's a sadistic new red-skinned Hulk in the Marvel Universe, with keen intelligence and a radioactive touch -- who or what is he? And with Marvel's heroes powerless against him, will it take a Hulk to catch a Hulk? It's an explosive battle as the red and green Hulks collide, guest-starring Iron Man, Thor, Moon Knight, Spider-Man, and more.",
     coverUrl: "https://m.media-amazon.com/images/I/814qS2rID3L._SL1500_.jpg",
@@ -1066,8 +1147,10 @@ export const MODERN_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Hulk (vol. 2) #13-18; Incredible Hulk #601-605; Dark Reign: The List - Hulk; material from Incredible Hulk #600",
     yearsCovered: "2009-2010",
     releaseDate: { year: 2026, month: 1 },
-    writers: "Jeph Loeb, Greg Pak, Fred Van Lente",
-    pencillers: "Ed McGuinness, Ian Churchill, Whilce Portacio, Ariel Olivetti, Giuseppe Camuncoli, Ben Oliver, Michael Ryan",
+    writers: "Jeph Loeb, Greg Pak",
+    pencillers:
+      "Ariel Olivetti, Ian Churchill, Ed McGuinness, Giuseppe Camuncoli, Whilce Portacio, Ben Oliver, Paul Pelletier",
+    inkers: "Mark Farmer, Ariel Olivetti, Danny Miki, Cam Smith, Tom Palmer, Ben Oliver",
     description:
       "Domino might have just discovered the Red Hulk's identity, and he can't have that -- so Rulk recruits a little help of his own: the Punisher, Deadpool, Elektra, Thundra, and Crimson Dynamo. Meanwhile, Bruce Banner has transformed back from the Hulk, seemingly forever, and travels to a deserted corner of America to find the Hulk's half-alien son Skaar waiting to take revenge on his father.",
     coverUrl: "https://m.media-amazon.com/images/I/91TmqQE-HlL._SL1500_.jpg",
@@ -1084,8 +1167,11 @@ export const MODERN_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Hulk (vol. 2) #19-21; Incredible Hulk #606-608; Fall Of The Hulks: Alpha; Fall Of The Hulks: Gamma; Fall Of The Hulks: Red Hulk #1-4; Fall Of The Hulks: Save She-Hulks #1-3; Fall Of The Hulks: MODOK",
     yearsCovered: "2011",
     releaseDate: { year: 2026, month: 11 },
-    writers: "Jeph Loeb, Greg Pak, Jeff Parker, Ryan Dunlavey",
-    pencillers: "Ed McGuinness, Paul Pelletier, John Romita Jr., Carlos Rodriguez, Fernando Blanco, Salva Espin, Ryan Dunlavey",
+    writers: "Jeff Parker, Jeph Loeb, Greg Pak, Ryan Dunlavey",
+    pencillers:
+      "Paul Pelletier, Carlos Rodriguez, Ed McGuinness, Fernando Blanco, Jonboy Meyers, Salvador Espin, John Romita Jr., Zach Howard, Ryan Dunlavey",
+    inkers:
+      "Mark Farmer, Danny Miki, Vicente Cifuentes, Fernando Blanco, Jason Paz, Jonboy Meyers, Salvador Espin, Crimelab Studios, Klaus Janson, Zach Howard, Ryan Dunlavey",
     description:
       "A clandestine alliance of brilliant super villains -- M.O.D.O.K., Leader, Mad Thinker, Egghead, Red Ghost, and Doctor Doom -- seeks to engineer the Fall of the Hulks. Having analyzed every victory and every defeat in the Marvel Universe, they've formulated the perfect battle plan to take down all the Hulks, and the most powerful Hulk is already gone -- transformed back into Bruce Banner, seemingly forever.",
     coverUrl: "https://m.media-amazon.com/images/I/81gv9Qj6DiL._SL1500_.jpg",
@@ -1102,8 +1188,11 @@ export const MODERN_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Hulk (vol. 2) #22-24; Incredible Hulk #609-611 (A Stories); World War Hulks #1; Hulked Out Heroes #1-2; World War Hulks: Spider-Man vs. Thor #1-2; World War Hulks: Captain America vs. Wolverine #1-2",
     yearsCovered: "2011",
     releaseDate: { year: 2027, month: 2 },
-    writers: "Jeph Loeb, Greg Pak, Jeff Parker, Kieron Gillen",
-    pencillers: "Ed McGuinness, Paul Pelletier, Humberto Ramos, Jorge Molina",
+    writers: "Jeff Parker, Greg Pak, Jeph Loeb, Kieron Gillen, Paul Tobin",
+    pencillers:
+      "Paul Pelletier, Ed McGuinness, Humberto Ramos, Jorge Molina, Jacopo Camagni, Zach Howard, Tim Sale, Dale Keown, Sal Buscema, Herb Trimpe, Leinil Yu, Mike Deodato Jr., Ian Churchill, John Romita Jr., Ronan Cliquet, Ig Guara, Iban Coello",
+    inkers:
+      "Danny Miki, Mark Farmer, Carlos Cuevas, Jacopo Camagni, Zach Howard, Mark Irwin, Gerry Alanguilan, Klaus Janson, Tim Sale, Dale Keown, Sal Buscema, Herb Trimpe, Mike Deodato Jr., Ian Churchill, Jorge Molina, Ig Guara, Iban Coello",
     description:
       "The Intelligencia's grand scheme comes to a head as their corrupted, super-powered Hulks make a final play to remake the world in their image. Red Hulk, Red She-Hulk, and a fractured cast of former allies collide across the globe as the fate of both Hulks -- and the Marvel Universe -- hangs in the balance.",
     ownershipStatus: "announced",
@@ -1122,6 +1211,7 @@ export const MODERN_MARVEL_ENTRIES: TimelineEntry[] = [
     releaseDate: { year: 2024, month: 6 },
     writers: "Matt Fraction",
     pencillers: "Salvador Larroca",
+    inkers: "Salvador Larroca",
     description:
       "Tony Stark -- billionaire industrialist, Invincible Iron Man, and now director of S.H.I.E.L.D. -- faces the most overwhelming challenge of his life. Ezekiel Stane, the son of Tony's late business rival and archenemy Obadiah Stane, has set his sights, his genius, and his considerable fortune on the task of destroying the Stark legacy, and he's every bit Tony's equal -- except younger, faster, smarter, and immeasurably evil.",
     coverUrl: "https://m.media-amazon.com/images/I/818f1X0cfuL._SL1500_.jpg",
@@ -1139,7 +1229,8 @@ export const MODERN_MARVEL_ENTRIES: TimelineEntry[] = [
     yearsCovered: "2010",
     releaseDate: { year: 2024, month: 12 },
     writers: "Matt Fraction, Kelly Sue DeConnick",
-    pencillers: "Salvador Larroca, Kano, Andrea Mutti, John Romita Jr, Jamie McKelvie",
+    pencillers: "Salvador Larroca, Kano, John Romita Jr., Andrea Mutti",
+    inkers: "Salvador Larroca, Kano, Klaus Janson, Andrea Mutti",
     description:
       "He's outrun Norman Osborn and kept the database of superhuman secret identities safe and secure, but in doing so, Tony Stark has lost just about everything: his armor, his power, even his very mind. Now at his absolute lowest point, it will take Tony's last reservoir of will -- and allies including Thor, Captain America, War Machine, and Black Widow -- to keep him from losing it all.",
     coverUrl: "https://m.media-amazon.com/images/I/71i1I08f5hL._SL1500_.jpg",
@@ -1157,7 +1248,8 @@ export const MODERN_MARVEL_ENTRIES: TimelineEntry[] = [
     yearsCovered: "2011",
     releaseDate: { year: 2025, month: 7 },
     writers: "Matt Fraction",
-    pencillers: "Salvador Larroca, Carmine Di Giandomenico, Kano, Howard Chaykin",
+    pencillers: "Salvador Larroca, Carmine Di Giandomenico, Kano, Nathan Fox",
+    inkers: "Salvador Larroca, Carmine Di Giandomenico, Kano, Nathan Fox",
     description:
       "Witness the life and times of Iron Man -- past, present, and future, and as seen through the eyes of his greatest foe. To defeat the Mandarin, the Armored Avenger will have to soar to never-before-seen heights, and he's not going alone: three generations of Starks face their ultimate enemy, seventy-some years in the future.",
     coverUrl: "https://m.media-amazon.com/images/I/810i6Mw1Z+L._SL1500_.jpg",
@@ -1176,6 +1268,7 @@ export const MODERN_MARVEL_ENTRIES: TimelineEntry[] = [
     releaseDate: { year: 2026, month: 7 },
     writers: "Matt Fraction",
     pencillers: "Salvador Larroca",
+    inkers: "Salvador Larroca",
     description:
       "His name is Tony, and he's an alcoholic. Now, as life goes on, he's a hero with a humble goal: to make things right, in both his business and his life. But the Mandarin and Ezekiel Stane have other plans, publicizing Tony's struggle to stay sober while assembling a super-villain army to close in for the kill.",
     coverUrl: "https://m.media-amazon.com/images/I/812m2cuO1xL._SL1500_.jpg",
@@ -1193,8 +1286,12 @@ export const MODERN_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Siege: Loki; Journey Into Mystery #622-636, 626.1",
     yearsCovered: "2010-2012",
     releaseDate: { year: 2023, month: 8 },
-    writers: "Kieron Gillen, Robert Rodi",
-    pencillers: "Jamie McKelvie, Doug Braithwaite, Pasqual Ferry, Richard Elson, Whilce Portacio, Mitchell Breitweiser",
+    writers:
+      "Kieron Gillen, Robert Rodi, Fred Van Lente, Dana Perkins, John Rhett Thomas, Dugan Trodglen",
+    pencillers:
+      "Doug Braithwaite, Richard Elson, Whilce Portacio, Jamie McKelvie, Pasqual Ferry, Mitch Breitweiser",
+    inkers:
+      "Doug Braithwaite, Richard Elson, Allen Martinez, Jamie McKelvie, Pasqual Ferry, Jeff Huet, Mitch Breitweiser, Giuseppe Camuncoli",
     description:
       "In the wake of the siege of Asgard, Loki is reborn as a child. With this new life comes a fresh purpose, but can the other Asgardian gods possibly trust him? Let's hope so, because when the Serpent threatens Earth, Thor's battle plan is doomed to fail without Loki's help.",
     coverUrl: "https://m.media-amazon.com/images/I/81nqOGW5AKL._SL1500_.jpg",
@@ -1212,7 +1309,9 @@ export const MODERN_MARVEL_ENTRIES: TimelineEntry[] = [
     yearsCovered: "2012",
     releaseDate: { year: 2023, month: 9 },
     writers: "Kieron Gillen, Dan Abnett, Andy Lanning, Matt Fraction",
-    pencillers: "Carmine Di Giandomenico, Richard Elson, Alan Davis, Stephanie Hans, Joe Bennett",
+    pencillers: "Carmine Di Giandomenico, Alan Davis, Richard Elson, Stephanie Hans, Joe Bennett",
+    inkers:
+      "Carmine Di Giandomenico, Richard Elson, Mark Farmer, Alan Davis, Stephanie Hans, Mark Morales",
     description:
       "A forgotten hero returns, but will the truth behind his exile consume the world? Only the New Mutants can help young Loki now. When the cursed Vanir return and declare war on Asgardia, Surtur's fire rages across the nine worlds, and a desperate Loki journeys into the heart of Surtur's fiery kingdom -- but the godling's future and past collide when Thor becomes trapped in the underworld.",
     coverUrl: "https://m.media-amazon.com/images/I/91P5C38gMhL._SL1500_.jpg",
@@ -1230,8 +1329,11 @@ export const MODERN_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Ultimate Comics Spider-Man (2011) #1-12; Spider-Men (2012) #1-5; material from Ultimate Fallout (2011) #4",
     yearsCovered: "2011-2012",
     releaseDate: { year: 2025, month: 3 },
-    writers: "Brian Michael Bendis",
-    pencillers: "Sara Pichelli, Chris Samnee, David Marquez",
+    writers: "Brian Michael Bendis, Jonathan Hickman, Nick Spencer, Brian Michael bendis",
+    pencillers:
+      "Sara Pichelli, David Marquez, Chris Samnee, Salvador Larroca, Clayton Crain, David Messina",
+    inkers:
+      "Sara Pichelli, David Marquez, Chris Samnee, Salvador Larroca, Clayton Crain, David Messina",
     description:
       "Before Peter Parker died, young Miles Morales was poised to start the next chapter in his life at a new school. Then a spider's bite granted the teenager incredible arachnid-like powers, and now Miles has been thrust into a world he doesn't understand, with only gut instinct and a little thing called responsibility as his guides. Can he live up to Peter's legacy as Spider-Man?",
     coverUrl: "https://m.media-amazon.com/images/I/91Z1aihLffL._SL1500_.jpg",
@@ -1249,7 +1351,8 @@ export const MODERN_MARVEL_ENTRIES: TimelineEntry[] = [
     yearsCovered: "2012-2013",
     releaseDate: { year: 2025, month: 8 },
     writers: "Brian Michael Bendis",
-    pencillers: "David Marquez, Pepe Larraz, Sara Pichelli",
+    pencillers: "David Marquez, Sara Pichelli, Pepe Larraz",
+    inkers: "David Marquez, Sara Pichelli, Pepe Larraz",
     description:
       "Miles Morales is still getting used to being Spider-Man when Captain America makes him a very special offer -- is Miles really joining the Ultimates? But when a terrifying new Venom symbiote surfaces, armed with the truth about the incident that granted the new Spider-Man his powers and closing in on Miles's true identity, Spidey might have made his first true archenemy.",
     coverUrl: "https://m.media-amazon.com/images/I/91MNxfUkROL._SL1500_.jpg",
@@ -1267,7 +1370,10 @@ export const MODERN_MARVEL_ENTRIES: TimelineEntry[] = [
     yearsCovered: "2013-2015",
     releaseDate: { year: 2026, month: 1 },
     writers: "Brian Michael Bendis",
-    pencillers: "David Marquez, Mark Bagley, Mark Brooks, Sara Pichelli, David Lafuente",
+    pencillers:
+      "David Marquez, Mark Bagley, Mark Brooks, Stuart Immonen, Sara Pichelli, David Lafuente",
+    inkers:
+      "David Marquez, Mark Brooks, Stuart Immonen, Sara Pichelli, Andrew Hennessy, David Lafuente",
     description:
       "Galactus has arrived in the Ultimate Universe, and he hungers -- Miles must undertake a dangerous trip to Galactus's home universe if Earth has a chance of surviving this cataclysm. Then Miles faces the worst villain from his predecessor's past: the Green Goblin, the man who killed Peter Parker. But is Peter truly dead?",
     coverUrl: "https://m.media-amazon.com/images/I/81AGxucNNNL._SL1500_.jpg",
@@ -1285,7 +1391,8 @@ export const MODERN_MARVEL_ENTRIES: TimelineEntry[] = [
     yearsCovered: "2016-2017",
     releaseDate: { year: 2026, month: 8 },
     writers: "Brian Michael Bendis, Jason Latour",
-    pencillers: "Sara Pichelli, Robbi Rodriguez, TBC",
+    pencillers: "Sara Pichelli, Nico Leon, Robbi Rodriguez, Szymon Kudranski",
+    inkers: "Sara Pichelli, Gaetano Carlucci, Nico Leon, Robbi Rodriguez, Szymon Kudranski",
     description:
       "Miles Morales is hitting the big time: with reality restored after Secret Wars, he's on a new Earth, about to become a card-carrying Avenger, and when his new allies fall, he must stand alone against a villain with the power to destroy the planet. As Miles ventures into the Spider-Verse and lands on Gwen Stacy's Earth-65, the two most sensational web-spinners cross paths -- and lock lips.",
     coverUrl: "https://m.media-amazon.com/images/I/91oy4rGOBCL._SL1500_.jpg",
@@ -1303,7 +1410,10 @@ export const MODERN_MARVEL_ENTRIES: TimelineEntry[] = [
     yearsCovered: "2017-2018",
     releaseDate: { year: 2027, month: 4 },
     writers: "Brian Michael Bendis",
-    pencillers: "Szymon Kudranski, Jan Bazaldua, Nico Leon, Sara Pichelli & Ramón",
+    pencillers:
+      "Oscar Bazaldua, Sara Pichelli, Nico Leon, Szymon Kudranski, Mark Bagley, Ramón Pérez",
+    inkers:
+      "Oscar Bazaldua, Sara Pichelli, Elisabetta D'Amico, Nico Leon, Szymon Kudranski, Juan Vlasco, John Dell, Ramón Pérez",
     description:
       "A reborn Sinister Six sets its sights on Miles Morales, testing the young Spider-Man against a gauntlet of Peter Parker's deadliest enemies. As the two Spider-Men -- Miles and a returned Peter Parker -- finally cross paths, what will it mean for the future of the mantle they both wear?",
     ownershipStatus: "announced",
@@ -1328,8 +1438,11 @@ export const MODERN_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Avengers #500-503; Avengers Finale; New Avengers (vol. 1) #1-10; New Avengers #1 Director's Cut; New Avengers Most Wanted Files",
     yearsCovered: "2004-2005",
     releaseDate: { year: 2023, month: 8 },
-    writers: "Brian Michael Bendis",
-    pencillers: "David Finch, Steve McNiven",
+    writers: "Brian Michael Bendis, Paul Jenkins, Jeff Christiansen",
+    pencillers:
+      "David Finch, Steve McNiven, Olivier Coipel, David Mack, Eric Powell, Steve Epting, George Pérez, Michael Gaydos, Gary Frank, Jim Cheung, Alex Maleev, Mike Mayhew, Darick Robertson, Lee Weeks, Michael Avon Oeming, Sal Buscema",
+    inkers:
+      "Danny Miki, Mark Morales, David Mack, Eric Powell, Steve Epting, Michael Avon Oeming, Michael Gaydos, Gary Frank, Alex Maleev, Mike Mayhew, Darick Robertson, Lee Weeks, Mike Perkins, Allen Martinez, Victor Olazaba, Sal Buscema, John Dell",
     description:
       "From the ashes, a new team will rise! On the Avengers' darkest day, they are torn apart by one of their own -- the Scarlet Witch. But when a super-villain breakout at the Raft unites Captain America and Iron Man with a surprising group of allies -- including Spider-Man, Wolverine, Spider-Woman, and Luke Cage -- a new day dawns, and these disparate heroes form the New Avengers. But will the Sentry become their strongest member... or the world's greatest threat?",
     coverUrl: "https://m.media-amazon.com/images/I/81tCLOxhyGL._SL1500_.jpg",
@@ -1346,8 +1459,11 @@ export const MODERN_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "New Avengers #11-25, Annual (2006); New Avengers Guest Starring the Fantastic Four; Giant-Size Spider-Woman; New Avengers: Illuminati One-Shot; Civil War: The Confession",
     yearsCovered: "2005-2006",
     releaseDate: { year: 2024, month: 12 },
-    writers: "Brian Michael Bendis, Dan Jurgens",
-    pencillers: "David Finch, Frank Cho, Steve McNiven, Mike Deodato, Olivier Coipel, Alex Maleev, Howard Chaykin, Leinil Francis Yu, Pasqual Ferry, Jim Cheung",
+    writers: "Brian Michael Bendis",
+    pencillers:
+      "Mike Deodato Jr., David Finch, Frank Cho, Olivier Coipel, Alex Maleev, Dan Jurgens, Rick Mays, Steve McNiven, Howard Chaykin, Leinil Yu, Pasqual Ferry, Paul Smith, Jim Cheung",
+    inkers:
+      "Danny Miki, Joe Pimentel, Mark Morales, Frank Cho, John Livesay, Alex Maleev, Sandu Florea, Jason Martin, Dexter Vines, Drew Geraci, Rick Magyar, Andrew Hennessy, Tim Townsend, Mike Perkins, Howard Chaykin, Leinil Yu",
     description:
       "The momentous events of Civil War rip the New Avengers apart. Brian Michael Bendis' roster is completed with the mysterious masked Ronin, and in the wake of House of M, a new threat emerges that may be impossible to stop. When Civil War breaks out across the Marvel Universe, Iron Man and Captain America find themselves on opposite sides -- and their team is torn in two.",
     coverUrl: "https://m.media-amazon.com/images/I/91a5pjRvSkL._SL1500_.jpg",
@@ -1364,8 +1480,10 @@ export const MODERN_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Civil War: The Initiative; New Avengers #26-37, Annual (2006) #2; New Avengers: Illuminati #1-5",
     yearsCovered: "2007-2008",
     releaseDate: { year: 2025, month: 5 },
-    writers: "Brian Michael Bendis, Warren Ellis, Brian Reed",
-    pencillers: "Marc Silvestri, Alex Maleev, Leinil Yu, Carlo Pagulayan, Jim Cheung",
+    writers: "Brian Michael Bendis, Brian Reed, Warren Ellis",
+    pencillers: "Leinil Yu, Jim Cheung, Marc Silvestri, Alex Maleev, Carlo Pagulayan",
+    inkers:
+      "Leinil Yu, Mark Morales, Rick Basaldua, Marco Galli, Joe Weems, Alex Maleev, Jeff Huet, John Dell, Dave Meikis",
     description:
       "Civil War is over, and America is transformed. As Iron Man's Mighty Avengers serve as the vanguard of the Initiative, a group of underground Avengers begin their new lives -- as outlaws. The hunt is on for Luke Cage, Spider-Man, Wolverine, Spider-Woman, Doctor Strange, Iron Fist, and someone taking on the mantle of Ronin, while the shadowy Illuminati shape the history of the Marvel Universe.",
     coverUrl: "https://m.media-amazon.com/images/I/81l+NE0-d3L._SL1500_.jpg",
@@ -1383,7 +1501,10 @@ export const MODERN_MARVEL_ENTRIES: TimelineEntry[] = [
     yearsCovered: "2008-2009",
     releaseDate: { year: 2026, month: 5 },
     writers: "Brian Michael Bendis",
-    pencillers: "Michael Gaydos, David Mack, Jim Cheung, Billy Tan, Alex Maleev, Chris Bachalo",
+    pencillers:
+      "Billy Tan, Michael Gaydos, Jim Cheung, Alex Maleev, Chris Bachalo, David Mack, David Aja, Greg Horn, Steve Epting, Bryan Hitch, Leinil Yu, Steve McNiven, David López",
+    inkers:
+      "Matt Banning, Michael Gaydos, John Dell, Alex Maleev, Tim Townsend, David Mack, Billy Tan, Danny Miki, Jay Leisten, David Aja, Greg Horn, Steve Epting, Mark Morales, Bryan Hitch, Dexter Vines, Álvaro López",
     description:
       "A Secret Invasion by the Skrull Empire allows the cloud of a Dark Reign to fall across the Marvel Universe. The Avengers battle friend and foe in the Savage Land as the Skrull infiltration is exposed, and in the aftermath, an unlikely savior takes control. Once they were Earth's Mightiest Heroes -- now they live in the shadows, wanted and hunted by a law whose name is... Norman Osborn.",
     coverUrl: "https://m.media-amazon.com/images/I/81Jwuxm8LlL._SL1500_.jpg",
@@ -1401,6 +1522,10 @@ export const MODERN_MARVEL_ENTRIES: TimelineEntry[] = [
     yearsCovered: "2009-2010",
     releaseDate: { year: 2027, month: 5 },
     writers: "Brian Michael Bendis",
+    pencillers:
+      "Stuart Immonen, Daniel Acuña, Mike McKone, Marko Djurdjevic, Jim Cheung, Mike Mayhew, Bryan Hitch, Joe Quesada, Christian Nauck",
+    inkers:
+      "Wade von Grawbadger, Mark Morales, Daniel Acuña, Mike McKone, Mike Mayhew, Andrew Currie, Karl Story, Jackson Guice, Joe Quesada, Terry Austin",
     description:
       "With Norman Osborn now the country's top cop, the New Avengers operate as outlaws and fugitives, regrouping in secret to protect the world from threats Osborn's Dark Reign can't -- or won't -- handle. As old alliances are tested and new powers emerge, the team fights to hold together while hunted by the very government they once served.",
     ownershipStatus: "announced",
@@ -1418,7 +1543,9 @@ export const MODERN_MARVEL_ENTRIES: TimelineEntry[] = [
     yearsCovered: "2001-2002",
     releaseDate: { year: 2024, month: 6 },
     writers: "Grant Morrison",
-    pencillers: "Frank Quitely, Leinil Yu, Ethan Van Sciver, Igor Kordey, Tom Derenick",
+    pencillers: "Frank Quitely, Igor Kordey, Ethan van Sciver, Leinil Yu, Tom Derenick",
+    inkers:
+      "Tim Townsend, Igor Kordey, Sandu Florea, Mark Morales, Prentiss Rollins, Scott Hanna, Dan Green, Gerry Alanguilan, Frank Quitely, Rich Perrotta, Danny Miki",
     description:
       "Writer Grant Morrison propels the X-Men into the 21st century. Cassandra Nova will stop at nothing to see all mutants exterminated, and her wild Sentinels' first strike on Genosha brings death and horror beyond belief. Joined by telepath Emma Frost and the mysterious Xorn, the X-Men go public and expand Xavier's school to train a new generation of mutants -- but can they withstand Cassandra's return, backed by the full might of the Shi'ar Imperial Guard?",
     coverUrl: "https://m.media-amazon.com/images/I/81Nw7MQRLaL._SL1500_.jpg",
@@ -1436,7 +1563,10 @@ export const MODERN_MARVEL_ENTRIES: TimelineEntry[] = [
     yearsCovered: "2002-2003",
     releaseDate: { year: 2025, month: 6 },
     writers: "Grant Morrison",
-    pencillers: "Frank Quitely, John Paul Leon, Igor Kordey, Phil Jimenez, Ethan van Sciver, Keron Grant",
+    pencillers:
+      "Phil Jimenez, Frank Quitely, Igor Kordey, John Paul Leon, Ethan van Sciver, Keron Grant",
+    inkers:
+      "Andy Lanning, Igor Kordey, Avalon Studios, Bill Sienkiewicz, Norm Rapmund, Tim Townsend",
     description:
       "Continuing Grant Morrison's Eisner Award-winning run that reinvigorated the X-Men franchise. A riot breaks out in Mutant Town, and Professor X establishes an X-Corp office in Paris for mutants in need. Romantic sparks fly between Scott Summers and Emma Frost, Polaris returns amid the wreckage of Genosha, and the Xavier Mansion is rocked by a shocking murder -- or is everything not quite as it seems?",
     coverUrl: "https://m.media-amazon.com/images/I/91s6YcauUaL._SL1500_.jpg",
@@ -1454,7 +1584,9 @@ export const MODERN_MARVEL_ENTRIES: TimelineEntry[] = [
     yearsCovered: "2003-2004",
     releaseDate: { year: 2026, month: 6 },
     writers: "Grant Morrison",
-    pencillers: "Chris Bachalo, Marc Silvestri, Phil Jimenez, TBC",
+    pencillers: "Phil Jimenez, Chris Bachalo, Marc Silvestri",
+    inkers:
+      "Tim Townsend, Andy Lanning, Joe Weems, Al Vey, Aaron Sowd, Billy Tan, Matt Banning, Simon Coleby, Eric Basaldua",
     description:
       "Concluding Grant Morrison's revolutionary New X-Men run. Logan and Cyclops join the mysterious Fantomex in an exploration of the Weapon Plus Program that created Wolverine, and Magneto -- the X-Men's greatest adversary -- returns for a fiery final confrontation with the Phoenix. Once the dust settles, flash-forward 150 years to an Earth where humanity is decimated, and what's left of the X-Men fight the forces of genetic homogenization.",
     coverUrl: "https://m.media-amazon.com/images/I/712vYNbJY+L._SL1500_.jpg",
@@ -1472,8 +1604,9 @@ export const MODERN_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "What If? (vol. 2) #105; Spider-Girl (1998) #1-15, #½; Spider-Girl Annual 1999",
     yearsCovered: "1998-1999",
     releaseDate: { year: 2024, month: 3 },
-    writers: "Tom DeFalco",
-    pencillers: "Bill Rosemann, Pat Olliffe, Ron Frenz, Paul Ryan",
+    writers: "Tom DeFalco, Ron Frenz",
+    pencillers: "Pat Olliffe, Ron Frenz",
+    inkers: "Al Williamson, Sal Buscema",
     description:
       "What if Peter Parker and Mary Jane had a daughter? The answer is May \"Mayday\" Parker -- Spider-Girl! The teenage Mayday inherits spider-powers and dons her retired father's red-and-blues, facing threats old and new -- from the Venom symbiote and Kaine to Crazy Eight and the Dragon King -- as she wrestles with whether to follow in Spider-Man's footsteps.",
     coverUrl: "https://m.media-amazon.com/images/I/818+N3fKcSL._SL1500_.jpg",
@@ -1492,6 +1625,7 @@ export const MODERN_MARVEL_ENTRIES: TimelineEntry[] = [
     releaseDate: { year: 2024, month: 11 },
     writers: "Tom DeFalco",
     pencillers: "Ron Frenz, Pat Olliffe",
+    inkers: "Sal Buscema, Rich Perrotta, Pat Olliffe",
     description:
       "In an alternate future, the daughter of Peter Parker and Mary Jane Watson carries on her father's tradition of heroism as Spider-Girl. The Black Tarantula renews his efforts to lure her to the dark side -- could that be why she's donning a black costume of her own? When her dad did that, it led to the birth of Venom, and it won't be long before the sinister symbiote returns to target May's closest friends.",
     coverUrl: "https://m.media-amazon.com/images/I/81clpRa1xNL._SL1500_.jpg",
@@ -1508,8 +1642,9 @@ export const MODERN_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Spider-Girl #85-99; material from #100 and Spider-Man Family #1",
     yearsCovered: "2005-2006",
     releaseDate: { year: 2025, month: 11 },
-    writers: "Tom DeFalco, Ron Frenz, Pat Olliffe",
-    pencillers: "Ron Frenz, Pat Olliffe",
+    writers: "Tom DeFalco, Ron Frenz, Pat Olliffe, Ron Lim",
+    pencillers: "Ron Frenz, Pat Olliffe, Ron Lim",
+    inkers: "Sal Buscema, Scott Koblish, Norm Rapmund",
     description:
       "In an alternate future, the daughter of Peter Parker and Mary Jane Watson carries on her father's tradition of heroism as Spider-Girl. When an old enemy returns to destroy the Fantastic Five, Spider-Girl learns the truth behind what happened to Sue Richards, and thanks to Kaine she's seen the future -- and knows she's destined to die at the hands of a Scrier.",
     coverUrl: "https://m.media-amazon.com/images/I/81QW4fWQGFL._SL1500_.jpg",
@@ -1526,8 +1661,9 @@ export const MODERN_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "The Amazing Spider-Girl #0-15",
     yearsCovered: "2006-2007",
     releaseDate: { year: 2026, month: 8 },
-    writers: "Tom DeFalco",
-    pencillers: "Ron Frenz, Pat Olliffe, John Romita, J. Scott Campbell",
+    writers: "Tom DeFalco, Ron Frenz",
+    pencillers: "Ron Frenz, J. Scott Campbell, Pat Olliffe, John Romita Sr.",
+    inkers: "Sal Buscema, Scott Koblish, Al Williamson, Bill Sienkiewicz, Tim Townsend",
     description:
       "May \"Mayday\" Parker learns she can't escape her great responsibilities and returns to the web-slinging life -- a decision that may prove fatal for one of her closest friends when an assassin targets the teenage girls volunteering at St. Andrews Shelter. When Carnage is reborn and targets the Parker family, May realizes the symbiote's new host is someone she knows.",
     coverUrl: "https://m.media-amazon.com/images/I/91pH4jT-99L._SL1500_.jpg",
@@ -1545,8 +1681,11 @@ export const MODERN_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Edge Of Spider-Verse #2; Spider-Gwen (vol. 1) #1-5; Spider-Gwen (vol. 2) #1-8; Spider-Women Alpha #1; Silk (vol. 2) #7-8; Spider-Woman (vol. 6) #6-7; Spider-Women Omega #1",
     yearsCovered: "2014-2016",
     releaseDate: { year: 2023, month: 5 },
-    writers: "Jason Latour, Dennis Hopeless, Kelly Thompson",
-    pencillers: "Robbi Rodriguez, Bengal, Tana Ford, Joëlle Jones",
+    writers: "Jason Latour, Robbie Thompson, Dennis Hallum",
+    pencillers:
+      "Robbi Rodriguez, Bengal, Tana Ford, Joelle Jones, Chris Visions, Vanesa Del Rey, Nico Leon",
+    inkers:
+      "Robbi Rodriguez, Bengal, Tana Ford, Chris Visions, Vanesa Del Rey, Joelle Jones, Lorenzo Ruggiero, Nico Leon",
     description:
       "On Earth-65, the radioactive spider didn't bite Peter Parker -- it bit Gwen Stacy. Now Gwen fights crime as Spider-Woman, splitting her time between school, heroism, and playing in her band, the Mary Janes, all while dodging NYPD lieutenant Frank Castle. But what really happened the night her world's Peter Parker died, and how does it connect to a new reptilian rampage?",
     coverUrl: "https://m.media-amazon.com/images/I/81wwtxs5FcL._SL1500_.jpg",
@@ -1563,8 +1702,11 @@ export const MODERN_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Spider-Gwen (vol. 2) #9-24, Annual #1; All-New Wolverine Annual #1; Spider-Man (vol. 2) #12-14",
     yearsCovered: "2016-2017",
     releaseDate: { year: 2024, month: 2 },
-    writers: "Jason Latour, Tom Taylor, Brian Michael Bendis",
-    pencillers: "Hannah Blumenreich, Robbi Rodriguez, Chris Brunner, Chris Visions, Olivia Margraf, Marcio Takara, Sara Pichelli, Jorge Coelho, Jordan Gibson",
+    writers: "Jason Latour, Brian Michael Bendis, Tom Taylor, Hannah Blumenreich",
+    pencillers:
+      "Robbi Rodriguez, Sara Pichelli, Chris Brunner, Marcio Takara, Chris Visions, Jorge Coelho, Hannah Blumenreich",
+    inkers:
+      "Robbi Rodriguez, Sara Pichelli, Chris Brunner, Marcio Takara, Chris Visions, Gaetano Carlucci, Jorge Coelho, Jordan Gibson",
     description:
       "Gwen Stacy has lost her spider-powers -- a very bad time to find herself in Frank Castle's crosshairs. When Gwen's band the Mary Janes head to a haunted house, is she along for the fun, or will she become one of the ghosts? Plus: crimelord Matt Murdock crashes Thanksgiving, and Gwen Stacy and Miles Morales share an unexpected kiss.",
     coverUrl: "https://m.media-amazon.com/images/I/81XYLqk-j3L._SL1500_.jpg",
@@ -1582,7 +1724,10 @@ export const MODERN_MARVEL_ENTRIES: TimelineEntry[] = [
     yearsCovered: "2018-2019",
     releaseDate: { year: 2025, month: 10 },
     writers: "Jason Latour, Seanan McGuire",
-    pencillers: "Robbi Rodriguez, Veronica Fish, Olivia Margraf, Chris Visions, Tim Eldred, Alti Firmansyah, Rosi Kämpe, Takeshi Miyazawa",
+    pencillers:
+      "Robbi Rodriguez, Takeshi Miyazawa, Rosi Kämpe, Olivia Margraf, Veronica Fish, Chris Visions",
+    inkers:
+      "Robbi Rodriguez, Takeshi Miyazawa, Rosi Kämpe, Olivia Margraf, Veronica Fish, Chris Visions",
     description:
       "A new era begins for Spider-Gwen, and with it comes her new code name -- Ghost-Spider. Gwen's life irrevocably changes as she bonds with her universe's version of the Venom symbiote, testing every relationship in her life. As Earth-65 sits on the precipice of Spider-Geddon, Gwen must face one of her deadliest enemies yet: the Gwen Goblin.",
     coverUrl: "https://m.media-amazon.com/images/I/91G4UzttwaL._SL1500_.jpg",
@@ -1599,8 +1744,11 @@ export const MODERN_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Ghost-Spider #1-10, Annual #1; King In Black: Gwenom vs. Carnage #1-3; Spider-Gwen: Gwenverse #1-5",
     yearsCovered: "2019-2022",
     releaseDate: { year: 2026, month: 9 },
-    writers: "Seanan McGuire, Tim Seeley",
-    pencillers: "Takeshi Miyazawa, Flaviano Armentaro, Jodi Nishijima",
+    writers: "Seanan McGuire, Tim Seeley, Vita Ayala",
+    pencillers:
+      "Ig Guara, Takeshi Miyazawa, Jodi Nishijima, Flaviano Armentaro, Pere Pérez, Rosi Kämpe",
+    inkers:
+      "Ig Guara, Jodi Nishijima, Rosi Kämpe, Takeshi Miyazawa, Flaviano Armentaro, Pere Pérez, Ian Herring",
     description:
       "With a cloud of infamy hanging over her head on Earth-65, Gwen travels to the Prime Marvel Universe for super-hero action -- and school, right down the hall from Peter Parker. Gwen takes the Mary Janes on a multiversal concert tour and finds heroic versions of herself across the Gwenverse, but when the symbiote god Knull strikes, it has shocking consequences for Gwen and bandmate Mary Jane Watson.",
     coverUrl: "https://m.media-amazon.com/images/I/81LBXwMiHsL._SL1500_.jpg",
@@ -1618,8 +1766,11 @@ export const MODERN_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Spider-Man / Deadpool #1-14, 17–18, 1.MU",
     yearsCovered: "2016-2017",
     releaseDate: { year: 2023, month: 10 },
-    writers: "Joe Kelly, Scott Aukerman, Gerry Duggan, Penn Jillette, Paul Scheer, Nick Giovannetti, Joshua Corin",
-    pencillers: "Ed McGuinness, Reilly Brown, Scott Koblish, Todd Nauck, David Walker",
+    writers:
+      "Joe Kelly, Scott Aukerman, Gerry Duggan, Penn Jillette, Paul Scheer, Nick Giovannetti, Joshua Corin",
+    pencillers: "Ed McGuinness, Scott Koblish, Reilly Brown, Todd Nauck, Tigh Walker",
+    inkers:
+      "Mark Morales, Scott Koblish, Ed McGuinness, Jay Leisten, Le Beau Underwood, Rick Magyar, Scott Hanna, John Livesay, Todd Nauck, John Dell, Walden Wong, Tigh Walker",
     description:
       "Spider-Man and Deadpool -- teaming up? The web-slinger and the Merc with a Mouth are the team-up of your dreams, courtesy of the DEADPOOL creative team Joe Kelly and Ed McGuinness. But will their fledgling friendship turn sour when Wade Wilson's next target turns out to be Peter Parker? Someone has blended the genes of our heroes to create one murderous, mixed-up \"daughter\" named Itsy Bitsy -- and she has seriously creepy daddy issues.",
     coverUrl: "https://m.media-amazon.com/images/I/91ifNlVV7NL._SL1500_.jpg",
@@ -1636,8 +1787,11 @@ export const MODERN_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Spider-Man / Deadpool #15-16, 19–32; Deadpool (vol. 5) #28-29; Deadpool And The Mercs For Money (vol. 2) #9-10",
     yearsCovered: "2017-2018",
     releaseDate: { year: 2024, month: 9 },
-    writers: "Gerry Duggan, Joshua Corin, Christopher Hastings, Elliott Kalan, Robbie Thompson",
-    pencillers: "Salva Espin, Scott Koblish, Iban Coello, Will Robson, Todd Nauck, Chris Bachalo, Scott Hepburn, Elmo Bondoc",
+    writers: "Robbie Thompson, Joshua Corin, Gerry Duggan, Christopher Hastings, Elliott Kalan",
+    pencillers:
+      "Chris Bachalo, Scott Hepburn, Salvador Espin, Scott Koblish, Iban Coello, Will Robson, Todd Nauck, Matt Horak, Elmo Bondoc, Marcus To, Flaviano Armentaro",
+    inkers:
+      "Scott Hepburn, Al Vey, John Livesay, Wayne Faucher, Victor Olazaba, Tim Townsend, Salvador Espin, Scott Koblish, Iban Coello, Todd Nauck, Matt Horak, Elmo Bondoc, Will Robson, Scott Hanna, Richard Friend, Marcus To, Chris Bachalo, Flaviano Armentaro",
     description:
       "Nobody does slapstick like Spidey and Deadpool -- except maybe Slapstick, whose terrible comic timing shows up exactly when Wade and Peter declare no more jokes. When Spider-Man learns Deadpool is selling S.H.I.E.L.D. tech on the black market, it's the last straw for their team-up -- a battle that climaxes with the leveled-up Chameleon and introduces Old Men Parker and Wilson.",
     coverUrl: "https://m.media-amazon.com/images/I/81zWA0j4x4L._SL1500_.jpg",
@@ -1656,6 +1810,8 @@ export const MODERN_MARVEL_ENTRIES: TimelineEntry[] = [
     releaseDate: { year: 2025, month: 9 },
     writers: "Robbie Thompson",
     pencillers: "Matt Horak, Jim Towe, Scott Hepburn, Flaviano Armentaro, Nick Roche",
+    inkers:
+      "Matt Horak, Sean Parsons, Jim Towe, Cam Smith, Scott Hanna, Scott Hepburn, Flaviano Armentaro, Craig Yeung, John Livesay, Keith Champagne, Nick Roche",
     description:
       "It's the Planet of the 'Pools! An army of LMDeadpools threatens the Amazing Spider-Parents, and to defeat the Faux-pool who took his ability to walk, Old Man Parker must make a decision that alters his future -- and our present. Plus: Peter and Wade share a road trip into the Negative Zone, face-to-face with Blastaar the Living Bomb-Burst.",
     coverUrl: "https://m.media-amazon.com/images/I/81W7mVUBCnL._SL1500_.jpg",
@@ -1674,7 +1830,9 @@ export const MODERN_MARVEL_ENTRIES: TimelineEntry[] = [
     yearsCovered: "2015-2016",
     releaseDate: { year: 2024, month: 7 },
     writers: "Jason Aaron, Kieron Gillen",
-    pencillers: "John Cassaday, Simone Bianchi, Stuart Immonen, Mike Deodato Jr, Salvador Larroca",
+    pencillers: "John Cassaday, Stuart Immonen, Mike Deodato Jr., Salvador Larroca, Simone Bianchi",
+    inkers:
+      "John Cassaday, Wade von Grawbadger, Mike Deodato Jr., Salvador Larroca, Simone Bianchi",
     description:
       "A new age of Star Wars storytelling begins! The Rebel Alliance has just destroyed the Death Star, but the Empire isn't toppled yet. Join Luke, Leia, Han, Chewbacca, C-3PO, and R2-D2 as they continue the fight for freedom against Darth Vader and the Emperor -- and when a rebel assault goes wrong, Luke comes face to face with Vader himself.",
     coverUrl: "https://m.media-amazon.com/images/I/91oIdsPhh0L._SL1500_.jpg",
@@ -1692,7 +1850,10 @@ export const MODERN_MARVEL_ENTRIES: TimelineEntry[] = [
     yearsCovered: "2016-2017",
     releaseDate: { year: 2025, month: 7 },
     writers: "Jason Aaron, Kieron Gillen, Kelly Thompson",
-    pencillers: "Salvador Larroca, Mike Mayhew, Leinil Francis Yu, Jorge Molina",
+    pencillers:
+      "Jorge Molina, Salvador Larroca, Leinil Yu, Mike Mayhew, Ángel Unzueta, Emilio Laiso",
+    inkers:
+      "Jorge Molina, Salvador Larroca, Gerry Alanguilan, Mike Mayhew, Ángel Unzueta, Emilio Laiso",
     description:
       "The rebel crew is en route to a prison base with an important captive -- but they aren't the only ones with their eyes on this prize. Sgt. Kreel and an elite group of Imperial soldiers guard a nigh-indestructible weapon of war that's also the target of the rebels' top-secret new plan, while Princess Leia undertakes a dangerous mission of her own. Plus: entries from the journals of Obi-Wan Kenobi, including a legendary adventure with Jedi Master Yoda.",
     coverUrl: "https://m.media-amazon.com/images/I/81lTDpMgPdL._SL1500_.jpg",
@@ -1709,8 +1870,11 @@ export const MODERN_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Star Wars (2015) #31-43, Annual #3; Star Wars: The Screaming Citadel; Star Wars: Doctor Aphra #7-8",
     yearsCovered: "2017-2018",
     releaseDate: { year: 2026, month: 7 },
-    writers: "Jason Aaron, Kieron Gillen",
-    pencillers: "Salvador Larroca, Andrea Broccardo",
+    writers: "Jason Aaron, Kieron Gillen, Jason Latour",
+    pencillers:
+      "Salvador Larroca, Andrea Broccardo, Marco Checchetto, Andrea Sorrentino, Michael Walsh",
+    inkers:
+      "Salvador Larroca, Andrea Broccardo, Marco Checchetto, Andrea Sorrentino, Michael Walsh",
     description:
       "Jason Aaron's blockbuster run ends, and Kieron Gillen's acclaimed era begins. Luke Skywalker reluctantly joins forces with Doctor Aphra, delving into the galaxy's darkest shadows in the heart of the infamous Screaming Citadel -- but can he trust her, or will they both wind up victims of the Citadel's queen? Plus: Luke and Leia get some overdue alone time, stranded on a desert island.",
     coverUrl: "https://m.media-amazon.com/images/I/919KgBFm29L._SL1500_.jpg",
@@ -1728,7 +1892,8 @@ export const MODERN_MARVEL_ENTRIES: TimelineEntry[] = [
     yearsCovered: "2018-2019",
     releaseDate: { year: 2027, month: 2 },
     writers: "Kieron Gillen",
-    pencillers: "Salvador Larroca, Giuseppe Camuncoli, Andrea Broccardo & Angel Unzueta Galarza",
+    pencillers: "Salvador Larroca, Ángel Unzueta, Andrea Broccardo",
+    inkers: "Salvador Larroca, Ángel Unzueta, Andrea Broccardo",
     description:
       "With the Empire tightening its grip on the galaxy, the Rebellion turns its attention to Mon Cala, hoping to win over a powerful ally -- but internal strife and enemy agents threaten to sink that alliance before it can begin. As Leia navigates the political currents of an underwater world, Luke, Han, and the rest of the Rebel fleet face fresh dangers in the ongoing war against the Empire.",
     ownershipStatus: "announced",
@@ -1747,6 +1912,7 @@ export const MODERN_MARVEL_ENTRIES: TimelineEntry[] = [
     releaseDate: { year: 2024, month: 11 },
     writers: "Kieron Gillen",
     pencillers: "Salvador Larroca, Leinil Yu",
+    inkers: "Salvador Larroca, Gerry Alanguilan",
     description:
       "One of the greatest antagonists in all of fiction returns to Marvel in his very first solo ongoing series! Fresh from a stinging defeat at the hands of the Rebel Alliance, Darth Vader must rise again to reassert the Empire's iron grip on the galaxy. But will his personal desire for vengeance against the young Jedi who destroyed the Death Star distract from Vader's duty to the Emperor?",
     coverUrl: "https://m.media-amazon.com/images/I/81b52JsDu2L._SL1500_.jpg",
@@ -1764,7 +1930,8 @@ export const MODERN_MARVEL_ENTRIES: TimelineEntry[] = [
     yearsCovered: "2016",
     releaseDate: { year: 2025, month: 11 },
     writers: "Kieron Gillen, Jason Aaron",
-    pencillers: "Salvador Larroca, Max Fiumara, Mike Deodato Jr., Mike Norton",
+    pencillers: "Salvador Larroca, Mike Deodato Jr.",
+    inkers: "Salvador Larroca, Mike Deodato Jr.",
     description:
       "The thrilling conclusion of Marvel's initial Darth Vader run, collected with the first blockbuster crossover event in modern Star Wars comics. When Darth Vader accidentally finds himself facing off against the rebel fleet on his own, he's sent crashing onto a nearby planet -- will the rebels seize this opportunity to end one of their greatest enemies, or will they feel the full power of the dark side?",
     coverUrl: "https://m.media-amazon.com/images/I/81ANVUOiURL._SL1500_.jpg",
@@ -1781,6 +1948,9 @@ export const MODERN_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Darth Vader (2017) #1-12, Annual 2",
     yearsCovered: "2017-2018",
     releaseDate: { year: 2026, month: 11 },
+    writers: "Charles Soule, Chuck Wendig",
+    pencillers: "Giuseppe Camuncoli, Leonard Kirk",
+    inkers: "Cam Smith, Daniele Orlandini, Walden Wong",
     description:
       "Explore the days after Anakin Skywalker's transformation into Darth Vader! In the wake of Revenge of the Sith, follow Vader as he receives his legendary red lightsaber and rises to power as a Dark Lord of the Sith -- beginning by hunting down and eradicating the galaxy's remaining Jedi. But Jocasta Nu, librarian of the Jedi Temple, is making a desperate effort to preserve what she can of their legacy.",
     coverUrl: "https://m.media-amazon.com/images/I/91AKBeOHRFL._SL1500_.jpg",
@@ -1797,6 +1967,9 @@ export const MODERN_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Darth Vader (2017) #13-25; Obi-Wan and Anakin #1-5",
     yearsCovered: "2018-2019",
     releaseDate: { year: 2027, month: 5 },
+    writers: "Charles Soule",
+    pencillers: "Giuseppe Camuncoli, Marco Checchetto",
+    inkers: "Daniele Orlandini, Marco Checchetto, Terry Pallot, Cam Smith",
     description:
       "Darth Vader constructs a fortress on the lava world of Mustafar -- a stronghold to rebuild his broken body and reflect on his fall to the dark side -- while enemies within the Empire's ranks scheme against him. Plus: journey back to Anakin Skywalker's youth on Tatooine, when a young Obi-Wan Kenobi first crossed paths with the boy who would become Darth Vader.",
     ownershipStatus: "announced",
@@ -1822,7 +1995,8 @@ export const MODERN_MARVEL_ENTRIES: TimelineEntry[] = [
     yearsCovered: "2016-2017",
     releaseDate: { year: 2025, month: 8 },
     writers: "Greg Weisman",
-    pencillers: "Pepe Laraz, Jacopo Camagni, Andrea Broccardo",
+    pencillers: "Pepe Larraz, Jacopo Camagni, Andrea Broccardo",
+    inkers: "Pepe Larraz, Jacopo Camagni, Andrea Broccardo",
     description:
       "Witness the origins of young Jedi Kanan Jarrus, one of the breakout stars of the hit animated series Star Wars Rebels! Discover how Jedi Padawan Caleb Dume became the cocky, sarcastic renegade hero -- and how he escaped when his own Clone Troopers turned on him and his master upon the issuing of Order 66, the Emperor's directive to execute all Jedi.",
     coverUrl: "https://m.media-amazon.com/images/I/81N6GTF68iL._SL1500_.jpg",
@@ -1840,8 +2014,10 @@ export const MODERN_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Thor (vol. 3) #1-12, Thor #600, Fantastic Four #536-537; material from Dark Reign: The Cabal One-Shot",
     yearsCovered: "2006-2009",
     releaseDate: { year: 2024, month: 7 },
-    writers: "J. Michael Straczynski, Stan Lee, Peter Milligan",
-    pencillers: "Mike McKone, Olivier Coipel, Marko Djurdjevic, David Aja, Tonci Zonjic",
+    writers: "J. Michael Straczynski, Peter Milligan, Chris Arrant",
+    pencillers: "Olivier Coipel, Marko Djurdjevic, Mike McKone, Tonci Zonjic",
+    inkers:
+      "Mark Morales, Danny Miki, Andy Lanning, Kris Justice, Cam Smith, Kev Walker, Crimelab Studios, John Dell, Allen Martinez, Victor Olazaba, Marko Djurdjevic, Tonci Zonjic",
     description:
       "The glory of Asgard begins anew! Thor and the Asgardians recently perished, swallowed up by Ragnarok, but when Mjolnir crash-lands in Oklahoma, the hammer attracts the attention of the Fantastic Four -- and Doctor Doom. Awoken from the slumber of death, Thor must reckon with the mythic Norse kingdom's legacy and the awakening of its immortal heroes, in a world that may not want them back.",
     coverUrl: "https://m.media-amazon.com/images/I/81RMeypGiWL._SL1500_.jpg",
@@ -1858,8 +2034,11 @@ export const MODERN_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Thor #601-614, Annual (2009); Thor: Giant-Size Finale; New Mutants (vol. 3) #11",
     yearsCovered: "2009-2010",
     releaseDate: { year: 2024, month: 12 },
-    writers: "J. Michael Straczynski, Peter Milligan, Kieron Gillen",
-    pencillers: "Marko Djurdjevic, Mico Suayan, Tom Grindberg, Stefano Gaudiano, Billy Tan, Jamie McKelvie, Richard Elson, Doug Braithwaite, Niko Henrichon",
+    writers: "Kieron Gillen, J. Michael Straczynski, Peter Milligan",
+    pencillers:
+      "Billy Tan, Marko Djurdjevic, Rich Elson, Doug Braithwaite, Mico Suayan, Tom Grindberg, Jamie McKelvie, Niko Henrichon, Richard Elson",
+    inkers:
+      "Matt Banning, Danny Miki, Rich Elson, Doug Braithwaite, Mark Morales, Stefano Gaudiano, Allen Martinez, Marko Djurdjevic, Billy Tan, Jamie McKelvie, Niko Henrichon, Richard Elson",
     description:
       "One of Thor's most acclaimed runs ever reaches a climax in a massive siege of Asgard! Loki has woven intricate scheming throughout every level of Thor's existence, involving the likes of Doctor Doom, Hela, Norman Osborn and even Mephisto -- but when the plans spiral out of control, culminating in the Siege of Asgard and the return of an ancient evil, it's up to Thor and his fellow Asgardians to save the day.",
     coverUrl: "https://m.media-amazon.com/images/I/81g7raHhfzL._SL1500_.jpg",
@@ -1876,8 +2055,11 @@ export const MODERN_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Thor #615-621, 620.1; The Mighty Thor (vol. 2) #1-6; FCBD 2010: Iron Man/Thor",
     yearsCovered: "2010-2011",
     releaseDate: { year: 2025, month: 8 },
-    writers: "Matt Fraction, Dan Abnett",
-    pencillers: "Andy Lanning, John Romita Jr., Mark Brooks, Pasqual Ferry, Olivier Coipel, Salvador Larroca, Khoi Pham",
+    writers: "Matt Fraction, Dan Abnett, Andy Lanning",
+    pencillers:
+      "Pasqual Ferry, Olivier Coipel, John Romita Jr., Mark Brooks, Salvador Larroca, Khoi Pham",
+    inkers:
+      "Pasqual Ferry, Mark Morales, Dexter Vines, Klaus Janson, Mark Brooks, Salvador Larroca, Cam Smith",
     description:
       "A heroic age begins for the God of Thunder, written by Matt Fraction, as Thor's adventures take him across Earth, Asgard, and beyond. In the wake of Siege, Asgard must take its proper place as the Golden Realm -- but that means Thor's home isn't just a beacon, it's a target, and a dark, destructive force from another reality comes on the warpath against the Nine Worlds.",
     coverUrl: "https://m.media-amazon.com/images/I/81hGrWessrL._SL1500_.jpg",
@@ -1894,6 +2076,10 @@ export const MODERN_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "The Mighty Thor (vol. 2) #7-12; Fear Itself #1-7; Fear Itself #7.2: Thor",
     yearsCovered: "2011-2012",
     releaseDate: { year: 2026, month: 11 },
+    writers: "Matt Fraction",
+    pencillers: "Stuart Immonen, Pasqual Ferry, Pepe Larraz, Adam Kubert, Giuseppe Camuncoli",
+    inkers:
+      "Wade von Grawbadger, Pasqual Ferry, Pepe Larraz, Dexter Vines, Mark Roslan, Klaus Janson",
     description:
       "A shocking secret from Odin's past returns to spread fear across the Nine Realms. The terrifying Serpent has arrived, and the Avengers and the world's remaining heroes must face the unstoppable tide of terror when the Serpent's Hammers fall and those who raise them become his Worthy. In the wake of the final battle, Odin decides the fate of Asgard, and the heroes bid farewell to one of their own -- Thor no more?",
     coverUrl: "https://m.media-amazon.com/images/I/91dHbMIx2xL._SL1500_.jpg",
@@ -1912,7 +2098,8 @@ export const MODERN_MARVEL_ENTRIES: TimelineEntry[] = [
     yearsCovered: "2003-2004",
     releaseDate: { year: 2024, month: 9 },
     writers: "Daniel Way",
-    pencillers: "Francisco Herrera, Lan Medina, Skottie Young, Sean Galloway",
+    pencillers: "Francisco Herrera, Paco Medina, Skottie Young, Sean Galloway",
+    inkers: "Carlos Cuevas, Juan Vlasco, Rick Ketcham, Wayne Faucher",
     description:
       "The first-ever ongoing series starring Venom gets the Epic Collection treatment! Somehow separated from Eddie Brock, the Venom symbiote has resurfaced near the Arctic Circle, hopping from host to host and on the run from enigmatic forces with their own agenda for the elusive alien. Ravenously hungry, it seeks out people experiencing intense emotions -- setting its sights on a short, hairy guy with a bad temper: the X-Men's Wolverine.",
     coverUrl: "https://m.media-amazon.com/images/I/81VKLZQbJDL._SL1500_.jpg",
@@ -1929,8 +2116,12 @@ export const MODERN_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Venom Vs. Carnage #1-4; Marvel Knights: Spider-Man #7-8, 11; Sensational Spider-Man (vol. 2) #38-39; Thunderbolts: Reason In Madness; Venom: Dark Origin #1-5",
     yearsCovered: "2004-2008",
     releaseDate: { year: 2026, month: 7 },
-    writers: "Mark Millar, Peter Milligan, Roberto Aguirre-Sacasa, Zeb Wells",
-    pencillers: "Terry Dodson, Clayton Crain, Lee Weeks, Angel Medina",
+    writers:
+      "Zeb Wells, Peter Milligan, Mark Millar, Roberto Aguirre-Sacasa, Marc Guggenheim, Christos N. Gage, Fred Van Lente",
+    pencillers:
+      "Clayton Crain, Angel Medina, Terry Dodson, Frank Cho, Lee Weeks, Rick Hoberg, Leinil Yu, Ben Oliver, Leonard Kirk",
+    inkers:
+      "Clayton Crain, Scott Hanna, Rachel Dodson, Stefano Gaudiano, Frank Cho, Leinil Yu, Ben Oliver, Terry Pallot",
     description:
       "The Venom symbiote claims a new host, who just happens to be one of Spider-Man's greatest enemies! Venom's murderous offspring, Carnage, is about to reproduce itself, and only a now Eddie Brock-less Venom can save the life of its symbiotic grandchild. But is the new arrival, Toxin, destined to be an even greater monster than those that came before it -- or something else entirely?",
     coverUrl: "https://m.media-amazon.com/images/I/816KDtWR8jL._SL1500_.jpg",
@@ -1947,8 +2138,11 @@ export const MODERN_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Amazing Spider-Man #654, #654.1; Venom (vol. 2) #1-16, #13.1-13.4",
     yearsCovered: "2011-2012",
     releaseDate: { year: 2023, month: 8 },
-    writers: "Dan Slott, Rick Remender, Rob Williams, Jeff Parker",
-    pencillers: "Humberto Ramos, Tony Moore, Tom Fowler, Stefano Caselli, Lan Medina, Lee Garbett, Sana Takeda, Julian Totino Tedesco, Kev Walker",
+    writers: "Rick Remender, Rob Williams, Dan Slott, Jeff Parker, Chris Arrant",
+    pencillers:
+      "Tony Moore, Tom Fowler, Lan Medina, Paulo Siqueira, Ronan Cliquet, Humberto Ramos, Stefano Caselli, Lee Garbett, Sana Takeda, Julian Tedesco, Kev Walker",
+    inkers:
+      "Tom Fowler, Nelson DeCastro, Crimelab Studios, Tony Moore, Terry Pallot, Greg Adams, Paulo Siqueira, Roland Paris, Carlos Cuevas, Karl Kesel, Sandu Florea, Stefano Caselli, Lee Garbett, Sana Takeda, Julian Tedesco, Kev Walker",
     description:
       "America has a new hero! Flash Thompson is Spider-Man's biggest fan -- that inspired him to join the Army, where he became a decorated soldier, and though he lost his legs, Flash never lost his desire to serve. Now the government offers him a chance to don a familiar alien symbiote and protect his country as its most lethal operative: Agent Venom! But how long before Flash starts losing control to the symbiote?",
     coverUrl: "https://m.media-amazon.com/images/I/71wU3EdgkkL._SL1500_.jpg",
@@ -1965,8 +2159,11 @@ export const MODERN_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Venom (vol. 2) #17-35, #27.1; Minimum Carnage: Alpha #1; Minimum Carnage: Omega #1; Scarlet Spider (vol. 2) #10-11",
     yearsCovered: "2012-2013",
     releaseDate: { year: 2023, month: 12 },
-    writers: "Rick Remender, Cullen Bunn, Christopher Yost",
-    pencillers: "Kev Walker, Lan Medina, Declan Shalvey, Thony Silas, Khoi Pham, Reilly Brown, Marco Checchetto",
+    writers: "Cullen Bunn, Rick Remender, Chris Yost",
+    pencillers:
+      "Declan Shalvey, Lan Medina, Thony Silas, Khoi Pham, Reilly Brown, Kev Walker, Robert Atkins, Marco Checchetto, Roger Robinson",
+    inkers:
+      "Nelson DeCastro, Declan Shalvey, Terry Pallot, Karl Kesel, Chris Sotomayor, Walden Wong, Tom Palmer, Bit, Jaime Mendoza, Rick Ketcham, Cam Smith, Thony Silas, Roger Robinson",
     description:
       "The Crime-Master unites a cadre of criminals to destroy Agent Venom, taking the war to the people closest to Flash Thompson and forcing Eddie Brock, the former Venom, to become a symbiote's host once more. But when Crime-Master's identity is revealed, Flash and Betty Brant's lives will never be the same. Then, when the Avengers task Venom with bringing in Daimon Hellstrom, a Devil's pact comes full circle.",
     coverUrl: "https://m.media-amazon.com/images/I/81huI9oSKPL._SL1500_.jpg",
@@ -1983,8 +2180,11 @@ export const MODERN_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Venom (vol. 2) #36-42; Venom: Space-Knight #1-13",
     yearsCovered: "2013-2015",
     releaseDate: { year: 2024, month: 8 },
-    writers: "Cullen Bunn, Robbie Thompson",
-    pencillers: "Pepe Larraz, Kim Jacinto, Iban Coello, Ariel Olivetti, Gerardo Sandoval",
+    writers: "Robbie Thompson, Cullen Bunn",
+    pencillers:
+      "Ariel Olivetti, Kim Jacinto, Jorge Coelho, Gerardo Sandoval, Pepe Larraz, Mike Henderson, R.B. Silva, Ario Anindito",
+    inkers:
+      "Ariel Olivetti, Kim Jacinto, Jorge Coelho, Gerardo Sandoval, Pepe Larraz, Mike Henderson, R.B. Silva, Ario Anindito",
     description:
       "Flash Thompson, Agent of the Cosmos! If Venom and his new symbiotic sidekick, Mania, survive a war to save Philly from underworld boss Lord Ogre, Flash will have to confront his past and make a momentous decision about his future. Taking on a new mission as a Space Knight, Venom swashbuckles his way across the universe -- until he's made to fight in an alien arena, and his symbiotic relationship becomes one of hunter and prey.",
     coverUrl: "https://m.media-amazon.com/images/I/81G4Hl3RtOL._SL1500_.jpg",
@@ -2003,7 +2203,10 @@ export const MODERN_MARVEL_ENTRIES: TimelineEntry[] = [
     yearsCovered: "2005-2006",
     releaseDate: { year: 2025, month: 2 },
     writers: "Allan Heinberg",
-    pencillers: "Jim Cheung, Andrea Di Vito, Michael Gaydos, Neal Adams, Gene Ha, Jae Lee, Bill Sienkiewicz, Pasqual Ferry",
+    pencillers:
+      "Jim Cheung, Andrea DiVito, Neal Adams, Pasqual Ferry, Michael Gaydos, Gene Ha, Bill Sienkiewicz, Jae Lee",
+    inkers:
+      "John Dell, Dave Meikis, Jim Cheung, Mark Morales, Jay Leisten, Andrew Hennessy, John Livesay, Drew Geraci, Neal Adams, Pasqual Ferry, Michael Gaydos, Gene Ha, Bill Sienkiewicz, Jae Lee, Rob Stull, Dexter Vines, Matt Ryan, Jaime Mendoza, David Hahn",
     description:
       "The critically acclaimed Young Avengers series begins, with an astonishing debut of a new generation of heroes! When the original Avengers disband, a team of teenage heroes comes together to fill the gap -- but who are Iron Lad, Hulkling, Patriot, Stature, Wiccan, and Kate Bishop, and what are their connections to the heroes that inspired them? Their first order of business: surviving the wrath of Kang the Conqueror.",
     coverUrl: "https://m.media-amazon.com/images/I/91SBM0tGGqL._SL1500_.jpg",
@@ -2020,8 +2223,12 @@ export const MODERN_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Civil War: Young Avengers & Runaways #1-4; Young Avengers Presents #1-6; Secret Invasion: Runaways/Young Avengers #1-3; Dark Reign: Young Avengers #1-5; Siege: Young Avengers",
     yearsCovered: "2006-2010",
     releaseDate: { year: 2025, month: 8 },
-    writers: "Zeb Wells, Ed Brubaker, Chris Yost, Paul Cornell, Sean McKeever",
-    pencillers: "Stefano Caselli, Paco Medina, Takeshi Miyazawa, Mark Brooks, Mahmud Asrar",
+    writers:
+      "Paul Cornell, Zeb Wells, Chris Yost, Ed Brubaker, Brian Reed, Roberto Aguirre-Sacasa, Kevin Grevioux, Matt Fraction, Sean McKeever",
+    pencillers:
+      "Mark Brooks, Stefano Caselli, Takeshi Miyazawa, Paco Medina, Harvey Tolibao, Alina Urusov, Mitch Breitweiser, Alan Davis, Mahmud Asrar",
+    inkers:
+      "Stefano Caselli, Walden Wong, Takeshi Miyazawa, Mark Brooks, Juan Vlasco, Harvey Tolibao, Alina Urusov, Jaime Mendoza, Mitch Breitweiser, Mark Farmer, Dexter Vines, Mark Morales, Scott Hanna, Victor Olazaba",
     description:
       "The critically acclaimed Young Avengers series continues, rocked to its core by seismic events like Civil War and Secret Invasion. As the public turns against Marvel's heroes, the Young Avengers meet the Runaways -- will they be on the same side? Out of the crisis, the Dark Reign of Norman Osborn begins, and a new crew of Young Avengers forms: teenage rebels on a collision course with the originals.",
     coverUrl: "https://m.media-amazon.com/images/I/81Jaa6mfrqL._SL1500_.jpg",
@@ -2038,8 +2245,11 @@ export const MODERN_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Avengers: The Children's Crusade #1-9; Avengers: The Children's Crusade - Young Avengers; Avengers World (2014) #15-16; And Material From Uncanny X-Men (1981) #526 And; I Am An Avenger (2010) #1 And #4-5",
     yearsCovered: "2010-2012",
     releaseDate: { year: 2026, month: 2 },
-    writers: "Allan Heinberg",
-    pencillers: "Jim Cheung,, Olivier Coipel,, Alan Davis",
+    writers: "Allan Heinberg, Nick Spencer, Frank Barbiere, Jim McCann, Lucy Knisley, Alan Davis",
+    pencillers:
+      "Jim Cheung, Alan Davis, Marco Checchetto, Olivier Coipel, Chris Samnee, Lucy Knisley, Ramón Rosanas",
+    inkers:
+      "Mark Morales, Jim Cheung, John Livesay, Dave Meikis, Mark Farmer, Marco Checchetto, Dexter Vines, Chris Samnee, Lucy Knisley, Ramón Rosanas",
     description:
       "The Young Avengers return in an epic saga by series creators Allan Heinberg and Jim Cheung. When Billy Kaplan's reality-altering powers begin to rival those of the Scarlet Witch, Wiccan sets out on a quest to find her that spans the Marvel Universe and pits him against both the Avengers and the Young Avengers. With three words, the Scarlet Witch changed the world forever -- and with her return, nothing will ever be the same.",
     coverUrl: "https://m.media-amazon.com/images/I/91eGweJLf2L._SL1500_.jpg",
@@ -2057,7 +2267,10 @@ export const MODERN_MARVEL_ENTRIES: TimelineEntry[] = [
     yearsCovered: "2013-2014",
     releaseDate: { year: 2027, month: 4 },
     writers: "Kieron Gillen",
-    pencillers: "Mike Norton, Jamie McKelvie",
+    pencillers:
+      "Jamie McKelvie, Mike Norton, Kate Brown, Emma Vieceli, Christian Ward, Annie Wu, Becky Cloonan, Joe Quinones, Ming Doyle",
+    inkers:
+      "Jamie McKelvie, Mike Norton, Stephen Thompson, Kate Brown, Kris Anka, Becky Cloonan, Joe Quinones, Ming Doyle",
     description:
       "Kid Loki has a plan, and Kate Bishop, Marvel Boy, Hulkling, Wiccan, Miss America, and Prodigy are the unwitting pieces on his board -- caught in an interdimensional battle against a parasitic entity called Mother that's already destroyed universes. As the team clashes over trust, romance, and generational rebellion, can this ragtag group of teenagers hold together long enough to save reality itself?",
     ownershipStatus: "announced",

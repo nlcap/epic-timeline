@@ -68,3 +68,31 @@ is now asserted acyclic before it is applied.
   The runner now saves after each volume and isolates per-volume errors.
 - Items with no story credits — treasury editions, FOOM, Marvel Vision, some
   Super Specials — are logged and skipped rather than guessed at.
+
+---
+
+## A parser bug that swallowed names, found late
+
+The junk filter that drops placeholder credits ("Various", "N/A", "uncredited")
+was written as a **prefix search** rather than a full match:
+
+```python
+re.search(r'(?i)^(none|n/?a|unknown|various|uncredited|typeset)', part)
+```
+
+`n/?a` makes the slash optional, so the pattern matches the bare letters **"na"**
+at the start of a string — and every credit beginning "Na" was silently dropped.
+No error, no gap, just a missing name.
+
+Found because Black Widow Vol. 3 came back with **zero writers** while its issue
+pages plainly credit Nathan Edmondson, who wrote the entire run.
+
+Fixed to `re.fullmatch`. Damage across every collection built with this parser,
+measured rather than assumed: **three creators over nine volumes** — Nathan
+Edmondson and Nathan Fox (Modern), Nathan Massengill (Classic). Ultimate, the
+Marvel-published Licensed volumes and DC Finest were unaffected, having no such
+names in their credits.
+
+The lesson worth keeping: a filter that removes junk should be anchored at both
+ends. A prefix match on a short alternation will eventually eat real data, and
+it fails silently — the only symptom was a volume whose sole writer vanished.
