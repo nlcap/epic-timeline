@@ -108,7 +108,11 @@
       "Bash(git commit -q -m ' *)",
       "Bash(git --version)",
       "Bash(echo \"exit code: $?\")",
-      "Bash(gh pr create --title 'Restyle the Add Line button and fix its collapsed hover width' --body ' *)"
+      "Bash(gh pr create --title 'Restyle the Add Line button and fix its collapsed hover width' --body ' *)",
+      "Bash(gh pr *)",
+      "Bash(npx vitest *)",
+      "Bash(awk 'NR==39{print substr\\($0,1,300\\)}' src/data/ultimate-era.ts)",
+      "Bash(base64 -i /private/tmp/claude-501/-Users-nickcapetillo-Library-Application-Support-Claude-local-agent-mode-sessions-deb7eaff-8823-4d3b-be44-aa905704e138-42573dfa-5190-4213-9242-e12f079282ed-local-0e17d204-5b92-4db9-9344-0481d8f1039c-o-64qh9o/dd191176-70b7-4010-9dcc-51f6c76394e1/scratchpad/handle_b64.txt -o /private/tmp/claude-501/-Users-nickcapetillo-Library-Application-Support-Claude-local-agent-mode-sessions-deb7eaff-8823-4d3b-be44-aa905704e138-42573dfa-5190-4213-9242-e12f079282ed-local-0e17d204-5b92-4db9-9344-0481d8f1039c-o-64qh9o/dd191176-70b7-4010-9dcc-51f6c76394e1/scratchpad/handle_zoomed.png -d)"
     ]
   }
 }
