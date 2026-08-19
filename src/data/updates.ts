@@ -80,9 +80,9 @@ export const UPDATES: UpdateRelease[] = [
     entries: [
       {
         kind: "data",
-        title: "The Classic Marvel Epic Collections are credited from the issues",
+        title: "Marvel, Ultimate and Licensed volumes are credited from the issues",
         description:
-          "All 386 volumes now list writers, pencillers and inkers read from the issues each book collects, rather than the two or three marquee names the seed shipped with. X-Men Vol. 4 alone goes from two names to nine writers, ten pencillers and thirteen inkers.",
+          "475 volumes across the three Marvel collections now list writers, pencillers and inkers read from the issues each book collects, naming 1,472 creators in place of the two or three marquee names the seed shipped with. Rom Vol. 5 alone credits eleven inkers where it previously named none.",
       },
     ],
   },
@@ -117,13 +117,6 @@ export const UPDATES: UpdateRelease[] = [
         title: "Export and import can move one slice of your data",
         description:
           "Export, import and reset now share one checklist across collection, timeline layer and data type, so you can move just one slice of your data instead of all of it. On upload, the picker is built from the file itself and shows per-slice record counts.",
-      },
-      {
-        kind: "data",
-        title: "Rise of the Sith gets its credits",
-        description:
-          "Credits researched issue by issue from Dark Horse and the Marvel Database, picking out which story an anthology issue actually reprints.",
-        inProgress: true,
       },
       {
         kind: "improved",
