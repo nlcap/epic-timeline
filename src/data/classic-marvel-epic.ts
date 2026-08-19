@@ -443,8 +443,9 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Amazing Spider-Man #1–17, Annual #1; and material from; Amazing Fantasy #15",
     yearsCovered: "1962-1964",
     releaseDate: { year: 2014, month: 9 },
-    writers: "Stan Lee",
-    pencillers: "Steve Ditko",
+    writers: "Stan Lee, Steve Ditko",
+    pencillers: "Steve Ditko, Jack Kirby",
+    inkers: "Steve Ditko, Jack Kirby",
     description:
       "The tragic origin that started it all, plus the first appearances of the Daily Bugle and J. Jonah Jameson, and the debuts of the Green Goblin, Doctor Octopus, the Sandman, the Vulture, and Electro.",
     coverUrl: "https://m.media-amazon.com/images/I/81q1x5ASYoL._SL1500_.jpg",
@@ -463,6 +464,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     releaseDate: { year: 2016, month: 12 },
     writers: "Stan Lee, Steve Ditko",
     pencillers: "Steve Ditko",
+    inkers: "Steve Ditko",
     description:
       "Gwen Stacy's first appearance, Peter's high-school graduation, landmark battles with the Green Goblin, and a team-up with Doctor Strange, capped by the harrowing Master Planner saga.",
     coverUrl: "https://m.media-amazon.com/images/I/81QS4LiSAGL._SL1500_.jpg",
@@ -480,7 +482,8 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     yearsCovered: "1966-1967",
     releaseDate: { year: 2018, month: 5 },
     writers: "Stan Lee",
-    pencillers: "John Romita Sr.",
+    pencillers: "John Romita Sr., Don Heck, Larry Lieber, Marie Severin",
+    inkers: "Mike Esposito, John Romita Sr., Frank Giacoia",
     description:
       "John Romita Sr. joins as artist, opening with a Green Goblin epic and bringing the Rhino, the Shocker, Kraven the Hunter, an all-new Vulture, and the first appearances of the Kingpin and Mary Jane Watson.",
     coverUrl: "https://m.media-amazon.com/images/I/91A0isJMV-L._SL1500_.jpg",
@@ -497,8 +500,9 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Amazing Spider-Man #53–67,; Spectacular Spider-Man magazine #1–2,; Marvel Super-Heroes #14; and material from; Not Brand Echh #6, 11",
     yearsCovered: "1967-1968",
     releaseDate: { year: 2019, month: 6 },
-    writers: "Stan Lee",
-    pencillers: "John Romita Sr.",
+    writers: "Stan Lee, Gary Friedrich, Arnold Drake",
+    pencillers: "John Romita Sr., Don Heck, Marie Severin, Ross Andru",
+    inkers: "Mike Esposito, Jim Mooney, Don Heck, Bill Everett, Marie Severin, John Tartaglione",
     description:
       "Norman Osborn regains his memory and the Green Goblin returns for a 58-page magazine showdown -- Spider-Man's most dangerous foe, and the only villain to know he's Peter Parker.",
     coverUrl: "https://m.media-amazon.com/images/I/81rzW0AF5BL._SL1500_.jpg",
@@ -515,8 +519,9 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Amazing Spider-Man #68-85, Annual #5",
     yearsCovered: "1969-1970",
     releaseDate: { year: 2020, month: 2 },
-    writers: "Stan Lee",
-    pencillers: "John Romita Sr., John Buscema",
+    writers: "Stan Lee, John Romita Sr.",
+    pencillers: "John Romita Sr., John Buscema, Jim Mooney, Larry Lieber",
+    inkers: "Jim Mooney, Mike Esposito",
     description:
       "Two crime lords race to decode an ancient tablet's secrets, the Prowler debuts, the Black Widow gets her spy gear, and the origin of Peter's parents is revealed.",
     coverUrl: "https://m.media-amazon.com/images/I/81aNBRoxj6L._SL1500_.jpg",
@@ -534,7 +539,8 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     yearsCovered: "1970-1971",
     releaseDate: { year: 2021, month: 10 },
     writers: "Stan Lee, Roy Thomas",
-    pencillers: "John Romita Sr., Gil Kane",
+    pencillers: "Gil Kane, John Romita Sr.",
+    inkers: "Frank Giacoia, John Romita Sr., Tony Mortellaro, Jim Mooney, Sal Buscema",
     description:
       "Gwen Stacy's father becomes collateral damage in a battle between Spider-Man and Doctor Octopus, forever changing Peter's life, while Norman Osborn spirals into addiction as the Green Goblin's shadow looms.",
     coverUrl: "https://m.media-amazon.com/images/I/81ZRB4K3i3L._SL1500_.jpg",
@@ -551,8 +557,9 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Amazing Spider-Man #105–123, Annual #9 (cover only)",
     yearsCovered: "1972-1973",
     releaseDate: { year: 2017, month: 5 },
-    writers: "Stan Lee, Gerry Conway",
-    pencillers: "John Romita Sr., Gil Kane",
+    writers: "Gerry Conway, Stan Lee, Jim Steranko, John Romita Sr.",
+    pencillers: "John Romita Sr., Gil Kane, Paul Reinman",
+    inkers: "Tony Mortellaro, John Romita Sr., Frank Giacoia, Jim Mooney, Jim Starlin",
     description:
       "The Gibbon debuts and old foes return, building to \"The Night Gwen Stacy Died\" -- the loss that ends the original Green Goblin's reign and defines a generation of Spider-Man stories.",
     coverUrl: "https://m.media-amazon.com/images/I/911xmFWgixL._SL1500_.jpg",
@@ -570,7 +577,9 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     yearsCovered: "1973-1975",
     releaseDate: { year: 2022, month: 7 },
     writers: "Gerry Conway",
-    pencillers: "Ross Andru",
+    pencillers: "Ross Andru, Gil Kane, Paul Reinman, John Romita Sr.",
+    inkers:
+      "Frank Giacoia, Dave Hunt, John Romita Sr., Tony Mortellaro, Jim Mooney, Paul Reinman, Mike Esposito",
     description:
       "Col. John Jameson is cursed as the Man-Wolf, Harry Osborn spirals toward his own green costume, the Punisher makes his debut, and Aunt May shocks everyone by marrying Doctor Octopus.",
     coverUrl: "https://m.media-amazon.com/images/I/81jpFptB-dL._SL1500_.jpg",
@@ -587,8 +596,9 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Amazing Spider-Man (1963) 143-164; Amazing Spider-Man Annual (1964) 10; material from; Marvel Special Edition Treasury (1975) 1",
     yearsCovered: "1975-1976",
     releaseDate: { year: 2023, month: 7 },
-    writers: "Gerry Conway, Len Wein",
-    pencillers: "Ross Andru",
+    writers: "Len Wein, Gerry Conway, Archie Goodwin, Bill Mantlo",
+    pencillers: "Ross Andru, Gil Kane, Sal Buscema",
+    inkers: "Mike Esposito, Frank Giacoia, Dave Hunt, John Romita Sr.",
     description:
       "The Jackal clones both Gwen Stacy and Spider-Man in one of Spidey's greatest personal tragedies, as Doc Ock returns with the ghost of Hammerhead and Peter and MJ share their first kiss.",
     coverUrl: "https://m.media-amazon.com/images/I/81bY-JIWqCL._SL1500_.jpg",
@@ -605,8 +615,11 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Amazing Spider-Man (1963) 165-185; Amazing Spider-Man Annual (1964) 11-12; Nova (1977) 12; Marvel Calendar 1978; material from; Marvel Treasury Edition (1974) 14; F.O.O.M. (1973) 17-18, 22",
     yearsCovered: "1977-1978",
     releaseDate: { year: 2024, month: 5 },
-    writers: "Len Wein, Marv Wolfman",
-    pencillers: "Ross Andru",
+    writers: "Len Wein, Marv Wolfman, Bill Mantlo, Archie Goodwin, David Kraft",
+    pencillers:
+      "Ross Andru, Sal Buscema, Don Perlin, George Pérez, Jack Kirby, Larry Lieber, John Byrne, John Buscema, Gil Kane, John Romita Sr., Paul Gulacy, Gene Colan, Al Milgrom",
+    inkers:
+      "Mike Esposito, Jim Mooney, Frank Giacoia, Tony DeZuniga, Bob McLeod, Tom Palmer, John Verpoorten, Pablo Marcos, Joe Sinnott",
     description:
       "J. Jonah Jameson gets proof Peter Parker is Spider-Man, dinosaurs battle the Lizard on Broadway, the Green Goblin rides again, and Peter proposes to Mary Jane.",
     coverUrl: "https://m.media-amazon.com/images/I/81mQixP55tL._SL1500_.jpg",
@@ -623,8 +636,10 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Amazing Spider-Man #186-206, Annual #13, Peter Parker, Spectacular Spider-Man Annual #1",
     yearsCovered: "1978-1980",
     releaseDate: { year: 2025, month: 2 },
-    writers: "Marv Wolfman",
-    pencillers: "Keith Pollard, John Byrne",
+    writers: "Marv Wolfman, Jim Starlin, Stan Lee, Bill Mantlo, David Michelinie, Roger Stern",
+    pencillers: "Keith Pollard, John Byrne, Sal Buscema, Jim Starlin, Al Milgrom, Rich Buckler",
+    inkers:
+      "Jim Mooney, Mike Esposito, Frank Giacoia, Bob McLeod, Al Milgrom, Terry Austin, Pablo Marcos, Gene Day",
     description:
       "Spidey swings toward his historic 200th issue as Aunt May hangs on by a thread, Felicia Hardy debuts as the Black Cat, and a gang war forces an uneasy team-up with the Punisher.",
     coverUrl: "https://m.media-amazon.com/images/I/81MFTw49c5L._SL1500_.jpg",
@@ -641,8 +656,12 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Amazing Spider-Man #207-223, Annual #14-15",
     yearsCovered: "1980-1981",
     releaseDate: { year: 2026, month: 1 },
-    writers: "Dennis O'Neil",
-    pencillers: "John Romita Jr., Frank Miller",
+    writers:
+      "Dennis O'Neil, Jim Shooter, Mark Gruenwald, Michael Fleisher, Bill Mantlo, J.M. DeMatteis",
+    pencillers:
+      "John Romita Jr., Frank Miller, Jim Mooney, Alan Weiss, Luke McDonnell, Bob McLeod, Alan Kupperberg, Bob Hall",
+    inkers:
+      "Jim Mooney, Al Milgrom, Bob McLeod, Klaus Janson, Pablo Marcos, Brett Breeding, Bob Wiacek, Joe Rubinstein, Tom Palmer, Joe Sinnott",
     description:
       "Dennis O'Neil and John Romita Jr. debut on the title with Madame Web's first appearance, a marathon-day assassination plot, and two Frank Miller-drawn Annuals co-starring Doctor Strange and the Punisher.",
     coverUrl: "https://m.media-amazon.com/images/I/91wcC7iRJoL._SL1500_.jpg",
@@ -659,8 +678,10 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Amazing Spider-Man #224-241, Annual #16",
     yearsCovered: "1981-1983",
     releaseDate: { year: 2026, month: 6 },
-    writers: "Roger Stern",
-    pencillers: "John Romita Jr.",
+    writers: "Roger Stern, Jan Strnad",
+    pencillers: "John Romita Jr., Rick Leonardi, Bob Hall",
+    inkers:
+      "Jim Mooney, Frank Giacoia, John Romita Sr., Pablo Marcos, Bob Wiacek, Dave Simons, Dan Green, Bob Layton",
     description:
       "Roger Stern and John Romita Jr. begin one of Spider-Man's greatest eras, introducing the Hobgoblin and Monica Rambeau/Captain Marvel while delivering the definitive Juggernaut showdown.",
     coverUrl: "https://m.media-amazon.com/images/I/91neQSL5WaL._SL1500_.jpg",
@@ -677,8 +698,12 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Amazing Spider-Man #259–272, Annual #18–19;; Web of Spider-Man #1, 6",
     yearsCovered: "1984-1986",
     releaseDate: { year: 2014, month: 5 },
-    writers: "Tom DeFalco, Bob Layton, Louise Simonson, Peter David",
-    pencillers: "Ron Frenz, Sal Buscema",
+    writers:
+      "Tom DeFalco, Louise Simonson, Peter David, Stan Lee, Bob Layton, Craig Anderson, Danny Fingeroth",
+    pencillers:
+      "Ron Frenz, Sal Buscema, Bob Layton, Greg LaRocque, Paty, Bob McLeod, Mike Harris, Mike Zeck, Mary Wilshire",
+    inkers:
+      "Joe Rubinstein, Bob Layton, Brett Breeding, Jim Mooney, Bob McLeod, Jackson Guice, Carlos Garzon, John Beatty, Paty, Dave Simons, Mike Zeck, Pat Redding, Kyle Baker",
     description:
       "The Hobgoblin returns hunting Norman Osborn's journals, Spidey battles the symbiote costume, Silver Sable and Slyde debut, and Mary Jane reveals the secrets of her childhood.",
     coverUrl: "https://m.media-amazon.com/images/I/91kcohOTWZL._SL1500_.jpg",
@@ -695,8 +720,12 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Amazing Spider-Man #289–294, Annual #20–21,; Spider-Man versus Wolverine,; Spectacular Spider-Man #131–132 and; Web of Spider-Man #29–32",
     yearsCovered: "1987",
     releaseDate: { year: 2017, month: 6 },
-    writers: "James Owsley, David Michelinie, J.M. DeMatteis",
-    pencillers: "John Romita Jr, Mark Bright, Mike Zeck",
+    writers:
+      "J.M. DeMatteis, David Michelinie, Christopher Priest, Fred Schiller, Ken McDonald, Jim Owsley, Peter David, Jim Shooter",
+    pencillers:
+      "Mike Zeck, Steve Geiger, John Romita Jr., Mark Beachum, Mark Bright, Tom Morgan, Alan Kupperberg, Alex Saviuk, Paul Ryan",
+    inkers:
+      "Bob McLeod, Vince Colletta, Jim Fern, Bob Wiacek, Al Williamson, Art Nichols, Kyle Baker, Keith Williams, Steve Geiger, Jack Abel",
     description:
       "An all-time-classic Wolverine encounter changes Spidey's life, leading into Kraven's Last Hunt -- one of comics' most psychological sagas, as Kraven goes to extreme lengths to prove himself superior before Peter and MJ's wedding.",
     coverUrl: "https://m.media-amazon.com/images/I/91w1T5hdErL._SL1500_.jpg",
@@ -713,8 +742,10 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Amazing Spider-Man #295–310, Annual #22;; Spectacular Spider-Man #133;; Web of Spider-Man #33",
     yearsCovered: "1988",
     releaseDate: { year: 2018, month: 8 },
-    writers: "Ann Nocenti, David Michelinie",
-    pencillers: "Cynthia Martin, Alex Saviuk, Todd McFarlane, Mark Bagley",
+    writers: "David Michelinie, Ann Nocenti, Tom DeFalco",
+    pencillers: "Todd McFarlane, Cindy Martin, Alex Saviuk, Mark Bagley",
+    inkers:
+      "Todd McFarlane, Joe Rubinstein, Bob McLeod, Vince Colletta, Steve Leialoha, Kyle Baker, Mike Esposito, Rodney Ramos, Mark McKenna, Hector Collazo, Pat Redding, Chris Ivy, Jim Sanders, Ken Lopez",
     description:
       "Eddie Brock and the alien costume combine their mutual hatred of Spider-Man to become Venom, as Spidey returns to the classic red-and-blue and Speedball makes his heroic debut.",
     coverUrl: "https://m.media-amazon.com/images/I/81vkQionFoL._SL1500_.jpg",
@@ -733,6 +764,8 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     releaseDate: { year: 2019, month: 5 },
     writers: "David Michelinie, Gerry Conway",
     pencillers: "Todd McFarlane, Rob Liefeld, Erik Larsen, Alex Saviuk",
+    inkers:
+      "Todd McFarlane, Gavin Curtis, Keith Williams, James Brock, Vince Mielcarek, Tim Dzon, Al Gordon, Andy Mushynsky",
     description:
       "David Michelinie and Todd McFarlane's fan-favorite run rolls on with a Venom rematch, the demonic threat of Inferno, and international espionage in the Assassin Nation Plot alongside Silver Sable and Captain America.",
     coverUrl: "https://m.media-amazon.com/images/I/91ezDVHd-VL._SL1500_.jpg",
@@ -749,8 +782,11 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Amazing Spider-Man #326–333, Annual #24;; Spectacular Spider-Man #158–160, Annual #10;; Web of Spider-Man #59–61, Annual #6",
     yearsCovered: "1989-1990",
     releaseDate: { year: 2013, month: 11 },
-    writers: "David Michelinie, Gerry Conway",
-    pencillers: "Erik Larsen, Sal Buscema, Alex Saviuk, Gil Kane",
+    writers: "David Michelinie, Gerry Conway, Stan Lee",
+    pencillers:
+      "Erik Larsen, Sal Buscema, Alex Saviuk, Gil Kane, Colleen Doran, Todd McFarlane, Rich Buckler",
+    inkers:
+      "Andy Mushynsky, Keith Williams, Mike Machlan, Mike Esposito, Al Gordon, Sal Buscema, Keith Wilson, Brad Vancata, Joe Rosas, Jack Abel, Mickey Ritter, Rudy Nebres, Mike Manley, Michael Esposito, Alan Kupperberg",
     description:
       "A science experiment enhances Spider-Man's powers just as a cabal of villains launches unpredictable attacks across his three titles, leading to a Punisher team-up and a shrunken showdown with Psycho-Man.",
     coverUrl: "https://m.media-amazon.com/images/I/71IPSk4y9BL._SL1400_.jpg",
@@ -767,8 +803,10 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Amazing Spider-Man #334–350;; Marvel Graphic Novel No. 63 - Spider-Man: Spirits of the Earth",
     yearsCovered: "1990-1991",
     releaseDate: { year: 2016, month: 2 },
-    writers: "David Michelinie",
-    pencillers: "Charles Vess, Erik Larsen, Mark Bagley",
+    writers: "David Michelinie, Charles Vess",
+    pencillers: "Erik Larsen, Charles Vess, Mark Bagley",
+    inkers:
+      "Randy Emberlin, Mike Machlan, Terry Austin, Charles Vess, John Romita Sr., Keith Williams",
     description:
       "Doctor Octopus reassembles the Sinister Six, and after defeating them Peter's sense of responsibility drives him to give up his powers, while a Scottish honeymoon with Mary Jane turns into a haunted second one.",
     coverUrl: "https://m.media-amazon.com/images/I/91zhsHJdqGL._SL1500_.jpg",
@@ -785,8 +823,10 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Amazing Spider-Man #351–360, Annual #25;; Spectacular Spider-Man Annual #11;; Web of Spider-Man Annual #7;; Spider-Man: Fear Itself (1992)",
     yearsCovered: "1991-1992",
     releaseDate: { year: 2015, month: 3 },
-    writers: "David Michelinie, Al Milgrom",
-    pencillers: "Mark Bagley, Chris Marrinan, Guang Yap, Ross Andru",
+    writers: "David Michelinie, Al Milgrom, Gerry Conway, Stan Lee, Dwight Jon Zimmerman",
+    pencillers: "Mark Bagley, Guang Yap, Chris Marrinan, Marie Severin, Ross Andru",
+    inkers:
+      "Randy Emberlin, Bud LaRosa, Keith Williams, Marie Severin, Sam de la Rosa, Mike Esposito",
     description:
       "Spidey teams with Nova against the Tri-Sentinel before the guest-star-packed Round Robin story, bookended by three Annuals pitting Spidey, Iron Man, and Black Panther against Ultron, Kingpin, and the Ghost.",
     coverUrl: "https://m.media-amazon.com/images/I/91DHCa3NCTL._SL1500_.jpg",
@@ -803,8 +843,10 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Amazing Spider-Man (1963) 361-367; Amazing Spider-Man Annual (1964) 26; Amazing Spider-Man: Soul of the Hunter (1992) 1; material from; Spectacular Spider-Man Annual (1979) 12; Web of Spider-Man Annual (1985) 8; New Warriors Annual (1991) 2",
     yearsCovered: "1992",
     releaseDate: { year: 2023, month: 1 },
-    writers: "David Michelinie, J.M. DeMatteis",
-    pencillers: "Mark Bagley, Scott McDaniel, Mike Zeck",
+    writers: "David Michelinie, Fabian Nicieza, J.M. DeMatteis",
+    pencillers: "Mark Bagley, Scott McDaniel, Jerry Bingham, Brandon Peterson, Mike Zeck",
+    inkers:
+      "Randy Emberlin, Keith Williams, Mark Stegbauer, Al Milgrom, Jimmy Palmiotti, Bob McLeod",
     description:
       "Venom's offspring transforms psychopath Cletus Kasady into Carnage, forcing Peter to make the hardest decision of his life and turn to Venom for help, while the New Warriors join a hunt for the vengeful ghost of Kraven.",
     coverUrl: "https://m.media-amazon.com/images/I/81YsU6dG6CL._SL1500_.jpg",
@@ -821,8 +863,11 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Amazing Spider-Man #368-377, Annual #27; Spider-Man/Dr. Strange: The Way to Dusty Death; Spider-Man Special Edition: The Trial of Venom",
     yearsCovered: "1992-1993",
     releaseDate: { year: 2023, month: 1 },
-    writers: "Roy Thomas, David Michelinie",
-    pencillers: "Mike Bair, Mark Bagley, Jeff Johnson",
+    writers:
+      "David Michelinie, Steven Grant, Gerry Conway, Roy Thomas, Peter David, J.M. DeMatteis, Al Milgrom, Jack C. Harris",
+    pencillers: "Mark Bagley, Aaron Lopresti, Jeff Johnson, Michael Bair, Jim Craig, Tom Lyle",
+    inkers:
+      "Randy Emberlin, Michael Bair, Mark Beachum, Mark Texeira, David Day, Dan Day, Aaron Lopresti, Mark Stegbauer, Dan Panosian, Al Milgrom, Scott Hanna",
     description:
       "Deadly Spider-Slayer robots attack on sight, Venom stands trial for his crimes, Peter's parents return home under a mysterious watcher's eye, and Spidey duels demons alongside Doctor Strange.",
     coverUrl: "https://m.media-amazon.com/images/I/81U7TEvNQuL._SL1500_.jpg",
@@ -840,7 +885,9 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     yearsCovered: "1993",
     releaseDate: { year: 2020, month: 1 },
     writers: "Terry Kavanagh, David Michelinie, J.M. DeMatteis, Tom DeFalco",
-    pencillers: "Alex Saviuk, Mark Bagley, Tom Lyle, Sal Buscema, Ron Lim",
+    pencillers: "Mark Bagley, Alex Saviuk, Tom Lyle, Sal Buscema, Ron Lim, Scott McDaniel",
+    inkers:
+      "Don Hudson, Randy Emberlin, Scott Hanna, Sal Buscema, Jim Sanders III, Al Milgrom, Sam de la Rosa, Keith Williams",
     description:
       "Carnage assembles an army of Spider-Man's criminally insane foes -- Carrion, Demogoblin, Shriek, and the Doppelganger -- forcing Spidey to recruit Black Cat, Cloak & Dagger, Firestar, Captain America, Iron Fist, Deathlok, and Venom in one of the most iconic Spider-Man stories ever told.",
     coverUrl: "https://m.media-amazon.com/images/I/91rNFxpNtjL._SL1500_.jpg",
@@ -857,8 +904,10 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Amazing Spider-Man #381–393, Annual #28;; Spectacular Spider-Man #211,; Web of Spider-Man #112,; Spider-Man #45,; Amazing Spider-Man: Ashcan Edition #1",
     yearsCovered: "1993-1994",
     releaseDate: { year: 2021, month: 11 },
-    writers: "David Michelinie, J.M. DeMatteis",
-    pencillers: "Mark Bagley, Steven Butler",
+    writers:
+      "David Michelinie, J.M. DeMatteis, Howard Mackie, Mike Lackey, Terry Kavanagh, Danny Fingeroth",
+    pencillers: "Mark Bagley, Steven Butler, Tom Lyle, Sal Buscema, Alex Saviuk",
+    inkers: "Randy Emberlin, Al Milgrom, Bud LaRosa, Scott Hanna, Sal Buscema, Stephen Baskerville",
     description:
       "Mary and Richard Parker's return from the dead proves too good to be true as Peter teeters on the edge, battling the Hulk, the Jury, the Vulture, the Chameleon, Shriek, and Carrion.",
     coverUrl: "https://m.media-amazon.com/images/I/81QQFujFuIL._SL1500_.jpg",
@@ -875,8 +924,11 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Web of Spider-Man #117-119; Amazing Spider-Man #394-396; Spider-Man #51-53; Spectacular Spider-Man #217-219; Spider-Man Unlimited #7; subplot pages",
     yearsCovered: "1994",
     releaseDate: { year: 2024, month: 1 },
-    writers: "Terry Kavanagh, J.M. DeMatteis, Howard Mackie, Tom DeFalco",
-    pencillers: "Tom Lyle, Steven Butler, Mark Bagley, Sal Buscema, Liam Sharp",
+    writers:
+      "Terry Kavanagh, J.M. DeMatteis, Howard Mackie, Tom DeFalco, Todd DeZago, Tom Lyle, Steve Saffel",
+    pencillers:
+      "Steven Butler, Mark Bagley, Tom Lyle, Sal Buscema, Tom Palmer, Ron Lim, Phil Gosier",
+    inkers: "Scott Hanna, Randy Emberlin, Sal Buscema, Larry Mahlstedt, Larry Malstedt, Tom Palmer",
     description:
       "Spider-Man's clone is back. Spidey thought Ben Reilly was long dead -- but where has he been for five years, why has he returned, and is he Peter Parker's dark side or his better half?",
     coverUrl: "https://m.media-amazon.com/images/I/81Xx34sV28L._SL1500_.jpg",
@@ -893,8 +945,12 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "WEB OF SPIDER-MAN (1985) 120-123; SPIDER-MAN (1990) 54-56; AMAZING SPIDER-MAN (1963) 397-399; SPECTACULAR SPIDER-MAN (1976) 220-222; SPIDER-MAN UNLIMITED (1993) 8; SPIDER-MAN: FUNERAL FOR AN OCTOPUS (1995) 1-3; SPIDER-MAN: THE CLONE JOURNAL (1995) 1",
     yearsCovered: "1995",
     releaseDate: { year: 2024, month: 11 },
-    writers: "Howard Mackie, J.M. DeMatteis, Tom DeFalco",
-    pencillers: "Tom Lyle, Steven Butler, Mark Bagley, Sal Buscema",
+    writers:
+      "J.M. DeMatteis, Tom DeFalco, Howard Mackie, Terry Kavanagh, Mike Kanterovich, Tom Brevoort, Todd DeZago, Tom Lyle",
+    pencillers:
+      "Mark Bagley, Sal Buscema, Steven Butler, Tom Lyle, Phil Gosier, Mike Manley, Stewart Johnson, Ron Lim, Tod Smith, Robert Brown",
+    inkers:
+      "Randy Emberlin, Larry Mahlstedt, Bill Sienkiewicz, Scott Hanna, Al Milgrom, Don Hudson, Sam de la Rosa, Joe Rubinstein, Tom Palmer, Harry Candelario, Sal Buscema",
     description:
       "With Peter poisoned, his best hope lies in the tentacled arms of Doctor Octopus, but Otto may pay a high price for the mercy. Aunt May fights for her life, Mary Jane drops a bombshell, and Ben Reilly is stalked by the Grim Hunter and the mysterious Kaine.",
     coverUrl: "https://m.media-amazon.com/images/I/91Fa-m4hV+L._SL1500_.jpg",
@@ -912,8 +968,11 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
       "Amazing Spider-Man #400-403; Spectacular Spider-Man #223-226; Web of Spider-Man #124-126; Spider-Man #57-60; Spider-Man Unlimited #9",
     yearsCovered: "1995",
     releaseDate: { year: 2026, month: 12 },
-    writers: "Howard Mackie, J.M. DeMatteis, Tom DeFalco, Stan Lee, Tom Lyle",
-    pencillers: "John Romita Jr., Mark Bagley, Sal Buscema, Bill Sienkiewicz, Tom Lyle",
+    writers: "J.M. DeMatteis, Howard Mackie, Tom DeFalco, Terry Kavanagh, Tom Lyle, Todd DeZago",
+    pencillers:
+      "Mark Bagley, Sal Buscema, Tom Lyle, Steven Butler, John Romita Jr., Ron Lim, Tod Smith, Ron Garney, Roy Burdine",
+    inkers:
+      "Randy Emberlin, Larry Mahlstedt, Bill Sienkiewicz, Joe Rubinstein, Sam de la Rosa, Scott Hanna, Al Milgrom, Tom Palmer, Tim Tuohy, Don Hudson, Jimmy Palmiotti, Klaus Janson",
     description:
       "",
     coverUrl: "https://m.media-amazon.com/images/I/911kRWTRDBL._SL1500_.jpg",
@@ -931,8 +990,12 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
       "Amazing Spider-Man #404; Web of Spider-Man #127; Spider-Man #61; Spectacular Spider-Man #227; Spider-Man: The Jackal Files #1; Spider-Man: Maximum Clonage Alpha #1; Spider-Man: Maximum Clonage Omega #1; New Warriors #61-62; and material from Amazing Spider-Man Super Special #1, Spider-Man Super Special #1, Venom Super Special #1, Spectacular Spider-Man Super Special #1, and Web of Spider-Man Super Special #1",
     yearsCovered: "1995",
     releaseDate: { year: 2027, month: 2 },
-    writers: "Todd DeZago, J.M. DeMatteis, Howard Mackie, Tom DeFalco, David Michelinie, Evan Skolnick",
-    pencillers: "Steven Butler, Mark Bagley, Tom Lyle, Eliot Brown, Ron Lim, Sal Buscema, Patch Zircher, Dave Hoover, Joe St. Pierre, Kyle Hotz, Darick Robertson, Steve Lightle",
+    writers:
+      "David Michelinie, Todd DeZago, Evan Skolnick, Tom DeFalco, J.M. DeMatteis, Howard Mackie, Tom Lyle",
+    pencillers:
+      "Patrick Zircher, Mark Bagley, Tom Lyle, Mark Buckingham, Ron Lim, Steven Butler, Sal Buscema, Roy Burdine, Robert Brown, Dave Hoover, Joe St. Pierre, Kyle Hotz, Darick Robertson, Steve Lightle",
+    inkers:
+      "Randy Emberlin, Margeaux Pepoy, Al Milgrom, Mark Buckingham, Larry Mahlstedt, Joe Rubinstein, Chris Ivy, Bill Sienkiewicz, Sam de la Rosa, Scott Hanna, Roy Burdine, Ralph Cabrera, Greg Adams, Armando Gil, Arne Starr, Steve Lightle",
     description:
       "",
     ownershipStatus: "announced",
@@ -949,8 +1012,9 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Tales to Astonish #27, 35–59",
     yearsCovered: "1962-1964",
     releaseDate: { year: 2015, month: 6 },
-    writers: "Stan Lee, Larry Lieber",
+    writers: "Stan Lee, Larry Lieber, H.E. Huntley",
     pencillers: "Jack Kirby, Don Heck, Dick Ayers",
+    inkers: "Dick Ayers, Don Heck, Paul Reinman, Sol Brodsky, Steve Ditko",
     description:
       "Henry Pym's earliest adventures as Ant-Man, growing into the size-changing Giant-Man alongside the Wasp.",
     coverUrl: "https://m.media-amazon.com/images/I/81pJCJHPtOL._SL1500_.jpg",
@@ -967,8 +1031,12 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Tales To Astonish (1959) #60-69, Iron Man (1968) #44, Marvel Feature (1971) #4-10, Power Man (1974) #24-25, Black Goliath (1976) #1-5, The Champions (1975) #11-13 And Marvel Premiere (1972) #47-48.",
     yearsCovered: "1964-1979",
     releaseDate: { year: 2023, month: 1 },
-    writers: "Stan Lee, Mike Friedrich, Chris Claremont, Bill Mantlo",
-    pencillers: "Herb Trimpe, Philip Russell, George Tuska, John Byrne",
+    writers:
+      "Stan Lee, Mike Friedrich, Bill Mantlo, Chris Claremont, Tony Isabella, Roy Thomas, David Michelinie, Leon Lazarus, Al Hartley, H.E. Huntley",
+    pencillers:
+      "Bob Powell, John Byrne, P. Craig Russell, George Tuska, Jack Kirby, Carl Burgos, Herb Trimpe, Dick Ayers, Steve Ditko, Ross Andru, Jim Starlin, Ron Wilson, Rich Buckler, Keith Pollard",
+    inkers:
+      "Bob Layton, Vince Colletta, Don Heck, Paul Reinman, Chic Stone, Herb Trimpe, George Roussos, Dick Ayers, Frank Giacoia, John Giunta, Mike Esposito, Mike Trimpe, Mark Kersey, Dan Adkins, Jim Janes, Frank Bolle, Frank Chiaramonte, Dave Hunt, Fred Kida, Keith Pollard",
     description:
       "Hank Pym's later years as Goliath and Yellowjacket, plus the debuts of Bill Foster as Black Goliath and Scott Lang as the second Ant-Man.",
     coverUrl: "https://m.media-amazon.com/images/I/81dG-dWv4nL._SL1500_.jpg",
@@ -986,8 +1054,10 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Avengers #1–20",
     yearsCovered: "1963-1965",
     releaseDate: { year: 2014, month: 11 },
-    writers: "Stan Lee",
-    pencillers: "Jack Kirby, Don Heck",
+    writers: "Stan Lee, Jack Kirby, Larry Lieber, Larry Ivie",
+    pencillers: "Don Heck, Jack Kirby, Carl Hubbell, Dick Ayers",
+    inkers:
+      "Dick Ayers, Chic Stone, Paul Reinman, George Roussos, Mike Esposito, Carl Hubbell, Wally Wood",
     description:
       "Iron Man, Thor, the Hulk, Ant-Man, and the Wasp band together to stop Loki, with Captain America joining soon after -- the origin of Earth's Mightiest Heroes.",
     coverUrl: "https://m.media-amazon.com/images/I/81RcN5HpztL._SL1500_.jpg",
@@ -1005,7 +1075,8 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     yearsCovered: "1965-1967",
     releaseDate: { year: 2016, month: 11 },
     writers: "Stan Lee, Roy Thomas",
-    pencillers: "Don Heck",
+    pencillers: "Don Heck, Jack Kirby",
+    inkers: "Don Heck, Frank Giacoia, George Roussos, Wally Wood, Dick Ayers, John Romita Sr.",
     description:
       "The founding Avengers step aside for Captain America's \"Kooky Quartet\" -- Hawkeye, Quicksilver, and the Scarlet Witch -- as the team's roster philosophy is reinvented.",
     coverUrl: "https://m.media-amazon.com/images/I/914OCFSno8L._SL1500_.jpg",
@@ -1022,8 +1093,10 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Avengers #41–56, Annual #1–2,; X-Men #45; and material from; Not Brand Echh #5, 8",
     yearsCovered: "1967-1968",
     releaseDate: { year: 2017, month: 4 },
-    writers: "Roy Thomas",
-    pencillers: "John Buscema",
+    writers: "Roy Thomas, Gary Friedrich",
+    pencillers: "John Buscema, Don Heck, Werner Roth, Gene Colan, George Tuska",
+    inkers:
+      "Vince Colletta, George Tuska, George Roussos, John Tartaglione, John Buscema, George Klein",
     description:
       "Baron Zemo assembles the Masters of Evil against the team, and Hercules and the Black Panther join the Avengers' ranks.",
     coverUrl: "https://m.media-amazon.com/images/I/81jwUwfTCOL._SL1500_.jpg",
@@ -1041,7 +1114,9 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     yearsCovered: "1968-1970",
     releaseDate: { year: 2015, month: 4 },
     writers: "Roy Thomas",
-    pencillers: "John Buscema, Sal Buscema, Gene Colan",
+    pencillers:
+      "John Buscema, Sal Buscema, Gene Colan, Barry Windsor-Smith, Herb Trimpe, Frank Giacoia, Howard Purcell",
+    inkers: "George Klein, Sam Grainger, Tom Palmer, Mike Esposito, Syd Shores, Dan Adkins",
     description:
       "The android Vision debuts and joins the team, forming an unlikely bond with the Scarlet Witch as new threats target the Avengers.",
     coverUrl: "https://m.media-amazon.com/images/I/81yH7qrCdBL._SL1500_.jpg",
@@ -1058,8 +1133,10 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Avengers #77–97;; Incredible Hulk (vol. 2) #140",
     yearsCovered: "1970-1972",
     releaseDate: { year: 2020, month: 7 },
-    writers: "Roy Thomas",
-    pencillers: "John Buscema, Sal Buscema, Neal Adams",
+    writers: "Roy Thomas, Harlan Ellison, Len Wein, Neal Adams",
+    pencillers: "John Buscema, Sal Buscema, Neal Adams, Herb Trimpe",
+    inkers:
+      "Tom Palmer, Frank Giacoia, Jim Mooney, Sam Grainger, Sal Buscema, George Roussos, Neal Adams, Alan Weiss",
     description:
       "The Kree-Skrull War begins, pitting the Avengers against a galaxy-spanning conflict that threatens to consume Earth, with the Vision and the Scarlet Witch's romance deepening.",
     coverUrl: "https://m.media-amazon.com/images/I/81yJo3eGriL._SL1500_.jpg",
@@ -1076,8 +1153,11 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Avengers #98–114;; Daredevil #99",
     yearsCovered: "1972-1973",
     releaseDate: { year: 2021, month: 6 },
-    writers: "Roy Thomas, Steve Englehart",
-    pencillers: "Barry Windsor-Smith, Rich Buckler, Don Heck",
+    writers: "Steve Englehart, Roy Thomas, Harlan Ellison, Chris Claremont, Steve Gerber",
+    pencillers:
+      "Rich Buckler, Don Heck, Barry Windsor-Smith, John Buscema, George Tuska, William Robert Brown, Jim Starlin, Sam Kweskin",
+    inkers:
+      "Joe Sinnott, Dave Cockrum, Mike Esposito, Syd Shores, Frank Bolle, Sal Buscema, Tom Sutton, Barry Windsor-Smith, Dan Adkins, Jim Mooney, Frank McLaughlin, Frank Giacoia",
     description:
       "The Kree-Skrull War reaches its climax, followed by a mole hunt within the team's own ranks as a hidden traitor works against the Avengers from the inside.",
     coverUrl: "https://m.media-amazon.com/images/I/91BHOsd-4JL._SL1500_.jpg",
@@ -1094,8 +1174,11 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Avengers #115–128;; Giant-Size Avengers #1;; Defenders #8–11;; Captain Marvel #33;; Fantastic Four #150",
     yearsCovered: "1973-1974",
     releaseDate: { year: 2018, month: 4 },
-    writers: "Steve Englehart",
-    pencillers: "Bob Brown, Sal Buscema",
+    writers: "Steve Englehart, Gerry Conway, Roy Thomas, Jim Starlin",
+    pencillers:
+      "William Robert Brown, Sal Buscema, John Buscema, Rich Buckler, Joe Staton, Don Heck, John Romita Sr., Jim Starlin",
+    inkers:
+      "Mike Esposito, Don Heck, Frank McLaughlin, Dave Cockrum, Joe Staton, Frank Bolle, Joe Sinnott, Frank Giacoia, John Romita Sr., Dan Adkins, Klaus Janson",
     description:
       "The Avengers and the Defenders clash in comics' first great crossover war -- Captain America vs. Namor, Thor vs. the Hulk -- while the Squadron Sinister pulls strings from the shadows.",
     coverUrl: "https://m.media-amazon.com/images/I/81rraydydmL._SL1500_.jpg",
@@ -1112,8 +1195,11 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Avengers #129-149, Giant-Size Avengers #2-4, material from Foom #12 and Marvel Treasury Edition #7.",
     yearsCovered: "1974-1976",
     releaseDate: { year: 2022, month: 7 },
-    writers: "Steve Englehart",
-    pencillers: "Sal Buscema, Dave Cockrum, George Tuska, Don Heck, George Perez",
+    writers: "Steve Englehart, Tony Isabella, Roy Thomas, Scott Edelman, Duffy Vohland",
+    pencillers:
+      "George Pérez, Sal Buscema, George Tuska, Joe Staton, Don Heck, Dave Cockrum, Keith Pollard",
+    inkers:
+      "Vince Colletta, Joe Staton, Sam Grainger, John Tartaglione, Frank Chiaramonte, Mike Esposito, Dave Cockrum, Joe Giella",
     description:
       "The \"Celestial Madonna\" saga unfolds as Kang, Rama-Tut, and Immortus collide across time, leading to the Vision and Scarlet Witch's wedding and new members Beast, Hellcat, and Moondragon joining the team.",
     coverUrl: "https://m.media-amazon.com/images/I/81TkK6iUftL._SL1500_.jpg",
@@ -1130,8 +1216,12 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Avengers #150–166, Annual #6–7;; Super-Villain Team-Up #9;; Marvel Two-in-One Annual #2",
     yearsCovered: "1976-1977",
     releaseDate: { year: 2013, month: 12 },
-    writers: "Jim Shooter, Gerry Conway",
-    pencillers: "George Perez, Jim Starlin, John Byrne",
+    writers:
+      "Jim Shooter, Gerry Conway, Steve Englehart, Jim Starlin, Stan Lee, John Byrne, Bill Mantlo",
+    pencillers:
+      "George Pérez, Sal Buscema, John Byrne, John Buscema, Jim Starlin, Jack Kirby, rez, George P&eacute, Don Heck, George Tuska, Jim Shooter, Sal Trapani",
+    inkers:
+      "Pablo Marcos, Duffy Vohland, John Tartaglione, Joe Sinnott, Joe Rubinstein, Dick Ayers, Mike Esposito, Sal Trapani",
     description:
       "George Perez joins as artist as the team battles the Squadron Supreme and faces threats built to test the Avengers at their very core.",
     coverUrl: "https://m.media-amazon.com/images/I/71fJmZr6aNL._SL1400_.jpg",
@@ -1148,8 +1238,12 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Avengers #167-188; Annual #8-9; material from; Marvel Tales #100",
     yearsCovered: "1978-1979",
     releaseDate: { year: 2023, month: 9 },
-    writers: "Jim Shooter, David Michelinie",
-    pencillers: "George Perez, John Byrne, David Wenzel",
+    writers:
+      "David Michelinie, Jim Shooter, Bill Mantlo, Mark Gruenwald, Steven Grant, Tom DeFalco, Roger Stern, Marv Wolfman, George Pérez, Roger Slifer, Steve Gerber, Scott Edelman",
+    pencillers:
+      "John Byrne, George Pérez, David Wenzel, Sal Buscema, Jim Mooney, Carmine Infantino, Don Newton, Mike Nasser",
+    inkers:
+      "Pablo Marcos, Klaus Janson, Dan Green, Joe Rubinstein, Diverse Hands, Ricardo Villamonte, Al Gordon, Terry Austin, Dave Hunt, Bob McLeod, Win Mortimer, Rick Bryant, Rudy Nebres, Mike Esposito, Gene Day, Frank Springer, Jack Abel",
     description:
       "The Korvac Saga -- one of the Avengers' most acclaimed stories -- pits the team against Michael Korvac, a being who has ascended to god-like cosmic power.",
     coverUrl: "https://m.media-amazon.com/images/I/81DUSrXnX2L._SL1500_.jpg",
@@ -1166,8 +1260,12 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Avengers (1963) 189-209; Avengers Annual (1967) 10; material from; Tales to Astonish (1979) 12",
     yearsCovered: "1979-1981",
     releaseDate: { year: 2024, month: 5 },
-    writers: "David Michelinie",
-    pencillers: "George Perez, John Byrne, Gene Colan",
+    writers:
+      "David Michelinie, Roger Stern, Bob Budiansky, Steven Grant, Bob Layton, Danny Fingeroth, Mark Gruenwald, Jim Shooter, George P&eacute, rez, Bill Mantlo, J.M. DeMatteis, Chris Claremont",
+    pencillers:
+      "rez, George P&eacute, George Pérez, John Byrne, Gene Colan, Bob Budiansky, Carmine Infantino, Alan Kupperberg, Arvell Jones, Sal Buscema, Don Newton, Michael Golden, Ron Wilson",
+    inkers:
+      "Dan Green, Joe Rubinstein, Jack Abel, Mike Esposito, Ricardo Villamonte, Vince Colletta, Al Milgrom, Brett Breeding, Gene Day, Armando Gil, Joe Sinnott, Frank Giacoia, Bob Wiacek",
     description:
       "Henry Peter Gyrich tries to strip Earth's Mightiest Heroes of their government charter as the Grey Gargoyle crashes the hearing, and the mysterious Taskmaster debuts, able to replicate any hero's fighting skills.",
     coverUrl: "https://m.media-amazon.com/images/I/81aaXKqaRSL._SL1500_.jpg",
@@ -1184,8 +1282,12 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Avengers #210-226, Annual #11, and Vision and the Scarlet Witch (1982) #1-4",
     yearsCovered: "1981-1982",
     releaseDate: { year: 2025, month: 5 },
-    writers: "Jim Shooter, Bill Mantlo",
-    pencillers: "Bob Hall, Greg LaRocque, Rick Leonardi",
+    writers:
+      "Jim Shooter, Bill Mantlo, Steven Grant, J.M. DeMatteis, David Michelinie, Alan Zelenetz",
+    pencillers:
+      "Bob Hall, Greg LaRocque, Rick Leonardi, Gene Colan, Alan Weiss, Alan Kupperberg, Don Perlin, Mark Bright, Al Milgrom",
+    inkers:
+      "Dan Green, Brett Breeding, Ian Akin, Brian Garvey, Jack Abel, Chic Stone, Joe Rubinstein, Sal Trapani",
     description:
       "Hank Pym's downward spiral leads to a court-martial that will haunt him for years, while the Vision and the Scarlet Witch settle into married life in their own limited series.",
     coverUrl: "https://m.media-amazon.com/images/I/81rjQnOFekL._SL1500_.jpg",
@@ -1202,8 +1304,11 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "AVENGERS (1963) 227-237; AVENGERS ANNUAL (1967) 12; AMAZING SPIDER-MAN ANNUAL (1964) 16; FANTASTIC FOUR (1961) 256; DOCTOR STRANGE (1974) 60; HAWKEYE (1983) 1-4",
     yearsCovered: "1982-1983",
     releaseDate: { year: 2024, month: 11 },
-    writers: "Roger Stern, Mark Gruenwald",
-    pencillers: "Al Milgrom, John Byrne",
+    writers: "Roger Stern, Mark Gruenwald, John Byrne, Bill Mantlo",
+    pencillers:
+      "Al Milgrom, Mark Gruenwald, John Byrne, John Romita Jr., Sal Buscema, Jackson Guice, Dan Green, Bob Budiansky",
+    inkers:
+      "Joe Sinnott, Brett Breeding, Danny Bulanadi, John Romita Sr., Rick Magyar, John Byrne, Terry Austin, Eliot Brown, Ian Akin, Brian Garvey",
     description:
       "The Avengers welcome the powerful new Captain Marvel, Monica Rambeau, into their ranks just in time to witness the trial of Hank Pym.",
     coverUrl: "https://m.media-amazon.com/images/I/81ui1EqHRnL._SL1500_.jpg",
@@ -1220,8 +1325,10 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Avengers #238-254, Annual #13",
     yearsCovered: "1983-1985",
     releaseDate: { year: 2026, month: 3 },
-    writers: "Roger Stern",
-    pencillers: "Al Milgrom, Bob Hall",
+    writers: "Roger Stern, Ann Nocenti",
+    pencillers: "Al Milgrom, Bob Hall, Carmine Infantino, Steve Ditko",
+    inkers:
+      "Joe Sinnott, Joe Rubinstein, Ian Akin, Brian Garvey, Andy Mushynsky, Brett Breeding, John Byrne, Roy Richardson, Joe Del Beato",
     description:
       "Roger Stern crafts a Vision epic for the ages, as the android Avenger's ambitions to link with the world's computer networks put him on a collision course with the team he loves.",
     coverUrl: "https://m.media-amazon.com/images/I/81REJLhRPnL._SL1500_.jpg",
@@ -1238,8 +1345,9 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Avengers #264–277, Annual #15;; West Coast Avengers Annual #1;; Alpha Flight #39",
     yearsCovered: "1986-1987",
     releaseDate: { year: 2016, month: 5 },
-    writers: "Roger Stern, Danny Fingeroth, Steve Englehart",
-    pencillers: "John Buscema, Steve Ditko, Mark Bright",
+    writers: "Roger Stern, Jim Shooter, Bill Mantlo, Danny Fingeroth, Mark Bright, Steve Englehart",
+    pencillers: "John Buscema, David Ross, Steve Ditko, Mark Bright",
+    inkers: "Tom Palmer, Whilce Portacio, Klaus Janson, Geof Isherwood",
     description:
       "Baron Zemo's rebuilt Masters of Evil launch a devastating assault on Avengers Mansion, laying siege to the team's home in one of the era's most brutal storylines.",
     coverUrl: "https://m.media-amazon.com/images/I/81iv3LnQcnL._SL1500_.jpg",
@@ -1256,8 +1364,12 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Avengers #278–285, Annual #16;; Marvel Graphic Novel No. 27 - Emperor Doom;; X-Men vs. Avengers #1–4;; West Coast Avengers Annual #2",
     yearsCovered: "1987",
     releaseDate: { year: 2014, month: 6 },
-    writers: "Roger Stern, Bob Harras, Tom DeFalco, David Michelinie, Steve Englehart",
-    pencillers: "Bob Hall, John Buscema, Marc Silvestri, Keith Pollard, Al Milgrom",
+    writers:
+      "Roger Stern, Tom DeFalco, Jim Shooter, Bob Harras, Mark Gruenwald, David Michelinie, Steve Englehart",
+    pencillers:
+      "John Buscema, Bob Hall, Marc Silvestri, Keith Pollard, John Romita Jr., Ron Frenz, Jackson Guice, Marshall Rogers, Al Milgrom",
+    inkers:
+      "Tom Palmer, Joe Rubinstein, Al Williamson, Al Milgrom, Kyle Baker, Bill Sienkiewicz, Bob Wiacek, Bob Layton, Kevin Nowlan, Keith Williams, Bob Hall, Bob McLeod",
     description:
       "Doctor Doom seizes control of the world through mind control in Emperor Doom, while the Avengers and X-Men come to blows over Magneto.",
     coverUrl: "https://m.media-amazon.com/images/I/71JgmglkCZL._SL1400_.jpg",
@@ -1274,8 +1386,9 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Avengers #286-303, Annual #17",
     yearsCovered: "1988-1989",
     releaseDate: { year: 2020, month: 11 },
-    writers: "Walt Simonson, Ralph Macchio",
-    pencillers: "John Buscema",
+    writers: "Walter Simonson, Ralph Macchio, Mark Gruenwald, Roger Stern",
+    pencillers: "John Buscema, Rich Buckler, Bob Hall, Mark Bright",
+    inkers: "Tom Palmer, Don Heck, Mike Gustovich, Val Gustovich",
     description:
       "Walt Simonson brings his singular artistic vision to the team, as the Avengers face down cosmic and terrestrial threats alike in a stretch fans still point to as a high-water mark.",
     coverUrl: "https://m.media-amazon.com/images/I/91bZxJDebXL._SL1500_.jpg",
@@ -1292,8 +1405,9 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Avengers (1963) 304-318; Avengers Annual (1967) 18; Avengers West Coast (1989) 53-55",
     yearsCovered: "1989-1990",
     releaseDate: { year: 2023, month: 3 },
-    writers: "John Byrne, Michael Higgins, Fabian Nicieza",
-    pencillers: "Paul Ryan, Ron Wilson",
+    writers: "John Byrne, Fabian Nicieza, Danny Fingeroth, Michael Higgins",
+    pencillers: "Paul Ryan, John Byrne, Rich Buckler, Ron Wilson, Tom Morgan",
+    inkers: "Tom Palmer, Paul Ryan, Mike Gustovich, Keith Williams",
     description:
       "A revamped Avengers roster -- including Quasar, She-Hulk, and the Black Panther -- gets swept into Acts of Vengeance, as a cabal of villains swaps targets to attack heroes unfamiliar with their tactics.",
     coverUrl: "https://m.media-amazon.com/images/I/91LSf5Ts-AL._SL1500_.jpg",
@@ -1310,8 +1424,10 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Avengers #319-333, Annual #19 and material from Captain America Annual #9, Iron Man Annual #11, Thor Annual #15 and Avengers West Coast Annual #5",
     yearsCovered: "1990-1991",
     releaseDate: { year: 2022, month: 3 },
-    writers: "Fabian Nicieza, Larry Hama",
-    pencillers: "Rik Levins, Paul Ryan, Herb Trimpe",
+    writers: "Larry Hama, Fabian Nicieza, Roy Thomas, Dann Thomas, Mark Gruenwald",
+    pencillers: "Paul Ryan, Rik Levins, Herb Trimpe, Jim Valentino, Tom Morgan, James Fry",
+    inkers:
+      "Tom Palmer, Chris Ivy, Fred Fredericks, Diverse Hands, Sam de la Rosa, Randy Emberlin, Mark McKenna, Keith Williams, Jeff Albrecht, Reggie Jones, Tom Morgan",
     description:
       "Fabian Nicieza takes the reins as the team navigates internal shakeups and outside threats testing the very idea of what makes an Avenger.",
     coverUrl: "https://m.media-amazon.com/images/I/817HAoYcYfL._SL1500_.jpg",
@@ -1328,8 +1444,12 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Avengers #334–344, Annual #20,; Marvel Graphic Novel No. 68 - Avengers: Death Trap – The Vault; and material from; Incredible Hulk Annual #17,; Namor the Sub-Mariner Annual #1,; Iron Man Annual #12 and; Avengers West Coast Annual #6",
     yearsCovered: "1991-1992",
     releaseDate: { year: 2018, month: 3 },
-    writers: "Danny Fingeroth, Roy Thomas, Bob Harras, Fabian Nicieza",
-    pencillers: "Ron Lim, Steve Epting",
+    writers:
+      "Bob Harras, Roy Thomas, Dann Thomas, Scott Lobdell, Fabian Nicieza, Danny Fingeroth, Peter David, David Michelinie",
+    pencillers:
+      "Steve Epting, Ron Lim, Kevin West, Ron Wagner, James Fry, Tom Morgan, George Freeman, Andy Kubert, Paul Abrams",
+    inkers:
+      "Tom Palmer, Fred Fredericks, Jim Sanders, Al Milgrom, Mike Witherby, Erik Larsen, Tom Morgan, Margeaux Pepoy, Danny Bulanadi, Bob Wiacek, Tony DeZuniga, Charles Barnett, Robert Jones",
     description:
       "The Taskmaster's Vault prison break sends the Avengers scrambling, in a collection built around the team's fascination with their own history and legacy.",
     coverUrl: "https://m.media-amazon.com/images/I/91325ejeuEL._SL1500_.jpg",
@@ -1346,8 +1466,12 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Avengers #345–347,; Avengers West Coast #80–82,; Quasar #32–34,; Wonder Man #7–9,; Iron Man #278–279,; Thor #445–446,; Captain America #401; and material from; Captain America #398–400",
     yearsCovered: "1992",
     releaseDate: { year: 2017, month: 7 },
-    writers: "Bob Harras, Mark Gruenwald",
-    pencillers: "Steve Epting, Rik Levins, Dave Ross",
+    writers:
+      "Mark Gruenwald, Roy Thomas, Dann Thomas, Gerard Jones, Bob Harras, Len Kaminski, Tom DeFalco",
+    pencillers:
+      "Rik Levins, David Ross, Jeff Johnson, Steve Epting, Paul Ryan, Pat Olliffe, Rurik Tyler, Stephen Jones, Greg Capullo",
+    inkers:
+      "Danny Bulanadi, Tim Dzon, Tom Palmer, Dan Panosian, Bob Wiacek, Al Milgrom, Keith Williams, Harry Candelario, Fred Fredericks, Art Nichols, Jan Anton Harps, Bud LaRosa",
     description:
       "The Kree-Shi'ar war explodes across the Marvel Universe as every Avengers team gets pulled into the biggest crossover event of the early '90s, forcing brutal choices about which side to save.",
     coverUrl: "https://m.media-amazon.com/images/I/81mBaYwHOmL._SL1500_.jpg",
@@ -1364,8 +1488,11 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Avengers #348–359, Annual #21,; and material from; Captain America Annual #11,; Thor Annual #17 and; Fantastic Four Annual #25",
     yearsCovered: "1992-1993",
     releaseDate: { year: 2019, month: 4 },
-    writers: "Mark Gruenwald, Bob Harras, Len Kaminski",
-    pencillers: "Herb Trimpe, Steve Epting, M.C. Wyman",
+    writers: "Bob Harras, Len Kaminski, Mark Gruenwald, Roy Thomas",
+    pencillers:
+      "Steve Epting, M.C. Wyman, Herb Trimpe, Kirk Jarvinen, Kevin West, Larry Alexander, Geof Isherwood",
+    inkers:
+      "Tom Palmer, Ariane Lenshoek, Brad Vancata, Bud LaRosa, Steve Alexandrov, Charles Barnett, Kathryn Bolinger, Fred Fredericks",
     description:
       "The demonic return of the Grim Reaper -- and his shambling Legion of the Unliving -- teaches the Avengers to fear death itself, with guest turns from the Starjammers and X-Men.",
     coverUrl: "https://m.media-amazon.com/images/I/71wdmiCemKL._SL1400_.jpg",
@@ -1382,8 +1509,10 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Avengers #360–366, Annual #22;; Avengers: Strikefile;; Avengers Anniversary Magazine;; Avengers: The Terminatrix Objective #1–4",
     yearsCovered: "1993",
     releaseDate: { year: 2019, month: 12 },
-    writers: "Bob Harras, Glenn Herdling, Mark Gruenwald",
-    pencillers: "Steve Epting, Gordon Purcell, Mike Gustovich",
+    writers: "Bob Harras, Mark Gruenwald, Glenn Herdling, Steve Saffel",
+    pencillers: "Steve Epting, Mike Gustovich, Gordon Purcell, Jeff Moore",
+    inkers:
+      "Tom Palmer, Bud LaRosa, Don Hudson, Fred Fredericks, Steve Alexandrov, Ariane Lenshoek, Mike Sellers, Warren Martineck, Dell Barras",
     description:
       "The mysterious Gatherers -- warriors pulled from across time and space by an enigmatic leader -- launch a coordinated strike against the Avengers.",
     coverUrl: "https://m.media-amazon.com/images/I/91eSdaVq5nL._SL1500_.jpg",
@@ -1400,8 +1529,12 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Avengers #367-377; Avengers Annual 23; X-Men #26; Avengers West Coast #101; Uncanny X-Men #307; Avengers Log #1",
     yearsCovered: "1993-1994",
     releaseDate: { year: 2023, month: 8 },
-    writers: "Bob Harras, Roy Thomas, Glenn Herdling",
-    pencillers: "Steve Epting, John Buscema",
+    writers:
+      "Bob Harras, Roy Thomas, Glenn Herdling, Joey Cavalieri, Fabian Nicieza, Scott Lobdell, Peter Sanderson",
+    pencillers:
+      "Steve Epting, Grant Miehm, Jim Hall, Andy Kubert, David Ross, John Romita Jr., Jan Duursema, Geof Isherwood, Mike Gustovich, John Buscema, George Pérez",
+    inkers:
+      "Tom Palmer, Don Hudson, Grant Miehm, Matt Ryan, Tim Dzon, Dan Green, Kevin Yates, Al Milgrom, John Buscema, George Pérez",
     description:
       "The Gatherers' true purpose comes to light as the team faces a crossover with the X-Men, forcing a reckoning with the enemy pulling the strings behind recent attacks.",
     coverUrl: "https://m.media-amazon.com/images/I/91EhyVFanFL._SL1500_.jpg",
@@ -1418,8 +1551,12 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Avengers (1963) 378-388, Marvel Double Feature: Avengers/Giant-Man (1994) 379-382, Vision (1994) 1-4, Captain America (1968) 440-441",
     yearsCovered: "1994-1995",
     releaseDate: { year: 2021, month: 11 },
-    writers: "Bob Harras",
-    pencillers: "George Perez, Mike Deodato Jr., Jeff Moore, Manny Clark",
+    writers:
+      "Bob Harras, Terry Kavanagh, George Pérez, Mark Gruenwald, Mike Kanterovich, Tom Brevoort, Ben Raab",
+    pencillers:
+      "Mike Deodato Jr., Jeff Moore, Manny Clark, Stewart Johnson, Dave Hoover, Tom Grindberg, Mike Gustovich, John Buscema, Angel Medina",
+    inkers:
+      "Tom Palmer, Tim Dzon, Mike Machlan, Danny Bulanadi, Don Hudson, Rich Rankin, Mike Gustovich, Al Vey, Charles Barnett, Rich Perrotta, Steve Alexandrov, Johnny Greene, Scott Koblish, Marie Severin, Keith Williams, Rick Hoover, Dave Hoover",
     description:
       "A.I.M. makes a play against the Avengers as the team's roster and status quo continue to shift heading into the mid-1990s, with a Vision limited series exploring the android's fractured identity.",
     coverUrl: "https://m.media-amazon.com/images/I/914TC+myIXL._SL1500_.jpg",
@@ -1436,8 +1573,11 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Avengers #389-402; Avengers: The Crossing; Avengers: Timeslide; Onslaught: Marvel Universe",
     yearsCovered: "1995-1996",
     releaseDate: { year: 2025, month: 12 },
-    writers: "Bob Harras, Terry Kavanagh, Mark Waid, Ben Raab",
-    pencillers: "Mike Deodato Jr",
+    writers: "Terry Kavanagh, Bob Harras, Ben Raab, Mark Waid, Howard Mackie, Scott Lobdell",
+    pencillers:
+      "Mike Deodato Jr., Fabio Laguna, M.C. Wyman, Oclair Albert, Frank Toscano, Manny Clark, Roger Cruz, Luke Ross, John Statema, Mike Wieringo, Joe Bennett, Andy Kubert",
+    inkers:
+      "Tom Palmer, Scott Koblish, Mike Deodato Jr., Rene Micheletti, Emir Ribeiro, Art Thibert, Jesse Delperdang, Tim Townsend, Dan Green",
     description:
       "The fallout from the controversial \"Crossing\" storyline sends the team scrambling through time, setting the stage for the Onslaught crossover that reshapes the entire Marvel Universe.",
     coverUrl: "https://m.media-amazon.com/images/I/91Z7kmKApUL._SL1500_.jpg",
@@ -1454,8 +1594,12 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Avengers (1996) 1-12; etc.",
     yearsCovered: "1996-1997",
     releaseDate: { year: 2027, month: 3 },
-    writers: "Rob Liefeld, Jim Valentino, Jeph Loeb, Walter Simonson, Scott Lobdell, Jim Lee & Brandon Choi",
-    pencillers: "Chap Yaep, Rob Liefeld, Ian Churchill, Michael Ryan, Ed Benes, Ron Lim, Brett Booth, Joe Bennett",
+    writers:
+      "Jeph Loeb, Rob Liefeld, Jim Valentino, Walter Simonson, Scott Lobdell, Jim Lee, Brandon Choi",
+    pencillers:
+      "Chap Yaep, Michael Ryan, Ian Churchill, Rob Liefeld, Brett Booth, Ryan Benjamin, Whilce Portacio, Jim Lee, Ron Lim, Anthony Winn, Mike Miller, Terry Shoemaker, Ed Benes, Joe Bennett",
+    inkers:
+      "Jon Sibal, Saleem Crawford, Sal Regla, Lary Stucker, Homage Studios, Tom McWeeney, John Dickenson, Norm Rapmund, Marlo Alquiza, Joe Weems, Trevor Scott, Richard Friend, Scott Williams, Will Conrad, Mike Miller, John Tighe, Armando Durruthy, Ed Benes",
     description:
       "",
     ownershipStatus: "announced",
@@ -1472,8 +1616,10 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "West Coast Avengers (1984) #1–4;; Iron Man Annual #7;; Avengers #250;; West Coast Avengers (1985) #1–7;; The Vision and the Scarlet Witch #1–2;; Wonder Man #1",
     yearsCovered: "1984-1986",
     releaseDate: { year: 2018, month: 9 },
-    writers: "Roger Stern, Steve Englehart",
-    pencillers: "Bob Hall, Al Milgrom, Richard Howell",
+    writers: "Steve Englehart, Roger Stern, Bob Harras, David Michelinie",
+    pencillers: "Al Milgrom, Bob Hall, Richard Howell, Luke McDonnell, Kerry Gammill",
+    inkers:
+      "Joe Sinnott, Brett Breeding, Ian Akin, Brian Garvey, Andy Mushynsky, Peter Berardi, Roy Richardson, Kim DeMulder, Kyle Baker, Vince Colletta",
     description:
       "Hawkeye leads a new West Coast branch of the Avengers -- with Mockingbird, Wonder Man, Tigra, and Iron Man -- setting up shop on the opposite coast from the original team.",
     coverUrl: "https://m.media-amazon.com/images/I/812mBfSrdgL._SL1500_.jpg",
@@ -1490,8 +1636,9 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "West Coast Avengers (1985) #8–24, Annual #1;; Avengers Annual #15",
     yearsCovered: "1986-1987",
     releaseDate: { year: 2019, month: 9 },
-    writers: "Steve Englehart, Danny Fingeroth",
-    pencillers: "Al Milgrom, Steve Ditko, Mark Bright",
+    writers: "Steve Englehart, Mark Bright, Danny Fingeroth",
+    pencillers: "Al Milgrom, Mark Bright, Steve Ditko",
+    inkers: "Joe Sinnott, Kim DeMulder, Romeo Tanghal, Mike Machlan, Geof Isherwood, Klaus Janson",
     description:
       "The Council of Kangs storyline sends the team scattered across time, as the West Coast squad grapples with an enemy who exists as countless versions of himself simultaneously.",
     coverUrl: "https://m.media-amazon.com/images/I/81um6Nc-ZUL._SL1500_.jpg",
@@ -1508,8 +1655,12 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "West Coast Avengers #25-37,; West Coast Avengers Annual #2,; Avengers Annual #16 and; Marvel Graphic Novel No. 27 - Emperor Doom",
     yearsCovered: "1987-1988",
     releaseDate: { year: 2020, month: 9 },
-    writers: "David Michelinie, Steve Englehart, Tom DeFalco",
-    pencillers: "Bob Hall, Al Milgrom",
+    writers:
+      "Steve Englehart, Al Milgrom, Tom DeFalco, Jim Shooter, Mark Gruenwald, David Michelinie",
+    pencillers:
+      "Al Milgrom, Bob Hall, Keith Pollard, John Romita Jr., Ron Frenz, Jackson Guice, Marshall Rogers",
+    inkers:
+      "Mike Machlan, Dave Hunt, Tony DeZuniga, Al Milgrom, Tom Palmer, Bill Sienkiewicz, Bob Wiacek, Bob Layton, Kevin Nowlan, Al Williamson, Keith Williams, Bob Hall",
     description:
       "Scorpio's Zodiac targets the West Coast Avengers while Moon Knight hunts down the last surviving member of the original Zodiac, and Doctor Doom seizes control of the world in Emperor Doom.",
     coverUrl: "https://m.media-amazon.com/images/I/91S4WXTxKgL._SL1500_.jpg",
@@ -1526,8 +1677,11 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "West Coast Avengers #38-46,; Avengers West Coast #47-52,; West Coast Avengers Annual #3,; Avengers West Coast Annual #4; and material from; Avengers Spotlight #23",
     yearsCovered: "1988-1989",
     releaseDate: { year: 2020, month: 12 },
-    writers: "John Byrne, Steve Englehart",
-    pencillers: "John Byrne, Al Milgrom",
+    writers:
+      "John Byrne, Steve Englehart, D.G. Chichester, Margaret Clark, Mark Gruenwald, Ralph Macchio, Tom DeFalco, Kieron Dwyer",
+    pencillers: "John Byrne, Al Milgrom, Tom Morgan, Kieron Dwyer",
+    inkers:
+      "Mike Machlan, Dave Hunt, Al Milgrom, Mike Gustovich, Tom Morgan, Gerry Talaoc, John Byrne, Terry Austin, Karl Kesel",
     description:
       "John Byrne takes charge as writer/artist and immediately leaves his mark with a startling change for the Vision, while the Scarlet Witch descends into darkness and learns shocking revelations about her children.",
     coverUrl: "https://m.media-amazon.com/images/I/918pAIHxtzL._SL1500_.jpg",
@@ -1544,8 +1698,11 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Avengers West Coast (1989) 53-64, Avengers West Coast Annual (1989) 5, Avengers (1963) 311-313; material from Avengers Annual (1967) 19, What The--?! (1988) 6",
     yearsCovered: "1990",
     releaseDate: { year: 2021, month: 12 },
-    writers: "John Byrne, Roy Thomas, Dann Thomas",
-    pencillers: "John Byrne, Paul Ryan, James Fry",
+    writers: "John Byrne, Roy Thomas, Dann Thomas, Fabian Nicieza, Danny Fingeroth, Terry Kavanagh",
+    pencillers:
+      "Paul Ryan, John Byrne, Tom Morgan, Brad Vancata, Gary Hartle, Chris Wozniak, James Fry, Herb Trimpe",
+    inkers:
+      "Danny Bulanadi, Paul Ryan, Tom Palmer, Keith Williams, Randy Emberlin, Chris Ivy, Brad Vancata, Jeff Albrecht, Terry Austin",
     description:
       "The Scarlet Witch's grip on reality frays further as John Byrne pushes the fallout from Vision's transformation to its breaking point.",
     coverUrl: "https://m.media-amazon.com/images/I/81XcMN56E0L._SL1500_.jpg",
@@ -1563,7 +1720,9 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     yearsCovered: "1991-1992",
     releaseDate: { year: 2023, month: 4 },
     writers: "Roy Thomas, Dann Thomas",
-    pencillers: "Paul Ryan, Dave Ross, Herb Trimpe",
+    pencillers: "David Ross, Paul Ryan, George Freeman, Steven Butler, Tom Morgan, Herb Trimpe",
+    inkers:
+      "Tim Dzon, Danny Bulanadi, Don Hudson, Chris Ivy, Charles Barnett, Herb Trimpe, Margeaux Pepoy, Bob Wiacek",
     description:
       "Roy and Dann Thomas take the team through a run of stand-alone threats and simmering subplots as the West Coast squad settles into a new creative era.",
     coverUrl: "https://m.media-amazon.com/images/I/91Clfofx-hL._SL1500_.jpg",
@@ -1580,8 +1739,11 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Avengers West Coast (1989) 83-95; Avengers West Coast Annual (1989) 7-8; Material from; Darkhawk Annual (1992) 1; Iron Man Annual (1970) 13",
     yearsCovered: "1992-1993",
     releaseDate: { year: 2024, month: 4 },
-    writers: "Roy Thomas, Dann Thomas",
-    pencillers: "Dave Ross, M.C. Wyman",
+    writers: "Roy Thomas, Dann Thomas, David Ross, Danny Fingeroth, Len Kaminski",
+    pencillers:
+      "David Ross, Herb Trimpe, Mike Manley, M.C. Wyman, Gene Colan, Kris Renkewitz, Vince Russell, Larry Alexander, John Czop, Scott Kolins",
+    inkers:
+      "Tim Dzon, Charles Barnett, Herb Trimpe, Mike Manley, John Tartaglione, Al Williamson, Aaron McClellan, Mike Barreiro, John Lowe, Fred Fredericks, Maria Beccari, Don Hudson",
     description:
       "Ultron breaks free once more, forcing the West Coast Avengers into a desperate fight against the genocidal robot in the team's final major storyline before the branch folds.",
     coverUrl: "https://m.media-amazon.com/images/I/91nlne1bJZL._SL1500_.jpg",
@@ -1598,8 +1760,9 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "96-102;U.S.Agent (93);Spider-Woman (93);Scarlet Witch (94)",
     yearsCovered: "1993-1994",
     releaseDate: { year: 2026, month: 12 },
-    writers: "Roy Thomas, Dann Thomas, Dan Abnett, Andy Lanning, Mark Gruenwald",
-    pencillers: "Dave Ross, John Higgins, John Czop, Steve Ellis, M.C. Wyman",
+    writers: "Roy Thomas, Dan Abnett, Andy Lanning, Dann Thomas, Mark Gruenwald",
+    pencillers: "David Ross, John Higgins, Andrew Currie, M.C. Wyman, John Czop, Steve Ellis",
+    inkers: "Tim Dzon, Keith Williams, Fred Fredericks, Mark McKenna, Don Hudson",
     description:
       "",
     coverUrl: "https://m.media-amazon.com/images/I/91fTq9BgnRL._SL1500_.jpg",
@@ -1617,8 +1780,10 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Fantastic Four #52–53;; Jungle Action (vol. 2) #6–24",
     yearsCovered: "1973-1976",
     releaseDate: { year: 2016, month: 9 },
-    writers: "Don McGregor",
-    pencillers: "Rich Buckler, Billy Graham",
+    writers: "Don McGregor, Stan Lee, Jack Kirby",
+    pencillers: "Billy Graham, Rich Buckler, Jack Kirby, Gil Kane, Keith Pollard",
+    inkers:
+      "Klaus Janson, Bob McLeod, Joe Sinnott, Billy Graham, P. Craig Russell, Pablo Marcos, Dan Green, Virgil Redondo, Jim Mooney, Keith Pollard",
     description:
       "Don McGregor's landmark run sends T'Challa across Wakanda's jungles and mountains to confront Erik Killmonger's coup for the throne, in one of the earliest sustained Black superhero narratives in mainstream comics.",
     coverUrl: "https://m.media-amazon.com/images/I/81DhE7m3-EL._SL1500_.jpg",
@@ -1635,8 +1800,9 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Black Panther (1977) #1–15,; Marvel Premiere #51–53,; Black Panther (1988) #1–4; and material from; Marvel Team-Up #100",
     yearsCovered: "1977-1988",
     releaseDate: { year: 2019, month: 2 },
-    writers: "Jack Kirby, Ed Hannigan, Peter Gillis",
-    pencillers: "Jack Kirby, Jerry Bingham, Denys Cowan",
+    writers: "Jack Kirby, Ed Hannigan, Peter Gillis, Jim Shooter, Chris Claremont, Frank Miller",
+    pencillers: "Jack Kirby, Jerry Bingham, Denys Cowan, Frank Miller",
+    inkers: "Mike Royer, Gene Day, Sam de la Rosa, Al Gordon, Bob Wiacek",
     description:
       "Jack Kirby returns to co-create the character for a self-written solo series, sending T'Challa after the secret of King Solomon's frog and into battles with alien races and eternal samurai warriors.",
     coverUrl: "https://m.media-amazon.com/images/I/91XVbyNzStL._SL1500_.jpg",
@@ -1653,8 +1819,12 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Black Panther: Panther's Prey #1-4; and material from; Marvel Comics Presents #13-37, 148,; Solo Avengers #19,; Marvel Super Heroes #1,; Marvel Fanfare #60 and; Fantastic Four Unlimited #1",
     yearsCovered: "1988-1994",
     releaseDate: { year: 2021, month: 3 },
-    writers: "Don McGregor",
-    pencillers: "Sandy Plunkett, Gene Colan, Dwayne Turner, Denys Cowan, Don Hillsman II",
+    writers:
+      "Don McGregor, Sandy Plunkett, Richard Bensam, Walter Simonson, Roy Thomas, Don Hillsman",
+    pencillers:
+      "Gene Colan, Dwayne Turner, Sandy Plunkett, Ron Lim, Denys Cowan, Dave Hoover, Don Hillsman",
+    inkers:
+      "Tom Palmer, Dwayne Turner, Scott Hampton, Jim Sanders III, Walter Simonson, Charles Barnett, David DeVries",
     description:
       "The winged menace called Solomon Prey swears vengeance on the king of Wakanda, in the second and third chapters of Don McGregor's epic Wakandan trilogy.",
     coverUrl: "https://m.media-amazon.com/images/I/91csL5+WbYL._SL1500_.jpg",
@@ -1672,8 +1842,11 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Tales of Suspense #52-53, 57, 60, 64,; Avengers #29-30, 36–37, 43–44,; Amazing Spider-Man #86,; Amazing Adventures #1-8,; Daredevil #81; and material from; Avengers #16, 32–33, 38–39, 41–42, 45–47, 57, 63–64, 76",
     yearsCovered: "1964-1971",
     releaseDate: { year: 2020, month: 2 },
-    writers: "Stan Lee, Roy Thomas",
-    pencillers: "Don Heck, John Buscema, Gene Colan",
+    writers: "Roy Thomas, Stan Lee, Gary Friedrich, Gerry Conway, N. Korok, Mimi Gold, Jack Kirby",
+    pencillers:
+      "Don Heck, John Buscema, Gene Colan, Jack Kirby, John Romita Sr., Carl Hubbell, Dick Ayers",
+    inkers:
+      "Don Heck, George Roussos, Bill Everett, Vince Colletta, George Klein, Dick Ayers, Frank Giacoia, John Verpoorten, Chic Stone, Jim Mooney, Sal Buscema, Jack Abel, Carl Hubbell, George Tuska, Tom Palmer",
     description:
       "Natasha Romanoff's earliest Cold War missions as the Black Widow, debuting her classic black bodysuit and spy gear while crossing paths with the Avengers and Daredevil.",
     coverUrl: "https://m.media-amazon.com/images/I/81i3ilNv2bL._SL1500_.jpg",
@@ -1690,8 +1863,12 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Marvel Graphic Novel No. 61 - Black Widow: The Coldest War,; Marvel Graphic Novel No. 74 - Punisher/Black Widow: Spinning Doomsday's Web,; Marvel Graphic Novel No. 75 - Daredevil/Black Widow: Abattoir,; Fury/Black Widow: Death Duty; and material from; Bizarre Adventures #25,; Marvel Fanfare #10-13,; Solo Avengers #7,; Marvel Comics Presents #135 and; Daredevil Annual #10",
     yearsCovered: "1983-1998",
     releaseDate: { year: 2020, month: 10 },
-    writers: "Ralph Macchio, Gerry Conway, Daniel Chichester",
-    pencillers: "Jim Starlin, Cefn Ridout, George Perez, George Freeman, Larry Stroman, Joe Chiodo, Charlie Adlard",
+    writers:
+      "Ralph Macchio, George Pérez, Scott Lobdell, Mindy Newell, Bob Layton, Jackson Guice, Gerry Conway, D.G. Chichester, Jim Starlin, Cefn Ridout",
+    pencillers:
+      "George Pérez, Randy Green, Paul Gulacy, Luke McDonnell, Bob Layton, rez, George P&eacute, Jackson Guice, George Freeman, Larry Stroman, Joe Chiodo, John Stanisci, Sergio Cariello, Charlie Adlard",
+    inkers:
+      "Rick Ketcham, Brett Breeding, Mark Farmer, Paul Gulacy, Joe Sinnott, Jack Abel, Al Milgrom, John Beatty, Bob Layton, Mike Harris, George Freeman, Ernie Colon, Joe Rubinstein, Val Mayerik, Joe Chiodo, John Stanisci, Rich Rankin, Charlie Adlard",
     description:
       "A collection of Black Widow's graphic novels and specials from the '80s and '90s, teaming her with the Punisher, Daredevil, and Nick Fury on espionage missions across the globe.",
     coverUrl: "https://m.media-amazon.com/images/I/913+LXODo4L._SL1500_.jpg",
@@ -1717,8 +1894,9 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Tomb of Dracula (1991) 1-4; Nightstalkers (1992) 1-6; Ghost Rider (1990) 31; Material from; Midnight Sons Unlimited (1993) 1",
     yearsCovered: "1991-1993",
     releaseDate: { year: 2025, month: 1 },
-    writers: "Marv Wolfman, Daniel Chichester",
-    pencillers: "Gene Colan, Ron Garney",
+    writers: "D.G. Chichester, Marv Wolfman, Howard Mackie",
+    pencillers: "Ron Garney, Gene Colan, Andy Kubert, Cindy Martin",
+    inkers: "Tom Palmer, Al Williamson, Joe Kubert, Joe Rubinstein",
     description:
       "Blade, Frank Drake, and the former vampire Hannibal King band together as the Nightstalkers to hunt the supernatural threats of the Midnight Sons era.",
     coverUrl: "https://m.media-amazon.com/images/I/91bKyQOsr6L._SL1500_.jpg",
@@ -1735,8 +1913,12 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Tomb of Dracula (1972) 10, 12-14, 24, 30, 41-43, 51, 58; Fear (1970) 24; Marvel Preview (1975) 3; Doctor Strange (1974) 61-62, 67 material from Tomb of Dracula (1972) 17-19, 21, 44-50, 52-53; Vampire Tales (1973) 8-9; Marvel Preview (1975) 8; Marvel Comics Presents (1988) 64",
     yearsCovered: "1973-1991",
     releaseDate: { year: 2026, month: 10 },
-    writers: "Marv Wolfman",
-    pencillers: "Gene Colan",
+    writers:
+      "Marv Wolfman, Roger Stern, Chris Claremont, Steve Gerber, Gerry Conway, Carla Conway, John Warner, Marcus McLaurin",
+    pencillers:
+      "Gene Colan, Tony DeZuniga, Steve Leialoha, P. Craig Russell, Alfredo Alcala, Rico Rival, Dan Green, Malcolm Davis",
+    inkers:
+      "Tom Palmer, Jack Abel, Tony DeZuniga, Steve Leialoha, Alfredo Alcala, Rico Rival, Rick Magyar, Joseph Adiletta",
     description:
       "",
     coverUrl: "https://m.media-amazon.com/images/I/81oTJx8bDdL._SL1500_.jpg",
@@ -1762,8 +1944,11 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Tales of Suspense #58–96;; Avengers #4;; Strange Tales #114",
     yearsCovered: "1964-1967",
     releaseDate: { year: 2014, month: 11 },
-    writers: "Stan Lee",
-    pencillers: "Jack Kirby",
+    writers: "Stan Lee, Jack Kirby, Roy Thomas",
+    pencillers:
+      "Jack Kirby, George Tuska, Gil Kane, John Romita Sr., Dick Ayers, Marie Severin, Jack Sparling",
+    inkers:
+      "Frank Giacoia, Joe Sinnott, Chic Stone, Dick Ayers, Gil Kane, George Tuska, John Tartaglione, Don Heck, George Roussos",
     description:
       "Steve Rogers is discovered frozen in ice and revived by the Avengers, launching his own solo feature as he readjusts to a modern world that's moved on without him.",
     coverUrl: "https://m.media-amazon.com/images/I/910VGD7Bt-L._SL1500_.jpg",
@@ -1780,8 +1965,11 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Tales of Suspense #97–99,; Captain America #100–119; and material from; Not Brand Echh #3, 12",
     yearsCovered: "1968–1969",
     releaseDate: { year: 2016, month: 9 },
-    writers: "Stan Lee, Jim Steranko",
-    pencillers: "Jack Kirby, Jim Steranko, Gene Colan",
+    writers: "Stan Lee, Jim Steranko, Archie Goodwin, Roy Thomas",
+    pencillers:
+      "Jack Kirby, Gene Colan, Jim Steranko, John Romita Sr., John Buscema, Marie Severin",
+    inkers:
+      "Syd Shores, Joe Sinnott, Frank Giacoia, Dan Adkins, Sal Buscema, Johnny Craig, Jim Steranko, George Tuska, Tom Palmer, John Romita Sr., Marie Severin",
     description:
       "Baron Zemo returns to menace Cap in a saga guest-starring Nick Fury and the Black Panther, as the Red Skull's Cosmic Cube switches bodies with Cap -- leaving only Sam Wilson, the Falcon, able to set things right.",
     coverUrl: "https://m.media-amazon.com/images/I/81ZGgaenTEL._SL1500_.jpg",
@@ -1799,7 +1987,9 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     yearsCovered: "1970-1971",
     releaseDate: { year: 2017, month: 7 },
     writers: "Stan Lee",
-    pencillers: "Gene Colan",
+    pencillers: "Gene Colan, John Romita Sr.",
+    inkers:
+      "Dick Ayers, Joe Sinnott, Frank Giacoia, Wally Wood, Tom Palmer, Bill Everett, Tony Mortellaro",
     description:
       "Cap goes behind enemy lines in Vietnam and teams with the Falcon against the radical Diamond Heads before hitting the road coast-to-coast -- and Bucky Barnes returns from the grave.",
     coverUrl: "https://m.media-amazon.com/images/I/71f8x5aRInL._SL1400_.jpg",
@@ -1816,8 +2006,10 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Captain America #139–159",
     yearsCovered: "1971-1973",
     releaseDate: { year: 2018, month: 7 },
-    writers: "Stan Lee, Gary Friedrich, Steve Englehart",
-    pencillers: "John Romita Sr., Sal Buscema",
+    writers: "Gary Friedrich, Steve Englehart, Gerry Conway, Stan Lee, N. Korok, Steve Gerber",
+    pencillers: "Sal Buscema, John Romita Sr., Gil Kane",
+    inkers:
+      "John Verpoorten, John Romita Sr., Tony Mortellaro, Jim Mooney, Frank McLaughlin, George Roussos, Joe Sinnott, Vince Colletta, Frank Giacoia",
     description:
       "Steve Rogers takes a job as one of New York's finest, joining the police force as he searches for renewed purpose beyond the shield.",
     coverUrl: "https://m.media-amazon.com/images/I/81-uffXiXLL._SL1500_.jpg",
@@ -1834,8 +2026,10 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Captain America (1968) 160-179",
     yearsCovered: "1973-1974",
     releaseDate: { year: 2023, month: 6 },
-    writers: "Steve Englehart",
-    pencillers: "Sal Buscema",
+    writers: "Steve Englehart, Mike Friedrich, Alan Weiss, Roy Thomas, Tony Isabella",
+    pencillers: "Sal Buscema, John Romita Sr., Alan Weiss",
+    inkers:
+      "Vince Colletta, Frank McLaughlin, John Verpoorten, Tony Mortellaro, Alan Weiss, Frank Giacoia, John Tartaglione, George Roussos",
     description:
       "Steve Englehart and Sal Buscema unravel a conspiracy reaching to the very top of the U.S. government, as the Secret Empire's shocking scheme leaves Cap questioning what his shield stands for.",
     coverUrl: "https://m.media-amazon.com/images/I/8111Xp6qG9L._SL1500_.jpg",
@@ -1852,8 +2046,11 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Captain America (1968) 180-200; Marvel Treasury Special: Captain America's; Bicentennial Battles (1976)",
     yearsCovered: "1975-1976",
     releaseDate: { year: 2024, month: 4 },
-    writers: "Steve Englehart, Jack Kirby",
-    pencillers: "Frank Robbins, Jack Kirby",
+    writers:
+      "Jack Kirby, Steve Englehart, John Warner, Tony Isabella, Bill Mantlo, Marv Wolfman, Scott Edelman",
+    pencillers: "Frank Robbins, Jack Kirby, Sal Buscema, Herb Trimpe",
+    inkers:
+      "Frank Giacoia, Vince Colletta, D. Bruce Berry, Frank Chiaramonte, Joe Giella, Mike Esposito, Barry Windsor-Smith",
     description:
       "Watergate-era disillusionment drives Steve Rogers to renounce the Captain America identity and become Nomad, a man without a country, building toward Jack Kirby's Bicentennial return and his classic \"Madbomb\" saga.",
     coverUrl: "https://m.media-amazon.com/images/I/81w1q6XAlqL._SL1500_.jpg",
@@ -1870,8 +2067,10 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Captain America #201–221, Annual #3-4",
     yearsCovered: "1976-1978",
     releaseDate: { year: 2025, month: 7 },
-    writers: "Jack Kirby, Donald Glut",
-    pencillers: "Jack Kirby, Sal Buscema",
+    writers: "Jack Kirby, Don Glut, Roy Thomas, David Kraft, Steve Gerber",
+    pencillers: "Jack Kirby, Sal Buscema, George Tuska, John Buscema",
+    inkers:
+      "Frank Giacoia, John Verpoorten, Mike Royer, Mike Esposito, Pablo Marcos, John Tartaglione, Dan Green, Joe Sinnott",
     description:
       "Jack Kirby returns to write and draw his own creation, debuting the mutated menace Arnim Zola and bringing back the Red Skull for one of the character's most unabashedly wild eras.",
     coverUrl: "https://m.media-amazon.com/images/I/91MT2yUcAaL._SL1500_.jpg",
@@ -1888,8 +2087,11 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Captain America #247–266, Annual #5",
     yearsCovered: "1980-1982",
     releaseDate: { year: 2014, month: 2 },
-    writers: "Roger Stern, John Byrne, David Michelinie, J.M. DeMatteis, David Kraft",
-    pencillers: "John Byrne, Gene Colan, Mike Zeck",
+    writers:
+      "Roger Stern, John Byrne, J.M. DeMatteis, David Michelinie, Jim Shooter, David Kraft, Bill Mantlo, Mike W. Barr, Chris Claremont, Al Milgrom",
+    pencillers: "John Byrne, Mike Zeck, Gene Colan, Ed Hannigan, Lee Elias, Alan Kupperberg",
+    inkers:
+      "Joe Rubinstein, Frank McLaughlin, Quickdraw Studios, Dave Simons, Al Milgrom, Frank Giacoia, Mike Zeck, Mike Esposito, Vince Colletta, John Beatty",
     description:
       "Roger Stern and John Byrne redefine Cap for a new decade, sharpening his rogues gallery and supporting cast in a run widely regarded as one of the character's finest.",
     coverUrl: "https://m.media-amazon.com/images/I/91J7ScB6MkL._SL1500_.jpg",
@@ -1907,7 +2109,9 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     yearsCovered: "1982-1983",
     releaseDate: { year: 2020, month: 10 },
     writers: "J.M. DeMatteis, David Kraft",
-    pencillers: "Mike Zeck, Ron Wilson, Sal Buscema",
+    pencillers: "Mike Zeck, Sal Buscema, Don Perlin, Alan Kupperberg, Ron Wilson",
+    inkers:
+      "John Beatty, Kim DeMulder, Jack Abel, Sal Trapani, Al Milgrom, Rick Magyar, Joe Rubinstein, Mike Zeck, Vince Colletta",
     description:
       "Baron Helmut Zemo takes up his father's villainous mantle in a complex plan of revenge against Captain America, as Steve Rogers' childhood friend Arnie Roth resurfaces in deadly danger.",
     coverUrl: "https://m.media-amazon.com/images/I/81uhlaOfXjL._SL1500_.jpg",
@@ -1924,8 +2128,11 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Captain America #286-301, Annual #7 and The Falcon #1-4",
     yearsCovered: "1983-1984",
     releaseDate: { year: 2022, month: 8 },
-    writers: "J.M. DeMatteis, Jim Owsley",
-    pencillers: "Mike Zeck, Mark Bright, Paul Neary",
+    writers: "J.M. DeMatteis, Jim Owsley, Peter Gillis, Bill Mantlo, Michael Carlin",
+    pencillers:
+      "Paul Neary, Mike Zeck, Mark Bright, Brian Postman, Paul Smith, Ron Frenz, Herb Trimpe",
+    inkers:
+      "John Beatty, Mike Gustovich, Roy Richardson, Dennis Janke, Kim DeMulder, Vince Colletta, Steve Leialoha, Jack Abel, Ed Barreto, Joe Rubinstein, Brett Breeding, Sam de la Rosa",
     description:
       "J.M. DeMatteis pushes Cap into more introspective, psychologically charged territory, spinning the Falcon off into his own miniseries along the way.",
     coverUrl: "https://m.media-amazon.com/images/I/81qxoBNSIrL._SL1500_.jpg",
@@ -1942,8 +2149,9 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Captain America #302–317; and material from; Marvel Fanfare #18",
     yearsCovered: "1985-1986",
     releaseDate: { year: 2014, month: 8 },
-    writers: "Michael Carlin, Mark Gruenwald, Roger Stern",
-    pencillers: "Frank Miller, Paul Neary",
+    writers: "Mark Gruenwald, Michael Carlin, Roger McKenzie, Roger Stern",
+    pencillers: "Paul Neary, Frank Miller",
+    inkers: "Dennis Janke, Joe Rubinstein",
     description:
       "The sinister Sidewinder assembles the Serpent Society, and Captain America must face this army of villains alone while his partner Nomad questions his own sense of self after an encounter with Madcap.",
     coverUrl: "https://m.media-amazon.com/images/I/81Zf-JxN+4L._SL1500_.jpg",
@@ -1960,8 +2168,10 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Captain America #318–332, Annual #8,; Amazing Spider-Man #278; and material from; Marvel Fanfare #29, 31–32",
     yearsCovered: "1986-1987",
     releaseDate: { year: 2017, month: 4 },
-    writers: "Mark Gruenwald, J.M. DeMatteis",
-    pencillers: "Paul Neary, Mike Zeck, Kerry Gammill, Tom Morgan",
+    writers: "Mark Gruenwald, J.M. DeMatteis, John Byrne, Jo Duffy, Peter David, Tom DeFalco",
+    pencillers: "Paul Neary, Kerry Gammill, Tom Morgan, John Byrne, Mike Harris, Mike Zeck",
+    inkers:
+      "John Beatty, Dennis Janke, Vince Colletta, John Byrne, Joe Sinnott, Joe Rubinstein, Sam de la Rosa, Bob McLeod",
     description:
       "A super villain serial killer marked by the epitaph \"Justice is served!\" targets criminals across the city, drawing in the Scourge, Blue Streak, Flag-Smasher, and Wolverine.",
     coverUrl: "https://m.media-amazon.com/images/I/81wfngNsJ2L._SL1500_.jpg",
@@ -1978,8 +2188,9 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Captain America #333–350,; Iron Man #228",
     yearsCovered: "1987-1989",
     releaseDate: { year: 2021, month: 7 },
-    writers: "Mark Gruenwald, David Michelinie",
-    pencillers: "Tom Morgan, Kieron Dwyer, Mark Bright",
+    writers: "Mark Gruenwald, Bob Layton, David Michelinie",
+    pencillers: "Kieron Dwyer, Tom Morgan, Mark Bright",
+    inkers: "Al Milgrom, Dave Hunt, Tom Morgan, Tony DeZuniga, Bob Layton",
     description:
       "When Steve Rogers refuses to become a government operative, a new Captain America -- John Walker -- takes up the uniform and shield, while Rogers reinvents himself as the Captain and trades blows with Iron Man before the Red Skull's return forces the two Caps onto a collision course.",
     coverUrl: "https://m.media-amazon.com/images/I/810p5gFpANL._SL1500_.jpg",
@@ -1996,8 +2207,9 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Captain America #351–371",
     yearsCovered: "1989-1990",
     releaseDate: { year: 2018, month: 4 },
-    writers: "Mark Gruenwald",
-    pencillers: "Kieron Dwyer, Al Milgrom, Mark Bright, Ron Lim",
+    writers: "Mark Gruenwald, Kieron Dwyer",
+    pencillers: "Kieron Dwyer, Ron Lim, Rich Buckler, Al Milgrom",
+    inkers: "Danny Bulanadi, Al Milgrom",
     description:
       "Steve Rogers reclaims the shield and identity of Captain America, then sets off on a globe-trotting hunt for the shards of the mystical Bloodstone.",
     coverUrl: "https://m.media-amazon.com/images/I/81tSxgZgxQL._SL1500_.jpg",
@@ -2014,8 +2226,9 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Captain America #372–386, Annual #9–10",
     yearsCovered: "1990-1991",
     releaseDate: { year: 2015, month: 6 },
-    writers: "Mark Gruenwald, Daniel Chichester",
-    pencillers: "Ron Lim, Mark Bagley, Jim Valentino, Mike Manley",
+    writers: "Mark Gruenwald, Roy Thomas, Dann Thomas, D.G. Chichester",
+    pencillers: "Ron Lim, Jim Valentino, Chris Marrinan, Mike Manley",
+    inkers: "Danny Bulanadi, Sam de la Rosa, D. Hedd, Mike Manley",
     description:
       "A new super-drug called Ice hits the streets of Washington, D.C., and Captain America wages a personal war against it -- with tragic consequences for those closest to him.",
     coverUrl: "https://m.media-amazon.com/images/I/819MYhq7dkL._SL1500_.jpg",
@@ -2032,8 +2245,9 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Captain America #387–397;; Adventures of Captain America #1–4",
     yearsCovered: "1991-1992",
     releaseDate: { year: 2019, month: 3 },
-    writers: "Mark Gruenwald, Fabian Nicieza",
-    pencillers: "Rik Levins, Larry Alexander, Kevin Maguire, Kevin West",
+    writers: "Mark Gruenwald, Fabian Nicieza, Kevin Maguire",
+    pencillers: "Rik Levins, Kevin Maguire, Kevin West, Larry Alexander, Steve Carr",
+    inkers: "Danny Bulanadi, Terry Austin, Bud LaRosa, Joe Rubinstein, Tom Christopher",
     description:
       "Captain America faces a threat like never before when Superia raises an army of female super villains -- from Anaconda to M.O.D.A.M. -- and the roguish gun-for-hire Paladin lends a hand.",
     coverUrl: "https://m.media-amazon.com/images/I/91oxTL-V9-L._SL1500_.jpg",
@@ -2050,8 +2264,9 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Captain America #398-410;; Punisher/Captain America: Blood and Glory #1–3",
     yearsCovered: "1992",
     releaseDate: { year: 2020, month: 3 },
-    writers: "Mark Gruenwald, Daniel Chichester, Margaret Clark",
-    pencillers: "Rik Levins, Larry Alexander, Klaus Janson",
+    writers: "Mark Gruenwald, Margaret Clark, D.G. Chichester",
+    pencillers: "Rik Levins, Klaus Janson",
+    inkers: "Danny Bulanadi, Klaus Janson, Don Hudson, Raymond Kryssing, Steve Alexandrov",
     description:
       "Captain America and the Punisher find themselves on opposite sides of a mercenary war for blood diamonds in a war-torn African nation, testing how far apart their codes of justice really are.",
     coverUrl: "https://m.media-amazon.com/images/I/816+15ZGwcL._SL1500_.jpg",
@@ -2068,8 +2283,10 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Captain America #411-419, Annual #11-12; Ghost Rider/Captain America: Fear #1; U.S.Agent #1-4 and material from Silver Sable & the Wild Pack #15",
     yearsCovered: "1993",
     releaseDate: { year: 2022, month: 3 },
-    writers: "Mark Gruenwald, Howard Mackie",
-    pencillers: "Lee Weeks, Rik Levins, M.C. Wyman",
+    writers: "Mark Gruenwald, Howard Mackie, Roy Thomas, Gregory Wright, David Wohl",
+    pencillers: "Rik Levins, M.C. Wyman, Lee Weeks, Larry Alexander, Steven Butler",
+    inkers:
+      "Danny Bulanadi, Keith Williams, Al Williamson, Kathryn Bolinger, Pam Eklund, Charles Barnett",
     description:
       "John Walker's tenure as U.S.Agent gets its own spotlight while Captain America teams with Ghost Rider against a supernatural fear-based threat.",
     coverUrl: "https://m.media-amazon.com/images/I/81mQf-VPYzL._SL1500_.jpg",
@@ -2086,8 +2303,11 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Captain America (1968) 420-430; Captain America Annual (1971) 13; Nomad (1992) 18-19; Captain America: The Medusa Effect (1994) 1; Captain America/Nick Fury: Blood Truce (1995) 1",
     yearsCovered: "1993-1994",
     releaseDate: { year: 2023, month: 5 },
-    writers: "Mark Gruenwald, Roy Thomas",
-    pencillers: "Rik Levins, M.C. Wyman, Dave Hoover",
+    writers: "Mark Gruenwald, Roy Thomas, Fabian Nicieza, Howard Chaykin, Ben Schwartz",
+    pencillers:
+      "Dave Hoover, Rik Levins, M.C. Wyman, Rick Mays, Bill Wylie, Rich Buckler, Phil Gosier, Arvell Jones, Andrew Currie",
+    inkers:
+      "Danny Bulanadi, Greg Adams, Dan Day, Scott Koblish, Charles Barnett, Jim Sanders III, Margeaux Pepoy, Romeo Tanghal, David Day, Tom Palmer",
     description:
       "Mark Gruenwald continues his marathon run with crossovers pulling in Nomad and Nick Fury, as Cap's rogues gallery of shadowy government operations keeps expanding.",
     coverUrl: "https://m.media-amazon.com/images/I/91VfV4OBzvL._SL1500_.jpg",
@@ -2104,8 +2324,11 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Captain America (1968) 431-443; Tales of Suspense (1995) 1; Avengers (1963) 386-388; material from; Captain America Collector's Preview (1995) 1",
     yearsCovered: "1994-1995",
     releaseDate: { year: 2024, month: 2 },
-    writers: "Mark Gruenwald",
-    pencillers: "Andrew Robinson, Bob Harras, Dave Hoover, Colin MacNeil",
+    writers: "Mark Gruenwald, Terry Kavanagh, Bob Harras, James Robinson",
+    pencillers:
+      "Dave Hoover, Mike Deodato Jr., Colin MacNeil, Dario Carrasco, Angel Medina, Sandu Florea",
+    inkers:
+      "Danny Bulanadi, Don Hudson, Tom Palmer, Colin MacNeil, Scott Koblish, Marie Severin, Keith Williams, Rick Hoover, Dave Hoover",
     description:
       "Mark Gruenwald's final stretch on the title he steered longer than any other writer, closing out an era before the character's mid-'90s relaunch.",
     coverUrl: "https://m.media-amazon.com/images/I/91Iw-yZnfzL._SL1500_.jpg",
@@ -2122,8 +2345,12 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Captain America #444–454, Ashcan Edition,; Thor #496,; Iron Man #326,; Avengers #396,; Captain America: The Legend; and material from; Captain America Collectors' Preview",
     yearsCovered: "1995-1996",
     releaseDate: { year: 2016, month: 4 },
-    writers: "Mark Waid",
-    pencillers: "Ron Garney",
+    writers:
+      "Mark Waid, Terry Kavanagh, William Messner-Loebs, Steve Saffel, Stephen Vrattos, Fred Hembeck, Gary Guzzo, Mike Kanterovich, Greg Theakston, Joe Simon, Jack Kirby, Mark Gruenwald",
+    pencillers:
+      "Ron Garney, Mike Deodato Jr., Steve Ellis, Jim Cheung, Hector Collazo, John Statema, Pino Rinaldi, Fred Hembeck, Al Avison, Jack Kirby",
+    inkers:
+      "Scott Koblish, Denis Rodier, Mike Sellers, Mike Manley, Sandu Florea, Mike Deodato Jr., Mark McKenna, Andy Lanning, Steve Moncuse, Tom Palmer, Fred Hembeck, Joe Simon, Syd Shores, Al Gabriele",
     description:
       "Mark Waid takes over as Steve Rogers is declared a man without a country after a shadowy conspiracy strips his citizenship, forcing him to decide what Captain America means without a nation behind him.",
     coverUrl: "https://m.media-amazon.com/images/I/81P0BGMbxDL._SL1500_.jpg",
@@ -2158,8 +2385,12 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "#222-246; Incredible Hulk (1968) 232; Marvel Premiere (1972) 49",
     yearsCovered: "1978-1980",
     releaseDate: { year: 2026, month: 11 },
-    writers: "Roger McKenzie, Peter Gillis, Steve Gerber",
-    pencillers: "Sal Buscema",
+    writers:
+      "Roger McKenzie, Peter Gillis, Steve Gerber, Roger Stern, David Michelinie, Jim Shooter, Michael Fleisher, Chris Claremont, Paul Kupperberg, Alan Kupperberg, Mike W. Barr, Steve Grant, Mark Evanier",
+    pencillers:
+      "Sal Buscema, Fred Kida, Don Perlin, Mike Zeck, Alan Kupperberg, Frank Springer, Rich Buckler, Carmine Infantino, Jerry Bingham",
+    inkers:
+      "Don Perlin, Mike Esposito, John Tartaglione, Jack Abel, Frank Miller, Pablo Marcos, Joe Sinnott, Tom Sutton, Joe Rubinstein, Al Gordon, Dave Simons",
     description:
       "",
     coverUrl: "https://m.media-amazon.com/images/I/91MIibtM5cL._SL1500_.jpg",
@@ -2176,8 +2407,11 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Captain America (98) 15-31; Annual 1999",
     yearsCovered: "1999-2000",
     releaseDate: { year: 2027, month: 6 },
-    writers: "Mark Waid",
-    pencillers: "Andy Kubert",
+    writers: "Mark Waid, Dan Jurgens, Jay Faerber, Tom DeFalco, Joe Casey",
+    pencillers:
+      "Andy Kubert, Lee Weeks, Patrick Zircher, Ron Frenz, Dan Jurgens, Brent Anderson, Pablo Raimondi",
+    inkers:
+      "Jesse Delperdang, Dan Green, Joe Kubert, Tom Palmer, Bob McLeod, Al Milgrom, Robert Campanella, Denis Rodier, Walden Wong",
     description:
       "",
     ownershipStatus: "announced",
@@ -2194,8 +2428,10 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Amazing Spider-Man (1963) #361-363, #378-380; Web of Spider-Man (1985) #101-103; Spider-Man (1990) #35-37; Spectacular Spider-Man (1976) #201-203; material from; Spider-Man Unlimited (1993) #1-2 and; Amazing Spider-Man Annual (1964) #28",
     yearsCovered: "1992-1993",
     releaseDate: { year: 2022, month: 3 },
-    writers: "David Michelinie, Terry Kavanagh, J.M. DeMatteis",
-    pencillers: "Mark Bagley, Alex Saviuk, Tom Lyle, Sal Buscema",
+    writers: "David Michelinie, Terry Kavanagh, J.M. DeMatteis, Tom DeFalco",
+    pencillers: "Mark Bagley, Alex Saviuk, Tom Lyle, Sal Buscema, Ron Lim, Steven Butler",
+    inkers:
+      "Randy Emberlin, Don Hudson, Scott Hanna, Sal Buscema, Jim Sanders III, Al Milgrom, Sam de la Rosa, Bud LaRosa",
     description:
       "Cletus Kasady bonds with Venom's spawned symbiote to become Carnage, unleashing his first rampages against Spider-Man and building to the citywide Maximum Carnage crossover.",
     coverUrl: "https://m.media-amazon.com/images/I/91VHHeb7EEL._SL1500_.jpg",
@@ -2212,8 +2448,12 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Amazing Spider-Man (1963) 403, 410; Venom: Carnage Unleashed (1995) 1-4; Carnage: Mind Bomb (1996) 1; Sensational Spider-Man (1996) 3; Spider-Man (1990) 67; Spectacular Spider-Man (1976) 233; Carnage: It's a Wonderful Life (1996) 1; Venom: On Trial (1997) 2-3; material from; Amazing Spider-Man Super Special (1995) 1; Spider-Man Super Special (1995) 1; Venom Super Special (1995) 1; Spectacular Spider-Man Super Special (1995) 1; Web of Spider-Man Super Special (1995) 1",
     yearsCovered: "1994-1997",
     releaseDate: { year: 2023, month: 3 },
-    writers: "Larry Hama, David Michelinie",
-    pencillers: "Mark Bagley, Andrew Wildman, Kyle Hotz, Josh Hood",
+    writers:
+      "Larry Hama, David Michelinie, Tom DeFalco, J.M. DeMatteis, Todd DeZago, Terry Kavanagh, Warren Ellis, Dan Jurgens, David Quinn",
+    pencillers:
+      "Andrew Wildman, Mark Bagley, Sal Buscema, Kyle Hotz, Josh Hood, Steven Butler, Dave Hoover, Joe St. Pierre, Darick Robertson, Steve Lightle, Dan Jurgens, John Romita Jr.",
+    inkers:
+      "Joe Rubinstein, Randy Emberlin, Larry Mahlstedt, Kyle Hotz, Derek Fisher, Larry Malstedt, Sal Buscema, Bill Sienkiewicz, Sam de la Rosa, Ralph Cabrera, Greg Adams, Armando Gil, Arne Starr, Steve Lightle, Klaus Janson, Al Milgrom, Al Williamson, Art Thibert, John Stanisci",
     description:
       "Cletus Kasady escapes captivity once again, and when the Planet of the Symbiotes invades Earth, a fifty-foot Carnage rampages through the city.",
     coverUrl: "https://m.media-amazon.com/images/I/81W2T3J6PuL._SL1500_.jpg",
@@ -2230,8 +2470,11 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Amazing Spider-Man (1963) 430-431; Peter Parker: Spider-Man (1999) 13; Webspinners: Tales of Spider-Man (1999) 13-14; Venom vs. Carnage (2004) 1-4; Toxin (2005) 1-6; X-Men/Spider-Man (2008) 3; What If? (1989) 108",
     yearsCovered: "1997-2008",
     releaseDate: { year: 2024, month: 3 },
-    writers: "Tom DeFalco, Howard Mackie, Peter Milligan",
-    pencillers: "Clayton Crain, Darick Robertson",
+    writers: "Peter Milligan, Tom DeFalco, Howard Mackie, Christos N. Gage",
+    pencillers:
+      "Darick Robertson, Clayton Crain, Joe Bennett, Graham Nolan, Lee Weeks, Mario Alberti, Sergio Cariello",
+    inkers:
+      "Rodney Ramos, Clayton Crain, Bud LaRosa, Scott Koblish, Robert Campanella, Mario Alberti, Keith Champagne",
     description:
       "The Carnage symbiote sets its sights on the Silver Surfer as a host, then vents its rage on Venom with the offspring symbiote Toxin caught in the middle.",
     coverUrl: "https://m.media-amazon.com/images/I/819-saXPygL._SL1500_.jpg",
@@ -2249,8 +2492,11 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Daredevil #1–21",
     yearsCovered: "1964-1966",
     releaseDate: { year: 2016, month: 7 },
-    writers: "Stan Lee",
-    pencillers: "Wally Wood, John Romita Sr.",
+    writers: "Stan Lee, Wally Wood, Dennis O'Neil",
+    pencillers:
+      "Wally Wood, John Romita Sr., Joe Orlando, Bob Powell, Jack Kirby, Gene Colan, Bill Everett",
+    inkers:
+      "Wally Wood, Frank Giacoia, Vince Colletta, Bill Everett, John Romita Sr., Steve Ditko, Sol Brodsky, Dick Ayers",
     description:
       "Matt Murdock is blinded by radioactive waste while saving a man's life, but gains superhuman senses in return -- becoming Daredevil, a gritty hero protecting the downtrodden.",
     coverUrl: "https://m.media-amazon.com/images/I/81Yc-CWY53L._SL1500_.jpg",
@@ -2268,7 +2514,8 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     yearsCovered: "1966-1968",
     releaseDate: { year: 2018, month: 2 },
     writers: "Stan Lee",
-    pencillers: "Gene Colan",
+    pencillers: "Gene Colan, Jack Kirby",
+    inkers: "John Tartaglione, Frank Giacoia, Dick Ayers, George Tuska, Joe Sinnott",
     description:
       "Matt Murdock juggles his double life by inventing a fake twin brother, Mike Murdock, and even swaps bodies with Doctor Doom in one of comics' first crossovers, alongside the debut of the Emissaries of Evil.",
     coverUrl: "https://m.media-amazon.com/images/I/8159ia6UUxL._SL1500_.jpg",
@@ -2285,8 +2532,9 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Daredevil #42–63",
     yearsCovered: "1968-1970",
     releaseDate: { year: 2017, month: 2 },
-    writers: "Stan Lee, Roy Thomas",
-    pencillers: "Gene Colan, Barry Windsor Smith",
+    writers: "Roy Thomas, Stan Lee",
+    pencillers: "Gene Colan, Barry Windsor-Smith",
+    inkers: "Syd Shores, George Klein, Dan Adkins, Vince Colletta, Johnny Craig",
     description:
       "Gene Colan's definitive art run takes hold as Matt Murdock's double life grows more complicated, with new threats testing the Man Without Fear's resolve.",
     coverUrl: "https://m.media-amazon.com/images/I/81qVliRR6pL._SL1500_.jpg",
@@ -2303,8 +2551,9 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Daredevil #64–86;; Iron Man #35–36",
     yearsCovered: "1970-1972",
     releaseDate: { year: 2019, month: 11 },
-    writers: "Roy Thomas, Gerry Conway",
-    pencillers: "Gene Colan",
+    writers: "Gerry Conway, Roy Thomas, Gary Friedrich, Len Wein, Allyn Brodsky",
+    pencillers: "Gene Colan, Don Heck, Barry Windsor-Smith, Alan Weiss",
+    inkers: "Syd Shores, Tom Palmer, Jack Abel, Mike Esposito, Bill Everett",
     description:
       "Daredevil heads to the West Coast to win back Karen Page's love, and one of his most iconic eras begins as his relationship with the Black Widow takes flight.",
     coverUrl: "https://m.media-amazon.com/images/I/81YmjbNxQkL._SL1500_.jpg",
@@ -2321,8 +2570,11 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Daredevil (1964) 87-107, Avengers (1963) 111",
     yearsCovered: "1972-1973",
     releaseDate: { year: 2022, month: 1 },
-    writers: "Gerry Conway, Steve Gerber",
-    pencillers: "Gene Colan, Don Heck",
+    writers: "Gerry Conway, Steve Gerber, Chris Claremont, Steve Englehart",
+    pencillers:
+      "Gene Colan, Don Heck, Sam Kweskin, Rich Buckler, Syd Shores, Jim Starlin, William Robert Brown",
+    inkers:
+      "Tom Palmer, Ernie Chan, Sal Trapani, Frank Giacoia, Syd Shores, John Tartaglione, Don Perlin, Sal Buscema, Mike Esposito",
     description:
       "Daredevil and the Black Widow relocate to San Francisco, settling into a new life together while classic foes track them down on the opposite coast.",
     coverUrl: "https://m.media-amazon.com/images/I/81Gb1LZnO1L._SL1500_.jpg",
@@ -2339,8 +2591,10 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Daredevil #108-132, Marvel Two-In-One #3",
     yearsCovered: "1974-1976",
     releaseDate: { year: 2023, month: 3 },
-    writers: "Steve Gerber, Tony Isabella, Marv Wolfman",
-    pencillers: "Bob Brown, Gene Colan",
+    writers: "Steve Gerber, Marv Wolfman, Tony Isabella, Chris Claremont, Gerry Conway, Len Wein",
+    pencillers: "William Robert Brown, Gene Colan, Sal Buscema, Don Heck",
+    inkers:
+      "Vince Colletta, Klaus Janson, Don Heck, Paul Gulacy, Joe Sinnott, Frank Chiaramonte, Jim Mooney, Frank Giacoia",
     description:
       "Daredevil, the Black Widow, and Shanna the She-Devil uncover the secret leaders of Black Spectre, a massive saga culminating in a battle on the White House lawn -- and Bullseye, the madman with perfect aim, makes his deadly debut.",
     coverUrl: "https://m.media-amazon.com/images/I/81GBq1AQi7L._SL1500_.jpg",
@@ -2357,8 +2611,12 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Daredevil (1964) 133-154; Daredevil Annual (1967) 4; Ghost Rider (1973) 20; Marvel Premiere (1972) 39-40, 43; material from Ghost Rider (1973) 19",
     yearsCovered: "1976-1978",
     releaseDate: { year: 2024, month: 4 },
-    writers: "Marv Wolfman, Jim Shooter, Roger McKenzie",
-    pencillers: "Bob Brown, Gil Kane, Carmine Infantino",
+    writers:
+      "Marv Wolfman, Jim Shooter, Roger McKenzie, Bill Mantlo, Gerry Conway, Tony Isabella, Chris Claremont, Gil Kane, Don McGregor",
+    pencillers:
+      "William Robert Brown, Gil Kane, Carmine Infantino, John Buscema, John Byrne, George Tuska, Sal Buscema, Gene Colan, Frank Robbins, Marie Severin, Lee Elias, Tom Sutton",
+    inkers:
+      "Jim Mooney, Klaus Janson, Al Milgrom, Vince Colletta, Don Perlin, Frank Chiaramonte, Keith Pollard, Dan Green, Tony DeZuniga, Steve Leialoha, Alan Weiss, Tom Sutton",
     description:
       "A gritty saga traps Daredevil in Rikers Island prison, forcing him to survive among the very criminals he put behind bars.",
     coverUrl: "https://m.media-amazon.com/images/I/81i8MzUizXL._SL1500_.jpg",
@@ -2375,8 +2633,10 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Daredevil #155-176; material from What If #28; Bizarre Adventures #28",
     yearsCovered: "1978-1980",
     releaseDate: { year: 2025, month: 9 },
-    writers: "Roger McKenzie, Frank Miller",
-    pencillers: "Frank Miller",
+    writers:
+      "Frank Miller, Roger McKenzie, Jo Duffy, Michael Fleisher, David Michelinie, Mike W. Barr",
+    pencillers: "Frank Miller, Gene Colan, Frank Robbins, Steve Ditko",
+    inkers: "Klaus Janson, Frank Springer, Steve Ditko, Joe Rubinstein, Frank Miller",
     description:
       "One of the most influential runs in Marvel history begins as Frank Miller takes over as artist and then writer, remaking the mythos of the Man Without Fear -- introducing Elektra, the assassin with surprising ties to Matt Murdock's past, and the Hand, a clan of killer ninjas.",
     coverUrl: "https://m.media-amazon.com/images/I/91BVcHJ1KEL._SL1500_.jpg",
@@ -2393,8 +2653,11 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Daredevil #234-252",
     yearsCovered: "1986-1987",
     releaseDate: { year: 2022, month: 11 },
-    writers: "Ann Nocenti",
-    pencillers: "Steve Ditko, Louis Williams, Rick Leonardi, John Romita Jr.",
+    writers: "Ann Nocenti, Mark Gruenwald, Danny Fingeroth, Steve Englehart, Jim Owsley",
+    pencillers:
+      "Louis Williams, Steve Ditko, Rick Leonardi, John Romita Jr., Barry Windsor-Smith, Sal Buscema, Todd McFarlane, Keith Pollard, Chuck Patton, Tom Morgan, Keith Giffen",
+    inkers:
+      "Al Williamson, Danny Bulanadi, Tony DeZuniga, Klaus Janson, Barry Windsor-Smith, Bob Wiacek, Steve Leialoha, Geof Isherwood, Al Milgrom, Dave Hunt",
     description:
       "Klaw, Master of Sound, makes some noise, Chance tries his luck, and the savage Sabretooth crosses Daredevil's path right in the middle of the Mutant Massacre.",
     coverUrl: "https://m.media-amazon.com/images/I/812IWkgMwIL._SL1500_.jpg",
@@ -2411,8 +2674,9 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Daredevil #253–270;; Punisher #10",
     yearsCovered: "1988-1989",
     releaseDate: { year: 2016, month: 1 },
-    writers: "Ann Nocenti",
-    pencillers: "John Romita Jr.",
+    writers: "Ann Nocenti, Fabian Nicieza, John Romita Jr., Mike Baron",
+    pencillers: "John Romita Jr., Ron Lim, Steve Ditko, Whilce Portacio",
+    inkers: "Al Williamson, Jim Sanders, Mike Manley, Scott Williams",
     description:
       "Typhoid Mary, the lethally seductive assassin unleashed by the Kingpin, targets Matt Murdock with one personality and Daredevil with another as Ann Nocenti and John Romita Jr. begin their acclaimed run.",
     coverUrl: "https://m.media-amazon.com/images/I/91-jiQXAhRL._SL1500_.jpg",
@@ -2429,8 +2693,12 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Daredevil #271–282, Annual #5–6; and material from; Punisher Annual #3,; Incredible Hulk Annual #16 and; Silver Surfer Annual #3",
     yearsCovered: "1989-1990",
     releaseDate: { year: 2017, month: 9 },
-    writers: "Gregory Wright, Ann Nocenti, Peter David",
-    pencillers: "Mark Bagley, John Romita Jr. Angel Medina",
+    writers:
+      "Ann Nocenti, Gerry Conway, Gregory Wright, Mike Baron, Peter David, Jim Starlin, Ron Marz",
+    pencillers:
+      "John Romita Jr., Rick Leonardi, Mark Bagley, Cam Kennedy, Neil Hansen, Angel Medina, Ron Lim",
+    inkers:
+      "Al Williamson, Sam de la Rosa, Cam Kennedy, Neil Hansen, Larry Mahlstedt, Tom Christopher",
     description:
       "Daredevil is caught between the diabolical Mephisto and his monstrous son Blackheart, forcing the Man Without Fear and his allies to confront their own demons.",
     coverUrl: "https://m.media-amazon.com/images/I/81lJnZAr28L._SL1500_.jpg",
@@ -2447,8 +2715,9 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Daredevil #283-300, Annual #7",
     yearsCovered: "1990-1991",
     releaseDate: { year: 2020, month: 12 },
-    writers: "Gregory Wright, Ann Nocenti, Daniel Chichester",
-    pencillers: "Lee Weeks, Kieron Dwyer, Ron Garney",
+    writers: "Ann Nocenti, D.G. Chichester, Gregory Wright",
+    pencillers: "Lee Weeks, Kieron Dwyer, Ron Garney, Mark Bagley, Greg Capullo",
+    inkers: "Al Williamson, Doug Hazlewood, Fred Fredericks, Tom Morgan, Lee Weeks",
     description:
       "Ann Nocenti's run reaches its climax with a groundbreaking stretch drawn by John Romita Jr., pushing Daredevil's rogues gallery and psyche to their breaking points.",
     coverUrl: "https://m.media-amazon.com/images/I/81jQbHDt4bL._SL1500_.jpg",
@@ -2465,8 +2734,10 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Daredevil (1964) 301-311, Daredevil Annual (1967) 8, Nomad (1992) 4-6, Punisher War Journal (1988) 45-47, material from Marvel Holiday Special (1991) 2",
     yearsCovered: "1992",
     releaseDate: { year: 2021, month: 11 },
-    writers: "Daniel Chichester, Fabian Nicieza",
-    pencillers: "M.C. Wyman, Scott McDaniel, Pat Olliffe",
+    writers:
+      "D.G. Chichester, Fabian Nicieza, Chuck Dixon, Glenn Herdling, Gregory Wright, Ann Nocenti",
+    pencillers: "Scott McDaniel, M.C. Wyman, Pat Olliffe, John Hebert, Ron Garney, Tom Grindberg",
+    inkers: "Bud LaRosa, Chris Ivy, Mark McKenna, Fred Fredericks",
     description:
       "The Kingpin falls and the Owl moves to seize control of New York's underworld, as Tombstone, Hammerhead, Silvermane, Hydra, and the Hand all converge on a high-stakes Vegas gathering.",
     coverUrl: "https://m.media-amazon.com/images/I/91E-QciZ9QL._SL1500_.jpg",
@@ -2483,8 +2754,9 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Daredevil #312-318; Daredevil Annual 9; Daredevil/Black Widow: Abattoir; Daredevil: The Man Without Fear #1-5",
     yearsCovered: "1993",
     releaseDate: { year: 2023, month: 8 },
-    writers: "Daniel Chichester, Frank Miller",
-    pencillers: "Scott McDaniel, John Romita Jr.",
+    writers: "D.G. Chichester, Frank Miller, Gregory Wright, Jim Starlin",
+    pencillers: "Scott McDaniel, John Romita Jr., Kevin Kobasic, John Heebink, Joe Chiodo",
+    inkers: "Bud LaRosa, Al Williamson, Greg Adams, Fred Fredericks, Joe Chiodo",
     description:
       "Daredevil and the Black Widow reunite for a globe-trotting hunt against the assassin's guild called Abattoir, alongside Frank Miller and John Romita Jr.'s definitive retelling of the Man Without Fear's origin.",
     coverUrl: "https://m.media-amazon.com/images/I/81hyxuUFzRL._SL1500_.jpg",
@@ -2501,8 +2773,10 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Daredevil #319–332, Annual #10 and; additional pages from the original Fall from Grace trade paperback",
     yearsCovered: "1993-1994",
     releaseDate: { year: 2014, month: 4 },
-    writers: "Daniel Chichester, Gregory Wright",
+    writers: "D.G. Chichester, Gregory Wright",
     pencillers: "Scott McDaniel, Sergio Cariello, Kris Renkewitz",
+    inkers:
+      "Hector Collazo, Rich Rankin, Michael Avon Oeming, Harry Candelario, Ariane, Charles Barnett",
     description:
       "Elektra returns to the Marvel Universe as the Hand unleashes a super-virus on New York, and Daredevil dons a new armored costume with help from his resurrected past love.",
     coverUrl: "https://m.media-amazon.com/images/I/91VE+978o9L._SL1500_.jpg",
@@ -2519,8 +2793,11 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Daredevil #333–344;; Elektra: Root of Evil #1–4",
     yearsCovered: "1994-1995",
     releaseDate: { year: 2018, month: 7 },
-    writers: "Gregory Wright, Daniel Chichester",
-    pencillers: "Tom Grindberg, Scott McDaniel, Alexander Jubran, Keith Pollard",
+    writers: "Gregory Wright, D.G. Chichester, Warren Ellis, J.M. DeMatteis",
+    pencillers:
+      "Tom Grindberg, Scott McDaniel, Alexander Jubran, Keith Pollard, Arvell Jones, Ron Wagner",
+    inkers:
+      "Don Hudson, Hector Collazo, Ande Parks, Tom Palmer, Raymond Kryssing, Rodney Ramos, Bud LaRosa, Marie Severin, Art Nichols, Bill Reinhold",
     description:
       "Elektra's own miniseries digs into her past as an assassin, while Daredevil contends with the ongoing fallout from the Kingpin's power vacuum.",
     coverUrl: "https://m.media-amazon.com/images/I/81wETLGV1KL._SL1500_.jpg",
@@ -2537,8 +2814,10 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Daredevil #345–364",
     yearsCovered: "1995-1997",
     releaseDate: { year: 2019, month: 6 },
-    writers: "J.M. DeMatteis, Karl Kesel",
-    pencillers: "Ron Wagner, Cary Nord, Shawn McManus, Gene Colan",
+    writers: "Karl Kesel, J.M. DeMatteis, John Rozum, Ben Raab, Joe Kelly",
+    pencillers: "Cary Nord, Ron Wagner, Shawn McManus, Pasqual Ferry, Larry Hama, Gene Colan",
+    inkers:
+      "Matt Ryan, Bill Reinhold, Shawn McManus, Al Williamson, Pasqual Ferry, Cam Smith, Paul Neary",
     description:
       "J.M. DeMatteis and Karl Kesel guide Daredevil through some of his darkest and most spiritually charged material yet, oscillating between damnation and redemption.",
     coverUrl: "https://m.media-amazon.com/images/I/91HOE-0F69L._SL1500_.jpg",
@@ -2555,8 +2834,11 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Daredevil #365–380, −1;; Daredevil/Deadpool Annual '97",
     yearsCovered: "1997-1998",
     releaseDate: { year: 2015, month: 8 },
-    writers: "Joe Kelly, Scott Lobdell",
-    pencillers: "Gene Colan, Ariel Olivetti, Cully Hamner, Tom Morgan",
+    writers: "Joe Kelly, Scott Lobdell, Jonathan Barron, Chris Claremont, D.G. Chichester",
+    pencillers:
+      "Gene Colan, Ariel Olivetti, Cary Nord, Cully Hamner, Tom Morgan, Bernard Chang, Richie Acosta, Brian Denham, Rick Leonardi, Tom Lyle, John Paul Leon, Lee Weeks",
+    inkers:
+      "Pier Brito, Bud LaRosa, Scott Hanna, Matt Ryan, Jason Martin, Al Williamson, Jon Holdredge, Robert Jones, Chris Carlson, Mark Lipka, John Paul Leon, Robert Campanella",
     description:
       "Gene \"The Dean\" Colan draws Daredevil once again as Mister Fear launches a new campaign of terror, and Matt comes between his ex-love Black Widow and the mutant Omega Red.",
     coverUrl: "https://m.media-amazon.com/images/I/716oYonB6ZL._SL1400_.jpg",
@@ -2574,8 +2856,12 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "New Mutants (1983) 98; X-Force (1991) 2, 11, 15; Nomad (1992) 4; Deadpool: The Circle Chase (1993) 1-4; Secret Defenders (1993) 15-17; Deadpool (1994) 1-4; material from Avengers (1963) 366; Silver Sable & the Wild Pack (1992) 23",
     yearsCovered: "1991-1994",
     releaseDate: { year: 2021, month: 11 },
-    writers: "Rob Liefeld, Fabian Nicieza, Mark Waid",
-    pencillers: "Rob Liefeld, Joe Madureira, Ian Churchill",
+    writers:
+      "Fabian Nicieza, Mark Waid, Rob Liefeld, Mike Kanterovich, Tom Brevoort, Glenn Herdling, Gregory Wright",
+    pencillers:
+      "Joe Madureira, Ian Churchill, Rob Liefeld, Ken Lashley, Pat Olliffe, Mark Pacella, Greg Capullo, Mike Gustovich, Isaac Cordova, Jerry DeCaire, Bill Wylie",
+    inkers:
+      "Tony DeZuniga, Bud LaRosa, Rob Liefeld, Mark Farmer, Harry Candelario, Jason Temujin Minor, Mark McKenna, Dan Panosian, Al Milgrom, Ariane Lenshoek, Don Hudson, W.C. Carani, Tom Wegrzyn, Philip Moy",
     description:
       "The Merc with a Mouth's first appearance and earliest mercenary jobs, building to his own Circle Chase miniseries and first ongoing series.",
     coverUrl: "https://m.media-amazon.com/images/I/91yRWw9O+7L._SL1500_.jpg",
@@ -2592,8 +2878,11 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Wolverine #88; X-Force #47 & 56; Deadpool #1-9 & -1; Daredevil/Deadpool Annual '97; material from Wolverine Annual '95",
     yearsCovered: "1996-1997",
     releaseDate: { year: 2022, month: 10 },
-    writers: "Jeph Loeb, Joe Kelly",
-    pencillers: "Adam Pollina, Ed McGuinness, Bernard Chang",
+    writers: "Joe Kelly, Jeph Loeb, Larry Hama, Christopher Golden",
+    pencillers:
+      "Ed McGuinness, Adam Pollina, Shannon Denton, Adam Kubert, Fabio Laguna, Ben Herrera, Kevin Lau, Aaron Lopresti, Bernard Chang, Pete Woods, John Fang",
+    inkers:
+      "Norman Lee, Mark Farmer, Tim Townsend, Vince Russell, Mark Pennington, Mark Morales, Bud LaRosa, Rachel Dodson, Jon Holdredge",
     description:
       "Deadpool's own ongoing series debuts, growing his supporting cast of Blind Al, Weasel, and the Vanisher while he chases down Black Tom Cassidy and Juggernaut.",
     coverUrl: "https://m.media-amazon.com/images/I/81sXMrXlrmL._SL1500_.jpg",
@@ -2610,8 +2899,11 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Deadpool #10-20; Deadpool/Death Annual '98; Heroes for Hire #10-11; Baby's First Deadpool Book #1; Amazing Spider-Man #47",
     yearsCovered: "1997-1998",
     releaseDate: { year: 2024, month: 1 },
-    writers: "Joe Kelly, John Ostrander",
-    pencillers: "Pete Woods, Walter McDaniel, Tony Harris",
+    writers: "Joe Kelly, John Ostrander, Stan Lee",
+    pencillers:
+      "Walter McDaniel, Pete Woods, Shannon Denton, Pasqual Ferry, Scott Kolins, Steve Harris, Joe Cooper, John Romita Sr.",
+    inkers:
+      "Anibal Rodriguez, John Livesay, Jaime Mendoza, Dan Panosian, Reggie Jones, Walden Wong",
     description:
       "Joe Kelly digs into Wade Wilson's tragic past and his complicated relationship with Death herself, deepening Deadpool beyond the wisecracks.",
     coverUrl: "https://m.media-amazon.com/images/I/81oPPPFMqRL._SL1500_.jpg",
@@ -2629,7 +2921,9 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     yearsCovered: "1998-1999",
     releaseDate: { year: 2023, month: 7 },
     writers: "Joe Kelly, James Felder",
-    pencillers: "Pete Woods, Walter McDaniel, David Brewer",
+    pencillers: "Pete Woods, Walter McDaniel, Yancey Labat, Anthony Williams, David Brewer",
+    inkers:
+      "Walden Wong, Andy Lanning, Whitney McFarland, Rebecca Shelander, Sean Parsons, John Livesay, Rodney Ramos",
     description:
       "Joe Kelly and James Felder wrap the Wade Wilson origin threads and character confrontations that defined the series' first ongoing run.",
     coverUrl: "https://m.media-amazon.com/images/I/91omIakCwGL._SL1500_.jpg",
@@ -2646,8 +2940,12 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Deadpool (vol. 3) #34-45, Black Panther (vol. 3) #23, Wolverine (vol. 2) #154-155, Heroes Reborn: Remnants #1, Fight Man #1, and material from Wolverine Annual '99",
     yearsCovered: "1999-2000",
     releaseDate: { year: 2024, month: 9 },
-    writers: "Christopher Priest",
-    pencillers: "Paco Diaz, Jim Calafiore, Rob Liefeld, Evan Dorkin",
+    writers:
+      "Christopher Priest, Rob Liefeld, Eric Stephenson, Marc Andreyko, Glenn Herdling, Joe Kelly, Evan Dorkin",
+    pencillers:
+      "Paco Diaz Luque, Jim Calafiore, Rob Liefeld, Walter McDaniel, Andy Smith, Sal Velluto, Ethan Van Sciver, Evan Dorkin",
+    inkers:
+      "Jon Holdredge, Rich Perrotta, Scott Koblish, Rodney Ramos, Andy Smith, Mark McKenna, John Czop, Norm Rapmund, Walden Wong, Margeaux Pepoy, Scott Elmer, Bob Almond, Yancey Labat, Scott Hanna, Mark Nelson, Pam Eklund",
     description:
       "Christopher Priest's entire Deadpool run, sending the Merc with a Mouth into the courts of Wakanda and Asgard and forcing him to interact with two of Marvel's mightiest monarchs.",
     coverUrl: "https://m.media-amazon.com/images/I/81L+8cX6HML._SL1500_.jpg",
@@ -2664,8 +2962,9 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Deadpool (vol. 3) #65-69; Agent X #1-15",
     yearsCovered: "2002-2003",
     releaseDate: { year: 2025, month: 7 },
-    writers: "Gail Simone, Buddy Scalera, Evan Dorkin",
-    pencillers: "Udon Studios, Mitch Breitweiser, Juan Bobillo",
+    writers: "Gail Simone, Buddy Scalera, Evan Dorkin, Daniel Way",
+    pencillers: "Udon Studios, Alvin Lee, Mitch Breitweiser, Juan Bobillo, Kyle Hotz",
+    inkers: "Udon Studios, Mark McKenna, Marcelo Sosa, Rob Ross, Kyle Hotz",
     description:
       "Deadpool's memory and identity are scrambled by a telepathic villain, leading into Gail Simone's Agent X -- a mysterious new mercenary with a mangled, unreliable version of Wade's old life.",
     coverUrl: "https://m.media-amazon.com/images/I/81tY0zPX7SL._SL1500_.jpg",
@@ -2690,8 +2989,11 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "46-64; material from X-Men Unlimited (1993) 28",
     yearsCovered: "2000-2002",
     releaseDate: { year: 2027, month: 1 },
-    writers: "Jimmy Palmiotti, Buddy Scalera & Frank Tieri",
-    pencillers: "Paul Chadwick, Michael Lopez, Darick Robertson, Anthony Williams, Georges Jeanty, Karl Kerschl, Jim Calafiore & Liam Sharp",
+    writers: "Jimmy Palmiotti, Buddy Scalera, Frank Tieri",
+    pencillers:
+      "Georges Jeanty, Paul Chadwick, Darick Robertson, Anthony Williams, Liam Sharp, Michael Lopez, Karl Kerschl, Jim Calafiore",
+    inkers:
+      "Jon Holdredge, Ron Randall, Andy Lanning, Walden Wong, Liam Sharp, Karl Kerschl, Dexter Vines",
     description:
       "",
     ownershipStatus: "announced",
@@ -2708,8 +3010,11 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Doctor Strange #183; Sub-Mariner #22, 34-35; Incredible Hulk #126; Marvel Feature #1-3; Defenders #1-11; Avengers #116-118; material from Avengers #115",
     yearsCovered: "1972-1973",
     releaseDate: { year: 2022, month: 12 },
-    writers: "Roy Thomas, Steve Englehart",
-    pencillers: "Sal Buscema, Ross Andru, Bob Brown",
+    writers: "Steve Englehart, Roy Thomas, Len Wein",
+    pencillers:
+      "Sal Buscema, William Robert Brown, Ross Andru, Gene Colan, Marie Severin, Herb Trimpe",
+    inkers:
+      "Frank McLaughlin, Mike Esposito, Jim Mooney, Frank Bolle, Bill Everett, Frank Giacoia, Tom Palmer, Johnny Craig, Herb Trimpe, Sal Buscema, John Verpoorten",
     description:
       "Doctor Strange, the Hulk, and Namor the Sub-Mariner form a loose, non-team of misfits and outcasts too dangerous or strange for the mainstream Marvel Universe, birthing the \"non-team\" concept of the Defenders.",
     coverUrl: "https://m.media-amazon.com/images/I/81z9bTWSZYL._SL1500_.jpg",
@@ -2726,8 +3031,12 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Defenders (1972) 12-25, Giant-Size Defenders (1974) 1-4, Marvel Two-in-One (1974) 6-7; material from Mystery Tales (1952) 21, World of Fantasy (1956) 11, Tales of Suspense (1959) 9",
     yearsCovered: "1974-1975",
     releaseDate: { year: 2024, month: 6 },
-    writers: "Len Wein, Steve Gerber",
-    pencillers: "Sal Buscema",
+    writers:
+      "Len Wein, Steve Gerber, Tony Isabella, Chris Claremont, Jim Starlin, Roger Slifer, Don McGregor, Paul S. Newman, Stan Lee, Larry Lieber",
+    pencillers:
+      "Sal Buscema, Klaus Janson, Jim Starlin, Jack Abel, Dan Green, Gil Kane, George Tuska, Don Heck, Bob Powell, Angelo Torres, Doug Wildey",
+    inkers:
+      "Klaus Janson, Mike Esposito, Dan Green, Vince Colletta, Jack Abel, Al Milgrom, Frank Giacoia, Sal Trapani, Don Newton, Jim Mooney, Dan Adkins, Bob McLeod, Bob Powell, Angelo Torres, Doug Wildey",
     description:
       "The bizarre Headmen -- a mismatched trio of body-swapping villains -- launch a scheme against the Defenders as the team's roster of oddballs continues to expand.",
     coverUrl: "https://m.media-amazon.com/images/I/91d2Nle1NFL._SL1500_.jpg",
@@ -2744,8 +3053,11 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Defenders #26-41, Annual #1; Giant-Size Defenders #5; Marvel Treasury Edition #12",
     yearsCovered: "1975-1976",
     releaseDate: { year: 2025, month: 4 },
-    writers: "Steve Gerber",
-    pencillers: "Sal Buscema",
+    writers:
+      "Steve Gerber, Scott Edelman, Gerry Conway, Len Wein, Chris Claremont, Roger Slifer, Bill Mantlo, Mary Skrenes",
+    pencillers: "Sal Buscema, Don Heck, Sam Grainger",
+    inkers:
+      "Klaus Janson, Jim Mooney, Vince Colletta, Mike Esposito, Dave Hunt, John Tartaglione, Frank Giacoia, Jack Abel",
     description:
       "Steve Gerber steers the team into one of the most creative and beloved eras of the non-team's history, mixing absurdist humor with genuine cosmic stakes.",
     coverUrl: "https://m.media-amazon.com/images/I/91VMmHxGYeL._SL1500_.jpg",
@@ -2762,8 +3074,10 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Defenders #92–109;; Marvel Team-Up #101;; Captain America #268",
     yearsCovered: "1981-1982",
     releaseDate: { year: 2016, month: 8 },
-    writers: "J.M. DeMatteis",
-    pencillers: "Don Perlin",
+    writers: "J.M. DeMatteis, Mark Gruenwald",
+    pencillers: "Don Perlin, Jerry Bingham, Mike Zeck",
+    inkers:
+      "Joe Sinnott, Al Milgrom, Sal Trapani, Jack Abel, Frank Giacoia, Mike Esposito, Pablo Marcos, Rick Magyar, Chic Stone, Hilary Barta, John Beatty",
     description:
       "J.M. DeMatteis takes Doctor Strange, the Hulk, Nighthawk, Hellcat, and the Son of Satan on wild journeys into the occult, beginning with a broken Eternity and building to a double-sized issue #100 extravaganza featuring Dracula and the Devil-Slayer.",
     coverUrl: "https://m.media-amazon.com/images/I/91ImonznJTL._SL1500_.jpg",
@@ -2780,8 +3094,10 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Defenders #110–125;; Avengers Annual #11",
     yearsCovered: "1982-1983",
     releaseDate: { year: 2017, month: 8 },
-    writers: "J.M. DeMatteis",
-    pencillers: "Don Perlin",
+    writers: "J.M. DeMatteis, Don Perlin, Mark Gruenwald, Steven Grant",
+    pencillers: "Don Perlin, Sal Buscema, Al Milgrom",
+    inkers:
+      "Jack Abel, Kim DeMulder, Andy Mushynsky, Mike Gustovich, Mike Esposito, Hilary Barta, Mike Mignola, Diverse Hands, Al Milgrom, Alan Kupperberg",
     description:
       "The Defenders' occult adventures continue under J.M. DeMatteis as the team's ever-shifting roster faces new threats drawn from the shadows of the Marvel Universe.",
     coverUrl: "https://m.media-amazon.com/images/I/71NUe2d60JL._SL1031_.jpg",
@@ -2799,7 +3115,8 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     yearsCovered: "1984",
     releaseDate: { year: 2018, month: 8 },
     writers: "J.M. DeMatteis, Peter Gillis, Ann Nocenti",
-    pencillers: "Don Perlin, Alan Kupperberg",
+    pencillers: "Don Perlin, Alan Kupperberg, Sal Buscema, Mike Zeck",
+    inkers: "Kim DeMulder, Mike Gustovich, Alan Kupperberg, Mike Mignola",
     description:
       "The team evolves into the New Defenders with a fresh roster, new headquarters, and new leadership -- a Valkyrie, a gargoyle, a cosmic psychic, a sentient cloud, and a pair of ex-X-Men.",
     coverUrl: "https://m.media-amazon.com/images/I/91uVI5FCptL._SL1500_.jpg",
@@ -2816,8 +3133,9 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Defenders #138–152;; Gargoyle #1–4",
     yearsCovered: "1985-1986",
     releaseDate: { year: 2019, month: 12 },
-    writers: "Peter B. Gillis, J.M. DeMatteis",
-    pencillers: "Don Perlin, Mark Badger",
+    writers: "Peter Gillis, J.M. DeMatteis",
+    pencillers: "Don Perlin, Mark Badger, Luke McDonnell, Sal Buscema",
+    inkers: "Kim DeMulder, Art Nichols, Mark Badger, Dell Barras, Alan Kupperberg, Randy Emberlin",
     description:
       "Peter B. Gillis brings the long-running New Defenders series to its close, wrapping up the team's saga before the title's cancellation.",
     coverUrl: "https://m.media-amazon.com/images/I/910RSYR-9SL._SL1500_.jpg",
@@ -2835,8 +3153,10 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Fantastic Four #5-6, 10, 16-17, 23, 39-40, 57-60, 73; Annual #2-3; Amazing Spider-Man #5; Avengers #25; Daredevil #37-38; Marvel Super Heroes #20",
     yearsCovered: "1962-1969",
     releaseDate: { year: 2025, month: 11 },
-    writers: "Stan Lee",
-    pencillers: "Jack Kirby, Steve Ditko, Don Heck, Gene Colan",
+    writers: "Stan Lee, Steve Ditko, Roy Thomas, Larry Lieber",
+    pencillers: "Jack Kirby, Gene Colan, Steve Ditko, Don Heck, Larry Lieber, Frank Giacoia",
+    inkers:
+      "Joe Sinnott, Dick Ayers, Vince Colletta, Steve Ditko, George Roussos, Chic Stone, Wally Wood, Frank Giacoia, John Tartaglione",
     description:
       "The earliest appearances that cemented Doctor Doom as an icon, beginning with the Latverian monarch's first battle with the Fantastic Four and his bitter rivalry with Reed Richards, plus his alliance with Namor and theft of the Power Cosmic from the Silver Surfer.",
     coverUrl: "https://m.media-amazon.com/images/I/81oz7xXnrmL._SL1500_.jpg",
@@ -2853,8 +3173,12 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Fantastic Four #84-87, 116, 142-144; Sub-Mariner #20, 47-49; Thor #182-183; Incredible Hulk #143-144; Hero For Hire #8-9; material from Astonishing Tales #1-8",
     yearsCovered: "1969-1974",
     releaseDate: { year: 2026, month: 5 },
-    writers: "Stan Lee, Gerry Conway",
-    pencillers: "Jack Kirby, John Buscema, Gene Colan",
+    writers:
+      "Gerry Conway, Stan Lee, Roy Thomas, Larry Lieber, Steve Englehart, Len Wein, Gary Friedrich, Archie Goodwin",
+    pencillers:
+      "George Tuska, Jack Kirby, John Buscema, Wally Wood, Gene Colan, Rich Buckler, Dick Ayers, John Romita Sr.",
+    inkers:
+      "Joe Sinnott, Mike Esposito, Wally Wood, John Severin, Frank Giacoia, Johnny Craig, Billy Graham",
     description:
       "Doom's guest appearances across the Marvel Universe multiply as he schemes against the Sub-Mariner, Thor, the Hulk, and Luke Cage, plus his own solo Astonishing Tales serial exploring Latveria's political intrigue.",
     coverUrl: "https://m.media-amazon.com/images/I/910NNT3FpWL._SL1500_.jpg",
@@ -2872,8 +3196,9 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Strange Tales #110–111, 114–146;; Amazing Spider-Man Annual #2",
     yearsCovered: "1963-1966",
     releaseDate: { year: 2018, month: 10 },
-    writers: "Stan Lee, Steve Ditko",
+    writers: "Steve Ditko, Stan Lee, Roy Thomas, Dennis O'Neil, N. Korok",
     pencillers: "Steve Ditko",
+    inkers: "Steve Ditko, George Roussos",
     description:
       "The debut of Baron Mordo, Eternity, Dormammu, and the Mindless Ones -- as well as Strange's faithful servant Wong and the mystic Clea -- in Stan Lee and Steve Ditko's psychedelic origin run.",
     coverUrl: "https://m.media-amazon.com/images/I/91HOosKJs4L._SL1500_.jpg",
@@ -2890,8 +3215,12 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Strange Tales #147-168; Doctor Strange #169-179; Avengers #61; Material from; Not Brand Echh #13",
     yearsCovered: "1966-1969",
     releaseDate: { year: 2024, month: 1 },
-    writers: "Stan Lee, Roy Thomas",
-    pencillers: "Bill Everett, Marie Severin, Dan Adkins, Gene Colan",
+    writers:
+      "Roy Thomas, Stan Lee, Marie Severin, Bill Everett, Dennis O'Neil, Dan Adkins, Jim Lawrence, Raymond Marais, Jim Steranko",
+    pencillers:
+      "Marie Severin, Dan Adkins, Gene Colan, Bill Everett, Jim Steranko, Steve Ditko, Tom Palmer, John Buscema",
+    inkers:
+      "Dan Adkins, Bill Everett, Tom Palmer, Marie Severin, Herb Trimpe, Joe Sinnott, Steve Ditko, George Klein, Sam Grainger",
     description:
       "Doctor Strange gets his own solo series and one of his greatest creative teams, pitting the Master of the Mystic Arts against Eternity and Dormammu with Clea and Victoria Bentley's lives hanging in the balance.",
     coverUrl: "https://m.media-amazon.com/images/I/81dZdETl95L._SL1500_.jpg",
@@ -2908,8 +3237,12 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Doctor Strange #180–183;; Sub-Mariner #22;; Incredible Hulk #126;; Marvel Premiere #3–10, #12–14;; Doctor Strange (1974) #1–2, #4–5;; material from Marvel Feature #1; Marvel Premiere #11; Doctor Strange (1974) #3",
     yearsCovered: "1969-1974",
     releaseDate: { year: 2016, month: 10 },
-    writers: "Roy Thomas, Steve Englehart",
-    pencillers: "Gene Colan, Frank Brunner",
+    writers:
+      "Steve Englehart, Roy Thomas, Frank Brunner, Gardner Fox, Barry Windsor-Smith, Stan Lee, Archie Goodwin, Mike Friedrich",
+    pencillers:
+      "Frank Brunner, Gene Colan, Barry Windsor-Smith, Marie Severin, Herb Trimpe, Don Heck, Sam Kweskin, P. Craig Russell, Jim Starlin",
+    inkers:
+      "Dick Giordano, Tom Palmer, Frank Giacoia, Crusty Bunkers, Frank Brunner, Dave Hunt, Ernie Chan, Johnny Craig, Herb Trimpe, Dan Adkins, Don Perlin, Sal Buscema, Ralph Reese, Mike Esposito, Alan Weiss, Bob Wiacek",
     description:
       "Steve Englehart and Frank Brunner create the classic \"Sise-Neg Genesis\" and \"Silver Dagger\" sagas, some of the most acclaimed Doctor Strange stories ever told.",
     coverUrl: "https://m.media-amazon.com/images/I/8142aY2RPvL._SL1500_.jpg",
@@ -2926,8 +3259,11 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Doctor Strange (1974) #6-28;; Doctor Strange Annual (1997) #1;; Tomb of Dracula #44;; Giant-Size Doctor Strange (1975) #1 (cover only)",
     yearsCovered: "1975-1978",
     releaseDate: { year: 2021, month: 2 },
-    writers: "Steve Englehart, Marv Wolfman, Jim Starlin",
-    pencillers: "Gene Colan, Philip Russell, Jim Starlin",
+    writers: "Steve Englehart, Marv Wolfman, Jim Starlin, Roger Stern, P. Craig Russell",
+    pencillers:
+      "Gene Colan, Rudy Nebres, Jim Starlin, Al Milgrom, Tom Sutton, Alfredo Alcala, P. Craig Russell",
+    inkers:
+      "Tom Palmer, Rudy Nebres, Frank Chiaramonte, Ernie Chan, Klaus Janson, John Romita Sr., Alfredo Alcala, Pablo Marcos, P. Craig Russell",
     description:
       "A rotating cast of top creators -- including Marv Wolfman and Jim Starlin -- send Doctor Strange up against threats that test the very fabric of reality itself.",
     coverUrl: "https://m.media-amazon.com/images/I/91cQ-EOvwZL._SL1500_.jpg",
@@ -2944,8 +3280,12 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Doctor Strange 29-51 Man-Thing 4 material from Chamber of Chills 3-4 Defenders 53",
     yearsCovered: "1978-1982",
     releaseDate: { year: 2022, month: 2 },
-    writers: "Roger Stern, Chris Claremont",
-    pencillers: "Gene Colan, Tom Sutton, Marshall Rogers",
+    writers:
+      "Roger Stern, Chris Claremont, Ralph Macchio, Don McGregor, Steve Gerber, Bill Kunkel, David Michelinie, Roy Thomas, John Jakes, David Kraft",
+    pencillers:
+      "Gene Colan, Tom Sutton, Marshall Rogers, Frank Brunner, Ricardo Villamonte, Alan Kupperberg, Val Mayerik, Kerry Gammill, Keith Giffen, Dave Cockrum, Michael Golden",
+    inkers:
+      "Dan Green, Terry Austin, Tom Sutton, Rudy Nebres, Al Milgrom, Frank Brunner, Ernie Chan, P. Craig Russell, Pablo Marcos, Ricardo Villamonte, Jack Abel, Tom Palmer, Bob Wiacek, Diverse Hands, Joe Rubinstein, Walter Simonson, Wendy Pini, Frank Giacoia",
     description:
       "Roger Stern and Chris Claremont pit Doctor Strange against Nightmare, D'Spayre, and the Dream Weaver in a war fought across the landscape of the subconscious.",
     coverUrl: "https://m.media-amazon.com/images/I/81s5SMENnXL._SL1500_.jpg",
@@ -2962,8 +3302,9 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Doctor Strange, Sorcerer Supreme #1–13;; Marvel Graphic Novel No. 49 - Doctor Strange and Doctor Doom: Triumph and Torment",
     yearsCovered: "1989-1990",
     releaseDate: { year: 2019, month: 10 },
-    writers: "Peter B. Gillis, Roy Thomas, Roger Stern",
-    pencillers: "Richard Case, Butch Guice, Mike Mignolia",
+    writers: "Roy Thomas, Dann Thomas, Peter Gillis, Roger Stern",
+    pencillers: "Jackson Guice, Richard Case, Mike Mignola",
+    inkers: "Jackson Guice, José Marzan Jr., Randy Emberlin, Tony DeZuniga, Mark Badger",
     description:
       "Peter B. Gillis launches the Sorcerer Supreme era, and in Triumph and Torment, Doctor Strange makes a bargain with Doctor Doom to save Doom's mother's soul from eternal torment.",
     coverUrl: "https://m.media-amazon.com/images/I/81b6btyWCoL._SL1500_.jpg",
@@ -2980,8 +3321,11 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Doctor Strange, Sorcerer Supreme #14–33;; Ghost Rider #12",
     yearsCovered: "1991-1992",
     releaseDate: { year: 2021, month: 8 },
-    writers: "Roy Thomas, Dann Thomas",
-    pencillers: "Jean-Marc Lofficier, Butch Guice, Chris Marrinan",
+    writers: "Roy Thomas, Dann Thomas, Fabian Nicieza, Howard Mackie",
+    pencillers:
+      "Jackson Guice, Chris Marrinan, Jim Valentino, Gene Colan, Ron Lim, Javier Saltares, Tony DeZuniga",
+    inkers:
+      "Mark McKenna, Tony DeZuniga, Jackson Guice, Gene Colan, Doug Hazlewood, Kelley Jones, Sam de la Rosa, Mark Texeira, Jimmy Palmiotti",
     description:
       "The return of the vampires -- Doctor Strange faces bloodsuckers rising again, beginning with one uncomfortably close to Stephen himself.",
     coverUrl: "https://m.media-amazon.com/images/I/81dqj6VRzmL._SL1500_.jpg",
@@ -2998,8 +3342,11 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Doctor Strange, Sorcerer Supreme #34–47; Doctor Strange, Sorcerer Supreme Annual #2; Silver Surfer #67; Spider-Man/Dr. Strange: The Way to Dusty Death",
     yearsCovered: "1992-1993",
     releaseDate: { year: 2022, month: 8 },
-    writers: "Roy Thomas, Dann Thomas",
-    pencillers: "Don Lawlis, Geof Isherwood, Michael Bair",
+    writers:
+      "Roy Thomas, Dann Thomas, R.J.M. Lofficier, Jean-Marc Lofficier, Ron Marz, Gerry Conway",
+    pencillers: "Geof Isherwood, Dan Lawlis, M.C. Wyman, Kevin West, Michael Bair",
+    inkers:
+      "Geof Isherwood, Jim Sanders III, Chris Ivy, Sam de la Rosa, Don Hudson, Margeaux Pepoy, Bob Petrecca, E.R. Cruz, Tom Christopher, Michael Bair, Mark Beachum, Mark Texeira",
     description:
       "Doctor Strange is swept up in the galaxy-spanning Infinity War event, teaming with the Silver Surfer and Spider-Man as reality itself is threatened by an army of villainous doppelgangers.",
     coverUrl: "https://m.media-amazon.com/images/I/81CPwAsMtxL._SL1500_.jpg",
@@ -3016,8 +3363,11 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Doctor Strange, Sorcerer Supreme (1988) 48-61; Doctor Strange, Sorcerer Supreme Annual (1992) 3; Morbius: the Living Vampire (1992) 9; material from; Marvel Super-Heroes (1990) 12, 14; Marvel Comics Presents (1988) 146",
     yearsCovered: "1994",
     releaseDate: { year: 2023, month: 1 },
-    writers: "Len Kaminski, Roy Thomas, David Quinn",
-    pencillers: "Geof Isherwood, Mel Rubi",
+    writers:
+      "Roy Thomas, Geof Isherwood, Len Kaminski, David Quinn, Jean-Marc Lofficier, Randy Lofficier, Stuart Hopen, Gregory Wright",
+    pencillers: "Geof Isherwood, Mel Rubi, Brian Postman, Greg LaRocque, Ron Wagner, Frank Lopez",
+    inkers:
+      "Geof Isherwood, Bob Petrecca, Don Hudson, Fred Harper, Armando Gil, Vince Colletta, Charles Barnett, Mike Witherby, Dave Simons, Sandu Florea",
     description:
       "Clea's actions accidentally free Dormammu and Doctor Strange loses his magical powers, forcing the Defenders to reunite against Dormammu while Nightmare sets his sights on the powerless sorcerer.",
     coverUrl: "https://m.media-amazon.com/images/I/8140e5359rL._SL1500_.jpg",
@@ -3034,8 +3384,11 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Doctor Strange, Sorcerer Supreme #62-75, Annual #4; Midnight Sons Unlimited #6",
     yearsCovered: "1995-1996",
     releaseDate: { year: 2025, month: 11 },
-    writers: "David Quinn",
-    pencillers: "Melvin Rubi, Kyle Hotz, Peter Gross, Mark Buckingham",
+    writers: "David Quinn, Dan Abnett",
+    pencillers:
+      "Mel Rubi, Peter Gross, Mark Tenney, Max Douglas, John Hixson, Kyle Hotz, David Brewer, Steve Yeowell, Mark Buckingham",
+    inkers:
+      "Peter Gross, Fred Harper, Max Douglas, Kyle Hotz, Margeaux Pepoy, Rich Rankin, Pam Eklund, Steve Yeowell",
     description:
       "David Quinn takes over the Sorcerer Supreme, sending Stephen through some of the wildest twists and turns of his solo series as the Midnight Sons era winds down.",
     coverUrl: "https://m.media-amazon.com/images/I/91geVCUhLsL._SL1500_.jpg",
@@ -3052,8 +3405,12 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Strange Tales (1994) #1;; Doctor Strange, Sorcerer Supreme #76–90, Ashcan Edition;; Doctor Strange: What Is It That Disturbs You, Stephen?",
     yearsCovered: "1996-1997",
     releaseDate: { year: 2017, month: 10 },
-    writers: "David Quinn, Warren Ellis, J.M. DeMatteis",
-    pencillers: "Evan Skolnick, Marie Severin, Mark Buckingham",
+    writers:
+      "J.M. DeMatteis, David Quinn, Evan Skolnick, Warren Ellis, Todd DeZago, Kurt Busiek, Marc Andreyko",
+    pencillers:
+      "Mark Buckingham, Marie Severin, Ricardo Villagran, Peter Gross, Richard Pace, Gary Frank, Patrick Zircher, Pasqual Ferry, P. Craig Russell",
+    inkers:
+      "Kevin Sutherland, Peter Gross, Ricardo Villagran, Art Nichols, Don Hudson, Mark Buckingham, Bud LaRosa, Kev Sutherland, P. Craig Russell",
     description:
       "Kurt Busiek and Warren Ellis close out the Sorcerer Supreme series, bringing Doctor Strange's decades-long run to a reflective, era-ending conclusion.",
     coverUrl: "https://m.media-amazon.com/images/I/71gw-WOrvRL._SL1400_.jpg",
@@ -3071,8 +3428,12 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Captain Britain #1–2,; Excalibur #1–11,; Excalibur Special Edition,; Excalibur – Mojo Mayhem #1; and material from; Mighty World of Marvel #7, 14–15 and; Marvel Comics Presents #31–38",
     yearsCovered: "1988-1989",
     releaseDate: { year: 2017, month: 3 },
-    writers: "Chris Claremont, Michael Higgins",
-    pencillers: "Alan Davis, Marshall Rogers, Arthur Adams, Erik Larsen",
+    writers:
+      "Chris Claremont, Michael Higgins, Alan Davis, Alan Moore, Steve Craddock, Howard Mackie",
+    pencillers:
+      "Alan Davis, Erik Larsen, Herb Trimpe, Marshall Rogers, Ron Lim, Arthur Adams, Rich Buckler",
+    inkers:
+      "Terry Austin, Paul Neary, Alan Davis, Fred Kida, Joe Rubinstein, Mark Farmer, Bob Wiacek, Bruce Patterson",
     description:
       "Captain Britain and Meggan band together with former X-Men Nightcrawler and Kitty Pryde when Gatecrasher's Technet is sent to capture Rachel \"Phoenix\" Summers, forming Excalibur from their lighthouse base.",
     coverUrl: "https://m.media-amazon.com/images/I/91BML1v+uBL._SL1500_.jpg",
@@ -3089,8 +3450,11 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Excalibur #12–30",
     yearsCovered: "1989-1990",
     releaseDate: { year: 2018, month: 2 },
-    writers: "Chris Claremont, Michael Higgins",
-    pencillers: "Alan Davis, Ron Lim, Chris Wozniak",
+    writers: "Chris Claremont, Michael Higgins, Terry Austin, Seth Kruchkow, Dana Moreshead",
+    pencillers:
+      "Alan Davis, Chris Wozniak, Ron Lim, Dennis Jensen, Rick Leonardi, Barry Windsor-Smith, Colleen Doran, David Ross",
+    inkers:
+      "Paul Neary, Al Milgrom, Joe Rubinstein, Dan Adkins, Terry Austin, Bill Sienkiewicz, Bret Blevins",
     description:
       "England's premier superteam takes their show on the road in an interdimensional odyssey, as Kitty Pryde, Nightcrawler, Rachel Summers, Captain Britain, and Meggan journey through a string of bizarre alternate dimensions.",
     coverUrl: "https://m.media-amazon.com/images/I/918x5X5kkEL._SL1500_.jpg",
@@ -3107,8 +3471,12 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Excalibur #31–41,; Weird War III,; The Possession,; Air Apparent,; Sensational She-Hulk #26; and material from; Marvel Comics Presents #75",
     yearsCovered: "1990-1991",
     releaseDate: { year: 2019, month: 2 },
-    writers: "Scott Lobdell, Chris Claremont, Michael Higgins",
-    pencillers: "Ron Wagner, Tom Morgan, Mark Badger",
+    writers:
+      "Scott Lobdell, Chris Claremont, Michael Higgins, Sue Flaxman, Simon Furman, Dana Moreshead",
+    pencillers:
+      "David Ross, Ron Wagner, Mark Badger, Tom Morgan, Dave Hoover, Chris Wozniak, Justin Thyme, Gavin Curtis, Bryan Hitch, Ron Lim, Erik Larsen, Brian Stelfreeze, James Fry, Rick Leonardi, Jackson Guice, Dwayne Turner",
+    inkers:
+      "Al Milgrom, Ron Wagner, Mark Badger, Joe Rubinstein, Tom Morgan, Chris Ivy, Harry Candelario, Jim Sanders III, Tim Dzon, Tom Palmer, Erik Larsen, Karl Story, Al Gordon, Don Hudson, Klaus Janson",
     description:
       "Kitty Pryde reunites with the team as Excalibur navigates a run of standalone genre romps -- from a haunted possession story to a trip through the girls' school from Heck.",
     coverUrl: "https://m.media-amazon.com/images/I/91x+fR9U6bL._SL1500_.jpg",
@@ -3125,8 +3493,11 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Excalibur #42-58,; Excalibur: XX Crossing; and material from; Marvel Comics Presents #110",
     yearsCovered: "1991-1992",
     releaseDate: { year: 2020, month: 3 },
-    writers: "Alan Davis, Scott Lobdell",
-    pencillers: "Doug Braithwaite, Will Simpson, James Fry, Joe Madureira",
+    writers: "Alan Davis, Scott Lobdell, Ann Nocenti",
+    pencillers:
+      "Alan Davis, Joe Madureira, Steve Lightle, Dougie Braithwaite, Will Simpson, James Fry, Ron Lim, Brian Stelfreeze, Rick Leonardi, Jae Lee, Malcolm Jones, Dwayne Turner",
+    inkers:
+      "Mark Farmer, Joe Rubinstein, Jimmy Palmiotti, Jeff Albrecht, Mark McKenna, José Marzan Jr., Dave Hoover, Chris Ivy, Hector Collazo, Shawn McManus, Karl Story, Al Gordon, Al Williamson, Jae Lee, Malcolm Jones, Steve Lightle",
     description:
       "Alan Davis takes over as writer and artist, steering Shadowcat, Nightcrawler, Phoenix, Captain Britain, and Meggan to new heights of greatness -- and madness.",
     coverUrl: "https://m.media-amazon.com/images/I/916-61MnRIL._SL1500_.jpg",
@@ -3143,8 +3514,11 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Excalibur #59-75, Annual #1",
     yearsCovered: "1993",
     releaseDate: { year: 2024, month: 12 },
-    writers: "Alan Davis, Scott Lobdell, Richard Ashford",
-    pencillers: "Ken Lashley",
+    writers: "Alan Davis, Scott Lobdell, Richard Ashford, Evan Skolnick, Dan Slott",
+    pencillers:
+      "Alan Davis, Ken Lashley, Scott Kolins, Steve Buccellato, Mark Farmer, Chris Marrinan, Audwynn Newman, Darick Robertson, Matthew Ryan, Terry Shoemaker, Ian Churchill",
+    inkers:
+      "Mark Farmer, Cam Smith, Randy Elliott, Jon Holdredge, Harry Candelario, Don Hudson, Raymond Kryssing, Keith Williams, Mark McKenna, Danny Bulanadi, Danny Taverna, Agop Gemdjian, Rick Parker, Mark Nelson, Randy Emberlin",
     description:
       "The Phoenix-powered Rachel Summers returns fresh from a battle with Galactus as faces from Captain Britain's past resurface -- and dark days lie ahead as the team travels to Rachel's own nightmarish timeline, the Days of Future Past.",
     coverUrl: "https://m.media-amazon.com/images/I/912u53jXo7L._SL1500_.jpg",
@@ -3161,8 +3535,11 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Excalibur 104-115, -1; Colossus 1; Kitty Pryde: Agent of S.H.I.E.L.D. 1-3; New Mutants: Truth or Death 1-2",
     yearsCovered: "1997",
     releaseDate: { year: 2022, month: 2 },
-    writers: "Ben Raab",
-    pencillers: "Bryan Hitch, Salvador Larroca, Pete Woods, Bernard Chang",
+    writers: "Ben Raab, Larry Hama, John Arcudi, James Felder, Keith Giffen",
+    pencillers:
+      "Salvador Larroca, Rob Haynes, Bryan Hitch, Pete Woods, Bernard Chang, Jesus Redondo, Casey Jones, Scott Koblish, Randy Green, Aaron Lopresti, Rob Stotz, Mel Rubi",
+    inkers:
+      "Scott Koblish, Paul Neary, Mark Pennington, Sergio Melia, Rick Ketcham, Casey Jones, Rob Haynes, Robin Riggs, Bryan Hitch, Rachel Pinnock, Aaron Lopresti, Tom Simmons, Jason Martin",
     description:
       "John Arcudi and Bryan Hitch take the reins as the team faces a wave of crossovers alongside Colossus and a Kitty Pryde S.H.I.E.L.D. spinoff.",
     coverUrl: "https://m.media-amazon.com/images/I/81LZaqvXoeL._SL1500_.jpg",
@@ -3180,7 +3557,10 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     yearsCovered: "1998-2001",
     releaseDate: { year: 2023, month: 11 },
     writers: "Ben Raab, Chris Claremont",
-    pencillers: "Mel Rubi, Rick Leonardi, Pablo Raimondi",
+    pencillers:
+      "Mel Rubi, Pablo Raimondi, Dale Eaglesham, Rick Leonardi, Jim Calafiore, Trevor Scott",
+    inkers:
+      "Walden Wong, Rob Hunter, Scott Koblish, Scott Hanna, Al Williamson, Margeaux Pepoy, Mark McKenna, Pablo Raimondi",
     description:
       "The original Excalibur series builds to its conclusion around a wedding for Captain Britain and Meggan, before Chris Claremont relaunches the team in an all-new volume.",
     coverUrl: "https://m.media-amazon.com/images/I/91i9OUZVyeL._SL1500_.jpg",
@@ -3197,8 +3577,12 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "76-87; Annual 2; X-Factor 106; X-Force 38; mat Marvel Comics Presents 174",
     yearsCovered: "1994-1995",
     releaseDate: { year: 2026, month: 10 },
-    writers: "Warren Ellis, Scott Lobdell, Richard Ashford",
-    pencillers: "Ken Lashley, Robert Brown",
+    writers:
+      "Scott Lobdell, Chris Cooper, Warren Ellis, Richard Ashford, Todd DeZago, Fabian Nicieza, Skip Dietz",
+    pencillers:
+      "Ken Lashley, John Royle, Robert Brown, Amanda Conner, Jose Kleber de Moura Jr., Paul Abrams, Jan Duursema, Roger Cruz, Tony Daniel, Steve Epting, Terry Dodson, Bill Sienkiewicz, Daerick Gross, Paco Diaz Luque",
+    inkers:
+      "Randy Elliott, Harry Candelario, W.C. Carani, Keith Champagne, Bill Anderson, Tom Wegrzyn, Don Hudson, Jason Gorder, Margeaux Pepoy, Philip Moy, Al Milgrom, Kevin Conrad, John Floyd, John Livesay, Bill Sienkiewicz, Paco Diaz Luque",
     description:
       "",
     coverUrl: "https://m.media-amazon.com/images/I/91cVvfwDrAL._SL1500_.jpg",
@@ -3218,6 +3602,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     releaseDate: { year: 2014, month: 9 },
     writers: "Stan Lee",
     pencillers: "Jack Kirby",
+    inkers: "Dick Ayers, George Klein, Sol Brodsky, Joe Sinnott, Steve Ditko, Christopher Rule",
     description:
       "Stan Lee and Jack Kirby lay the foundation of the entire Marvel Universe, launching Reed Richards, Sue Storm, Johnny Storm, and Ben Grimm as the world's first family of superheroes.",
     coverUrl: "https://m.media-amazon.com/images/I/81NeChPsXGL._SL1500_.jpg",
@@ -3235,7 +3620,8 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     yearsCovered: "1963-1964",
     releaseDate: { year: 2017, month: 6 },
     writers: "Stan Lee",
-    pencillers: "Jack Kirby",
+    pencillers: "Jack Kirby, Steve Ditko",
+    inkers: "George Roussos, Chic Stone, Dick Ayers, Steve Ditko",
     description:
       "The Thing battles the Hulk, the Sub-Mariner makes a play for Sue Storm, and the FF tangle with the X-Men, plus two jam-packed annuals featuring Namor's invasion of New York and the origin of Doctor Doom.",
     coverUrl: "https://m.media-amazon.com/images/I/71vxDJVBxeL._SL1400_.jpg",
@@ -3252,8 +3638,9 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Fantastic Four #33–51, Annual #3",
     yearsCovered: "1965-1966",
     releaseDate: { year: 2018, month: 8 },
-    writers: "Stan Lee",
+    writers: "Stan Lee, Jack Kirby",
     pencillers: "Jack Kirby",
+    inkers: "Joe Sinnott, Chic Stone, Vince Colletta, Wally Wood, Frank Giacoia",
     description:
       "The Frightful Four and the Inhumans debut, Galactus and the Silver Surfer arrive to threaten Earth, and Reed Richards and Sue Storm celebrate the first superhero wedding in comics.",
     coverUrl: "https://m.media-amazon.com/images/I/81R9ZPB3gQL._SL1500_.jpg",
@@ -3270,8 +3657,9 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Fantastic Four #52–67, Annual #4–5; and material from; Not Brand Echh #1, 5",
     yearsCovered: "1966-1967",
     releaseDate: { year: 2019, month: 8 },
-    writers: "Stan Lee",
-    pencillers: "Jack Kirby",
+    writers: "Stan Lee, Jack Kirby",
+    pencillers: "Jack Kirby, Marie Severin",
+    inkers: "Joe Sinnott, Frank Giacoia",
     description:
       "Stan Lee and Jack Kirby unveil the debut of the world's first Black superhero, the Black Panther, and his kingdom of Wakanda.",
     coverUrl: "https://m.media-amazon.com/images/I/912oGI9juOL._SL1500_.jpg",
@@ -3288,8 +3676,9 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Fantastic Four #68-87, Annual #6; and material from; Not Brand Echh #6-7",
     yearsCovered: "1967-1969",
     releaseDate: { year: 2020, month: 6 },
-    writers: "Stan Lee",
-    pencillers: "Jack Kirby",
+    writers: "Stan Lee, Jack Kirby",
+    pencillers: "Jack Kirby, Marie Severin",
+    inkers: "Joe Sinnott, Tom Sutton",
     description:
       "The FF struggle against the Mad Thinker's android army, travel into the Microverse, journey to the Inhumans' Himalayan refuge, venture into the Negative Zone, witness the birth of Franklin Richards, and battle Doctor Doom in Latveria.",
     coverUrl: "https://m.media-amazon.com/images/I/91OmkgpoP5L._SL1500_.jpg",
@@ -3307,7 +3696,8 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     yearsCovered: "1969-1970",
     releaseDate: { year: 2020, month: 11 },
     writers: "Stan Lee",
-    pencillers: "Jack Kirby",
+    pencillers: "Jack Kirby, John Romita Sr.",
+    inkers: "Joe Sinnott, Frank Giacoia, John Verpoorten",
     description:
       "The final stretch of Lee and Kirby's original run sends the FF to war with Prince Namor's undersea kingdom of Atlantis.",
     coverUrl: "https://m.media-amazon.com/images/I/91uQbykSGWL._SL1500_.jpg",
@@ -3324,8 +3714,9 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Fantastic Four #105-125, Annual #8-9 (covers only)",
     yearsCovered: "1971-1972",
     releaseDate: { year: 2021, month: 9 },
-    writers: "Stan Lee",
-    pencillers: "John Buscema",
+    writers: "Stan Lee, Archie Goodwin, Roy Thomas",
+    pencillers: "John Buscema, John Romita Sr., Jack Kirby",
+    inkers: "Joe Sinnott, John Verpoorten, Frank Giacoia, Jim Mooney",
     description:
       "Stan Lee's final issues as regular writer give way to Archie Goodwin and John Buscema, pitting the team against a rotating cast of giant monsters and cosmic-level threats.",
     coverUrl: "https://m.media-amazon.com/images/I/81+lFWjY7GL._SL1500_.jpg",
@@ -3342,8 +3733,9 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Fantastic Four #126-146; Giant-Size Super-Stars #1; and material from F.O.O.M. #1, 4-5",
     yearsCovered: "1973-1974",
     releaseDate: { year: 2022, month: 8 },
-    writers: "Roy Thomas, Gerry Conway",
-    pencillers: "John Buscema, Ross Andru, Rich Buckler",
+    writers: "Gerry Conway, Roy Thomas, Jim Steranko, Tony Isabella",
+    pencillers: "John Buscema, Joe Sinnott, Rich Buckler, Ross Andru, Ramona Fradon",
+    inkers: "Joe Sinnott, Frank Giacoia",
     description:
       "The origin of Annihilus in the Negative Zone unfolds alongside classic battles with Thundra and the Hulk, plus the return of Doctor Doom.",
     coverUrl: "https://m.media-amazon.com/images/I/81IjOry99CL._SL1500_.jpg",
@@ -3360,8 +3752,12 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Fantastic Four #147-167; Giant-Size Fantastic Four #2-4; Avengers #127",
     yearsCovered: "1974-1975",
     releaseDate: { year: 2023, month: 8 },
-    writers: "Gerry Conway, Roy Thomas",
-    pencillers: "Rich Buckler, John Buscema, George Perez",
+    writers:
+      "Roy Thomas, Gerry Conway, Len Wein, Steve Englehart, Marv Wolfman, Tony Isabella, Stan Lee, Chris Claremont",
+    pencillers:
+      "Rich Buckler, George Pérez, John Buscema, Joe Sinnott, Sal Buscema, John Romita Sr., Joe Staton, Jim Mooney, William Robert Brown, Dick Ayers",
+    inkers:
+      "Joe Sinnott, Chic Stone, John Romita Sr., Joe Staton, Jim Mooney, Paul Reinman, Mike Esposito, Frank Giacoia, Rich Buckler, Vince Colletta",
     description:
       "The strained relationship of Reed and Sue Richards worsens as Sue joins Namor in an invasion of New York City, the Frightful Four resurface, the Femizons and Mahkizmo face off, and the Silver Surfer returns.",
     coverUrl: "https://m.media-amazon.com/images/I/81Zcd7uE-3L._SL1500_.jpg",
@@ -3378,8 +3774,12 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Fantastic Four #168–191, Annual #11; Marvel Two-in-One #20, Annual #1",
     yearsCovered: "1976-1977",
     releaseDate: { year: 2024, month: 9 },
-    writers: "Roy Thomas, Len Wein",
-    pencillers: "George Perez, John Buscema, Sal Buscema",
+    writers:
+      "Roy Thomas, Len Wein, Bill Mantlo, Jim Shooter, Mike Friedrich, Gerry Conway, Archie Goodwin, Roger Stern, Ralph Macchio, Roger Slifer, Marv Wolfman",
+    pencillers:
+      "rez, George P&eacute, Sal Buscema, George Pérez, John Buscema, Rich Buckler, Ron Wilson",
+    inkers:
+      "Joe Sinnott, Sam Grainger, John Tartaglione, George Roussos, John Buscema, Dave Hunt, Tony DeZuniga",
     description:
       "Roy Thomas, Len Wein, and a young George Perez bring some of the greatest Fantastic Four tales of the 1970s, including the High Evolutionary's Counter-Earth reaching its explosive endgame.",
     coverUrl: "https://m.media-amazon.com/images/I/91O64A8Z7XL._SL1500_.jpg",
@@ -3396,8 +3796,11 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Fantastic Four #192-214, Annual #12-13",
     yearsCovered: "1978-1979",
     releaseDate: { year: 2025, month: 3 },
-    writers: "Marv Wolfman",
-    pencillers: "Keith Pollard, John Byrne, Sal Buscema",
+    writers: "Marv Wolfman, Len Wein, Bill Mantlo, Keith Pollard, Roger Slifer",
+    pencillers:
+      "Keith Pollard, John Byrne, Sal Buscema, rez, George P&eacute, Bob Hall, John Buscema",
+    inkers:
+      "Joe Sinnott, Pablo Marcos, Dave Hunt, Marie Severin, Bob Wiacek, Frank Springer, D. Hands, Al Milgrom, Frank Giacoia",
     description:
       "The Fantastic Four celebrate their landmark 200th issue as the team splits apart, only for Doctor Doom's evil machinations to reunite Marvel's First Family for an FF #200 extravaganza.",
     coverUrl: "https://m.media-amazon.com/images/I/81WuJ8GtvgL._SL1500_.jpg",
@@ -3414,8 +3817,11 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Fantastic Four #215-231, Annual #14-15",
     yearsCovered: "1979-1981",
     releaseDate: { year: 2025, month: 8 },
-    writers: "Marv Wolfman, Doug Moench, Roger Stern",
-    pencillers: "John Byrne, Bill Sienkiewicz, Jerome Moore",
+    writers: "Doug Moench, Marv Wolfman, Bill Mantlo, John Byrne, Roger Stern",
+    pencillers:
+      "Bill Sienkiewicz, John Byrne, rez, George P&eacute, Joe Sinnott, Al Milgrom, Frank Giacoia",
+    inkers:
+      "Joe Sinnott, Pablo Marcos, Bruce Patterson, Jon D'Agostino, Mike Esposito, Chic Stone, Bill Sienkiewicz, Frank Giacoia",
     description:
       "A possessed Franklin Richards threatens all reality, alongside stories featuring giant monsters and a cosmic-scale war with the Skrulls.",
     coverUrl: "https://m.media-amazon.com/images/I/91DAq5tVe5L._SL1500_.jpg",
@@ -3432,8 +3838,12 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Fantastic Four #296–307, Annual #20;; Fantastic Four vs. the X-Men #1–4",
     yearsCovered: "1986-1987",
     releaseDate: { year: 2014, month: 1 },
-    writers: "Roger Stern, Steve Englehart, Chris Claremont",
-    pencillers: "John Buscema, Jon Bogdanove, Paul Neary",
+    writers:
+      "Roger Stern, Steve Englehart, Chris Claremont, Tom DeFalco, Jim Shooter, Stan Lee, Roy Thomas",
+    pencillers:
+      "John Buscema, Jon Bogdanove, Barry Windsor-Smith, Jerry Ordway, Marc Silvestri, Ron Frenz, Al Milgrom, Kerry Gammill, Paul Neary",
+    inkers:
+      "Sal Buscema, Joe Sinnott, Terry Austin, Barry Windsor-Smith, Bob Wiacek, Vince Colletta, Joe Rubinstein, Steve Leialoha, Klaus Janson, Romeo Tanghal, Tony DeZuniga",
     description:
       "The Thing returns to the Fantastic Four as Alicia Masters marries the Human Torch with the Puppet Master lurking nearby, and Mr. Fantastic and Invisible Woman step away so Crystal and the new Ms. Marvel can join the team.",
     coverUrl: "https://m.media-amazon.com/images/I/91N5eec1cQL._SL1500_.jpg",
@@ -3450,8 +3860,10 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Marvel Graphic Novel No. 29 - The Incredible Hulk and the Thing: The Big Change;; Fantastic Four #308–320, Annual #21;; Incredible Hulk (vol. 2) #350",
     yearsCovered: "1987-1988",
     releaseDate: { year: 2019, month: 6 },
-    writers: "Jim Starlin, Steve Englehart",
-    pencillers: "Bernie Wrightson, John Buscema, Keith Pollard, Kieron Dwyer",
+    writers: "Steve Englehart, Jim Starlin, Peter David",
+    pencillers:
+      "Keith Pollard, John Buscema, Bernie Wrightson, Sal Buscema, Kieron Dwyer, Jeff Purves",
+    inkers: "Joe Sinnott, Bernie Wrightson, Romeo Tanghal, Terry Austin",
     description:
       "An era of transformation for Marvel's First Family as the Thing adjusts to his new role leading a lineup that now includes the Human Torch, Crystal, and Sharon \"Ms. Marvel\" Ventura.",
     coverUrl: "https://m.media-amazon.com/images/I/91hb7bPU-+L._SL1500_.jpg",
@@ -3468,8 +3880,9 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Fantastic Four (1961) 321-333; Fantastic Four Annual (1963) 22; Marvel Graphic Novel: Doctor Strange and Doctor; Doom - Triumph and Torment (1989)",
     yearsCovered: "1989",
     releaseDate: { year: 2023, month: 3 },
-    writers: "Steve Englehart, Roger Stern",
-    pencillers: "Keith Pollard, Rich Buckler, Mike Mignola",
+    writers: "Steve Englehart, Roy Thomas, Roger Stern",
+    pencillers: "Rich Buckler, Keith Pollard, Ron Lim, Mike Mignola",
+    inkers: "Romeo Tanghal, Joe Sinnott, Tony DeZuniga, Mark Badger",
     description:
       "Steve Englehart's run reaches its controversial climax as the team faces a shakeup that will redefine the FF's status quo -- collected alongside Doctor Strange's bargain with Doctor Doom in Triumph and Torment.",
     coverUrl: "https://m.media-amazon.com/images/I/81CGjsBdLOL._SL1500_.jpg",
@@ -3486,8 +3899,11 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Fantastic Four #334–346, Annual #23; and material from; New Mutants Annual #6,; X-Factor Annual #5 and; Uncanny X-Men Annual #14",
     yearsCovered: "1990",
     releaseDate: { year: 2014, month: 7 },
-    writers: "Walt Simonson, Louise Simonson, Chris Claremont",
-    pencillers: "Walt Simonson, Rich Buckler, Arthur Adams",
+    writers: "Walter Simonson, Louise Simonson, Danny Fingeroth, Bob Harras, Chris Claremont",
+    pencillers:
+      "Walter Simonson, Rich Buckler, Ron Lim, Rex Valve, Jackson Guice, Chris Wozniak, Terry Shoemaker, Jon Bogdanove, Arthur Adams",
+    inkers:
+      "Walter Simonson, Romeo Tanghal, Art Thibert, Mike DeCarlo, Chris Ivy, Geof Isherwood, Al Milgrom, Scott Williams, Harry Candelario, Arthur Adams, Bob Wiacek, Dan Green, Steve Moncuse",
     description:
       "Legendary Thor writer Walt Simonson takes over the Fantastic Four, sending the team through a mind-bending trip across the timestream.",
     coverUrl: "https://m.media-amazon.com/images/I/910iee6ZkAL._SL1500_.jpg",
@@ -3504,8 +3920,9 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Fantastic Four #347–361, Annual #24; and material from; Marvel Holiday Special #1",
     yearsCovered: "1991-1992",
     releaseDate: { year: 2018, month: 6 },
-    writers: "Walt Simonson, Tom DeFalco",
-    pencillers: "Arthur Adams, Paul Ryan",
+    writers: "Walter Simonson, Tom DeFalco, Len Kaminski, Danny Fingeroth, Al Milgrom",
+    pencillers: "Paul Ryan, Arthur Adams, Walter Simonson, Gracine Tanaka, Al Milgrom, Mark Bagley",
+    inkers: "Al Milgrom, Danny Bulanadi, Art Thibert, Walter Simonson, Dan Panosian",
     description:
       "With Reed, Sue, Ben, and Johnny out of commission, an all-new lineup comes together to hold down the fort: Spider-Man, Wolverine, Ghost Rider, and the Hulk.",
     coverUrl: "https://m.media-amazon.com/images/I/91t7TSbZ9YL._SL1500_.jpg",
@@ -3522,8 +3939,9 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Fantastic Four (1961) 362-376, Fantastic Four Annual (1963) 25-26, Adventures of the Thing (1992) 3",
     yearsCovered: "1992-1993",
     releaseDate: { year: 2021, month: 11 },
-    writers: "Tom DeFalco, Mark Gruenwald",
+    writers: "Tom DeFalco, Paul Ryan, Mark Gruenwald",
     pencillers: "Paul Ryan, Herb Trimpe",
+    inkers: "Danny Bulanadi, Chris Ivy, Raymond Kryssing, Brad Vancata, Bud LaRosa",
     description:
       "Tom DeFalco and Paul Ryan settle into a long, stable run on the team, weathering the early-'90s Marvel landscape with street-level threats and cosmic stakes alike.",
     coverUrl: "https://m.media-amazon.com/images/I/81ZDdaFPEHL._SL1500_.jpg",
@@ -3540,8 +3958,10 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Fantastic Four 377-392 Fantastic Four Annual 27 Namor the Sub-Mariner 47-48 Fantastic Four Ashcan Edition 1",
     yearsCovered: "1993-1994",
     releaseDate: { year: 2022, month: 3 },
-    writers: "Tom DeFalco, Glenn Herdling",
-    pencillers: "Paul Ryan, Geof Isherwood, Mike Gustovich",
+    writers: "Tom DeFalco, Paul Ryan, Mike Lackey, Glenn Herdling, Mark Gruenwald, Stan Lee",
+    pencillers:
+      "Paul Ryan, Geof Isherwood, Mike Gustovich, Dante Bastianoni, Jack Kirby, John Byrne",
+    inkers: "Danny Bulanadi, Geof Isherwood, Don Hudson, Joe Sinnott, Ralph Cabrera, John Byrne",
     description:
       "Tom DeFalco and Paul Ryan continue their run as the team's oldest enemies close in, driving home the volume's grim promise that nobody gets out alive.",
     coverUrl: "https://m.media-amazon.com/images/I/81k+1OfCAXL._SL1500_.jpg",
@@ -3558,8 +3978,10 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Fantastic Four #393-402; Fantastic Force #7-9; Fantastic Four: Atlantis Rising #1-2; Fantastic Four: Atlantis Rising Collectors' Preview",
     yearsCovered: "1994-1995",
     releaseDate: { year: 2024, month: 3 },
-    writers: "Tom DeFalco, Glenn Herdling",
-    pencillers: "Paul Ryan, Dante Bastianoni, M. C. Wyman",
+    writers: "Tom DeFalco, Mike Kanterovich, Tom Brevoort, Glenn Herdling, Mike Lackey, Paul Ryan",
+    pencillers: "Paul Ryan, Dante Bastianoni, M.C. Wyman, Geof Isherwood",
+    inkers:
+      "Danny Bulanadi, Ralph Cabrera, Rey Garcia, Don Hudson, Kevin Yates, Geof Isherwood, Sam de la Rosa, Herb Trimpe, Sandu Florea",
     description:
       "The Invisible Woman searches for her missing husband, Mister Fantastic, the Thing seeks payback on Wolverine, and the sorceress Morgan Le Fay forces the sunken continent of Atlantis back above the waves.",
     coverUrl: "https://m.media-amazon.com/images/I/91409lHZD7L._SL1500_.jpg",
@@ -3576,8 +3998,12 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Fantastic Four #403–416,; Fantastic Four: The Legend,; Onslaught: Marvel Universe; and material from; Tales of the Marvel Universe",
     yearsCovered: "1995-1996",
     releaseDate: { year: 2015, month: 5 },
-    writers: "Tom DeFalco, Mark Waid",
-    pencillers: "Paul Ryan, Carlos Pacheco, Adam Kubert",
+    writers:
+      "Tom DeFalco, Mark Waid, Paul Ryan, Benny Powell, Mark Gruenwald, Stan Lee, Scott Lobdell, J.M. DeMatteis, Howard Mackie, Kurt Busiek, Mark Bernardo",
+    pencillers:
+      "Paul Ryan, Carlos Pacheco, Andy Kubert, Doug Alexander Gregory, Nghia Lam, Joe Bennett, Aaron Lopresti, Rick Leonardi, Mark Bagley, Klaus Janson",
+    inkers:
+      "Danny Bulanadi, Bob Wiacek, John Lowe, Harry Candelario, P. Craig Russell, Al Milgrom, Art Thibert, Jesse Delperdang, Tim Townsend, Dan Green, Rachel Pinnock, Vince Russell, Aaron Lopresti, Mark Pennington, Al Williamson, Randy Emberlin, Klaus Janson, Jesse Delprang",
     description:
       "Tom DeFalco and Paul Ryan's run heads into its final stretch as the team is swept up in the Onslaught crossover that reshapes the Marvel Universe.",
     coverUrl: "https://m.media-amazon.com/images/I/81fsHNECdKL._SL1500_.jpg",
@@ -3595,8 +4021,11 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
       "Fantastic Four (1961) #232-248, Fantastic Four Roast (1982) #1, and material from What If? (1977) #36",
     yearsCovered: "1981-1982",
     releaseDate: { year: 2026, month: 2 },
-    writers: "John Byrne, Stan Lee",
-    pencillers: "John Byrne, Jack Kirby",
+    writers: "John Byrne, Jim Shooter, Fred Hembeck",
+    pencillers:
+      "John Byrne, Gene Day, Frank Miller, John Buscema, Sal Buscema, Fred Hembeck, Mike Vosburg, Bob Hall, Bill Sienkiewicz, John Romita Jr., Mike Zeck, Michael Golden, Denys B. Cowan, Steve Leialoha, Walter Simonson, Dave Cockrum, Kerry Gammill, Ron Wilson, Frank Springer, Bob Layton, Keith Pollard, Brent Eric Anderson, Alan Lee Weiss, Al Milgrom, Marshall Rogers, Don Perlin",
+    inkers:
+      "John Byrne, Gene Day, Sal Buscema, Fred Hembeck, Bill Anderson, Bill Sienkiewicz, Bob McLeod, Dan Green, Joe Sinnott, John Romita Sr., Michael Golden, Walter Simonson, Steve Leialoha, Klaus Janson, Dave Cockrum, John Beatty, Chic Stone, Frank Springer, Terry Austin, Bob Layton, Keith Pollard, Brent Eric Anderson, Joe Rubinstein, Ricardo Villamonte, Alan Lee Weiss, Al Milgrom, Don Perlin",
     description:
       "John Byrne's timeless run as writer/artist starts here!\nThe Fantastic Four are going back to the basics, back to Byrne: The debut of John Byrne in his celebrated run as FF writer/artist begins in this Epic Collection! Byrne's deft creative balance—renewing the characters' core, revitalizing old foes and introducing new concepts—gave the FF a bold vitality, restoring them to the lofty heights of the Stan Lee and Jack Kirby era. The Invisible Girl's powers go through a dramatic evolution, Galactus gets a surprising new herald and the FF join their most hated rival, Doctor Doom, in a fight for Latveria! Restored from a trove of original Byrne art, and including cool bonus items like Fred Hembeck's riotous FF Roast and Byrne's excursion into the world of What If?",
     coverUrl: "https://m.media-amazon.com/images/I/811CADZn4aL._SL1500_.jpg",
@@ -3616,6 +4045,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     releaseDate: { year: 2027, month: 5 },
     writers: "John Byrne, Roger Stern",
     pencillers: "John Byrne",
+    inkers: "John Byrne, Joe Sinnott",
     description:
       "Writer/artist John Byrne's franchise-revitalizing run continues!\nBlending cosmic spectacle with heartfelt character drama, Byrne sends Marvel's First Family on daring adventures into the Negative Zone and the farthest reaches of the cosmos, while Earth faces threats only the FF can stop. Annihilus strikes the Baxter Building, Galactus returns with the Skrull homeworld in his sights, and Terrax the Terrible rises under Doctor Doom's command. The saga crescendos with the classic \"Trial of Reed Richards\" as the Shi'ar hold Reed accountable for saving Galactus. Joined by allies like Daredevil and the Avengers, the FF confront universe-shaking dangers and personal crossroads in one of Marvel's greatest creative runs. Plus: Doctor Doom secures the Power Cosmic, but he may not survive the experience!",
     coverUrl: "https://m.media-amazon.com/images/I/91SsjmqAGCL._SL1500_.jpg",
@@ -3632,8 +4062,11 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Fantastic Four (1996) 1-12; etc",
     yearsCovered: "1996-1997",
     releaseDate: { year: 2026, month: 8 },
-    writers: "Jim Lee, Brandon Choi",
-    pencillers: "Jim Lee, Brett Booth, Ron Lim",
+    writers: "Jim Lee, Brandon Choi, Jeph Loeb, Peter David, Walter Simonson",
+    pencillers:
+      "Jim Lee, Brett Booth, Ron Lim, Mike Deodato Jr., Michael Ryan, Anthony Winn, Mike Miller, Terry Shoemaker, Ed Benes, Joe Bennett",
+    inkers:
+      "Scott Williams, Tom McWeeney, John Dickenson, Homage Studios, Alex Garner, Sal Regla, John Tighe, Mike Miller, Mike Deodato Jr., Lucian Rizzo, Mark Irwin, Richard Bennett, Norm Rapmund, Saleem Crawford, Armando Durruthy, Ed Benes",
     description:
       "",
     coverUrl: "https://m.media-amazon.com/images/I/91KItekal6L._SL1500_.jpg",
@@ -3651,8 +4084,12 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Uncanny X-Men #316-318,; X-Men #36-37,; Wolverine #94,; Generation-X #1-9,; Generation-X Collectors Preview,; Generation-X Ashcan Edition",
     yearsCovered: "1994-1995",
     releaseDate: { year: 2021, month: 7 },
-    writers: "Scott Lobdell, Fabian Nicieza",
-    pencillers: "Chris Bachalo, Joe Madureira, Andy Kubert, Roger Cruz",
+    writers:
+      "Scott Lobdell, Fabian Nicieza, Larry Hama, Jeph Loeb, Steve Saffel, Ben Raab, Robert J. Sodaro, Fred Hembeck, Kim Yale, Stephen Vrattos, Jonathan Baylis, Anya Martin",
+    pencillers:
+      "Chris Bachalo, Roger Cruz, Joe Madureira, Andy Kubert, Chris Alexander, Tom Grummett, Fred Hembeck",
+    inkers:
+      "Mark Buckingham, Al Milgrom, Dan Green, Matt Ryan, Mike Sellers, Terry Austin, Tim Townsend, Fred Hembeck",
     description:
       "Banshee and Emma Frost open the Xavier School's Massachusetts Academy to a new class of teenage mutants, introducing Jubilee, Chamber, Skin, Husk, M, and Synch as Generation X.",
     coverUrl: "https://m.media-amazon.com/images/I/912Mm-wQ5QL._SL1500_.jpg",
@@ -3669,8 +4106,12 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Generation X #10-23; Generation X Annual '95 & '96; Generation X San Diego Preview #1; and material from Incredible Hulk Annual '97",
     yearsCovered: "1995-1996",
     releaseDate: { year: 2022, month: 5 },
-    writers: "Scott Lobdell, Michael Golden",
-    pencillers: "Tom Grummett, Chris Bachalo, Jeff Johnson",
+    writers:
+      "Scott Lobdell, Todd DeZago, Stan Lee, Michael Wright, Jeph Loeb, Michael Golden, Chris Cooper",
+    pencillers:
+      "Chris Bachalo, Tom Grummett, Val Semeiks, Pasqual Ferry, Mitch Byrd, Ashley Wood, Shawn McManus, Jeff Johnson, Jeff Rebner",
+    inkers:
+      "Mark Buckingham, Al Milgrom, Dan Panosian, Mark Pennington, Jim Fern, Andy Lanning, Mike Sellers, Mark Morales, Joe Rubinstein, Joe Pimentel, Al Vey, Scott Hanna, Jason Martin, Karl Story, Bill Sienkiewicz, Shawn McManus, Vince Russell, Steve Lightle, Gary Chaloner, Mark Irwin",
     description:
       "M's monstrous brother Emplate returns to menace the students of the Massachusetts Academy, forcing the young team to confront the sibling trauma at the root of M's condition.",
     coverUrl: "https://m.media-amazon.com/images/I/81Pw1O7QuNL._SL1500_.jpg",
@@ -3687,8 +4128,12 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Generation X (1994) 24-32, -1; Generation X Annual '97; X-Men Unlimited (1993) 16; Marvel Team-Up (1997) 1; Daydreamers (1997) 1-3; Generation X Underground (1998) 1",
     yearsCovered: "1997",
     releaseDate: { year: 2023, month: 6 },
-    writers: "Scott Lobdell, James Robinson",
-    pencillers: "Jim Mahfood, Chris Bachalo, Martin Egeland",
+    writers:
+      "Scott Lobdell, James Robinson, J.M. DeMatteis, Todd DeZago, Tom DeFalco, Elliot S. Maggin, Ben Raab, Tom Peyer, Andy Jozefowiez, Jim Mahfood, Chris Cooper",
+    pencillers:
+      "Chris Bachalo, Martin Egeland, Mitch Byrd, Rick Leonardi, Joe Bennett, Pop Mhan, Mark Buckingham, Dan Fraga, Mel Rubi, Pat Olliffe, Jim Mahfood, Jeff Rebner",
+    inkers:
+      "Al Vey, Scott Hanna, Howard M. Shum, Bud LaRosa, Jason Martin, Joe Pimentel, Eric Cannon, Chris Bachalo, Jon Holdredge, Lary Stucker, Rob Hunter, Al Williamson, Jim Mahfood, Mark Irwin",
     description:
       "Shocking secrets about M's true nature and origin come to light, testing the bonds between the students of Generation X.",
     coverUrl: "https://m.media-amazon.com/images/I/81WrjznpUHL._SL1500_.jpg",
@@ -3705,8 +4150,11 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Generation X #33-47, 1/2; Generation X/Dracula Annual '98 #1; X-Men Unlimited #20; Generation X Holiday Special #1",
     yearsCovered: "1998",
     releaseDate: { year: 2024, month: 9 },
-    writers: "Larry Hama, Joseph Harris",
-    pencillers: "Terry Dodson, Alé Garza",
+    writers: "Larry Hama, Joseph Harris, Jay Faerber",
+    pencillers:
+      "Terry Dodson, Steve Harris, Andy Smith, Ale Garza, Aaron Lopresti, Jason Johnson, Dan Lawlis, Tomm Coker, Adam Pollina",
+    inkers:
+      "Rachel Dodson, Walden Wong, Scott Hanna, Sean Parsons, Cabin Boy, Rob Leigh, Edwin Rosell, Vince Russell, Jon Holdredge, Margeaux Pepoy, Troy Hubbs, Rich Faber, Bob Wiacek, Mark Morales",
     description:
       "Larry Hama takes over as the students face guilt, grief, and a holiday-season crossover with Dracula himself.",
     coverUrl: "https://m.media-amazon.com/images/I/81RzM-wcn8L._SL1500_.jpg",
@@ -3723,8 +4171,11 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Generation X #48-62; Generation X Annual '99; X-Man #50; New Warriors #5",
     yearsCovered: "1999-2000",
     releaseDate: { year: 2025, month: 9 },
-    writers: "Jay Faerber",
-    pencillers: "Terry Dodson, Gregg Schigiel, Darick Robertson, Kevin Sharpe",
+    writers: "Jay Faerber, Terry Kavanagh",
+    pencillers:
+      "Terry Dodson, Karl Kerschl, Chris Renaud, Kevin Sharpe, Yancey Labat, Luke Ross, Gregg Schigiel, Derec Aucoin, Darick Robertson, Pete Woods, Darren Auck, Nelson DeCastro, Matt Smith",
+    inkers:
+      "Rachel Dodson, John Czop, Rodney Ramos, Scott Elmer, Walden Wong, Bud LaRosa, Nelson DeCastro, Mei, Al Milgrom, Bob Wiacek, Scott Koblish, Vince Russell, Jason Martin",
     description:
       "Jay Faerber and Terry Dodson close out the series' original run, crossing paths with X-Man and the New Warriors as the team's roster faces its biggest shakeup yet.",
     coverUrl: "https://m.media-amazon.com/images/I/91HITESD0RL._SL1500_.jpg",
@@ -3741,8 +4192,10 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Generation X (1994) 63-75, Chamber (2002); material X-Men Unlimited (1993) 30, 34",
     yearsCovered: "2000-2002",
     releaseDate: { year: 2026, month: 11 },
-    writers: "Brian Wood, Warren Ellis, Brian K. Vaughan, Andi Watson & Ken Siu-Chong",
-    pencillers: "Steve Pugh, Allen Evans, Ron Lim, Lee Ferguson, Jim Mahfood & Christina Chen",
+    writers: "Brian Wood, Warren Ellis, Brian K. Vaughan, Andi Watson, Karl Kesel",
+    pencillers: "Steve Pugh, Lee Ferguson, Ron Lim, Alan Evans, Jim Mahfood, James Fry",
+    inkers:
+      "Bob Wiacek, Sandu Florea, Norm Rapmund, Rodney Ramos, Steve Pugh, Richard Clark, Scott Elmer, Jimmy Palmiotti, Randy Elliott, Jim Mahfood, Margeaux Pepoy",
     description:
       "",
     coverUrl: "https://m.media-amazon.com/images/I/91ZQfKmE75L._SL1500_.jpg",
@@ -3760,8 +4213,10 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Marvel Spotlight #5-12; Ghost Rider (1973) #1-11; Marvel Team-Up #15",
     yearsCovered: "1972-1975",
     releaseDate: { year: 2022, month: 5 },
-    writers: "Gary Friedrich, Tony Isabella",
-    pencillers: "Mike Ploog, Tom Sutton, Jim Mooney",
+    writers: "Gary Friedrich, Tony Isabella, Doug Moench, Marv Wolfman, Len Wein",
+    pencillers: "Jim Mooney, Mike Ploog, Tom Sutton, Herb Trimpe, Sal Buscema, Ross Andru",
+    inkers:
+      "Sal Trapani, Syd Shores, Frank Monte, Jim Mooney, John Tartaglione, Mike Ploog, Chic Stone, Frank Chiaramonte, Vince Colletta, Jack Abel, George Roussos, Don Perlin",
     description:
       "Stunt cyclist Johnny Blaze sells his soul to save his adoptive father, transforming into the hellfire-skulled Ghost Rider in Gary Friedrich and Mike Ploog's atmospheric debut.",
     coverUrl: "https://m.media-amazon.com/images/I/81Ys9k4wfeL._SL1500_.jpg",
@@ -3778,8 +4233,12 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Ghost Rider (vol. 2) #12-28, Marvel Two-in-One #8, Daredevil #138, Marvel Team-Up #58, Marvel Premiere #28, and material from Marvel Tales #255",
     yearsCovered: "1975-1977",
     releaseDate: { year: 2024, month: 10 },
-    writers: "Tony Isabella, Jim Shooter",
-    pencillers: "Frank Robbins, Don Heck",
+    writers:
+      "Tony Isabella, Jim Shooter, Gerry Conway, Bill Mantlo, Marv Wolfman, Steve Gerber, Frank Robbins, Don Glut, Chris Claremont, Roger McKenzie, Scott Lobdell",
+    pencillers:
+      "Frank Robbins, Don Heck, George Tuska, Don Perlin, Sal Buscema, John Byrne, William Robert Brown, Gil Kane, Dave Cockrum, Tom Sutton, Vince Evans",
+    inkers:
+      "Vince Colletta, Mike Esposito, Sam Grainger, Dan Green, Pablo Marcos, Frank Giacoia, Don Heck, Steve Gan, Jim Mooney, Don Perlin, Keith Pollard, Don Newton, Tony DeZuniga, Owen McCarron, Phil Sheehy",
     description:
       "Ghost Rider faces the Orb, Gladiator, the Eel, and the Enforcer across America's backroads, teaming with Hawkeye and the Two-Gun Kid before joining Man-Thing, Morbius, and Werewolf by Night as the Legion of Monsters.",
     coverUrl: "https://m.media-amazon.com/images/I/81D9e5I90bL._SL1500_.jpg",
@@ -3796,8 +4255,11 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Ghost Rider (vol. 2) #29-50, Marvel Team-Up #91; material from What If? #17 and Marvel Tales #256",
     yearsCovered: "1978-1980",
     releaseDate: { year: 2025, month: 9 },
-    writers: "Michael Fleisher, Roger McKenzie",
-    pencillers: "Don Perlin",
+    writers:
+      "Michael Fleisher, Roger McKenzie, Don Perlin, Steven Grant, Jim Starlin, Dan Slott, Scott Lobdell",
+    pencillers: "Don Perlin, Carmine Infantino, Jim Starlin, Pat Broderick, Mark Pacella",
+    inkers:
+      "Don Perlin, Owen McCarron, Tony DeZuniga, Alfredo Alcala, Jim Mooney, Bob Layton, Rick Bryant, Steve Leialoha, Bruce Patterson, Ricardo Villamonte, Tom Sutton, Frank Springer, Dan Panosian",
     description:
       "Michael Fleisher and Don Perlin begin their long tenure on the title, delivering a reckoning for both the mortal and demon sides of Ghost Rider and a time-traveling team-up with the original Western Ghost Rider.",
     coverUrl: "https://m.media-amazon.com/images/I/81FzK7LhhzL._SL1500_.jpg",
@@ -3833,8 +4295,11 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Ghost Rider (1990) #1-12; Marc Spector: Moon Knight #25; Doctor Strange: Sorcerer Supreme #28; Material from; Marvel Comics Presents #64-71",
     yearsCovered: "1990-1991",
     releaseDate: { year: 2023, month: 10 },
-    writers: "Howard Mackie",
-    pencillers: "Javier Saltares, Mark Texeira, Mark Bagley, Larry Stroman",
+    writers: "Howard Mackie, Roy Thomas, Dann Thomas, Fred Hembeck, Max Fischer",
+    pencillers:
+      "Javier Saltares, Mark Texeira, Mark Bagley, Larry Stroman, Chris Marrinan, Fred Hembeck",
+    inkers:
+      "Mark Texeira, Harry Candelario, Jimmy Palmiotti, Tom Palmer, Mark McKenna, Fred Hembeck",
     description:
       "A new era for the Spirit of Vengeance begins as Danny Ketch becomes the new Ghost Rider, riding into a gang war between the Kingpin and Deathwatch.",
     coverUrl: "https://m.media-amazon.com/images/I/81xsn5NHnnL._SL1500_.jpg",
@@ -3851,8 +4316,12 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Ghost Rider (vol. 3) #44-45; Ghost Rider/Blaze: Spirits of Vengeance #17-18, and more",
     yearsCovered: "1993",
     releaseDate: { year: 2025, month: 4 },
-    writers: "Howard Mackie, Steven Grant, Chris Cooper, Gregory Wright, Daniel Chichester",
-    pencillers: "Ron Garney, Henry Martinez",
+    writers:
+      "Howard Mackie, Chris Cooper, David Quinn, Gregory Wright, Steven Grant, Steve Grant, D.G. Chichester",
+    pencillers:
+      "Andrew Wildman, Ron Garney, Rurik Tyler, Isaac Cordova, M.C. Wyman, Mel Rubi, Henry Martinez, Reggie Jones, Geof Isherwood, John Hixson, John Bridges",
+    inkers:
+      "Chris Ivy, Fred Harper, Frank Turner, Bob Downs, Margeaux Pepoy, Keith Williams, Malcolm Jones, Mike Esposito, Geof Isherwood, Bud LaRosa, Rich Rankin, Scott Koblish, Bill Anderson",
     description:
       "Ghost Rider, Johnny Blaze, and their fellow Midnight Sons confront demon queen Lilith's hellish Lilin spawn and her unholy alliance with Zarathos.",
     coverUrl: "https://m.media-amazon.com/images/I/918-9lKFrhL._SL1500_.jpg",
@@ -3870,7 +4339,10 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     yearsCovered: "1991-1992",
     releaseDate: { year: 2026, month: 12 },
     writers: "Howard Mackie",
-    pencillers: "Mark Texeira, Ron Wagner, John Romita Jr., Guang Yap",
+    pencillers:
+      "Mark Texeira, Guang Yap, Sam Kieth, Ron Wagner, Andy Kubert, John Romita Jr., John Hebert",
+    inkers:
+      "Mark Texeira, Bud LaRosa, Sam Kieth, Jimmy Palmiotti, Vince Evans, Michael Bair, Ariane Lenshoek, Andy Kubert, Klaus Janson, Al Milgrom",
     description:
       "",
     coverUrl: ghostRiderBadToTheBoneCover,
@@ -3888,8 +4360,11 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Marvel Super-Heroes #18, Marvel Two-in-One #4-5, Giant-Size Defenders #5, Defenders #26-29, Marvel Presents #3-12, Thor Annual #6",
     yearsCovered: "1970-1977",
     releaseDate: { year: 2023, month: 4 },
-    writers: "Steve Gerber, Roger Stern",
-    pencillers: "John Buscema, Al Milgrom, Don Heck",
+    writers:
+      "Steve Gerber, Roger Stern, Len Wein, Arnold Drake, Scott Edelman, Gerry Conway, Chris Claremont, Roger Slifer, Mary Skrenes, Tony Isabella",
+    pencillers: "Al Milgrom, Sal Buscema, Gene Colan, Don Heck, Jim Starlin",
+    inkers:
+      "Bob Wiacek, Mike Esposito, Vince Colletta, Frank Giacoia, John Tartaglione, Al Milgrom, Dave Hunt, Jim Mooney, Pablo Marcos, Howard Chaykin, Terry Austin, George Roussos, Klaus Janson",
     description:
       "A thousand years from now, Vance Astro, Yondu, Martinex, and Charlie-27 -- the original Guardians of the Galaxy -- rise to retake the Solar System from reptilian raiders, joined by present-day heroes like Captain America, Doctor Strange, the Thing, and the Hulk.",
     coverUrl: "https://m.media-amazon.com/images/I/91RkgoKJUQL._SL1500_.jpg",
@@ -3906,8 +4381,12 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Avengers (1963) 167-168, 170-177, 181; Ms. Marvel (1977) 23; Marvel Team-Up (1972) 86; Marvel Two-in-One (1974) 61-63, 69; Guardians of the Galaxv (1990) 1-6",
     yearsCovered: "1978-1990",
     releaseDate: { year: 2025, month: 2 },
-    writers: "Jim Shooter, Mark Gruenwald",
-    pencillers: "Jim Valentino, George Perez, David Wenzel",
+    writers:
+      "Jim Shooter, Jim Valentino, David Michelinie, Mark Gruenwald, Chris Claremont, Roger Stern, George Pérez, Bill Mantlo, Allyn Brodsky, Ralph Macchio",
+    pencillers:
+      "Jim Valentino, George Pérez, David Wenzel, Jerry Bingham, Sal Buscema, John Byrne, Mike Vosburg, Bob McLeod, Ron Wilson",
+    inkers:
+      "Pablo Marcos, Steve Montano, Gene Day, Klaus Janson, Bob McLeod, Diverse Hands, Dan Green, Joe Rubinstein, Win Mortimer, Rick Bryant, Ricardo Villamonte, Bruce Patterson",
     description:
       "As the Guardians pursue the cosmic threat Korvac from the 31st century back to the present, Major Victory leads a quest to find Captain America's long-lost shield, pitting the team against Iron Man's twisted legacy and the alien cyborgs called the Stark.",
     coverUrl: "https://m.media-amazon.com/images/I/81NvPmK6m4L._SL1500_.jpg",
@@ -3924,8 +4403,9 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Guardians Of The Galaxy #7-20, Annual #1; material from Fantastic Four Annual #24; Thor Annual #16; Silver Surfer Annual #4",
     yearsCovered: "1990-1991",
     releaseDate: { year: 2025, month: 9 },
-    writers: "Jim Valentino, Al Milgrom, Ron Marz",
-    pencillers: "Jim Valentino, Al Milgrom, Ron Lim",
+    writers: "Jim Valentino, Al Milgrom, Len Kaminski, Tom DeFalco, Ron Marz",
+    pencillers: "Jim Valentino, Al Milgrom, Herb Trimpe, Ron Lim",
+    inkers: "Steve Montano, Al Milgrom, Fred Fredericks, Ralph Cabrera",
     description:
       "Jim Valentino writes and draws the 31st-century Marvel Universe as the Guardians land on the World of Mutants amid a rebellion against Wolverine's descendant Rancor, rescue Firelord, and clash with Ghost Rider and the 31st century's own Punisher.",
     coverUrl: "https://m.media-amazon.com/images/I/91ZdJCvQTrL._SL1500_.jpg",
@@ -3943,8 +4423,12 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Hawkeye1-4; Avengers 16, 63-65, 189, 223; Marvel Team-Up 22, 92, 95; Captain America 317; and material from Tales of Suspense 57, 60, 64; Marvel Tales 100; Marvel Fanfare 3, 39; Marvel Super Action 11",
     yearsCovered: "1964-1986",
     releaseDate: { year: 2022, month: 1 },
-    writers: "Stan Lee, Roy Thomas, Mark Gruenwald, Steven Grant",
-    pencillers: "Mark Gruenwald, Gene Colan",
+    writers:
+      "Mark Gruenwald, Stan Lee, Roy Thomas, Steven Grant, Jack Kirby, Len Wein, Scott Edelman, Roger Stern, Charlie Boatner, David Michelinie, Mike Friedrich, J.M. DeMatteis",
+    pencillers:
+      "Mark Gruenwald, Don Heck, Gene Colan, Carl Hubbell, Jack Kirby, Dick Ayers, Sal Buscema, Mike Nasser, John Byrne, Carmine Infantino, Trevor von Eeden, Greg LaRocque, George Evans, Jim Janes, Paul Neary, Joe Staton",
+    inkers:
+      "Brett Breeding, Dick Ayers, George Klein, Joe Rubinstein, Danny Bulanadi, Don Heck, Chic Stone, Carl Hubbell, Sam Grainger, Dave Hunt, Frank Giacoia, Terry Austin, Dan Green, Pablo Marcos, Frank Springer, Bruce Patterson, Eliot Brown, Ian Akin, Brian Garvey, Dennis Janke, Kim DeMulder",
     description:
       "Clint Barton's career from his debut as a foe of Iron Man and love interest of the Black Widow, through reforming to join the Avengers, his size-changing stint as Goliath, and his first solo miniseries.",
     coverUrl: "https://m.media-amazon.com/images/I/81OMXKUyCzL._SL1500_.jpg",
@@ -3961,8 +4445,9 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Solo Avengers #1-20; Avengers Spotlight #21",
     yearsCovered: "1988-1989",
     releaseDate: { year: 2023, month: 10 },
-    writers: "Tom DeFalco, Howard Mackie",
-    pencillers: "Mark Bright, Ron Lim, Al Milgrom, Ron Wilson",
+    writers: "Tom DeFalco, Howard Mackie, Ralph Macchio, Fred Hembeck",
+    pencillers: "Mark Bright, Al Milgrom, Ron Lim, Ron Wilson, Fred Hembeck",
+    inkers: "José Marzan Jr., Joe Rubinstein, Don Heck, Tom Morgan",
     description:
       "The true origin of Hawkeye is revealed -- young Clint Barton joins a traveling carnival where the Swordsman teaches him archery -- as Trick Shot returns to issue his one-time protégé a death challenge and Clint's marriage to Mockingbird hits turbulence.",
     coverUrl: "https://m.media-amazon.com/images/I/91b4lMh6faL._SL1500_.jpg",
@@ -3979,8 +4464,12 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Avengers Spotlight #22-40; material from Marvel Comics Presents #83",
     yearsCovered: "1989-1991",
     releaseDate: { year: 2025, month: 12 },
-    writers: "Howard Mackie, Dwayne McDuffie, Steve Gerber",
-    pencillers: "Al Milgrom, Dwayne Turner",
+    writers:
+      "Howard Mackie, Steve Gerber, Roy Thomas, Dann Thomas, Dwayne McDuffie, James Brock, Danny Fingeroth, Carrie Barre, Len Kaminski, Fabian Nicieza",
+    pencillers:
+      "Al Milgrom, Dwayne Turner, James Brock, Jim Valentino, Bob Hall, June Brigman, Greg Capullo, Gavin Curtis, John Stanisci",
+    inkers:
+      "Don Heck, Tom Morgan, Chris Ivy, Roy Richardson, Hajek Satter Lee, Jeff Albrecht, Win Mortimer, Doug Hazlewood, Tim Dzon, Dan Panosian, Don Hudson",
     description:
       "Hawkeye and Mockingbird are wanted for a string of robberies committed by impostors in their costumes, and when Clint ends up in the hospital, Tony Stark builds him a new armored suit.",
     coverUrl: "https://m.media-amazon.com/images/I/91rpIy6lc1L._SL1500_.jpg",
@@ -3997,8 +4486,12 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Hawkeye (vol. 2) #1-4; Hawkeye (vol. 3) #1-8; Hawkeye: Earth's Mightiest Marksman #1; Avengers #502; The Pulse #10; New Avengers #26, 30; Young Avengers Presents #6; and material from Marvel Comics Presents #159-161",
     yearsCovered: "1994-2008",
     releaseDate: { year: 2024, month: 12 },
-    writers: "Chuck Dixon, Fabian Nicieza, Brian Michael Bendis",
-    pencillers: "Scott Kolins, Stefano Raffaele",
+    writers:
+      "Fabian Nicieza, Chuck Dixon, Brian Michael Bendis, Nelson Yomtov, Tom DeFalco, Matt Fraction",
+    pencillers:
+      "Stefano Raffaele, Werner Maresta, Scott Kolins, Jerry DeCaire, Joe Bennett, Jeff Johnson, David Finch, Michael Lark, Alex Maleev, Leinil Yu, Alan Davis",
+    inkers:
+      "Stefano Raffaele, Tim Dzon, Jerry DeCaire, Sandu Florea, Joe Rubinstein, Scott Kolins, Scott Hanna, Danny Miki, Stefano Guadiano, Alex Maleev, Leinil Yu, Mark Farmer",
     description:
       "Mourning his ex-wife Mockingbird, a reclusive Hawkeye takes on the shadowy Secret Empire, mentors two junior Avengers, and becomes a heartbreaking casualty when the Scarlet Witch disassembles the team -- though death is not the end.",
     coverUrl: "https://m.media-amazon.com/images/I/81xn3jOUZsL._SL1500_.jpg",
@@ -4032,8 +4525,9 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Incredible Hulk #1–6;; Fantastic Four #12, 25–26;; Avengers #1–3, 5;; Amazing Spider-Man #14;; Tales to Astonish #59;; Journey into Mystery #112",
     yearsCovered: "1962-1964",
     releaseDate: { year: 2016, month: 6 },
-    writers: "Stan Lee",
+    writers: "Stan Lee, Jack Kirby",
     pencillers: "Jack Kirby, Steve Ditko, Dick Ayers",
+    inkers: "Dick Ayers, Paul Reinman, Steve Ditko, George Roussos, Chic Stone",
     description:
       "Gamma radiation transforms Dr. Bruce Banner into the Hulk, a raging behemoth hunted by the military and hounded by General \"Thunderbolt\" Ross, in the character's earliest, most experimental appearances.",
     coverUrl: "https://m.media-amazon.com/images/I/81dYhLa-YqL._SL1500_.jpg",
@@ -4050,8 +4544,11 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Tales to Astonish #60–96; and material from; Not Brand Echh #3",
     yearsCovered: "1965-1967",
     releaseDate: { year: 2017, month: 10 },
-    writers: "Stan Lee",
-    pencillers: "Steve Ditko, Jack Kirby, Bill Everett, Gil Kane, John Buscema, Marie Severin",
+    writers: "Stan Lee, Gary Friedrich",
+    pencillers:
+      "Jack Kirby, Steve Ditko, Bill Everett, Marie Severin, Gil Kane, John Buscema, Mike Esposito, Bob Powell, John Romita Sr., Gene Colan",
+    inkers:
+      "Mike Esposito, Bill Everett, George Roussos, Gil Kane, Herb Trimpe, John Romita Sr., Frank Giacoia, Dick Ayers, Vince Colletta, Paul Reinman, John Tartaglione, Marie Severin",
     description:
       "The Hulk battles General Ross, the Leader and his Humanoids, and the Executioner, faces off with Hercules, meets the newly introduced Abomination, and goes cosmic alongside the Silver Surfer and the High Evolutionary.",
     coverUrl: "https://m.media-amazon.com/images/I/91R1iL22KLL._SL1500_.jpg",
@@ -4068,8 +4565,10 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Tales to Astonish #97–101,; Incredible Hulk (vol. 2) #102–117, Annual #1; and material from; Not Brand Echh #9",
     yearsCovered: "1967-1969",
     releaseDate: { year: 2018, month: 10 },
-    writers: "Stan Lee, Gary Friedrich",
-    pencillers: "Marie Severin, Herb Trimpe",
+    writers: "Stan Lee, Gary Friedrich, Roy Thomas, Bill Everett, Archie Goodwin",
+    pencillers: "Marie Severin, Herb Trimpe, Frank Giacoia",
+    inkers:
+      "Dan Adkins, Frank Giacoia, Herb Trimpe, Syd Shores, George Tuska, John Severin, John Tartaglione, Roger Brand, John Verpoorten, Tom Sutton",
     description:
       "The Hulk's archnemesis the Leader returns, and Herb Trimpe makes his debut as the artist who will define the Jade Giant's travelogue of destruction across the Mandarin, the Inhumans, the Sandman, and the entire Savage Land.",
     coverUrl: "https://m.media-amazon.com/images/I/91grv6HilFL._SL1500_.jpg",
@@ -4086,8 +4585,9 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Incredible Hulk (vol. 2) #118–137;; Marvel Super-Heroes #16",
     yearsCovered: "1969-1971",
     releaseDate: { year: 2019, month: 9 },
-    writers: "Roy Thomas",
-    pencillers: "Herb Trimpe",
+    writers: "Roy Thomas, Stan Lee, Gerry Conway, Gary Friedrich",
+    pencillers: "Herb Trimpe, Sal Buscema",
+    inkers: "Herb Trimpe, Sal Buscema, John Severin, Mike Esposito",
     description:
       "Bare-fisted battles against the Sub-Mariner, the Inhumans, and the swamp beast the Glob, as Bruce Banner marries Betty Ross with Reed Richards' help before the Hulk clashes with the Avengers and the hordes of Hydra.",
     coverUrl: "https://m.media-amazon.com/images/I/91Qt9gv9w9L._SL1500_.jpg",
@@ -4104,8 +4604,10 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Incredible Hulk (vol. 2) #138-156,; Annual #3-4 (covers only);; Avengers #88",
     yearsCovered: "1971-1972",
     releaseDate: { year: 2021, month: 1 },
-    writers: "Roy Thomas, Archie Goodwin",
-    pencillers: "Herb Trimpe",
+    writers:
+      "Roy Thomas, Archie Goodwin, Gary Friedrich, Harlan Ellison, Gerry Conway, Len Wein, Chris Claremont, Steve Englehart",
+    pencillers: "Herb Trimpe, Dick Ayers, Sal Buscema",
+    inkers: "John Severin, Sam Grainger, Frank Giacoia, Sal Trapani, Jim Mooney",
     description:
       "A rotating cast of legendary writers -- including Harlan Ellison and Gerry Conway -- send the Hulk across the Marvel Universe, questioning whether he's a menace to be judged or a hero to be understood.",
     coverUrl: "https://m.media-amazon.com/images/I/91qreg73MGL._SL1500_.jpg",
@@ -4122,8 +4624,10 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Incredible Hulk (1968) 157-178; material from FOOM (1973) 1-2",
     yearsCovered: "1972-1974",
     releaseDate: { year: 2021, month: 10 },
-    writers: "Steve Englehart, Roy Thomas, Gerry Conway",
-    pencillers: "Herb Trimpe",
+    writers:
+      "Steve Englehart, Roy Thomas, Gerry Conway, Tony Isabella, Jim Steranko, Archie Goodwin, Steve Gerber, Chris Claremont",
+    pencillers: "Herb Trimpe, John Romita Sr.",
+    inkers: "Jack Abel, Sal Trapani, Herb Trimpe, John Romita Sr.",
     description:
       "The Hulk is banished to the High Evolutionary's genetically engineered world of Counter-Earth, facing off with strange new threats far from home.",
     coverUrl: "https://m.media-amazon.com/images/I/81jebCQsOfL._SL1500_.jpg",
@@ -4140,8 +4644,9 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Incredible Hulk (1968) 179-200, Annual #5",
     yearsCovered: "1974-1976",
     releaseDate: { year: 2022, month: 10 },
-    writers: "Len Wein",
-    pencillers: "Herb Trimpe, Sal Buscema",
+    writers: "Len Wein, Chris Claremont",
+    pencillers: "Herb Trimpe, Sal Buscema, John Romita Sr.",
+    inkers: "Joe Staton, Herb Trimpe, Jack Abel, Marie Severin",
     description:
       "Len Wein writes some of his greatest Hulk stories, including the first appearance of Wolverine, as the Hulk smashes through the Mole Man, the Gremlin, the Shaper of Worlds, Doc Samson, and the Abomination.",
     coverUrl: "https://m.media-amazon.com/images/I/8140SCRTWpL._SL1500_.jpg",
@@ -4158,8 +4663,10 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Incredible Hulk (vol. 2) #201-226, Annual #6",
     yearsCovered: "1976-1978",
     releaseDate: { year: 2023, month: 10 },
-    writers: "Len Wein, Roger Stern",
-    pencillers: "Sal Buscema",
+    writers: "Len Wein, Roger Stern, Herb Trimpe, David Kraft, Jim Starlin",
+    pencillers: "Sal Buscema, Herb Trimpe, Keith Pollard, George Tuska, Jim Starlin",
+    inkers:
+      "Ernie Chan, Joe Staton, Joe Rubinstein, Alfredo Alcala, Mike Esposito, Frank Giacoia, Tom Palmer, Joe Sinnott",
     description:
       "Triumph and tragedy for the Hulk as he falls for Jarella and journeys to her microscopic world of K'ai, only for a devastating return to Earth to spark a rampage that not even S.H.I.E.L.D., the Defenders, or Doc Samson can stop.",
     coverUrl: "https://m.media-amazon.com/images/I/81Lp8SaAQKL._SL1500_.jpg",
@@ -4176,8 +4683,11 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Incredible Hulk (1968) 227-244; Incredible Hulk Annual (1968) 7-9; Captain America (1968) 230; Marvel Calendar 1979; material from; Marvel Treasury Edition (1974) 20, 24",
     yearsCovered: "1978-1980",
     releaseDate: { year: 2024, month: 7 },
-    writers: "Roger Stern",
-    pencillers: "Sal Buscema",
+    writers:
+      "Roger Stern, Peter Gillis, John Byrne, Elliot S. Maggin, Roger McKenzie, David Michelinie, Doug Moench, Steven Grant",
+    pencillers: "Sal Buscema, John Byrne, Jim Mooney, Steve Ditko, Carmine Infantino",
+    inkers:
+      "Mike Esposito, Jack Abel, Sal Buscema, Bob Layton, Klaus Janson, Bob McLeod, Don Perlin, Chic Stone, Alfredo Alcala, Joe Sinnott, Al Milgrom",
     description:
       "The Hulk goes after Moonstone, tangles with Machine Man, chases the golden treasures Goldbug is after, and takes on It the Living Colossus, with annuals featuring a Hulk/Sasquatch showdown and the return of Steve Ditko to the art chores.",
     coverUrl: "https://m.media-amazon.com/images/I/91SqxNmGFBL._SL1500_.jpg",
@@ -4194,8 +4704,9 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Incredible Hulk (vol. 2) #245-262; Marvel Treasury Edition #25",
     yearsCovered: "1980-1981",
     releaseDate: { year: 2025, month: 11 },
-    writers: "Bill Mantlo",
-    pencillers: "Sal Buscema, Herb Trimpe",
+    writers: "Bill Mantlo, Steven Grant, Mark Gruenwald, Sal Buscema",
+    pencillers: "Sal Buscema, Herb Trimpe, Steve Ditko",
+    inkers: "Sal Buscema, Bruce Patterson, Steve Ditko",
     description:
       "Bill Mantlo's seminal five-year run on the Hulk begins as the Jade Giant unleashes his rage on Gamma Base, leading to exile on Jarella's world and a double-sized 250th issue team-up with the Silver Surfer.",
     coverUrl: "https://m.media-amazon.com/images/I/91YeClWyKyL._SL1500_.jpg",
@@ -4213,7 +4724,8 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     yearsCovered: "1984-1985",
     releaseDate: { year: 2022, month: 4 },
     writers: "Bill Mantlo",
-    pencillers: "Sal Buscema, Bret Blevins, Mike Mignola, Alan Kupperberg",
+    pencillers: "Sal Buscema, Mike Mignola, Bret Blevins, Alan Kupperberg",
+    inkers: "Gerry Talaoc, Al Williamson",
     description:
       "Bill Mantlo's long-running Hulk saga pushes toward a crossroads, sending the Jade Giant into conflict with Alpha Flight as classic subplots reach a breaking point.",
     coverUrl: "https://m.media-amazon.com/images/I/81gfA6o5w0L._SL1500_.jpg",
@@ -4230,8 +4742,10 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Incredible Hulk #314-330,; Annual #14-15; and material from; Marvel Fanfare #29",
     yearsCovered: "1986-1987",
     releaseDate: { year: 2020, month: 12 },
-    writers: "John Byrne, Al Milgrom, Peter David",
-    pencillers: "John Byrne, Al Milgrom, Steve Geiger, Sal Buscema",
+    writers: "Al Milgrom, John Byrne, Danny Fingeroth, Peter David",
+    pencillers: "John Byrne, Al Milgrom, Steve Geiger, Sal Buscema, Dwayne Turner, Todd McFarlane",
+    inkers:
+      "Keith Williams, John Byrne, Dell Barras, Sal Buscema, Danny Bulanadi, Bob Wiacek, Dennis Janke, Bob McLeod, Joe Rubinstein, Sam de la Rosa, Tony DeZuniga, Al Milgrom",
     description:
       "Doc Samson's plan to separate Bruce Banner and the Hulk for good sends the planet reeling from a rampaging, Banner-less Hulk -- and the Hulk who returns is surlier, craftier, and gray, setting the stage for Peter David's legendary run.",
     coverUrl: "https://m.media-amazon.com/images/I/91OzNzGboBL._SL1500_.jpg",
@@ -4249,7 +4763,9 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     yearsCovered: "1987-1988",
     releaseDate: { year: 2024, month: 8 },
     writers: "Peter David, Jim Starlin",
-    pencillers: "Todd McFarlane, John Ridgway, Erik Larsen, Berni Wrightson",
+    pencillers: "Todd McFarlane, Bernie Wrightson, John Ridgway, Erik Larsen",
+    inkers:
+      "Jim Sanders, Todd McFarlane, Jim Sanders III, Bernie Wrightson, Kim DeMulder, Fred Fredericks, Pablo Marcos, John Ridgway, Bob Wiacek, Chris Ivy",
     description:
       "Peter David's character-defining eleven-year run kicks off with a fan-favorite collaboration with Todd McFarlane, as Rick Jones's days as a rampaging Hulk are numbered -- unless Bruce Banner can force his own transformation into the gray goliath.",
     coverUrl: "https://m.media-amazon.com/images/I/91IN2YMNEBL._SL1500_.jpg",
@@ -4266,8 +4782,11 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Incredible Hulk #397–406, Annual #18–19; and material from; Namor the Sub-Mariner Annual #2,; Silver Surfer Annual #5,; Doctor Strange, Sorcerer Supreme Annual #2 and; Marvel Holiday Special #2",
     yearsCovered: "1991-1992",
     releaseDate: { year: 2015, month: 9 },
-    writers: "Peter David, Ron Marz",
-    pencillers: "Dale Keown, Jan Duursema, Gary Frank",
+    writers: "Peter David, Ron Marz, Roy Thomas",
+    pencillers:
+      "Jan Duursema, Gary Frank, Dale Keown, Travis Charest, James Fry, Tom Morgan, M.C. Wyman, Chris Bachalo, Kirk Jarvinen, John Hebert",
+    inkers:
+      "Mark Farmer, Cam Smith, Brad Vancata, Dan Green, Chris Ivy, Tom Morgan, E.R. Cruz, Jan Duursema, Mike DeCarlo",
     description:
       "An epic clash between the Hulk, the Leader, and the U-Foes builds toward the Hulk's offer to lead the Pantheon, a secret organization of superhumans working from the shadows.",
     coverUrl: "https://m.media-amazon.com/images/I/81S8hiHB1HL._SL1500_.jpg",
@@ -4284,8 +4803,10 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Incredible Hulk (vol. 2) #407–419, Annual #20, Ashcan Edition;; Incredible Hulk: Future Imperfect #1–2; and material from; Marvel Holiday Special #3",
     yearsCovered: "1992-1993",
     releaseDate: { year: 2017, month: 1 },
-    writers: "Peter David",
-    pencillers: "Gary Frank, Paul Pelletier, George Perez, Roger Cruz",
+    writers: "Peter David, Jo Duffy, Bobbie Chase",
+    pencillers:
+      "Gary Frank, Paul Pelletier, Roger Cruz, Stuart Immonen, Salvador Larroca, George Pérez, Ron Lim",
+    inkers: "Cam Smith, Brad Vancata, George Pérez, Bill Anderson",
     description:
       "One of Peter David's all-time great Hulk tales -- is the Hulk destined to rule a ravaged future world with a gamma fist as the despotic Maestro, or can a time-torn Bruce Banner change his own nightmarish fate?",
     coverUrl: "https://m.media-amazon.com/images/I/81Xbo2-vJ4L._SL1500_.jpg",
@@ -4303,7 +4824,10 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     yearsCovered: "1993-1994",
     releaseDate: { year: 2018, month: 1 },
     writers: "Peter David",
-    pencillers: "John Estes, Gary Frank, Darick Robertson, Liam Sharp",
+    pencillers:
+      "Liam Sharp, Gary Frank, John Estes, Jim Craig, Darick Robertson, Terry Dodson, Justiniano, Chris Renaud",
+    inkers:
+      "Robin Riggs, Cam Smith, Al Milgrom, John Estes, David Day, Dan Day, Bill Anderson, Fred Fredericks, Joe Rubinstein, Ron Boyd, Gary Martin",
     description:
       "The Hulk and the Pantheon face a painful loss as Hela claims the Hulk in an Asgardian underworld epic, tearing the Pantheon apart from within while Doc Samson strives to save Bruce's mind and Betty battles for her life.",
     coverUrl: "https://m.media-amazon.com/images/I/81WITjPtldL._SL1500_.jpg",
@@ -4320,8 +4844,11 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Incredible Hulk (vol. 2) #436–448;; Savage Hulk #1;; Cutting Edge #1;; Cable #34;; Onslaught: Marvel Universe",
     yearsCovered: "1995",
     releaseDate: { year: 2019, month: 1 },
-    writers: "Peter David, William Messner-Loebs, Mark Waid",
-    pencillers: "Angel Medina, Adam Kubert, Mike Deodato Jr.",
+    writers: "Peter David, William Messner-Loebs, Jeph Loeb, Mark Waid, Scott Lobdell",
+    pencillers:
+      "Angel Medina, Mike Deodato Jr., Mike McKone, Paul Pelletier, Ian Churchill, Joe Bennett, Andy Kubert",
+    inkers:
+      "Robin Riggs, Art Thibert, Tom Wegrzyn, Mark McKenna, Steve Moncuse, Scott Hanna, Jesse Delperdang, Tim Townsend, Dan Green",
     description:
       "Major Matt Talbot, nephew of the Hulk's old foe Glenn, hunts the Jade Giant with Hulkbusters and the Ringmaster, while a terror group called the Alliance pushes the world toward nuclear war -- until Onslaught physically separates Bruce Banner from the Hulk.",
     coverUrl: "https://m.media-amazon.com/images/I/91RPV12KAPL._SL1500_.jpg",
@@ -4338,8 +4865,11 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Incredible Hulk (1968) 460-474; Hulk & Sub-Mariner Annual '98; X-Man & Hulk Annual '98",
     yearsCovered: "1997",
     releaseDate: { year: 2023, month: 4 },
-    writers: "Peter David, Joe Casey",
-    pencillers: "Adam Kubert, David Brewer, Javier Pulido, Ed McGuinness",
+    writers: "Peter David, Joe Casey, Chris Cooper, Terry Kavanagh",
+    pencillers:
+      "Adam Kubert, Javier Pulido, David Brewer, Ed McGuinness, Doug Wheatley, ChrisCross",
+    inkers:
+      "Mark Farmer, Sean Parsons, Margeaux Pepoy, Larry Mahlstedt, Adam Kubert, Doug Wheatley, Keith Williams, Hector Collazo, Caesar Antomattei",
     description:
       "Peter David's celebrated run winds toward its conclusion, sending the Hulk through crossovers with the Sub-Mariner and X-Man as the character's status quo heads for another dramatic shift.",
     coverUrl: "https://m.media-amazon.com/images/I/91qajNPLOIL._SL1500_.jpg",
@@ -4356,8 +4886,10 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "#263-279; An 10-11; Incredible Hulk vs. Quasimodo",
     yearsCovered: "1981-1982",
     releaseDate: { year: 2026, month: 5 },
-    writers: "Bill Mantlo",
-    pencillers: "Sal Buscema",
+    writers: "Bill Mantlo, Sal Buscema, Al Milgrom",
+    pencillers: "Sal Buscema, Mark Gruenwald, Rick Leonardi, Rich Buckler, Al Milgrom",
+    inkers:
+      "Sal Buscema, Joe Sinnott, Al Milgrom, Greg LaRocque, Bob Wiacek, Chic Stone, Dan Green, Frank Giacoia",
     description:
       "",
     coverUrl: "https://m.media-amazon.com/images/I/911jdfFwtaL._SL1500_.jpg",
@@ -4375,7 +4907,9 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     yearsCovered: "1983-1984",
     releaseDate: { year: 2027, month: 2 },
     writers: "Bill Mantlo",
-    pencillers: "Sal Buscema",
+    pencillers: "Sal Buscema, Herb Trimpe, Mark Gruenwald",
+    inkers:
+      "Joe Sinnott, Gerry Talaoc, Chic Stone, Andy Mushynsky, Herb Trimpe, Kim DeMulder, Jim Mooney, Carlos Garzon, Danny Bulanadi, John Romita Sr.",
     description:
       "",
     ownershipStatus: "announced",
@@ -4391,8 +4925,10 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "#347-363; WebS-M 44; FFour 320; mat. MCP 26, 45",
     yearsCovered: "1988-1989",
     releaseDate: { year: 2027, month: 1 },
-    writers: "Peter David, Bob Harras, Steve Englehart",
-    pencillers: "Jeff Purves, Dan Reed, Alex Saviuk, Keith Pollard & Herb Trimpe",
+    writers: "Peter David, Steve Englehart, Bob Harras",
+    pencillers: "Jeff Purves, Alex Saviuk, Keith Pollard, Dan Reed, Herb Trimpe",
+    inkers:
+      "Marie Severin, Terry Austin, Mike Gustovich, Herb Trimpe, Jim Sanders, Val Gustovich, Keith Williams, Joe Sinnott, Bob Wiacek, Mike DeCarlo",
     description:
       "",
     ownershipStatus: "announced",
@@ -4409,8 +4945,10 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Marvel Premiere #15–25;; Iron Fist (1975) #1–15;; Marvel Team-Up #63–64",
     yearsCovered: "1974-1977",
     releaseDate: { year: 2015, month: 7 },
-    writers: "Chris Claremont",
-    pencillers: "John Byrne, Larry Hama",
+    writers: "Chris Claremont, Doug Moench, Tony Isabella, Roy Thomas, Len Wein",
+    pencillers: "John Byrne, Larry Hama, Arvell Jones, Pat Broderick, Gil Kane, Neal Adams",
+    inkers:
+      "Frank Chiaramonte, Dick Giordano, Dan Adkins, Dan Green, Vince Colletta, Al McWilliams, Dave Hunt, Klaus Janson, Aubrey Bradford, Bob McLeod",
     description:
       "Wall-to-wall kung fu action as Danny Rand runs a gauntlet through the Kara-Kai death cult and ninja adversaries with Misty Knight and Colleen Wing at his side, building to a final showdown with the Steel Serpent.",
     coverUrl: "https://m.media-amazon.com/images/I/81aMvagIEmL._SL1500_.jpg",
@@ -4428,8 +4966,10 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Tales of Suspense #39–72",
     yearsCovered: "1963-1965",
     releaseDate: { year: 2014, month: 10 },
-    writers: "Stan Lee",
-    pencillers: "Don Heck",
+    writers: "Stan Lee, Robert Bernstein, N. Korok, Larry Lieber, Al Hartley",
+    pencillers: "Don Heck, Jack Kirby, Steve Ditko",
+    inkers:
+      "Don Heck, Dick Ayers, Mike Esposito, Chic Stone, Paul Reinman, Vince Colletta, Wally Wood",
     description:
       "Tony Stark, a jet-setting playboy and brilliant scientist, is injured by a battlefield explosion and builds a suit of armor to survive -- Stan Lee and Don Heck's earliest adventures that turned Iron Man into a cultural icon.",
     coverUrl: "https://m.media-amazon.com/images/I/81ALQJXXBPL._SL1500_.jpg",
@@ -4446,8 +4986,10 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Tales of Suspense #73–99,; Tales to Astonish #82,; Iron Man and the Sub-Mariner #1,; Iron Man #1; and material from; Not Brand Echh #2",
     yearsCovered: "1965-1967",
     releaseDate: { year: 2017, month: 1 },
-    writers: "Stan Lee",
-    pencillers: "Gene Colan",
+    writers: "Stan Lee, Roy Thomas, Archie Goodwin, Gene Colan, Flo Steinberg",
+    pencillers: "Gene Colan, Adam Austin, Jack Kirby, Don Heck",
+    inkers:
+      "Frank Giacoia, Jack Abel, Johnny Craig, Dan Adkins, Marie Severin, Sol Brodsky, Dick Ayers",
     description:
       "Tony Stark is brought before the United States Senate to divulge the secrets of Stark Enterprises, risking the life of his friend Happy Hogan, as Iron Man battles the Mandarin, Whiplash, and the Titanium Man.",
     coverUrl: "https://m.media-amazon.com/images/I/81WyAKPGdAL._SL1500_.jpg",
@@ -4465,7 +5007,8 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     yearsCovered: "1968-1970",
     releaseDate: { year: 2019, month: 4 },
     writers: "Archie Goodwin",
-    pencillers: "George Tuska",
+    pencillers: "George Tuska, Johnny Craig",
+    inkers: "Johnny Craig, Mike Esposito, George Tuska",
     description:
       "Iron Man's archnemesis the Mandarin pits him against the Incredible Hulk and discovers his secret identity to tear down Tony Stark, while Tony finds himself replaced by his own S.H.I.E.L.D. Life-Model Decoy.",
     coverUrl: "https://m.media-amazon.com/images/I/91u7Qa8HIOL._SL1500_.jpg",
@@ -4482,8 +5025,11 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Iron Man #25-46;; Daredevil #73",
     yearsCovered: "1970-1972",
     releaseDate: { year: 2020, month: 8 },
-    writers: "Archie Goodwin, Gerry Conway, Allyn Brodsky",
-    pencillers: "Don Heck, George Tuska",
+    writers:
+      "Gerry Conway, Allyn Brodsky, Archie Goodwin, Gary Friedrich, Mimi Gold, Robert Kanigher",
+    pencillers: "Don Heck, George Tuska, Johnny Craig, Gene Colan, Herb Trimpe",
+    inkers:
+      "Jim Mooney, Mike Esposito, Johnny Craig, Chic Stone, Vince Colletta, Sam Grainger, Syd Shores, Herb Trimpe, John Verpoorten",
     description:
       "A revolution in Latin America and conflicts with the Spymaster's elite team send Iron Man teaming with Nick Fury, Daredevil, and Madame Masque against the Spymaster and the Zodiac Key, with the debuts of the Controller, Firebrand, Howard Stark, and the Guardsman.",
     coverUrl: "https://m.media-amazon.com/images/I/91KBlKyyl3L._SL1500_.jpg",
@@ -4500,8 +5046,9 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Iron Man #47-67",
     yearsCovered: "1972-1973",
     releaseDate: { year: 2022, month: 5 },
-    writers: "Mike Friedrich",
-    pencillers: "George Tuska",
+    writers: "Mike Friedrich, Steve Gerber, Jim Starlin, Roy Thomas, Bill Everett",
+    pencillers: "George Tuska, Jim Starlin, Barry Windsor-Smith, John Romita Sr., P. Craig Russell",
+    inkers: "Mike Esposito, Vince Colletta, Frank Giacoia, Jim Mooney, Bill Everett",
     description:
       "Tony Stark's ESP-empowered fiancée Marianne Rodgers is tormented by visions of Iron Man's death as the Stark Industries board tries to force Tony out, while the first appearances of Thanos, Drax the Destroyer, and Moondragon arrive alongside Roy Thomas and Barry Windsor-Smith's retelling of Iron Man's origin.",
     coverUrl: "https://m.media-amazon.com/images/I/81uMfEu9okL._SL1500_.jpg",
@@ -4518,8 +5065,11 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Iron Man #68-91; Iron Man Annual #3",
     yearsCovered: "1974-1976",
     releaseDate: { year: 2023, month: 11 },
-    writers: "Mike Friedrich",
-    pencillers: "George Tuska",
+    writers:
+      "Mike Friedrich, Len Wein, Bill Mantlo, Archie Goodwin, Roger Slifer, Barry Alfonso, Steve Englehart, Steve Gerber, Jim Shooter, Gerry Conway",
+    pencillers: "George Tuska, Arvell Jones, Herb Trimpe, Keith Pollard, Chic Stone, Sal Buscema",
+    inkers:
+      "Vince Colletta, Mike Esposito, Marie Severin, Jack Abel, Chic Stone, Jim Mooney, Dick Ayers, John Tartaglione, Bob Layton",
     description:
       "The mysterious Black Lama pits villain against villain for ultimate power -- the Mandarin against the Yellow Claw, M.O.D.O.K. against the Mad Thinker -- all converging on Iron Man, alongside the threat of Ultimo and a rescue mission back in Vietnam.",
     coverUrl: "https://m.media-amazon.com/images/I/819naxDYHSL._SL1500_.jpg",
@@ -4536,8 +5086,10 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Iron Man #92-114, Annual #4; Marvel Premiere #44",
     yearsCovered: "1976-1978",
     releaseDate: { year: 2025, month: 6 },
-    writers: "Bill Mantlo",
-    pencillers: "George Tuska, Keith Pollard",
+    writers: "Bill Mantlo, Gerry Conway, Herb Trimpe",
+    pencillers: "George Tuska, Keith Pollard, Herb Trimpe, Carmine Infantino, Keith Giffen",
+    inkers:
+      "Mike Esposito, Don Perlin, Fred Kida, Jack Abel, Pablo Marcos, Bob Wiacek, Alfredo Alcala, Joe Rubinstein, Bruce Patterson, Rudy Nebres",
     description:
       "Celebrating 100 issues of Iron Man, Bill Mantlo becomes the new writer and delves deeper into Tony Stark's supporting cast, adding industrial intrigue and bringing back iconic adversaries.",
     coverUrl: "https://m.media-amazon.com/images/I/91ci7oKr3aL._SL1500_.jpg",
@@ -4554,8 +5106,10 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Iron Man #158–177, Annual #5",
     yearsCovered: "1982-1983",
     releaseDate: { year: 2013, month: 9 },
-    writers: "Denny O'Neil",
-    pencillers: "Luke McDonnell",
+    writers: "Dennis O'Neil, Roger McKenzie, Peter Gillis, Ralph Macchio, Ann Nocenti",
+    pencillers:
+      "Luke McDonnell, Carmine Infantino, Paul Smith, Steve Ditko, Marie Severin, Jerry Bingham, Mike Vosburg",
+    inkers: "Steve Mitchell, Dan Green, Al Milgrom, Mike Esposito, Sam de la Rosa",
     description:
       "Tony Stark's battle with alcoholism reaches its breaking point, forcing Jim Rhodes to don the armor and become Iron Man for the first time.",
     coverUrl: "https://m.media-amazon.com/images/I/71fzpDc+zXL._SL1400_.jpg",
@@ -4572,8 +5126,9 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Iron Man #178–195, Annual #6–7",
     yearsCovered: "1984-1985",
     releaseDate: { year: 2016, month: 3 },
-    writers: "Denny O'Neil",
-    pencillers: "Luke McDonnell",
+    writers: "Dennis O'Neil, Bob Harras, Peter Gillis",
+    pencillers: "Luke McDonnell, Don Perlin",
+    inkers: "Steve Mitchell, Ian Akin, Brian Garvey, Roy Richardson",
     description:
       "While Tony Stark battles the bottle, James Rhodes soars to ever greater heights in the red and gold, becoming a West Coast Avenger before his fiercest rival of all -- the original Iron Man, returned -- forces the two Shellheads to battle their demons and each other.",
     coverUrl: "https://m.media-amazon.com/images/I/91XIMRS7wrL._SL1500_.jpg",
@@ -4590,8 +5145,9 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Iron Man #215–232, Annual #9",
     yearsCovered: "1987-1988",
     releaseDate: { year: 2015, month: 1 },
-    writers: "David Michelinie",
-    pencillers: "Bob Layton, Mark Bright, Barry Windsor-Smith",
+    writers: "David Michelinie, Bob Layton, Barry Windsor-Smith",
+    pencillers: "Mark Bright, Bob Layton, Barry Windsor-Smith",
+    inkers: "Bob Layton",
     description:
       "David Michelinie and Bob Layton's celebrated Demon in a Bottle-era run continues as Tony Stark rebuilds his company and his armor from the ground up amid corporate warfare and personal reckoning.",
     coverUrl: "https://m.media-amazon.com/images/I/917hpLu2OOL._SL1500_.jpg",
@@ -4608,8 +5164,10 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Iron Man #233–244;; Iron Man: Crash;; Marvel Fanfare #22–23, 44",
     yearsCovered: "1988-1989",
     releaseDate: { year: 2019, month: 3 },
-    writers: "Mike Saenz, David Michelinie",
-    pencillers: "Bob Layton, Roger McKenzie, Butch Guice, Ken Steacy",
+    writers: "Bob Layton, David Michelinie, Roger McKenzie, Mike Saenz, Ken Steacy",
+    pencillers: "Jackson Guice, Ken Steacy, Bob Layton, Mike Saenz, Denys Cowan, Alan Kupperberg",
+    inkers:
+      "Bob Layton, Ken Steacy, Don Hudson, Mike Saenz, Barry Windsor-Smith, Gavin Curtis, Dave Simons, Chris Ivy, Marc Siry, James Brock, Bob Downs, Harry Candelario",
     description:
       "The Ghost returns as Tony Stark struggles with the fallout of the Armor Wars and must convince the world there's a new Iron Man, while Blacklash, Blizzard, and Boomerang face off against Rhodey and threats from the Mandarin to Doctor Doom loom.",
     coverUrl: "https://m.media-amazon.com/images/I/91R5MLfD4zL._SL1500_.jpg",
@@ -4626,8 +5184,12 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Iron Man #245–257, Annual #10–11; and material from; Captain America Annual #9",
     yearsCovered: "1989-1990",
     releaseDate: { year: 2018, month: 1 },
-    writers: "David Michelinie, Bob Layton, Dwayne McDuffie",
-    pencillers: "Bob Layton, Paul Smith, Herb Trimpe",
+    writers:
+      "Bob Layton, David Michelinie, Dwayne McDuffie, Roy Thomas, Danny Fingeroth, Fabian Nicieza, Glenn Herdling, Randall Frenz, Dann Thomas",
+    pencillers:
+      "Bob Layton, Herb Trimpe, Paul Smith, Gene Colan, John Romita Jr., Rich Yanizeski, Jim Valentino, Tom Morgan",
+    inkers:
+      "Bob Layton, Herb Trimpe, Al Milgrom, Roy Richardson, Mike Gustovich, Tim Dzon, Gene Colan, Harry Candelario, Jeff Albrecht, Brad Vancata, Sam de la Rosa, Randy Emberlin",
     description:
       "Tony Stark is left paralyzed from the waist down after an attack by a crazed stalker, caught in a war between the Maggia, A.I.M., and Hydra, before being sent to the future with Doctor Doom to join a reborn Arthur and Merlin in battle.",
     coverUrl: "https://m.media-amazon.com/images/I/71ESFi+R9wL._SL1400_.jpg",
@@ -4645,7 +5207,8 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     yearsCovered: "1990-1992",
     releaseDate: { year: 2014, month: 3 },
     writers: "John Byrne",
-    pencillers: "John Romita Jr., Paul Ryan, Mark Bright",
+    pencillers: "Paul Ryan, John Romita Jr., Tom Morgan, Mark Bright",
+    inkers: "Bob Wiacek",
     description:
       "John Byrne's complete Iron Man run unfolds across Armor Wars II, the cataclysmic sequel to one of Iron Man's most infamous storylines, the Mandarin's return with the alien dragon Fin Fang Foom, and Cold War chaos as Iron Man and the Black Widow race to stop World War III.",
     coverUrl: "https://m.media-amazon.com/images/I/71o7BTm4uHL._SL1400_.jpg",
@@ -4662,8 +5225,10 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Iron Man #278-289, Annual #12-13; and material from; Darkhawk Annual #1,; Avengers West Coast Annual #7 and; Marvel Holiday Special #2",
     yearsCovered: "1992-1993",
     releaseDate: { year: 2020, month: 4 },
-    writers: "Roy Thomas, Danny Fingeroth, Len Kaminski",
-    pencillers: "Tom Morgan, Paul Ryan, Kevin Hopgood, Gene Colan",
+    writers: "Len Kaminski, Roy Thomas, Dann Thomas, Danny Fingeroth, Sholly Fisch",
+    pencillers: "Kevin Hopgood, Tom Morgan, Paul Ryan, Mike Manley, M.C. Wyman, Gene Colan",
+    inkers:
+      "Bob Wiacek, Margeaux Pepoy, Tom Morgan, Mike DeCarlo, Keith Williams, Mike Manley, Tim Dzon, John Tartaglione, Al Williamson, Brad Vancata",
     description:
       "Fresh off his debut, James Rhodes takes up the War Machine armor for the first time as Len Kaminski begins his run exploring Rhodey's own corner of the Iron Man mythos.",
     coverUrl: "https://m.media-amazon.com/images/I/91XBjt48xWL._SL1500_.jpg",
@@ -4680,8 +5245,12 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Iron Man #290-297,; Annual #14,; Marvel Super-Heroes #13,; Iron Manual #1,; and material from:; Marvel Super-Heroes #2, 8-9, 12, 14-15",
     yearsCovered: "1993",
     releaseDate: { year: 2022, month: 11 },
-    writers: "Len Kaminski, Kurt Busiek, Christopher Priest",
-    pencillers: "Kevin Hopgood, Greg LaRocque",
+    writers:
+      "Len Kaminski, Kurt Busiek, Jim Owsley, Scott Benson, Bob DeNatale, Eliot Brown, Steve Ditko, Will Murray, Dave Simons, David Michelinie, David Kraft, Keith Pollard",
+    pencillers:
+      "Kevin Hopgood, James Fry, Greg LaRocque, Tom Morgan, Kris Renkewitz, John Czop, Larry Alexander, Eliot Brown, Steve Ditko, Dave Simons, Bob McLeod, Keith Pollard",
+    inkers:
+      "Steve Mitchell, Ralph Cabrera, Fred Fredericks, Brad Vancata, Frank Percy, Tim Dzon, Chris Ivy, Eliot Brown, Steve Ditko, Karl Kesel, Vince Colletta, Bruce Patterson, Armando Gil, Jim Sanders III, Ian Akin, Brian Garvey",
     description:
       "Tony Stark returns to the armor after his paralysis, reclaiming the Iron Man identity from James Rhodes as the two heroes redefine their partnership.",
     coverUrl: "https://m.media-amazon.com/images/I/814DLzrUiRL._SL1500_.jpg",
@@ -4698,8 +5267,11 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Iron Man #310-318,; War Machine #8-10,; Force Works #6-7,; Iron Man/Force Works Collectors Preview #1; and material from Marvel Comics Presents #169-172",
     yearsCovered: "1994-1995",
     releaseDate: { year: 2021, month: 11 },
-    writers: "Scott Benson, Len Kaminski, Dan Abnett",
-    pencillers: "Tom Morgan, Dave Taylor, Geoff Senior",
+    writers: "Len Kaminski, Dan Abnett, Scott Benson, Andy Lanning",
+    pencillers:
+      "Tom Morgan, Dave Taylor, Geoff Senior, Fred Haynes, Patrick Bolo, Patrick Rolo, Gabriel Gecko, Lawrence Brown, Rey Garcia, Brian Williamson, Rob Haynes, John Czop, Dave Chlystek",
+    inkers:
+      "Tom Morgan, Pam Eklund, Rey Garcia, Reggie Jones, Lawrence Brown, Michael Worley, Rob Haynes, Hector Collazo, Scott Elmer, Sam de la Rosa, Bob Wiacek, Andy Lanning, Johnny Greene",
     description:
       "Iron Man forms Force Works, a new team assembled to strike preemptively against threats before they escalate, as Kaminski's run digs deeper into the moral cost of Tony's new proactive strategy.",
     coverUrl: "https://m.media-amazon.com/images/I/81Syduw4DSL._SL1500_.jpg",
@@ -4716,8 +5288,11 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Iron Man (1968) 319-324; Avengers (1964) 390-394; Avengers: The Crossing (1995) 1; Force Works (1994) 16-20; War Machine (1994) 20-22",
     yearsCovered: "1995-1996",
     releaseDate: { year: 2023, month: 5 },
-    writers: "Bob Harras, Terry Kavanagh, Dan Abnett",
-    pencillers: "Mike Deodato Jr, Heitor Oliveira",
+    writers: "Terry Kavanagh, Dan Abnett, Bob Harras, Andy Lanning, Ben Raab",
+    pencillers:
+      "Mike Deodato Jr., Heitor Oliveira, Jim Cheung, Fred Haynes, Yancey Labat, Tom Morgan, Adriana Melo, Marcos Tetelli, Sergio Cariello, M.C. Wyman, Sandu Florea, Mark Bright, Jim Calafiore",
+    inkers:
+      "Rey Garcia, Tom Palmer, Mark McKenna, Johnny Greene, Jimmy Palmiotti, Glasshouse Graphics, Tom Morgan, Mike Deodato Jr., Hector Collazo, Sandu Florea, Steve Moncuse, Sergio Cariello, Sam de la Rosa, Peter Palmiotti",
     description:
       "Kang the Conqueror weaves a complicated plot that pits the Avengers against Tony Stark, as murders at the mansion shake the team to its core and Tony's unexplained blackouts suggest he might be the killer.",
     coverUrl: "https://m.media-amazon.com/images/I/91lHag6iIiL._SL1500_.jpg",
@@ -4734,8 +5309,11 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "ron Man #325-332; War Machine #23; Avengers: Timeslide #1; Avengers #395-396; Age of Innocence: The Rebirth of Iron Man #1; Onslaught: Marvel Universe; Iron Man: The Legend #1",
     yearsCovered: "1996",
     releaseDate: { year: 2024, month: 10 },
-    writers: "Dan Abnett, Bob Harras, Terry Kavanagh",
-    pencillers: "Jim Cheung, Hector Collazo, Richard Bennett",
+    writers: "Terry Kavanagh, Dan Abnett, Bob Harras, James Felder, Mark Waid, Scott Lobdell",
+    pencillers:
+      "Jim Cheung, Hector Collazo, Joe Bennett, Mark Campos, Fred Haynes, Yancey Labat, Oclair Albert, Frank Toscano, Fabio Laguna, Manny Clark, Roger Cruz, Luke Ross, Jim Calafiore, Mike Deodato Jr., Al Rio, Steve Ellis, John Statema, Dave Hoover, Andy Kubert",
+    inkers:
+      "Mark McKenna, Rene Micheletti, Tim Dzon, Rey Garcia, Johnny Greene, Scott Koblish, Hector Collazo, Peter Palmiotti, Emir Ribeiro, Mike Deodato Jr., Ralph Cabrera, Andy Lanning, Steve Moncuse, Tom Palmer, Don Hudson, Art Thibert, Jesse Delperdang, Tim Townsend, Dan Green",
     description:
       "Iron Man is revealed as a traitor, and the Avengers turn to a younger Tony Stark from an alternate past -- exploring whether Teen Tony will join their cross-dimensional mission, and what happens when Iron Man battles Iron Man.",
     coverUrl: "https://m.media-amazon.com/images/I/91iNm+1529L._SL1500_.jpg",
@@ -4752,8 +5330,12 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Iron Man (1968) 115-139",
     yearsCovered: "1978-1980",
     releaseDate: { year: 2026, month: 9 },
-    writers: "David Michelinie, Bob Layton",
-    pencillers: "Bob Layton, John Romita Jr., Jerry Bingham",
+    writers:
+      "David Michelinie, Bob Layton, Bill Mantlo, Jim Shooter, Roger Stern, Peter John Palmer",
+    pencillers:
+      "John Romita Jr., Bob Layton, Jerry Bingham, John Byrne, Carmine Infantino, Sal Buscema, Alan Weiss",
+    inkers:
+      "Bob Layton, Bob Wiacek, Dan Green, Bob McLeod, Al Gordon, Joe Rubinstein, Ricardo Villamonte, Eduardo Berreto, Tom Palmer",
     description:
       "",
     coverUrl: "https://m.media-amazon.com/images/I/91UawRnZFWL._SL1500_.jpg",
@@ -4770,8 +5352,11 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "#196-214, Annual 8",
     yearsCovered: "1985-1986",
     releaseDate: { year: 2027, month: 3 },
-    writers: "Denny O'Neil",
-    pencillers: "Rich Buckler, Sal Buscema, Herb Trimpe, Mark Bright, Paul Ryan",
+    writers: "Dennis O'Neil, Danny Fingeroth, Dennis Mallonee, Howard Mackie, Bob Harras",
+    pencillers:
+      "Mark Bright, Rich Buckler, Sal Buscema, Herb Trimpe, Paul Ryan, Rick Hoberg, Alex Saviuk, Paul Neary, Dwayne Turner, Javier Saltares, Tom Morgan",
+    inkers:
+      "Ian Akin, Brian Garvey, Sam de la Rosa, Steve Geiger, Scott Williams, Kyle Baker, Tom Morgan",
     description:
       "",
     ownershipStatus: "announced",
@@ -4788,7 +5373,8 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     yearsCovered: "1993-1994",
     releaseDate: { year: 2026, month: 6 },
     writers: "Len Kaminski, James Robinson",
-    pencillers: "Tom Morgan, Kevin Hopgood, Colin MacNeil",
+    pencillers: "Kevin Hopgood, Tom Morgan, Tom Tenney, Gene Colan, Colin MacNeil",
+    inkers: "Steve Mitchell, Tom Morgan, Michael Avon Oeming, Al Williamson, Colin MacNeil",
     description:
       "",
     coverUrl: "https://m.media-amazon.com/images/I/91YJvD9ISJL._SL1500_.jpg",
@@ -4806,8 +5392,11 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Amazing Adventures (1970) 18-39, Marvel Graphic Novel (1982) 7, Marvel Team-Up (1972) 45",
     yearsCovered: "1973-1983",
     releaseDate: { year: 2021, month: 10 },
-    writers: "Don McGregor",
-    pencillers: "Philip Russell, Herb Trimpe",
+    writers: "Don McGregor, Bill Mantlo, Gerry Conway, Roy Thomas, Neal Adams, Marv Wolfman",
+    pencillers:
+      "P. Craig Russell, Herb Trimpe, Howard Chaykin, Keith Giffen, Neal Adams, Rich Buckler, Gene Colan, Sal Buscema",
+    inkers:
+      "P. Craig Russell, Jack Abel, Frank Chiaramonte, Dan Adkins, Frank McLaughlin, Frank Giacoia, Yolande Pijcke, Klaus Janson, Herb Trimpe, Dan Green, D. Bruce Berry, Sonny Trinidad, Al Milgrom, Mike Esposito, Dave Hunt",
     description:
       "A Martian invasion of Earth has left the planet shattered and humankind enslaved, and Killraven rises with a singular mission to free Earth -- Don McGregor and P. Craig Russell's compelling, nuanced 1970s masterwork.",
     coverUrl: "https://m.media-amazon.com/images/I/81Yi+BVnJvL._SL1500_.jpg",
@@ -4825,8 +5414,9 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Hero for Hire (1972) #1-16,; Power Man (1974) #17-23",
     yearsCovered: "1972-1975",
     releaseDate: { year: 2021, month: 2 },
-    writers: "Archie Goodwin, Steve Englehart, Tony Isabella",
-    pencillers: "George Tuska, Billy Graham",
+    writers: "Steve Englehart, Tony Isabella, Len Wein, Archie Goodwin, Gerry Conway, Billy Graham",
+    pencillers: "George Tuska, Billy Graham, Ron Wilson",
+    inkers: "Billy Graham, Vince Colletta, Syd Shores, Paul Reinman, Frank McLaughlin, Dave Hunt",
     description:
       "Luke Cage bursts onto the scene as the historic first Black character to headline his own series, bringing 1970s New York City grit to his origin, his growing relationship with Claire Temple, the first appearance of Cottonmouth, and a battle against Iron Man.",
     coverUrl: "https://m.media-amazon.com/images/I/81DD0AkNa5L._SL1500_.jpg",
@@ -4843,8 +5433,12 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Power Man #24-47, Annual #1",
     yearsCovered: "1975-1977",
     releaseDate: { year: 2024, month: 2 },
-    writers: "Don McGregor, Marv Wolfman",
-    pencillers: "George Tuska, Lee Elias",
+    writers:
+      "Marv Wolfman, Don McGregor, Bill Mantlo, Tony Isabella, Chris Claremont, Steve Englehart, Ed Hannigan, Roger Slifer",
+    pencillers:
+      "Lee Elias, George Tuska, Frank Robbins, Ron Wilson, William Robert Brown, George Pérez, Vince Colletta, Arvell Jones, Rich Buckler, Sal Buscema, Marie Severin",
+    inkers:
+      "Vince Colletta, Dave Hunt, Frank Giacoia, Tom Palmer, Alex Nino, Lee Elias, Fred Kida, Ricardo Villamonte, Al McWilliams, Crusty Bunkers, Frank Springer, Aubrey Bradford, Jim Mooney, Klaus Janson, Bob Smith",
     description:
       "Luke defends the streets of New York City and the outer boroughs against Moses Magnum, the Mace, and other 1970s Times Square menaces, featuring the debut of Bill Foster as Black Goliath and Piranha Jones.",
     coverUrl: "https://m.media-amazon.com/images/I/81LBsK1dKPL._SL1500_.jpg",
@@ -4862,8 +5456,12 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Marvel Feature #11–12;; Marvel Two-In-One #1–19;; Marvel Team-Up #47",
     yearsCovered: "1973-1976",
     releaseDate: { year: 2018, month: 8 },
-    writers: "Steve Gerber, Bill Mantlo",
-    pencillers: "Sal Buscema, Ron Wilson",
+    writers:
+      "Steve Gerber, Bill Mantlo, Chris Claremont, Len Wein, Mike Friedrich, Roy Thomas, Roger Slifer, Scott Edelman, Tony Isabella",
+    pencillers:
+      "Sal Buscema, Ron Wilson, Jim Starlin, Gil Kane, Herb Trimpe, William Robert Brown, George Tuska, Arvell Jones",
+    inkers:
+      "Joe Sinnott, Mike Esposito, Dan Adkins, Frank Giacoia, Klaus Janson, Vince Colletta, Joe Giella, John Tartaglione, Dick Giordano, Dave Hunt, Jim Mooney, Don Heck",
     description:
       "The Thing gets his own team-up series, guest-starring Marvel's greatest heroes as he battles the Incredible Hulk, the minions of Thanos, and the giant monster Braggadoom, and brings the Guardians of the Galaxy back into the fold.",
     coverUrl: "https://m.media-amazon.com/images/I/91yWQ+T8rnL._SL1500_.jpg",
@@ -4880,8 +5478,9 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Marvel Two-in-One #20, 22-36; Marvel Two-in-One Annual #1; Fantastic Four Annual #11",
     yearsCovered: "1976-1978",
     releaseDate: { year: 2024, month: 1 },
-    writers: "Marv Wolfman, Roy Thomas",
-    pencillers: "John Buscema, Sal Buscema, Ron Wilson",
+    writers: "Marv Wolfman, Roy Thomas, Bill Mantlo, Jim Shooter",
+    pencillers: "Ron Wilson, Sal Buscema, John Buscema, Ernie Chan, Marie Severin",
+    inkers: "Pablo Marcos, Sam Grainger, John Tartaglione, Ernie Chan, George Roussos",
     description:
       "The Thing, the FF, the Invaders, and the Liberty Legion travel back in time to World War II to battle the Third Reich, and Deathlok arrives on an assassination mission that pulls in Thor, Iron Fist, Black Goliath, Nick Fury, the Sub-Mariner, Shang-Chi, and Spider-Woman.",
     coverUrl: "https://m.media-amazon.com/images/I/81GVQ08DM8L._SL1500_.jpg",
@@ -4898,8 +5497,12 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Marvel Two-in-One #37-52, Annual #2-4; Avengers Annual #7",
     yearsCovered: "1978-1979",
     releaseDate: { year: 2025, month: 1 },
-    writers: "Marv Wolfman, Jim Starlin",
-    pencillers: "Ron Wilson, Sal Buscema, Alan Kupperberg",
+    writers:
+      "Marv Wolfman, Roger Slifer, Jim Starlin, Ralph Macchio, Peter Gillis, Bill Mantlo, Tom DeFalco, David Kraft, Alan Kupperberg, Jo Duffy, John Byrne, David Michelinie, Allyn Brodsky, Steven Grant",
+    pencillers:
+      "Ron Wilson, Alan Kupperberg, Jim Starlin, Sal Buscema, John Byrne, Chic Stone, Jim Craig, Bob Hall, Frank Miller",
+    inkers:
+      "Pablo Marcos, Joe Rubinstein, Frank Giacoia, Chic Stone, Jim Mooney, Alfredo Alcala, Sam Grainger, Dave Hunt, Mike Esposito, Tex Blaisdell, Gene Day, Joe Sinnott, Bruce Patterson, Bob Budiansky, Bob McLeod",
     description:
       "Jim Starlin's famous two-part cosmic epic pits the Avengers and the Thing against Thanos and his Infinity Gems, with the debut of Project P.E.G.A.S.U.S., a reality-bending Cosmic Cube, and an android army of Visions.",
     coverUrl: "https://m.media-amazon.com/images/I/81YQxE5jaML._SL1500_.jpg",
@@ -4916,8 +5519,10 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "#53-74",
     yearsCovered: "1979-1980",
     releaseDate: { year: 2026, month: 8 },
-    writers: "Mark Gruenwald, Ralph Macchio with Marv Wolfman",
-    pencillers: "George Pérez, Ron Wilson, John Byrne & Jerry Bingham with Chic Stone, Michael Netzer & Frank Springer",
+    writers: "Mark Gruenwald, Ralph Macchio, Marv Wolfman",
+    pencillers:
+      "Ron Wilson, George Pérez, Jerry Bingham, John Byrne, Joe Sinnott, Chic Stone, Mike Nasser, Frank Springer",
+    inkers: "Gene Day, Chic Stone, Joe Sinnott, Al Gordon",
     description:
       "",
     coverUrl: "https://m.media-amazon.com/images/I/91ePNSxJ6lL._SL1500_.jpg",
@@ -4934,6 +5539,9 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "#75-87; Annual 5-6",
     yearsCovered: "1981",
     releaseDate: { year: 2027, month: 6 },
+    writers: "Tom DeFalco, David Michelinie, Alan Kupperberg, Doug Moench",
+    pencillers: "Ron Wilson, Alan Kupperberg, Jerry Bingham",
+    inkers: "Chic Stone, Pablo Marcos, Gene Day",
     description:
       "",
     ownershipStatus: "announced",
@@ -4950,8 +5558,11 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Special Marvel Edition #15–16,; Master of Kung Fu #17–28,; Giant-Size Master of Kung Fu #1–4,; Giant-Size Spider-Man #2; and material from; Iron Man Annual #4",
     yearsCovered: "1974-1975",
     releaseDate: { year: 2018, month: 3 },
-    writers: "Steve Englehart, Doug Moench",
-    pencillers: "Jim Starlin, Paul Gulacy",
+    writers: "Doug Moench, Steve Englehart, Jim Starlin, Gerry Conway, Len Wein, Bill Mantlo",
+    pencillers:
+      "Paul Gulacy, Jim Starlin, Al Milgrom, Ron Wilson, Keith Pollard, Walter Simonson, Alan Weiss, John Buscema, Aubrey Bradford, Ed Hannigan, Ross Andru, George Tuska",
+    inkers:
+      "Al Milgrom, Sal Trapani, Dan Adkins, Jim Starlin, Klaus Janson, Frank Springer, Jack Abel, Vince Colletta, Don Perlin",
     description:
       "Shang-Chi is born to be the world's most fearsome fighter, but discovers the truth about his father, the villainous Fu Manchu -- the series that captured the '70s kung fu craze and became one of Marvel's most groundbreaking comics.",
     coverUrl: "https://m.media-amazon.com/images/I/71JuJ38mjiL._SL1400_.jpg",
@@ -4968,8 +5579,10 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Master of Kung Fu #29–53; Annual #1",
     yearsCovered: "1975-1977",
     releaseDate: { year: 2019, month: 6 },
-    writers: "Doug Moench",
-    pencillers: "Paul Gulacy",
+    writers: "Doug Moench, Paul Gulacy",
+    pencillers: "Paul Gulacy, Keith Pollard, Sal Buscema, Mike Esposito, Jim Craig",
+    inkers:
+      "Dan Adkins, Pablo Marcos, Mike Esposito, Jack Abel, Paul Gulacy, Sal Trapani, Jim Steranko, Tom Sutton, Keith Pollard, John Tartaglione, Duffy Vohland",
     description:
       "Doug Moench and Paul Gulacy blend kung fu action with globetrotting espionage in the \"Crystal Connection,\" debuting the whip-cracking Pavane and the savage Razor-Fist, building to a showdown on Mordillo's Island and the Return of Fu Manchu.",
     coverUrl: "https://m.media-amazon.com/images/I/71zLN+lLBJL._SL1500_.jpg",
@@ -5004,8 +5617,12 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Werewolf by Night #32–33,; Marvel Spotlight #28–29,; Defenders #47–50 and material from #51,; Spectacular Spider-Man #22–23,; Marvel Two-in-One #52,; Moon Knight #1–4; and material from; The Hulk! #11–15, 17–18, 20 and; Marvel Preview #21",
     yearsCovered: "1975-1981",
     releaseDate: { year: 2014, month: 10 },
-    writers: "Doug Moench, David Anthony Kraft, Bill Mantlo",
-    pencillers: "Don Perlin, Keith Giffen, Bill Sienkiewicz",
+    writers:
+      "Doug Moench, David Kraft, Bill Mantlo, Roger Slifer, John Warner, Don McGregor, Steven Grant",
+    pencillers:
+      "Bill Sienkiewicz, Keith Giffen, Don Perlin, Mike Zeck, Jim Mooney, Jim Craig, Gene Colan, Keith Pollard",
+    inkers:
+      "Klaus Janson, Bill Sienkiewicz, Howie Perlin, Don Perlin, Dan Green, Mike Royer, Mike Esposito, Bob McLeod, Frank Springer, Keith Giffen, John Tartaglione, Dave Cockrum, Bruce Patterson, Pablo Marcos, Tony DeZuniga, Frank Giacoia, Tom Palmer",
     description:
       "Marc Spector's multiple-personality Fist of Khonshu battles to find his place in the Marvel Universe, from his debut as a nemesis of the Werewolf by Night through an unlikely stint with the Defenders and encounters with Spider-Man and the Thing.",
     coverUrl: "https://m.media-amazon.com/images/I/819rmson-ML._SL1500_.jpg",
@@ -5022,8 +5639,10 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Moon Knight #5–23",
     yearsCovered: "1981-1982",
     releaseDate: { year: 2015, month: 10 },
-    writers: "Doug Moench, Jack Harris",
-    pencillers: "Bill Sienkiewicz, Denys Cowan",
+    writers: "Doug Moench, Alan Zelenetz, Jack Harris",
+    pencillers: "Bill Sienkiewicz, Denys Cowan, Greg LaRocque, Jimmy James, Vicente Alcázar",
+    inkers:
+      "Bill Sienkiewicz, Steve Mitchell, Klaus Janson, Joe Rubinstein, Frank Giacoia, Armando Gil, John Tartaglione, Bob Camp, Dave Simons, Joe Albelo",
     description:
       "Marvel's multiple-personality midnight marauder fights a range of rogues including Arsenal, Stained Glass Scarlet, the Jester, and Morpheus, as old foes Midnight Man and Bushman return to plague Marc Spector.",
     coverUrl: "https://m.media-amazon.com/images/I/71AAjabhJfL._SL1400_.jpg",
@@ -5040,8 +5659,12 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Moon Knight #24–38",
     yearsCovered: "1982-1984",
     releaseDate: { year: 2018, month: 12 },
-    writers: "Doug Moench, Alan Zelenetz, Tony Isabella",
-    pencillers: "Bill Sienkiewicz, Kevin Nowlan, Bo Hampton",
+    writers:
+      "Doug Moench, Alan Zelenetz, Tony Isabella, Steven Grant, Dennis O'Neil, Steve Ringgenberg",
+    pencillers:
+      "Bill Sienkiewicz, Kevin Nowlan, Bo Hampton, Keith Pollard, J.J. Birch, Michael Bair, Marc Silvestri, Richard Howell, Bob McLeod",
+    inkers:
+      "Bill Sienkiewicz, Carl Potts, Kevin Dzuban, Joe Chiodo, Bo Hampton, Armando Gil, Keith Pollard, Kevin Nowlan, Terry Austin, Gary Kwapisz, Brent Anderson, Danny Bulanadi, Bob McLeod",
     description:
       "Doug Moench and Bill Sienkiewicz's acclaimed run heads toward its conclusion, pushing Marc Spector's fractured psyche and gritty street-level cases to their limit.",
     coverUrl: "https://m.media-amazon.com/images/I/91pWIP5hXKL._SL1500_.jpg",
@@ -5058,8 +5681,12 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Moon Knight (1985) #1-6, Marvel Team-Up #144, Marvel Fanfare #30, Marc Spector: Moon Knight #1-7, and material from: Solo Avengers #3, Marvel Fanfare #38-39, Marvel Super-Heroes #1",
     yearsCovered: "1984-1988",
     releaseDate: { year: 2022, month: 9 },
-    writers: "Alan Zelenetz, Jo Duffy, Chuck Dixon",
-    pencillers: "Chris Warner, Sal Velluto",
+    writers:
+      "Chuck Dixon, Alan Zelenetz, Jo Duffy, Cary Burkett, Chris Warner, Jim Owsley, Ann Nocenti, Roger Stern, Michael Carlin, Robert M. Ingersoll",
+    pencillers:
+      "Sal Velluto, Chris Warner, Greg LaRocque, Larry Hama, Mark Beachum, Brent Eric Anderson, Bob Hall, Judith Hunt, Bill Reinhold, Russ Heath, Mike Gustovich",
+    inkers:
+      "Mark Farmer, E.R. Cruz, Mike Esposito, Danny Bulanadi, Alan Kupperberg, Geof Isherwood, Al Williamson, Stan Drake, Bill Sienkiewicz, Jim Fern, Russ Heath, Mike Gustovich",
     description:
       "A new creative era spans a short-lived second series and the launch of Marc Spector: Moon Knight, as the character is reinvented for the late '80s with a grittier, more psychologically driven approach.",
     coverUrl: "https://m.media-amazon.com/images/I/91lJR8TwwPL._SL1500_.jpg",
@@ -5076,8 +5703,9 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Marc Spector: Moon Knight #8-25, and material from Punisher Annual #2",
     yearsCovered: "1989-1991",
     releaseDate: { year: 2024, month: 10 },
-    writers: "Mike Baron, Chuck Dixon, Howard Mackie",
-    pencillers: "Bill Reinhold, Sal Velluto, Mark Bagley",
+    writers: "Chuck Dixon, Howard Mackie, Mike Baron",
+    pencillers: "Sal Velluto, Mark Bagley, Bill Reinhold",
+    inkers: "Tom Palmer, Chris Ivy, Keith Williams, Bill Reinhold",
     description:
       "Marc Spector joins deadly mercenaries to free Burunda from his old nemesis Bushman, only for the lethal Arsenal to hunt them both -- and his past catches up with him as he's put on trial for murder, needing help from Spider-Man and the Punisher.",
     coverUrl: "https://m.media-amazon.com/images/I/81xUh-LWWnL._SL1500_.jpg",
@@ -5094,8 +5722,9 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Marc Spector: Moon Knight #26-38; Amazing Spider-Man #353-358",
     yearsCovered: "1991-1992",
     releaseDate: { year: 2025, month: 10 },
-    writers: "J.M. DeMatteis, Al Milgrom, Terry Kavanagh",
-    pencillers: "Ron Garney, Mark Bagley",
+    writers: "J.M. DeMatteis, Al Milgrom, Terry Kavanagh, Howard Mackie, Chuck Dixon",
+    pencillers: "Ron Garney, Mark Bagley, J.J. Birch",
+    inkers: "Tom Palmer, Randy Emberlin, J.J. Birch",
     description:
       "Moon Knight faces a deadly reunion with Stained Glass Scarlet, and as her secret history is revealed, questions arise about whether there can be any redemption for her after what she's done.",
     coverUrl: "https://m.media-amazon.com/images/I/811GQyhlMaL._SL1500_.jpg",
@@ -5112,8 +5741,11 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Marc Spector: Moon Knight #39-51, Moon Knight: Divided We Fall #1, Moon Knight Special #1, Web of Spider-Man #93-94 and material from Marvel Comics Presents #152-154",
     yearsCovered: "1992-1993",
     releaseDate: { year: 2023, month: 10 },
-    writers: "Terry Kavanagh",
-    pencillers: "Denys Cowan, Gary Kwapisz, James Fry, Kelley Jones",
+    writers: "Terry Kavanagh, Chuck Dixon, Ron Garney, Howard Mackie, Bruce Jones, Doug Moench",
+    pencillers:
+      "James Fry, Gary Kwapisz, J.J. Birch, Alex Saviuk, Denys Cowan, Art Nichols, Kelley Jones, Norm Breyfogle, Dave Hoover",
+    inkers:
+      "Chris Ivy, Tom Palmer, J.J. Birch, Jimmy Palmiotti, Mike Manley, Ty Templeton, Karl Kesel, Klaus Janson, John Beatty, Bob McLeod, Don Hudson, Keith Williams",
     description:
       "Moon Knight faces a mysterious illness, encounters Doctor Doom, gets caught up in the Infinity War, and embarks on a quest to find his own successor.",
     coverUrl: "https://m.media-amazon.com/images/I/91VIzO6QuIL._SL1500_.jpg",
@@ -5130,8 +5762,11 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Marc Spector: Moon Knight (1989) 52-60; Moon Knight (1998) 1-4; Moon Knight (1999) 1-4; Black Panther (1998) 20-22",
     yearsCovered: "1993-1999",
     releaseDate: { year: 2026, month: 10 },
-    writers: "Terry Kavanagh, Doug Moench",
-    pencillers: "Stephen Platt, Tommy Lee Edwards, Mark Texeira",
+    writers: "Terry Kavanagh, Doug Moench, Christopher Priest",
+    pencillers:
+      "Stephen Platt, Tommy Lee Edwards, Mark Texeira, James Fry, Sal Velluto, Fred Haynes, John Paul Leon",
+    inkers:
+      "Chris Ivy, Scott Koblish, Robert Campanella, Mark Texeira, Al Vey, Bob Almond, Fred Haynes, Stephen Platt",
     description:
       "",
     coverUrl: "https://m.media-amazon.com/images/I/812nGmn9XwL._SL1500_.jpg",
@@ -5149,8 +5784,12 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Amazing Spider-Man #101–102,; Marvel Team-Up #3–4,; Fear #20-26,; Giant-Size Super-Heroes (1974) #1; and material from: Vampire Tales (1973) #1-8,; Giant-Size Werewolf #4",
     yearsCovered: "1971-1975",
     releaseDate: { year: 2021, month: 2 },
-    writers: "Steve Gerber, Don McGregor",
-    pencillers: "Gill Kane, Rick Buckler, Pablo Maros",
+    writers:
+      "Steve Gerber, Don McGregor, Gerry Conway, Doug Moench, Roy Thomas, Mike Friedrich, Marv Wolfman, Tony Isabella",
+    pencillers:
+      "Gil Kane, Rich Buckler, John Romita Sr., P. Craig Russell, Tom Sutton, Frank Robbins, Ross Andru, Pablo Marcos, Paul Gulacy, Luis Dominguez, Vicente Ibañez, William Robert Brown, Ernie Chan, Virgil Redondo",
+    inkers:
+      "Frank Giacoia, John Romita Sr., Pablo Marcos, Jack Abel, Tom Sutton, Ernie Chan, Tony Mortellaro, Steve Mitchell, Mike Esposito, Vince Colletta, Luis Dominguez, Vicente Ibañez, Tom Palmer, Virgil Redondo",
     description:
       "Dr. Michael Morbius is cursed by an experiment gone wrong into an unquenchable thirst for blood -- though his heart beats like any other man's -- from his first appearance through his own black-and-white anthology adventures.",
     coverUrl: "https://m.media-amazon.com/images/I/91gpccknlML._SL1500_.jpg",
@@ -5167,8 +5806,12 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Fear #27-31,; Marvel Premiere #28,; Marvel Two-in-One #15,; Spectacular Spider-Man #6-8, 38,; Savage She-Hulk #9-12,; and material from Vampire Tales #9-11, Super Annual #1;; Marvel Preview #8",
     yearsCovered: "1975-1980",
     releaseDate: { year: 2021, month: 5 },
-    writers: "Doug Moench, Bill Mantlo, David Kraft",
-    pencillers: "Sonny Trinidad, Sal Buscema, Mike Vosburg",
+    writers:
+      "Bill Mantlo, Doug Moench, David Kraft, Archie Goodwin, Tony Isabella, Don McGregor, Gerry Conway",
+    pencillers:
+      "Frank Robbins, Mike Vosburg, Sonny Trinidad, Sal Buscema, Don Heck, George Evans, Tom Sutton, Arvell Jones, Ross Andru",
+    inkers:
+      "Frank Springer, Sonny Trinidad, Vince Colletta, Leonard Starr, Bob McLeod, Tom Sutton, Steve Gan, Dick Giordano, Frank Giacoia, Jim Mooney, Mike Esposito, Chic Stone, Danny Bulanadi",
     description:
       "The first era in the dark saga of Marvel's living vampire concludes as Morbius must save Martine Bancroft from the other-dimensional clutches of Helleyes, while CIA agent Simon Stroud stalks him at every turn.",
     coverUrl: "https://m.media-amazon.com/images/I/81PGHkFac6L._SL1500_.jpg",
@@ -5187,7 +5830,10 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     yearsCovered: "1977-1978",
     releaseDate: { year: 2019, month: 1 },
     writers: "Chris Claremont, Gerry Conway",
-    pencillers: "Jim Mooney, John Buscema, Sal Buscema",
+    pencillers:
+      "Jim Mooney, John Buscema, Sal Buscema, John Byrne, Keith Pollard, Carmine Infantino, Dave Cockrum, George Tuska",
+    inkers:
+      "Joe Sinnott, Dave Hunt, Sam Grainger, Tom Palmer, Frank Giacoia, Steve Leialoha, Dan Green",
     description:
       "Carol Danvers, whose life has long been intertwined with the alien Kree and their Earthbound soldier Mar-Vell, comes to terms with her new life as a superhero, facing the Scorpion, the Doomsday Man, Grotesk, and M.O.D.O.K. -- but her deadliest foe may be Deathbird.",
     coverUrl: "https://m.media-amazon.com/images/I/91F8I3QAbvL._SL1500_.jpg",
@@ -5204,8 +5850,12 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Ms. Marvel #15–23,; Marvel Team-Up #76–77,; Marvel Two-In-One #51,; Marvel Super-Heroes #10–11,; Avengers #200, Annual #10; and material from; Avengers #197–199 and; Marvel Fanfare #24",
     yearsCovered: "1978-1986",
     releaseDate: { year: 2019, month: 5 },
-    writers: "Chris Claremont",
-    pencillers: "Jim Mooney, Mike Vosburg",
+    writers:
+      "Chris Claremont, David Michelinie, Peter Gillis, Simon Furman, Jim Shooter, Bob Layton, George P&eacute, rez",
+    pencillers:
+      "Jim Mooney, Mike Vosburg, Carmine Infantino, Dave Cockrum, Howard Chaykin, George Pérez, Frank Miller, Mike Gustovich, rez, George P&eacute, Michael Golden, David Ross",
+    inkers:
+      "Dan Green, Tony DeZuniga, Bob McLeod, Bob Wiacek, Al Milgrom, Jeff Aclin, Juan Ortiz, Mike Vosburg, Frank Springer, Ricardo Villamonte, Mike Zeck, Bruce Patterson, Mike Gustovich, Vince Colletta, Brett Breeding, Armando Gil",
     description:
       "Chris Claremont weaves complex plots and compelling characterization in the conclusion of Carol Danvers' original adventures -- as Ms. Marvel, she meets the Avengers for the first time, and the shape-shifting Mystique makes her debut.",
     coverUrl: "https://m.media-amazon.com/images/I/91KULDakNYL._SL1500_.jpg",
@@ -5223,8 +5873,10 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Fantastic Four #4, 6, 9, 14, 27, 33, Annual #1,; Avengers #3-4,; X-Men #6,; Daredevil #7,; and material from; Strange Tales #107, 125,; Tales to Astonish #70-76",
     yearsCovered: "1962-1966",
     releaseDate: { year: 2021, month: 4 },
-    writers: "Stan Lee",
-    pencillers: "Jack Kirby, Gene Colan",
+    writers: "Stan Lee, Jack Kirby, Larry Lieber",
+    pencillers: "Jack Kirby, Gene Colan, Dick Ayers, Wally Wood, Adam Austin",
+    inkers:
+      "Vince Colletta, Dick Ayers, Paul Reinman, George Roussos, Chic Stone, Sol Brodsky, Joe Sinnott, Steve Ditko, Wally Wood",
     description:
       "An icon of comics' Golden Age hadn't been seen for nearly a decade when Stan Lee and Jack Kirby reintroduced Namor in 1962 -- his early Silver Age appearances, building to his own Tales to Astonish serial and a quest for the Trident of Neptune to claim the throne of Atlantis.",
     coverUrl: "https://m.media-amazon.com/images/I/81CyvH5SkKL._SL1500_.jpg",
@@ -5241,8 +5893,10 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Sub-Mariner #4-27",
     yearsCovered: "1968-1970",
     releaseDate: { year: 2023, month: 2 },
-    writers: "Roy Thomas",
-    pencillers: "Marie Severin, John Buscema",
+    writers: "Roy Thomas, Marie Severin",
+    pencillers: "Marie Severin, John Buscema, Sal Buscema, Gene Colan, Jack Katz",
+    inkers:
+      "Mike Esposito, Dan Adkins, Johnny Craig, Frank Giacoia, Jim Mooney, George Klein, Marie Severin, Joe Sinnott, Vince Colletta",
     description:
       "Namor takes on the bloodthirsty Tiger Shark before the man called Destiny returns with the powerful Serpent Crown, whose evil influence threatens everyone he loves, and the alien Stalker robs him of his ability to fly and breathe underwater, stranding him on land as Public Enemy No. 1.",
     coverUrl: "https://m.media-amazon.com/images/I/81IL2CwfmeL._SL1500_.jpg",
@@ -5259,8 +5913,10 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Sub-Mariner #28-49, Daredevil #77, material from Ka-Zar #1",
     yearsCovered: "1970-1972",
     releaseDate: { year: 2024, month: 8 },
-    writers: "Roy Thomas, Gerry Conway",
-    pencillers: "Sal Buscema, Gene Colan",
+    writers: "Roy Thomas, Gerry Conway, Allyn Brodsky",
+    pencillers: "Sal Buscema, Gene Colan, Ross Andru, George Tuska, Marie Severin, Frank Springer",
+    inkers:
+      "Jim Mooney, Mike Esposito, Sam Grainger, Dick Ayers, Bernie Wrightson, John Severin, Tom Palmer, Marie Severin, John Romita Sr., Frank Giacoia",
     description:
       "Roy Thomas and Sal Buscema steer Namor through Bronze Age threats to Atlantis and the surface world alike, including a team-up with Daredevil and the return of old undersea rivalries.",
     coverUrl: "https://m.media-amazon.com/images/I/91k909YWnWL._SL1500_.jpg",
@@ -5277,8 +5933,12 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Sub-Mariner #50-72; Marvel Spotlight #27",
     yearsCovered: "1972-1974",
     releaseDate: { year: 2025, month: 12 },
-    writers: "Bill Everett, Steve Gerber",
-    pencillers: "Bill Everett, Don Heck",
+    writers:
+      "Bill Everett, Steve Gerber, Mike Friedrich, Marv Wolfman, Dan Adkins, Steve Skeates, Bill Mantlo",
+    pencillers:
+      "Bill Everett, Sam Kweskin, Don Heck, George Tuska, Dan Adkins, Val Mayerik, P. Craig Russell, John Tartaglione, Win Mortimer, Frank Giacoia, Syd Shores, John Romita Sr., Jim Mooney",
+    inkers:
+      "Bill Everett, Jim Mooney, Vince Colletta, Don Perlin, Frank Giacoia, Dan Adkins, P. Craig Russell, Tom Sutton, John Tartaglione, Syd Shores, Frank Bolle",
     description:
       "Series creator Bill Everett returns to the character late in his career, alongside Steve Gerber, as Namor's series heads into its final stretch of Bronze Age adventures.",
     coverUrl: "https://m.media-amazon.com/images/I/91RoOByHK1L._SL1500_.jpg",
@@ -5295,8 +5955,11 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Tales to Astonish (1959) 77-101; Iron Man and Sub-Mariner (1968); Sub-Mariner (1968) 1-3; mat from Not Brand Echh (1967) 1, 4, 9, 11",
     yearsCovered: "1966-1968",
     releaseDate: { year: 2027, month: 1 },
-    writers: "Stan Lee & Roy Thomas with Archie Goodwin, Raymond Marais, Gary Friedrich & Arnold Drake",
-    pencillers: "Gene Colan, Bill Everett & John Buscema with Marie Severin, Dan Adkins, Werner Roth, Jack Kirby, Jerry Grandenetti, Tom Sutton & Ross Andru",
+    writers: "Stan Lee, Roy Thomas, Raymond Marais, Archie Goodwin, Gary Friedrich, Arnold Drake",
+    pencillers:
+      "Bill Everett, Gene Colan, Marie Severin, Werner Roth, John Buscema, Jack Kirby, Dan Adkins, Adam Austin, Jerry Grandenetti, Ross Andru, Tom Sutton",
+    inkers:
+      "Bill Everett, Dick Ayers, Dan Adkins, Frank Giacoia, Vince Colletta, John Tartaglione, Tom Sutton, Roger Brand, Johnny Craig, Mike Esposito, Marie Severin",
     description:
       "",
     ownershipStatus: "announced",
@@ -5313,8 +5976,10 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Marvel Graphic Novel No. 4 - The New Mutants,; The New Mutants #1–12,; Uncanny X-Men #167,; Marvel Team-Up Annual #6,; Magik #1–4; and material from; Marvel Team-Up #100",
     yearsCovered: "1982-1984",
     releaseDate: { year: 2017, month: 3 },
-    writers: "Chris Claremont",
-    pencillers: "Bob McLeod, Sal Buscema, Ron Frenz, John Buscema",
+    writers: "Chris Claremont, Frank Miller, Bill Mantlo",
+    pencillers: "Sal Buscema, Bob McLeod, Ron Frenz, John Buscema, Frank Miller, Paul Smith",
+    inkers:
+      "Bob McLeod, Tom Mandrake, Tom Palmer, Mike Gustovich, Bob Wiacek, Kevin Dzuban, John Tartaglione, Armando Gil",
     description:
       "Young mutants Karma, Wolfsbane, Sunspot, Cannonball, and Moonstar find their footing at the Xavier School, from Karma's first meeting with Spider-Man and the Fantastic Four through battles against Sentinels, the Silver Samurai, and the Hellfire Club.",
     coverUrl: "https://m.media-amazon.com/images/I/71UD463c43L._SL1400_.jpg",
@@ -5333,6 +5998,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     releaseDate: { year: 2019, month: 7 },
     writers: "Chris Claremont",
     pencillers: "Bill Sienkiewicz, Sal Buscema, Bob McLeod",
+    inkers: "Bill Sienkiewicz, Tom Mandrake, Kim DeMulder, Tom Palmer, Bob McLeod",
     description:
       "Visionary artist Bill Sienkiewicz transforms the New Mutants as new recruits Magma and Magik find their footing, a rescue mission for Kitty Pryde risks the team joining the rival Hellions, and the Demon Bear that haunts Dani Moonstar bares its teeth.",
     coverUrl: "https://m.media-amazon.com/images/I/81IqpSf5mVL._SL1500_.jpg",
@@ -5350,7 +6016,10 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     yearsCovered: "1985-1986",
     releaseDate: { year: 2023, month: 6 },
     writers: "Chris Claremont",
-    pencillers: "Steve Leialoha, Arthur Adams, Mary Wilshire, Butch Guice",
+    pencillers:
+      "Jackson Guice, Steve Leialoha, Mary Wilshire, Arthur Adams, Rick Leonardi, Keith Pollard, Steve Purcell, Alan Davis",
+    inkers:
+      "Bill Sienkiewicz, Steve Leialoha, Kyle Baker, Terry Austin, Al Gordon, Mike Mignola, Arthur Adams, Dell Barras, Whilce Portacio, Alan Davis",
     description:
       "The team's search for Karma spans from Madripoor to Asgard, as the Enchantress attacks and scatters the New Mutants across the realm of the gods.",
     coverUrl: "https://m.media-amazon.com/images/I/91MWhU8-aSL._SL1500_.jpg",
@@ -5368,7 +6037,10 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     yearsCovered: "1986-1987",
     releaseDate: { year: 2025, month: 2 },
     writers: "Chris Claremont, Jo Duffy",
-    pencillers: "Butch Guice, Kerry Gammill, Joe Staton",
+    pencillers:
+      "Jackson Guice, Kerry Gammill, Joe Staton, Rick Leonardi, Bret Blevins, Kevin Nowlan, Alan Davis, Sal Buscema, Marie Severin",
+    inkers:
+      "Val Mayerik, Tom Palmer, Kyle Baker, Terry Austin, P. Craig Russell, John Beatty, Kevin Nowlan, Dan Green, Paul Neary, Tony DeZuniga",
     description:
       "Tragedy strikes a local high school after a mutant student is bullied, as the New Mutants face evil future versions of themselves and mutant-hunting Sentinels, while Sunspot and Warlock hang out with Madrox, Siryn, Boom-Boom, and the Vanisher in the paradise of Coconut Grove.",
     coverUrl: "https://m.media-amazon.com/images/I/811QK72QyXL._SL1500_.jpg",
@@ -5385,8 +6057,11 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "The New Mutants #55–70, Annual #4",
     yearsCovered: "1987-1988",
     releaseDate: { year: 2021, month: 8 },
-    writers: "Louise Simonson",
-    pencillers: "Bret Blevins, June Brigman, John Muth, Bo Hampton, Terry Shoemaker",
+    writers: "Louise Simonson, Chris Claremont",
+    pencillers:
+      "Bret Blevins, June Brigman, Off the Wall Studios, Jon J. Muth, Bo Hampton, Terry Shoemaker",
+    inkers:
+      "Terry Austin, Bret Blevins, Jon J. Muth, Joe Rubinstein, Bob McLeod, Al Williamson, Al Milgrom",
     description:
       "Louise Simonson takes over as writer, sending the New Mutants against the demon-summoning Sentinel program known as Project: Wideawake and delivering one of the team's most shocking losses.",
     coverUrl: "https://m.media-amazon.com/images/I/81hKoPUFpAL._SL1500_.jpg",
@@ -5404,7 +6079,10 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     yearsCovered: "1989",
     releaseDate: { year: 2018, month: 2 },
     writers: "Louise Simonson, Chris Claremont",
-    pencillers: "Bret Blevins, Rich Buckler, Terry Shoemaker",
+    pencillers:
+      "Bret Blevins, Jon Bogdanove, Rich Buckler, Terry Shoemaker, John Byrne, Rick Leonardi, Louis Williams, Geof Isherwood",
+    inkers:
+      "Al Williamson, Al Milgrom, Bret Blevins, Mike Manley, Bob Wiacek, Bob McLeod, Tom Palmer, Roy Richardson, Joe Rubinstein",
     description:
       "The New Mutants escape Magik's dark domain during Inferno as S'ym and his demons threaten Earth, and when Hela's evil spell corrupts Mirage's Valkyrie side, the team must travel to Asgard while Hela schemes to murder Odin and conquer it.",
     coverUrl: "https://m.media-amazon.com/images/I/91nykqvh+NL._SL1500_.jpg",
@@ -5421,8 +6099,11 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "The New Mutants #86-94,; The New Mutants Annual #5-6,; The New Mutants Summer Special #1; and material from; X-Factor Annual #5 and; X-Men Annual #14",
     yearsCovered: "1990",
     releaseDate: { year: 2020, month: 10 },
-    writers: "Louise Simonson, Ann Nocenti",
-    pencillers: "Rob Liefeld, Jon Bogdanove, Arthur Adams, Bret Blevins",
+    writers: "Louise Simonson, Fabian Nicieza, Dwight Jon Zimmerman, Chris Claremont, Ann Nocenti",
+    pencillers:
+      "Rob Liefeld, Bob Hall, Chris Wozniak, Terry Shoemaker, Jon Bogdanove, Arthur Adams, Bret Blevins",
+    inkers:
+      "Hilary Barta, Bob Wiacek, Art Thibert, Tim Dzon, Jeff Albrecht, Al Milgrom, Scott Williams, Harry Candelario, Arthur Adams, Dan Green, Steve Moncuse, Bret Blevins",
     description:
       "Cable makes his explosive debut, transforming the New Mutants into a harder-edged strike force as Rob Liefeld's artwork and Louise Simonson's scripts push the team toward the militarized future that will become X-Force.",
     coverUrl: "https://m.media-amazon.com/images/I/916kPPP355L._SL1500_.jpg",
@@ -5439,8 +6120,11 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "The New Mutants #95-100, The New Mutants Annual #7, Uncanny X-Men #270-272; X-Factor #60-62; and material from New Warriors Annual #1; X-Men Annual #15; X-Factor Annual #6",
     yearsCovered: "1990-1991",
     releaseDate: { year: 2022, month: 7 },
-    writers: "Louise Simonson, Chris Claremont, Fabian Nicieza",
-    pencillers: "Rob Liefeld, Jim Lee, Jon Bogdanove",
+    writers: "Fabian Nicieza, Louise Simonson, Chris Claremont, Rob Liefeld",
+    pencillers:
+      "Rob Liefeld, Jim Lee, Jon Bogdanove, Guang Yap, John Caponigro, Mark Bagley, Tom Raney, Terry Shoemaker",
+    inkers:
+      "Joe Rubinstein, Al Milgrom, Art Thibert, Scott Williams, Rob Liefeld, Dan Panosian, Jeff Albrecht, Art Nichols",
     description:
       "The New Mutants series comes to a close as Cable's militarized vision for the team crystallizes, crossing over with X-Factor and the Uncanny X-Men to set the stage for X-Force's launch.",
     coverUrl: "https://m.media-amazon.com/images/I/81OA+TTHWpL._SL1500_.jpg",
@@ -5458,8 +6142,11 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Power Man #48–49;; Power Man and Iron Fist #50–70",
     yearsCovered: "1977-1981",
     releaseDate: { year: 2015, month: 8 },
-    writers: "Jo Duffy, Chris Claremont",
-    pencillers: "Kerry Gammill, John Byrne, Trevor Von Eeden",
+    writers: "Jo Duffy, Chris Claremont, Ed Hannigan, Bob Layton, Steven Grant",
+    pencillers:
+      "Kerry Gammill, John Byrne, Trevor von Eeden, Mike Zeck, Lee Elias, Sal Buscema, Marie Severin, Alan Weiss",
+    inkers:
+      "Ricardo Villamonte, Dan Green, Jim Mooney, Frank Springer, Dave Cockrum, Ernie Chan, Bob Jenny, Al Gordon, Steve Leialoha, Bruce Patterson, Kerry Gammill, Jon D'Agostino",
     description:
       "Luke Cage partners with the mystic kung fu master Iron Fist to become heroes for hire, taking on any job so long as the client can meet the price, with guest appearances by the X-Men and the Daughters of the Dragon against classic villains including Bushmaster and Sabretooth.",
     coverUrl: "https://m.media-amazon.com/images/I/810-e5cTg8L._SL1500_.jpg",
@@ -5476,8 +6163,10 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Power Man and Iron Fist #71–72, 74–89;; Daredevil #178",
     yearsCovered: "1981-1982",
     releaseDate: { year: 2016, month: 10 },
-    writers: "Jo Duffy, Dennis O'Neil, Frank Miller",
-    pencillers: "Kerry Gammill, Denys Cowan, Keith Pollard, Frank Miller",
+    writers: "Jo Duffy, Dennis O'Neil, Chris Claremont, Mike W. Barr, Frank Miller",
+    pencillers: "Denys Cowan, Kerry Gammill, Frank Miller, Rudy Nebres, Keith Pollard",
+    inkers:
+      "Ricardo Villamonte, Carl Potts, Vince Colletta, Al Milgrom, Armando Gil, Klaus Janson, Joe Chiodo, Steve Mitchell, Dave Simons, Diverse Hands",
     description:
       "Luke takes revenge when Warhawk beats Danny, and the tag-team of Sabretooth and Constrictor targets Power Man and Iron Fist's friends and allies.",
     coverUrl: "https://m.media-amazon.com/images/I/71u9fLN6xoL._SL1400_.jpg",
@@ -5494,8 +6183,10 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Power Man and Iron Fist #90–107",
     yearsCovered: "1983-1984",
     releaseDate: { year: 2019, month: 11 },
-    writers: "Steven Grant, Archie Goodwin",
-    pencillers: "Denys Cowan, Greg Larocque, Geof Isherwood",
+    writers: "Kurt Busiek, Steven Grant, Archie Goodwin, Alan Rowlands",
+    pencillers: "Ernie Chan, Greg LaRocque, Denys Cowan, Geof Isherwood, Richard Howell",
+    inkers:
+      "Andy Mushynsky, Mike Mignola, Mel Candido, Ernie Chan, Greg LaRocque, Ricardo Villamonte, Richard Howell, Geof Isherwood",
     description:
       "Encounters with Unus the Untouchable and Hammerhead give way to battles against the Eel and Man-Mountain Marko, the new Chemistro, Fera the She-Beast, Shades and Comanche, and the soul-stealing Master Khan.",
     coverUrl: "https://m.media-amazon.com/images/I/91E4WWhtDQL._SL1500_.jpg",
@@ -5512,8 +6203,10 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Power Man and Iron Fist (1978) 108-125",
     yearsCovered: "1984-1986",
     releaseDate: { year: 2022, month: 10 },
-    writers: "Christopher Priest, Alan Rowlands, Tony Isabella",
-    pencillers: "Greg LaRocque, Mark Bright",
+    writers: "Jim Owsley, Alan Rowlands, Tony Isabella",
+    pencillers: "Mark Bright, Greg LaRocque, Billy Graham, Steve Geiger",
+    inkers:
+      "Jerry Acerno, Andy Mushynsky, Danny Bulanadi, Brad Joyce, Keith Williams, Mike Esposito",
     description:
       "Christopher Priest steers the duo through their final stretch as a team, closing out the long partnership between Luke Cage and Danny Rand before the series' cancellation.",
     coverUrl: "https://m.media-amazon.com/images/I/81Q+BZux81L._SL1500_.jpg",
@@ -5531,8 +6224,10 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "The Punisher (1986) #1–5;; The Punisher (1987) #1–10;; Daredevil #257;; Marvel Graphic Novel No. 40 - The Punisher: Assassin's Guild",
     yearsCovered: "1986-1988",
     releaseDate: { year: 2018, month: 12 },
-    writers: "Steven Grant, Jo Duffy, Mike Baron",
-    pencillers: "Mike Zeck, Whilce Portacio",
+    writers: "Mike Baron, Steven Grant, Ann Nocenti, Jo Duffy",
+    pencillers:
+      "Klaus Janson, Mike Zeck, Whilce Portacio, David Ross, Mike Vosburg, John Romita Jr., Jorge Zaffino",
+    inkers: "John Beatty, Klaus Janson, Scott Williams, Kevin Nowlan, Al Williamson, Jorge Zaffino",
     description:
       "Frank Castle steps out on his own in the miniseries that made him a phenomenon, forging an uneasy alliance with the tech-genius Microchip and clashing with the deadly assassin Jigsaw. Starting behind bars and ending in an all-out war on organized crime, this is the origin of the Punisher as a solo ongoing force in the Marvel Universe.",
     coverUrl: "https://m.media-amazon.com/images/I/81YOOpfBxmL._SL1500_.jpg",
@@ -5549,8 +6244,10 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "The Punisher #11–25, Annual #1–2",
     yearsCovered: "1988-1989",
     releaseDate: { year: 2019, month: 2 },
-    writers: "Mike Baron, Roger Salick",
-    pencillers: "Mark Texeira, Whilce Portacio, Erik Larsen, Bill Reinhold",
+    writers: "Mike Baron",
+    pencillers:
+      "Whilce Portacio, Erik Larsen, Mark Texeira, Larry Stroman, Shea Anton Pensa, Bill Reinhold",
+    inkers: "Scott Williams, Randy Emberlin, Gerry Talaoc, Bill Reinhold, Al Williamson",
     description:
       "Frank Castle sets his sights on toppling Wilson Fisk, the Kingpin of Crime, going undercover as a substitute teacher at Malcolm Shabazz High School and tracking a ninja assassin known as the Shadowmaster to Las Vegas. The war on crime gets personal as the Punisher takes the fight straight to the top of New York's underworld.",
     coverUrl: "https://m.media-amazon.com/images/I/91lqd87nNjL._SL1500_.jpg",
@@ -5568,8 +6265,10 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
       "The Punisher (vol. 2) #26–34, Annual #3, Classic Punisher #1, Epic Graphic Novel: Return to Big Nothing, Marvel Graphic Novel No. 51 - The Punisher: Intruder, Marvel Graphic Novel No. 64 - The Punisher: Kingdom Gone",
     yearsCovered: "1989-1990",
     releaseDate: { year: 2021, month: 7 },
-    writers: "Steven Grant, Mike Baron, Chuck Dixon",
-    pencillers: "Mike Zeck, Bill Reinhold, Jorge Zaffino",
+    writers: "Mike Baron, Steven Grant, Chuck Dixon",
+    pencillers: "Bill Reinhold, Russ Heath, Mike Zeck, Mike Vosburg, Neil Hansen, Jorge Zaffino",
+    inkers:
+      "Mark Farmer, Russ Heath, John Beatty, Bill Reinhold, Mike Vosburg, Neil Hansen, Jorge Zaffino",
     description:
       "Frank Castle's disfigured archenemy Jigsaw returns, allied with the fanatical Reverend Sammy Smith, forcing the Punisher to pick up the pieces of his own life while taking down arms dealers, drug traffickers, and the mob. Castle even goes undercover as a cab driver while hunting a killer loose on the streets of New York.",
     coverUrl: "https://m.media-amazon.com/images/I/81+1pDEyMJL._SL1500_.jpg",
@@ -5587,8 +6286,11 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
       "The Punisher (vol. 2) #35-48, Annual #4; Punisher: No Escape; Punisher: The Prize",
     yearsCovered: "1990-1991",
     releaseDate: { year: 2020, month: 2 },
-    writers: "Mike Baron, Chris Henderson",
-    pencillers: "Cam Smith, Bill Reinhold, Mark Texeira, Mike Harris",
+    writers: "Mike Baron, Gregory Wright, Chris Henderson, Chuck Dixon",
+    pencillers:
+      "Bill Reinhold, Mark Texeira, Hugh Haynes, Tod Smith, Jack Slamn, Mike Harris, Neil Hansen, Tom Morgan",
+    inkers:
+      "Mark Farmer, Mark Texeira, Danny Bulanadi, Jim Sherman, John Nyberg, Bill Reinhold, Mike Harris, Neil Hansen, Bob Wiacek, José Marzan Jr., Jimmy Palmiotti, Tom Morgan",
     description:
       "The Punisher heads to Europe and London in pursuit of the assassin Snakebite, crossing paths with the British vigilante Outlaw. Their uneasy alliance survives a deadly chase across the continent involving mercenaries from Batroc to the Tarantula, before Castle heads to the Big Easy for one more brutal reckoning.",
     coverUrl: "https://m.media-amazon.com/images/I/71JKPN4060L._SL1200_.jpg",
@@ -5605,8 +6307,12 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Amazing Spider-Man (1963) 129, 134-135, 161-162, 174-175, 201-202; Amazing Spider-Man Annual (1964) 15; Giant-Size Spider-Man (1974) 4; Captain America (1968) 241; Daredevil (1964) 183-184; Peter Parker, the Spectacular Spider-Man (1976) 81-83; material from Marvel Preview (1975) 2; Marvel Super Action (1976) 1",
     yearsCovered: "1973-1983",
     releaseDate: { year: 2027, month: 3 },
-    writers: "Gerry Conway, Marv Wolfman, Dennis O’Neill, Mike Barr, Roger McKenzie, Frank Miller, Bill Mantlo & Archie Goodwin",
-    pencillers: "Ross Andru, Keith Pollard, Frank Miller, Frank Springer, Al Milgrom, Greg LaRocque & Tony DeZuniga",
+    writers:
+      "Gerry Conway, Len Wein, Bill Mantlo, Marv Wolfman, Frank Miller, Archie Goodwin, Mike W. Barr, Dennis O'Neil, Roger McKenzie",
+    pencillers:
+      "Ross Andru, Frank Miller, Tony DeZuniga, Keith Pollard, Al Milgrom, Frank Springer, Greg LaRocque",
+    inkers:
+      "Jim Mooney, Frank Giacoia, Mike Esposito, Klaus Janson, Tony DeZuniga, Dave Hunt, Rico Rival, Pablo Marcos",
     description:
       "",
     ownershipStatus: "announced",
@@ -5630,8 +6336,10 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "The Punisher (vol. 2) #63–75; Punisher: G-Force; Punisher: Die Hard in the Big Easy; Marvel Graphic Novel No. 74 - Punisher/Black Widow: Spinning Doomsday's Web",
     yearsCovered: "1992-1993",
     releaseDate: { year: 2017, month: 12 },
-    writers: "Dan Abnett, Andy Lanning, Daniel Chichester",
-    pencillers: "Doug Braithwaite, Larry Stroman",
+    writers: "Dan Abnett, Andy Lanning, Mike Baron, Chuck Dixon, John Wagner, D.G. Chichester",
+    pencillers: "Dougie Braithwaite, Hugh Haynes, Tod Smith, Phil Gascoine, Larry Stroman",
+    inkers:
+      "Al Williamson, Jimmy Palmiotti, Joe Rubinstein, Mark McKenna, Sean Hardy, Rodney Ramos, Phil Gascoine, Mark Farmer",
     description:
       "",
     coverUrl: punisherCapitalPunishmentCover,
@@ -5648,8 +6356,12 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Punisher (1987) #76-84, Punisher Annual (1988) #5-6, Spider-Man/Punisher/Sabretooth: Designer Genes (1993) #1, Punisher: A Man Named Frank (1994) #1",
     yearsCovered: "1993",
     releaseDate: { year: 2026, month: 3 },
-    writers: "Steven Grant, Chuck Dixon, Val Mayerik",
-    pencillers: "Val Mayerik, Dave Hoover, Hugh Haynes",
+    writers:
+      "Roger Salick, Dan Abnett, Andy Lanning, Steven Grant, Mike Baron, Peter David, Pat Mills, Terry Kavanagh, Chuck Dixon",
+    pencillers:
+      "Val Mayerik, Hugh Haynes, Dave Hoover, Kevin Kobasic, Hoang Nguyen, Steven Butler, Scott McDaniel, John Buscema",
+    inkers:
+      "Val Mayerik, Mark McKenna, Mick Gray, Dave Hoover, Al Milgrom, Hoang Nguyen, Dan Panosian, Keith Williams, John Buscema",
     description:
       "",
     coverUrl: punisherSurvivalCover,
@@ -5668,7 +6380,9 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     yearsCovered: "1963-1965",
     releaseDate: { year: 2019, month: 3 },
     writers: "Stan Lee",
-    pencillers: "Jack Kirby, Dick Ayers",
+    pencillers: "Dick Ayers, Jack Kirby",
+    inkers:
+      "George Roussos, Dick Ayers, Frank Giacoia, Steve Ditko, Vince Colletta, Carl Hubbell, Chic Stone",
     description:
       "Sgt. Nick Fury and the Howling Commandos storm onto the scene in an instant hit that would go on to inspire Quentin Tarantino's Inglourious Basterds. Dum Dum Dugan, Gabe Jones, and the rest of the squad take on death-defying WWII missions behind enemy lines against overwhelming odds.",
     coverUrl: "https://m.media-amazon.com/images/I/91sGZhKkgqL._SL1500_.jpg",
@@ -5687,6 +6401,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     releaseDate: { year: 2023, month: 5 },
     writers: "Stan Lee, Roy Thomas",
     pencillers: "Dick Ayers",
+    inkers: "John Tartaglione, Frank Giacoia, Carl Hubbell",
     description:
       "The Howling Commandos protect the Manhattan Project and its atomic secrets from Nazi spies and saboteurs, unmask an undercover agent who is none other than the Red Skull, root out a traitor in their own ranks, and go mano a mano with Baron Strucker in war-torn France. This volume also reveals the origin of Nick Fury's eyepatch and sends Dum Dum Dugan solo behind enemy lines.",
     coverUrl: "https://m.media-amazon.com/images/I/81U--IdmRwL._SL1500_.jpg",
@@ -5704,8 +6419,12 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Sensational She-Hulk #1-12; She-Hulk Ceremony #1-2; and material from Solo Avengers #14; Marvel Comics Presents #18; Marvel Fanfare #48",
     yearsCovered: "1989-1990",
     releaseDate: { year: 2022, month: 5 },
-    writers: "John Byrne, Steve Gerber, Dwayne McDuffie",
-    pencillers: "John Byrne, Bryan Hitch, June Brigman",
+    writers:
+      "John Byrne, Steve Gerber, Robin D. Chaplik, Dwayne McDuffie, Chris Claremont, Richard Starkings, Gregory Wright, Peter David, Al Milgrom, Dwight Jon Zimmerman, Sue Flaxman",
+    pencillers:
+      "John Byrne, Bryan Hitch, June Brigman, Alan Davis, Steve Leialoha, Al Milgrom, Kerry Gammill, Don Perlin",
+    inkers:
+      "Bob Wiacek, Al Milgrom, Joe Rubinstein, Al Gordon, Stan Drake, Walter Simonson, Randy Emberlin, Trina Robbins, José Marzan Jr., Don Perlin",
     description:
       "John Byrne launches She-Hulk's second solo series with a twist: Shulkie knows she's a character in a comic book. As the jade giantess smashes through the glass ceiling at her new law firm, she breaks the fourth wall right along with it, quipping with readers and arguing with her own creative team while taking on the Circus of Crime, the Toad Men, Stilt-Man, and Xemnu the Titan.",
     coverUrl: "https://m.media-amazon.com/images/I/81IdXq6ebsL._SL1500_.jpg",
@@ -5722,8 +6441,11 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Sensational She-Hulk (1989) 13-30; material from:; Marvel Super-Heroes (1990) 5",
     yearsCovered: "1990-1991",
     releaseDate: { year: 2023, month: 5 },
-    writers: "Steve Gerber, Simon Furman, Louise Simonson",
-    pencillers: "Bryan Hitch, Tom Artis, Tom Morgan",
+    writers:
+      "Steve Gerber, Simon Furman, Buzz Dixon, Louise Simonson, Dwight Jon Zimmerman, Sue Flaxman",
+    pencillers: "Bryan Hitch, Tom Artis, Tom Morgan, Rik Levins, Aaron Lopresti, Jim Valentino",
+    inkers:
+      "Jim Sanders III, John Beatty, Keith Williams, Mark Heike, K. Stan Wilson, Tony DeZuniga",
     description:
       "Howard the Duck joins She-Hulk for a journey through alternate realities and the titular Cosmic Squish Principle, including a realm filled with floating lunch meats. Along the way Shulkie shares adventures with Nosferata, crosses paths with the All-Winners Squad and the Blonde Phantom, and squares off with the bounty hunter Death's Head across the timestream.",
     coverUrl: "https://m.media-amazon.com/images/I/819M2NzeN4L._SL1500_.jpg",
@@ -5740,8 +6462,12 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Sensational She-Hulk #51-60; Doc Samson #1-4; Incredible Hulk #441-442; Thing & She-Hulk: The Long Night #1; and material from Marvel Comics Presents #123-126; Incredible Hulk #412",
     yearsCovered: "1993-2002",
     releaseDate: { year: 2024, month: 7 },
-    writers: "Scott Benson, Michael Eury, Peter David, Dan Slott",
-    pencillers: "Pat Olliffe, Paco Medina",
+    writers:
+      "Michael Eury, Kelly Corvese, Dan Slott, Scott Benson, Peter David, Len Kaminski, Evan Skolnick, Sholly Fisch, Todd DeZago",
+    pencillers:
+      "Pat Olliffe, Dave Hoover, Roberto Flores, Ken Lashley, Andrew Wildman, Angel Medina, Tom Morgan, Todd Britton, Darren Auck, Dennis Jensen, Paul Pelletier, Steve Geiger, Joe Bennett, Ivan Reis, Bryan Hitch",
+    inkers:
+      "Robert Campanella, Mike DeCarlo, Art Nichols, Fred Fredericks, Steve Montano, Brad Vancata, Robin Riggs, Tom Morgan, Dave Cockrum, Barb Kaalberg, Cam Smith, Tom Wegrzyn, Dan Panosian, Robert Hedden, Jaime Mendoza, Ralph Cabrera, Paul Neary, Randy Emberlin",
     description:
       "The sensational She-Hulk meets the savage She-Hulk in a bizarre tale that sends Jen Walters up against an old version of herself, along with the Gopher, Man-Elephant, Titania, and the Rumbler. This volume rounds out Jen's solo adventures in Los Angeles before the character heads into a new era.",
     coverUrl: "https://m.media-amazon.com/images/I/81P2pEscIhL._SL1500_.jpg",
@@ -5758,8 +6484,11 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Sensational She-Hulk (1989) 31-50",
     yearsCovered: "1991-1993",
     releaseDate: { year: 2026, month: 12 },
-    writers: "John Byrne, Simon Furman",
-    pencillers: "John Byrne, Rik Levins",
+    writers:
+      "Steve Gerber, Simon Furman, Buzz Dixon, Louise Simonson, Dwight Jon Zimmerman, Sue Flaxman",
+    pencillers: "Bryan Hitch, Tom Artis, Tom Morgan, Rik Levins, Aaron Lopresti, Jim Valentino",
+    inkers:
+      "Jim Sanders III, John Beatty, Keith Williams, Mark Heike, K. Stan Wilson, Tony DeZuniga",
     description:
       "",
     coverUrl: "https://m.media-amazon.com/images/I/819M2NzeN4L._SL1500_.jpg",
@@ -5777,8 +6506,9 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Fantastic Four #48–50, 55, 57–60, 72, 74–77; and material from; Tales to Astonish #92–93 and; Fantastic Four #56, 61, Annual #5",
     yearsCovered: "1966-1968",
     releaseDate: { year: 2014, month: 11 },
-    writers: "Stan Lee",
-    pencillers: "Jack Kirby",
+    writers: "Stan Lee, Jack Kirby, Roy Thomas",
+    pencillers: "Jack Kirby, Dan Adkins",
+    inkers: "Joe Sinnott, Dan Adkins, Frank Giacoia",
     description:
       "The Silver Surfer debuts as the herald of the world-devourer Galactus in Fantastic Four, a stoic alien entity touched by human compassion who rebels against his master. Trapped on Earth by Galactus, the Surfer struggles to understand his adopted world, clashing with the Thing and the Hulk, venturing into the Microverse, and facing his own Power Cosmic at the hands of Doctor Doom.",
     coverUrl: "https://m.media-amazon.com/images/I/71oEnwVG-YL._SL1400_.jpg",
@@ -5795,8 +6525,10 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Silver Surfer (1982) #1,; Silver Surfer (1987) #1–14,; Super-Villain Classics #1; and material from; Epic Illustrated #1 and; Marvel Fanfare #51",
     yearsCovered: "1980-1988",
     releaseDate: { year: 2015, month: 11 },
-    writers: "Stan Lee, Steve Englehart",
-    pencillers: "John Byrne, Marshall Rogers, Joe Staton, John Buscema",
+    writers: "Steve Englehart, Stan Lee, John Byrne, Mark Gruenwald",
+    pencillers: "Marshall Rogers, Joe Staton, John Buscema, John Byrne, Jack Kirby",
+    inkers:
+      "Joe Rubinstein, Jack Abel, Rudy Nebres, Tom Palmer, Dave Cockrum, José Marzan Jr., George Klein, Vince Colletta, Ron Wilson",
     description:
       "The Silver Surfer breaks free of Galactus's planetary barrier and returns to the stars with his full Power Cosmic restored, setting a course for his lost love and homeworld of Zenn-La. But as the old saying goes, you can't go home again -- Norrin Radd's long-awaited freedom comes with a price he never expected.",
     coverUrl: "https://m.media-amazon.com/images/I/91BhcF772uL._SL1500_.jpg",
@@ -5813,8 +6545,12 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Silver Surfer (1987) 15-23, Silver Surfer Annual (1988) 1-2, Fantastic Four (1961) 325, Marvel Graphic Novel: Silver Surfer (1988), Silver Surfer (1988) 1-2, material from Marvel Comics Presents (1988) 1",
     yearsCovered: "1988-1989",
     releaseDate: { year: 2022, month: 6 },
-    writers: "Steve Englehart, Stan Lee",
-    pencillers: "Ron Lim, John Buscema, Moebius (Jean Giraud)",
+    writers:
+      "Steve Englehart, Stan Lee, Al Milgrom, Michael Higgins, Marshall Rogers, John Buscema, Tom DeFalco",
+    pencillers:
+      "Ron Lim, Moebius, Joe Staton, Al Milgrom, Marshall Rogers, Rich Buckler, John Buscema",
+    inkers:
+      "Joe Rubinstein, Tom Christopher, Keith Williams, Moebius, Al Milgrom, Dave Cockrum, Romeo Tanghal, John Buscema, Vince Mielcarek",
     description:
       "Galactus feasts once more, this time in the company of the mighty Elders of the Universe, while Norrin Radd's relationship with Nova is strained by Firelord and Ego the Living Planet sets its sights on consuming the Surfer. Stan Lee scripts two standout sagas: Mephisto bedevils the Surfer in a graphic novel drawn by John Buscema, and Moebius illustrates an epic in which the Surfer alone can stop Galactus from leading mankind to its doom.",
     coverUrl: "https://m.media-amazon.com/images/I/81RTfpJ9hAL._SL1500_.jpg",
@@ -5831,8 +6567,10 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Silver Surfer (1987) #24-38, Silver Surfer: The Enslavers",
     yearsCovered: "1989-1990",
     releaseDate: { year: 2023, month: 1 },
-    writers: "Steve Englehart, Jim Starlin, Stan Lee",
-    pencillers: "Ron Lim, Keith Pollard",
+    writers: "Steve Englehart, Jim Starlin, Jim Valentino, Keith Pollard, Stan Lee",
+    pencillers: "Ron Lim, Ron Frenz, Keith Pollard",
+    inkers:
+      "Tom Christopher, Randy Emberlin, Keith Williams, Joe Sinnott, Chris Ivy, José Marzan Jr., Joe Rubinstein",
     description:
       "The Silver Surfer is manipulated into a second Kree-Skrull War, putting his homeworld of Zenn-La in the crossfire. Meanwhile, Death has resurrected Thanos of Titan, and the Mad Titan intends to kill half of all living beings in the universe -- setting the stage for the cosmic epics still to come.",
     coverUrl: "https://m.media-amazon.com/images/I/81RXmF4Y-3L._SL1500_.jpg",
@@ -5849,8 +6587,9 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Silver Surfer #39–50, Annual #3;; Thanos Quest #1–2; and material from; Marvel Comics Presents #50",
     yearsCovered: "1990-1991",
     releaseDate: { year: 2018, month: 6 },
-    writers: "Jim Starlin, Ron Marz, Alan Grant",
-    pencillers: "Ron Lim, Jim Sherman",
+    writers: "Jim Starlin, Ron Marz, Ed Simmons, Alan Grant",
+    pencillers: "Ron Lim, Jack Sparling, Jim Sherman",
+    inkers: "Tom Christopher, John Beatty, Chris Ivy, Jim Sherman, Keith Williams",
     description:
       "The Silver Surfer may believe he has killed Thanos, but the Mad Titan still lives -- and his great love for Death sends him on a space-faring search for the Infinity Gems. Jim Starlin builds the pieces into place for the cosmic showdown that becomes Infinity Gauntlet.",
     coverUrl: "https://m.media-amazon.com/images/I/71OXQhLmSNL._SL1000_.jpg",
@@ -5867,8 +6606,11 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Silver Surfer #51–66, Annual #4; and material from; Marvel Comics Presents #69, 93–97",
     yearsCovered: "1991-1992",
     releaseDate: { year: 2017, month: 5 },
-    writers: "Ron Marz, Susan Kennedy",
-    pencillers: "Ron Lim, Gavin Curtis, Todd Smith, Tom Raney",
+    writers: "Ron Marz, Susan Kennedy, Gavin Curtis, Len Wein, John Figueroa",
+    pencillers:
+      "Ron Lim, Gavin Curtis, James Brock, Todd Smith, Tom Raney, Kirkowood Studios, Hugh Haynes, Ron Wilson",
+    inkers:
+      "Tom Christopher, Ian Akin, Jim Sanders, Mike Witherby, Jim Sanders III, Chris Ivy, Bud LaRosa",
     description:
       "The Sentinel of the Spaceways is swept into a Marvel Universe-spanning cosmic extravaganza against the Mad Titan Thanos, now wielding the omnipotent Infinity Gauntlet. As reality itself buckles under Thanos's will, the Surfer becomes one of the last lines of defense standing between the Mad Titan and total annihilation.",
     coverUrl: "https://m.media-amazon.com/images/I/71xBY8EH7iL._SL1400_.jpg",
@@ -5885,8 +6627,11 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Silver Surfer (vol. 3) #67-75, Annual #5; Silver Surfer: Homecoming; material from Incredible Hulk Annual #18, Namor, the Sub-Mariner Annual #2, Doctor Strange, Sorceror Supreme Annual #2",
     yearsCovered: "1992",
     releaseDate: { year: 2024, month: 12 },
-    writers: "Jim Starlin, Ron Marz",
-    pencillers: "Bill Reinhold, Ron Lim, M.C. Wyman, Kevin West",
+    writers: "Ron Marz, Jim Starlin, Peter David, Roy Thomas",
+    pencillers:
+      "Kevin West, Ron Lim, M.C. Wyman, Bill Reinhold, Travis Charest, James Fry, Tom Morgan",
+    inkers:
+      "Tom Christopher, Bill Reinhold, Dan Green, Chris Ivy, Tom Morgan, E.R. Cruz, Joe Rubinstein",
     description:
       "As the Infinity Wars rage across the Marvel Universe, the Silver Surfer joins Nova, Galactus, and Doctor Strange on a cosmic quest, but the World-Eater has taken a new herald named Morg. To save countless lives, the Surfer unites his fellow former heralds -- Nova, Firelord, Terrax, and a reactivated Gabriel the Air-Walker -- to stand against Morg, though not all of them will survive the executioner's ax.",
     coverUrl: "https://m.media-amazon.com/images/I/91IxfCXZZ8L._SL1500_.jpg",
@@ -5904,7 +6649,9 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     yearsCovered: "1993",
     releaseDate: { year: 2020, month: 9 },
     writers: "Ron Marz, Jim Starlin",
-    pencillers: "Ron Lim, Tom Grindberg, Joe Phillips, Cully Hamner, Ernie Stiner",
+    pencillers: "Ron Lim, Jim Starlin, Tom Grindberg, Joe Phillips, Cully Hamner, Ernie Stiner",
+    inkers:
+      "Tom Christopher, Terry Austin, Don Hudson, Jim Starlin, Bob Almond, Howard M. Shum, Maria Beccari, Scott Koblish",
     description:
       "The Silver Surfer aids the Jack of Hearts, survives an encounter with the deadly Nebula, and faces the Kree double threat of Captain Atlas and Doctor Minerva, while Galactus's heralds Morg and Terrax clash over the same executioner's ax. The Sentinel of the Spaceways then joins Adam Warlock and the Infinity Watch in Mephisto's clutches for the Resurrection saga.",
     coverUrl: "https://m.media-amazon.com/images/I/91zJfvpLzOL._SL1500_.jpg",
@@ -5921,8 +6668,11 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Silver Surfer (vol. 3) #111-122, Silver Surfer: Dangerous Artifacts(1996), Silver Surfer Ashcan (1995) #1, Spider-Man Team-Up(1995) #2, material from X-Men Unlimited (1993) #13, Marvel Holiday Special 1996",
     yearsCovered: "1995-1996",
     releaseDate: { year: 2025, month: 6 },
-    writers: "George Perez, Ron Marz",
-    pencillers: "Tom Grindberg, Scot Eaton, Claudio Castellini",
+    writers: "George Pérez, Ron Marz, Roger Stern, Jorge Gonzales, Stan Lee",
+    pencillers:
+      "Tom Grindberg, Scot Eaton, Claudio Castellini, Duncan Rouleau, Andrew Robinson, Jim Calafiore, Rick Leonardi",
+    inkers:
+      "Bill Anderson, Don Hudson, Claudio Castellini, Rob Hunter, Mark McKenna, Al Milgrom, Scott Koblish",
     description:
       "The legendary George Pérez takes the writing reins on the Silver Surfer, sending the Sentinel of the Spaceways to the edge of reality and beyond. Given an ominous warning by the enigmatic Watcher to quell a terrible disturbance in the universe, the Surfer must face an adversary whose power may dwarf even his own.",
     // Marvel's own CDN rather than Amazon -- the Amazon listing image for this
@@ -5942,8 +6692,10 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Silver Surfer #123–138, -1, Annual '97",
     yearsCovered: "1997-1998",
     releaseDate: { year: 2019, month: 5 },
-    writers: "J.M. DeMatteis, Tom DeFalco, Ron Garney",
-    pencillers: "Val Semeiks, Paul Pelletier, Tom Grummett",
+    writers: "J.M. DeMatteis, Tom DeFalco, Glenn Greenberg, George Pérez",
+    pencillers:
+      "Ron Garney, Tom Grummett, Cary Nord, Paul Pelletier, Adriana Melo, Ed Benes, Val Semeiks, Rick Leonardi, Roger Cruz",
+    inkers: "Bob Wiacek, Matt Ryan, Edde Wagner, Ed Benes, Klaus Janson, Ralph Cabrera",
     description:
       "The Silver Surfer returns to Earth after the Fantastic Four and Avengers have fallen in the wake of Onslaught, aided by his old friend Alicia Masters. A journey through time and space brings the Surfer face to face with Mephisto and his own inner demons, with guest turns from Spider-Man, Daredevil, and the Puppet Master along the way.",
     coverUrl: "https://m.media-amazon.com/images/I/715cBlZGNJL._SL1200_.jpg",
@@ -5960,8 +6712,11 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Silver Surfer #½, 139-146; Silver Surfer/Thor Annual $98; Galactus the Devourer #1-6; Silver Surfer: Loftier Than Mortals #1-2",
     yearsCovered: "1998-2000",
     releaseDate: { year: 2023, month: 12 },
-    writers: "Tom DeFalco, J.M. DeMatteis, Louise Simonson",
-    pencillers: "John Muth, John Buscema",
+    writers: "J.M. DeMatteis, Louise Simonson, Tom DeFalco, Michael Jan Friedman, Glenn Greenberg",
+    pencillers:
+      "Jon J. Muth, John Buscema, Denys Cowan, Sal Velluto, Ramon Bernado, Ariel Olivetti, Roger Cruz, Joe Bennett",
+    inkers:
+      "Bill Sienkiewicz, Jon J. Muth, John Floyd, Steve Geiger, Mark Pennington, Pier Brito, Manny Clark, Joe Bennett",
     description:
       "The Silver Surfer and Alicia Masters reach the end of their journey together, but before they part ways they must survive the manipulations of Tenebrae and an emotionally charged battle against Psycho-Man in the Microverse. When Galactus's unceasing hunger drives him mad and he turns to devour the Earth, Marvel's greatest heroes rally against the cosmic threat -- and the Surfer makes the greatest sacrifice of all.",
     coverUrl: "https://m.media-amazon.com/images/I/91QVOeRfunL._SL1500_.jpg",
@@ -5978,8 +6733,11 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "93-110; mat. Cosmic Powers Unlimited (1995) 1",
     yearsCovered: "1994-1995",
     releaseDate: { year: 2027, month: 1 },
-    writers: "Ron Marz, Michael Jan Friedman, Glenn Greenberg, Mike Lackey",
-    pencillers: "Bart Sears, Tom Grindberg, Scot Eaton, Jim Hall, Joe Phillips, Tom Morgan, John Buscema, Scott Benefiel, Steve Carr",
+    writers: "Ron Marz, Mike Lackey, Michael Jan Friedman, Glenn Greenberg",
+    pencillers:
+      "Tom Grindberg, Jim Hall, Bart Sears, Scot Eaton, Joe Phillips, Tom Morgan, Steve Carr, Scott Benefiel, John Buscema",
+    inkers:
+      "Bill Anderson, Tom Christopher, Bob Almond, Raymond Kryssing, Mike Barreiro, Mark McKenna, Steve Mitchell, Mike Miller, Jasen Rodriguez, Geof Isherwood",
     description:
       "",
     ownershipStatus: "announced",
@@ -5996,8 +6754,9 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Journey into Mystery #83–109",
     yearsCovered: "1962-1964",
     releaseDate: { year: 2014, month: 10 },
-    writers: "Stan Lee",
-    pencillers: "Jack Kirby, Joe Sinnott, Don Heck",
+    writers: "Stan Lee, Larry Lieber, Robert Bernstein",
+    pencillers: "Jack Kirby, Joe Sinnott, Don Heck, Steve Ditko, Al Hartley",
+    inkers: "Chic Stone, Dick Ayers, Joe Sinnott, Don Heck, Steve Ditko, George Roussos",
     description:
       "Dr. Donald Blake discovers a strange, gnarled cane in Norway, and upon striking it transforms into Thor, God of Thunder. Stan Lee and Jack Kirby lay the foundation of Asgard and the Marvel Universe's mightiest hero from the ground up.",
     coverUrl: "https://m.media-amazon.com/images/I/71UkYQa1XlL._SL1400_.jpg",
@@ -6015,7 +6774,8 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     yearsCovered: "1964-1966",
     releaseDate: { year: 2016, month: 11 },
     writers: "Stan Lee",
-    pencillers: "Jack Kirby",
+    pencillers: "Jack Kirby, Carl Hubbell",
+    inkers: "Vince Colletta, Chic Stone, Carl Hubbell, Frank Giacoia",
     description:
       "Asgardian adventures escalate with a fight between Thor and the Incredible Hulk, the return of the Grey Gargoyle, and the debuts of the Absorbing Man and the Destroyer. The volume closes with an epic team-up adventure pitting Thor against Hercules that concludes in Pluto's Underworld.",
     coverUrl: "https://m.media-amazon.com/images/I/81+ZftH7E3L._SL1500_.jpg",
@@ -6034,6 +6794,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     releaseDate: { year: 2017, month: 9 },
     writers: "Stan Lee",
     pencillers: "Jack Kirby",
+    inkers: "Vince Colletta, Bill Everett",
     description:
       "Thor's saga reaches new heights with the debuts of Ego the Living Planet, the High Evolutionary, Ulik the Troll, and the Destroyer. Loki conspires to have Odin strip Thor of his power and banish him to Earth, forcing Thor to survive his scheming brother's machinations while attempting to regain Odin's favor.",
     coverUrl: "https://m.media-amazon.com/images/I/71jNvCFUl0L._SL1400_.jpg",
@@ -6052,6 +6813,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     releaseDate: { year: 2015, month: 2 },
     writers: "Stan Lee",
     pencillers: "Jack Kirby",
+    inkers: "Vince Colletta, Bill Everett, George Klein",
     description:
       "Mangog threatens to unsheathe the Odinsword and bring Ragnarok upon the Norse gods in this run of Asgardian classics. The volume also features a cosmic battle between Galactus and Ego the Living Planet, the return of \"Him\" (later Adam Warlock), and the origin of Galactus himself, alongside personal revelations about Donald Blake and the dramatic dance between Balder and the Norn queen Karnilla.",
     coverUrl: "https://m.media-amazon.com/images/I/71e3dqMqPaL._SL1400_.jpg",
@@ -6068,8 +6830,10 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Thor #175–194",
     yearsCovered: "1970-1971",
     releaseDate: { year: 2018, month: 9 },
-    writers: "Stan Lee",
-    pencillers: "Jack Kirby, John Buscema",
+    writers: "Stan Lee, Gerry Conway",
+    pencillers: "John Buscema, Jack Kirby, Neal Adams, John Romita Sr.",
+    inkers:
+      "Joe Sinnott, Vince Colletta, Bill Everett, Sam Grainger, Sal Buscema, John Verpoorten, Jim Mooney",
     description:
       "The mountain giants are on the march, Surtur has broken free, and Odin sleeps while Loki claims the throne of Asgard -- in short, all Ragnarok is about to break loose. When the dust settles, Loki's spells lead to a body swap between the God of Thunder and his mischievous half-brother, while John Buscema steps in to carry the hammer alongside Stan Lee, pitting Thor against Doctor Doom, Hela, and the Silver Surfer.",
     coverUrl: "https://m.media-amazon.com/images/I/91z7CjMbckL._SL1500_.jpg",
@@ -6086,8 +6850,9 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Thor #195-216",
     yearsCovered: "1972-1973",
     releaseDate: { year: 2020, month: 3 },
-    writers: "Gerry Conway",
-    pencillers: "John Buscema",
+    writers: "Gerry Conway, Stan Lee, Len Wein",
+    pencillers: "John Buscema, Don Perlin, Jim Mooney, Sal Buscema",
+    inkers: "Vince Colletta, Jim Mooney, John Verpoorten",
     description:
       "Loki looses the Mangog, a monster powered by the anger and hatred of a billion beings, leading to the tragic death of Odin. When Pluto comes to claim Odin's soul, a war with Hela, queen of the dead, erupts across Asgard and beyond.",
     coverUrl: "https://m.media-amazon.com/images/I/91upZAYCPvL._SL1500_.jpg",
@@ -6104,8 +6869,11 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Thor 217-241 + ??",
     yearsCovered: "1974-1975",
     releaseDate: { year: 2021, month: 12 },
-    writers: "Gerry Conway",
-    pencillers: "John Buscema",
+    writers: "Gerry Conway, Bill Mantlo, Roy Thomas",
+    pencillers:
+      "John Buscema, Rich Buckler, Sal Buscema, Keith Pollard, Arvell Jones, Terry Austin, Dick Giordano, George Tuska",
+    inkers:
+      "Joe Sinnott, Mike Esposito, Chic Stone, Dick Giordano, Sal Buscema, Jim Mooney, Terry Austin, Klaus Janson, Vince Colletta",
     description:
       "Thor teams up with Hercules as they battle into Pluto's underworld, then joins Sif and Balder to stop the mysterious Black Stars from destroying the Rigellian homeworld. Galactus's herald Firelord makes his debut, the origin of Ego the Living Planet is revealed, and the Absorbing Man joins forces with Ulik the Troll.",
     coverUrl: "https://m.media-amazon.com/images/I/81q-6IiCbsL._SL1500_.jpg",
@@ -6122,8 +6890,9 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Thor (1966) 242-259, Annual (1966) 5; Marvel Spotlight (1971) 30; material from Marvel Treasury Edition (1974) 10",
     yearsCovered: "1976-1977",
     releaseDate: { year: 2022, month: 6 },
-    writers: "Len Wein",
-    pencillers: "John Buscema",
+    writers: "Len Wein, Steve Englehart",
+    pencillers: "John Buscema, Tony DeZuniga",
+    inkers: "Tony DeZuniga, Joe Sinnott",
     description:
       "Thor embarks on an adventure with Zarrko the Tomorrow Man against the Time-Twisters, fights the Firelord in the jungles of Latin America with Jane Foster's help, and faces Mangog in Asgard on a quest to save Odin.",
     coverUrl: "https://m.media-amazon.com/images/I/81DF7FZWFJL._SL1500_.jpg",
@@ -6140,8 +6909,11 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Thor #260-280, Annual #6-7, Marvel Preview #10",
     yearsCovered: "1977-1979",
     releaseDate: { year: 2023, month: 4 },
-    writers: "Len Wein, Roy Thomas",
-    pencillers: "John Buscema, Walt Simonson",
+    writers: "Len Wein, Roy Thomas, Roger Stern, Don Glut, Don Thompson, Maggie Thompson",
+    pencillers:
+      "Walter Simonson, John Buscema, Sal Buscema, Tony DeZuniga, Alan Kupperberg, Wayne Boring, Jim Starlin",
+    inkers:
+      "Tony DeZuniga, Tom Palmer, Ernie Chan, Joe Sinnott, Klaus Janson, Chic Stone, Pablo Marcos",
     description:
       "Odin has disappeared, and Asgard needs its All-Father, so Thor ventures across the vastness of space to find him -- a quest that brings him into conflict with the Enchantress, the Executioner, the Destroyer, and Loki. This volume features the death of Balder, the Midgard Serpent, a new Norse Thor, a team-up with the Guardians of the Galaxy against Korvac, and the beginning of the epic Eternals saga.",
     coverUrl: "https://m.media-amazon.com/images/I/81a-ekcIxqL._SL1500_.jpg",
@@ -6158,8 +6930,10 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Thor #281-302, Annual #8, material from Marvel Treasury Edition #24, 26",
     yearsCovered: "1979-1980",
     releaseDate: { year: 2024, month: 11 },
-    writers: "Roy Thomas, Mark Gruenwald, Ralph Macchio",
-    pencillers: "Keith Pollard, John Buscema",
+    writers: "Roy Thomas, Mark Gruenwald, Ralph Macchio, Mike Catron, Peter Gillis, Jo Duffy",
+    pencillers: "Keith Pollard, John Buscema, Arvell Jones, Ricardo Villamonte",
+    inkers:
+      "Chic Stone, Pablo Marcos, Tony DeZuniga, Marie Severin, Gene Day, Al Milgrom, Ricardo Villamonte",
     description:
       "One of the greatest Thor stories of all time arrives with the coming of the Eternals, as Thor confronts Odin with questions about Ragnarok, his mother, and the looming threat of the Celestials. The quest leads Thor to meet the Eternals themselves and face the Fourth Host of the Celestials.",
     coverUrl: "https://m.media-amazon.com/images/I/81EUBEZvAtL._SL1500_.jpg",
@@ -6176,8 +6950,11 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Thor #303–319, Annual #9–10",
     yearsCovered: "1980-1982",
     releaseDate: { year: 2014, month: 4 },
-    writers: "Doug Moench, Ralph Macchio, Mark Gruenwald",
-    pencillers: "Keith Pollard",
+    writers:
+      "Doug Moench, Mark Gruenwald, Ralph Macchio, Chris Claremont, Bill Mantlo, Alan Zelenetz",
+    pencillers: "Keith Pollard, Rick Leonardi, Luke McDonnell, Alan Kupperberg, Bob Hall, Gil Kane",
+    inkers:
+      "Chic Stone, Gene Day, Dave Simons, Pablo Marcos, Marie Severin, Frank Giacoia, Al Milgrom, Joe Rubinstein, Brett Breeding, Vince Colletta, Keith Pollard, Dan Green, Al Gordon, Andy Mushynsky, Rick Bryant, Kevin Dzuban, Gil Kane",
     description:
       "Thor returns to Earth, but the enemies of Asgard aren't waiting for him back home, from the Wrecking Crew and Galactus's heralds Gabriel and Firelord to the Frost Giants and Drax the Destroyer. Thor teams up with Iron Man to confront some of the strangest villains in the Marvel Universe, while Loki conspires to pit his half-brother against the stone men of Easter Island and the great dragon Fafnir.",
     coverUrl: "https://m.media-amazon.com/images/I/81RYt1vKLoL._SL1500_.jpg",
@@ -6194,8 +6971,11 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Thor #320–336, Annual #11;; Bizarre Adventures #32",
     yearsCovered: "1982-1983",
     releaseDate: { year: 2016, month: 8 },
-    writers: "Doug Moench, Alan Zelenetz, Bob Hall",
-    pencillers: "Alan Kupperberg, Bob Hall, Mark Bright",
+    writers: "Alan Zelenetz, Doug Moench, Steven Grant, Bob Hall",
+    pencillers:
+      "Alan Kupperberg, Bob Hall, Mark Bright, Herb Trimpe, Keith Pollard, Greg LaRocque, Don Perlin, John Bolton",
+    inkers:
+      "Vince Colletta, Jim Mooney, Chic Stone, Diverse Hands, John Tartaglione, Ricardo Villamonte, Jon D'Agostino, Herb Trimpe, John Bolton",
     description:
       "A battle for Asgard erupts when Loki and the war god Tyr steal the Golden Apples of Immortality and unleash the Midgard Serpent, leaving Thor, Sif, and the Warriors Three to face this world-destroying menace or age and die like mortal men. Thor and Sif also embark on a quest into the cosmic depths of the Runestaff to save Jane Foster.",
     coverUrl: "https://m.media-amazon.com/images/I/71ziLiot60L._SL1400_.jpg",
@@ -6212,8 +6992,10 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Thor #383–400",
     yearsCovered: "1987-1989",
     releaseDate: { year: 2013, month: 10 },
-    writers: "Tom DeFalco",
-    pencillers: "Ron Frenz",
+    writers: "Tom DeFalco, Stan Lee, Jim Shooter, Roger Stern, Ron Frenz",
+    pencillers: "Ron Frenz, Erik Larsen, Bob Hall",
+    inkers:
+      "Brett Breeding, Don Heck, Vince Colletta, Al Milgrom, Tony DeZuniga, Romeo Tanghal, Joe Sinnott",
     description:
       "With Asgard adrift in space, Thor must sacrifice all when he finds himself in a losing battle to protect the planet Pangoria against the unimaginably powerful Celestials. When Seth the Serpent God unleashes an all-out assault on Asgard, the Norse gods must defeat his ruthless army without their greatest warrior. Thor also takes on the Hulk, clashes with a Celtic Lord of Lightning, and tackles Quicksand and the Mongoose alongside Spider-Man.",
     coverUrl: "https://m.media-amazon.com/images/I/91P6jke4zNL._SL1500_.jpg",
@@ -6230,8 +7012,9 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Thor #401–418, Annual #14",
     yearsCovered: "1989-1990",
     releaseDate: { year: 2017, month: 8 },
-    writers: "Tom DeFalco, Randall Frenz, Roy Thomas",
-    pencillers: "Ron Frenz, Herb Trimpe, Al Milgrom",
+    writers: "Tom DeFalco, Ron Frenz, Randall Frenz, Roy Thomas",
+    pencillers: "Ron Frenz, Rich Yanizeski, Al Milgrom, Herb Trimpe",
+    inkers: "Joe Sinnott, Hector Collazo, Don Heck, Herb Trimpe",
     description:
       "Thor makes the ultimate sacrifice to spare a life, and with his friend Eric Masterson's fate hanging in the balance, Thor finds himself bonded to mortal form once again. Villains including Quicksand, the Mongoose, and a new Executioner menace an untethered Asgard as it drifts into the Negative Zone, while Hercules returns and Thor teams with She-Hulk against two Dooms and with the New Warriors against the Juggernaut.",
     coverUrl: "https://m.media-amazon.com/images/I/81RcSD6PgML._SL1500_.jpg",
@@ -6248,8 +7031,9 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Thor #419–436, Annual #15",
     yearsCovered: "1990-1991",
     releaseDate: { year: 2019, month: 8 },
-    writers: "Roy Thomas, Tom DeFalco",
-    pencillers: "Herb Trimpe, Gary Hartle, Ron Frenz",
+    writers: "Tom DeFalco, Ron Frenz, Roy Thomas, Dann Thomas",
+    pencillers: "Ron Frenz, Herb Trimpe",
+    inkers: "Joe Sinnott, Al Milgrom, Mark McKenna, Romeo Tanghal, Danny Bulanadi, Dan Panosian",
     description:
       "When the High Evolutionary plans a new race of immortals in the Black Galaxy, Hercules and the Celestials play a part in a spacefaring saga with major implications for Thor and his new mortal host, Eric Masterson. Thor will experience flame, frost, and fury courtesy of Surtur and Ymir, while on Earth, Code Blue protects New York from superhuman dangers -- until Thor and Excalibur must team up against the unstoppable Juggernaut.",
     coverUrl: "https://m.media-amazon.com/images/I/91NNr0nt0OL._SL1500_.jpg",
@@ -6266,8 +7050,9 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Thor #437-450, Annual #16-17",
     yearsCovered: "1991-1992",
     releaseDate: { year: 2020, month: 12 },
-    writers: "Tom DeFalco",
-    pencillers: "Ron Frenz, Pat Olliffe",
+    writers: "Tom DeFalco, Ron Frenz, Roy Thomas",
+    pencillers: "Ron Frenz, Pat Olliffe, Geof Isherwood",
+    inkers: "Al Milgrom, Fred Fredericks",
     description:
       "Eric Masterson settles into his role as replacement Thor and joins forces with Beta Ray Bill and Dargo Ktor, the 26th-century Thunder God. Zarrko the Tomorrow Man recruits a cadre of classic Thor villains from across the timestream, including Loki, while Operation: Galactic Storm takes Thor into space and Dargo meets the Guardians of the Galaxy.",
     coverUrl: "https://m.media-amazon.com/images/I/81UEJkZDfYL._SL1500_.jpg",
@@ -6284,8 +7069,10 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Thor #451-467, Thor Corps #1-4",
     yearsCovered: "1992-1993",
     releaseDate: { year: 2021, month: 6 },
-    writers: "Tom DeFalco, Ron Marz",
-    pencillers: "Ron Frenz, Bruce Zick, Pat Olliffe",
+    writers: "Tom DeFalco, Ron Marz, Jim Starlin",
+    pencillers: "Bruce Zick, Ron Frenz, Pat Olliffe, Gary Hartle, M.C. Wyman",
+    inkers:
+      "Al Milgrom, Mike DeCarlo, Pat Olliffe, Romeo Tanghal, Kevin Yates, Ariane Lenshoek, Steve Alexandrov, Raymond Kryssing, Steve Montano",
     description:
       "The true Odinson is located at last, and Eric Masterson's time as the God of Thunder comes to an end, leading to a battle between Thor and Thor and a new heroic legacy waiting in the wings. Thor battles the Super-Skrull, Drax, and Pluto as the Infinity Crusade rocks the Marvel Universe, and the Thor Corps reunites.",
     coverUrl: "https://m.media-amazon.com/images/I/91xRaZgfU-L._SL1500_.jpg",
@@ -6303,7 +7090,10 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     yearsCovered: "1993-1994",
     releaseDate: { year: 2022, month: 11 },
     writers: "Ron Marz, Jim Starlin, Roy Thomas",
-    pencillers: "Cam Smith, M.C. Wyman",
+    pencillers:
+      "M.C. Wyman, Andy Smith, Tom Grindberg, Bruce Zick, Kris Renkewitz, Tom Raney, Angel Medina, Sandu Florea",
+    inkers:
+      "Mike DeCarlo, Bob Almond, Harry Candelario, Tom Christopher, Keith Williams, John Nyberg, Bill Anderson, Pat Redding, Al Milgrom, Bob Petrecca",
     description:
       "The God of Thunder has gone mad, with Beta Ray Bill and Sif hoping to talk him down, while Adam Warlock, Doctor Strange, and the Silver Surfer intend to cure him -- and Thanos is spoiling for a fight. The Blood and Thunder crossover pulls in the Infinity Watch as Thor's madness threatens to consume everyone around him.",
     coverUrl: "https://m.media-amazon.com/images/I/81khATepnnL._SL1500_.jpg",
@@ -6320,8 +7110,11 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Thor #476-490, Annual #19 and material from Avengers Annual #23",
     yearsCovered: "1994-1995",
     releaseDate: { year: 2023, month: 7 },
-    writers: "Roy Thomas",
-    pencillers: "John Buscema, Jerry DeClaire, M.C. Wyman",
+    writers: "Roy Thomas, Ron Frenz, Tom DeFalco",
+    pencillers:
+      "M.C. Wyman, John Buscema, Stewart Johnson, Jerry DeCaire, Keith Pollard, Sandu Florea",
+    inkers:
+      "Mike DeCarlo, John Buscema, Romeo Tanghal, Don Hudson, Carmen Imperato, Sandu Florea, Pat Olliffe",
     description:
       "Thor discovers Don Blake is alive and well, and confronts Odin when the all-powerful Destroyer interrupts his quest for answers. Kurse returns backed by undead allies and threatens to destroy New York City, and the Hulk helps Thor fight his way to Hel and back.",
     coverUrl: "https://m.media-amazon.com/images/I/91Nc2ToGn4L._SL1500_.jpg",
@@ -6338,8 +7131,11 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Thor #491–502;; Captain America #449;; Iron Man #326;; Avengers #396;; Thor: The Legend",
     yearsCovered: "1995-1996",
     releaseDate: { year: 2018, month: 6 },
-    writers: "Warren Ellis, William Messner-Loebs, Mark Waid, Terry Kavanagh",
-    pencillers: "Mike Deodato Jr., Geof Isherwood",
+    writers: "William Messner-Loebs, Warren Ellis, Terry Kavanagh, Mark Waid, Mark Gruenwald",
+    pencillers:
+      "Mike Deodato Jr., Geof Isherwood, Ron Garney, Steve Ellis, Jim Cheung, Hector Collazo, John Statema, Oclair Albert, Frank Toscano, Luke Ross, Pino Rinaldi, Dante Bastianoni",
+    inkers:
+      "Mike Deodato Jr., Andy Lanning, Geof Isherwood, Sandu Florea, Scott Koblish, Denis Rodier, Mark McKenna, Steve Moncuse, Tom Palmer, Grant Nelson, Eddie Wagner, Alex Jubran, Rene Micheletti, Brad Vancata",
     description:
       "Visionary writer Warren Ellis and artist Mike Deodato Jr. unite to change everything for a Thunder God forsaken by his father and left mortal in Manhattan. Thor faces death and potential Ragnarok while finding solace with the Enchantress and attempting to save Yggdrasil, the World Tree.",
     coverUrl: "https://m.media-amazon.com/images/I/91ljrU+3axL._SL1500_.jpg",
@@ -6356,8 +7152,10 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Journey into Mystery #503-513, -1; Valkyrie #1; Hercules and the Heart of Chaos #1-3",
     yearsCovered: "1996-1997",
     releaseDate: { year: 2024, month: 6 },
-    writers: "Tom DeFalco",
-    pencillers: "Mike Deodato Jr., John Buscema, Pablo Raimondi, Ron Frenz",
+    writers: "Tom DeFalco, Ron Frenz, J.M. DeMatteis, Karl Bollers",
+    pencillers:
+      "Mike Deodato Jr., Ron Frenz, Sal Buscema, Carlos Mota, Mark Campos, Pablo Raimondi",
+    inkers: "Mike Deodato Jr., Al Milgrom, Pat Olliffe, Eddie Wagner, Rene Micheletti, Mark Campos",
     description:
       "Thor is gone and Asgard destroyed, its gods scattered across the Earth living mortal lives with no memory of their past selves. Sif, Balder, Ulik the Troll, the Warriors Three, the Enchantress, and the other Lost Gods must discover the truth about themselves in time to stop the world-destroying plot of Seth, the Egyptian God of Death.",
     coverUrl: "https://m.media-amazon.com/images/I/91IGPUO8MSL._SL1500_.jpg",
@@ -6374,8 +7172,9 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Thor (Vol. 2) #1-13, #1: Rough Cut, Annual '99; Silver Surfer/Thor Annual '98; Peter Parker: Spider-Man #2",
     yearsCovered: "1998-1999",
     releaseDate: { year: 2025, month: 7 },
-    writers: "Dan Jurgens, Tom DeFalco",
-    pencillers: "John Romita Jr., Ramon Bernado, John Buscema",
+    writers: "Dan Jurgens, Howard Mackie, J.M. DeMatteis, Tom DeFalco",
+    pencillers: "John Romita Jr., John Buscema, Ramon Bernado, Dan Jurgens",
+    inkers: "Klaus Janson, Scott Hanna, Jerry Ordway, Mark Pennington",
     description:
       "The Mighty Thor ushers in a new era following the world-shattering events of Heroes Reborn, as the Odinson returns to find Asgard in ruins and the other pantheons under siege. Dan Jurgens and John Romita Jr. relaunch the God of Thunder for a new age of dark gods and old enemies.",
     coverUrl: "https://m.media-amazon.com/images/I/91dbxoj4SgL._SL1500_.jpg",
@@ -6392,8 +7191,9 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Thor (1966) 337-356",
     yearsCovered: "1983-1984",
     releaseDate: { year: 2026, month: 3 },
-    writers: "Walter Simonson",
-    pencillers: "Walter Simonson",
+    writers: "Walter Simonson, Bob Harras",
+    pencillers: "Walter Simonson, Sal Buscema, Jackson Guice",
+    inkers: "Walter Simonson, Terry Austin, Bob Wiacek, Sal Buscema, Bob Layton",
     description:
       "",
     coverUrl: "https://m.media-amazon.com/images/I/81irVHSFtoL._SL1500_.jpg",
@@ -6419,8 +7219,12 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Thunderbolts (1997) 1-12; Thunderbolts: Distant Rumblings (1997) -1; Thunderbolts Annual '97; Incredible Hulk (1968) 449; Spider-Man Team-Up (1995) 7; Heroes For Hire (1997) 7; material from; Tales of the Marvel Universe (1997) 1",
     yearsCovered: "1997-1998",
     releaseDate: { year: 2023, month: 7 },
-    writers: "Kurt Busiek, Roger Stern",
-    pencillers: "Mark Bagley, Sal Buscema",
+    writers:
+      "Kurt Busiek, Roger Stern, Peter David, John Ostrander, J.M. DeMatteis, Tom DeFalco, Mark Waid, Howard Mackie, Mark Bernardo",
+    pencillers:
+      "Mark Bagley, Jeff Johnson, Ron Frenz, Steve Epting, George Pérez, Tom Grummett, Bob McLeod, Chris Marrinan, Darick Robertson, Gene Colan, Ron Randall, Mike Deodato Jr., Sal Buscema, Pasqual Ferry, Aaron Lopresti, Rick Leonardi, Andy Kubert, Klaus Janson",
+    inkers:
+      "Vince Russell, Will Blyberg, Al Milgrom, Keith Williams, Larry Mahlstedt, Greg Adams, Scott Hanna, Bob Wiacek, Tom Palmer, Margeaux Pepoy, Scott Koblish, Bruce Patterson, Karl Kesel, Jim Sanders, Tom Wegrzyn, Dick Giordano, Jaime Mendoza, Rachel Pinnock, Aaron Lopresti, Mark Pennington, Al Williamson, Randy Emberlin, Klaus Janson, Jesse Delprang",
     description:
       "A team of villains in disguise, led by Baron Zemo, poses as a new team of heroes to fill the void left by the Avengers and Fantastic Four -- who have seemingly perished. As the ruse deepens, some members begin to doubt the plan, leading to explosive confrontations when the real heroes return.",
     coverUrl: "https://m.media-amazon.com/images/I/91C7mek8SsL._SL1500_.jpg",
@@ -6438,7 +7242,8 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     yearsCovered: "1998-1999",
     releaseDate: { year: 2024, month: 4 },
     writers: "Kurt Busiek, Karl Kesel, Barbara Kesel",
-    pencillers: "Mark Bagley, George Perez",
+    pencillers: "Mark Bagley, rez, George P&eacute",
+    inkers: "Scott Hanna, Al Vey, Bob Wiacek, Jon Holdredge, Greg Adams, Al Milgrom",
     description:
       "Baron Zemo's master plan collapses and the Thunderbolts are exposed as villains in disguise, kidnapped to the alien realm of Kosmos. Back on Earth, the team is pursued by S.H.I.E.L.D. and by Zemo himself, out for blood, while Hawkeye the Marksman offers them a shot at redemption -- with a very high price attached.",
     coverUrl: "https://m.media-amazon.com/images/I/91wPeTRAocL._SL1500_.jpg",
@@ -6456,7 +7261,8 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     yearsCovered: "1999-2000",
     releaseDate: { year: 2025, month: 5 },
     writers: "Kurt Busiek, Fabian Nicieza, Joe Casey",
-    pencillers: "Mark Bagley, Norm Breyfogle, Leonardo Manco",
+    pencillers: "Mark Bagley, Norm Breyfogle, Leonardo Manco, Richard Howell",
+    inkers: "Scott Hanna, Greg Adams, Norm Breyfogle, Leonardo Manco, Richard Howell",
     description:
       "The Thunderbolts have a new leader in Hawkeye, a new headquarters, a new ship, and a new mission: to prove themselves as heroes by taking down the biggest villains at large. MACH-1 is now behind bars, surrounded by the super villains who used to be his peers and who now want him dead.",
     coverUrl: "https://m.media-amazon.com/images/I/91rhvBCjGhL._SL1500_.jpg",
@@ -6474,7 +7280,8 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     yearsCovered: "2000-2001",
     releaseDate: { year: 2026, month: 3 },
     writers: "Fabian Nicieza, Kurt Busiek",
-    pencillers: "George Perez, Mark Bagley, Patch Zircher",
+    pencillers: "Mark Bagley, George Pérez, Patrick Zircher, Paul Ryan, Charlie Adlard",
+    inkers: "Al Vey, Greg Adams, Al Milgrom, Walden Wong, Scott Hanna, Charlie Adlard",
     description:
       "The Thunderbolts face off against the Avengers with Hawkeye caught in the middle, and a showdown looms with Count Nefaria, master of ionic energy. Old friends return, a new Scourge attacks, and sparks fly between Songbird and Captain Marvel as the team's path toward true redemption reaches a turning point.",
     coverUrl: "https://m.media-amazon.com/images/I/91NPgsavm5L._SL1500_.jpg",
@@ -6491,8 +7298,9 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "53-63; V-Battallion; The Everlasting",
     yearsCovered: "2001-2002",
     releaseDate: { year: 2027, month: 3 },
-    writers: "Fabian Nicieza & Michael Barreiro",
-    pencillers: "Patch Zircher, Mark Bagley, Michael Ryan, Lewis LaRosa & Jose Kleber de Moura Jr.",
+    writers: "Fabian Nicieza",
+    pencillers: "Patrick Zircher, Michael Ryan, Lewis LaRosa, Mark Bagley, Klebs Jr.",
+    inkers: "Al Vey, Sean Parsons, Udon Studios, Jim Royal, Scott Koblish",
     description:
       "",
     ownershipStatus: "announced",
@@ -6509,8 +7317,12 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Amazing Spider-Man #258, 300, 315–17, 332–33, 346–47, 388 (B story),; Web of Spider-Man #1,; Marvel Graphic Novel No. 68 - Avengers: Deathtrap - The Vault,; Darkhawk #13-14; and material from; Amazing Spider-Man Annual #25-26;; Web of Spider-Man Annual #7-8;; and Spectacular Spider-Man Annual #12",
     yearsCovered: "1988-1991",
     releaseDate: { year: 2020, month: 11 },
-    writers: "David Michelinie, Danny Fingeroth",
-    pencillers: "Todd McFarlane, Ron Lim, Erik Larsen, Mike Manley",
+    writers:
+      "David Michelinie, Tom DeFalco, Al Milgrom, Danny Fingeroth, Jim Shooter, John Byrne, Louise Simonson, Len Kaminski, Mark Gruenwald",
+    pencillers:
+      "Todd McFarlane, Erik Larsen, Ron Frenz, Aaron Lopresti, Herb Trimpe, Ron Lim, Mike Manley, Mike Zeck, John Byrne, Al Milgrom, Greg LaRocque, Marc Silvestri, Dell Barras, Paul Ryan, Mark Bagley, Paris Cullins, Don Hudson",
+    inkers:
+      "Todd McFarlane, Randy Emberlin, Joe Rubinstein, Jim Mooney, Mike Machlan, Bruce Jones, Jack Abel, Vince Colletta, Bob McLeod, Ricardo Villagran, Mike Esposito, John Beatty, Brett Breeding, Al Gordon, Geof Isherwood, Kyle Baker, Jim Sanders, Fred Fredericks, Danny Bulanadi, Andy Mushynsky, Keith Wilson, Brad Vancata, Joe Rosas, Mickey Ritter, Bud LaRosa, Don Hudson, Tom Palmer",
     description:
       "When Spider-Man learns that his black costume is secretly an alien symbiote, he rejects the suit -- and the spurned creature soon finds a new host. Disgraced reporter Eddie Brock has reasons of his own to hate Spider-Man, and together the two merge into the twisted engine of revenge known as Venom: bigger, stronger, and privy to Spidey's secret identity.",
     coverUrl: "https://m.media-amazon.com/images/I/81owZ-obW9L._SL1500_.jpg",
@@ -6527,8 +7339,11 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Amazing Spider-Man (1963) 361-363, 374; Spider-Man: The Trial of Venom (1992) 1; Web of Spider-Man (1985) 95-96; Ghost Rider/Blaze: Spirits of Vengeance (1992) 5-6; Venom: Lethal Protector (1993) 1-6; material from Marvel Comics Presents (1988) 117-122; Amazing Spider-Man (1963) 373, 375",
     yearsCovered: "1992-1993",
     releaseDate: { year: 2022, month: 1 },
-    writers: "David Michelinie, Howard Mackie",
-    pencillers: "Mark Bagley, Sam Kieth, Ron Lim",
+    writers: "David Michelinie, Howard Mackie, Peter David",
+    pencillers:
+      "Mark Bagley, Sam Kieth, Alex Saviuk, Adam Kubert, Ron Lim, Chris Marrinan, Jim Craig, Dan Panosian, Joe Rubinstein, Todd Smith",
+    inkers:
+      "Sam de la Rosa, Randy Emberlin, Sam Kieth, Al Milgrom, Keith Williams, Joe Rubinstein, Bill Reinhold, Dwayne Turner, David Day, Dan Day, Don Hudson, Joe Kubert, Arthur Adams, Tom Mandrake, Dan Panosian, Todd Smith",
     description:
       "Eddie Brock evolves from Spider-Man's deadliest foe into a twisted new hero as Venom forges a fresh future in San Francisco, targeting those who prey on the weak. The Lethal Protector saga marks Venom's turn from villain to anti-hero, setting the tone for the character for years to come.",
     coverUrl: "https://m.media-amazon.com/images/I/812mUtFJF5L._SL1500_.jpg",
@@ -6545,8 +7360,12 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Iron Man (1968) 302; Darkhawk (1991) 35-37; Venom: The Madness (1993) 1-3; Venom: The Enemy Within (1994) 1-3; Incredible Hulk vs. Venom (1994) 1; Venom: The Mace (1994) 1-3; Nightwatch (1994) 5-6; Venom: Nights of Vengeance (1994) 1-4",
     yearsCovered: "1994",
     releaseDate: { year: 2023, month: 9 },
-    writers: "Danny Fingeroth, Ann Nocenti, Bruce Jones, Carl Potts, Howard Mackie",
-    pencillers: "Tod Smith, Kelley Jones, Bob McLeod, Liam Sharp, Ron Lim",
+    writers:
+      "Howard Mackie, Danny Fingeroth, Ann Nocenti, Bruce Jones, Carl Potts, Terry Kavanagh, Len Kaminski, Peter David",
+    pencillers:
+      "Ron Lim, Tod Smith, Kelley Jones, Bob McLeod, Liam Sharp, Mark Tenney, Kevin Hopgood, Jim Craig",
+    inkers:
+      "Al Milgrom, Ian Akin, John Beatty, Bill Reinhold, Bob McLeod, Thomas Florimonte, Steve Mitchell, Keith Williams, Harry Candelario, David Day, Dan Day, Bill Anderson",
     description:
       "The lethal protector continues his symbiotic crusade when Venom bonds with a second parasitic life-form, and Eddie Brock must fight to keep from succumbing to the madness of yet another voice in his head. The sinister symbiote clashes with some of Marvel's greatest powerhouses, from Iron Man and the Hulk to Darkhawk and Nightwatch.",
     coverUrl: "https://m.media-amazon.com/images/I/71P6N8m-SmL._SL1500_.jpg",
@@ -6563,8 +7382,11 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Spider-Man: The Arachnis Project #6,; Web of Spider-Man #118-119,; Spider-Man #52-53,; Venom: Separation Anxiety #1-4,; Venom: Carnage Unleashed #1-4,; Venom: Sinner Takes All #1-4 (A-stores) & #5,; Uncanny Origins #7",
     yearsCovered: "1995",
     releaseDate: { year: 2022, month: 9 },
-    writers: "Howard Mackie, Larry Hama",
-    pencillers: "Andrew Wildman, Ron Randell, Greg Luzniak",
+    writers: "Larry Hama, Mike Lackey, Howard Mackie, Terry Kavanagh, Peter David, Bob Budiansky",
+    pencillers:
+      "Andrew Wildman, Ron Randall, Greg Luzniak, Steven Butler, Tom Lyle, Ted Halsted, Rick Leonardi, Dave Hoover",
+    inkers:
+      "Stephen Baskerville, Sam de la Rosa, Joe Rubinstein, Randy Emberlin, Scott Hanna, Scott Koblish, Jimmy Palmiotti, Ken Branch, Jeff Albrecht, Keith Aiken, Ralph Cabrera, Al Williamson, Bill Anderson",
     description:
       "Eddie Brock and Venom suffer separation anxiety as the symbiote gets caught in the web of Spider-Man's clone, the Scarlet Spider, forcing the question of whether Eddie and the symbiote can reunite or will be stopped by the Life Foundation symbiotes. Venom will need to be at full strength when a hit video game gives Cletus Kasady the opportunity to unleash Carnage once more.",
     coverUrl: "https://m.media-amazon.com/images/I/8104Rpn8f6L._SL1500_.jpg",
@@ -6581,8 +7403,11 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Venom: Along Came A Spider #1-4; Venom: The Hunted #1-3, and more",
     yearsCovered: "1996",
     releaseDate: { year: 2025, month: 10 },
-    writers: "Larry Hama, Evan Skolnick, David Michelinie",
-    pencillers: "Joe St. Pierre, Duncan Rouleau",
+    writers: "Larry Hama, David Michelinie, Dan Slott, Eric Fein",
+    pencillers:
+      "Joe St. Pierre, John Calimee, Duncan Rouleau, Dave Hoover, Kyle Hotz, Darick Robertson, Steve Lightle, Javier Saltares",
+    inkers:
+      "Greg Adams, Randy Emberlin, John Stangeland, Mark McKenna, Ralph Cabrera, Armando Gil, Arne Starr, Steve Lightle, Javier Saltares",
     description:
       "Venom faces Spider-Man once again -- only this time it's a different web-slinger, Ben Reilly. The symbiote-hunting alien Xenophage targets Venom while four imprisoned symbiotes join together to become Hybrid, and when an interplanetary army invades Earth, Venom must fight alongside Spider-Man and the Scarlet Spider to stop their home from becoming a planet of the symbiotes.",
     coverUrl: "https://m.media-amazon.com/images/I/91N1gjyr7SL._SL1500_.jpg",
@@ -6599,8 +7424,11 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Venom: The Hunger #1-4; Venom: Tooth and Claw #1-3; Venom: On Trial #1-3; Venom: License to Kill #1-3; Venom: Seed of Darkness #-1; Venom: Sign of the Boss #1-2; Spider-Man: The Venom Agenda #1; Venom: The Finale #1-3",
     yearsCovered: "1996-1997",
     releaseDate: { year: 2024, month: 8 },
-    writers: "Len Kaminski, Larry Hama",
-    pencillers: "Ted Halsted, Joe St. Pierre, Josh Hood, Mark Pajarillo",
+    writers: "Larry Hama, Len Kaminski, Ivan Velez Jr, Ivan Velez Jr.",
+    pencillers:
+      "Ted Halsted, Josh Hood, Joe St. Pierre, Derec Aucoin, Mark Pajarillo, Thomas Derenick, James Fry, Tom Lyle",
+    inkers:
+      "Scott Koblish, Robert Jones, Al Milgrom, Derek Fisher, Chris Ivy, Rich Faber, Ralph Cabrera, Eric Cannon, Pam Eklund",
     description:
       "The former villain's transformation into Marvel's unlikely antihero continues as the symbiote's hunger for brains threatens to consume Eddie Brock entirely -- if the suit doesn't eat gray matter, it will die. Venom stands trial, goes on the run, and confronts old enemies in a string of adventures that push him ever further from his villainous roots.",
     coverUrl: "https://m.media-amazon.com/images/I/91ntd4KXYeL._SL1500_.jpg",
@@ -6616,6 +7444,11 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     end: { year: 1999, quarter: 1 },
     issuesCollected: "",
     yearsCovered: "1998-1999",
+    writers: "Howard Mackie, Paul Jenkins, Sean McKeever, Erik Larsen, A.A. Ward, Christos N. Gage",
+    pencillers:
+      "John Romita Jr., Humberto Ramos, Joe Bennett, John Byrne, Erik Larsen, Terrell Bobbett, Kano, Mario Alberti",
+    inkers:
+      "Scott Hanna, Wayne Faucher, John Beatty, Al Milgrom, Rodney Ramos, Gary Martin, Kano, Mario Alberti",
     description:
       "",
     coverUrl: "https://m.media-amazon.com/images/I/91QdVELN3zL._SL1500_.jpg",
@@ -6635,6 +7468,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     releaseDate: { year: 2014, month: 12 },
     writers: "Chris Claremont, Peter David",
     pencillers: "John Buscema, Gene Colan",
+    inkers: "Klaus Janson, Bill Sienkiewicz, Al Williamson, John Buscema, Gene Colan",
     description:
       "Wolverine travels to Madripoor, an East Indian island full of pirates, cutthroats, and smugglers, where he takes on ruthless crimelord Roche, meets the cunning Tyger Tiger, wields the mystical Black Blade, and battles the superhuman enforcers Roughhouse and Bloodsport.",
     coverUrl: "https://m.media-amazon.com/images/I/81s00ABSW5L._SL1500_.jpg",
@@ -6651,8 +7485,11 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Wolverine #17–30;; Marvel Graphic Novel No. 50 - Wolverine/Nick Fury: The Scorpio Connection;; Wolverine: The Jungle Adventure",
     yearsCovered: "1989-1990",
     releaseDate: { year: 2019, month: 3 },
-    writers: "Archie Goodwin, Walt Simonson, Jo Duffy",
-    pencillers: "Howard Chaykin, Mike Mignola, John Byrne",
+    writers: "Archie Goodwin, Jo Duffy, Walter Simonson, Peter David",
+    pencillers:
+      "John Byrne, John Buscema, Barry Kitson, Howard Chaykin, Mike Mignola, Gene Colan, Klaus Janson, Bill Jaaska",
+    inkers:
+      "Klaus Janson, Howard Chaykin, Bob Wiacek, John Byrne, Gene Colan, John Buscema, Tom Palmer, Dan Green, Keith Williams, Al Milgrom, Joe Rubinstein",
     description:
       "An old friend's death leads Logan to Nick Fury and the terrorist organization Swift Sword, with questions swirling around the new Scorpio's secret identity. Wolverine also travels to the Savage Land to fight cyborgs, then follows a trail from Madripoor to Central America involving Roughhouse and Tiger Shark.",
     coverUrl: "https://m.media-amazon.com/images/I/91TpT+MS8bL._SL1500_.jpg",
@@ -6669,8 +7506,9 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Wolverine #31–44;; Wolverine: Bloodlust; Wolverine: Bloody Choices",
     yearsCovered: "1990-1991",
     releaseDate: { year: 2021, month: 7 },
-    writers: "Larry Hama, Tom DeFalco",
-    pencillers: "Marc Silvestri, Alan Davis, John Buscema",
+    writers: "Larry Hama, Alan Davis, Peter David, Tom DeFalco",
+    pencillers: "Marc Silvestri, Alan Davis, Larry Stroman, John Buscema",
+    inkers: "Dan Green, Paul Neary, Marc Silvestri, Al Milgrom, John Buscema",
     description:
       "Wolverine investigates a destructive new designer drug in Madripoor, then heads to the Yukon on vacation and encounters the mythical Hunter in Darkness. Lady Deathstrike attacks Wolverine and Puck, casting them into a time vortex where they relive the Spanish Civil War, while the Reavers create the cyborgs Albert and Elsie-Dee, and Sabretooth returns convinced he's Wolverine's father.",
     coverUrl: "https://m.media-amazon.com/images/I/81oVS16wQqL._SL1500_.jpg",
@@ -6687,8 +7525,11 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Wolverine #69-75;; Wolverine: Inner Fury;; Wolverine: Killing;; Wolverine: Global Jeopardy;; Sabretooth #1-4;; X-Men #25",
     yearsCovered: "1992-1993",
     releaseDate: { year: 2020, month: 3 },
-    writers: "Larry Hama",
-    pencillers: "Bill Sienkiewicz, Dwayne Turner, Kent Williams, Mark Texeira",
+    writers: "Larry Hama, D.G. Chichester, John Ney Rieber, Peter David, Fabian Nicieza",
+    pencillers:
+      "Dwayne Turner, Mark Texeira, Bill Sienkiewicz, Jim Fern, Kent Williams, Richard Howell, Andy Kubert, Adam Kubert",
+    inkers:
+      "Mark Texeira, Joe Rubinstein, Richard Bennett, Bill Sienkiewicz, Chris Ivy, Hilary Barta, Art Nichols, Kent Williams, Bill Anderson, Matt Ryan, Mark Farmer, Mark Pennington, Dan Green",
     description:
       "Magneto tears Wolverine's world apart, and Logan intervenes in a Hydra experiment gone wrong with a nanite infection. Wolverine takes Rogue and Jubilee on a mission to the Savage Land where Sauron has risen, then battles a sentient Sentinel in Australia alongside Jubilee.",
     coverUrl: "https://m.media-amazon.com/images/I/91TXbnGYURL._SL1500_.jpg",
@@ -6705,8 +7546,11 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Wolverine (1988) 76-86; Cable (1993) 16; Wolverine: Evilution (1994) 1; Wolverine & Nick Fury:; Scorpio Rising (1994) 1; Ghost Rider/Wolverine/Punisher:; The Dark Design (1994) 1",
     yearsCovered: "1994-1995",
     releaseDate: { year: 2023, month: 6 },
-    writers: "Larry Hama, Ann Nocenti, Howard Mackie",
-    pencillers: "Adam Kubert, Ron Garney",
+    writers: "Larry Hama, Ann Nocenti, Howard Chaykin, Howard Mackie",
+    pencillers:
+      "Adam Kubert, Ron Garney, Tomm Coker, Ian Churchill, Bob McLeod, John Nadeau, Ron Wagner, Yancey Labat, Steve Skroce, Mark Texeira, John Royle, Shawn McManus",
+    inkers:
+      "Mark Farmer, Mike Sellers, Al Milgrom, Bud LaRosa, Matt Banning, Mark Pennington, Joe Kubert, Keith Champagne, Tom Palmer, Bill Reinhold, Younger, Joe Rubinstein, Al Vey, Margeaux Pepoy, Philip Moy, Shawn McManus",
     description:
       "Magneto stripped the adamantium from Wolverine's bones, and his healing factor is almost gone -- he's coming out fighting with claws made of bone. Wolverine heads to Canada to see old friends but faces enemies including Lady Deathstrike, Bloodscream, Cylla, and Cyber, and even with help from Alpha Flight and Excalibur, Logan is about to take a beating like never before.",
     coverUrl: "https://m.media-amazon.com/images/I/91mK307Q9oL._SL1500_.jpg",
@@ -6723,8 +7567,11 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Wolverine #87–100, Annual '95;; Wolverine: Knight of Terra",
     yearsCovered: "1996",
     releaseDate: { year: 2015, month: 12 },
-    writers: "Larry Hama",
-    pencillers: "Adam Kubert, James Williams III, Jan Duursema",
+    writers: "Larry Hama, John Ostrander, Ian Edginton",
+    pencillers:
+      "Adam Kubert, Fabio Laguna, Duncan Rouleau, J.H. Williams III, Jan Duursema, Chris Alexander, Luciano Lima, Ramon Bernado, Val Semeiks",
+    inkers:
+      "Dan Green, Mark Farmer, Joe Rubinstein, Tim Townsend, Matt Ryan, Al Milgrom, Mark McKenna, Mick Gray, Jimmy Palmiotti, Rick Magyar, Mike Sellers, Mark Morales, Nick Napolitano, Chad Hunt, Dan Panosian",
     description:
       "Wolverine has lost his adamantium skeleton and his healing factor is on the fritz, and the dark path Logan is on threatens to cost him his humanity, perhaps forever. Team-ups with Gambit, Deadpool, and Ghost Rider all lead to one of the greatest Wolverine/Sabretooth battles of all time.",
     coverUrl: "https://m.media-amazon.com/images/I/916wZvmLe-L._SL1500_.jpg",
@@ -6741,8 +7588,11 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Wolverine #101-109, #102.5, Annual '96; Uncanny X-Men #332; Venom: Tooth and Claw #1-3; Logan: Path of the Warlord #1; Logan: Shadow Society #1",
     yearsCovered: "1997",
     releaseDate: { year: 2022, month: 8 },
-    writers: "Larry Hama, Howard Mackie",
-    pencillers: "Val Semeiks, Anthony Winn, Joe St. Pierre",
+    writers: "Larry Hama, Howard Mackie, Scott Lobdell, Dan Slott, Jeph Loeb, Ralph Macchio",
+    pencillers:
+      "Val Semeiks, Anthony Winn, Joe St. Pierre, Joe Madureira, Adam Kubert, Mark Buckingham, Ed McGuinness, John Paul Leon, Tomm Coker",
+    inkers:
+      "Chad Hunt, Dan Green, Al Milgrom, Vince Russell, Tim Townsend, Mark Buckingham, Harry Candelario, Norman Lee, Shawn Martinbrough, Keith Aiken",
     description:
       "A tormented and animalistic Wolverine, horribly transformed from a failed attempt to regain his adamantium, teeters on the brink of going completely feral. Elektra helps fight him back from the edge, mentoring Logan in the martial arts and challenging him to re-forge his humanity, while Yukio and Amiko become targets in Japan and Wolverine teams up with Venom on an interdimensional adventure.",
     coverUrl: "https://m.media-amazon.com/images/I/81IXn-uvU4L._SL1500_.jpg",
@@ -6759,8 +7609,11 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Wolverine #133–149;; Hulk #8;; Wolverine/Cable",
     yearsCovered: "1999-2000",
     releaseDate: { year: 2017, month: 2 },
-    writers: "Erik Larsen, Eric Stephenson",
-    pencillers: "Jeff Matsuda, Leinil Francis Yu, Mike Miller, Roger Cruz",
+    writers: "Erik Larsen, Eric Stephenson, Fabian Nicieza, Joe Casey",
+    pencillers:
+      "Jeff Matsuda, Leinil Yu, Mike Miller, Roger Cruz, Ron Garney, Graham Nolan, Stephen Platt",
+    inkers:
+      "Jon Sibal, Dexter Vines, Scott Koblish, Andy Owens, Vince Russell, Sal Buscema, Mike Christian, Armando Durruthy, Derek Fridolfs, Jimmy Palmiotti, Rodney Ramos, Bob Wiacek, Mark Pennington, Lary Stucker, Matt Banning, Johnny Greene",
     description:
       "Wolverine takes on the Marvel Universe, with an alien encounter pitting Logan against the Avengers and a host of Earth's heroes, and a kidnapping to outer space to face the Collector and Galactus. Apocalypse turns the feral X-Man's life upside down, transforming him into the lethal Horseman of Death, and Wolverine's struggle to regain his freedom pits him against the X-Men and forces him to face his past.",
     coverUrl: "https://m.media-amazon.com/images/I/8128ZJ24mSL._SL1500_.jpg",
@@ -6777,8 +7630,10 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Wolverine #150–158, Annual '99;; Wolverine: Origin #1–6",
     yearsCovered: "2000-2001",
     releaseDate: { year: 2018, month: 3 },
-    writers: "Steve Skroce, Eric Stephenson, Paul Jenkins",
-    pencillers: "Rob Liefeld, Ian Churchill, Adam Kubert",
+    writers:
+      "Bill Jemas, Paul Jenkins, Joe Quesada, Steve Skroce, Rob Liefeld, Eric Stephenson, Marc Andreyko, Joe Pruett",
+    pencillers: "Andy Kubert, Steve Skroce, Rob Liefeld, Ian Churchill, Walter McDaniel, Sunny Lee",
+    inkers: "Andy Kubert, Lary Stucker, Norm Rapmund, Walden Wong, Scott Koblish, Harry Candelario",
     description:
       "Wolverine's adopted daughter Amiko finds herself in the middle of a blood feud, and Logan must return to Japan and lay his life on the line for hers in a saga involving the Silver Samurai and the Clan Yashida. Wolverine and Deadpool grudgingly join forces to battle an author-turned-werewolf, and this volume reveals the origin story of sickly young James Howlett, the boy who will one day become Wolverine.",
     coverUrl: "https://m.media-amazon.com/images/I/91KV1lJ8AuL._SL1500_.jpg",
@@ -6796,7 +7651,9 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     yearsCovered: "2001-2003",
     releaseDate: { year: 2024, month: 3 },
     writers: "Frank Tieri",
-    pencillers: "Jorge Santamaria, Sean Chen, Dan Fraga, Matthew Marsilia",
+    pencillers:
+      "Sean Chen, Dan Fraga, Jorge Santamaria, Mark Texeira, Barry Windsor-Smith, Matthew Marsilia",
+    inkers: "Norm Rapmund, Rich Perrotta, Victor Llamas, Scott Elmer",
     description:
       "The shadow of Weapon X once again falls over Wolverine, as the sadistic agency that implanted his adamantium skeleton returns. Imprisoned and accused of killing a senator, Wolverine is \"rescued\" by the resurrected Weapon X Program -- but what's really going on? Logan faces Mr. X, a martial-arts master obsessed with becoming \"the best there is,\" battles through a bloody Madripoor tournament, and deals with Bloodscream, Mauvais, the Wendigo, and his undead former mentor Ogun.",
     coverUrl: "https://m.media-amazon.com/images/I/910TQc7ZI9L._SL1500_.jpg",
@@ -6814,7 +7671,10 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     yearsCovered: "2003-2004",
     releaseDate: { year: 2025, month: 3 },
     writers: "Frank Tieri, Matt Nixon, Daniel Way",
-    pencillers: "Sean Chen, Dan Fraga, Staz Johnson",
+    pencillers:
+      "Sean Chen, Dan Fraga, Stewart Johnson, Ethan Van Sciver, Jorge Lucas, Terry Dodson, John McCrea",
+    inkers:
+      "Tom Palmer, Norm Rapmund, Lary Stucker, Danny Miki, Jorge Lucas, Rachel Dodson, John McCrea",
     description:
       "Sabretooth escapes from the revived Weapon X Program after stealing their files on Logan's past, then recruits Lady Deathstrike and Omega Red to target Wolverine's loved ones. This volume marks the end of an era as Wolverine's longest-running series comes to a close.",
     coverUrl: "https://m.media-amazon.com/images/I/91ShItEkuGL._SL1500_.jpg",
@@ -6832,8 +7692,12 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Avengers #263,; Fantastic Four #286,; X-Factor #1–9, Annual #1,; Iron Man Annual #8,; Amazing Spider-Man #282; and material from; Classic X-Men #8, 43",
     yearsCovered: "1986",
     releaseDate: { year: 2017, month: 2 },
-    writers: "John Byrne, Bob Layton, Louise Simonson, Bob Harras",
-    pencillers: "John Byrne, Jackson Guice, Paul Neary",
+    writers:
+      "Bob Layton, Chris Claremont, Louise Simonson, Roger Stern, John Byrne, Jackson Guice, Bob Harras, Tom DeFalco",
+    pencillers:
+      "Jackson Guice, John Buscema, John Byrne, Keith Pollard, Paul Neary, Bob Layton, Rick Leonardi, Marc Silvestri, Terry Shoemaker, John Bolton, Mike Collins",
+    inkers:
+      "Joe Rubinstein, Bob Layton, Tom Palmer, Terry Austin, Jackson Guice, Ian Akin, Brian Garvey, Brett Breeding, Bob McLeod, John Bolton",
     description:
       "When Jean Grey is found alive, with a little help from the Avengers and Fantastic Four, she reunites with the rest of Xavier's original class to form X-Factor. As Cyclops, Marvel Girl, Beast, Angel, and Iceman face new enemies Tower and Frenzy, little do they realize the villains are part of an Alliance of Evil led by Apocalypse.",
     coverUrl: "https://m.media-amazon.com/images/I/81HnTwvvWDL._SL1500_.jpg",
@@ -6850,8 +7714,9 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "X-Factor #21-36, Annual #3;; Power Pack #35",
     yearsCovered: "1987-1988",
     releaseDate: { year: 2021, month: 5 },
-    writers: "Louise Simonson, Walt Simonson",
-    pencillers: "Sal Buscema, Jon Bogdanove, Terry Shoemaker, Steve Lightle",
+    writers: "Louise Simonson, Walter Simonson, Tom DeFalco",
+    pencillers: "Walter Simonson, Terry Shoemaker, Sal Buscema, Jon Bogdanove, Steve Lightle",
+    inkers: "Bob Wiacek, Hilary Barta, Al Milgrom, Steve Lightle, Joe Rubinstein",
     description:
       "X-Factor is coping with the loss of Angel when the team is rocked by a traitor -- their former publicist Cameron Hodge, who harbors an anti-mutant agenda and army. Apocalypse unveils his fourth Horseman, Death, who turns out to be a very familiar face.",
     coverUrl: "https://m.media-amazon.com/images/I/81fxlas2zTL._SL1500_.jpg",
@@ -6868,8 +7733,10 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "X-Factor#37-50; X-Factor Annual #4; Uncanny X-Men #242-243",
     yearsCovered: "1989",
     releaseDate: { year: 2023, month: 8 },
-    writers: "Louise Simonson, Walter Simonson, John Byrne",
-    pencillers: "Arthur Adams, Tom Smith, John Byrne",
+    writers: "Louise Simonson, Chris Claremont, Kieron Dwyer, John Byrne",
+    pencillers:
+      "Paul Smith, Walter Simonson, Arthur Adams, Marc Silvestri, Rob Liefeld, Kieron Dwyer, Rich Buckler, John Byrne",
+    inkers: "Al Milgrom, Bob Wiacek, Walter Simonson, Dan Green, Hilary Barta",
     description:
       "During the Inferno crossover, Madelyne Pryor -- now the Goblin Queen -- targets her and Cyclops's infant son, Nathan, and X-Factor must survive an onslaught of demons to keep him safe. Afterward, a Celestial kidnaps the team and their sentient Ship, stranding them on an alien world in the middle of the devastating Judgment War.",
     coverUrl: "https://m.media-amazon.com/images/I/91undWVsNFL._SL1500_.jpg",
@@ -6887,7 +7754,9 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     yearsCovered: "1991-1992",
     releaseDate: { year: 2018, month: 11 },
     writers: "Peter David, Fabian Nicieza",
-    pencillers: "Larry Stroman, Dale Keown, Joe Quesada",
+    pencillers:
+      "Larry Stroman, Dale Keown, Kevin West, Tom Raney, Brandon Peterson, Joe Quesada, Jim Fern, Rurik Tyler, Mark Pacella",
+    inkers: "Al Milgrom, Mark Farmer, Joe Rubinstein",
     description:
       "Havok takes charge of a new government-sanctioned mutant squad with recruits including Polaris, Wolfsbane, Quicksilver, Strong Guy, and Multiple Man. The new X-Factor must deal with murder mysteries, identity crises, and smear campaigns while facing Mr. Sinister and his Nasty Boys, along with the Mutant Liberation Front and the Brotherhood of Evil Mutants.",
     coverUrl: "https://m.media-amazon.com/images/I/91oKl-eQrWL._SL1500_.jpg",
@@ -6904,8 +7773,9 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "X-Factor #84–100, Annual #8",
     yearsCovered: "1992-1994",
     releaseDate: { year: 2019, month: 11 },
-    writers: "Peter David, Scott Lobdell, J.M. DeMatteis",
-    pencillers: "Jae Lee, Joe Quesada, Jan Duursema",
+    writers: "J.M. DeMatteis, Peter David, Scott Lobdell, Joe Quesada",
+    pencillers: "Joe Quesada, Jae Lee, Greg Luzniak, Jan Duursema, Terry Shoemaker, Paul Ryan",
+    inkers: "Al Milgrom, Mark McKenna, Cliff van Meter",
     description:
       "X-Factor battles X-Force as Stryfe's plans come to fruition. Following the X-Cutioner's Song crossover, the team gets counseling and encounters the mercenary Random and the Chalker brothers while investigating the mysterious Haven.",
     coverUrl: "https://m.media-amazon.com/images/I/91-duMnQgkL._SL1500_.jpg",
@@ -6922,8 +7792,12 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "X-Factor 101-111, X-Factor Annual 9, Spider-Man & X-Factor: Shadowgames 1-3, X-Force 38 & Excalibur 82",
     yearsCovered: "1994-1995",
     releaseDate: { year: 2022, month: 6 },
-    writers: "J.M. DeMatteis, Todd DeZago",
-    pencillers: "John Francis Moore, Jan Duursema, Mat Broome",
+    writers:
+      "Todd DeZago, J.M. DeMatteis, John Francis Moore, Kurt Busiek, Scott Lobdell, Fabian Nicieza",
+    pencillers:
+      "Jan Duursema, Pat Broderick, Mat Broome, Bryan Hitch, Roger Cruz, Tony Daniel, Steve Epting, Ken Lashley, Paul Borges",
+    inkers:
+      "Al Milgrom, Bruce Patterson, Keith Williams, Sam de la Rosa, Terry Austin, Steve Moncuse, Andy Lanning, Kevin Conrad, W.C. Carani, John Floyd, John Livesay, Philip Moy, Harry Candelario",
     description:
       "Jamie Madrox's death leaves X-Factor struggling to cope with their first major loss, while Alex Summers questions his role as leader. Polaris seeks vengeance on whoever hired Random, and Lorna follows Alex to Hawaii where she encounters Malice, Mister Sinister, and the Nasty Boys, before the techno-organic threat of the Phalanx unites X-Factor, X-Force, and Excalibur.",
     coverUrl: "https://m.media-amazon.com/images/I/91tbUr9+WlL._SL1500_.jpg",
@@ -6940,8 +7814,12 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "X-Factor #112-126; Sabretooth and Mystique #1-4; Marvel Fanfare (1996) #6; material from X-Men: Prime (1995)",
     yearsCovered: "1995-1996",
     releaseDate: { year: 2025, month: 1 },
-    writers: "Howard Mackie",
-    pencillers: "Jeff Matsuda, Steve Epting, Ariel Olivetti",
+    writers:
+      "Howard Mackie, Jorge Gonzales, John Francis Moore, Fabian Nicieza, Scott Lobdell, Jaimie Campos",
+    pencillers:
+      "Jeff Matsuda, Steve Epting, Ariel Olivetti, Bryan Hitch, Stefano Raffaele, Ben Herrera, Terry Dodson, Paul Pelletier, Mike McKone, Gary Frank, Jerry Bingham, Mark Bright, Gabe Alberola, Stephen Jones",
+    inkers:
+      "Al Milgrom, Ariel Olivetti, Pier Brito, Tom Palmer, Mark McKenna, P. Craig Russell, Hector Collazo, Tim Townsend, Mark Farmer, Cam Smith, Paul Neary, Hilary Barta, Mike Witherby",
     description:
       "Fan-favorite shapeshifter Mystique and the savage Sabretooth join X-Factor, with an out-of-control Alex Summers wreaking havoc while the team, including new members Mystique and Wild Child, is on his trail. Even with a nanotech inhibitor in her skull courtesy of teammate Forge, the question remains: can Raven Darkholme be trusted?",
     coverUrl: "https://m.media-amazon.com/images/I/91C5Hznpu4L._SL1500_.jpg",
@@ -6959,7 +7837,10 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     yearsCovered: "1986-1987",
     releaseDate: { year: 2026, month: 11 },
     writers: "Louise Simonson, Walter Simonson, Peter David, Jo Duffy",
-    pencillers: "Walter Simonson, Sal Buscema",
+    pencillers:
+      "Walter Simonson, Sal Buscema, Todd McFarlane, Jon Bogdanove, Marc Silvestri, David Mazzucchelli, June Brigman, Tom Grindberg",
+    inkers:
+      "Bob Wiacek, Sal Buscema, Joe Rubinstein, Jim Sanders, Al Gordon, Dan Green, Randy Emberlin",
     description:
       "",
     coverUrl: "https://m.media-amazon.com/images/I/91QqDPGTNcL._SL1500_.jpg",
@@ -6977,8 +7858,11 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "X-Force #1–15, Annual #1;; Spider-Man #16;; Wolverine #54",
     yearsCovered: "1991-1992",
     releaseDate: { year: 2017, month: 3 },
-    writers: "Rob Liefeld, Fabian Nicieza",
-    pencillers: "Todd McFarlane, Mark Pacella, Greg Capullo",
+    writers: "Fabian Nicieza, Rob Liefeld, Todd McFarlane",
+    pencillers:
+      "Rob Liefeld, Mark Pacella, Greg Capullo, Todd McFarlane, Brian Murray, Marat Mychaels, Darick Robertson, Mike Mignola, Terry Shoemaker",
+    inkers:
+      "Rob Liefeld, Dan Panosian, Al Milgrom, Todd McFarlane, Marat Mychaels, Don Hudson, Bob Wiacek, Harry Candelario",
     description:
       "The New Mutants graduate into X-Force, with Cable turning his young charges into a mutant militia that means business, including Cannonball, Boom Boom, Warpath, Domino, Shatterstar, and Feral. They're on the hunt for the mysterious Stryfe and his Mutant Liberation Front, but what is the villain's uncanny connection to Cable?",
     coverUrl: "https://m.media-amazon.com/images/I/91jYVpir+hL._SL1500_.jpg",
@@ -6995,8 +7879,11 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "X-Force #16–19;; Cable: Blood & Metal #1–2;; Uncanny X-Men #294–296;; X-Factor #84–86 ;; X-Men #14–16;; Stryfe's Strike File #1;; New Warriors #31",
     yearsCovered: "1992-1993",
     releaseDate: { year: 2019, month: 12 },
-    writers: "Fabian Nicieza, Scott Lobdell",
-    pencillers: "John Romita Jr., Brendan Peterson, Andy Kubert, Greg Capullo",
+    writers: "Fabian Nicieza, Scott Lobdell, Peter David",
+    pencillers:
+      "Greg Capullo, Brandon Peterson, Jae Lee, Andy Kubert, John Romita Jr., Larry Stroman, Darick Robertson",
+    inkers:
+      "Harry Candelario, Terry Austin, Al Milgrom, Mark Pennington, Dan Green, Andy Kubert, Jimmy Palmiotti, Larry Mahlstedt",
     description:
       "Stryfe's long-brewing schemes come to a head as Cable's mysterious past is revealed, and the X-teams hunt X-Force when Cable becomes the prime suspect in an attack on Professor X. Mister Sinister, the Horsemen of Apocalypse, and the Mutant Liberation Front all become embroiled in the sprawling X-Cutioner's Song crossover.",
     coverUrl: "https://m.media-amazon.com/images/I/81WipmCZtSL._SL1500_.jpg",
@@ -7014,7 +7901,10 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     yearsCovered: "1993",
     releaseDate: { year: 2023, month: 12 },
     writers: "Fabian Nicieza",
-    pencillers: "Greg Capullo, Art Thibert, Joe Madureira, Tony Daniel",
+    pencillers:
+      "Greg Capullo, Joe Madureira, Art Thibert, Ron Lim, Paul Ryan, Ian Churchill, Brandon Peterson, Paul Smith, Klaus Janson, Kerry Gammill, Rob Liefeld, Jim Reddington, Scott Koblish, Bill Wylie, Mat Broome, Tony Daniel, Rick Mays",
+    inkers:
+      "Harry Candelario, Al Milgrom, Bob Wiacek, Kevin Conrad, Scott Hanna, Mark Farmer, Will Conrad, Richard Bennett, Trevor Scott, Dan Panosian, Danny Miki, Tom Palmer, Klaus Janson, Paul Ryan, Jimmy Palmiotti, Dan Green, Bud LaRosa, Brad Vancata, Keith Williams, Mark Pennington, Greg Adams",
     description:
       "With Cable thought dead and Xavier's pacifist dream behind them, the members of X-Force carve out their own aggressive destiny -- beginning with a trip to Cable's space station, Graymalkin. When S.H.I.E.L.D. and War Machine come looking for answers, things get explosive, and the young mutants must grow up fast in battles against the Friends of Humanity and their former teacher Magneto.",
     coverUrl: "https://m.media-amazon.com/images/I/91SF5luyj0L._SL1500_.jpg",
@@ -7032,7 +7922,10 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     yearsCovered: "1993-1994",
     releaseDate: { year: 2025, month: 2 },
     writers: "Fabian Nicieza",
-    pencillers: "Mat Broome, Tony Daniel, Aron Wiesenfeld, Darick Robertson, Mike Wieringo",
+    pencillers:
+      "Tony Daniel, Mat Broome, Darick Robertson, Aron Wiesenfeld, Brandon McKinney, Paul Pelletier, Mike Wieringo, Dwayne Turner",
+    inkers:
+      "Jon Holdredge, Kevin Conrad, Harry Candelario, Bud LaRosa, Will Conrad, Larry Mahlstedt, Joe Rubinstein, Al Vey, Jason Gorder, Mark McKenna, Mark Stegbauer, Ian Akin, Danny Bulanadi, Dan Green, Keith Champagne, Charles Barnett, John Lowe, Mike Sellers, Jason Temujin Minor, Scott Hanna, Matt Banning, Tom Hudson",
     description:
       "The true history of Cable is revealed as the chronicling of the early days of X-Force continues, and when the Mutant Liberation Front kidnaps Henry Peter Gyrich, X-Force must scramble to deal with the fallout.",
     coverUrl: "https://m.media-amazon.com/images/I/91ei2iQdh+L._SL1500_.jpg",
@@ -7049,8 +7942,10 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "X-Force #67-84, -1",
     yearsCovered: "1997-1998",
     releaseDate: { year: 2022, month: 4 },
-    writers: "John Francis Moore",
-    pencillers: "Adam Pollina, Pop Mhan, Andy Smith, Jim Cheung",
+    writers: "John Francis Moore, Joseph Harris, Jay Faerber",
+    pencillers: "Adam Pollina, Jim Cheung, Pop Mhan, Andy Smith, Mike Miller",
+    inkers:
+      "Mark Morales, Rob Stull, Guillermo Zubiaga, Al Milgrom, Mark Prudeaux, Rich Perotta, Walden Wong, Scott Hanna, Sean Parsons, Mike Miller, Ray McCarthy",
     description:
       "The U.S. government's mutant-hunting Prime Sentinels target the villainous Mutant Liberation Front with X-Force caught in the middle, as Dani Moonstar's involvement with the MLF draws the team deeper into danger before they're captured by the Sentinels themselves.",
     coverUrl: "https://m.media-amazon.com/images/I/814vASw032L._SL1500_.jpg",
@@ -7067,8 +7962,11 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "X-Force #85-100,; X-Force/Champions Annual '98,; X-Force Annual '99",
     yearsCovered: "1999-2000",
     releaseDate: { year: 2023, month: 6 },
-    writers: "John Francis Moore",
-    pencillers: "Terry Shoemaker, Jim Cheung, Anthony Williams, Chris Renaud",
+    writers: "John Francis Moore, Tom Bierbaum, Mary Bierbaum, Fabian Nicieza",
+    pencillers:
+      "Jim Cheung, Anthony Williams, Chris Renaud, Terry Shoemaker, Ángel Unzueta, Tommy Lee Edwards, Mike Miller, Nelson DeCastro",
+    inkers:
+      "Mark Morales, Rob Stull, Scott Koblish, Harry Candelario, Bud LaRosa, Derek Mei, Hector Collazo, Rodney Ramos, Rich Perrotta, Scott Elmer, Sean Parsons, Al Williamson, Jon Holdredge, Jimmy Palmiotti, Rod Ramos, John Czop",
     description:
       "X-Force's newest member Jesse Bedlam reunites with his long-lost brother, but \"King Bedlam\" plans to awaken the deadly Armageddon Man. The team also risks facing Magneto on a mission to Genosha, with team-ups against the Champions and the returns of Rictor and Shatterstar along the way.",
     coverUrl: "https://m.media-amazon.com/images/I/81OertSj0wL._SL1500_.jpg",
@@ -7085,8 +7983,11 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "#40-56; Annual '95",
     yearsCovered: "1994-1996",
     releaseDate: { year: 2026, month: 12 },
-    writers: "Fabian Nicieza, Jeph Loeb",
-    pencillers: "Adam Pollina",
+    writers: "Jeph Loeb, Fabian Nicieza, Todd DeZago",
+    pencillers:
+      "Adam Pollina, Tony Daniel, Terry Dodson, Luciano Lima, Matt Ryan, Rurik Tyler, Daerick Gross",
+    inkers:
+      "Mark Pennington, Mark Morales, Kevin Conrad, Vince Russell, Bud LaRosa, Tim Townsend, Mark Farmer, Joe Rubinstein, Andy Lanning, Jesse Delperdang, Chad Hunt, Rober Quijano, Robert Jones, Margeaux Pepoy, Ian Akin, Daerick Gross",
     description:
       "",
     coverUrl: "https://m.media-amazon.com/images/I/91C2G67vzsL._SL1500_.jpg",
@@ -7104,8 +8005,9 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "X-Men #1–23",
     yearsCovered: "1963-1966",
     releaseDate: { year: 2014, month: 12 },
-    writers: "Stan Lee, Roy Thomas",
-    pencillers: "Jack Kirby, Werner Roth",
+    writers: "Stan Lee, Roy Thomas, Jack Kirby",
+    pencillers: "Jack Kirby, Werner Roth, Alex Toth",
+    inkers: "Dick Ayers, Chic Stone, Paul Reinman, Vince Colletta, Joe Sinnott",
     description:
       "The X-Men debut with the beginning of Professor X's teen team and their mission for peace and brotherhood between man and mutant. This foundational volume features the team's first battle with arch-foe Magneto, and the dynamic debuts of Juggernaut, the Sentinels, Quicksilver, the Scarlet Witch, and the Brotherhood of Evil Mutants.",
     coverUrl: "https://m.media-amazon.com/images/I/71Zcgt3e2fL._SL1400_.jpg",
@@ -7122,8 +8024,11 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "X-Men #24–45,; Avengers #53; and material from; Not Brand Echh #4, 8",
     yearsCovered: "1966-1968",
     releaseDate: { year: 2016, month: 12 },
-    writers: "Roy Thomas",
-    pencillers: "Werner Roth, Don Heck, George Tuska",
+    writers: "Roy Thomas, Gary Friedrich",
+    pencillers:
+      "Werner Roth, Don Heck, Ross Andru, Tom Sutton, Jack Sparling, Dan Adkins, George Tuska, John Buscema",
+    inkers:
+      "John Tartaglione, Dick Ayers, George Tuska, Dan Adkins, George Roussos, Tom Sutton, Don Heck, Vince Colletta",
     description:
       "The original X-Men -- Cyclops, Marvel Girl, Beast, Angel, and Iceman -- take on adventures that include the first appearance of Banshee, the brief tenure of Mimic, the complete Factor Three saga, and the debut of new costumes for the team.",
     coverUrl: "https://m.media-amazon.com/images/I/81uFQ2psT9L._SL1500_.jpg",
@@ -7140,8 +8045,11 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "X-Men #46–66; and material from; Ka-Zar #2–3 and; Marvel Tales #30",
     yearsCovered: "1968-1970",
     releaseDate: { year: 2018, month: 11 },
-    writers: "Roy Thomas, Arnold Drake",
-    pencillers: "Neal Adams, Jim Steranko, Werner Roth",
+    writers: "Roy Thomas, Arnold Drake, Jerry Siegel, Gary Friedrich, Dennis O'Neil",
+    pencillers:
+      "Neal Adams, Don Heck, Werner Roth, George Tuska, Jim Steranko, Barry Windsor-Smith, Sal Buscema",
+    inkers:
+      "Tom Palmer, John Tartaglione, Dick Ayers, Vince Colletta, John Verpoorten, Mike Esposito, Sam Grainger",
     description:
       "Writer Roy Thomas and artist Neal Adams revitalize the X-Men title in stories that define the team to this day. The volume introduces characters like Cyclops's brother Havok, the vampiric villain Sauron, the Savage Land Mutates, and X-Man-to-be Sunfire, along with the Living Pharaoh, a team-up with Ka-Zar, and the return of Magneto.",
     coverUrl: "https://m.media-amazon.com/images/I/813PEkP9OoL._SL1500_.jpg",
@@ -7158,8 +8066,12 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Amazing Adventures #11–17,; Amazing Spider-Man #92,; Incredible Hulk #150, 161, 172, 180–182,; Marvel Team-Up #4, 23,; Avengers #110–111,; Captain America #172–175,; Defenders #15–16,; Giant-Size Fantastic Four #4; and material from; X-Men #67–93, Annual #1–2",
     yearsCovered: "1970-1975",
     releaseDate: { year: 2019, month: 7 },
-    writers: "Steve Englehart, Len Wein",
-    pencillers: "Sal Buscema, Tom Sutton, Herb Trimpe, Gil Kane",
+    writers:
+      "Steve Englehart, Len Wein, Gerry Conway, Stan Lee, Archie Goodwin, Roy Thomas, Tony Isabella, Mike Friedrich, Chris Claremont",
+    pencillers:
+      "Herb Trimpe, Sal Buscema, Tom Sutton, Gil Kane, John Buscema, Don Heck, Marie Severin, William Robert Brown, Jim Starlin, Klaus Janson",
+    inkers:
+      "Mike Esposito, Frank Giacoia, Vince Colletta, Jack Abel, John Romita Sr., John Severin, Syd Shores, Mike Ploog, Steve Mitchell, Jim Mooney, John Tartaglione, Frank McLaughlin, Sal Trapani, Dave Hunt, Klaus Janson, Herb Trimpe, Joe Sinnott",
     description:
       "Hank McCoy transforms into the Beast through a scientific experiment as the X-Men are pursued by a secret adversary, and the team joins forces with Captain America to save the nation and rescue their mutant comrades. This volume also features the first appearances of Wolverine and Madrox the Multiple Man, plus an X-Men/Avengers battle against Magneto.",
     coverUrl: "https://m.media-amazon.com/images/I/816+rghw1jL._SL1500_.jpg",
@@ -7176,8 +8088,10 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Giant Size X-Men #1,; Uncanny X-Men #94–110,; Iron Fist #14–15,; Marvel Team-Up #53, 69–70, Annual #1; and material from; FOOM #10",
     yearsCovered: "1976-1978",
     releaseDate: { year: 2017, month: 3 },
-    writers: "Chris Claremont",
-    pencillers: "Dave Cockrum John Byrne",
+    writers: "Chris Claremont, Bill Mantlo, Len Wein",
+    pencillers: "Dave Cockrum, John Byrne, William Robert Brown, Sal Buscema, Tony DeZuniga",
+    inkers:
+      "Sam Grainger, Dan Green, Dave Cockrum, Terry Austin, Tony DeZuniga, Peter Iro, Bob McLeod, Frank Chiaramonte, Bob Layton, Tom Sutton, Mike Esposito, Frank Giacoia, Ricardo Villamonte",
     description:
       "The title relaunches with an all-new team, welcoming Storm, Colossus, Nightcrawler, and Wolverine alongside the returning Cyclops. This volume lays the groundwork for the modern X-Men as Chris Claremont begins the run that will define the franchise for decades.",
     coverUrl: "https://m.media-amazon.com/images/I/81kYokf5sfL._SL1500_.jpg",
@@ -7194,8 +8108,9 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Uncanny X-Men #111–128, Annual #3;; Marvel Team-Up #89;; Incredible Hulk Annual #7",
     yearsCovered: "1978-1979",
     releaseDate: { year: 2020, month: 8 },
-    writers: "Chris Claremont",
-    pencillers: "John Byrne",
+    writers: "Chris Claremont, John Byrne, Roger Stern",
+    pencillers: "John Byrne, Mike Nasser, Rich Buckler, George Pérez",
+    inkers: "Terry Austin, Bob Layton, Ricardo Villamonte, Joe Rubinstein",
     description:
       "Claremont and Byrne's iconic X-Men run continues as the team faces the reality-warping mutant menace Proteus. Alpha Flight makes its debut, Arcade toys with the heroes, and the first pieces of Wolverine's origin are revealed.",
     coverUrl: "https://m.media-amazon.com/images/I/81sTNdOefxL._SL1500_.jpg",
@@ -7212,8 +8127,9 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Uncanny X-Men #129-143,; Annual #4,; Marvel Treasury Edition #26-27,; Phoenix: The Untold Story (1984); and material from Marvel Team-Up #100",
     yearsCovered: "1980-1981",
     releaseDate: { year: 2021, month: 3 },
-    writers: "Chris Claremont",
-    pencillers: "John Byrne",
+    writers: "Chris Claremont, John Byrne, Scott Edelman, Jo Duffy",
+    pencillers: "John Byrne, John Romita Jr., Brent Anderson, Ken Landgraf",
+    inkers: "Terry Austin, Bob McLeod, George Pérez",
     description:
       "Of Claremont and Byrne's many iconic X-Men stories, none was more epic or influential than the Dark Phoenix Saga. Jean Grey has gained power beyond all comprehension, corrupting her into the Dark Phoenix, and the X-Men must fight the woman they cherish or her unquenchable fire will consume the universe itself.",
     coverUrl: "https://m.media-amazon.com/images/I/91yUQK28MTL._SL1500_.jpg",
@@ -7230,8 +8146,11 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Uncanny X-Men (1981) 144-153, X-Men Annual (1970) 5, Avengers Annual (1967) 10, Bizarre Adventures (1981) 27, material from Marvel Fanfare (1982) 1-4",
     yearsCovered: "1981",
     releaseDate: { year: 2021, month: 11 },
-    writers: "Chris Claremont",
-    pencillers: "Dave Cockrum, Michael Golden",
+    writers: "Chris Claremont, Al Milgrom",
+    pencillers:
+      "Dave Cockrum, Brent Anderson, Michael Golden, Bob McLeod, Al Milgrom, Paul Smith, Jim Sherman",
+    inkers:
+      "Joe Rubinstein, Bob McLeod, Armando Gil, Bob Wiacek, Michael Golden, Al Milgrom, Terry Austin, Dave Cockrum",
     description:
       "Chris Claremont reunites with Dave Cockrum for a run of X-Men classics, featuring the all-new, all-different mutants in action-packed adventures through Arcade, Doctor Doom, and Garokk, culminating with the return of Magneto in an anniversary extravaganza. The collection also includes the iconic first appearance of Rogue as she and her fellow Evil Mutants battle the Avengers.",
     coverUrl: "https://m.media-amazon.com/images/I/81FkEKTGt1L._SL1500_.jpg",
@@ -7249,7 +8168,8 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     yearsCovered: "1982-1983",
     releaseDate: { year: 2023, month: 12 },
     writers: "Chris Claremont",
-    pencillers: "Dave Cockrum, Paul Smith",
+    pencillers: "Dave Cockrum, Paul Smith, Bill Sienkiewicz, Brent Anderson",
+    inkers: "Bob Wiacek, Joe Rubinstein, Hilary Barta",
     description:
       "The complete Brood Saga blends space opera featuring the X-Men, the Starjammers, and the Shi'ar with the deadly and sadistic alien Brood. This volume features art by X-icons Dave Cockrum and Paul Smith at their finest.",
     coverUrl: "https://m.media-amazon.com/images/I/81vtNNFbG7L._SL1500_.jpg",
@@ -7266,8 +8186,11 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Uncanny X-Men #168-175, Annual #7; Marvel Graphic Novel #5 - X-Men: God Loves, Man Kills; Wolverine #1-4; and material from Official Handbook of the Marvel Universe",
     yearsCovered: "1983",
     releaseDate: { year: 2024, month: 12 },
-    writers: "Chris Claremont",
-    pencillers: "Paul Smith, Brent Anderson, Frank Miller",
+    writers: "Chris Claremont, Mark Gruenwald",
+    pencillers:
+      "Paul Smith, Frank Miller, Brent Anderson, Walter Simonson, John Romita Jr., Bret Blevins, Michael Golden",
+    inkers:
+      "Bob Wiacek, Joe Rubinstein, Brent Anderson, Sam de la Rosa, Steve Leialoha, Bret Blevins, Brett Breeding, Michael Golden, Tom Mandrake, Terry Austin, Al Milgrom, Bill Anderson",
     description:
       "Artist Paul Smith joins the series to cover the growing romance between Kitty Pryde and Colossus, along with the first appearances of Callisto and the Morlocks and the debut of Rogue on the team. The volume also includes the classic graphic novel God Loves, Man Kills, in which charismatic evangelist William Stryker starts a violent campaign against mutants, forcing the X-Men to join forces with Magneto after Professor Xavier is captured.",
     coverUrl: "https://m.media-amazon.com/images/I/81Hqqu9yn1L._SL1500_.jpg",
@@ -7284,8 +8207,9 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Uncanny X-Men #189–198, Annual #8;; X-Men and Alpha Flight #1–2;; Nightcrawler #1–4",
     yearsCovered: "1985",
     releaseDate: { year: 2015, month: 12 },
-    writers: "Chris Claremont",
-    pencillers: "John Romita Jr., Paul Smith, Dave Cockrum",
+    writers: "Chris Claremont, Dave Cockrum",
+    pencillers: "John Romita Jr., Dave Cockrum, Paul Smith, Steve Leialoha, Barry Windsor-Smith",
+    inkers: "Dan Green, Steve Leialoha, Dave Cockrum, Bob Wiacek, Barry Windsor-Smith",
     description:
       "A barbarian nightmare involving Kulan Gath forces the X-Men, Avengers, and Spider-Man to restore the world to normal, while the trickster god Loki offers Earth a gift that comes with a steep price. This volume also features Nightcrawler's solo adventure into another dimension.",
     coverUrl: "https://m.media-amazon.com/images/I/71Qo0qmPTNL._SL1400_.jpg",
@@ -7302,8 +8226,10 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Uncanny X-Men #199-210, Annual #9-10; New Mutants Special Edition #1; and material from Marvel Fanfare #33 (1987)",
     yearsCovered: "1985-1986",
     releaseDate: { year: 2025, month: 10 },
-    writers: "Chris Claremont",
-    pencillers: "John Romita Jr., Art Adams, June Brigman, Barry Windsor-Smith",
+    writers: "Chris Claremont, Barry Windsor-Smith",
+    pencillers: "John Romita Jr., Arthur Adams, June Brigman, Rick Leonardi, Barry Windsor-Smith",
+    inkers:
+      "Dan Green, Terry Austin, Whilce Portacio, Al Williamson, Al Gordon, Mike Mignola, Arthur Adams, Barry Windsor-Smith, P. Craig Russell, Bob Wiacek",
     description:
       "Rachel Summers claims the Phoenix Force, Magneto stands trial and joins the team, and Professor X departs for outer space while Cyclops becomes a father. The Beyonder erases the New Mutants from history, the Nimrod Sentinel attacks, Mojo regresses the team to childhood, Storm duels Cyclops for team leadership, and Lady Deathstrike hunts Wolverine.",
     coverUrl: "https://m.media-amazon.com/images/I/81Q5TqM8sbL._SL1500_.jpg",
@@ -7321,7 +8247,9 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     yearsCovered: "1989-1990",
     releaseDate: { year: 2019, month: 8 },
     writers: "Chris Claremont",
-    pencillers: "Jim Lee, Marc Silvestri, Bill Jaaska, Mike Collins",
+    pencillers:
+      "Marc Silvestri, Jim Lee, Bill Jaaska, Mike Collins, Rick Leonardi, Kieron Dwyer, Whilce Portacio",
+    inkers: "Dan Green, Joe Rubinstein, Scott Williams, Steve Leialoha, Kent Williams",
     description:
       "The X-Men are brought to their lowest point as the team slowly breaks apart -- but who will rise to take their place? Psylocke finds herself transformed into the Mandarin's ninja assassin, but Jubilee and a grievously injured Wolverine work to bring her back to the light, while a new team forms on Muir Island and the mutant thief Gambit makes his uncanny entrance as superstar Jim Lee debuts for an X-citing new era.",
     coverUrl: "https://m.media-amazon.com/images/I/91R0k4HH-OL._SL1500_.jpg",
@@ -7338,8 +8266,10 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Uncanny X-Men #278–280, Annual #15,; X-Factor #65–70,; X-Men (1991) #1–3; and material from; New Mutants Annual #7 and; X-Factor Annual #6",
     yearsCovered: "1991",
     releaseDate: { year: 2017, month: 11 },
-    writers: "Fabian Nicieza, Chris Claremont",
-    pencillers: "Whilce Portacio, Jim Lee, Andy Kubert",
+    writers: "Chris Claremont, Jim Lee, Fabian Nicieza, Whilce Portacio, Peter David",
+    pencillers:
+      "Whilce Portacio, Jim Lee, Steven Butler, Andy Kubert, Kirk Jarvinen, Jerry DeCaire, Paul Smith",
+    inkers: "Joe Rubinstein, Scott Williams, Art Thibert, Hilary Barta, Task Force X, Michael Bair",
     description:
       "The end of an era arrives for the X-Men as the original team, now known as X-Factor, takes center stage when Proteus returns from the grave. Apocalypse infects Cyclops's son Nathan with a deadly virus, and Professor X's old foe the Shadow King rises to take over Muir Island, setting the stage for the two teams to become one.",
     coverUrl: "https://m.media-amazon.com/images/I/81xeKz6t7nL._SL1500_.jpg",
@@ -7356,8 +8286,11 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Uncanny X-Men #281–288, Annual #16, X-Men (1991) #4–9, Annual #1, Ghost Rider #26-27",
     yearsCovered: "1991-1992",
     releaseDate: { year: 2022, month: 3 },
-    writers: "Jim Lee, Fabian Nicieza, John Byrne, Scott Lobdell",
-    pencillers: "Jim Lee, Whilce Portacio",
+    writers: "Jim Lee, John Byrne, Scott Lobdell, Whilce Portacio, Howard Mackie, Fabian Nicieza",
+    pencillers:
+      "Jim Lee, Whilce Portacio, Ron Wagner, John Romita Jr., Andy Kubert, Dan Panosian, P. Craig Russell, Greg Capullo, Brian Stelfreeze, Adam Hughes, Mark Texeira, Stuart Immonen, Jae Lee",
+    inkers:
+      "Art Thibert, Scott Williams, Joe Rubinstein, Bob Wiacek, Bill Sienkiewicz, Dan Panosian, Jim Lee, Mike Witherby, Karl Altstaetter, Al Milgrom, Chris Ivy, P. Craig Russell, Brian Stelfreeze, Mark Texeira, Harry Candelario, Jan Anton Harps",
     description:
       "Bishop arrives from the future pursuing escaped convicts through time and finds himself stranded in the present. Raised to idolize the X-Men, Bishop knows a deadly secret waiting in their future, one that will shape the team's fate for years to come.",
     coverUrl: "https://m.media-amazon.com/images/I/91ESOr0FeGL._SL1500_.jpg",
@@ -7374,8 +8307,11 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Uncanny X-Men #289–296, X-Men (1991) #10-16, X-Factor #84-86, X-Force #16-18",
     yearsCovered: "1992",
     releaseDate: { year: 2022, month: 12 },
-    writers: "Scott Lobdell, Fabian Nicieza",
-    pencillers: "Tom Raney, Brendan Peterson, Andy Kubert",
+    writers: "Scott Lobdell, Fabian Nicieza, Peter David, Jim Lee",
+    pencillers:
+      "Tom Raney, Brandon Peterson, Jae Lee, Andy Kubert, Greg Capullo, Whilce Portacio, Jim Lee, Rurik Tyler, Art Thibert",
+    inkers:
+      "Scott Williams, Al Milgrom, Dan Panosian, Terry Austin, Mark Pennington, Harry Candelario, Bob Wiacek, Joe Rubinstein, Art Thibert, Karl Altstaetter, Hilary Barta, Trevor Scott, Andy Kubert",
     description:
       "Cyclops and Phoenix are kidnapped and Cable seemingly assassinates Xavier, sending the X-Men, X-Factor, and X-Force to war with each other. Epic battles unfold across the globe and on the moon as Mister Sinister's plan for vengeance on Apocalypse comes to light, along with major revelations about Cable and Stryfe.",
     coverUrl: "https://m.media-amazon.com/images/I/81JnAsKatDL._SL1500_.jpg",
@@ -7392,8 +8328,11 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Uncanny X-Men (1981) 297-300; Uncanny X-Men Annual (1992) 17; X-Men (1991) 17-23; Stryfe's Strike File (1993) 1; X-Men Unlimited (1993) 1; X-Men Survival Guide to the Mansion (1993) 1",
     yearsCovered: "1993",
     releaseDate: { year: 2023, month: 4 },
-    writers: "Scott Lobdell, Fabian Nicieza",
-    pencillers: "Brandon Peterson, Andy Kubert, John Romita Jr., Chris Bachalo",
+    writers: "Fabian Nicieza, Scott Lobdell",
+    pencillers:
+      "Andy Kubert, Brandon Peterson, Larry Stroman, John Romita Jr., Chris Bachalo, Jason Pearson",
+    inkers:
+      "Dan Panosian, Mark Pennington, Bob Wiacek, Jimmy Palmiotti, Al Williamson, Al Milgrom, Dan Green, Mark Farmer",
     description:
       "Magneto and Stryfe cast a long shadow over mutantkind as the X-Men travel to Russia when Colossus visits his sister Illyana, only to find the sadistic Soul Skinner loose. The team's many legacies -- personal and cosmic -- come due in this volume.",
     coverUrl: "https://m.media-amazon.com/images/I/81a04NMcDjL._SL1500_.jpg",
@@ -7410,8 +8349,11 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Uncanny X-Men #301-306; X-Men (vol. 2) #24-25; X-Men Unlimited #2; Wolverine #75; Gambit #1-4; X-Men: Survival Guide to the Mansion",
     yearsCovered: "1993-1994",
     releaseDate: { year: 2024, month: 4 },
-    writers: "Scott Lobdell, Fabian Nicieza, Howard Mackie",
-    pencillers: "John Romita Jr., Lee Weeks",
+    writers: "Scott Lobdell, Howard Mackie, Fabian Nicieza, Larry Hama",
+    pencillers:
+      "John Romita Jr., Lee Weeks, Andy Kubert, Jan Duursema, Richard Bennett, Chris Sprouse, Brandon Peterson, Paul Smith, Jae Lee, Adam Kubert, Eliot Brown",
+    inkers:
+      "Dan Green, Klaus Janson, Dan Panosian, Keith Williams, Richard Bennett, Bill Sienkiewicz, Tom Palmer, Terry Austin, Joe Rubinstein, Jimmy Palmiotti, José Marzan Jr., Jason Gorder, Matt Ryan, Mark Farmer, Mark Pennington",
     description:
       "Magneto tears apart Wolverine's world as the Legacy Virus spreads among mutantkind, building to a final showdown between the X-Men and Magneto that costs Professor X and the team dearly. This volume closes the Classic Marvel Epic Collection era with one of the X-Men's most consequential clashes.",
     coverUrl: "https://m.media-amazon.com/images/I/91GuC+BQM8L._SL1500_.jpg",
@@ -7436,8 +8378,10 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "#176-188; Kitty Pride & Wolverine; etc",
     yearsCovered: "1984",
     releaseDate: { year: 2026, month: 1 },
-    writers: "Chris Claremont",
-    pencillers: "John Romita Jr., Al Milgrom",
+    writers: "Chris Claremont, Barry Windsor-Smith, Ann Nocenti",
+    pencillers: "John Romita Jr., Al Milgrom, Barry Windsor-Smith, David Mazzucchelli",
+    inkers:
+      "Dan Green, Al Milgrom, Bob Wiacek, John Romita Sr., Brett Breeding, Terry Austin, David Mazzucchelli",
     description:
       "",
     coverUrl: "https://m.media-amazon.com/images/I/9110NKCJ6oL._SL1500_.jpg",
@@ -7454,8 +8398,11 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Uncanny X-Men #211-219; Spider-Man Vs. Wolverine; Fantastic Four Vs. X-Men #1-4; X-Men Vs. Avengers #1-4",
     yearsCovered: "1986-1987",
     releaseDate: { year: 2026, month: 6 },
-    writers: "Chris Claremont, Christopher Priest, Roger Stern",
-    pencillers: "Marc Silvestri, Jon Bogdanove, Mark Bright",
+    writers: "Chris Claremont, Roger Stern, Jim Owsley, Jim Shooter, Tom DeFalco",
+    pencillers:
+      "Marc Silvestri, Jon Bogdanove, Bret Blevins, Alan Davis, Jackson Guice, John Romita Jr., Rick Leonardi, Barry Windsor-Smith, Mark Bright, Keith Pollard",
+    inkers:
+      "Dan Green, Terry Austin, Joe Rubinstein, Al Williamson, Paul Neary, Bob Wiacek, Steve Leialoha, Al Milgrom, Bob McLeod",
     description:
       "",
     coverUrl: "https://m.media-amazon.com/images/I/813-5fpTvpL._SL1500_.jpg",
@@ -7472,8 +8419,10 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Uncanny X-Men #220-234, Annual #11-12; Best of Marvel Comics 1987",
     yearsCovered: "1987-1988",
     releaseDate: { year: 2027, month: 1 },
-    writers: "Chris Claremont",
-    pencillers: "Marc Silvestri",
+    writers: "Chris Claremont, Tom DeFalco, Mark Gruenwald",
+    pencillers:
+      "Marc Silvestri, Rick Leonardi, Arthur Adams, Alan Davis, Kerry Gammill, Ron Lim, Marshall Rogers",
+    inkers: "Dan Green, Bob Wiacek, Joe Rubinstein, Paul Neary, Terry Austin, Tony DeZuniga",
     description:
       "",
     ownershipStatus: "announced",
