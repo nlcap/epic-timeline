@@ -108,11 +108,20 @@ must confirm the target is a creator page.
 **Studio credits look like people and must be left alone:** `Crusty Bunkers`,
 `The Tribe`, `Shuster Shop`, `Deodato Studios`, `Comicraft`.
 
-## F. One decision already made that isn't applied everywhere
+## F. O'Neil and Owsley — done
 
-`Dennis "Denny" O'Neil` was set as the form for **all** his credits, but that ran
-over DC Finest only. Classic Marvel still holds **Dennis O'Neil** (11 slots).
-Finishing that instruction means applying the bespoke form there too.
+Applied across every collection, matching the DC Finest convention:
+
+- **`Dennis "Denny" O'Neil`** now reads the same way in all **32** of his credit
+  slots — 21 in DC Finest, 11 recovered in Classic Marvel, which the original
+  pass never reached.
+- **`Jim Owsley (Christopher Priest)`** on all **8** Owsley-era credits (7 in
+  Classic Marvel, 1 in DC Finest) — the name each book was published under, with
+  the name he goes by now.
+- **`Christopher Priest`** stays plain on the **4** credits published that way.
+
+`Kevin O'Neill` is a different person with a different surname and was matched
+exactly, never by substring, so he is untouched.
 
 ## G. Held back deliberately — not oversights
 

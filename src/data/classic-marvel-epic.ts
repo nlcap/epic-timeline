@@ -657,7 +657,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     yearsCovered: "1980-1981",
     releaseDate: { year: 2026, month: 1 },
     writers:
-      "Dennis O'Neil, Mark Gruenwald, Jim Shooter, Michael Fleisher, Bill Mantlo, J.M. DeMatteis",
+      "Dennis \"Denny\" O'Neil, Mark Gruenwald, Jim Shooter, Michael Fleisher, Bill Mantlo, J.M. DeMatteis",
     pencillers:
       "John Romita Jr., Frank Miller, Jim Mooney, Alan Weiss, Luke McDonnell, Bob McLeod, Alan Kupperberg, Bob Hall",
     inkers:
@@ -721,7 +721,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     yearsCovered: "1987",
     releaseDate: { year: 2017, month: 6 },
     writers:
-      "J.M. DeMatteis, David Michelinie, Christopher Priest, Fred Schiller, Ken McDonald, Jim Owsley, Peter David, Jim Shooter",
+      "J.M. DeMatteis, David Michelinie, Christopher Priest, Fred Schiller, Ken McDonald, Jim Owsley (Christopher Priest), Peter David, Jim Shooter",
     pencillers:
       "Mike Zeck, Steve Geiger, John Romita Jr., Mark Beachum, Mark Bright, Alan Kupperberg, Tom Morgan, Alex Saviuk, Paul Ryan",
     inkers:
@@ -2128,7 +2128,8 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Captain America #286-301, Annual #7 and The Falcon #1-4",
     yearsCovered: "1983-1984",
     releaseDate: { year: 2022, month: 8 },
-    writers: "J.M. DeMatteis, Jim Owsley, Peter Gillis, Bill Mantlo, Michael Carlin",
+    writers:
+      "J.M. DeMatteis, Jim Owsley (Christopher Priest), Peter Gillis, Bill Mantlo, Michael Carlin",
     pencillers:
       "Paul Neary, Mike Zeck, Mark Bright, Brian Postman, Paul Smith, Ron Frenz, Herb Trimpe",
     inkers:
@@ -2492,7 +2493,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Daredevil #1–21",
     yearsCovered: "1964-1966",
     releaseDate: { year: 2016, month: 7 },
-    writers: "Stan Lee, Wally Wood, Dennis O'Neil",
+    writers: "Stan Lee, Wally Wood, Dennis \"Denny\" O'Neil",
     pencillers:
       "Wally Wood, John Romita Sr., Joe Orlando, Bob Powell, Jack Kirby, Gene Colan, Bill Everett",
     inkers:
@@ -2653,7 +2654,8 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Daredevil #234-252",
     yearsCovered: "1986-1987",
     releaseDate: { year: 2022, month: 11 },
-    writers: "Ann Nocenti, Mark Gruenwald, Danny Fingeroth, Steve Englehart, Jim Owsley",
+    writers:
+      "Ann Nocenti, Mark Gruenwald, Danny Fingeroth, Steve Englehart, Jim Owsley (Christopher Priest)",
     pencillers:
       "Louis Williams, Steve Ditko, Rick Leonardi, John Romita Jr., Barry Windsor-Smith, Sal Buscema, Todd McFarlane, Keith Pollard, Chuck Patton, Tom Morgan, Keith Giffen",
     inkers:
@@ -3196,7 +3198,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Strange Tales #110–111, 114–146;; Amazing Spider-Man Annual #2",
     yearsCovered: "1963-1966",
     releaseDate: { year: 2018, month: 10 },
-    writers: "Steve Ditko, Stan Lee, Roy Thomas, Dennis O'Neil, Don Rico",
+    writers: "Steve Ditko, Stan Lee, Roy Thomas, Dennis \"Denny\" O'Neil, Don Rico",
     pencillers: "Steve Ditko",
     inkers: "Steve Ditko, George Roussos",
     description:
@@ -3216,7 +3218,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     yearsCovered: "1966-1969",
     releaseDate: { year: 2024, month: 1 },
     writers:
-      "Roy Thomas, Stan Lee, Marie Severin, Bill Everett, Dennis O'Neil, Dan Adkins, Jim Lawrence, Raymond Marais, Jim Steranko",
+      "Roy Thomas, Stan Lee, Marie Severin, Bill Everett, Dennis \"Denny\" O'Neil, Dan Adkins, Jim Lawrence, Raymond Marais, Jim Steranko",
     pencillers:
       "Marie Severin, Dan Adkins, Gene Colan, Bill Everett, Jim Steranko, Steve Ditko, Tom Palmer, John Buscema",
     inkers:
@@ -5106,7 +5108,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Iron Man #158–177, Annual #5",
     yearsCovered: "1982-1983",
     releaseDate: { year: 2013, month: 9 },
-    writers: "Dennis O'Neil, Roger McKenzie, Ralph Macchio, Peter Gillis, Ann Nocenti",
+    writers: "Dennis \"Denny\" O'Neil, Roger McKenzie, Ralph Macchio, Peter Gillis, Ann Nocenti",
     pencillers:
       "Luke McDonnell, Carmine Infantino, Paul Smith, Marie Severin, Steve Ditko, Jerry Bingham, Mike Vosburg",
     inkers: "Steve Mitchell, Dan Green, Al Milgrom, Mike Esposito, Sam de la Rosa",
@@ -5126,7 +5128,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Iron Man #178–195, Annual #6–7",
     yearsCovered: "1984-1985",
     releaseDate: { year: 2016, month: 3 },
-    writers: "Dennis O'Neil, Bob Harras, Peter Gillis",
+    writers: "Dennis \"Denny\" O'Neil, Bob Harras, Peter Gillis",
     pencillers: "Luke McDonnell, Don Perlin",
     inkers: "Steve Mitchell, Ian Akin, Brian Garvey, Roy Richardson",
     description:
@@ -5246,7 +5248,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     yearsCovered: "1993",
     releaseDate: { year: 2022, month: 11 },
     writers:
-      "Len Kaminski, Kurt Busiek, Jim Owsley, Scott Benson, Bob DeNatale, Eliot Brown, Will Murray, Steve Ditko, Dave Simons, David Michelinie, Keith Pollard, David Kraft",
+      "Len Kaminski, Kurt Busiek, Jim Owsley (Christopher Priest), Scott Benson, Bob DeNatale, Eliot Brown, Will Murray, Steve Ditko, Dave Simons, David Michelinie, Keith Pollard, David Kraft",
     pencillers:
       "Kevin Hopgood, James Fry, Greg LaRocque, Tom Morgan, Kris Renkewitz, John Czop, Larry Alexander, Eliot Brown, Steve Ditko, Dave Simons, Bob McLeod, Keith Pollard",
     inkers:
@@ -5352,7 +5354,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "#196-214, Annual 8",
     yearsCovered: "1985-1986",
     releaseDate: { year: 2027, month: 3 },
-    writers: "Dennis O'Neil, Danny Fingeroth, Dennis Mallonee, Howard Mackie, Bob Harras",
+    writers: "Dennis \"Denny\" O'Neil, Danny Fingeroth, Dennis Mallonee, Howard Mackie, Bob Harras",
     pencillers:
       "Mark Bright, Rich Buckler, Sal Buscema, Herb Trimpe, Paul Ryan, Rick Hoberg, Alex Saviuk, Paul Neary, Dwayne Turner, Javier Saltares, Tom Morgan",
     inkers:
@@ -5660,7 +5662,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     yearsCovered: "1982-1984",
     releaseDate: { year: 2018, month: 12 },
     writers:
-      "Doug Moench, Alan Zelenetz, Tony Isabella, Steven Grant, Dennis O'Neil, Steve Ringgenberg",
+      "Doug Moench, Alan Zelenetz, Tony Isabella, Steven Grant, Dennis \"Denny\" O'Neil, Steve Ringgenberg",
     pencillers:
       "Bill Sienkiewicz, Kevin Nowlan, Bo Hampton, Keith Pollard, J.J. Birch, Michael Bair, Marc Silvestri, Richard Howell, Bob McLeod",
     inkers:
@@ -5682,7 +5684,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     yearsCovered: "1984-1988",
     releaseDate: { year: 2022, month: 9 },
     writers:
-      "Chuck Dixon, Alan Zelenetz, Jo Duffy, Cary Burkett, Chris Warner, Jim Owsley, Ann Nocenti, Roger Stern, Michael Carlin, Robert M. Ingersoll",
+      "Chuck Dixon, Alan Zelenetz, Jo Duffy, Cary Burkett, Chris Warner, Jim Owsley (Christopher Priest), Ann Nocenti, Roger Stern, Michael Carlin, Robert M. Ingersoll",
     pencillers:
       "Sal Velluto, Chris Warner, Greg LaRocque, Larry Hama, Mark Beachum, Brent Eric Anderson, Bob Hall, Judith Hunt, Bill Reinhold, Russ Heath, Mike Gustovich",
     inkers:
@@ -6163,7 +6165,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Power Man and Iron Fist #71–72, 74–89;; Daredevil #178",
     yearsCovered: "1981-1982",
     releaseDate: { year: 2016, month: 10 },
-    writers: "Jo Duffy, Dennis O'Neil, Mike W. Barr, Chris Claremont, Frank Miller",
+    writers: "Jo Duffy, Dennis \"Denny\" O'Neil, Mike W. Barr, Chris Claremont, Frank Miller",
     pencillers: "Denys Cowan, Kerry Gammill, Frank Miller, Rudy Nebres, Keith Pollard",
     inkers:
       "Ricardo Villamonte, Carl Potts, Armando Gil, Vince Colletta, Al Milgrom, Klaus Janson, Joe Chiodo, Steve Mitchell, Dave Simons, Diverse Hands",
@@ -6203,7 +6205,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Power Man and Iron Fist (1978) 108-125",
     yearsCovered: "1984-1986",
     releaseDate: { year: 2022, month: 10 },
-    writers: "Jim Owsley, Alan Rowlands, Tony Isabella",
+    writers: "Jim Owsley (Christopher Priest), Alan Rowlands, Tony Isabella",
     pencillers: "Mark Bright, Greg LaRocque, Billy Graham, Steve Geiger",
     inkers:
       "Jerry Acerno, Andy Mushynsky, Danny Bulanadi, Brad Joyce, Keith Williams, Mike Esposito",
@@ -6308,7 +6310,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     yearsCovered: "1973-1983",
     releaseDate: { year: 2027, month: 3 },
     writers:
-      "Gerry Conway, Len Wein, Bill Mantlo, Marv Wolfman, Frank Miller, Archie Goodwin, Mike W. Barr, Dennis O'Neil, Roger McKenzie",
+      "Gerry Conway, Len Wein, Bill Mantlo, Marv Wolfman, Frank Miller, Archie Goodwin, Mike W. Barr, Dennis \"Denny\" O'Neil, Roger McKenzie",
     pencillers:
       "Ross Andru, Frank Miller, Tony DeZuniga, Keith Pollard, Al Milgrom, Frank Springer, Greg LaRocque",
     inkers:
@@ -8045,7 +8047,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "X-Men #46–66; and material from; Ka-Zar #2–3 and; Marvel Tales #30",
     yearsCovered: "1968-1970",
     releaseDate: { year: 2018, month: 11 },
-    writers: "Roy Thomas, Arnold Drake, Jerry Siegel, Gary Friedrich, Dennis O'Neil",
+    writers: "Roy Thomas, Arnold Drake, Jerry Siegel, Gary Friedrich, Dennis \"Denny\" O'Neil",
     pencillers:
       "Neal Adams, Don Heck, Werner Roth, George Tuska, Jim Steranko, Barry Windsor-Smith, Sal Buscema",
     inkers:
@@ -8398,7 +8400,8 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Uncanny X-Men #211-219; Spider-Man Vs. Wolverine; Fantastic Four Vs. X-Men #1-4; X-Men Vs. Avengers #1-4",
     yearsCovered: "1986-1987",
     releaseDate: { year: 2026, month: 6 },
-    writers: "Chris Claremont, Roger Stern, Jim Owsley, Tom DeFalco, Jim Shooter",
+    writers:
+      "Chris Claremont, Roger Stern, Jim Owsley (Christopher Priest), Tom DeFalco, Jim Shooter",
     pencillers:
       "Marc Silvestri, Jon Bogdanove, Bret Blevins, Alan Davis, Jackson Guice, John Romita Jr., Rick Leonardi, Barry Windsor-Smith, Mark Bright, Keith Pollard",
     inkers:
