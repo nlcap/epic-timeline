@@ -100,21 +100,74 @@ before this was discovered were re-verified, but only against the template test.
 
 ---
 
-## 4. Name variances — deliberately left as published
+## 4. Name variances and same-person candidates
 
-Recording the credit as the source prints it; a separate pass will normalise aliases.
+Swept 2026-08-18 across all 683 distinct names in `dc-finest.ts` (2,365 credit slots). Marvel and
+Licensed were excluded — those lines haven't been re-researched yet, so their names aren't stable
+enough to compare. Five passes: exact-match after stripping accents/punctuation/case; match after
+dropping a Jr./Sr. suffix; same first and last name with a differing middle initial; nickname vs
+formal first name on a shared surname; and edit distance on the full name. Then every name was
+looked up on the DC Database, because **a wiki redirect is the reliable test** — if two spellings
+resolve to one page, the wiki is asserting they're one person. That last pass found everything the
+string matching missed.
 
-Jim Owsley = Christopher Priest · Denny / Dennis O'Neil · Art / Arthur Adams ·
-Dave / David Mazzucchelli · Elliot S! Maggin / Elliot S. Maggin ·
-"Rober Quijano" (Static, appears in 5 issues — almost certainly Robert) ·
-"Shuster Shop" (a studio credit, not a person — kept deliberately)
+### Applied
 
-Already merged, same person under two forms in the same volume's credits:
-Arthur Cazenueve → Arthur Cazeneuve · Doug Hazelwood → Doug Hazlewood ·
-Bernie Sachs → Bernard Sachs · Seymour Barry → Sy Barry ·
-Denny O'Neil → Dennis O'Neil *(only within Flash: The Fastest Man Dead, where both forms
-appeared in the same field — one person listed twice. Cross-volume the two forms still stand
-as published.)*
+- **Dennis "Denny" O'Neil** — all 21 credits, merging 20 "Dennis" and 1 "Denny".
+- **Jim Owsley (Christopher Priest)** — the one Owsley-era credit (Batman: The Killing Joke vol).
+  Credits published as Christopher Priest stay plain "Christopher Priest"; there are two.
+
+Five *descriptions* still say "Denny O'Neil" or "Dennis O'Neil" in running prose. Those are DC's
+marketing copy, not credit fields, and were left alone.
+
+### Confirmed one person, both spellings present — not yet merged
+
+Each pair below is a single wiki page, so these are duplicates in the data rather than two people.
+Direction is a choice: the wiki's canonical form is on the right, but the house rule has been to
+print the credit as published.
+
+| in the data | in the data | wiki canonical |
+|---|---|---|
+| Bill Montez (1) | Bill Montes (1) | Bill Montes |
+| Ernie Chua (1) | Ernie Chan (5) | Ernie Chan — "Chua" was a clerical error early in his DC run |
+| Bruce Patterson (6) | Bruce D. Patterson (4) | Bruce D. Patterson |
+| France Herron (2) | Ed Herron (1) | Ed Herron |
+| J.J. Birch (1) | Joe Brozowski (3) | Joe Brozowski — Birch is his pseudonym |
+| Bill Dennehy (1) | Murray Boltinoff (2) | Murray Boltinoff — Dennehy is his pseudonym |
+| Barbara Randall (1) | Barbara Kesel (3) | Barbara Kesel — married name |
+
+### One spelling present; the wiki files the person under a different name
+
+Not duplicates — nothing to merge. Only a question of whether to print the published credit or the
+name the person goes by now. **Several of these are people who changed their names, so this is not
+a mechanical decision and none of it has been applied.**
+
+Arthur Adams → Art Adams · Arthur Peddy → Arthur F. Peddy · Arthur Cazeneuve → Arturo Cazeneuve ·
+Bernard Sachs → Bernie Sachs · Sy Barry → Seymour Barry · Howard Shum → Howard M. Shum ·
+Raul Fernandez → Raúl Fernández · Joyce Murchison → Joye Hummel · Derec Aucoin → Derec Donovan ·
+Andrew Pepoy → Margeaux Pepoy · Tony Isabella → Jenny Blake Isabella ·
+Dennis Cramer → Justine Mara Andersen
+
+`José Marzan Jr.` is deliberately *not* matched to the wiki's `José Marzan, Jr.` — the comma form
+would split into two people in a comma-separated field.
+
+**This also closes an open Events question.** Justine Mara Andersen was listed as an inker on both
+Zero Hour collected pages while no story credited her; Dennis Cramer was the reverse, credited on
+Legionnaires #18 but absent from DC's roster. They are the same person. DC's roster used the
+current name and the issue pages the published one.
+
+### Checked and rejected — different people despite looking alike
+
+Sheldon Moldoff's staff page lists "Bob Kane" under Pseudonyms, but that records Moldoff
+**ghosting for** Kane, who is a separate real person — merging them would be badly wrong. Likewise
+"Charles Nicholas" is a shared house name, not one person. Edit-distance also paired Alan/Dan
+Davis, Bob Haney/Bob Kane, Bob Smith/Tod Smith, Chris Gardner/Chris Warner, Dave Cooper/Dave
+Hoover, Don Kraar/Don Kramer, Joe Giella/Joe Gill, John Wagner/John Warner, John Wagner/Ron
+Wagner, and Mike Roy/Mike Royer — all genuinely different people.
+
+Earlier merges that still stand: Arthur Cazenueve → Arthur Cazeneuve · Doug Hazelwood → Doug
+Hazlewood · Rus Sever → Russ Sever · Pete Krause → Peter Krause. "Shuster Shop" is a studio
+credit, not a person, and is kept deliberately.
 
 **Page-name traps.** Several series are filed under names that don't match the seed's wording.
 Worth checking before concluding a source is missing: Green Lantern #201-205 are under *Green

@@ -692,7 +692,7 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Batman #231-245 and Detective Comics #410-429",
     yearsCovered: "1971-1972",
     releaseDate: { year: 2026, month: 10 },
-    writers: "Dennis O'Neil, Frank Robbins, Bernie Wrightson, Harlan Ellison",
+    writers: "Dennis \"Denny\" O'Neil, Frank Robbins, Bernie Wrightson, Harlan Ellison",
     pencillers: "Irv Novick, Bob Brown, Neal Adams, Frank Robbins",
     inkers: "Dick Giordano, Frank Robbins, Neal Adams, Steve Englehart",
     description:
@@ -716,7 +716,7 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     // Split by hand from `creators` -- Wikipedia lists this volume's credits
     // as "TBC", so the names carried over from Nick's own sheet.
     writers:
-      "Frank Robbins, Archie Goodwin, Denny O'Neil, Elliot S. Maggin, Len Wein, E. Nelson Bridwell, Bob Rozakis, Martin Pasko, Mike W. Barr, Sal Amendola, Steve Englehart, Vin Amendola",
+      "Frank Robbins, Archie Goodwin, Dennis \"Denny\" O'Neil, Elliot S. Maggin, Len Wein, E. Nelson Bridwell, Bob Rozakis, Martin Pasko, Mike W. Barr, Sal Amendola, Steve Englehart, Vin Amendola",
     pencillers:
       "Irv Novick, Walt Simonson, Bob Brown, Dick Dillin, Dick Giordano, Jim Aparo, Don Heck, Neal Adams, Sal Amendola, Alex Toth, Ernie Chan, Frank Robbins, Howard Chaykin, Mike Grell, Murphy Anderson, Pat Broderick, Rich Buckler",
     inkers:
@@ -739,7 +739,7 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     yearsCovered: "1979-1980",
     releaseDate: { year: 2026, month: 11 },
     writers:
-      "Len Wein, Dennis O'Neil, Cary Burkett, J.M. DeMatteis, Steve Englehart, Jim Starlin",
+      "Len Wein, Dennis \"Denny\" O'Neil, Cary Burkett, J.M. DeMatteis, Steve Englehart, Jim Starlin",
     pencillers:
       "Irv Novick, Don Newton, John Calnan, Walt Simonson, Dick Dillin, Frank Miller, Jim Aparo, Jim Starlin",
     inkers:
@@ -831,7 +831,7 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     yearsCovered: "1988-1989",
     releaseDate: { year: 2026, month: 4 },
     writers:
-      "Jim Starlin, Alan Grant, John Wagner, Mike Baron, Robert Greenberger, Dennis O'Neil, Jeff O'Hare",
+      "Jim Starlin, Alan Grant, John Wagner, Mike Baron, Robert Greenberger, Dennis \"Denny\" O'Neil, Jeff O'Hare",
     pencillers:
       "Norm Breyfogle, Bernie Wrightson, Jim Aparo, Mark Bright, Dave Cockrum, Irv Novick, Klaus Janson, Pablo Marcos, Roderick Delgado, Ross Andru",
     inkers:
@@ -855,7 +855,7 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     yearsCovered: "1989",
     releaseDate: { year: 2026, month: 7 },
     writers:
-      "Alan Grant, Sam Hamm, Jim Owsley, John Byrne, John Wagner, Neil Gaiman, Jim Starlin, Jan Strnad, Kevin Dooley, Mark Waid, Brian Augustyn",
+      "Alan Grant, Sam Hamm, Jim Owsley (Christopher Priest), John Byrne, John Wagner, Neil Gaiman, Jim Starlin, Jan Strnad, Kevin Dooley, Mark Waid, Brian Augustyn",
     pencillers:
       "Jim Aparo, Denys Cowan, Norm Breyfogle, Eduardo Barreto, Kevin Nowlan, Malcolm Jones III, Mark Buckingham, Michael Bair, Val Semeiks",
     inkers:
@@ -1056,7 +1056,7 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     yearsCovered: "1967-1977",
     releaseDate: { year: 2026, month: 5 },
     writers:
-      "Neal Adams, Jack Miller, Bob Haney, Arnold Drake, Carmine Infantino, Paul Levitz, Dennis O'Neil, Robert Kanigher",
+      "Neal Adams, Jack Miller, Bob Haney, Arnold Drake, Carmine Infantino, Paul Levitz, Dennis \"Denny\" O'Neil, Robert Kanigher",
     pencillers:
       "Neal Adams, Fred Carrillo, Jim Aparo, Carmine Infantino, George Tuska, John Rosenberger, Mike Grell",
     inkers:
@@ -1079,10 +1079,8 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     issuesCollected: "The Demon #1–16 (1972–1973); The Brave and the Bold #109, #137; Batman Family (1975) #17; Detective Comics #482-485, Wonder Woman #280-282",
     yearsCovered: "1972-1980",
     releaseDate: { year: 2026, month: 2 },
-    writers:
-      "Jack Kirby, Len Wein, Gerry Conway, Bob Haney, Bob Rozakis",
-    pencillers:
-      "Jack Kirby, Jose Delbo, Steve Ditko, Michael Golden, Jim Aparo, John Calnan",
+    writers: "Jack Kirby, Len Wein, Gerry Conway, Bob Haney, Bob Rozakis",
+    pencillers: "Jack Kirby, Jose Delbo, Steve Ditko, Michael Golden, Jim Aparo, John Calnan",
     inkers:
       "Mike Royer, Dave Hunt, Steve Ditko, Bob McLeod, Dick Giordano, Jim Aparo, Michael Golden",
     description:
@@ -1350,7 +1348,7 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     yearsCovered: "1970-1974",
     releaseDate: { year: 2026, month: 3 },
     writers:
-      "Cary Bates, Dennis O'Neil, Robert Kanigher, Steve Skeates, Len Wein, Bob Haney, Gardner Fox, Mike Friedrich",
+      "Cary Bates, Dennis \"Denny\" O'Neil, Robert Kanigher, Steve Skeates, Len Wein, Bob Haney, Gardner Fox, Mike Friedrich",
     pencillers:
       "Irv Novick, Dick Dillin, Dick Giordano, Neal Adams, Carmine Infantino, Bob Brown, Murphy Anderson",
     inkers:
@@ -1394,7 +1392,7 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
       "Superman #244; The New Gods #4-8; The Forever People #5-8; Mister Miracle #5-8; Superman's Pal Jimmy Olsen #144-148, and Superman's Girl Friend Lois Lane #116-119",
     yearsCovered: "1971-1972",
     releaseDate: { year: 2027, month: 6 },
-    writers: "Jack Kirby, Robert Kanigher, Dennis O'Neil",
+    writers: "Jack Kirby, Robert Kanigher, Dennis \"Denny\" O'Neil",
     pencillers: "Jack Kirby, Werner Roth, Rich Buckler, Curt Swan, Dick Giordano, Jeff Jones",
     inkers: "Mike Royer, Vince Colletta, Dick Giordano, Murphy Anderson, Jack Kirby",
     description:
@@ -1416,7 +1414,7 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Detective Comics Annual #1, Green Arrow #1-8, Green Arrow Annual #1, The Question #17-18, The Question Annual #1, Green Arrow: The Longbow Hunters #1-3",
     yearsCovered: "1987-1988",
     releaseDate: { year: 2025, month: 1 },
-    writers: "Mike Grell, Dennis O'Neil, Sharon Wright",
+    writers: "Mike Grell, Dennis \"Denny\" O'Neil, Sharon Wright",
     pencillers:
       "Ed Hannigan, Lurene Haines, Mike Grell, Denys Cowan, Eduardo Barreto, Paris Cullins, Randy DuBurke, Tom Artis",
     inkers:
@@ -1438,7 +1436,7 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Green Arrow #9–20, Green Arrow Annual #2, The Question Annual #2, Secret Origins #38, and key Black Canary material from Action Comics #609–616 and #624–635",
     yearsCovered: "1988-1989",
     releaseDate: { year: 2026, month: 2 },
-    writers: "Mike Grell, Sharon Wright, Dennis O'Neil, Sarah Byam, Mark Verheiden",
+    writers: "Mike Grell, Sharon Wright, Dennis \"Denny\" O'Neil, Sarah Byam, Mark Verheiden",
     pencillers:
       "Ed Hannigan, Randy DuBurke, Eduardo Barreto, Dan Jurgens, Bill Wray, Dick Giordano, Hannibal King",
     inkers:
@@ -1501,7 +1499,7 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Green Lantern #62–82, The Flash #191, and World’s Finest Comics #201",
     yearsCovered: "1968-1971",
     releaseDate: { year: 2026, month: 7 },
-    writers: "Dennis O'Neil, John Broome, Gardner Fox, Mike Friedrich",
+    writers: "Dennis \"Denny\" O'Neil, John Broome, Gardner Fox, Mike Friedrich",
     pencillers:
       "Gil Kane, Neal Adams, Dick Dillin, Mike Sekowsky, Jack Sparling, Ross Andru, Sid Greene",
     inkers:
@@ -1660,7 +1658,7 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     yearsCovered: "1968-1981",
     releaseDate: { year: 2026, month: 4 },
     writers:
-      "Dennis O'Neil, Bob Haney, Elliot S. Maggin, David Vern Reed, Martin Pasko, Steve Englehart, Gerry Conway, Len Wein, Paul Kupperberg, Paul Levitz",
+      "Dennis \"Denny\" O'Neil, Bob Haney, Elliot S. Maggin, David Vern Reed, Martin Pasko, Steve Englehart, Gerry Conway, Len Wein, Paul Kupperberg, Paul Levitz",
     pencillers:
       "Irv Novick, Jim Aparo, John Calnan, Marshall Rogers, Dick Dillin, Don Newton, Ernie Chua, Joe Staton, José Luis García-López, Neal Adams, Walt Simonson",
     inkers:
@@ -1703,7 +1701,7 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Justice League of America 45-72",
     yearsCovered: "1966-1969",
     releaseDate: { year: 2024, month: 11 },
-    writers: "Gardner Fox, Dennis O'Neil",
+    writers: "Gardner Fox, Dennis \"Denny\" O'Neil",
     pencillers: "Mike Sekowsky, Dick Dillin",
     inkers: "Sid Greene, George Roussos, Frank Giacoia, Joe Giella",
     description:
@@ -1723,7 +1721,8 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Justice League of America #103-132",
     yearsCovered: "1972-1976",
     releaseDate: { year: 2026, month: 8 },
-    writers: "Len Wein, Cary Bates, Elliot S. Maggin, Gerry Conway, Martin Pasko, Dennis O'Neil",
+    writers:
+      "Len Wein, Cary Bates, Elliot S. Maggin, Gerry Conway, Martin Pasko, Dennis \"Denny\" O'Neil",
     pencillers: "Dick Dillin",
     inkers: "Frank McLaughlin, Dick Giordano",
     description:
@@ -1787,8 +1786,7 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     issuesCollected: "All-Star Comics #13-24",
     yearsCovered: "1942-1945",
     releaseDate: { year: 2025, month: 7 },
-    writers:
-      "Gardner Fox, Jack Kirby, William Moulton Marston, Evelyn Gaines, Jack Miller",
+    writers: "Gardner Fox, Jack Kirby, William Moulton Marston, Evelyn Gaines, Jack Miller",
     pencillers:
       "Joe Gallagher, Stan Aschmeier, Sheldon Moldoff, Bernard Baily, Jon L. Blummer, Howard Sherman, Jack Kirby, Jack Burnley, Ed Dobrotka, Joe Kubert, Pierce Rice, Chester Kozlak, Cliff Young, Harry G. Peter, Joe Simon, Lou Ferstadt, Martin Naydel, Paul Reinman, Sheldon Mayer",
     inkers:
@@ -1954,7 +1952,7 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     yearsCovered: "1964-1975",
     releaseDate: { year: 2026, month: 6 },
     writers:
-      "Mike Friedrich, Elliot S. Maggin, Frank Robbins, Bob Rozakis, Gardner Fox, Dennis O'Neil, E. Nelson Bridwell, John Broome",
+      "Mike Friedrich, Elliot S. Maggin, Frank Robbins, Bob Rozakis, Gardner Fox, Dennis \"Denny\" O'Neil, E. Nelson Bridwell, John Broome",
     pencillers:
       "Irv Novick, Gil Kane, Rich Buckler, Chic Stone, Dick Dillin, Sheldon Moldoff, Al Milgrom, Bob Brown, Ross Andru, A. Martinez, Mike Grell",
     inkers:
@@ -1986,7 +1984,7 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     yearsCovered: "1976-1983",
     releaseDate: { year: 2027, month: 5 },
     writers:
-      "Bob Rozakis, Jack C. Harris, Gerry Conway, Dennis O'Neil, Elliot S. Maggin, Marv Wolfman, Mike W. Barr, Paul Kupperberg",
+      "Bob Rozakis, Jack C. Harris, Gerry Conway, Dennis \"Denny\" O'Neil, Elliot S. Maggin, Marv Wolfman, Mike W. Barr, Paul Kupperberg",
     pencillers:
       "Irv Novick, Kurt Schaffenberger, Charles Nicholas, Don Heck, Don Newton, Curt Swan, Juan Ortiz, Trevor von Eeden, Alex Saviuk, George Pérez, Jim Aparo, Jose Delbo, Lee Elias, Marshall Rogers",
     inkers:
@@ -2055,7 +2053,7 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     yearsCovered: "1966-1988",
     releaseDate: { year: 2025, month: 9 },
     writers:
-      "Michael Fleisher, Gardner Fox, Mike Friedrich, Neal Adams, Dennis O'Neil, Russell Carley, Paul Kupperberg, Roy Thomas, Bob Haney, Mark Hanerfeld, Steve Skeates",
+      "Michael Fleisher, Gardner Fox, Mike Friedrich, Neal Adams, Dennis \"Denny\" O'Neil, Russell Carley, Paul Kupperberg, Roy Thomas, Bob Haney, Mark Hanerfeld, Steve Skeates",
     pencillers:
       "Jim Aparo, Jerry Grandenetti, Neal Adams, Murphy Anderson, Ernie Chan, Frank Thorne, Bernie Wrightson, Dick Dillin, Jack Sparling, Michael Adams, Richard Howell, Carmine Infantino",
     inkers:
@@ -2146,7 +2144,7 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Limited Collectors' Edition #41, Limited Collectors' Edition #46, and Super Friends #1-26",
     yearsCovered: "1976-1979",
     releaseDate: { year: 2025, month: 11 },
-    writers: "E. Nelson Bridwell, Dennis O'Neil",
+    writers: "E. Nelson Bridwell, Dennis \"Denny\" O'Neil",
     pencillers: "Ramona Fradon, Kurt Schaffenberger, Ric Estrada",
     inkers: "Bob Smith, Vince Colletta, Joe Orlando",
     description:
@@ -2235,8 +2233,7 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     releaseDate: { year: 2024, month: 11 },
     writers: "Jerry Siegel",
     pencillers: "Joe Shuster, Paul Cassidy, Wayne Boring",
-    inkers:
-      "Paul Cassidy, Joe Shuster, Paul Lauretta, Wayne Boring, Dennis Neville",
+    inkers: "Paul Cassidy, Joe Shuster, Paul Lauretta, Wayne Boring, Dennis Neville",
     description:
       "The first two years of Superman adventures, starting with 1938's legendary Action Comics #1 -- Jerry Siegel and Joe Shuster's creation that launched the entire superhero genre.",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781779528339",
@@ -2276,8 +2273,7 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Action Comics #144–159, Superman #64–70, and World’s Finest Comics #46–53",
     yearsCovered: "1950-1951",
     releaseDate: { year: 2026, month: 2 },
-    writers:
-      "Alvin Schwartz, William Woolfolk, Edmond Hamilton, Dorothy Woolfolk",
+    writers: "Alvin Schwartz, William Woolfolk, Edmond Hamilton, Dorothy Woolfolk",
     pencillers: "Wayne Boring, Al Plastino, Curt Swan",
     inkers: "Stan Kaye, Al Plastino",
     description:
@@ -2297,7 +2293,7 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Action Comics #393-406; Superman #233-238, #240-246",
     yearsCovered: "1970-1971",
     releaseDate: { year: 2025, month: 6 },
-    writers: "Leo Dorfman, Dennis O'Neil, Cary Bates, Len Wein",
+    writers: "Leo Dorfman, Dennis \"Denny\" O'Neil, Cary Bates, Len Wein",
     pencillers: "Curt Swan, Ross Andru",
     inkers: "Murphy Anderson, Dick Giordano, Mike Esposito",
     description:
@@ -2341,8 +2337,7 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     releaseDate: { year: 2026, month: 11 },
     writers: "John Byrne, Marv Wolfman, Jerry Ordway",
     pencillers: "John Byrne, Jerry Ordway",
-    inkers:
-      "Dick Giordano, Jerry Ordway, Karl Kesel, Terry Austin, Mike Machlan, Keith Williams",
+    inkers: "Dick Giordano, Jerry Ordway, Karl Kesel, Terry Austin, Mike Machlan, Keith Williams",
     description:
       "John Byrne and Marv Wolfman reimagine the Last Son of Krypton for the post-Crisis era, revealing a Clark Kent rooted in humanity, a driven Lois Lane, and a Lex Luthor redefined as a ruthless corporate tyrant.",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781799510321",
@@ -2385,8 +2380,7 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     releaseDate: { year: 2025, month: 4 },
     writers:
       "Jerry Siegel, Otto Binder, Robert Bernstein, Edmond Hamilton, Jerry Coleman, Leo Dorfman",
-    pencillers:
-      "Curt Swan, Kurt Schaffenberger, John Forte, Al Plastino, George Papp, Jim Mooney",
+    pencillers: "Curt Swan, Kurt Schaffenberger, John Forte, Al Plastino, George Papp, Jim Mooney",
     inkers:
       "Kurt Schaffenberger, John Forte, Stan Kaye, Al Plastino, George Papp, Jim Mooney, Sheldon Moldoff, George Klein",
     description:
@@ -2473,7 +2467,7 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     issuesCollected: "The Brave and the Bold (1955) #106–130; Stories From Super-Team Family #2 (the Creeper and Wildcat in “Showdown in San Lorenza” by Dennis O’Neil & Ric Estrada); And #3 (Hawkman and the Flash in “The End of the World” by Steve Skeates & Ric Estrada); Covers to Super-Team Family #1, #4–7",
     yearsCovered: "1973-1976",
     releaseDate: { year: 2026, month: 6 },
-    writers: "Bob Haney, Dennis O'Neil, Steve Skeates",
+    writers: "Bob Haney, Dennis \"Denny\" O'Neil, Steve Skeates",
     pencillers: "Jim Aparo, Ric Estrada",
     inkers: "Jim Aparo, Bill Draut, John Calnan, Wally Wood",
     description:
@@ -2584,7 +2578,7 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     yearsCovered: "1970-1973",
     releaseDate: { year: 2026, month: 4 },
     writers:
-      "Robert Kanigher, John Albano, Cary Bates, Joe Kubert, Sergio Aragonés, Dennis O'Neil, Sam Glanzman, Gil Kane, John Broome, Bob Haney, Don Kraar, France Herron, George Kashdan, Jack Oleck, Jerry DeFuccio, Len Wein, Marv Wolfman, Norman Maurer",
+      "Robert Kanigher, John Albano, Cary Bates, Joe Kubert, Sergio Aragonés, Dennis \"Denny\" O'Neil, Sam Glanzman, Gil Kane, John Broome, Bob Haney, Don Kraar, France Herron, George Kashdan, Jack Oleck, Jerry DeFuccio, Len Wein, Marv Wolfman, Norman Maurer",
     pencillers:
       "Frank Thorne, Tony DeZuniga, Gil Kane, Gray Morrow, Joe Kubert, Neal Adams, Nick Cardy, Sam Glanzman, Alan Weiss, Alfredo Alcala, Alex Toth, Bill Draut, Carmine Infantino, Fred Ray, Jim Aparo, Jim McArdle, John Severin, Mike Sekowsky, Norman Maurer, Sonny Trinidad",
     inkers:
@@ -2833,7 +2827,7 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     yearsCovered: "1967-1989",
     releaseDate: { year: 2027, month: 3 },
     writers:
-      "Dennis O'Neil, Steve Ditko, D.C. Glanzman, Len Wein, Steve Skeates, Roger Stern, Michael Uslan, Benjamin Smith",
+      "Dennis \"Denny\" O'Neil, Steve Ditko, D.C. Glanzman, Len Wein, Steve Skeates, Roger Stern, Michael Uslan, Benjamin Smith",
     pencillers: "Denys Cowan, Steve Ditko, Paris Cullins, Alex Toth, Dan Reed",
     inkers:
       "Rick Magyar, Steve Ditko, Bruce D. Patterson, Albert Val, Alex Toth, Bill Black, Bob McLeod, Dan Reed, Del Barras",
