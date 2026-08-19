@@ -59,3 +59,49 @@ kept deliberately — same treatment as `Shuster Shop` in the DC data.
 not Marvel, and none of their series resolve here — `Conan Vol 2`, `Conan the
 Cimmerian`, `Conan the Avenger`, `Conan: Road of Kings` and `Conan the Slayer`
 are all absent. They need conan.fandom.com or another source.
+
+---
+
+# The Dark Horse Conan run — Comic Vine
+
+**Conan Chronicles (8 volumes) and King Conan Chronicles (1)** are Dark Horse,
+and no wiki covers them. The Marvel Database is Marvel-published only, so
+`Conan Vol 2`, `Conan the Cimmerian`, `Conan the Avenger`, `Conan: Road of
+Kings` and `Conan the Slayer` are all simply absent. conan.fandom.com exists but
+is oriented to the Howard prose and the Lancer paperbacks — its "Conan the
+Avenger" is a 1968 novel, not the 2014 comic, and there are no per-issue pages
+for this era at all.
+
+**Comic Vine** is the fallback and has per-issue `person_credits`. Volume ids
+were verified on name, start year *and* Dark Horse as publisher, since several
+series share a name across publishers and eras:
+
+| series | id | note |
+|---|---|---|
+| Conan (2004) | 10612 | #0 is a separate volume, "Conan: The Legend" (19634) |
+| Conan the Cimmerian (2008) | 21896 | |
+| Conan: Road of Kings (2010) | 37497 | a 2012 one-shot shares the name |
+| Conan the Barbarian (2012) | 44351 | Dark Horse, not the Marvel run |
+| Conan the Avenger (2014) | 73235 | |
+| Conan the Slayer (2016) | 92175 | |
+| Conan and the Midnight God (2006) | 18939 | seed says 2007 |
+| King Conan: The Scarlet Citadel (2011) | 39124 | |
+| King Conan: The Phoenix on the Sword (2012) | 45383 | |
+| Conan: The Phantoms of the Black Coast (2012) | 53601 | |
+
+Nearly every one of these has a second Comic Vine volume with the same name and
+a later year holding the collected edition, so filtering on start year matters.
+
+**Comic Vine's role strings are user-maintained and sometimes wrong** — lettering
+studios come back tagged as inkers. `Comicraft` was being counted as an inker on
+King Conan; studios are filtered by name rather than trusted.
+
+**No inkers on several volumes is correct, not missing.** Cary Nord's Conan run
+was painted over pencils with no separate inker, and Comic Vine reflects that.
+
+## Open
+
+- `kcc-1` also lists "material from Age of Conan: Hyborian Adventures (2006) #1",
+  which is not counted — it's a promotional tie-in and hasn't been resolved.
+- The API key used for this lives outside the repository and is read from a file
+  at run time; it must never be committed, as this repo is public.
