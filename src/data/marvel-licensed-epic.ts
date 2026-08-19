@@ -801,6 +801,11 @@ export const LICENSED_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Star Wars (1977) #1–23; material from Pizzazz #1–16 and Star Wars Weekly UK #60",
     yearsCovered: "1977-1979",
     releaseDate: { year: 2016, month: 10 },
+    writers: "Archie Goodwin, Roy Thomas, Howard Chaykin, Donald F. Glut, Chris Claremont",
+    pencillers:
+      "Carmine Infantino, Howard Chaykin, Tom Palmer, Alan Kupperberg, Walt Simonson, Herb Trimpe",
+    inkers:
+      "Bob Wiacek, Terry Austin, Steve Leialoha, Tom Palmer, Gene Day, Howard Chaykin, Rick Hoberg, Bill Wray, Frank Springer, Allen Milgrom",
     description: "",
     coverUrl: "https://m.media-amazon.com/images/I/91zL0Mx8f7L._SL1500_.jpg",
     ownershipStatus: "announced",
@@ -816,6 +821,9 @@ export const LICENSED_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Star Wars (1977) #24–38, Annual #1; Star Wars Weekly UK #94–99, 104–115",
     yearsCovered: "1979-1980",
     releaseDate: { year: 2017, month: 7 },
+    writers: "Archie Goodwin, Mary Jo Duffy, Chris Claremont, Michael Golden",
+    pencillers: "Carmine Infantino, Mike Vosburg, Michael Golden",
+    inkers: "Bob Wiacek, Gene Day, Steve Leialoha, Terry Austin",
     description: "",
     coverUrl: "https://m.media-amazon.com/images/I/71Z7eJgaV4L._SL1500_.jpg",
     ownershipStatus: "announced",
@@ -831,6 +839,11 @@ export const LICENSED_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Star Wars (1977) #39–55; The Empire Strikes Back Monthly UK #149, 151, 153–157; Star Wars Monthly UK #159",
     yearsCovered: "1980-1981",
     releaseDate: { year: 2018, month: 7 },
+    writers:
+      "Archie Goodwin, David Michelinie, Chris Claremont, J. M. DeMatteis, Larry Hama, Mike W. Barr",
+    pencillers: "Al Williamson, Carlos Garzón, Carmine Infantino, Walt Simonson",
+    inkers:
+      "Tom Palmer, Carlos Garzón, Al Williamson, Gene Day, Chic Stone, Walt Simonson, Alan Kupperberg, Al Milgrom, Frank Giacoia",
     description: "",
     coverUrl: "https://m.media-amazon.com/images/I/A1FXTh-Ax5L._SL1500_.jpg",
     ownershipStatus: "announced",
@@ -846,6 +859,10 @@ export const LICENSED_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Star Wars (1977) #56–73, Annual #2",
     yearsCovered: "1982-1983",
     releaseDate: { year: 2019, month: 8 },
+    writers: "David Michelinie, Walt Simonson, Mary Jo Duffy, Louise Jones, Michael Fleisher",
+    pencillers:
+      "Walt Simonson, Ron Frenz, Tom Palmer, Gene Day, Joe Brozowski, Carmine Infantino, Kerry Gammill",
+    inkers: "Tom Palmer, Vince Colletta, Rudy Nebres",
     description: "",
     coverUrl: "https://m.media-amazon.com/images/I/91z32STpAUL._SL1500_.jpg",
     ownershipStatus: "announced",
@@ -861,6 +878,12 @@ export const LICENSED_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Star Wars (1977) #74–88, Annual #3, Star Wars: Return of the Jedi #1-4",
     yearsCovered: "1983-1984",
     releaseDate: { year: 2021, month: 8 },
+    writers:
+      "Mary Jo Duffy, Archie Goodwin, David Michelinie, Bob Layton, Linda Grant, Roy Richardson, Randy Stradley",
+    pencillers:
+      "Ron Frenz, Al Williamson, Bob McLeod, Carlos Garzón, Luke McDonnell, Klaus Janson, David Mazzucchelli, Tom Palmer",
+    inkers:
+      "Tom Palmer, Carlos Garzón, Al Williamson, Bob Layton, Klaus Janson, Tom Mandrake, Mandy Hands, Bob McLeod",
     description: "",
     coverUrl: "https://m.media-amazon.com/images/I/A1SRU-oQAjL._SL1500_.jpg",
     ownershipStatus: "announced",
@@ -876,6 +899,11 @@ export const LICENSED_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Star Wars (1977) #89-107; Star Wars (2019) #108",
     yearsCovered: "1984-2019",
     releaseDate: { year: 2023, month: 5 },
+    writers: "Mary Jo Duffy, Ann Nocenti, Archie Goodwin, Matthew Rosenberg",
+    pencillers:
+      "Cynthia Martin, Jan Duursema, Sal Buscema, Bret Blevins, Bob McLeod, Tony Salmons, Al Williamson, Ron Frenz, Steve Leialoha, Giuseppe Camuncoli, Andrea Broccardo, Kerry Gammill, Ze Carlos, Stefano Landini, Luke Ross, Leonard Kirk",
+    inkers:
+      "Tom Palmer, Art Nichols, Sam de la Rosa, Ken Steacy, Bret Blevins, Tom Mandrake, Steve Leialoha, Bob Wiacek, Al Williamson, Whilce Portacio, Cam Smith",
     description: "",
     coverUrl: "https://m.media-amazon.com/images/I/81XMT6RtglL._SL1500_.jpg",
     ownershipStatus: "announced",
@@ -907,6 +935,12 @@ export const LICENSED_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Classic Star Wars: The Early Adventures #1–9, Classic Star Wars: Han Solo at Stars' End #1–3, Classic Star Wars #1–3, Sunday strips from 11 Mar to 9 Sep 1979, daily & Sunday strips from 11 Aug to 5 Oct 1980; material from Classic Star Wars #4",
     yearsCovered: "1977-1997",
     releaseDate: { year: 2017, month: 1 },
+    writers:
+      "Russ Manning, Archie Goodwin, Elsa Charretier, Pierrick Colinet, Mike W. Barr, Steve Gerber, Rick Hoberg, Steve Niles, Brian Wood",
+    pencillers:
+      "Russ Manning, Rick Hoberg, Brian Snoddy, Alfredo Alcala, Al Williamson, Tanya Roberts, Davidé Fabbri, Ryan Odagawa",
+    inkers:
+      "Al Williamson, Alfredo Alcala, Perry McNamee, Elsa Charretier, Russ Manning, Dave Stevens, Christian Dalla Vecchia, Igor Kordey",
     description: "",
     coverUrl: "https://m.media-amazon.com/images/I/71BMWuzC3KL._SL1500_.jpg",
     ownershipStatus: "announced",
@@ -922,6 +956,9 @@ export const LICENSED_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Classic Star Wars #5–20; material from Classic Star Wars #4",
     yearsCovered: "1992-1994",
     releaseDate: { year: 2019, month: 7 },
+    writers: "Archie Goodwin",
+    pencillers: "Al Williamson, Allen Nunis",
+    inkers: "Al Williamson",
     description: "",
     coverUrl: "https://m.media-amazon.com/images/I/914ElHcKIbL._SL1500_.jpg",
     ownershipStatus: "announced",
@@ -975,10 +1012,10 @@ export const LICENSED_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Star Wars: Tales of the Jedi - Dark Lords of the Sith #1-6; Star Wars: Tales of the Jedi - The Sith War #1-6; Star Wars: Tales of the Jedi - Redemption #1-5; material from Star Wars Tales #23; Dark Horse Comics #7-9",
     yearsCovered: "1993-2005",
     releaseDate: { year: 2023, month: 7 },
-    writers: "Kevin J. Anderson, Tom Veitch",
-    pencillers: "Chris Gossett, Dario Carrasco Jr., Art Wetherell",
+    writers: "Kevin J. Anderson, Tom Veitch, Joshua Ortega",
+    pencillers: "Chris Gossett, Dario Carrasco Jr., Janine Johnston, Art Wetherell, Dustin Weaver",
     inkers:
-      "Jordi Ensign, Mark G. Heike, Bill Black, David Jacob Beckett, Chris Gossett, Mike Barreiro, Andrew Pepoy",
+      "Mike Barreiro, Jordi Ensign, Mark G. Heike, Bill Black, David Jacob Beckett, Chris Gossett, Andrew Pepoy",
     description: "",
     coverUrl: "https://m.media-amazon.com/images/I/A1HdQhXC5vL._SL1500_.jpg",
     ownershipStatus: "announced",
@@ -995,6 +1032,8 @@ export const LICENSED_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Star Wars: Knights of the Old Republic #1–18; material from Star Wars: Knights of the Old Republic/Rebellion #0",
     yearsCovered: "2006-2007",
     releaseDate: { year: 2015, month: 7 },
+    writers: "John Jackson Miller",
+    pencillers: "Brian Ching, Dustin Weaver, Harvey Tolibao, Travel Foreman",
     description: "A long, LONG time ago… Discover the state of the Star Wars galaxy in the distant past in this first volume of an Epic Collection series focusing on the ancient Knights of the Old Republic! When young Jedi Zayne Carrick is framed for the murder of his fellow Padawans, he is forced into an unlikely alliance with the Snivvian con artist Marn Hierogryph. Their quest to reveal the horrifying truth, and to obtain justice for the Padawan Massacre, joins them with Jarael and Camper aboard the junk hauler The Last Resort – and their adventures will take them from the research station Flashpoint to the banking planet Telerath! Brace yourself for days of fear – and nights of anger!",
     coverUrl: "https://m.media-amazon.com/images/I/81wLTDts87L._SL1500_.jpg",
     ownershipStatus: "announced",
@@ -1010,6 +1049,10 @@ export const LICENSED_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Star Wars: Knights of the Old Republic #19–37; Star Wars: Knights of the Old Republic Handbook",
     yearsCovered: "2007-2009",
     releaseDate: { year: 2017, month: 3 },
+    writers: "John Jackson Miller",
+    pencillers:
+      "Bong Dazo, Dustin Weaver, Scott Hepburn, Brian Ching, Alan Robinson, Harvey Tolibao, Colin Wilson",
+    inkers: "Dan Parsons, Joe Pimentel, Bong Dazo",
     description: "",
     coverUrl: "https://m.media-amazon.com/images/I/91ndQAuIrwL._SL1500_.jpg",
     ownershipStatus: "announced",
@@ -1025,6 +1068,9 @@ export const LICENSED_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Star Wars: Knights of the Old Republic #38–50, Star Wars: Knights of the Old Republic - War #1–5; material from Star Wars Tales #24",
     yearsCovered: "2009-2012",
     releaseDate: { year: 2019, month: 3 },
+    writers: "John Jackson Miller, Chris Avellone",
+    pencillers: "Brian Ching, Andrea Mutti, Bong Dazo, Dean Zachary, Ron Chan, Dustin Weaver",
+    inkers: "Gigi Baldassini",
     description: "",
     coverUrl: "https://m.media-amazon.com/images/I/81IHu1+szUL._SL1500_.jpg",
     ownershipStatus: "announced",
@@ -1040,6 +1086,12 @@ export const LICENSED_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Star Wars: The Old Republic #1-6; Star Wars: The Old Republic - The Lost Suns #1-5; Star Wars: Lost Tribe of the Sith - Spiral #1-5; material from Star Wars Tales #17, 23; Star Wars Visionaries",
     yearsCovered: "2010-2012",
     releaseDate: { year: 2021, month: 6 },
+    writers:
+      "Alexander Freed, John Jackson Miller, Rob Chestney, Robert E. Barnes, Mike Denning, Adam Gallardo",
+    pencillers:
+      "Dave Ross, Andrea Mutti, George Freeman, Alex Sanchez, David Daza, Robert E. Barnes, David Nakayama, Greg Titus",
+    inkers:
+      "Mark McKenna, Pierluigi Baldassini, Alex Sanchez, Robert E. Barnes, Greg Adams, Julian Washburn",
     description: "",
     coverUrl: "https://m.media-amazon.com/images/I/81f3jkJAkTS._SL1500_.jpg",
     ownershipStatus: "announced",
@@ -1055,6 +1107,11 @@ export const LICENSED_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Star Wars: Knight Errant #1-5, Star Wars: Knight Errant - Deluge #1-5, Star Wars: Knight Errant - Escape #1-5, Star Wars: Jedi Vs. Sith #1-6; material from: Star Wars Tales #16",
     yearsCovered: "2001-2012",
     releaseDate: { year: 2023, month: 3 },
+    writers: "John Jackson Miller, Darko Macan, Paul Lee",
+    pencillers:
+      "Ramón F. Bachs, Marco Castiello, Ivan Rodriguez, Iban Coello, Federico Dallocchio, David Daza, Paul Lee, Brian Horton",
+    inkers:
+      "Raul Fernandez, Vincenzo Acunzo, Sergio Abad, Belardino Brabo, Federico Dallocchio, Marcio Loezer, Ivan Rodriguez",
     description: "",
     coverUrl: "https://m.media-amazon.com/images/I/818XNJou-yL._SL1500_.jpg",
     ownershipStatus: "announced",
@@ -1072,9 +1129,11 @@ export const LICENSED_ENTRIES: TimelineEntry[] = [
     yearsCovered: "1999-2004",
     releaseDate: { year: 2015, month: 8 },
     writers:
-      "Scott Allie, Randy Stradley, Jan Strnad, Ryder Windham, Mike Kennedy, Jim Woodring, John Ostrander, Dean Motter, Dave McCaig, Christian Read, Haden Blackman, Jim Krueger, Jason Hall, Fabian Nicieza, Chris Eliopoulos, Rob Williams",
+      "Scott Allie, Randy Stradley, Jan Strnad, Ryder Windham, Jason Hall, Mike Kennedy, W. Haden Blackman, Jim Krueger, Fabian Nicieza, Dean Motter, Chris Eliopoulos, Jim Woodring, Christian Read, Rob Williams, John Ostrander, Dave McCaig, Lovern Kindzierski, Kevin Rubio, Mark Evanier, Sergio Aragonés, Kilian Plunkett",
     pencillers:
-      "Mahmud Asrar, Davide Fabri, Ramon F. Bachs, John Nadeau, Lucas Marangon, Robert Teranishi, Jan Duursema, Jesús Sáiz, Francisco Ruiz Velasco, Dave McCaig, Chris Slane, Michael Zulli, Kagan McLeod, Timothy Green II, Jon Sommariva, Cully Hamner",
+      "Mahmud Asrar, Lucas Marangon, Ramón F. Bachs, Davidé Fabbri, Anthony Winn, Robert Teranishi, Michael Zulli, Kagan McLeod, Timothy II, Jesús Saiz, Ben Templesmith, Jon Sommariva, Chris Slane, Cully Hamner, Jan Duursema, Francisco Ruiz Velasco, Dave McCaig, Sergio Aragonés, Kilian Plunkett",
+    inkers:
+      "Robert Jones, Raul Fernandez, Christian Dalla Vecchia, Howard M. Shum, Fernando Blanco, Ben Templesmith, Pierre-Andre Dery, Robert Teranishi, Rick Magyar, Lucas Marangon, Kilian Plunkett",
     description: "",
     coverUrl: "https://m.media-amazon.com/images/I/716+H6k5WEL._SL1500_.jpg",
     ownershipStatus: "announced",
@@ -1091,9 +1150,11 @@ export const LICENSED_ENTRIES: TimelineEntry[] = [
     yearsCovered: "1998-2004",
     releaseDate: { year: 2017, month: 11 },
     writers:
-      "Jan Strnad, Henry Gilroy, Ron Marz, Ryder Windham, Timothy Truman, Mark Schultz, Terry Moore, Kevin Rubio, Stan Sakai, Tony Millionaire",
+      "Jan Strnad, Henry Gilroy, Ron Marz, Ryder Windham, Timothy Truman, Mark Schultz, Peet Janes, Terry Moore, Tony Millionaire, Stan Sakai, Kevin Rubio",
     pencillers:
-      "Anthony Winn, Jan Duursema, Rodolfo Damaggio, Martin Egeland, Robert Teranishi, Galen Showman, Steve Crespo, John Nadeau, Tom Fowler, Cliff Richards, Lucas Marangon, Stan Sakai, Tony Millionaire",
+      "Anthony Winn, Jan Duursema, Rodolfo Damaggio, Steve Crespo, Galen Showman, Robert Teranishi, Martin Egeland, John Nadeau, Cliff Richards, Tom Fowler, Tony Millionaire, Stan Sakai, Lucas Marangon",
+    inkers:
+      "Robert Jones, Rick Magyar, Al Williamson, P. Craig Russell, George Freeman, Christopher Chuckry, Howard M. Shum, Jordi Ensign, Tom Fowler",
     description: "",
     coverUrl: "https://m.media-amazon.com/images/I/710U2pkykxL._SL1500_.jpg",
     ownershipStatus: "announced",
@@ -1110,6 +1171,11 @@ export const LICENSED_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Star Wars: Jango Fett – Open Seasons #1–4, Star Wars (1998) #7–18; material from Star Wars Tales #8, 21–24",
     yearsCovered: "1999-2005",
     releaseDate: { year: 2018, month: 9 },
+    writers: "Timothy Truman, W. Haden Blackman, Rob Williams, John Ostrander",
+    pencillers:
+      "Ramón F. Bachs, Tom Lyle, Brandon Badeaux, Rod Pereira, Rick Leonardi, Al Rio, John Nadeau, Tom Raney, Francis Portela, Jan Duursema",
+    inkers:
+      "Raul Fernandez, Mark Lipka, Robert Jones, Mark G. Heike, Jordi Ensign, Stephen Hawthorne, Howard M. Shum, Walden Wong",
     description: "",
     coverUrl: "https://m.media-amazon.com/images/I/91-Oyw798PL._SL1500_.jpg",
     ownershipStatus: "announced",
@@ -1125,6 +1191,12 @@ export const LICENSED_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Star Wars (1998) #19–35; material from Dark Horse Extra #35–37, Star Wars Tales #13 and Dark Horse Presents Annual 2000",
     yearsCovered: "2000-2001",
     releaseDate: { year: 2019, month: 11 },
+    writers:
+      "John Ostrander, Pat Mills, Timothy Truman, Doug Petrie, Scott Beatty, Bob Harris, Dean Motter",
+    pencillers:
+      "Jan Duursema, Ramón F. Bachs, Davidé Fabbri, Randy Green, Sanford Greene, Jerome Opeña, Isaac Buckminster Owens",
+    inkers:
+      "Rick Magyar, Raul Fernandez, Christian Dalla Vecchia, Ray Kryssing, Andy Owens, Jan Duursema, Kris Kaufman",
     description: "",
     coverUrl: "https://m.media-amazon.com/images/I/91ucxVD+4KL._SL1500_.jpg",
     ownershipStatus: "announced",
@@ -1140,6 +1212,9 @@ export const LICENSED_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Star Wars (1998) #36-45, Star Wars: Jedi Quest (2001) #1-4, Star Wars: Jango Fett (2002) #1, Star Wars: Zam Wesell (2002) #1",
     yearsCovered: "2001-2002",
     releaseDate: { year: 2023, month: 2 },
+    writers: "John Ostrander, Ryder Windham, Ron Marz",
+    pencillers: "Davidé Fabbri, Jan Duursema, Pop Mhan, Tom Fowler, Ted Naifeh",
+    inkers: "Christian Dalla Vecchia, Ray Kryssing, Norman Lee",
     description: "",
     coverUrl: "https://m.media-amazon.com/images/I/91kd5crT9iL._SL1500_.jpg",
     ownershipStatus: "announced",
@@ -1155,6 +1230,12 @@ export const LICENSED_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Star Wars: The Bounty Hunter - Aurra Sing #1; Star Wars: Starfighter - Crossbones #1-3; Star Wars: Republic 46–48; Star Wars: Episode II - Attack of the Clones #1-4; Star Wars: Hasbro/Toys 'R' Us Exclusive #1-4; Free Comic Book Day 2002: Star Wars #1",
     yearsCovered: "1999-2002",
     releaseDate: { year: 2024, month: 1 },
+    writers:
+      "Henry Gilroy, W. Haden Blackman, Jason Hall, John Ostrander, Peter Bagge, Timothy Truman, Michael Carriglitto, Peter Alilunas, Dan Jolley, Adam Gallardo, Kevin Rubio",
+    pencillers:
+      "Jan Duursema, Ramón F. Bachs, Manuel Garcia, C.P. Smith, Francis Portela, Peter Bagge, Timothy Truman, Adrian Sibar, Will Conrad, Sean Phillips, Homs, Roger Langridge",
+    inkers:
+      "Ray Kryssing, Raul Fernandez, Jasen Rodriguez, Fernando Blanco, Albert Xiques, Timothy Truman, Jimmy Palmiotti, Sean Phillips",
     description: "",
     coverUrl: "https://m.media-amazon.com/images/I/81A6q96abDL._SL1500_.jpg",
     ownershipStatus: "announced",
@@ -1171,6 +1252,12 @@ export const LICENSED_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Star Wars: Republic #49–54, Star Wars: Jedi: Mace Windu, Shaak Ti, Aayla Secura, Count Dooku, Yoda; material from Star Wars Tales #14, 19, Star Wars Visionaries",
     yearsCovered: "2002-2003",
     releaseDate: { year: 2016, month: 12 },
+    writers:
+      "John Ostrander, W. Haden Blackman, Jeremy Barlow, Dave Land, Scott Allie, Erik Tiemens",
+    pencillers:
+      "Jan Duursema, Tomás Giorello, Adriana Melo, Stephen Thompson, Brian Ching, Greg Tocchini, HOON, Erik Tiemens",
+    inkers:
+      "Dan Parsons, Curtis P. Arnold, Jan Duursema, Fabio Laguna, Ray Kryssing, Joe Weems, Eddie Wagner, HOON, Erik Tiemens",
     description: "",
     coverUrl: "https://m.media-amazon.com/images/I/81lHYUIFdzL._SL1500_.jpg",
     ownershipStatus: "announced",
@@ -1186,6 +1273,10 @@ export const LICENSED_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Star Wars: Republic #55–67, Star Wars: Darth Maul – Death Sentence #1–4; material from Star Wars Tales #22",
     yearsCovered: "2003-2013",
     releaseDate: { year: 2018, month: 3 },
+    writers: "John Ostrander, W. Haden Blackman, Tom Taylor, Ian Edginton, Randy Stradley",
+    pencillers:
+      "Brian Ching, Jan Duursema, Bruno Redondo, Brandon Badeaux, Tomás Giorello, Steve Pugh",
+    inkers: "Victor Llamas, Dan Parsons, Armando Durruthy, Bruno Redondo",
     description: "",
     coverUrl: "https://m.media-amazon.com/images/I/91nRvEC0OmL._SL1500_.jpg",
     ownershipStatus: "announced",
@@ -1201,6 +1292,12 @@ export const LICENSED_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Star Wars: Republic #68-73, Star Wars: General Grievous #1-4, Free Comic Book Day 2006: Star Wars, Star Wars: Obsession #1-5; material from Star Wars: Visionaries, Star Wars Tales #17",
     yearsCovered: "2004-2006",
     releaseDate: { year: 2020, month: 3 },
+    writers:
+      "John Ostrander, W. Haden Blackman, Chuck Dixon, Warren Fu, Sang Jun Lee, Randy Stradley, Jason Hall, Michael Murnane",
+    pencillers:
+      "Jan Duursema, Brian Ching, Rick Leonardi, Sang Jun Lee, Doug Wheatley, Ben Templesmith, Michael Murnane",
+    inkers:
+      "Dan Parsons, Mark Pennington, Sang Jun Lee, Doug Wheatley, Brian Ching, Ben Templesmith, Michael Murnane",
     description: "",
     coverUrl: "https://m.media-amazon.com/images/I/81vUhpjfSEL._SL1500_.jpg",
     ownershipStatus: "announced",
@@ -1216,6 +1313,11 @@ export const LICENSED_ENTRIES: TimelineEntry[] = [
     issuesCollected: "FCBD 2005: Star Wars #1; Star Wars: Darth Maul - Son of Dathomir #1-4; Star Wars: Republic #74-77 and #81-83; Star Wars: Episode III - Revenge of the Sith #1-4; Star Wars: Tag & Bink II #2; material from Star Wars Visionaries, Star Wars Tales #4",
     yearsCovered: "2005-2014",
     releaseDate: { year: 2022, month: 8 },
+    writers: "John Ostrander, Christopher Cerasi, Jeremy Barlow, Kevin Rubio, Derek Thompson",
+    pencillers:
+      "Jan Duursema, Juan Frigeri, Doug Wheatley, Lucas Marangon, Nicola Scott, Derek Thompson",
+    inkers:
+      "Dan Parsons, Mauro Vargas, Doug Wheatley, Lucas Marangon, Nicola Scott, Derek Thompson",
     description: "",
     coverUrl: "https://m.media-amazon.com/images/I/91hYukf1VNL._SL1500_.jpg",
     ownershipStatus: "announced",
@@ -1232,6 +1334,10 @@ export const LICENSED_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Star Wars: Republic #78–80; Star Wars: Purge #1; Star Wars: Purge – Seconds to Die #1; Star Wars: Purge – The Hidden Blade #1; Star Wars: Purge – The Tyrant's Fist #1–2; Star Wars: Darth Vader and the Lost Command #1–5; Star Wars: Dark Times #1–5",
     yearsCovered: "2005-2013",
     releaseDate: { year: 2015, month: 4 },
+    writers: "Welles Hartley, W. Haden Blackman, Mick Harrison, John Ostrander, Alexander Freed",
+    pencillers:
+      "Doug Wheatley, Rick Leonardi, Marco Castiello, Andrea Chella, Luke Ross, Jim Hall, Chris Scalf",
+    inkers: "Dan Green, Marco Castiello, Andrea Chella, Doug Wheatley, Alex Lei, Mark McKenna",
     description: "Let the dark times begin! In the tumultuous aftermath of Star Wars Episode III – Revenge of the Sith, the Clone Wars have ended, the Republic has fallen…and Palpatine exerts his ruthless grip on his new Galactic Empire. Now, the few Jedi who remain must decide whether to hold true to their faith or abandon it completely in the face of a brutal purge – one carried out by the new Dark Lord of the Sith: Darth Vader!",
     coverUrl: "https://m.media-amazon.com/images/I/81OjRE3fUoL._SL1500_.jpg",
     ownershipStatus: "announced",
@@ -1247,6 +1353,9 @@ export const LICENSED_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Star Wars: Dark Times #6–17; Star Wars: Dark Times – Blue Harvest #0; Star Wars: Dark Times – Out of the Wilderness #1–5",
     yearsCovered: "2007-2012",
     releaseDate: { year: 2015, month: 10 },
+    writers: "Mick Harrison, Randy Stradley",
+    pencillers: "Doug Wheatley, Dave Ross, Lui Antonio",
+    inkers: "Doug Wheatley",
     description: "The dark times continue! As the Empire strengthens its grip in the wake of Star Wars Episode III Revenge of the Sith, the remaining Jedi are marked for death! Jedi Master K'kruhk faces a battle for his life – one with deadly parallels for Bomo Greenbark and the crew of the smuggler vessel Uhumele. Meanwhile, Master Dass Jennir is down to his last credit and faces a stark choice: compromise his ideals or starve. Being a Jedi may make him an outlaw, but does being an outlaw mean he's no longer a Jedi? Darth Vader doesn't care: He's on Dass's trail either way – and so is the dread assassin Falco Sang!",
     coverUrl: "https://m.media-amazon.com/images/I/81H8nj-+mHL._SL1500_.jpg",
     ownershipStatus: "announced",
@@ -1263,6 +1372,9 @@ export const LICENSED_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Star Wars: Darth Vader and the Ghost Prison #1–5; Star Wars: Dark Times – Fire Carrier #1–5; Star Wars: Dark Times – A Spark Remains #1–5; Star Wars: Darth Vader and the Ninth Assassin #1–5",
     yearsCovered: "2012-2013",
     releaseDate: { year: 2017, month: 2 },
+    writers: "Randy Stradley, W. Haden Blackman, Tim Siedell",
+    pencillers: "Agustin Alessio, Gabriel Guzman, Doug Wheatley, Stephen Thompson, Iván Fernández",
+    inkers: "Mark Irwin, Denis Freitas, Drew Geraci, Jason Gorder",
     description: "",
     coverUrl: "https://m.media-amazon.com/images/I/91jz3FG9B3L._SL1500_.jpg",
     ownershipStatus: "announced",
@@ -1278,6 +1390,12 @@ export const LICENSED_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Star Wars: Darth Vader and the Cry of Shadows #1–5, Star Wars: Jabba the Hutt – The Gear Suppoon Hit, The Hunger of Princess Nampi, The Dynasty Trap, Betrayal, Star Wars: Boba Fett – Enemy of the Empire #1–4; material from Star Wars Tales #7, 11–12, 15, 18–20, Star Wars: Visionaries, Dark Horse Presents Annual '99 and Free Comic Book Day 2012: Star Wars",
     yearsCovered: "2014-2015",
     releaseDate: { year: 2018, month: 5 },
+    writers:
+      "Tim Siedell, Jim Woodring, John Wagner, Jason Hall, Aaron McBride, Christian Read, Jan Duursema, Phill Norwood, Jim Beard, Gilbert Hernandez, Kia Asamiya, Garth Ennis, Zack Whedon, Beau Smith, Henry Gilroy, Andy Diggle, James Kochalka, Ken Lizzl",
+    pencillers:
+      "Gabriel Guzman, Art Wetherell, Ian Gibson, John Nadeau, Aaron McBride, John McCrea, Jan Duursema, Dave McCaig, Sunny Lee, Phill Norwood, Todd Nauck, Gilbert Hernandez, Kia Asamiya, Amanda Connor, Davidé Fabbri, Mike Deodato Jr., Todd Demong, Henry Flint, Stewart McKenny, James Kochalka, Lucas Marangon",
+    inkers:
+      "Monty Sheldon, Ian Gibson, Jim Amash, Jimmy Palmiotti, Aaron McBride, Randy Emberlin, Shannon Denton, Jamie Mendoza, Christian Dalla Vecchia, Neil Nelson, John Wycough",
     description: "",
     coverUrl: "https://m.media-amazon.com/images/I/91EEmGWX6eL._SL1500_.jpg",
     ownershipStatus: "announced",
@@ -1293,6 +1411,10 @@ export const LICENSED_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Star Wars: Droids (1994) #1–6, Special; Star Wars: Droids (1995) #1–8; Star Wars: The Protocol Offensive #1; material from Star Wars Galaxy Magazine #1 and Star Wars Tales #16, 20",
     yearsCovered: "1994-1997",
     releaseDate: { year: 2019, month: 4 },
+    writers:
+      "Ryder Windham, Dan Thorsland, Jan Strnad, Anthony Daniels, Gilbert Austin, Rick Geary",
+    pencillers: "Bill Hughes, Ian Gibson, Igor Kordey, Gilbert Austin, Rick Geary",
+    inkers: "Andy Mushynsky, Keith Williams, Rich Perrotta, Ian Gibson",
     description: "",
     coverUrl: "https://m.media-amazon.com/images/I/91dPO1-jlRL._SL1500_.jpg",
     ownershipStatus: "announced",
@@ -1308,6 +1430,10 @@ export const LICENSED_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Star Wars: Agent of the Empire - Iron Eclipse #1-5, Star Wars: Agent of the Empire - Hard Targets #1-5, Star Wars: The Force Unleashed, Star Wars: The Force Unleashed II; material from Star Wars Tales #11, 15 and A Decade of Dark Horse #2",
     yearsCovered: "1996-2013",
     releaseDate: { year: 2020, month: 9 },
+    writers: "John Ostrander, Ryder Windham, Christopher Cerasi, Jason Hall",
+    pencillers:
+      "Davidé Fabbri, Stéphane Roux, Stéphane Créty, Allen Nunis, Kilian Plunkett, Chris Brunner",
+    inkers: "Julien Hugonnard-Bert, Christian Dalla Vecchia",
     description: "",
     coverUrl: "https://m.media-amazon.com/images/I/91kkeNEC4oL._SL1500_.jpg",
     ownershipStatus: "announced",
@@ -1323,6 +1449,11 @@ export const LICENSED_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Star Wars: Blood Ties #1-4; Star Wars: Blood Ties - Boba Fett Is Dead #1-4; Star Wars: Empire #1-4; Star Wars: Underworld - The Yavin Vassilika #1-5; Free Comic Book Day: Star Wars 2013; material from Star War Tales #1-2, 6, 16",
     yearsCovered: "1999-2013",
     releaseDate: { year: 2022, month: 9 },
+    writers:
+      "Tom Taylor, Mike Kennedy, Scott Allie, Tony Isabella, Tom Fassbender, Jim Pascoe, Tod C. Parkhill",
+    pencillers: "Chris Scalf, Carlos Meglia, Ryan Benjamin, John Nadeau, Eric Powell, Joey Mason",
+    inkers:
+      "Carlos Meglia, Curtis P. Arnold, Jordi Ensign, Drew Geraci, Keith Barnett, Howard M. Shum",
     description: "",
     coverUrl: "https://m.media-amazon.com/images/I/81HNGktoQVL._SL1500_.jpg",
     ownershipStatus: "announced",
@@ -1339,6 +1470,12 @@ export const LICENSED_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Star Wars: Empire #5-6, 8–13, 15; Star Wars: X-Wing Rogue Squadron #½; Star Wars: A New Hope Special Edition #1-4; Star Wars: Tag & Bink Are Dead #1; material from Star Wars Tales #1, 6, 8–10, 12, 14, 16, 19",
     yearsCovered: "1996-2003",
     releaseDate: { year: 2023, month: 11 },
+    writers:
+      "Paul Chadwick, Bruce Jones, Randy Stradley, Ron Marz, Michael A. Stackpole, Mike W. Barr, Garth Ennis, C.B. Cebulski, Jeremy Barlow, Kevin Rubio, Ryan Kinnaird, Peter David, Fillbach Brothers, Mike Denning, Mark Evanier, Jay Stephens, Scott Kurtz, Feng Zhu",
+    pencillers:
+      "Doug Wheatley, Eduardo Barreto, Tomás Giorello, Davidé Fabbri, Lucas Marangon, Rick Leonardi, Gary Erskine, John McCrea, Makoto Nakatsuka, Patrick Blaine, Ryan Kinnaird, Martin Egeland, Fillbach Brothers, Sergio Aragonés, Jay Stephens, Scott Kurtz, Feng Zhu",
+    inkers:
+      "Christian Dalla Vecchia, Eduardo Barreto, Al Williamson, Howard M. Shum, Terry Austin, Gary Erskine, Jimmy Palmiotti, Jay Stephens, Feng Zhu",
     description: "",
     coverUrl: "https://m.media-amazon.com/images/I/91v8QdS1VaL._SL1500_.jpg",
     ownershipStatus: "announced",
@@ -1356,6 +1493,9 @@ export const LICENSED_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Star Wars: Empire #7, 14, 16–18; Star Wars: Vader's Quest #1–4; Star Wars (2013) #1–12",
     yearsCovered: "1999-2013",
     releaseDate: { year: 2016, month: 6 },
+    writers: "Brian Wood, Darko Macan, Welles Hartley, Dave Land, John Wagner",
+    pencillers: "Carlos D'Anda, Dave Gibbons, Davidé Fabbri, Ryan Kelly, Raúl Treviño, Cam Kennedy",
+    inkers: "P. Craig Russell, Christian Dalla Vecchia, Carlos D'Anda, Dan Parsons, Raúl Treviño",
     description: "",
     coverUrl: "https://m.media-amazon.com/images/I/91OIRJlN+xL._SL1500_.jpg",
     ownershipStatus: "announced",
@@ -1371,6 +1511,10 @@ export const LICENSED_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Star Wars (2013) #13–20; Star Wars: Empire #19–27; material from Star Wars Kids #1–20",
     yearsCovered: "1997-2004",
     releaseDate: { year: 2017, month: 5 },
+    writers: "Brian Wood, Ron Marz, Welles Hartley, Jeremy Barlow",
+    pencillers:
+      "Stéphane Créty, Facundo Percio, Carlos D'Anda, Tomás Giorello, Adriana Melo, Nicola Scott, Brian Ching, Brandon Badeaux, Jeff Johnson, Joe Corroney",
+    inkers: "Julien Hugonnard-Bert, Dan Parsons, Carlos D'Anda, Jeff Johnson, Joe Corroney",
     description: "",
     coverUrl: "https://m.media-amazon.com/images/I/A1Q4sUGbIWL._SL1500_.jpg",
     ownershipStatus: "announced",
@@ -1386,6 +1530,11 @@ export const LICENSED_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Star Wars: River of Chaos #1–4; Star Wars: Empire #28–40; Star Wars 3-D #1–3",
     yearsCovered: "1988-2006",
     releaseDate: { year: 2019, month: 5 },
+    writers:
+      "Welles Hartley, Louise Simonson, Thomas Andrews, Len Wein, Ron Marz, Scott Allie, Jeremy Barlow, John Jackson Miller, John Stephenson",
+    pencillers:
+      "Adriana Melo, Davidé Fabbri, June Brigman, Joe Corroney, Michel Lacombe, Brian Ching, Glen Johnson, Patrick Zircher, Cesar Magsombol",
+    inkers: "Christian Dalla Vecchia, Roy Richardson, Michel Lacombe, Jim Nelson, Cesar Magsombol",
     description: "",
     coverUrl: "https://m.media-amazon.com/images/I/91YYHt9XXzL._SL1500_.jpg",
     ownershipStatus: "announced",
@@ -1401,6 +1550,12 @@ export const LICENSED_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Star Wars: Rebellion #1-16, Star Wars: Boba Fett - Overkill #1, Star Wars: Boba Fett #½; material from Star Wars: Knights Of The Old Republic/Rebellion #0 and Star Wars Tales #3, 15, 17, 21",
     yearsCovered: "2006-2008",
     releaseDate: { year: 2020, month: 8 },
+    writers:
+      "Rob Williams, Jeremy Barlow, Brandon Badeaux, Thomas Andrews, John Wagner, Rich Handley, Darko Macan, Shane McCarthy, Brian Augustyn, Steve Niles",
+    pencillers:
+      "Michel Lacombe, Brandon Badeaux, Colin Wilson, Dustin Weaver, Francisco Ruiz Velasco, Carlos Ezquerra, Chris Brunner, Paco Medina, Davidé Fabbri",
+    inkers:
+      "Michel Lacombe, Colin Wilson, Wil Glass, Carlos Ezquerra, Chris Brunner, Serge LaPointe, Joe Sanchez, Christian Dalla Vecchia",
     description: "",
     coverUrl: "https://m.media-amazon.com/images/I/91AqSB7RaOL._SL1500_.jpg",
     ownershipStatus: "announced",
@@ -1416,6 +1571,11 @@ export const LICENSED_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Star Wars: Splinter of the Mind's Eye #1-4; Star Wars: Shadow Stalker #1; Star Wars: Rebel Heist #1-4; Star Wars: A Valentine Story #1; Classic Star Wars: The Empire Strikes Back #1-2; Star Wars: Tag and Bink are Dead #2; material from Star War Tales #4-6, 15–17, 20",
     yearsCovered: "1994-2014",
     releaseDate: { year: 2022, month: 12 },
+    writers:
+      "Terry Austin, Matt Kindt, Ryder Windham, Archie Goodwin, Judd Winick, Lovern Kindzierski, Sean Konot, Scott Morse, Rob Williams, Scott Lobdell, Kevin Rubio, Tony Millionaire, Jonathan Adams, Jim Campbell, Jason",
+    pencillers:
+      "Chris Sprouse, Marco Castiello, Al Williamson, Carlos Garzón, Nick Choles, Paul Chadwick, Robert Teranishi, Scott Morse, Cary Nord, Sean Murphy, Kilian Plunkett, Lucas Marangon, Tony Millionaire, Jonathan Adams, Jim Campbell, Jason",
+    inkers: "Terry Austin, Dan Parsons, Al Williamson, Carlos Garzón, Howard M. Shum",
     description: "",
     coverUrl: "https://m.media-amazon.com/images/I/81bWvuRT5xL._SL1500_.jpg",
     ownershipStatus: "announced",
@@ -1431,6 +1591,12 @@ export const LICENSED_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Star Wars: Shadows of the Empire #1-6; Star Wars: The Bounty Hunters - Scoundrel's Wages #1; Classic Star Wars: Return of the Jedi #1-2; Star Wars: Tales from Mos Eisley #1; Star Wars: Tag & Bink II #1; Sergio Aragones Stomps Star Wars #1; Star Wars: Shadows of the Empire Minicomic #1-2; material from Star Wars Kids #12; Star Wars Visionaries; Star Wars Tales #2, 4–8, 10, 12, 14, 20",
     yearsCovered: "1994-2006",
     releaseDate: { year: 2024, month: 9 },
+    writers:
+      "John Wagner, Mark Schultz, Archie Goodwin, Kevin Rubio, Mark Evanier, Sergio Aragonés, Ryder Windham, Bruce Jones, Phil Amara, Alex Jaeger, M. Zachary Sherman, Dave Cooper, Ian Edginton, Mike Kennedy, Andi Watson, Craig Thompson, Bob Fingerman, Jason Hall",
+    pencillers:
+      "Kilian Plunkett, Al Williamson, Carlos Garzón, Sergio Aragonés, Bill Hughes, Ron Randall, Bret Blevins, Francisco Herrera, Mel Rubi, Kellie Strom, Alex Jaeger, Dave Cooper, Mark Martin, Rick Neilsen, Francisco Ruiz Velasco, Andi Watson, Lucas Marangon, Rick Zombo, Craig Thompson, Bob Fingerman, Ramón F. Bachs",
+    inkers:
+      "P. Craig Russell, Al Williamson, Carlos Garzón, Bill Hughes, Ron Randall, Bret Blevins, Howard M. Shum, Andrew Pepoy, Alex Jaeger, Dave Cooper, Randy Emberlin, Raul Fernandez",
     description: "The Rebellion on the verge of triumph – or tragedy! On the eve of RETURN OF THE JEDI, as the rebels struggle to find enough allies to counter the Empire, they must contend with notorious crime lords Prince Xizor and Jabba the Hutt! Determined to redeem himself, Lando Calrissian tasks smuggler Dash Rendar with tracking down the captured Han Solo, now in the hands of the galaxy's most feared bounty hunter: Boba Fett! It's up to Lando, Luke Skywalker, Leia Organa and Chewbacca to rescue Han, destroy the new Death Star, and defeat Darth Vader and the evil Emperor Palpatine! Plus: Go way behind the scenes with unexpected and hilarious tales from around the galaxy!",
     coverUrl: "https://m.media-amazon.com/images/I/81fig4hGAHL._SL1500_.jpg",
     ownershipStatus: "announced",
@@ -1447,6 +1613,12 @@ export const LICENSED_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Star Wars: Mara Jade – By the Emperor's Hand #0–6, Star Wars: Shadows of the Empire – Evolution #1–5, Star Wars: The Jabba Tape, Star Wars: Boba Fett – Twin Engines of Destruction; material from Star Wars Tales #1, 3–5, 10, 14–15, 20, 22",
     yearsCovered: "1997-1999",
     releaseDate: { year: 2015, month: 5 },
+    writers:
+      "Timothy Zahn, Michael A. Stackpole, Steve Perry, Jason Hall, Jay Laird, Christian Read, Brett Matthews, Kilian Plunkett, Christopher Cerasi, Jim Beard, Scott Lobdell, Brian Augustyn, Garth Ennis, Mike Kennedy, Ian Edginton, John Wagner, Lovern Kindzierski, Kevin Rubio, Mark Evanier, Sergio Aragonés, Rich Hedden, Lucas Marangon, Andy Mangels, Chris Eliopoulos",
+    pencillers:
+      "Carlos Ezquerra, Ron Randall, Kilian Plunkett, Lucas Marangon, Timothy II, Christina Chen, Vatche Mavlian, Igor Kordey, Sunny Lee, Todd Nauck, Sean Murphy, Paco Medina, John McCrea, Francisco Ruiz Velasco, Chris Slane, Carlos Meglia, Ramón F. Bachs, Robert Teranishi, Sergio Aragonés, Rick Leonardi, Clayton Henry, John Nadeau, Chris Eliopoulos",
+    inkers:
+      "Carlos Ezquerra, P. Craig Russell, Kilian Plunkett, Jimmy Palmiotti, Igor Kordey, Randy Emberlin, Jamie Mendoza, Joe Sanchez, Lucas Marangon, Mark Lipka, Jordi Ensign",
     description: "",
     coverUrl: "https://m.media-amazon.com/images/I/81ILqUlKlOL._SL1500_.jpg",
     ownershipStatus: "announced",
@@ -1462,6 +1634,12 @@ export const LICENSED_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Star Wars: X-Wing - Rogue Leader #1–3, Star Wars: X-Wing - Rogue Squadron #1–16, Special; material from Star Wars Tales #12, 23",
     yearsCovered: "1995-1997",
     releaseDate: { year: 2016, month: 3 },
+    writers:
+      "Michael A. Stackpole, Mike Baron, Darko Macan, Jan Strnad, Scott Tolson, W. Haden Blackman, Brett Matthews, Ryder Windham, Rob Williams",
+    pencillers:
+      "John Nadeau, Allen Nunis, Edvin Biukovic, Tomás Giorello, Adrian Sibar, Michel Lacombe",
+    inkers:
+      "Jordi Ensign, Andy Mushynsky, Edvin Biukovic, Monty Sheldon, Serge LaPointe, Andrew Pepoy",
     description: "",
     coverUrl: "https://m.media-amazon.com/images/I/71aHnP4TmQL._SL1500_.jpg",
     ownershipStatus: "announced",
@@ -1477,6 +1655,9 @@ export const LICENSED_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Star Wars: X-Wing - Rogue Squadron #17–35",
     yearsCovered: "1997-1998",
     releaseDate: { year: 2017, month: 12 },
+    writers: "Michael A. Stackpole, Jan Strnad",
+    pencillers: "John Nadeau, Steve Crespo, Drew Johnson, Gary Erskine, Jim Hall",
+    inkers: "Jordi Ensign, Gary Martin, Gary Erskine, Chip Wallace",
     description: "",
     coverUrl: "https://m.media-amazon.com/images/I/716UC-xvRZL._SL1500_.jpg",
     ownershipStatus: "announced",
@@ -1492,6 +1673,9 @@ export const LICENSED_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Star Wars: Heir to the Empire #1–6; Star Wars: Dark Force Rising #1–6; Star Wars: The Last Command #1–6",
     yearsCovered: "1995-1998",
     releaseDate: { year: 2018, month: 10 },
+    writers: "Mike Baron",
+    pencillers: "Olivier Vatine, Terry Dodson, Edvin Biukovic, Fred Blanchard",
+    inkers: "Fred Blanchard, Kevin Nowlan, Olivier Vatine, Edvin Biukovic, Eric Shanower",
     description: "",
     coverUrl: "https://m.media-amazon.com/images/I/91GjSjKl7mL._SL1500_.jpg",
     ownershipStatus: "announced",
@@ -1507,6 +1691,10 @@ export const LICENSED_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Star Wars: Dark Empire #1-6; Star Wars: Dark Empire II #1-6; Star Wars: Empire's End #1-2; Star Wars Handbook (1998) #1, 3; material from Star Wars Tales #8, 11, 16–17",
     yearsCovered: "1991-1995",
     releaseDate: { year: 2021, month: 3 },
+    writers: "Tom Veitch, Peet Janes, Scott Allie, Jason Hall, Henry Gilroy, Joe Casey",
+    pencillers:
+      "Cam Kennedy, Jim Baikie, Paul Lee, Brian Horton, John McCrea, Dario Brizuela, Francisco Paronzini",
+    inkers: "Cam Kennedy, Jim Baikie",
     description: "",
     coverUrl: "https://m.media-amazon.com/images/I/A1qRZBktNOL._SL1500_.jpg",
     ownershipStatus: "announced",
@@ -1522,6 +1710,9 @@ export const LICENSED_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Star Wars: Crimson Empire #0-6; Star Wars: The Bounty Hunters - Kenix Kil #1; Star Wars: Crimson Empire II - Council of Blood #1-6; Star Wars: Crimson Empire III - Empire Lost #1-6; material from Dark Horse Extra #21-24; Dark Horse Presents #1",
     yearsCovered: "1996-2011",
     releaseDate: { year: 2022, month: 10 },
+    writers: "Mike Richardson, Randy Stradley",
+    pencillers: "Paul Gulacy, Javier Saltares, Isaac Buckminster Owens",
+    inkers: "P. Craig Russell, Randy Emberlin, Christopher Ivy, Paul Gulacy",
     description: "",
     coverUrl: "https://m.media-amazon.com/images/I/81mJitf-9GL._SL1500_.jpg",
     ownershipStatus: "announced",
@@ -1537,6 +1728,12 @@ export const LICENSED_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Star Wars: Boba Fett - Bounty on Bar-Kooda #1, Star Wars: Boba Fett - When the Fat Lady Swings #2, Star Wars: Boba Fett - Murder Most Foul #3, Star Wars: Boba Fett - Agent of Doom #1; Star Wars: Jedi Academy - Leviathan #1-4; Star Wars: The Mixed-Up Droid #1; Star Wars: Union #1-4; Star Wars: Chewbacca #1-4; material from Star Wars Tales #19",
     yearsCovered: "1995-2000",
     releaseDate: { year: 2023, month: 12 },
+    writers:
+      "Kevin J. Anderson, Michael A. Stackpole, Darko Macan, John Wagner, John Ostrander, Jim Pascoe, W. Haden Blackman",
+    pencillers:
+      "Cam Kennedy, Dario Carrasco Jr., Robert Teranishi, Dusty Abell, Ramón F. Bachs, Brent Anderson, Igor Kordey, Jan Duursema, Dave Gibbons, John Nadeau, Martin Egeland, Kilian Plunkett, Rafael Kayanan, Sean Murphy",
+    inkers:
+      "Mark G. Heike, Bill Black, David Jacob Beckett, Jim Royal, Cam Kennedy, Kris Justice, Will Blyberg, Igor Kordey, Jan Duursema, Dave Gibbons, Jordi Ensign, Rafael Kayanan, Sean Murphy",
     description: "",
     coverUrl: "https://m.media-amazon.com/images/I/91hs3AAGTVL._SL1500_.jpg",
     ownershipStatus: "announced",
@@ -1552,6 +1749,10 @@ export const LICENSED_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Star Wars: Invasion #0-5; Star Wars: Invasion: Rescues #1-6; Star Wars: Invasion: Revelations #1-5; Star Wars Handbook 2: Crimson Empire; material from Star Wars: Tales #18-19, 21",
     yearsCovered: "2009-2011",
     releaseDate: { year: 2024, month: 10 },
+    writers:
+      "Tom Taylor, W. Haden Blackman, Nathan P. Butler, Andrew Robinson, Jim Royal, Michael D. Hansen",
+    pencillers: "Colin Wilson, Dub, Niko Henrichon, James Raiz, Núria Peris",
+    inkers: "Colin Wilson, Pierre-Andre Dery, Kris Justice",
     description: "The end of the New Republic era! Twenty-five years after the events of A New Hope, Luke Skywalker and the galaxy must face the greatest threat since the Sith were defeated: the Yuuzhan Vong! Swarming across scores of worlds, these hostile invaders from another galaxy spread the New Republic's forces thin and challenge even Luke's New Jedi Order — which now includes Han Solo and Leia Organa Solo's children! In the face of this massive and horrifying threat, battle lines are drawn and alliances new and old are forged — but remnants of the Empire still lurk in the shadows with plans of their own. Can the New Republic survive?",
     coverUrl: "https://m.media-amazon.com/images/I/81GPCdryqLL._SL1500_.jpg",
     ownershipStatus: "announced",
@@ -1568,6 +1769,10 @@ export const LICENSED_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Star Wars: Legacy (2006) #0–19",
     yearsCovered: "2006-2008",
     releaseDate: { year: 2016, month: 9 },
+    writers: "John Ostrander, Jan Duursema",
+    pencillers:
+      "Jan Duursema, Colin Wilson, Adam DeKraker, Travel Foreman, Sean Cooke, Dan Parsons",
+    inkers: "Dan Parsons, Travel Foreman",
     description: "",
     coverUrl: "https://m.media-amazon.com/images/I/61mn6+4zuSL._SL1500_.jpg",
     ownershipStatus: "announced",
@@ -1583,6 +1788,9 @@ export const LICENSED_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Star Wars: Legacy (2006) #20–36, 41, 0, –½",
     yearsCovered: "2008-2009",
     releaseDate: { year: 2018, month: 1 },
+    writers: "John Ostrander, Jan Duursema",
+    pencillers: "Jan Duursema, Omar Francia, Alan Robinson, Kajo Baldisimo",
+    inkers: "Dan Parsons",
     description: "",
     coverUrl: "https://m.media-amazon.com/images/I/91gacah-ZRL._SL1500_.jpg",
     ownershipStatus: "announced",
@@ -1598,6 +1806,9 @@ export const LICENSED_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Star Wars: Legacy (2006) #37-40, 42–50; Star Wars: Legacy - War (2010) #1-6",
     yearsCovered: "2009-2011",
     releaseDate: { year: 2020, month: 7 },
+    writers: "John Ostrander, Jan Duursema",
+    pencillers: "Jan Duursema, Dave Ross",
+    inkers: "Dan Parsons",
     description: "",
     coverUrl: "https://m.media-amazon.com/images/I/81HzyEP5oIL._SL1500_.jpg",
     ownershipStatus: "announced",
@@ -1613,6 +1824,9 @@ export const LICENSED_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Star Wars: Legacy (2013) #1-18; material from Star Wars Tales (1999) #19; Star Wars Visionaries (2005) #1",
     yearsCovered: "2011-2014",
     releaseDate: { year: 2022, month: 3 },
+    writers: "Corinna Bechko, Gabriel Hardman, Jason Hall, Ryan Church, Stephan Martiniere",
+    pencillers: "Gabriel Hardman, Brian Albert Thies, Paul Lee",
+    inkers: "Brian Albert Thies",
     description: "",
     coverUrl: "https://m.media-amazon.com/images/I/914IyM-6JPL._SL1500_.jpg",
     ownershipStatus: "announced",
@@ -1629,6 +1843,11 @@ export const LICENSED_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Star Wars: Infinities – A New Hope #1–4; Star Wars: Infinities – The Empire Strikes Back #1–4; Star Wars: Infinities – Return of the Jedi #1–4; The Star Wars #0–8",
     yearsCovered: "2001-2014",
     releaseDate: { year: 2015, month: 12 },
+    writers: "Jonathan W. Rinzler, Chris Warner, Dave Land, Adam Gallardo, Randy Stradley",
+    pencillers:
+      "Mike Mayhew, Davidé Fabbri, Ryan Benjamin, Drew Johnson, Al Rio, Dan Norton, J.J. Kirby, Sean Cooke, Ryan Kinnaird, Scott Kolins, Kilian Plunkett, Stéphane Roux",
+    inkers:
+      "Christian Dalla Vecchia, Saleem Crawford, Ray Snyder, Al Rio, Neil Nelson, Mike Mayhew",
     description: "",
     coverUrl: "https://m.media-amazon.com/images/I/815YlkXUIFL._SL1500_.jpg",
     ownershipStatus: "announced",
