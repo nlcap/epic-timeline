@@ -718,8 +718,10 @@ export const LICENSED_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Aliens (vol. 1) #1-6; Aliens (vol. 2) #1-4; Aliens: Earth War #1-4; material from Dark Horse Presents #24, 42–43",
     yearsCovered: "1988-1990",
     releaseDate: { year: 2023, month: 3 },
-    writers: "Mark Verheiden",
-    pencillers: "Mark Nelson",
+    writers: "Mark Verheiden, Paul Guinan, Anina Bennett, Mark A. Nelson",
+    pencillers:
+      "Mark A. Nelson, Den Beauvais, Sam Kieth, Roger Casselman, Paul Guinan, Ron Randall",
+    inkers: "Mark A. Nelson, Den Beauvais, Sam Kieth, Paul Guinan",
     description: "The galaxy's most terrifying creatures are coming for Earth! Years after the first two Aliens films, a Xenomorph attack in space leads the Colonial Marines to take action. Soon, the badly scarred Hicks and the now-grown Newt find themselves swept up in a dangerous mission to locate and destroy the creatures' homeworld! But when Earth itself is overrun by a Xenomorph outbreak, Hicks and Newt must join a renegade group fighting to reclaim the planet. Can an obsessed military man train Aliens to wipe out their own kind? And can an old friend help Hicks and Newt turn the tide – by capturing an Alien Queen Mother? Plus: An outer-space treasure hunt becomes a battle for survival when Aliens attack!",
     coverUrl: "https://m.media-amazon.com/images/I/818A3-hshzL._SL1500_.jpg",
     ownershipStatus: "announced",
@@ -735,8 +737,11 @@ export const LICENSED_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Aliens: Genocide #1-4; Aliens: Hive #1-4; Aliens: Tribes; Aliens: Newt's Tale #1-2; material from Dark Horse Insider #14-27; Dark Horse Presents 5th Anniversary Special #1; Dark Horse Presents #56",
     yearsCovered: "1990-1992",
     releaseDate: { year: 2024, month: 8 },
-    writers: "Mike Richardson",
-    pencillers: "Damon Willis",
+    writers: "Mike Richardson, John Arcudi, Jerry Prosser, Steve Bissette",
+    pencillers:
+      "Den Beauvais, Damon Willis, Kelley Jones, Jim Somerville, Dave Dorman, Simon Bisley, Tony Akins, Paul Guinan",
+    inkers:
+      "Den Beauvais, Karl Story, Kelley Jones, Brian Garvey, Dave Dorman, Simon Bisley, Paul Guinan",
     description: "The ALIENS mythos expands in frightening new directions! Billionaire Daniel Grant leads an expedition to the Alien homeworld! But what could possibly be worth a journey into ultimate terror? It's one planet, two Alien queens, millions of hungry monsters and a king's ransom awaiting any survivors! Then, Stanislaw Mayakovsky and his partner, the young thief Gill, design a cybernetic Alien to steal the precious royal jelly of the Alien Queen Mother – but a powerful corporation wants what they have! And when an Alien is detected on board a space station orbiting Earth, all hope of destroying it depends on one man's sinister secret! Plus: The full story of Newt from the Aliens movie and more tales of horror!",
     coverUrl: "https://m.media-amazon.com/images/I/81edQgyHzVL._SL1500_.jpg",
     ownershipStatus: "announced",
@@ -752,8 +757,12 @@ export const LICENSED_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Aliens 3 #1-3; Aliens: Space Marines #1-12; Aliens: Rogue #1-4; Aliens: Labyrinth #1-4; material from Dark Horse Comics #3-5, #11-13; Previews (1993) #1-12; Previews (1994) #1; Aliens Magazine #9-12",
     yearsCovered: "1992-1993",
     releaseDate: { year: 2025, month: 11 },
-    writers: "Steven Grant, Jim Woodring, Ian Edginton",
-    pencillers: "Christopher Taylor, Kilian Plunkett, Will Simpson",
+    writers:
+      "Dan Jolley, Jim Woodring, Ian Edginton, Steven Grant, Sarah Byam, Edward Martin III, John Byrne",
+    pencillers:
+      "Kilian Plunkett, John Nadeau, Will Simpson, Christopher Taylor, David Roach, Norman Felchle, Denis Rodier, Joe Phillips, Tony Harris, Rick Hoberg, Brandon McKinney, William Knapp, David Johnson, Mark A. Nelson, John Byrne",
+    inkers:
+      "Kilian Plunkett, Will Simpson, Rick Magyar, David Roach, Steve Moncuse, Mark McKenna, Denis Rodier, John Dell, Tony Harris, Ian Akin, Karl Kesel, Robert Campanella, David Johnson, Bill Marimon, John Nadeau, Mark A. Nelson, John Byrne",
     description: "The Epic Collection series of classic ALIEN comics continues! An elite team of Space Marines takes the fight to the Aliens across the galaxy! Meanwhile, Professor Ernst Kleist has achieved the impossible: He has genetically engineered powerful, obedient Aliens. But the horror of nature is dwarfed by the terror of the man toying with it! And he isn't the only one carrying out experiments on the Aliens: Colonel Doctor Paul Church, head of the space station Innominata, is determined to find out what makes them tick — and he's using Colonial Marines as bait. But the U.S. government doesn't like what it's hearing, and they send an investigator empowered to get the truth — any way he can! Plus: more tales of Alien horror!",
     coverUrl: "https://m.media-amazon.com/images/I/916bZv8VDBL._SL1500_.jpg",
     ownershipStatus: "announced",
@@ -769,8 +778,10 @@ export const LICENSED_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Aliens: Colonial Marines #1-10; Aliens Salvation; material from Aliens Magazine #13-20; Dark Horse Comics #15-19",
     yearsCovered: "1993-1994",
     releaseDate: { year: 2026, month: 10 },
-    writers: "Chris Warner, Kelley Puckett, Paul Guinan, Dan Jolley, TBC",
-    pencillers: "Tony Akins, Allen Nunis, John Nadeau, TBC",
+    writers: "Kelley Puckett, Dan Jolley, Chris Warner, John Arcudi, Paul Guinan, Dave Gibbons",
+    pencillers: "John Nadeau, Tony Akins, Allen Nunis, Paul Mendoza, Mike Mignola",
+    inkers:
+      "Paul Guinan, Terry Pallot, Paul Mendoza, Jordi Ensign, Ande Parks, John Dell, Bob Smith, Jim McDermott, Kevin Nowlan",
     description: "Continuing a complete, chronological collection of Aliens comics to make you scream! Charged with insubordination one too many times, Lt. Joseph Henry is put in charge of a ragtag platoon of the worst the Colonial Marines corps has to offer and given the thankless task of investigating Alien-related activities in a backwater sector of space. But the crew — including Carmen Vasquez, younger sister of the fan-favorite character from the movie Aliens — finds more than they bargained for when they discover a mysterious group of human-Alien hybrids they call the “Bug-Men!” Plus: A God-fearing crew member aboard the space freighter Nova Maru is forced at gunpoint to abandon ship with his captain — but as they crash-land on a small planet, they soon learn they have not entirely escaped the Nova Maru's dreadful cargo! And more tales of Alien terror!",
     coverUrl: "https://m.media-amazon.com/images/I/8186-0roekL._SL1500_.jpg",
     ownershipStatus: "announced",
@@ -786,6 +797,12 @@ export const LICENSED_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Aliens: Music of the Spears #1-4; Aliens: Stronghold #104; Aliens: Berserker #1-4; Aliens: Mondo Heat #1; Aliens: Lovesick #1; Aliens: Pig #1; and material from Dark Horse Comics #22-24, Dark Horse Presents #101-102, and A Decade of Dark Horse #3",
     yearsCovered: "1994-1997",
     releaseDate: { year: 2027, month: 5 },
+    writers:
+      "Chet Williamson, John Wagner, Henry Gilroy, Ron Marz, John Arcudi, Thierry Gagnon, Richard Forgues, Randy Stradley, Chuck Dixon, Mark Verheiden",
+    pencillers:
+      "Tim Hamilton, Paul Mendoza, Ronnie del Carmen, Bernie Wrightson, Doug Mahnke, Richard Forgues, Henry Flint, Mark A. Nelson",
+    inkers:
+      "Timothy Bradstreet, Andy Mushynsky, Ronnie del Carmen, Jimmy Palmiotti, Bernie Wrightson, Doug Mahnke, Richard Forgues, Andrew Pepoy, Mark A. Nelson",
     description: "",
     ownershipStatus: "announced",
   },
