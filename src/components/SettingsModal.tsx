@@ -30,8 +30,9 @@ export function SettingsModal({
    * full-width JSON textarea). */
   maxWidthClassName?: string;
   /** Caps the card at 85vh and lets its content scroll internally, instead
-   * of letting a tall card grow past the viewport -- off for a dialog
-   * short enough to never need it (see ResetLineDataButton). */
+   * of letting a tall card grow past the viewport. On by default; a caller
+   * that turns this off still needs to keep its content short, since the
+   * card then has no internal scroll region of its own. */
   scrollable?: boolean;
   children: ReactNode;
 }) {

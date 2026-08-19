@@ -19,6 +19,7 @@ import {
 import { EXPORT_KEYS, stripIconsFromPayload, type ExportKey } from "../lib/overrideKeys";
 import { safeSetItem } from "../lib/storage";
 import { DataSelectionPicker } from "./DataSelectionPicker";
+import { RadioRow } from "./RadioRow";
 import { SettingsModal } from "./SettingsModal";
 
 type ImportMode = "replace" | "merge";
@@ -322,13 +323,13 @@ export function ImportDataButton({ open, onClose }: { open: boolean; onClose: ()
                 How to apply it
               </p>
               <div className="flex flex-col gap-1">
-                <ModeRow
+                <RadioRow
                   label="Replace selected data"
                   description="Clears the slice you picked, then loads the file's version of it."
                   checked={mode === "replace"}
                   onSelect={() => setMode("replace")}
                 />
-                <ModeRow
+                <RadioRow
                   label="Merge into existing"
                   description="Keeps what you have; the file wins only where ids collide."
                   checked={mode === "merge"}
@@ -403,46 +404,5 @@ export function ImportDataButton({ open, onClose }: { open: boolean; onClose: ()
         </>
       )}
     </SettingsModal>
-  );
-}
-
-/** Radio row for the replace/merge choice. A radio rather than a checkbox
- * on purpose -- unlike the three scoping axes above it, these two are
- * mutually exclusive, and the shape should say so. */
-function ModeRow({
-  label,
-  description,
-  checked,
-  onSelect,
-}: {
-  label: string;
-  description: string;
-  checked: boolean;
-  onSelect: () => void;
-}) {
-  return (
-    <button
-      type="button"
-      role="radio"
-      aria-checked={checked}
-      onClick={onSelect}
-      className={`flex w-full items-start gap-2.5 rounded-md border px-3 py-2.5 text-left transition-colors ${
-        checked
-          ? "border-neutral-500 bg-neutral-800"
-          : "border-neutral-800 hover:border-neutral-700 hover:bg-neutral-800/50"
-      }`}
-    >
-      <span
-        className={`mt-0.5 flex h-4 w-4 shrink-0 items-center justify-center rounded-full border transition-colors ${
-          checked ? "border-white" : "border-neutral-600"
-        }`}
-      >
-        {checked && <span className="h-2 w-2 rounded-full bg-white" />}
-      </span>
-      <span className="flex flex-col">
-        <span className="text-sm text-neutral-200">{label}</span>
-        <span className="text-xs text-neutral-500">{description}</span>
-      </span>
-    </button>
   );
 }

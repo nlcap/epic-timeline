@@ -3,6 +3,7 @@ import {
   keysForSelection,
   partitionBundle,
   readBundleFromStorage,
+  type DataKind,
   type TimelineScope,
 } from "./collectionScope";
 import { safeSetItem } from "./storage";
@@ -11,17 +12,18 @@ export type { TimelineScope };
 
 /**
  * Wipes local overrides/additions back to the shipped seed data, scoped to
- * whichever collections and timeline layers the caller asks for. E.g.
- * `{ collectionIds: ["ultimate", "marvel-licensed-epic"], scopes: ["main"] }`
- * clears line/volume/ownership overrides for just those two collections,
- * leaving every other collection and any speculative data untouched.
+ * whichever collections, timeline layers, and data kinds the caller asks
+ * for. E.g. `{ collectionIds: ["ultimate", "marvel-licensed-epic"], scopes:
+ * ["main"], kinds: ["edits"] }` clears just the line/volume overrides for
+ * those two collections' main timelines, leaving ownership and reading
+ * status (and every other collection, and any speculative data) untouched.
  *
  * A reset is the "keep the other half" case of the shared split in
  * lib/collectionScope.ts -- partition the stores by the selection, then
- * write back only what fell outside it. All three data kinds are passed
- * through, since the reset dialog resets a collection's main timeline
- * wholesale (ownership and reading progress included) rather than offering
- * the data-type axis that export/import do.
+ * write back only what fell outside it. `kinds` defaults to every kind, so
+ * a caller that doesn't care about the axis (existing tests, anything
+ * calling this before the reset dialog grew its "what to reset" choice)
+ * still gets the old wholesale-reset behavior.
  *
  * Reads and writes localStorage directly rather than going through the
  * override hooks (useLineOverrides etc.), since those only load their
@@ -31,11 +33,13 @@ export type { TimelineScope };
 export function resetLineData({
   collectionIds,
   scopes,
+  kinds = [...ALL_KINDS],
 }: {
   collectionIds: string[];
   scopes: TimelineScope[];
+  kinds?: DataKind[];
 }): void {
-  const selection = { collectionIds, scopes, kinds: [...ALL_KINDS] };
+  const selection = { collectionIds, scopes, kinds };
   const { outside } = partitionBundle(readBundleFromStorage(), selection);
 
   // Only the stores this selection actually targets get written -- the

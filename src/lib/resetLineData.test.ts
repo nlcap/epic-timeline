@@ -178,4 +178,99 @@ describe("resetLineData", () => {
   it("is a no-op for stores that don't exist in localStorage yet", () => {
     expect(() => resetLineData({ collectionIds: ["ultimate"], scopes: ["main", "speculative"] })).not.toThrow();
   });
+
+  // The reset dialog's "what to reset" choice narrows kinds to just one
+  // bucket at a time -- these two pin down that narrowing actually keeps
+  // the other bucket's data untouched, which is the whole point of it.
+  it("resetting kinds: ['edits'] clears line/volume overrides but leaves ownership and reading status alone", () => {
+    storage.setItem(
+      "epic-timeline:line-overrides",
+      JSON.stringify({ [ULTIMATE_LINE_ID]: "deleted" })
+    );
+    storage.setItem(
+      "epic-timeline:volume-overrides",
+      JSON.stringify({ [ULTIMATE_VOLUME_ID]: "deleted" })
+    );
+    storage.setItem(
+      "epic-timeline:ownership-overrides",
+      JSON.stringify({ [ULTIMATE_VOLUME_ID]: "shelved" })
+    );
+    storage.setItem(
+      "epic-timeline:reading-status-overrides",
+      JSON.stringify({ [ULTIMATE_VOLUME_ID]: "finished" })
+    );
+
+    resetLineData({ collectionIds: ["ultimate"], scopes: ["main"], kinds: ["edits"] });
+
+    expect(
+      JSON.parse(storage.getItem("epic-timeline:line-overrides")!)
+    ).not.toHaveProperty(ULTIMATE_LINE_ID);
+    expect(
+      JSON.parse(storage.getItem("epic-timeline:volume-overrides")!)
+    ).not.toHaveProperty(ULTIMATE_VOLUME_ID);
+    expect(
+      JSON.parse(storage.getItem("epic-timeline:ownership-overrides")!)
+    ).toHaveProperty(ULTIMATE_VOLUME_ID);
+    expect(
+      JSON.parse(storage.getItem("epic-timeline:reading-status-overrides")!)
+    ).toHaveProperty(ULTIMATE_VOLUME_ID);
+  });
+
+  it("resetting kinds: ['ownership', 'reading'] clears shelving/reading status but leaves line/volume overrides alone", () => {
+    storage.setItem(
+      "epic-timeline:line-overrides",
+      JSON.stringify({ [ULTIMATE_LINE_ID]: "deleted" })
+    );
+    storage.setItem(
+      "epic-timeline:volume-overrides",
+      JSON.stringify({ [ULTIMATE_VOLUME_ID]: "deleted" })
+    );
+    storage.setItem(
+      "epic-timeline:ownership-overrides",
+      JSON.stringify({ [ULTIMATE_VOLUME_ID]: "shelved" })
+    );
+    storage.setItem(
+      "epic-timeline:reading-status-overrides",
+      JSON.stringify({ [ULTIMATE_VOLUME_ID]: "finished" })
+    );
+
+    resetLineData({
+      collectionIds: ["ultimate"],
+      scopes: ["main"],
+      kinds: ["ownership", "reading"],
+    });
+
+    expect(
+      JSON.parse(storage.getItem("epic-timeline:ownership-overrides")!)
+    ).not.toHaveProperty(ULTIMATE_VOLUME_ID);
+    expect(
+      JSON.parse(storage.getItem("epic-timeline:reading-status-overrides")!)
+    ).not.toHaveProperty(ULTIMATE_VOLUME_ID);
+    expect(
+      JSON.parse(storage.getItem("epic-timeline:line-overrides")!)
+    ).toHaveProperty(ULTIMATE_LINE_ID);
+    expect(
+      JSON.parse(storage.getItem("epic-timeline:volume-overrides")!)
+    ).toHaveProperty(ULTIMATE_VOLUME_ID);
+  });
+
+  it("defaults kinds to every kind when the caller doesn't specify one, matching the old wholesale-reset behavior", () => {
+    storage.setItem(
+      "epic-timeline:line-overrides",
+      JSON.stringify({ [ULTIMATE_LINE_ID]: "deleted" })
+    );
+    storage.setItem(
+      "epic-timeline:ownership-overrides",
+      JSON.stringify({ [ULTIMATE_VOLUME_ID]: "shelved" })
+    );
+
+    resetLineData({ collectionIds: ["ultimate"], scopes: ["main"] });
+
+    expect(
+      JSON.parse(storage.getItem("epic-timeline:line-overrides")!)
+    ).not.toHaveProperty(ULTIMATE_LINE_ID);
+    expect(
+      JSON.parse(storage.getItem("epic-timeline:ownership-overrides")!)
+    ).not.toHaveProperty(ULTIMATE_VOLUME_ID);
+  });
 });
