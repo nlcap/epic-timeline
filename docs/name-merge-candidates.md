@@ -86,6 +86,42 @@ problem, and the cheapest of the three to fix.
 | Stephane Roux <br><sub>modern</sub> | 1 | **Stéphane Roux** <br><sub>marvel-licensed-epic</sub> | 2 |  |
 | Leandro Fernandez <br><sub>marvel-licensed-epic</sub> | 1 | **Leandro Fernández** <br><sub>modern</sub> | 1 |  |
 
+## C2. Rows where the two authorities disagree — your call
+
+For most pairs the wiki's canonical form and the form the credits actually use
+agree, so there is nothing to decide. These are the ones where they don't. The
+counts are credit slots.
+
+| wiki canonical | published / more used | note |
+|---|---|---|
+| Michael Carlin (3) | Mike Carlin (1) | `Mike Carlin` redirects to `Michael Carlin` |
+| Malcolm Jones (3) | Malcolm Jones III (3) | `Malcolm Jones III` redirects to `Malcolm Jones`; counts tied |
+| Ethan van Sciver (2) | Ethan Van Sciver (2) | `Van` redirects to `van`; counts tied |
+| Christopher Ivy (1) | **Chris Ivy (27)** | `Chris Ivy` redirects to `Christopher Ivy`, but is used 27x |
+| William Robert Brown (0) | **Bob Brown (10)** / Robert Brown (3) | one person, three forms; the wiki article is the full name |
+
+The same tension settled twice already — `Dennis "Denny" O'Neil` and
+`Walter "Walt" Simonson` — by carrying both rather than choosing. That option is
+open for `Christopher "Chris" Ivy` and `Robert "Bob" Brown`.
+
+## C3. Genuine ties — no authority either way
+
+Both spellings have their own article on different wikis, so nothing external
+breaks the tie:
+
+| | | |
+|---|---|---|
+| Ronnie Del Carmen (2, dc) | Ronnie del Carmen (2, licensed) | lowercase `del` is his own styling |
+| Alexander Jubran (1) | Alex Jubran (1) | |
+| BIT (1, dc) | Bit (4, modern) | both are articles; the credit is a mononym |
+
+## C4. One row that must not be automated
+
+`Jim Sanders` redirects to **Speed Demon** — a character, whose real name is
+James Sanders. The inker is `Jim Sanders III`, which redirects to the creator
+article `James Sanders III`. Merging the bare form by redirect would put a
+supervillain in the credits. Do this pair by hand or not at all.
+
 ## D. Do NOT merge — verified different people
 
 Near neighbours that a fuzzy pass would happily destroy:
