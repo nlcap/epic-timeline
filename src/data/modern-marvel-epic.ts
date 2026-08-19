@@ -990,9 +990,9 @@ export const MODERN_MARVEL_ENTRIES: TimelineEntry[] = [
     yearsCovered: "2009-2010",
     releaseDate: { year: 2026, month: 7 },
     writers: "Daniel Way",
-    pencillers: "Carlo Barberi, Paco Medina, Shawn Crystal, Tan Eng Huat, Jose Pimentel",
+    pencillers: "Carlo Barberi, Paco Medina, Shawn Crystal, Tan Eng Huat, Joe Pimentel",
     inkers:
-      "Juan Vlasco, Sandu Florea, Walden Wong, John Lucas, Jose Pimentel, Shawn Crystal, Tan Eng Huat",
+      "Juan Vlasco, Sandu Florea, Walden Wong, John Lucas, Joe Pimentel, Shawn Crystal, Tan Eng Huat",
     description:
       "Deadpool wants to be two things in life: a pirate and an X-Man. So, after a stint on the high seas, he decides to make the X-Men love him by assassinating the father of one of their students. Then Wade Wilson pays a visit to a certain wisecracking wall-crawler's friendly neighborhood -- or is it?",
     coverUrl: "https://m.media-amazon.com/images/I/81sLA8QAAEL._SL1500_.jpg",
@@ -1108,7 +1108,7 @@ export const MODERN_MARVEL_ENTRIES: TimelineEntry[] = [
     releaseDate: { year: 2024, month: 7 },
     writers: "Jim McCann, Duane Swierczynski, Sean McQuaid, Fred Van Lente",
     pencillers:
-      "David López, Paco Diaz, Manuel Garcia, Nick Dragotta, Valentine De Landro, Lee Weeks, Stephane Roux",
+      "David López, Paco Diaz, Manuel Garcia, Nick Dragotta, Valentine De Landro, Lee Weeks, Stéphane Roux",
     inkers:
       "Álvaro López, Paco Diaz, Lorenzo Ruggiero, Bit, Nick Dragotta, Valentine De Landro, Stefano Gaudiano, Julien Hugonnard-Bert, Jamie McKelvie",
     description:
@@ -1329,7 +1329,7 @@ export const MODERN_MARVEL_ENTRIES: TimelineEntry[] = [
     issuesCollected: "Ultimate Comics Spider-Man (2011) #1-12; Spider-Men (2012) #1-5; material from Ultimate Fallout (2011) #4",
     yearsCovered: "2011-2012",
     releaseDate: { year: 2025, month: 3 },
-    writers: "Brian Michael Bendis, Jonathan Hickman, Nick Spencer, Brian Michael bendis",
+    writers: "Brian Michael Bendis, Jonathan Hickman, Nick Spencer",
     pencillers:
       "Sara Pichelli, David Marquez, Chris Samnee, Salvador Larroca, Clayton Crain, David Messina",
     inkers:
@@ -1545,7 +1545,7 @@ export const MODERN_MARVEL_ENTRIES: TimelineEntry[] = [
     writers: "Grant Morrison",
     pencillers: "Frank Quitely, Igor Kordey, Ethan van Sciver, Leinil Yu, Tom Derenick",
     inkers:
-      "Tim Townsend, Igor Kordey, Sandu Florea, Mark Morales, Prentiss Rollins, Scott Hanna, Dan Green, Gerry Alanguilan, Frank Quitely, Rich Perrotta, Danny Miki",
+      "Tim Townsend, Igor Kordey, Sandu Florea, Mark Morales, Prentis Rollins, Scott Hanna, Dan Green, Gerry Alanguilan, Frank Quitely, Rich Perrotta, Danny Miki",
     description:
       "Writer Grant Morrison propels the X-Men into the 21st century. Cassandra Nova will stop at nothing to see all mutants exterminated, and her wild Sentinels' first strike on Genosha brings death and horror beyond belief. Joined by telepath Emma Frost and the mysterious Xorn, the X-Men go public and expand Xavier's school to train a new generation of mutants -- but can they withstand Cassandra's return, backed by the full might of the Shi'ar Imperial Guard?",
     coverUrl: "https://m.media-amazon.com/images/I/81Nw7MQRLaL._SL1500_.jpg",

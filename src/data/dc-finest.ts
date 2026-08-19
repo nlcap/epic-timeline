@@ -693,7 +693,7 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     yearsCovered: "1971-1972",
     releaseDate: { year: 2026, month: 10 },
     writers: "Dennis \"Denny\" O'Neil, Frank Robbins, Bernie Wrightson, Harlan Ellison",
-    pencillers: "Irv Novick, Bob Brown, Neal Adams, Frank Robbins",
+    pencillers: "Irv Novick, Robert \"Bob\" Brown, Neal Adams, Frank Robbins",
     inkers: "Dick Giordano, Frank Robbins, Neal Adams, Steve Englehart",
     description:
       "The debut of Ra's al Ghul and the Lazarus Pit, as Denny O'Neil, Frank Robbins, and Neal Adams pull Batman out of the campy '60s and into a darker, globe-trotting era.",
@@ -718,7 +718,7 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     writers:
       "Frank Robbins, Archie Goodwin, Dennis \"Denny\" O'Neil, Elliot S. Maggin, Len Wein, E. Nelson Bridwell, Bob Rozakis, Martin Pasko, Mike W. Barr, Sal Amendola, Steve Englehart, Vin Amendola",
     pencillers:
-      "Irv Novick, Walter \"Walt\" Simonson, Bob Brown, Dick Dillin, Dick Giordano, Jim Aparo, Don Heck, Neal Adams, Sal Amendola, Alex Toth, Ernie Chan, Frank Robbins, Howard Chaykin, Mike Grell, Murphy Anderson, Pat Broderick, Rich Buckler",
+      "Irv Novick, Walter \"Walt\" Simonson, Robert \"Bob\" Brown, Dick Dillin, Dick Giordano, Jim Aparo, Don Heck, Neal Adams, Sal Amendola, Alex Toth, Ernie Chan, Frank Robbins, Howard Chaykin, Mike Grell, Murphy Anderson, Pat Broderick, Rich Buckler",
     inkers:
       "Dick Giordano, Walter \"Walt\" Simonson, Murphy Anderson, Jim Aparo, Frank McLaughlin, Alex Toth, Ernie Chan, Frank Giacoia, Frank Robbins, Howard Chaykin, Mike Grell, Neal Adams, Nick Cardy, Pat Broderick, Sal Amendola",
     description:
@@ -766,7 +766,7 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     pencillers:
       "Gene Colan, Tom Mandrake, Paul Gulacy, Arthur Adams, Bill Sienkiewicz, Brian Bolland, Denys Cowan, George Pérez, Joe Kubert, John Byrne, Ken Steacy, Klaus Janson, Marshall Rogers, Paris Cullins, Rick Leonardi, Steve Leialoha, Steve Lightle, Tom Sutton",
     inkers:
-      "Bob Smith, Tom Mandrake, Paul Gulacy, Ricardo Villagran, Terry Austin, Alfredo Alcala, Bill Sienkiewicz, Brian Bolland, Bruce D. Patterson, George Pérez, Jan Duursema, Joe Kubert, John Byrne, Karl Kesel, Ken Steacy, Klaus Janson, Larry Mahlstedt, Steve Leialoha",
+      "Bob Smith, Tom Mandrake, Paul Gulacy, Ricardo Villagran, Terry Austin, Alfredo Alcala, Bill Sienkiewicz, Brian Bolland, Bruce Patterson, George Pérez, Jan Duursema, Joe Kubert, John Byrne, Karl Kesel, Ken Steacy, Klaus Janson, Larry Mahlstedt, Steve Leialoha",
     description:
       "From Gotham's dark alleys to the literal red skies of Crisis on Infinite Earths -- the debut of Black Mask, Hugo Strange's schemes, and showdowns with Two-Face, Catwoman, and the False Face Society.",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781799502739",
@@ -857,9 +857,9 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     writers:
       "Alan Grant, Sam Hamm, Jim Owsley (Christopher Priest), John Byrne, John Wagner, Neil Gaiman, Jim Starlin, Jan Strnad, Kevin Dooley, Mark Waid, Brian Augustyn",
     pencillers:
-      "Jim Aparo, Denys Cowan, Norm Breyfogle, Eduardo Barreto, Kevin Nowlan, Malcolm Jones III, Mark Buckingham, Michael Bair, Val Semeiks",
+      "Jim Aparo, Denys Cowan, Norm Breyfogle, Eduardo Barreto, Kevin Nowlan, Malcolm Jones, Mark Buckingham, Michael Bair, Val Semeiks",
     inkers:
-      "Mike DeCarlo, Steve Mitchell, Dick Giordano, Frank McLaughlin, Gray Morrow, Kevin Nowlan, Malcolm Jones III, Mark Buckingham, Michael Bair",
+      "Mike DeCarlo, Steve Mitchell, Dick Giordano, Frank McLaughlin, Gray Morrow, Kevin Nowlan, Malcolm Jones, Mark Buckingham, Michael Bair",
     description:
       "Bruce Wayne is accused of espionage and faces the loss of his company, reputation, and freedom, as Batman investigates a conspiracy tied to a forgotten chapter of his own past -- and meets the mysterious mentor Henri Ducard.",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781799513162",
@@ -908,7 +908,7 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     pencillers:
       "Damion Scott, Ryan Benjamin, Greg Land, Mike Deodato Jr., Pablo Raimondi, Sergio Cariello",
     inkers:
-      "Robert Campanella, Michael Bair, Randy Emberlin, Ryan Benjamin, Drew Geraci, Howard Shum, John Stanisci, Matt Ryan, Sal Regla, Walden Wong",
+      "Robert Campanella, Michael Bair, Randy Emberlin, Ryan Benjamin, Drew Geraci, Howard M. Shum, John Stanisci, Matt Ryan, Sal Regla, Walden Wong",
     description:
       "Cassandra Cain’s journey continues, as she expands her role in Gotham and beyond in a powerful story of growth, identity, and action.\n\nAt age 17, the teenaged assassin Cassandra Cain is literally a fighter like no other. Remorselessly trained by her mercenary father to be the ultimate human weapon, Cassandra cannot speak or write, but her uncanny ability to read body language allows her to take down opponents three times her size without batting an eye.\n\nBut when she rebels against her programming on the lawless streets of No Man’s Land-era Gotham City, the Dark Knight Detective sees a possible successor to the role of Batgirl. Under the tutelage of the original Batgirl, Barbara Gordon, Cassandra must now reinvent herself as a protector instead of a predator—and prove to both her newfound family and herself that even someone who was born to kill can be worthy to take up the cowl of a legend!\n\nWitness the origin of one of the DC Universe’s most celebrated heroes in this landmark volume showcasing Cassandra’s first appearances and foundational adventures.",
     coverUrl: batgirlSilentKnightCover,
@@ -1102,8 +1102,8 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     yearsCovered: "1963-1966",
     releaseDate: { year: 2025, month: 2 },
     writers: "Arnold Drake, Bob Haney, Howard Purcell",
-    pencillers: "Bruno Premiani, Bob Brown, Dick Giordano, Howard Purcell",
-    inkers: "Bruno Premiani, Bob Brown, Howard Purcell, Sal Trapani",
+    pencillers: "Bruno Premiani, Robert \"Bob\" Brown, Dick Giordano, Howard Purcell",
+    inkers: "Bruno Premiani, Robert \"Bob\" Brown, Howard Purcell, Sal Trapani",
     description:
       "The earliest appearances of the unconventional super-team, starting with their 1963 debut -- Robotman, Negative Man, and Elasti-Girl banding together as the world's strangest heroes.",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781799500353",
@@ -1262,7 +1262,7 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     pencillers:
       "John Byrne, Todd McFarlane, Richard Howell, Joe Staton, Joe Brozowski, Keith Giffen, Jim Aparo, José Luis García-López, Ernie Colon, Joe Orlando, George Pérez, Jerry Ordway, Trevor von Eeden, Klaus Janson, Luke McDonnell, Paris Cullins, Dan Jurgens",
     inkers:
-      "Karl Kesel, Tony DeZuniga, Bob Smith, Don Heck, Mark Farmer, Steve Mitchell, Ernie Colon, Jim Aparo, José Luis García-López, Pablo Marcos, Joe Orlando, George Pérez, Jerry Ordway, Trevor von Eeden, Klaus Janson, Del Barras, Gary Martin",
+      "Karl Kesel, Tony DeZuniga, Bob Smith, Don Heck, Mark Farmer, Steve Mitchell, Ernie Colon, Jim Aparo, José Luis García-López, Pablo Marcos, Joe Orlando, George Pérez, Jerry Ordway, Trevor von Eeden, Klaus Janson, Dell Barras, Gary Martin",
     description:
       "DC's first major post-Crisis crossover -- Darkseid doesn't just attack cities, he attacks faith in Superman, Batman, and every costumed legend on Earth.",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781799509622",
@@ -1285,7 +1285,7 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     pencillers:
       "Dan Jurgens, Derec Aucoin, Frank Fosco, Graham Nolan, Chris Batista, Carlos Pacheco, Mike Manley, Jon Bogdanove, Craig Hamilton, Darryl Banks, Mike Collins, Chris Gardner, Colleen Doran, Tom Grummett, Steve Lieber, Bret Blevins, Arnie Jorgensen, Nigel Tully, Paul Pelletier",
     inkers:
-      "Ken Branch, Andrew Pepoy, Jerry Ordway, Joe Rubinstein, Dan Davis, Bob McLeod, Rich Faber, José Marzan Jr., Wayne Faucher, Dennis Janke, Craig Hamilton, Romeo Tanghal, Dennis Cramer, Dave Cooper, Doug Hazlewood, Curt Shoultz, Bret Blevins, James Pascoe, Russ Sever, Robert Campanella",
+      "Ken Branch, Andrew Pepoy, Jerry Ordway, Joe Rubinstein, Dan Davis, Bob McLeod, Rich Faber, José Marzan Jr., Wayne Faucher, Dennis Janke, Craig Hamilton, Romeo Tanghal, Dennis Cramer, Dave Cooper, Doug Hazlewood, Curt Shoultz, Bret Blevins, Jim Pascoe, Russ Sever, Robert Campanella",
     description:
       "The first half of the time-bending Zero Hour event, as a mysterious figure unravels DC history itself and heroes across the universe race against the collapse of time.",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781779528506",
@@ -1350,7 +1350,7 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     writers:
       "Cary Bates, Dennis \"Denny\" O'Neil, Robert Kanigher, Steve Skeates, Len Wein, Bob Haney, Gardner Fox, Mike Friedrich",
     pencillers:
-      "Irv Novick, Dick Dillin, Dick Giordano, Neal Adams, Carmine Infantino, Bob Brown, Murphy Anderson",
+      "Irv Novick, Dick Dillin, Dick Giordano, Neal Adams, Carmine Infantino, Robert \"Bob\" Brown, Murphy Anderson",
     inkers:
       "Dick Giordano, Murphy Anderson, Frank McLaughlin, Joe Giella, Bernard Sachs, Frank Giacoia, Neal Adams, Nick Cardy, Tex Blaisdell",
     description:
@@ -1522,7 +1522,7 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     yearsCovered: "1986-1987",
     releaseDate: { year: 2026, month: 9 },
     writers:
-      "Steve Englehart, Alan Moore, John Byrne, Roy Thomas, Mike Carlin, Kurt Busiek, Richard Bruning, Joey Cavalieri, Mindy Newell, Paul Kupperberg",
+      "Steve Englehart, Alan Moore, John Byrne, Roy Thomas, Michael Carlin, Kurt Busiek, Richard Bruning, Joey Cavalieri, Mindy Newell, Paul Kupperberg",
     pencillers:
       "Joe Staton, Ian Gibson, Bill Willingham, Ernie Colon, John Byrne, Michael Bair, George Freeman, Kevin O'Neill, Trevor von Eeden, Paris Cullins, José Luis García-López, Kevin Nowlan, Greg Brooks",
     inkers:
@@ -1636,7 +1636,7 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     writers:
       "Carl Wessler, George Kashdan, Gerry Conway, Murray Boltinoff, Robert Kanigher, Steve Skeates, Jack Oleck, Marv Wolfman, Sergio Aragonés, Alex Toth, Dave Wood, Jack Miller, Len Wein, Mike Friedrich, Neal Adams, Nick Cardy, Raymond Marais",
     pencillers:
-      "George Tuska, Jerry Grandenetti, Alex Toth, Bernie Wrightson, Dick Dillin, Gray Morrow, Bill Draut, John Calnan, Neal Adams, Rich Buckler, Ross Andru, Bob Brown, Don Heck, Gil Kane, Jack Sparling, Jim Aparo, John Celardo, Murphy Anderson, Nick Cardy, Ric Estrada, Sid Greene, Tom Sutton, Tony DeZuniga, Wayne Howard, Werner Roth, Win Mortimer",
+      "George Tuska, Jerry Grandenetti, Alex Toth, Bernie Wrightson, Dick Dillin, Gray Morrow, Bill Draut, John Calnan, Neal Adams, Rich Buckler, Ross Andru, Robert \"Bob\" Brown, Don Heck, Gil Kane, Jack Sparling, Jim Aparo, John Celardo, Murphy Anderson, Nick Cardy, Ric Estrada, Sid Greene, Tom Sutton, Tony DeZuniga, Wayne Howard, Werner Roth, Win Mortimer",
     inkers:
       "George Tuska, Alex Toth, Jerry Grandenetti, Bernie Wrightson, Gray Morrow, Bill Draut, Frank Giacoia, Murphy Anderson, Vince Colletta, Wally Wood, Dick Giordano, Mike Esposito, Neal Adams, Dan Adkins, Dick Dillin, Don Heck, Jack Abel, Jack Sparling, Jim Aparo, Mike Kaluta, Mike Peppe, Nick Cardy, Rich Buckler, Tom Sutton, Tony DeZuniga",
     description:
@@ -1660,7 +1660,7 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     writers:
       "Dennis \"Denny\" O'Neil, Bob Haney, Elliot S. Maggin, David Vern Reed, Martin Pasko, Steve Englehart, Gerry Conway, Len Wein, Paul Kupperberg, Paul Levitz",
     pencillers:
-      "Irv Novick, Jim Aparo, John Calnan, Marshall Rogers, Dick Dillin, Don Newton, Ernie Chua, Joe Staton, José Luis García-López, Neal Adams, Walter \"Walt\" Simonson",
+      "Irv Novick, Jim Aparo, John Calnan, Marshall Rogers, Dick Dillin, Don Newton, Ernie Chan, Joe Staton, José Luis García-López, Neal Adams, Walter \"Walt\" Simonson",
     inkers:
       "Tex Blaisdell, Jim Aparo, Dick Giordano, José Luis García-López, Terry Austin, Vince Colletta, Bob Wiacek, Dan Adkins, Frank McLaughlin, Joe Giella, Neal Adams, Steve Mitchell",
     description:
@@ -1835,7 +1835,7 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     pencillers:
       "Keith Giffen, Pat Broderick, Curt Swan, Howard Bender, Carmine Infantino, Dave Cockrum, Ernie Colon, Jim Sherman, Joe Staton, Kurt Schaffenberger",
     inkers:
-      "Larry Mahlstedt, Bruce D. Patterson, Dave Hunt, Dan Adkins, Dave Cockrum, Dick Giordano, Ernie Colon, Frank Giacoia, Jim Sherman, Kurt Schaffenberger, Rodin Rodriguez",
+      "Larry Mahlstedt, Bruce Patterson, Dave Hunt, Dan Adkins, Dave Cockrum, Dick Giordano, Ernie Colon, Frank Giacoia, Jim Sherman, Kurt Schaffenberger, Rodin Rodriguez",
     description:
       "A group of young heroes faces a mysterious force threatening the entire galaxy in this massive, future-set superhero epic.\n\nIn the 31st century, a team of young superheroes from across the galaxy unites to prevent Armageddon.\n\nWhen a powerful and unseen enemy begins manipulating events across space, the Legion of Super-Heroes races to discover the true identity behind the threat that spans worlds, timelines, and entire civilizations. As the danger escalates, the team is pushed to its limits, facing impossible odds and uncovering a force powerful enough to reshape the universe itself.\n\nBlending action, suspense, and expansive world-building, this landmark storyline delivers a high-stakes adventure where teamwork, sacrifice, and resilience define the fate of the future.",
     coverUrl: legionGreatDarknessSagaCover,
@@ -1910,7 +1910,7 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     yearsCovered: "1966-1993",
     releaseDate: { year: 2025, month: 4 },
     writers: "Joe Gill, Mike Baron, Paul Kupperberg",
-    pencillers: "Pat Boyette, Bill Montez, Tod Smith, Cary Nord, Gary Barker",
+    pencillers: "Pat Boyette, Bill Montes, Tod Smith, Cary Nord, Gary Barker",
     inkers: "Pat Boyette, José Marzan Jr., Ernie Bache, Pablo Marcos",
     description:
       "The earliest days of Christopher Smith, a man who loves peace so much he's willing to kill for it -- decades before the character's TV adaptation, across his Charlton origin and DC guest appearances.",
@@ -1954,7 +1954,7 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     writers:
       "Mike Friedrich, Elliot S. Maggin, Frank Robbins, Bob Rozakis, Gardner Fox, Dennis \"Denny\" O'Neil, E. Nelson Bridwell, John Broome",
     pencillers:
-      "Irv Novick, Gil Kane, Rich Buckler, Chic Stone, Dick Dillin, Sheldon Moldoff, Al Milgrom, Bob Brown, Ross Andru, A. Martinez, Mike Grell",
+      "Irv Novick, Gil Kane, Rich Buckler, Chic Stone, Dick Dillin, Sheldon Moldoff, Al Milgrom, Robert \"Bob\" Brown, Ross Andru, A. Martinez, Mike Grell",
     inkers:
       "Dick Giordano, Joe Giella, Vince Colletta, Murphy Anderson, Frank McLaughlin, Mike Esposito, Rich Buckler, Sid Greene, Terry Austin, Frank Giacoia, Mazzaroli, Mike Grell",
     description:
@@ -1988,7 +1988,7 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     pencillers:
       "Irv Novick, Kurt Schaffenberger, Charles Nicholas, Don Heck, Don Newton, Curt Swan, Juan Ortiz, Trevor von Eeden, Alex Saviuk, George Pérez, Jim Aparo, Jose Delbo, Lee Elias, Marshall Rogers",
     inkers:
-      "Vince Colletta, Dave Hunt, John Celardo, Bob Wiacek, Bruce D. Patterson, Frank Chiaramonte, Joe Giella, Larry Mahlstedt, Dan Adkins, Frank McLaughlin, George Pérez, Jack Abel, Jim Aparo, John Calnan, Mike DeCarlo, Rodin Rodriguez",
+      "Vince Colletta, Dave Hunt, John Celardo, Bob Wiacek, Bruce Patterson, Frank Chiaramonte, Joe Giella, Larry Mahlstedt, Dan Adkins, Frank McLaughlin, George Pérez, Jack Abel, Jim Aparo, John Calnan, Mike DeCarlo, Rodin Rodriguez",
     description:
       "Robin takes center stage in this DC Finest collection of classic adventures beyond the shadow of Batman!\nRobin may be Batman's partner, but some adventures belong entirely to him.\nAs Dick Grayson continues to grow into a hero in his own right, he takes on dangerous criminals, mysterious conspiracies, supernatural threats, and globe-spanning adventures that test his courage, intelligence, and leadership. Whether working alone, joining forces with Batgirl, or teaming with heroes from across the DC Universe, Robin proves that he is more than a sidekick—he is a hero capable of carrying the spotlight himself.\nFrom college campuses and traveling carnivals to hidden criminal organizations and extraordinary mysteries, these stories showcase the variety and excitement that defined Robin during the late Bronze Age. Along the way, Dick develops friendships, faces personal challenges, and gains the confidence that will help shape his future as one of DC's most enduring heroes.\nTogether, these stories capture the moment Dick Grayson begins to feel like a hero with his own world, his own instincts, and his own future beyond Batman.",
     coverUrl: "https://m.media-amazon.com/images/I/91W5aOuGyKL._SL1500_.jpg",
@@ -2404,7 +2404,7 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     writers:
       "Cary Bates, Leo Dorfman, Bob Toomey, Jack C. Harris, Paul Kupperberg, Gerry Conway, Tom DeFalco, Bill Kunkel, E. Nelson Bridwell, Elliot S. Maggin, Martin Pasko, Bill Dennehy, Bob Rozakis, Jane Aruns, John Warner",
     pencillers:
-      "Kurt Schaffenberger, Curt Swan, John Rosenberger, Jose Delbo, John Calnan, Ken Landgraf, Juan Ortiz, Win Mortimer, Alan Weiss, Bill Draut, Bob Brown, Carl Potts, Chic Stone, Ernie Chan, Jim Mooney, Marshall Rogers, Mike Vosburg, Pete Costanza",
+      "Kurt Schaffenberger, Curt Swan, John Rosenberger, Jose Delbo, John Calnan, Ken Landgraf, Juan Ortiz, Win Mortimer, Alan Weiss, Bill Draut, Robert \"Bob\" Brown, Carl Potts, Chic Stone, Ernie Chan, Jim Mooney, Marshall Rogers, Mike Vosburg, Pete Costanza",
     inkers:
       "Kurt Schaffenberger, Vince Colletta, Tex Blaisdell, Al Milgrom, Bob Oksner, Romeo Tanghal, Joe Giella, Steve Mitchell, Bob Layton, Bob Smith, Ernie Chan, Frank Springer, Jim Mooney, Joe Orlando, Joe Rubinstein, John Forte, John Rosenberger, Pete Costanza",
     description:
@@ -2428,7 +2428,7 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     writers: "John Ostrander, Len Wein, Jo Duffy, Steve Englehart",
     pencillers: "Luke McDonnell, John Byrne, Joe Brozowski, Joe Staton, Norm Breyfogle",
     inkers:
-      "Karl Kesel, Bob Lewis, Dick Giordano, Dave Hunt, Dennis Janke, Ian Gibson, Pablo Marcos, Sam De La Rosa",
+      "Karl Kesel, Bob Lewis, Dick Giordano, Dave Hunt, Dennis Janke, Ian Gibson, Pablo Marcos, Sam de la Rosa",
     description:
       "The thrilling first incarnation of Task Force X -- John Ostrander sends Deadshot, Captain Boomerang, and a rotating cast of expendable villains on black-ops missions where death is always on the table.",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781799500759",
@@ -2448,7 +2448,7 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     releaseDate: { year: 2026, month: 7 },
     writers: "John Ostrander, Kim Yale, Paul Kupperberg",
     pencillers: "Luke McDonnell, Erik Larsen, Graham Nolan, Keith Giffen, Steve Erwin",
-    inkers: "Bob Lewis, Luke McDonnell, Al Vey, Bob Oksner, Malcolm Jones III, Tim Dzon",
+    inkers: "Bob Lewis, Luke McDonnell, Al Vey, Bob Oksner, Malcolm Jones, Tim Dzon",
     description:
       "The Squad faces betrayal, black ops, and a descent into the supernatural as Nightshade's past comes back to haunt them.",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781799508595",
@@ -2556,9 +2556,9 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     writers:
       "Robert Kanigher, Bob Haney, Bill Finger, Dave Wood, Ed Herron, Robert Bernstein, Jack Miller, France Herron",
     pencillers:
-      "Ross Andru, Dick Dillin, Joe Kubert, Russ Heath, Jerry Grandenetti, Arthur Peddy, Jack Abel, Bob Brown, Gene Colan, Gil Kane, Irv Novick, Mort Drucker",
+      "Ross Andru, Dick Dillin, Joe Kubert, Russ Heath, Jerry Grandenetti, Arthur Peddy, Jack Abel, Robert \"Bob\" Brown, Gene Colan, Gil Kane, Irv Novick, Mort Drucker",
     inkers:
-      "Mike Esposito, Chuck Cuidera, Joe Kubert, Russ Heath, Jerry Grandenetti, Arthur Peddy, Jack Abel, Sheldon Moldoff, Bob Brown, Irv Novick, Joe Giella, Mort Drucker, Robert Stuart",
+      "Mike Esposito, Chuck Cuidera, Joe Kubert, Russ Heath, Jerry Grandenetti, Arthur Peddy, Jack Abel, Sheldon Moldoff, Robert \"Bob\" Brown, Irv Novick, Joe Giella, Mort Drucker, Robert Stuart",
     description:
       "An explosive collection spanning DC's five war titles plus Blackhawk -- trenches, aerial dogfights, perilous seas, infantry battles, and covert missions brought to life by legendary artists like Joe Kubert and Russ Heath.",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781799503248",
@@ -2716,7 +2716,7 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     pencillers:
       "Aaron Lopresti, Bernard Chang, Terry Dodson, Ron Randall, Cliff Richards, George Pérez",
     inkers:
-      "Matt Ryan, Bernard Chang, Rachel Dodson, Ron Randall, Art Thibert, Bob Wiacek, John Holdredge",
+      "Matt Ryan, Bernard Chang, Rachel Dodson, Ron Randall, Art Thibert, Bob Wiacek, Jon Holdredge",
     description:
       "Gail Simone's beloved run begins with 'The Circle,' continuing through 'Ends of the Earth,' 'Rise of the Olympian,' and 'Warkiller' -- Diana's most personal and mythic threats yet.",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781779528346",
@@ -2830,7 +2830,7 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
       "Dennis \"Denny\" O'Neil, Steve Ditko, D.C. Glanzman, Len Wein, Steve Skeates, Roger Stern, Michael Uslan, Benjamin Smith",
     pencillers: "Denys Cowan, Steve Ditko, Paris Cullins, Alex Toth, Dan Reed",
     inkers:
-      "Rick Magyar, Steve Ditko, Bruce D. Patterson, Albert Val, Alex Toth, Bill Black, Bob McLeod, Dan Reed, Del Barras",
+      "Rick Magyar, Steve Ditko, Bruce Patterson, Albert Val, Alex Toth, Bill Black, Bob McLeod, Dan Reed, Dell Barras",
     description:
       "A dark, thought‑provoking crime saga—the Question confronts corruption, identity, and moral truth in this expansive DC Finest collection of early stories.\n\nIn a city where corruption runs deep, justice is anything but simple.\n\nVic Sage operates as the Question, a faceless investigator determined to expose the truth—no matter the cost. But in Hub City, every answer leads to another question, and every case pulls him deeper into a system built on power, fear, and control.\n\nAs his search for justice continues, Sage is forced to confront not only the criminals around him, but his own beliefs, identity, and what it truly means to do the right thing in a broken world.\n\nSpanning a major run of stories that include all the character’s original appearances in the Charlton titles from creator Steve Ditko as well as the first 15 issues of his celebrated revival by Dennis O’Neil and Denys Cowan in the 1980s, this volume offers a wide-ranging look at the Question’s evolution, blending crime storytelling, action, and philosophical depth in one immersive collection.",
     coverUrl: theQuestionZenAndViolenceCover,

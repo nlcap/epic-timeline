@@ -384,8 +384,8 @@ export const LICENSED_ENTRIES: TimelineEntry[] = [
     releaseDate: { year: 2019, month: 2 },
     writers: "Robert E. Howard, Kurt Busiek",
     pencillers:
-      "Cary Nord, Tom Yeates, Joseph Michael Linsner, Leinil Francis Yu, Greg Ruth, Tom Mandrake, Bruce Timm, John Severin",
-    inkers: "Tom Yeates, Leinil Francis Yu, Joseph Michael Linsner, Greg Ruth, Tom Mandrake",
+      "Cary Nord, Tom Yeates, Joseph Michael Linsner, Leinil Yu, Greg Ruth, Tom Mandrake, Bruce Timm, John Severin",
+    inkers: "Tom Yeates, Leinil Yu, Joseph Michael Linsner, Greg Ruth, Tom Mandrake",
     description: "",
     coverUrl: "https://m.media-amazon.com/images/I/71L+DvE2mVL._SL1500_.jpg",
     ownershipStatus: "announced",
@@ -403,7 +403,7 @@ export const LICENSED_ENTRIES: TimelineEntry[] = [
     releaseDate: { year: 2019, month: 4 },
     writers: "Robert E. Howard, Timothy Truman, Mike Mignola, Kurt Busiek",
     pencillers:
-      "Cary Nord, Paul Lee, Greg Ruth, Timothy Truman, Rafael Kayanan, Tony Harris, Michael Wm Kaluta, Eric Powell",
+      "Cary Nord, Paul Lee, Greg Ruth, Timothy Truman, Rafael Kayanan, Tony Harris, Mike Kaluta, Eric Powell",
     description: "",
     coverUrl: "https://m.media-amazon.com/images/I/71uwpcMYetL._SL1500_.jpg",
     ownershipStatus: "announced",
@@ -477,7 +477,7 @@ export const LICENSED_ENTRIES: TimelineEntry[] = [
     releaseDate: { year: 2021, month: 1 },
     writers: "Brian Wood, Jim Keegan, Ruth Keegan, Robert E. Howard",
     pencillers:
-      "Declan Shalvey, Davide Gianfelice, Paul Azaceta, Jim Keegan, Riccardo Burchielli, Ruth Keegan, Vasilis Lolos, Massimo Carnevale, Mirko Colak, Becky Cloonan, Andrea Mutti, Leandro Fernandez",
+      "Declan Shalvey, Davide Gianfelice, Paul Azaceta, Jim Keegan, Riccardo Burchielli, Ruth Keegan, Vasilis Lolos, Massimo Carnevale, Mirko Colak, Becky Cloonan, Andrea Mutti, Leandro Fernández",
     inkers: "Vasilis Lolos, Pierluigi Baldassini",
     description: "",
     coverUrl: "https://m.media-amazon.com/images/I/81t6x0f776L._SL1500_.jpg",
@@ -896,7 +896,7 @@ export const LICENSED_ENTRIES: TimelineEntry[] = [
     yearsCovered: "1980-1981",
     releaseDate: { year: 2018, month: 7 },
     writers:
-      "Archie Goodwin, David Michelinie, Chris Claremont, J. M. DeMatteis, Larry Hama, Mike W. Barr",
+      "Archie Goodwin, David Michelinie, Chris Claremont, J.M. DeMatteis, Larry Hama, Mike W. Barr",
     pencillers: "Al Williamson, Carlos Garzón, Carmine Infantino, Walter \"Walt\" Simonson",
     inkers:
       "Tom Palmer, Carlos Garzón, Al Williamson, Gene Day, Chic Stone, Walter \"Walt\" Simonson, Alan Kupperberg, Al Milgrom, Frank Giacoia",
@@ -1146,7 +1146,7 @@ export const LICENSED_ENTRIES: TimelineEntry[] = [
     writers:
       "Alexander Freed, John Jackson Miller, Rob Chestney, Robert E. Barnes, Mike Denning, Adam Gallardo",
     pencillers:
-      "Dave Ross, Andrea Mutti, George Freeman, Alex Sanchez, David Daza, Robert E. Barnes, David Nakayama, Greg Titus",
+      "David Ross, Andrea Mutti, George Freeman, Alex Sanchez, David Daza, Robert E. Barnes, David Nakayama, Greg Titus",
     inkers:
       "Mark McKenna, Pierluigi Baldassini, Alex Sanchez, Robert E. Barnes, Greg Adams, Julian Washburn",
     description: "",
@@ -1249,7 +1249,7 @@ export const LICENSED_ENTRIES: TimelineEntry[] = [
     yearsCovered: "2000-2001",
     releaseDate: { year: 2019, month: 11 },
     writers:
-      "John Ostrander, Pat Mills, Timothy Truman, Doug Petrie, Scott Beatty, Bob Harris, Dean Motter",
+      "John Ostrander, Pat Mills, Timothy Truman, Doug Petrie, Scott Beatty, Bob Harras, Dean Motter",
     pencillers:
       "Jan Duursema, Ramón F. Bachs, Davidé Fabbri, Randy Green, Sanford Greene, Jerome Opeña, Isaac Buckminster Owens",
     inkers:
@@ -1411,7 +1411,7 @@ export const LICENSED_ENTRIES: TimelineEntry[] = [
     yearsCovered: "2007-2012",
     releaseDate: { year: 2015, month: 10 },
     writers: "Mick Harrison, Randy Stradley",
-    pencillers: "Doug Wheatley, Dave Ross, Lui Antonio",
+    pencillers: "Doug Wheatley, David Ross, Lui Antonio",
     inkers: "Doug Wheatley",
     description: "The dark times continue! As the Empire strengthens its grip in the wake of Star Wars Episode III Revenge of the Sith, the remaining Jedi are marked for death! Jedi Master K'kruhk faces a battle for his life – one with deadly parallels for Bomo Greenbark and the crew of the smuggler vessel Uhumele. Meanwhile, Master Dass Jennir is down to his last credit and faces a stark choice: compromise his ideals or starve. Being a Jedi may make him an outlaw, but does being an outlaw mean he's no longer a Jedi? Darth Vader doesn't care: He's on Dass's trail either way – and so is the dread assassin Falco Sang!",
     coverUrl: "https://m.media-amazon.com/images/I/81H8nj-+mHL._SL1500_.jpg",
@@ -1450,9 +1450,9 @@ export const LICENSED_ENTRIES: TimelineEntry[] = [
     writers:
       "Tim Siedell, Jim Woodring, John Wagner, Jason Hall, Aaron McBride, Christian Read, Jan Duursema, Phill Norwood, Jim Beard, Gilbert Hernandez, Kia Asamiya, Garth Ennis, Zack Whedon, Beau Smith, Henry Gilroy, Andy Diggle, James Kochalka, Ken Lizzl",
     pencillers:
-      "Gabriel Guzman, Art Wetherell, Ian Gibson, John Nadeau, Aaron McBride, John McCrea, Jan Duursema, Dave McCaig, Sunny Lee, Phill Norwood, Todd Nauck, Gilbert Hernandez, Kia Asamiya, Amanda Connor, Davidé Fabbri, Mike Deodato Jr., Todd Demong, Henry Flint, Stewart McKenny, James Kochalka, Lucas Marangon",
+      "Gabriel Guzman, Art Wetherell, Ian Gibson, John Nadeau, Aaron McBride, John McCrea, Jan Duursema, Dave McCaig, Sunny Lee, Phill Norwood, Todd Nauck, Gilbert Hernandez, Kia Asamiya, Amanda Conner, Davidé Fabbri, Mike Deodato Jr., Todd Demong, Henry Flint, Stewart McKenny, James Kochalka, Lucas Marangon",
     inkers:
-      "Monty Sheldon, Ian Gibson, Jim Amash, Jimmy Palmiotti, Aaron McBride, Randy Emberlin, Shannon Denton, Jamie Mendoza, Christian Dalla Vecchia, Neil Nelson, John Wycough",
+      "Monty Sheldon, Ian Gibson, Jim Amash, Jimmy Palmiotti, Aaron McBride, Randy Emberlin, Shannon Denton, Jaime Mendoza, Christian Dalla Vecchia, Neil Nelson, John Wycough",
     description: "",
     coverUrl: "https://m.media-amazon.com/images/I/91EEmGWX6eL._SL1500_.jpg",
     ownershipStatus: "announced",
@@ -1675,7 +1675,7 @@ export const LICENSED_ENTRIES: TimelineEntry[] = [
     pencillers:
       "Carlos Ezquerra, Ron Randall, Kilian Plunkett, Lucas Marangon, Timothy II, Christina Chen, Vatche Mavlian, Igor Kordey, Sunny Lee, Todd Nauck, Sean Murphy, Paco Medina, John McCrea, Francisco Ruiz Velasco, Chris Slane, Carlos Meglia, Ramón F. Bachs, Robert Teranishi, Sergio Aragonés, Rick Leonardi, Clayton Henry, John Nadeau, Chris Eliopoulos",
     inkers:
-      "Carlos Ezquerra, P. Craig Russell, Kilian Plunkett, Jimmy Palmiotti, Igor Kordey, Randy Emberlin, Jamie Mendoza, Joe Sanchez, Lucas Marangon, Mark Lipka, Jordi Ensign",
+      "Carlos Ezquerra, P. Craig Russell, Kilian Plunkett, Jimmy Palmiotti, Igor Kordey, Randy Emberlin, Jaime Mendoza, Joe Sanchez, Lucas Marangon, Mark Lipka, Jordi Ensign",
     description: "",
     coverUrl: "https://m.media-amazon.com/images/I/81ILqUlKlOL._SL1500_.jpg",
     ownershipStatus: "announced",
@@ -1769,7 +1769,7 @@ export const LICENSED_ENTRIES: TimelineEntry[] = [
     releaseDate: { year: 2022, month: 10 },
     writers: "Mike Richardson, Randy Stradley",
     pencillers: "Paul Gulacy, Javier Saltares, Isaac Buckminster Owens",
-    inkers: "P. Craig Russell, Randy Emberlin, Christopher Ivy, Paul Gulacy",
+    inkers: "P. Craig Russell, Randy Emberlin, Christopher \"Chris\" Ivy, Paul Gulacy",
     description: "",
     coverUrl: "https://m.media-amazon.com/images/I/81mJitf-9GL._SL1500_.jpg",
     ownershipStatus: "announced",
@@ -1864,7 +1864,7 @@ export const LICENSED_ENTRIES: TimelineEntry[] = [
     yearsCovered: "2009-2011",
     releaseDate: { year: 2020, month: 7 },
     writers: "John Ostrander, Jan Duursema",
-    pencillers: "Jan Duursema, Dave Ross",
+    pencillers: "Jan Duursema, David Ross",
     inkers: "Dan Parsons",
     description: "",
     coverUrl: "https://m.media-amazon.com/images/I/81HzyEP5oIL._SL1500_.jpg",

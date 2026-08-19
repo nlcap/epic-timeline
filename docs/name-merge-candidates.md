@@ -9,118 +9,36 @@ databases asserting they are one person.
 Counts below are credit slots; the collections a name appears in are in brackets.
 Nothing here has been applied.
 
-## A. Confirmed by redirect — safe to merge  (20)
+## Applied
 
-The wiki resolves one spelling to the other, so these are the databases asserting
-one person. Keep the bold form: the one the credits actually use, which is the
-published one.
+51 merges over 122 credit slots, taking the data from 2,056 distinct names to
+2,004. Everything from the old sections A, B and C is done, plus the five rows
+where the wiki's canonical form disagreed with the published one.
 
-| merge | uses | keep | uses | note |
-|---|--:|---|--:|---|
-| Amanda Connor <br><sub>marvel-licensed-epic</sub> | 1 | **Amanda Conner** <br><sub>classic/dc-finest/modern</sub> | 5 |  |
-| Bill Montez <br><sub>dc-finest</sub> | 1 | **Bill Montes** <br><sub>dc-finest</sub> | 1 | 1 use each |
-| Bob Harris <br><sub>marvel-licensed-epic</sub> | 1 | **Bob Harras** <br><sub>classic/marvel-licensed-epic</sub> | 20 | both resolve to Robert Harras |
-| Edde Wagner <br><sub>classic</sub> | 1 | **Eddie Wagner** <br><sub>classic/marvel-licensed-epic</sub> | 3 |  |
-| Ernie Chua <br><sub>dc-finest</sub> | 1 | **Ernie Chan** <br><sub>classic/dc-finest/marvel-licensed-epic</sub> | 25 | clerical error early in his DC run |
-| Larry Malstedt <br><sub>classic</sub> | 2 | **Larry Mahlstedt** <br><sub>classic/dc-finest</sub> | 15 |  |
-| Del Barras <br><sub>dc-finest</sub> | 2 | **Dell Barras** <br><sub>classic</sub> | 5 |  |
-| John Holdredge <br><sub>dc-finest</sub> | 1 | **Jon Holdredge** <br><sub>classic</sub> | 10 |  |
-| Dougie Braithwaite <br><sub>classic</sub> | 2 | **Doug Braithwaite** <br><sub>modern</sub> | 4 | both → Douglas Braithwaite |
-| Mark Nelson <br><sub>classic</sub> | 2 | **Mark A. Nelson** <br><sub>marvel-licensed-epic</sub> | 7 |  |
-| Christopher Ivy <br><sub>marvel-licensed-epic</sub> | 1 | **Chris Ivy** <br><sub>classic</sub> | 27 | candidate for a known-as form |
-| Thomas Derenick <br><sub>classic</sub> | 1 | **Tom Derenick** <br><sub>modern/ultimate</sub> | 2 |  |
-| Michael Carlin <br><sub>classic</sub> | 3 | **Mike Carlin** <br><sub>dc-finest</sub> | 1 | wiki prefers Michael; credits prefer Mike |
-| Michael Wm Kaluta <br><sub>marvel-licensed-epic</sub> | 1 | **Mike Kaluta** <br><sub>dc-finest</sub> | 2 |  |
-| Dave Ross <br><sub>marvel-licensed-epic</sub> | 3 | **David Ross** <br><sub>classic/dc-finest/modern</sub> | 14 |  |
-| Leinil Francis Yu <br><sub>marvel-licensed-epic</sub> | 2 | **Leinil Yu** <br><sub>classic/modern</sub> | 16 |  |
-| Howard Shum <br><sub>dc-finest</sub> | 1 | **Howard M. Shum** <br><sub>classic/marvel-licensed-epic</sub> | 9 |  |
-| Bruce D. Patterson <br><sub>dc-finest</sub> | 4 | **Bruce Patterson** <br><sub>classic/dc-finest/marvel-licensed-epic</sub> | 22 |  |
-| Malcolm Jones <br><sub>classic</sub> | 3 | **Malcolm Jones III** <br><sub>dc-finest</sub> | 3 |  |
-| Eduardo Berreto <br><sub>classic</sub> | 1 | **Eduardo Barreto** <br><sub>dc-finest/marvel-licensed-epic</sub> | 10 | via Ed Barreto |
+Where the disagreement was low-stakes the wiki won: **Michael Carlin**,
+**Malcolm Jones**, **Ethan van Sciver**. Where the published form dominated, both
+are carried, the rule already used for O'Neil and Simonson:
 
-## B. Same person, no redirect — needs a call  (22)
+| form | slots |
+|---|--:|
+| `Walter "Walt" Simonson` | 37 |
+| `Dennis "Denny" O'Neil` | 32 |
+| `Christopher "Chris" Ivy` | 28 |
+| `Robert "Bob" Brown` | 26 |
+| `Jim Owsley (Christopher Priest)` | 8 |
 
-Clearly one person; the wikis just don't link the spellings. Recommendation is
-the more frequent form unless the note says otherwise.
+Bob Brown was the largest single recovery: one man under **three** spellings —
+Bob Brown, Robert Brown and the wiki's William Robert Brown — 26 slots that read
+as three different artists.
 
-| merge | uses | keep | uses | note |
-|---|--:|---|--:|---|
-| Jamie Mendoza <br><sub>marvel-licensed-epic</sub> | 2 | **Jaime Mendoza** <br><sub>classic/modern</sub> | 9 |  |
-| Jesse Delprang <br><sub>classic</sub> | 2 | **Jesse Delperdang** <br><sub>classic/dc-finest/modern</sub> | 8 |  |
-| Rich Perotta <br><sub>classic</sub> | 1 | **Rich Perrotta** <br><sub>classic/marvel-licensed-epic/modern</sub> | 7 |  |
-| Stefano Guadiano <br><sub>classic</sub> | 1 | **Stefano Gaudiano** <br><sub>modern</sub> | 6 |  |
-| Prentiss Rollins <br><sub>modern</sub> | 1 | **Prentis Rollins** <br><sub>dc-finest</sub> | 5 |  |
-| Jose Pimentel <br><sub>modern</sub> | 2 | **Joe Pimentel** <br><sub>classic/marvel-licensed-epic/modern</sub> | 8 |  |
-| Alexander Jubran <br><sub>classic</sub> | 1 | **Alex Jubran** <br><sub>classic</sub> | 1 | 1 use each |
-| Michael Esposito <br><sub>classic</sub> | 1 | **Mike Esposito** <br><sub>classic/dc-finest/marvel-licensed-epic</sub> | 80 |  |
-| Dario Carrasco <br><sub>classic</sub> | 1 | **Dario Carrasco Jr.** <br><sub>marvel-licensed-epic</sub> | 3 |  |
-| Kev Sutherland <br><sub>classic</sub> | 1 | **Kevin Sutherland** <br><sub>classic</sub> | 1 | 1 use each |
-| Steve Grant <br><sub>classic</sub> | 2 | **Steven Grant** <br><sub>classic/marvel-licensed-epic</sub> | 22 |  |
-| James Pascoe <br><sub>dc-finest</sub> | 1 | **Jim Pascoe** <br><sub>marvel-licensed-epic</sub> | 2 |  |
-| Robert Brown <br><sub>classic</sub> | 3 | **Bob Brown** <br><sub>dc-finest</sub> | 10 | candidate for a known-as form |
-| Alan Lee Weiss <br><sub>classic</sub> | 2 | **Alan Weiss** <br><sub>classic/dc-finest</sub> | 14 |  |
-| Denys B. Cowan <br><sub>classic</sub> | 1 | **Denys Cowan** <br><sub>classic/dc-finest</sub> | 14 |  |
-| Brent Eric Anderson <br><sub>classic</sub> | 3 | **Brent Anderson** <br><sub>classic/dc-finest/marvel-licensed-epic</sub> | 9 |  |
-| Jack Harris <br><sub>classic</sub> | 1 | **Jack C. Harris** <br><sub>classic/dc-finest</sub> | 4 |  |
-| Mark Heike <br><sub>classic</sub> | 2 | **Mark G. Heike** <br><sub>marvel-licensed-epic</sub> | 4 |  |
-| Lara Hama <br><sub>classic</sub> | 1 | **Larry Hama** <br><sub>classic/marvel-licensed-epic</sub> | 20 |  |
-| Patrick Bolo <br><sub>classic</sub> | 1 | **Patrick Rolo** <br><sub>classic</sub> | 1 | 1 use each; Rolo is the attested inker |
-| Matthew Ryan <br><sub>classic</sub> | 1 | **Matt Ryan** <br><sub>classic/dc-finest/modern/ultimate</sub> | 14 | beware: Matt Ryan redirects to a *character* |
-| Jim Sanders <br><sub>classic</sub> | 9 | **Jim Sanders III** <br><sub>classic</sub> | 11 | beware: Jim Sanders redirects to a *character* |
+## Still open — deliberately
 
-## C. Cross-file spelling clashes  (10)
-
-The same person spelled differently *between* files — purely a consistency
-problem, and the cheapest of the three to fix.
-
-| merge | uses | keep | uses | note |
-|---|--:|---|--:|---|
-| J. M. DeMatteis <br><sub>marvel-licensed-epic</sub> | 1 | **J.M. DeMatteis** <br><sub>classic/dc-finest</sub> | 40 |  |
-| Sam De La Rosa <br><sub>dc-finest</sub> | 1 | **Sam de la Rosa** <br><sub>classic/marvel-licensed-epic</sub> | 27 |  |
-| Brian Michael bendis <br><sub>modern</sub> | 1 | **Brian Michael Bendis** <br><sub>classic/modern/ultimate</sub> | 21 | lowercase b — an error, not a variant |
-| Carlos Garzon <br><sub>classic</sub> | 2 | **Carlos Garzón** <br><sub>marvel-licensed-epic</sub> | 8 |  |
-| BIT <br><sub>dc-finest</sub> | 1 | **Bit** <br><sub>modern</sub> | 4 | all caps — an error, not a variant |
-| Ethan van Sciver <br><sub>modern</sub> | 2 | **Ethan Van Sciver** <br><sub>classic</sub> | 2 |  |
-| Ivan Velez Jr <br><sub>classic</sub> | 1 | **Ivan Velez Jr.** <br><sub>classic/dc-finest</sub> | 2 |  |
-| Ronnie Del Carmen <br><sub>dc-finest</sub> | 2 | **Ronnie del Carmen** <br><sub>marvel-licensed-epic</sub> | 2 |  |
-| Stephane Roux <br><sub>modern</sub> | 1 | **Stéphane Roux** <br><sub>marvel-licensed-epic</sub> | 2 |  |
-| Leandro Fernandez <br><sub>marvel-licensed-epic</sub> | 1 | **Leandro Fernández** <br><sub>modern</sub> | 1 |  |
-
-## C2. Rows where the two authorities disagree — your call
-
-For most pairs the wiki's canonical form and the form the credits actually use
-agree, so there is nothing to decide. These are the ones where they don't. The
-counts are credit slots.
-
-| wiki canonical | published / more used | note |
-|---|---|---|
-| Michael Carlin (3) | Mike Carlin (1) | `Mike Carlin` redirects to `Michael Carlin` |
-| Malcolm Jones (3) | Malcolm Jones III (3) | `Malcolm Jones III` redirects to `Malcolm Jones`; counts tied |
-| Ethan van Sciver (2) | Ethan Van Sciver (2) | `Van` redirects to `van`; counts tied |
-| Christopher Ivy (1) | **Chris Ivy (27)** | `Chris Ivy` redirects to `Christopher Ivy`, but is used 27x |
-| William Robert Brown (0) | **Bob Brown (10)** / Robert Brown (3) | one person, three forms; the wiki article is the full name |
-
-The same tension settled twice already — `Dennis "Denny" O'Neil` and
-`Walter "Walt" Simonson` — by carrying both rather than choosing. That option is
-open for `Christopher "Chris" Ivy` and `Robert "Bob" Brown`.
-
-## C3. Genuine ties — no authority either way
-
-Both spellings have their own article on different wikis, so nothing external
-breaks the tie:
-
-| | | |
-|---|---|---|
-| Ronnie Del Carmen (2, dc) | Ronnie del Carmen (2, licensed) | lowercase `del` is his own styling |
-| Alexander Jubran (1) | Alex Jubran (1) | |
-| BIT (1, dc) | Bit (4, modern) | both are articles; the credit is a mononym |
-
-## C4. One row that must not be automated
-
-`Jim Sanders` redirects to **Speed Demon** — a character, whose real name is
-James Sanders. The inker is `Jim Sanders III`, which redirects to the creator
-article `James Sanders III`. Merging the bare form by redirect would put a
-supervillain in the credits. Do this pair by hand or not at all.
+| left as-is | why |
+|---|---|
+| Ronnie Del Carmen (2) / Ronnie del Carmen (2) | both have their own article, counts tied |
+| Alexander Jubran (1) / Alex Jubran (1) | both have their own article, counts tied |
+| BIT (1) / Bit (4) | both are articles; the credit is a mononym |
+| Jim Sanders (9) / Jim Sanders III (11) | the bare form redirects to **Speed Demon**, a character — must be done by hand |
 
 ## D. Do NOT merge — verified different people
 
