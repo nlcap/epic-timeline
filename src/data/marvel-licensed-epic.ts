@@ -315,7 +315,7 @@ export const LICENSED_ENTRIES: TimelineEntry[] = [
     inkers: "Ernie Chan, John Buscema, Neal Adams",
     description:
       "Roy Thomas and John Buscema join forces to build Conan the Barbarian into one of the greatest comic book series of all time. The collection adapts Robert E. Howard classics like \"The Blood of Belshazzar\" and the fan-favorite \"The Shadow in the Tomb,\" with Neal Adams illustrating \"The Curse of the Golden Skull,\" teaming Conan with Juma against the wicked sorcerer Rotath.",
-    coverUrl: "https://m.media-amazon.com/images/I/81GAz6lXf2L._SL1500_.jpg",
+    coverUrl: "https://cdn.marvel.com/u/prod/marvel/i/mg/c/b0/61005c3352545/detail.webp",
     ownershipStatus: "announced",
   },
   {
@@ -335,7 +335,7 @@ export const LICENSED_ENTRIES: TimelineEntry[] = [
       "Dick Giordano, Terry Austin, Tom Palmer, Neal Adams, Ralph Reese, Larry Hama, Crusty Bunkers, Dan Adkins, Pablo Marcos, Steve Gan, Ernie Chan, Joe Sinnott, Tim Conrad, Frank Springer, Mike Ploog",
     description:
       "Conan meets the Queen of the Black Coast in one of the most captivating pairings in comics. The volume concludes with the debut and origin of Bêlit, the pirate queen who would become Conan's partner in love and war.",
-    coverUrl: "https://m.media-amazon.com/images/I/91zwmwisGiL._SL1500_.jpg",
+    coverUrl: "https://cdn.marvel.com/u/prod/marvel/i/mg/5/b0/61a6fb623502b/detail.webp",
     ownershipStatus: "announced",
   },
   {
@@ -354,7 +354,7 @@ export const LICENSED_ENTRIES: TimelineEntry[] = [
     inkers: "Steve Gan, The Tribe, Ernie Chan, Al Milgrom, John Buscema, Yong Montano",
     description:
       "Conan and Bêlit reave a path across the high seas and into the jungles of the Hyborian Age, encountering the Lord of the Lions and battling for the honored name of Amra in one of the greatest Conan adventures of all time. Master storytellers Roy Thomas and John Buscema bring Conan, Kull and Red Sonja together, alongside full-color editions of black-and-white Conan stories by Jim Starlin and John Buscema.",
-    coverUrl: "https://m.media-amazon.com/images/I/81oVEv5OT5L._SL1500_.jpg",
+    coverUrl: "https://cdn.marvel.com/u/prod/marvel/i/mg/a/80/6238ebf87ff84/detail.webp",
     ownershipStatus: "announced",
   },
   {
@@ -373,7 +373,7 @@ export const LICENSED_ENTRIES: TimelineEntry[] = [
     inkers: "Ernie Chan, Pablo Marcos",
     description:
       "Conan the Barbarian and the pirate queen Bêlit continue their quest to reclaim her rightful place on the throne of Asgalun, descending deep down the River Styx into Luxur, the capital city of Stygia, land of snake-worshippers, in search of Bêlit's father.",
-    coverUrl: "https://m.media-amazon.com/images/I/81a35e3gTvL._SL1500_.jpg",
+    coverUrl: "https://cdn.marvel.com/u/prod/marvel/i/mg/f/d0/63330109a77a3/detail.webp",
     ownershipStatus: "announced",
   },
   // --- Conan Chronicles ---
@@ -413,7 +413,7 @@ export const LICENSED_ENTRIES: TimelineEntry[] = [
       "Cary Nord, Paul Lee, Greg Ruth, Timothy Truman, Rafael Kayanan, Tony Harris, Mike Kaluta, Eric Powell",
     description:
       "\"The Tower of the Elephant\" and other stories! Conan the Barbarian stars in more legendary tales filled with swords, sorcery, giant spiders and monstrous creatures — including stories adapted from the original works of Robert E. Howard. Stealing the priceless gem the Heart of the Elephant from an unguarded tower seems like child's play, but nothing's ever easy for Conan. Then a dalliance with a magistrate's wife spells trouble, and Conan's adventures in the City of Thieves continue as he runs a gauntlet of threats both human and inhuman. But what grotesque horrors await him in the Hall of the Dead?",
-    coverUrl: "https://m.media-amazon.com/images/I/71uwpcMYetL._SL1500_.jpg",
+    coverUrl: "https://cdn.marvel.com/u/prod/marvel/i/mg/9/70/5c9d2ad4d8505/detail.webp",
     ownershipStatus: "announced",
   },
   {
@@ -512,7 +512,7 @@ export const LICENSED_ENTRIES: TimelineEntry[] = [
     inkers: "Brian Ching, Eduardo Francisco",
     description:
       "Four savage tales of Conan! When a case of mistaken identity leaves him accused of sorcery, the Cimmerian finds himself the target of a powerful and deadly witch hunter — but what is the true evil that stalks the shadows of Kush? A quest for legendary treasure brings Conan and his comrades into battle with an army of brigands. Cast into the desert and dying of thirst, Conan and the former slave Natala arrive in Xuthal, the city of eternal dreamers, where a mysterious horror lurks. And a call for help from a mysterious lighthouse beckons Conan amidst the scorching sands — but he realizes too late that he's stumbled into a trap, for this is an oasis of blood.",
-    coverUrl: "https://m.media-amazon.com/images/I/81N0Ba87xML._SL1500_.jpg",
+    coverUrl: "https://cdn.marvel.com/u/prod/marvel/i/mg/6/e0/61cf54ec61678/detail.webp",
     ownershipStatus: "announced",
   },
   {
@@ -531,7 +531,7 @@ export const LICENSED_ENTRIES: TimelineEntry[] = [
     inkers: "Andy Owens",
     description:
       "Conan's chronicles conclude! When the beloved queen of Khauran is secretly replaced by the evil witch Salome, only one man sees through the deception: Conan, captain of Khauran's royal guard. But can Conan stand against Salome's villainous ally Constantius and his mighty mercenary army? Conan will be crucified and left for dead — but he shall have his vengeance. Then a new saga begins as Conan stumbles into a camp of Kozak raiders alone, unarmed and half-dead, and finds a new ally in the Kozaki chief. And as the Turanians plot to end Conan's life, a Nemedian princess lures him to the remote island of Xapur, where lurks the monstrous Devil in Iron.",
-    coverUrl: "https://m.media-amazon.com/images/I/81p4rsHX6oL._SL1500_.jpg",
+    coverUrl: "https://cdn.marvel.com/u/prod/marvel/i/mg/4/30/61f46288774eb/detail.webp",
     ownershipStatus: "announced",
   },
   // --- King Conan Chronicles ---
@@ -552,7 +552,7 @@ export const LICENSED_ENTRIES: TimelineEntry[] = [
     inkers: "Tomás Giorello, Jason Shawn Alexander, Will Conrad",
     description:
       "Uneasy lies the head that wears a crown! Conan has won the throne of the kingdom of Aquilonia — and the hand of a beautiful bride. Is it time for the barbarian to lay down his sword? Don't count on it. When an evil sorcerer attacks, King Conan must strike back with all his might. Securing a crown is one thing, but holding on to it is a whole other challenge — especially with scheming conspirators in Conan's court, though the traitors may have chosen the wrong ally in Thoth-Amon. Plus: King Conan is haunted by the ghost of his first — and perhaps greatest — love.",
-    coverUrl: "https://m.media-amazon.com/images/I/81DTgDZzqyL._SL1500_.jpg",
+    coverUrl: "https://cdn.marvel.com/u/prod/marvel/i/mg/6/30/63121dbe3837e/detail.webp",
     ownershipStatus: "announced",
   },
   // --- Planet of the Apes Adventures ---
