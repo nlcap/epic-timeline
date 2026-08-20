@@ -37,6 +37,15 @@ export function AboutModal({ open, onClose }: { open: boolean; onClose: () => vo
           </a>
           . Commercial use is not permitted.
         </p>
+        <p>
+          Questions or comments? Email:{" "}
+          <a
+            href="mailto:epictimeline.io@gmail.com"
+            className="text-blue-400 underline hover:text-blue-300"
+          >
+            epictimeline.io@gmail.com
+          </a>
+        </p>
       </div>
     </SettingsModal>
   );
