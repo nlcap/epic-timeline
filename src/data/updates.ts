@@ -79,6 +79,12 @@ export const UPDATES: UpdateRelease[] = [
     date: "2026-08-19",
     entries: [
       {
+        kind: "data",
+        title: "The Classic Epic Collection's issue lists are rebuilt from Wikipedia",
+        description:
+          "All 386 volumes' \"Collects\" field now matches the Marvel Epic Collection Wikipedia page directly, replacing years of inconsistent formatting. Six volumes with no issue list at all -- including both missing Punisher and Fantastic Four entries -- are filled in for the first time.",
+      },
+      {
         kind: "new",
         title: "Stepping to a volume pops its preview",
         description:
