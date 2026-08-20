@@ -4431,7 +4431,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
       "Brett Breeding, Dick Ayers, George Klein, Joe Rubinstein, Danny Bulanadi, Don Heck, Chic Stone, Carl Hubbell, Sam Grainger, Frank Giacoia, Dave Hunt, Terry Austin, Dan Green, Pablo Marcos, Frank Springer, Bruce Patterson, Eliot Brown, Ian Akin, Brian Garvey, Dennis Janke, Kim DeMulder",
     description:
       "Clint Barton's career from his debut as a foe of Iron Man and love interest of the Black Widow, through reforming to join the Avengers, his size-changing stint as Goliath, and his first solo miniseries.",
-    coverUrl: "https://m.media-amazon.com/images/I/81OMXKUyCzL._SL1500_.jpg",
+    coverUrl: "https://m.media-amazon.com/images/I/91UecfZRQRL._SL1500_.jpg",
     ownershipStatus: "announced",
   },
   {

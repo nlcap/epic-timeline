@@ -984,7 +984,7 @@ export const LICENSED_ENTRIES: TimelineEntry[] = [
       "Tom Palmer, Art Nichols, Sam de la Rosa, Ken Steacy, Bret Blevins, Tom Mandrake, Steve Leialoha, Bob Wiacek, Al Williamson, Whilce Portacio, Cam Smith",
     description:
       "The classic Marvel era of Star Wars concludes with stories set in the aftermath of Return of the Jedi, where the heroes of the Rebellion face new challenges and new dangers. Leia must choose between joining a new Republic government or continuing as a warrior for peace, and Han Solo and Lando Calrissian find themselves in a tough spot when Chewbacca's family is threatened. Luke Skywalker is haunted by thoughts of his dead father, Darth Vader, as he faces another Dark Lord — and a new foe, the dark lady Lumiya.",
-    coverUrl: "https://m.media-amazon.com/images/I/81XMT6RtglL._SL1500_.jpg",
+    coverUrl: "https://m.media-amazon.com/images/I/91ygngqKs3L._SL1500_.jpg",
     ownershipStatus: "announced",
   },
   {
@@ -1022,7 +1022,7 @@ export const LICENSED_ENTRIES: TimelineEntry[] = [
       "Al Williamson, Alfredo Alcala, Perry McNamee, Elsa Charretier, Russ Manning, Dave Stevens, Christian Dalla Vecchia, Igor Kordey",
     description:
       "The Star Wars newspaper strip makes its Epic Collection debut! Featuring the spectacular art of Russ Manning and Al Williamson, both of whom influenced a young George Lucas, these are the earliest Star Wars comic-strip adventures — set in the era before, and just after, A New Hope.",
-    coverUrl: "https://m.media-amazon.com/images/I/71BMWuzC3KL._SL1500_.jpg",
+    coverUrl: "https://m.media-amazon.com/images/I/A1dZaj7CrOL._SL1500_.jpg",
     ownershipStatus: "announced",
   },
   {
@@ -1246,7 +1246,7 @@ export const LICENSED_ENTRIES: TimelineEntry[] = [
       "Robert Jones, Rick Magyar, Al Williamson, P. Craig Russell, George Freeman, Christopher Chuckry, Howard M. Shum, Jordi Ensign, Tom Fowler",
     description:
       "An Empire on the rise — a Rebellion on the horizon! The conflict that will grip the galaxy for generations begins here, with an adaptation of Star Wars: Episode I – The Phantom Menace and tales starring its major players. Anakin Skywalker is a boy with a dark destiny. Jedi Padawan Obi-Wan Kenobi has much to learn from his master, Qui-Gon Jinn. Teenage Queen Amidala faces exile. And Sith Lord Darth Maul must strike down the biggest obstacle in his Master's way. Plus: Mace Windu, Yoda, Jar Jar Binks and more.",
-    coverUrl: "https://m.media-amazon.com/images/I/710U2pkykxL._SL1500_.jpg",
+    coverUrl: "https://m.media-amazon.com/images/I/A17nNdEz67L._SL1500_.jpg",
     ownershipStatus: "announced",
   },
   // --- Star Wars: The Menace Revealed ---
@@ -1558,7 +1558,7 @@ export const LICENSED_ENTRIES: TimelineEntry[] = [
       "Carlos Meglia, Curtis P. Arnold, Jordi Ensign, Drew Geraci, Keith Barnett, Howard M. Shum",
     description:
       "The Empire rules the galaxy — but for how long? When high-level Imperial officers plot to overthrow the Emperor, Vader must stop them, with the help of Boba Fett. Meanwhile, when a survivor of Fett's very first mission surfaces, Fett must choose whether to help him or finish the job. And when Fett is seemingly killed, his child and her mother become unwitting targets. Plus: other bounty hunters circle for the kill.",
-    coverUrl: "https://m.media-amazon.com/images/I/81HNGktoQVL._SL1500_.jpg",
+    coverUrl: "https://m.media-amazon.com/images/I/910DX1uLhYL._SL1500_.jpg",
     ownershipStatus: "announced",
     swimLanePosition: 4,
   },
@@ -1686,7 +1686,7 @@ export const LICENSED_ENTRIES: TimelineEntry[] = [
     inkers: "Terry Austin, Dan Parsons, Al Williamson, Carlos Garzón, Howard M. Shum",
     description:
       "Luke and Leia journey to a mysterious world in search of an ancient Jedi relic, in an adaptation of the classic novel Splinter of the Mind's Eye. Then Han Solo and Chewbacca pull off a daring heist, before the collection concludes with Luke heading toward Yoda — and learning a truth about his father.",
-    coverUrl: "https://m.media-amazon.com/images/I/81bWvuRT5xL._SL1500_.jpg",
+    coverUrl: "https://m.media-amazon.com/images/I/91qY+GzQTKL._SL1500_.jpg",
     ownershipStatus: "announced",
   },
   {
@@ -1752,7 +1752,7 @@ export const LICENSED_ENTRIES: TimelineEntry[] = [
       "Jordi Ensign, Andy Mushynsky, Edvin Biukovic, Monty Sheldon, Serge LaPointe, Andrew Pepoy",
     description:
       "Wedge Antilles and his fellow starfighters protect the New Republic as the crack team of ace pilots known as Rogue Squadron.",
-    coverUrl: "https://m.media-amazon.com/images/I/71aHnP4TmQL._SL1500_.jpg",
+    coverUrl: "https://m.media-amazon.com/images/I/A1i-EN-WSTL._SL1500_.jpg",
     ownershipStatus: "announced",
   },
   {
@@ -1771,7 +1771,7 @@ export const LICENSED_ENTRIES: TimelineEntry[] = [
     inkers: "Jordi Ensign, Gary Martin, Gary Erskine, Chip Wallace",
     description:
       "Wedge Antilles leads Rogue Squadron into action and adventure! What begins as a straightforward mission introduces Baron Fel, the Empire's answer to Wedge and his elite band of X-wing pilots. And the heroes face their deadliest mission yet when the New Republic must rescue former would-be Emperor Sate Pestage, who is wanted by the Empire for high treason.",
-    coverUrl: "https://m.media-amazon.com/images/I/716UC-xvRZL._SL1500_.jpg",
+    coverUrl: "https://m.media-amazon.com/images/I/A1MjdQ6U12L._SL1500_.jpg",
     ownershipStatus: "announced",
   },
   {
@@ -1829,7 +1829,7 @@ export const LICENSED_ENTRIES: TimelineEntry[] = [
     inkers: "P. Craig Russell, Randy Emberlin, Christopher \"Chris\" Ivy, Paul Gulacy",
     description:
       "The Crimson Empire trilogy! All the members of Emperor Palpatine's elite Royal Guard have been hunted down and killed after his death, except one: Kir Kanos, the Emperor's most loyal soldier. The man behind the murders is fellow guardsman Carnor Jax, now part of the Imperial ruling council, who wants the throne for himself. Kanos must escape Jax's grasp and find new allies — and a new identity as bounty hunter Kenix Kil. But Kanos's quest puts him in the crosshairs of both the remaining Empire forces and the leaders of the New Republic: Leia Organa, Han Solo and Luke Skywalker.",
-    coverUrl: "https://m.media-amazon.com/images/I/81mJitf-9GL._SL1500_.jpg",
+    coverUrl: "https://m.media-amazon.com/images/I/81Cpi5yeETL._SL1500_.jpg",
     ownershipStatus: "announced",
   },
   {
