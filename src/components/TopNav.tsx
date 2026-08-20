@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState, type RefObject } from "react";
 import type { Collection } from "../types";
 import epicTimelineLogo from "../assets/logo_epic_timeline.svg";
+import { AboutModal } from "./AboutModal";
 import { ExportDataButton } from "./ExportDataButton";
 import { ImportDataButton } from "./ImportDataButton";
 import { ResetLineDataButton } from "./ResetLineDataButton";
@@ -251,6 +252,7 @@ export function TopNav({
   const [resetOpen, setResetOpen] = useState(false);
   const [storageDebugOpen, setStorageDebugOpen] = useState(false);
   const [updatesOpen, setUpdatesOpen] = useState(false);
+  const [aboutOpen, setAboutOpen] = useState(false);
 
   // The single source for both the desktop dropdown and the mobile menu --
   // they render it differently (dropdown rows vs. full-width menu rows) but
@@ -268,6 +270,7 @@ export function TopNav({
         onOpenUpdates();
       },
     },
+    { label: "About", onOpen: () => setAboutOpen(true) },
   ];
 
   useEffect(() => {
@@ -425,6 +428,7 @@ export function TopNav({
       <ResetLineDataButton open={resetOpen} onClose={() => setResetOpen(false)} />
       <StorageDebugPanel open={storageDebugOpen} onClose={() => setStorageDebugOpen(false)} />
       <UpdatesModal open={updatesOpen} onClose={() => setUpdatesOpen(false)} />
+      <AboutModal open={aboutOpen} onClose={() => setAboutOpen(false)} />
     </>
   );
 }

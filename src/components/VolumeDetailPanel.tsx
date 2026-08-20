@@ -262,6 +262,12 @@ export function VolumeDetailPanel({
           Collects {volume.issuesCollected}.
         </p>
 
+        {volume.coverUrl && (
+          <p className="mt-3 text-xs text-neutral-500">
+            Cover art &copy; its respective publisher, used for reference only.
+          </p>
+        )}
+
         {onDelete && (
           <div className="mt-6">
             {confirmingDelete ? (

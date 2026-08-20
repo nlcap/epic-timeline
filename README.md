@@ -3,6 +3,22 @@
 A timeline/Gantt-style tracker for Marvel Epic Collection and DC Finest trade
 paperback lines.
 
+## Disclaimer
+
+Epic Timeline is an unofficial, non-commercial fan project. It is not
+affiliated with, endorsed by, or sponsored by Marvel Entertainment, DC
+Comics, or their respective parent companies. All character names,
+titles, cover art, and related content referenced in this app are
+trademarks and copyrights of their respective owners, used here for
+reference and cataloging purposes only.
+
+The original source code, UI, and application design in this repository
+are licensed under the [PolyForm Noncommercial License 1.0.0](LICENSE) --
+free to use, study, and modify for personal and other noncommercial
+purposes, but not for commercial use. See [LICENSE](LICENSE) for the full
+terms and for how that license relates to the third-party comic content
+the app displays.
+
 ## Setup
 
 ```bash
