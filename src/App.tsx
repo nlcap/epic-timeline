@@ -58,6 +58,7 @@ import {
   SIDEBAR_ICON_SIZE_BY_ZOOM,
   SIDEBAR_PILL_HEIGHT_BY_ZOOM,
   monthIndex,
+  quartersBetween,
   stepperReservePx,
   stepperVolumeTargets,
   yearsCoveredLabel,
@@ -779,6 +780,19 @@ export default function App() {
     },
     [panelForwardTarget, panelBackwardTarget, panelScrollTargetFor, scrollTimelineTo]
   );
+  // Volume detail panel stepper, vertical (see VolumeDetailPanel.tsx): Up/
+  // Down move to the NEAREST volume (by start quarter) on the line
+  // immediately above/below the open volume's own line, in the same
+  // rendered order the sidebar shows (displayLines) -- not the timeline's
+  // scroll position, which has no relationship to line order. Nothing
+  // happens at the very top/bottom of the list, or when the adjacent line
+  // has no volumes at all -- deliberately no "skip to the next non-empty
+  // line" fallback (Nick's own call), so the shortcut always reflects
+  // exactly the line physically above/below, matching what's on screen.
+  // Defined below, after rowHeights/rowsContainerRef exist -- see there.
+  const selectedLineIndex = selectedLine
+    ? displayLines.findIndex(({ line }) => line.id === selectedLine.id)
+    : -1;
 
   // Each line's own row height -- rowHeight for a single-lane line, a
   // multiple of it for a Licensed-collection line with swimLanes > 1 (see
@@ -800,6 +814,84 @@ export default function App() {
   // and can't replay/glitch just from scrolling past a row).
   const rowsContainerRef = useRef<HTMLDivElement>(null);
   const [visibleRowStart, visibleRowEnd] = useVisibleRowRange(rowsContainerRef, rowHeights);
+
+  // Volume detail panel stepper, vertical (see handlePanelStep above and
+  // its own doc comment, and selectedLineIndex's). Landed here, after
+  // rowHeights/rowsContainerRef exist, because computing the target row's
+  // on-screen position needs both.
+  //
+  // Scrolls the WINDOW only (`window.scrollTo`, top axis alone) rather than
+  // calling `element.scrollIntoView()` on the target row -- tried that
+  // first, and it silently also scrolled `timelineScrollRef` (the
+  // horizontal timeline container): a row's own DOM box spans that
+  // container's FULL scrollable width (sidebar cell + the timeline lane
+  // together), and `scrollIntoView` walks up and adjusts EVERY scrollable
+  // ancestor a target doesn't already fit inside, not just the window --
+  // with the row wider than the timeline's own viewport, browsers resolve
+  // that by aligning its LEFT edge (local x=0, i.e. the very start of the
+  // axis) into view, snapping scrollLeft back toward 0 immediately after
+  // `scrollTimelineTo` below had just set it correctly. Reported by Nick as
+  // the timeline "shifting wildly... right to the start" on every Up/Down.
+  // A hand-rolled vertical scroll -- window.scrollTo's `top` doesn't touch
+  // `left` at all, and `timelineScrollRef` is never even in window's
+  // ancestor chain to begin with -- can't have this side effect.
+  const handlePanelVerticalStep = useCallback(
+    (direction: "up" | "down") => {
+      if (!selectedVolume || selectedLineIndex < 0) return;
+      const adjacentIndex = direction === "up" ? selectedLineIndex - 1 : selectedLineIndex + 1;
+      const adjacentLine = displayLines[adjacentIndex]?.line;
+      if (!adjacentLine) return;
+      const adjacentVolumes = (entriesByLine.get(adjacentLine.id) ?? EMPTY_ENTRIES).filter(
+        (e): e is Volume => e.kind === "volume"
+      );
+      if (adjacentVolumes.length === 0) return;
+
+      let nearest = adjacentVolumes[0];
+      let nearestDistance = Math.abs(quartersBetween(selectedVolume.start, nearest.start));
+      for (const v of adjacentVolumes) {
+        const distance = Math.abs(quartersBetween(selectedVolume.start, v.start));
+        if (distance < nearestDistance) {
+          nearest = v;
+          nearestDistance = distance;
+        }
+      }
+
+      setSelectedVolumeId(nearest.id);
+      scrollTimelineTo(panelScrollTargetFor(nearest));
+
+      // Bring the target row into view vertically, "nearest" style (only
+      // scroll if it isn't already fully visible below the sticky nav+axis
+      // header) -- same cumulative row-offset approach useVisibleRowRange
+      // uses for the reverse computation (screen position -> row range),
+      // just run once per keypress rather than on every scroll tick, so an
+      // O(rows) loop here costs nothing worth memoizing.
+      const container = rowsContainerRef.current;
+      if (container) {
+        const containerTop = container.getBoundingClientRect().top + window.scrollY;
+        let rowTop = containerTop;
+        for (let i = 0; i < adjacentIndex; i++) rowTop += rowHeights[i];
+        const rowBottom = rowTop + rowHeights[adjacentIndex];
+        const headerClearance = NAV_HEIGHT + AXIS_HEIGHT;
+        const viewTop = window.scrollY + headerClearance;
+        const viewBottom = window.scrollY + window.innerHeight;
+        if (rowTop < viewTop) {
+          window.scrollTo({ top: Math.max(0, rowTop - headerClearance), behavior: "smooth" });
+        } else if (rowBottom > viewBottom) {
+          window.scrollTo({ top: rowBottom - window.innerHeight, behavior: "smooth" });
+        }
+      }
+    },
+    [
+      selectedVolume,
+      selectedLineIndex,
+      displayLines,
+      entriesByLine,
+      panelScrollTargetFor,
+      scrollTimelineTo,
+      rowHeights,
+    ]
+  );
+
   // Drives AddVolumeCell's hover affordance from raw pointer position
   // instead of native CSS `:hover` (or even paired enter/leave events),
   // which Safari/WebKit can leave stuck on a cell that's no longer under
@@ -1049,6 +1141,8 @@ export default function App() {
           onClose={() => setSelectedVolumeId(null)}
           onStepBackward={panelBackwardTarget ? () => handlePanelStep("backward") : undefined}
           onStepForward={panelForwardTarget ? () => handlePanelStep("forward") : undefined}
+          onStepUp={() => handlePanelVerticalStep("up")}
+          onStepDown={() => handlePanelVerticalStep("down")}
         />
       )}
 

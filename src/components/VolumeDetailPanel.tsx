@@ -21,6 +21,8 @@ export function VolumeDetailPanel({
   onClose,
   onStepBackward,
   onStepForward,
+  onStepUp,
+  onStepDown,
   speculative = false,
 }: {
   volume: Volume;
@@ -43,6 +45,17 @@ export function VolumeDetailPanel({
    * but disabled, not hidden, so the control's position stays stable. */
   onStepBackward?: () => void;
   onStepForward?: () => void;
+  /** Volume stepper, vertical (see App.tsx's handlePanelVerticalStep):
+   * moves to the nearest volume (by start quarter) on the line immediately
+   * above/below this one's, in the sidebar's own rendered order -- not a
+   * chevron-driven control (no button, no disabled state to render), just
+   * a keyboard shortcut. Always a real no-op-internally function rather
+   * than `undefined` at a boundary, unlike onStepBackward/onStepForward
+   * above -- there's no button state that needs to know the difference,
+   * so the "nothing above/below, or that line has no volumes" case is
+   * just handled inside App.tsx's handler instead of surfaced here. */
+  onStepUp?: () => void;
+  onStepDown?: () => void;
   /** Speculative volumes don't carry ownership or reading state -- hides
    * both status pickers entirely. */
   speculative?: boolean;
@@ -70,7 +83,7 @@ export function VolumeDetailPanel({
     return () => window.removeEventListener("keydown", onKeyDown);
   }, [onEdit, volume, closeThen]);
 
-  // Left/Right arrows, and ,/< and ./> step to the previous/next volume on
+  // Left/Right arrows, ,/< and ./>, step to the previous/next volume on
   // this line -- the same target and timeline scroll the panel's own
   // stepper chevrons trigger (see onStepBackward/onStepForward above), just
   // from the keyboard. ,/< and ./> mirror the chevrons' own left/right
@@ -79,8 +92,16 @@ export function VolumeDetailPanel({
   // muscle memory from those. Bails per-direction when that direction has
   // no handler -- the line's boundary there, same as the chevron rendering
   // disabled -- rather than doing whatever the key would otherwise do.
+  //
+  // Up/Down move to the nearest volume on the line above/below instead --
+  // see handlePanelVerticalStep in App.tsx for what "nearest" means and
+  // why there's no visible control for it. Unlike the four keys above,
+  // onStepUp/onStepDown are always real functions (never undefined at a
+  // boundary -- see their own doc comment), so there's nothing to bail on
+  // here beyond the shared guards; "nothing above/below" is handled inside
+  // that function, not by this one skipping the call.
   useEffect(() => {
-    if (!onStepBackward && !onStepForward) return;
+    if (!onStepBackward && !onStepForward && !onStepUp && !onStepDown) return;
     const onKeyDown = (e: KeyboardEvent) => {
       if (e.metaKey || e.ctrlKey || e.altKey) return;
       if (isTypingTarget(e.target)) return;
@@ -99,11 +120,21 @@ export function VolumeDetailPanel({
           e.preventDefault();
           onStepForward();
           break;
+        case "ArrowUp":
+          if (!onStepUp) return;
+          e.preventDefault();
+          onStepUp();
+          break;
+        case "ArrowDown":
+          if (!onStepDown) return;
+          e.preventDefault();
+          onStepDown();
+          break;
       }
     };
     window.addEventListener("keydown", onKeyDown);
     return () => window.removeEventListener("keydown", onKeyDown);
-  }, [onStepBackward, onStepForward]);
+  }, [onStepBackward, onStepForward, onStepUp, onStepDown]);
 
   const formattedDescription = formatLineBreaks(volume.description);
 

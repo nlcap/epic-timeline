@@ -13,6 +13,7 @@ const PANEL_SHORTCUTS: { keys: string; label: string }[] = [
   { keys: "⌘/Ctrl Enter", label: "Save, or apply filters" },
   { keys: "E", label: "Edit the open volume" },
   { keys: "← → , .", label: "Step to the previous/next volume" },
+  { keys: "↑ ↓", label: "Jump to the nearest volume on the line above/below" },
 ];
 
 function ShortcutRow({ keys, label }: { keys: string; label: string }) {

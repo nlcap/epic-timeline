@@ -6489,7 +6489,6 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
       "Jim Sanders III, John Beatty, Keith Williams, Mark G. Heike, K. Stan Wilson, Tony DeZuniga",
     description:
       "",
-    coverUrl: "https://m.media-amazon.com/images/I/819M2NzeN4L._SL1500_.jpg",
     ownershipStatus: "announced",
   },
   // --- Silver Surfer ---

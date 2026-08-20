@@ -80,9 +80,9 @@ export const UPDATES: UpdateRelease[] = [
     entries: [
       {
         kind: "new",
-        title: "Step through a line without leaving the volume panel",
+        title: "Step through the timeline without leaving the volume panel",
         description:
-          "Chevrons beside the cover -- or the arrow keys, or , and . -- move to the next or previous volume on that line, scrolling the timeline behind the panel the same way the sidebar's own stepper does, but keeping the panel open on wherever you land instead of closing it.",
+          "Chevrons beside the cover -- or the arrow keys, or , and . -- move to the next or previous volume on that line, scrolling the timeline behind the panel the same way the sidebar's own stepper does, but keeping the panel open on wherever you land. Up and down arrows jump to the nearest volume on the line above or below instead.",
       },
     ],
   },
