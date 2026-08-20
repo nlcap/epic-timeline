@@ -5112,7 +5112,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     inkers: "Steve Mitchell, Dan Green, Al Milgrom, Mike Esposito, Sam de la Rosa",
     description:
       "Tony Stark's battle with alcoholism reaches its breaking point, forcing Jim Rhodes to don the armor and become Iron Man for the first time.",
-    coverUrl: "https://m.media-amazon.com/images/I/71fzpDc+zXL._SL1400_.jpg",
+    coverUrl: "https://m.media-amazon.com/images/I/91L-rF-rg9L._SL1500_.jpg",
     ownershipStatus: "announced",
   },
   {
@@ -6757,7 +6757,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     inkers: "Chic Stone, Dick Ayers, Joe Sinnott, Don Heck, Steve Ditko, George Roussos",
     description:
       "Dr. Donald Blake discovers a strange, gnarled cane in Norway, and upon striking it transforms into Thor, God of Thunder. Stan Lee and Jack Kirby lay the foundation of Asgard and the Marvel Universe's mightiest hero from the ground up.",
-    coverUrl: "https://m.media-amazon.com/images/I/71UkYQa1XlL._SL1400_.jpg",
+    coverUrl: "https://cdn.marvel.com/u/prod/marvel/i/mg/9/20/646b6cb041dd7/detail.jpg",
     ownershipStatus: "announced",
   },
   {

@@ -19,6 +19,8 @@ export function VolumeDetailPanel({
   onEdit,
   onDelete,
   onClose,
+  onStepBackward,
+  onStepForward,
   speculative = false,
 }: {
   volume: Volume;
@@ -29,6 +31,18 @@ export function VolumeDetailPanel({
   onEdit?: (volume: Volume) => void;
   onDelete?: (volumeId: string) => void;
   onClose: () => void;
+  /** Volume stepper (see VolumeStepper.tsx): steps to the previous/next
+   * volume on this volume's line, same target selection and timeline scroll
+   * as the sidebar chevrons, except the panel stays open on whatever it
+   * lands on instead of closing -- so App.tsx wires these straight to
+   * setSelectedVolumeId plus the scroll, never through the sidebar
+   * stepper's own hover-preview path (there's no need to stand in for a
+   * hover when the panel's already showing everything that preview would).
+   * `undefined` when there's no volume in that direction -- the chevron
+   * button is always rendered (same as the sidebar stepper's own chevrons)
+   * but disabled, not hidden, so the control's position stays stable. */
+  onStepBackward?: () => void;
+  onStepForward?: () => void;
   /** Speculative volumes don't carry ownership or reading state -- hides
    * both status pickers entirely. */
   speculative?: boolean;
@@ -55,6 +69,41 @@ export function VolumeDetailPanel({
     window.addEventListener("keydown", onKeyDown);
     return () => window.removeEventListener("keydown", onKeyDown);
   }, [onEdit, volume, closeThen]);
+
+  // Left/Right arrows, and ,/< and ./> step to the previous/next volume on
+  // this line -- the same target and timeline scroll the panel's own
+  // stepper chevrons trigger (see onStepBackward/onStepForward above), just
+  // from the keyboard. ,/< and ./> mirror the chevrons' own left/right
+  // layout as a second pair, the same convention Photos/Slides/etc. use to
+  // step through a series, so it doesn't have to fight the arrow keys for
+  // muscle memory from those. Bails per-direction when that direction has
+  // no handler -- the line's boundary there, same as the chevron rendering
+  // disabled -- rather than doing whatever the key would otherwise do.
+  useEffect(() => {
+    if (!onStepBackward && !onStepForward) return;
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.metaKey || e.ctrlKey || e.altKey) return;
+      if (isTypingTarget(e.target)) return;
+      switch (e.key) {
+        case "ArrowLeft":
+        case ",":
+        case "<":
+          if (!onStepBackward) return;
+          e.preventDefault();
+          onStepBackward();
+          break;
+        case "ArrowRight":
+        case ".":
+        case ">":
+          if (!onStepForward) return;
+          e.preventDefault();
+          onStepForward();
+          break;
+      }
+    };
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, [onStepBackward, onStepForward]);
 
   const formattedDescription = formatLineBreaks(volume.description);
 
@@ -131,53 +180,135 @@ export function VolumeDetailPanel({
           </button>
         </div>
 
-        {volume.coverUrl ? (
-          // The cover twice over: a blown-up, heavily blurred copy sitting
-          // behind the real one as a wash of the book's own colours -- the
-          // product-page treatment. It runs off the top and both sides of the
-          // panel (the overhang is wider than the blur radius, so no soft
-          // edge creeps back into view) and only resolves at the bottom,
-          // where the mask fades it into the panel colour across the gap
-          // between the title and the status pills. No object-fit: the copy
-          // is stretched to fill the box rather than cropped, which spreads
-          // the cover's colours further apart and blurs into a softer wash.
-          // -z-10 keeps it behind the text while staying above the panel's
-          // own background.
-          // -z-10 on the whole cover group so it paints before the panel's
-          // in-flow text: wrapping the cover in a positioned element had put
-          // it in the positioned-paint pass, which draws after in-flow
-          // content, so its shadow was falling across the title below it.
-          <div className="relative -z-10 mt-4">
-            <div
-              aria-hidden
-              className="pointer-events-none absolute inset-x-[-72px] -top-48 bottom-[-130px] -z-10"
-            >
+        {/* Common wrapper for the cover (or its placeholder) AND the stepper
+         * chevrons below. Unlike the cover group's own -z-10 (see below),
+         * this outer div stays at the default stacking level so the
+         * chevrons -- explicit z-10 siblings of that group -- paint above
+         * the cover/wash regardless. */}
+        <div className="relative mt-4">
+          {/* Sizing spacer: invisible (not display:none) but still in
+           * normal flow, so it -- not whichever branch below actually
+           * renders -- is what gives this wrapper its height. Real covers'
+           * own intrinsic ratios vary slightly around the 0.65 average
+           * (780x1200 exactly, but a live Amazon/PRH fetch can land at
+           * 0.648 or 0.651), which used to size this box directly and,
+           * with it, the chevrons' top-1/2 vertical center -- shifting
+           * them a couple px between volumes, reported by Nick as the
+           * buttons visibly jittering while stepping through a line.
+           * Pinning height to this one constant instead of each cover's
+           * own means every volume -- covered or not -- gets pixel-
+           * identical chevron positions. */}
+          <div aria-hidden className="invisible mx-auto aspect-[13/20] w-full max-w-[75%]" />
+          {volume.coverUrl ? (
+            // The cover twice over: a blown-up, heavily blurred copy sitting
+            // behind the real one as a wash of the book's own colours -- the
+            // product-page treatment. It runs off the top and both sides of
+            // the panel (the overhang is wider than the blur radius, so no
+            // soft edge creeps back into view) and only resolves at the
+            // bottom, where the mask fades it into the panel colour across
+            // the gap between the title and the status pills. No
+            // object-fit on the wash -- the copy is stretched to fill the
+            // box rather than cropped, which spreads the cover's colours
+            // further apart and blurs into a softer wash. -z-10 keeps it
+            // behind the text while staying above the panel's own
+            // background.
+            // absolute inset-0 (not the spacer's in-flow sizing) so this
+            // group fills the exact box the spacer measured out, instead
+            // of sizing itself from the real image's own slightly
+            // different intrinsic ratio -- see the spacer's own comment.
+            // -z-10 on the whole cover group so it paints before the
+            // panel's in-flow text: wrapping the cover in a positioned
+            // element had put it in the positioned-paint pass, which draws
+            // after in-flow content, so its shadow was falling across the
+            // title below it.
+            <div className="absolute inset-0 -z-10">
+              <div
+                aria-hidden
+                className="pointer-events-none absolute inset-x-[-72px] -top-48 bottom-[-130px] -z-10"
+              >
+                <img
+                  src={volume.coverUrl}
+                  alt=""
+                  className="h-full w-full opacity-30 blur-3xl"
+                  style={{
+                    maskImage:
+                      "linear-gradient(to bottom, #000 0, #000 calc(100% - 114px), transparent 100%)",
+                    WebkitMaskImage:
+                      "linear-gradient(to bottom, #000 0, #000 calc(100% - 114px), transparent 100%)",
+                  }}
+                />
+              </div>
+              {/* Two shadows: a deep one pulled back in under the cover by its
+               * negative spread, and a lighter, wider one with positive spread
+               * that pushes past the edges so the cover lifts off the wash.
+               * object-cover (not the old h-auto) crops the sliver either
+               * side of a cover whose own ratio doesn't land on exactly
+               * 0.65 -- imperceptible at this margin, and the price of
+               * filling a box whose height no longer bends to match it. */}
               <img
                 src={volume.coverUrl}
                 alt=""
-                className="h-full w-full opacity-30 blur-3xl"
-                style={{
-                  maskImage:
-                    "linear-gradient(to bottom, #000 0, #000 calc(100% - 114px), transparent 100%)",
-                  WebkitMaskImage:
-                    "linear-gradient(to bottom, #000 0, #000 calc(100% - 114px), transparent 100%)",
-                }}
+                className="mx-auto h-full w-full max-w-[75%] rounded-md object-cover shadow-[0_24px_80px_-40px_rgba(0,0,0,0.5),0_32px_90px_24px_rgba(0,0,0,0.35)]"
               />
             </div>
-            {/* Two shadows: a deep one pulled back in under the cover by its
-             * negative spread, and a lighter, wider one with positive spread
-             * that pushes past the edges so the cover lifts off the wash. */}
-            <img
-              src={volume.coverUrl}
-              alt=""
-              className="mx-auto h-auto w-full max-w-[75%] rounded-md shadow-[0_24px_80px_-40px_rgba(0,0,0,0.5),0_32px_90px_24px_rgba(0,0,0,0.35)]"
-            />
-          </div>
-        ) : (
-          <div className="mt-4 flex h-64 w-full items-center justify-center rounded-md bg-neutral-800 text-sm text-neutral-500">
-            Cover image
-          </div>
-        )}
+          ) : (
+            // absolute inset-0, matching the cover branch above, so both
+            // fill the exact same spacer-defined box -- see its comment.
+            <div className="absolute inset-0 mx-auto flex w-full max-w-[75%] items-center justify-center rounded-md bg-neutral-800 text-sm text-neutral-500">
+              Cover image
+            </div>
+          )}
+          {/* Stepper chevrons: outside the cover itself (left-0/right-0 sit
+           * in the margin either side of the image's own max-w-[75%],
+           * centered), lined up with the panel's own content bounds rather
+           * than overlapping the artwork -- and vertically centered on the
+           * spacer's fixed box above, not whichever branch actually
+           * rendered, so they land in the same spot regardless of a real
+           * cover's own slightly-off ratio (see the spacer's comment).
+           * Always rendered, disabled (not hidden) when there's no volume
+           * in that direction, matching the sidebar stepper's own chevrons
+           * in VolumeStepper.tsx. */}
+          <button
+            type="button"
+            onClick={onStepBackward}
+            disabled={!onStepBackward}
+            aria-label="Previous volume"
+            className="absolute left-0 top-1/2 z-10 flex h-8 w-8 -translate-y-1/2 items-center justify-center rounded-full bg-black/40 text-white backdrop-blur-sm transition-colors enabled:hover:bg-black/60 disabled:cursor-not-allowed disabled:opacity-20"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth={1.75}
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              className="h-5 w-5"
+            >
+              <path d="M15 18l-6-6 6-6" />
+            </svg>
+          </button>
+          <button
+            type="button"
+            onClick={onStepForward}
+            disabled={!onStepForward}
+            aria-label="Next volume"
+            className="absolute right-0 top-1/2 z-10 flex h-8 w-8 -translate-y-1/2 items-center justify-center rounded-full bg-black/40 text-white backdrop-blur-sm transition-colors enabled:hover:bg-black/60 disabled:cursor-not-allowed disabled:opacity-20"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth={1.75}
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              className="h-5 w-5"
+            >
+              <path d="M9 18l6-6-6-6" />
+            </svg>
+          </button>
+        </div>
 
         <h2 className="mt-4 text-xl font-bold text-white">{volume.title}</h2>
         <p className="text-sm italic text-neutral-300">

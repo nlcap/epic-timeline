@@ -59,6 +59,7 @@ import {
   SIDEBAR_PILL_HEIGHT_BY_ZOOM,
   monthIndex,
   stepperReservePx,
+  stepperVolumeTargets,
   yearsCoveredLabel,
   type ZoomLevel,
 } from "./lib/timeline";
@@ -72,6 +73,11 @@ import {
 // actually changes. A line-heavy Speculation Mode session (many freshly
 // added lines with no volumes yet) makes this the dominant cost.
 const EMPTY_ENTRIES: TimelineEntry[] = [];
+// Same stable-reference reasoning as EMPTY_ENTRIES above, typed for the
+// volume detail panel stepper's own filtered list (see selectedLineVolumes
+// in App.tsx) -- feeds a useMemo, so a fresh `[]` on every render with no
+// selected line would otherwise recompute stepperVolumeTargets for nothing.
+const EMPTY_VOLUMES: Volume[] = [];
 
 const ACTIVE_COLLECTION_STORAGE_KEY = "epic-timeline:active-collection";
 
@@ -596,29 +602,18 @@ export default function App() {
     },
     [speculativeVolumeIds, upsertSpeculativeVolume, upsertVolume]
   );
-  // Volume stepper (see VolumeStepper.tsx / LineRow.tsx): a chevron click
-  // picks the next/previous volume and reports back the scrollLeft that
-  // lands it a fixed one-quarter-width clear of the stepper panel -- this is
-  // the only thing that actually owns timelineScrollRef, so it's the one
-  // place that can drive it. Empty deps: only touches a ref, never stale.
-  const handleStepScroll = useCallback((targetScrollLeft: number, targetVolumeId: string) => {
+  // Volume stepper (see VolumeStepper.tsx / LineRow.tsx / VolumeDetailPanel.tsx):
+  // smooth-scrolls the shared timeline to a target scrollLeft -- this is the
+  // only thing that actually owns timelineScrollRef, so it's the one place
+  // that can drive it. Split out from handleStepScroll below so the volume
+  // detail panel's own stepper (see handlePanelStep) can reuse the actual
+  // scrolling without also triggering handleStepScroll's auto-preview --
+  // stepping from inside the panel shouldn't pop a hover card for a volume
+  // already sitting fully described right there. Empty deps: only touches a
+  // ref, never stale.
+  const scrollTimelineTo = useCallback((targetScrollLeft: number) => {
     const el = timelineScrollRef.current;
     if (!el) return;
-    // Set BEFORE the scroll starts, not after it settles -- the destination
-    // tile derives its final position from autoPreviewDelta (see the state's
-    // own comment above), so the panel can appear immediately, already sitting
-    // where the tile is about to glide into, with no lag behind the click.
-    // Assigning here also retires whatever a previous step left showing,
-    // wherever it was: one piece of state, so the old value is simply gone.
-    if (autoPreviewTimeoutRef.current !== null) {
-      window.clearTimeout(autoPreviewTimeoutRef.current);
-    }
-    setAutoPreviewVolumeId(targetVolumeId);
-    setAutoPreviewDelta(targetScrollLeft - el.scrollLeft);
-    autoPreviewTimeoutRef.current = window.setTimeout(() => {
-      autoPreviewTimeoutRef.current = null;
-      setAutoPreviewVolumeId(null);
-    }, 8000);
     setStepScrolling(true);
     // Whichever fires first (native scroll settling, or the fallback in
     // case `scrollend` never fires -- e.g. the target was already the
@@ -633,6 +628,38 @@ export default function App() {
     el.addEventListener("scrollend", finish);
     el.scrollTo({ left: targetScrollLeft, behavior: "smooth" });
   }, []);
+  // Timeline/sidebar stepper (see VolumeStepper.tsx / LineRow.tsx): a chevron
+  // click picks the next/previous volume, reports back the scrollLeft that
+  // lands it a fixed one-quarter-width clear of the stepper panel, AND pops
+  // that volume's hover preview -- standing in for a real hover the cursor
+  // (parked on the chevron, not the tile) never makes. The panel's own
+  // stepper (handlePanelStep) skips straight to scrollTimelineTo instead,
+  // since there's nothing to stand in for while the panel is already open on
+  // that exact volume.
+  const handleStepScroll = useCallback(
+    (targetScrollLeft: number, targetVolumeId: string) => {
+      const el = timelineScrollRef.current;
+      if (!el) return;
+      // Set BEFORE the scroll starts, not after it settles -- the destination
+      // tile derives its final position from autoPreviewDelta (see the
+      // state's own comment above), so the panel can appear immediately,
+      // already sitting where the tile is about to glide into, with no lag
+      // behind the click. Assigning here also retires whatever a previous
+      // step left showing, wherever it was: one piece of state, so the old
+      // value is simply gone.
+      if (autoPreviewTimeoutRef.current !== null) {
+        window.clearTimeout(autoPreviewTimeoutRef.current);
+      }
+      setAutoPreviewVolumeId(targetVolumeId);
+      setAutoPreviewDelta(targetScrollLeft - el.scrollLeft);
+      autoPreviewTimeoutRef.current = window.setTimeout(() => {
+        autoPreviewTimeoutRef.current = null;
+        setAutoPreviewVolumeId(null);
+      }, 8000);
+      scrollTimelineTo(targetScrollLeft);
+    },
+    [scrollTimelineTo]
+  );
   // Coarsened scroll position for windowing the hover "add volume" cells
   // (see LineRow.tsx) -- a plain derived number, not its own state/memo, but
   // that's fine: since it only changes value once every
@@ -670,6 +697,88 @@ export default function App() {
   const sidebarGap = SIDEBAR_GAP_BY_ZOOM[zoomLevel];
   const axisWidth = (axisEnd - axisStart + 2) * 4 * pxPerQuarter;
   const addCellWindowQuartersValue = addCellWindowQuarters(timelineViewportWidth, pxPerQuarter);
+
+  // Volume detail panel stepper (see VolumeDetailPanel.tsx): scoped to
+  // whichever line's volume the panel currently has open.
+  // entriesByLine.get(selectedLine.id) is the identical list LineRow's own
+  // VolumeStepper works from for that line (same filtering, same sort), so
+  // this stays in sync even under an active search/filter.
+  //
+  // Deliberately NOT stepperVolumeTargets' own threshold classification
+  // (the sidebar chevrons' approach, based on where a volume's icon sits
+  // relative to the current scroll position) -- that math answers "what's
+  // nearest to wherever the timeline happens to be scrolled," which has no
+  // fixed relationship to whichever volume the panel has open. It only
+  // lines up right after a stepper-driven scroll, which lands the target
+  // exactly on the classification threshold on purpose; opening the panel
+  // by clicking a tile directly anywhere on the timeline (the common case)
+  // leaves scrollLeft with no such relationship, and the currently-open
+  // volume can just as easily classify as its OWN forward or backward
+  // target -- confirmed live: stepping "forward" from a tile clicked open
+  // mid-scroll re-offered that exact same volume as its own target instead
+  // of the next one. The panel always knows exactly which volume is open,
+  // so simple index math in the sorted list is both correct and simpler.
+  const selectedLineVolumes = useMemo(
+    () =>
+      selectedLine
+        ? (entriesByLine.get(selectedLine.id) ?? EMPTY_ENTRIES).filter(
+            (e): e is Volume => e.kind === "volume"
+          )
+        : EMPTY_VOLUMES,
+    [selectedLine, entriesByLine]
+  );
+  const selectedVolumeIndex = selectedVolume
+    ? selectedLineVolumes.findIndex((v) => v.id === selectedVolume.id)
+    : -1;
+  const panelBackwardTarget = selectedVolumeIndex > 0 ? selectedLineVolumes[selectedVolumeIndex - 1] : null;
+  const panelForwardTarget =
+    selectedVolumeIndex >= 0 && selectedVolumeIndex < selectedLineVolumes.length - 1
+      ? selectedLineVolumes[selectedVolumeIndex + 1]
+      : null;
+  // scrollTargetFor itself IS still the same landing math the sidebar
+  // chevrons use (see stepperVolumeTargets in lib/timeline.ts) -- unlike
+  // the classification above, it's a pure function of the target volume
+  // alone (never reads the current scrollLeft), so it's exactly as valid
+  // here as it is there. backwardTarget/forwardTarget from this call are
+  // discarded in favor of the index-based ones above.
+  const { scrollTargetFor: panelScrollTargetFor } = useMemo(
+    () =>
+      stepperVolumeTargets(
+        selectedLineVolumes,
+        axisStartPoint,
+        pxPerQuarter,
+        sidebarWidth,
+        sidebarColumnWidth,
+        sidebarGap,
+        pillIconSize,
+        scrollLeft,
+        zoomLevel
+      ),
+    [
+      selectedLineVolumes,
+      axisStartPoint,
+      pxPerQuarter,
+      sidebarWidth,
+      sidebarColumnWidth,
+      sidebarGap,
+      pillIconSize,
+      scrollLeft,
+      zoomLevel,
+    ]
+  );
+  // Scrolls the timeline the same way the sidebar chevrons would, but keeps
+  // the panel open on whichever volume it lands on instead of closing it --
+  // see scrollTimelineTo's own comment for why this bypasses
+  // handleStepScroll (and its hover-preview pop) entirely.
+  const handlePanelStep = useCallback(
+    (direction: "forward" | "backward") => {
+      const target = direction === "forward" ? panelForwardTarget : panelBackwardTarget;
+      if (!target) return;
+      setSelectedVolumeId(target.id);
+      scrollTimelineTo(panelScrollTargetFor(target));
+    },
+    [panelForwardTarget, panelBackwardTarget, panelScrollTargetFor, scrollTimelineTo]
+  );
 
   // Each line's own row height -- rowHeight for a single-lane line, a
   // multiple of it for a Licensed-collection line with swimLanes > 1 (see
@@ -938,6 +1047,8 @@ export default function App() {
                 }
           }
           onClose={() => setSelectedVolumeId(null)}
+          onStepBackward={panelBackwardTarget ? () => handlePanelStep("backward") : undefined}
+          onStepForward={panelForwardTarget ? () => handlePanelStep("forward") : undefined}
         />
       )}
 

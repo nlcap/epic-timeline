@@ -76,6 +76,17 @@ export function formatUpdateDate(iso: string): string {
 
 export const UPDATES: UpdateRelease[] = [
   {
+    date: "2026-08-20",
+    entries: [
+      {
+        kind: "new",
+        title: "Step through a line without leaving the volume panel",
+        description:
+          "Chevrons beside the cover -- or the arrow keys, or , and . -- move to the next or previous volume on that line, scrolling the timeline behind the panel the same way the sidebar's own stepper does, but keeping the panel open on wherever you land instead of closing it.",
+      },
+    ],
+  },
+  {
     date: "2026-08-19",
     entries: [
       {

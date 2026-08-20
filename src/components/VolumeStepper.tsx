@@ -1,11 +1,5 @@
 import type { QuarterPoint, Volume } from "../types";
-import {
-  SIDEBAR_COLLAPSE_RANGE,
-  spanToPx,
-  STEPPER_ICON_OVERLAP_PX_BY_ZOOM,
-  STEPPER_PANEL_GAP_PX,
-  type ZoomLevel,
-} from "../lib/timeline";
+import { stepperVolumeTargets, STEPPER_PANEL_GAP_PX, type ZoomLevel } from "../lib/timeline";
 
 /**
  * Hover panel on a line row's sidebar pill: forward/backward chevrons that
@@ -97,144 +91,22 @@ export function VolumeStepper({
   // hover-expansion included.
   const panelLeft = pillWidth + STEPPER_PANEL_GAP_PX;
 
-  // What panelLeft would be at a given scrollLeft if the pill were NOT
-  // hovered -- i.e. useSidebarPillMetrics' own collapse formula, replicated
-  // here rather than read live. Used for refX/forwardThreshold below instead
-  // of the live panelLeft above, deliberately: a click can only ever land on
-  // this panel by the cursor first reaching it, which (now that hover
-  // tracking lives on the shared wrapping div, not the pill button itself --
-  // see LineRow.tsx) means the pill is *already hover-expanded* for the
-  // entire duration of essentially every real click. If classification used
-  // the live (hover-inflated) panelLeft while scrollTargetFor predicts the
-  // eventual NON-hovered landing (below), the two disagree about where "one
-  // quarter of clearance" actually falls -- a volume the landing math
-  // considers already-reached could still misclassify as "ahead" under the
-  // inflated threshold, needing a second click to actually advance past it.
-  // Keeping both calculations on the same (non-hovered) assumption is what
-  // makes them consistent.
-  const predictedPillWidthAt = (x: number): number => {
-    const collapseProgress = Math.min(1, Math.max(0, x / SIDEBAR_COLLAPSE_RANGE));
-    return sidebarWidth - collapseProgress * (sidebarWidth - pillIconSize);
-  };
-
-  // A volume's own rendered left edge, in the same content-coordinate space
-  // spanToPx already uses -- sidebarColumnWidth + sidebarGap is
-  // LineTimelineLane's local-origin offset within the row's shared scroll
-  // content (confirmed against TimelineGrid/the sticky axis header, which
-  // use the identical offset); the trailing "+ 1" matches TimelineEntryTile's
-  // own deliberate 1px inset so this lines up with where the tile actually
-  // renders.
-  const contentXOf = (v: Volume): number => {
-    const { left } = spanToPx(axisStart, v.start, v.end, pxPerQuarter);
-    return sidebarColumnWidth + sidebarGap + left + 1;
-  };
-
-  // The ICON's own right edge (not the panel's), in that same content-
-  // coordinate space, at the CURRENT scroll position -- using the PREDICTED
-  // (non-hovered) width, per the comment above. "One quarter of clearance"
-  // is measured from here, not from the panel: Nick's original spec had it
-  // from the panel's own trailing edge, but after seeing it live he wanted
-  // the icon to be the thing that reads as "one quarter before the volume,"
-  // with the panel free to sit wherever it naturally lands in that gap
-  // instead of dictating the gap's size itself. Recomputed from live
-  // scrollLeft on every render (see the class doc comment for why).
-  const refX = scrollLeft + predictedPillWidthAt(scrollLeft);
-
-  // How much clear space actually separates the icon's edge from a landed
-  // volume -- a full pxPerQuarter by default, pulled in by
-  // STEPPER_ICON_OVERLAP_PX_BY_ZOOM at zoom levels that want the icon to
-  // overlap the preceding quarter gridline instead of stopping exactly on
-  // it. Used below in place of a bare pxPerQuarter everywhere the landing
-  // clearance itself is what's being expressed.
-  const landingClearance = pxPerQuarter - STEPPER_ICON_OVERLAP_PX_BY_ZOOM[zoomLevel];
-
-  // Classification threshold -- NOT refX itself. Landing on a volume always
-  // leaves it sitting a full landingClearance ahead of refX, so a volume
-  // you've just stepped to is still "ahead of refX" by that same fixed
-  // amount -- comparing straight against refX would keep re-offering it as
-  // the forward target forever, an apparent no-op click since the
-  // recomputed scroll target is identical to where you already are.
-  // Comparing against refX + landingClearance instead asks the question
-  // that actually matters: would landing on this volume move the scroll
-  // position past where it already is? (scrollTargetFor(v) > scrollLeft is
-  // the same inequality, worked backward from the landing formula.) A
-  // volume you just landed on always lands exactly *on* this threshold, not
-  // past it, so it correctly drops out of "ahead" the moment you arrive --
-  // the next click advances instead of repeating.
-  const forwardThreshold = refX + landingClearance;
-
-  // `volumes` arrives already sorted ascending by start (see App.tsx's
-  // entriesByLine builder -- LineRow filters it to volumes-only but doesn't
-  // reorder it), so a single forward pass finds both nearest neighbors:
-  // backwardTarget keeps getting overwritten by every volume still short of
-  // the threshold (so the last write is the closest one behind), while
-  // forwardTarget locks in on the first volume past it.
-  let backwardTarget: Volume | null = null;
-  let forwardTarget: Volume | null = null;
-  for (const v of volumes) {
-    const x = contentXOf(v);
-    if (x < forwardThreshold) {
-      backwardTarget = v;
-    } else if (x > forwardThreshold && !forwardTarget) {
-      forwardTarget = v;
-    }
-  }
-
-  // The scroll target isn't computable from the panel's CURRENT position --
-  // it's a fixed point. The pill's width (hence panelLeft, hence where "one
-  // quarter of clearance" actually lands) is itself a function of scrollLeft
-  // while the pill is collapsing (see useSidebarPillMetrics), and that
-  // collapsing keeps happening for as long as the scroll animation is still
-  // short of SIDEBAR_COLLAPSE_RANGE. Using the panel's pre-click position to
-  // compute the target (as an earlier version of this did) systematically
-  // undershoots near the start of the timeline, where landing anywhere
-  // within the collapse range means the REAL panel position at landing time
-  // is narrower than what was used to compute the target -- confirmed by
-  // reproducing exactly what Nick reported: clicking forward on Superman
-  // from the very start of DC Finest took 3 clicks to converge, each one
-  // recomputing off the previous (still short) landing's pill width.
-  //
-  // Solved directly instead of iterating toward it: assume a hypothetical
-  // scroll position x, express the pill's width at x as
-  // useSidebarPillMetrics does (not hovered -- the cursor is on this panel,
-  // a sibling of the pill button, not the button itself, so the pill's own
-  // hover state is never engaged by this interaction), and solve
-  // `x = target's landing formula, evaluated using the pill's width AT x`
-  // for x. That equation is piecewise linear in x (flat below 0, flat above
-  // SIDEBAR_COLLAPSE_RANGE, linear between), so it has a closed form in each
-  // regime -- no iteration, no risk of it needing a 2nd or 3rd click:
-  //   1. If the answer assuming the pill stays fully uncollapsed (x<=0) is
-  //      itself <= 0, that's self-consistent -- don't scroll at all.
-  //   2. Otherwise, if the answer assuming the pill is already fully
-  //      collapsed (x>=SIDEBAR_COLLAPSE_RANGE) is itself >= that range,
-  //      that's self-consistent -- this is the common case for anything
-  //      that isn't extremely close to the axis start.
-  //   3. Otherwise (the fixed point genuinely falls inside the collapsing
-  //      range), solve the interior linear equation directly. In practice
-  //      this app's constants (icon shrinks by more px than
-  //      SIDEBAR_COLLAPSE_RANGE spans) make case 3 unreachable -- included
-  //      anyway so this stays correct if those constants ever change instead
-  //      of silently reintroducing the multi-click bug for a narrower band
-  //      of volumes.
-  const scrollTargetFor = (target: Volume): number => {
-    const targetLeftContentX = contentXOf(target);
-    // No panel width/gap term here -- the clearance is measured to the
-    // ICON's own edge (see refX above), and the panel's own footprint plays
-    // no part in where that edge needs to land. landingClearance (not a
-    // bare pxPerQuarter) so this stays consistent with forwardThreshold's
-    // own use of it above.
-    const c = targetLeftContentX - landingClearance;
-
-    const ifUncollapsed = c - sidebarWidth;
-    if (ifUncollapsed <= 0) return 0;
-
-    const ifFullyCollapsed = c - pillIconSize;
-    if (ifFullyCollapsed >= SIDEBAR_COLLAPSE_RANGE) return ifFullyCollapsed;
-
-    const shrinkRange = sidebarWidth - pillIconSize;
-    const gain = shrinkRange / SIDEBAR_COLLAPSE_RANGE;
-    return Math.max(0, ifUncollapsed / (1 - gain));
-  };
+  // Forward/backward targets and the scroll-landing math -- shared with the
+  // volume detail panel's own stepper (see stepperVolumeTargets in
+  // lib/timeline.ts for the full derivation), since both are ultimately
+  // driving the same pinned sidebar pill and its icon, just from different
+  // trigger surfaces.
+  const { backwardTarget, forwardTarget, scrollTargetFor } = stepperVolumeTargets(
+    volumes,
+    axisStart,
+    pxPerQuarter,
+    sidebarWidth,
+    sidebarColumnWidth,
+    sidebarGap,
+    pillIconSize,
+    scrollLeft,
+    zoomLevel
+  );
 
   const handleForward = () => {
     if (!forwardTarget) return;

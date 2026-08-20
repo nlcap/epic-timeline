@@ -1,4 +1,4 @@
-import type { MonthPoint, Quarter, QuarterPoint, TimelineEntry } from "../types";
+import type { MonthPoint, Quarter, QuarterPoint, TimelineEntry, Volume } from "../types";
 
 export const MIN_SWIM_LANES = 1;
 export const MAX_SWIM_LANES = 5;
@@ -220,6 +220,89 @@ export function spanToPx(
     pxPerQuarter
   );
   return { left, width };
+}
+
+/**
+ * Volume stepper (see VolumeStepper.tsx / VolumeDetailPanelStepper.tsx):
+ * given a line's volumes and the timeline's current scroll position, finds
+ * the nearest volume ahead of / behind wherever the pill's own icon
+ * currently sits, plus a function to compute the scroll target that lands a
+ * given volume a fixed one-quarter-width past that icon. Shared by both
+ * callers because the underlying question -- "what does the sidebar pill for
+ * this line look like at a hypothetical scroll position, and where does that
+ * put the icon's own edge" -- doesn't change based on which UI element
+ * triggered the step; the timeline and its pinned sidebar pills are the same
+ * either way, only the surface offering the chevrons differs.
+ *
+ * `volumes` must already be sorted ascending by start (see App.tsx's
+ * entriesByLine builder) -- a single forward pass finds both nearest
+ * neighbors: backwardTarget keeps getting overwritten by every volume still
+ * short of the threshold (so the last write is the closest one behind),
+ * while forwardTarget locks in on the first volume past it.
+ *
+ * See VolumeStepper.tsx's original inline version of this (before the
+ * detail-panel stepper needed the same math too) for the fuller derivation
+ * of refX/forwardThreshold/scrollTargetFor -- the reasoning didn't change,
+ * only its home.
+ */
+export function stepperVolumeTargets(
+  volumes: Volume[],
+  axisStart: QuarterPoint,
+  pxPerQuarter: number,
+  sidebarWidth: number,
+  sidebarColumnWidth: number,
+  sidebarGap: number,
+  pillIconSize: number,
+  scrollLeft: number,
+  zoomLevel: ZoomLevel
+): {
+  backwardTarget: Volume | null;
+  forwardTarget: Volume | null;
+  /** Scroll position (smooth-scrollTo target) that lands `target` a fixed
+   * one-quarter-width past the pill icon's eventual (non-hovered) edge. */
+  scrollTargetFor: (target: Volume) => number;
+} {
+  const predictedPillWidthAt = (x: number): number => {
+    const collapseProgress = Math.min(1, Math.max(0, x / SIDEBAR_COLLAPSE_RANGE));
+    return sidebarWidth - collapseProgress * (sidebarWidth - pillIconSize);
+  };
+
+  const contentXOf = (v: Volume): number => {
+    const { left } = spanToPx(axisStart, v.start, v.end, pxPerQuarter);
+    return sidebarColumnWidth + sidebarGap + left + 1;
+  };
+
+  const refX = scrollLeft + predictedPillWidthAt(scrollLeft);
+  const landingClearance = pxPerQuarter - STEPPER_ICON_OVERLAP_PX_BY_ZOOM[zoomLevel];
+  const forwardThreshold = refX + landingClearance;
+
+  let backwardTarget: Volume | null = null;
+  let forwardTarget: Volume | null = null;
+  for (const v of volumes) {
+    const x = contentXOf(v);
+    if (x < forwardThreshold) {
+      backwardTarget = v;
+    } else if (x > forwardThreshold && !forwardTarget) {
+      forwardTarget = v;
+    }
+  }
+
+  const scrollTargetFor = (target: Volume): number => {
+    const targetLeftContentX = contentXOf(target);
+    const c = targetLeftContentX - landingClearance;
+
+    const ifUncollapsed = c - sidebarWidth;
+    if (ifUncollapsed <= 0) return 0;
+
+    const ifFullyCollapsed = c - pillIconSize;
+    if (ifFullyCollapsed >= SIDEBAR_COLLAPSE_RANGE) return ifFullyCollapsed;
+
+    const shrinkRange = sidebarWidth - pillIconSize;
+    const gain = shrinkRange / SIDEBAR_COLLAPSE_RANGE;
+    return Math.max(0, ifUncollapsed / (1 - gain));
+  };
+
+  return { backwardTarget, forwardTarget, scrollTargetFor };
 }
 
 /**
