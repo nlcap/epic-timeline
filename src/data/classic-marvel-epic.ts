@@ -1543,7 +1543,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     id: "avengers-26",
     lineId: "avengers",
     number: "26",
-    title: "Taking A.i.m.",
+    title: "Taking A.I.M.",
     start: { year: 1994, quarter: 4 },
     end: { year: 1995, quarter: 2 },
     issuesCollected: "Avengers #378–388; Marvel Double Feature: Avengers/Giant-Man #379-382; Vision #1-4; Captain America #440–441",
