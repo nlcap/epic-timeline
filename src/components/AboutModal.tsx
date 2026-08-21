@@ -28,7 +28,7 @@ export function AboutModal({ open, onClose }: { open: boolean; onClose: () => vo
           The app's original source code and design are open for personal
           and other noncommercial use under the{" "}
           <a
-            href="https://github.com/polyformproject/polyform-licenses/blob/master/PolyForm-Noncommercial-1.0.0.md"
+            href="https://polyformproject.org/licenses/noncommercial/1.0.0"
             target="_blank"
             rel="noreferrer"
             className="text-blue-400 underline hover:text-blue-300"
