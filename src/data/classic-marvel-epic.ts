@@ -849,7 +849,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
       "Randy Emberlin, Keith Williams, Mark Stegbauer, Jimmy Palmiotti, Al Milgrom, Bob McLeod",
     description:
       "Venom's offspring transforms psychopath Cletus Kasady into Carnage, forcing Peter to make the hardest decision of his life and turn to Venom for help, while the New Warriors join a hunt for the vengeful ghost of Kraven.",
-    coverUrl: "https://m.media-amazon.com/images/I/81YsU6dG6CL._SL1500_.jpg",
+    coverUrl: "https://m.media-amazon.com/images/I/91hDUVdG4nL._SL1500_.jpg",
     ownershipStatus: "announced",
   },
   {
@@ -1557,7 +1557,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
       "Tom Palmer, Tim Dzon, Mike Machlan, Danny Bulanadi, Don Hudson, Rich Rankin, Mike Gustovich, Al Vey, Steve Alexandrov, Johnny Greene, Rich Perrotta, Charles Barnett, Scott Koblish, Marie Severin, Rick Hoover, Dave Hoover, Keith Williams",
     description:
       "A.I.M. makes a play against the Avengers as the team's roster and status quo continue to shift heading into the mid-1990s, with a Vision limited series exploring the android's fractured identity.",
-    coverUrl: "https://m.media-amazon.com/images/I/914TC+myIXL._SL1500_.jpg",
+    coverUrl: "https://m.media-amazon.com/images/I/91wig+vC2bL._SL1500_.jpg",
     ownershipStatus: "announced",
   },
   {
@@ -2841,7 +2841,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
       "Pier Brito, Bud LaRosa, Scott Hanna, Matt Ryan, Jason Martin, Al Williamson, Jon Holdredge, Chris Carlson, John Paul Leon, Robert Jones, Mark Lipka, Robert Campanella",
     description:
       "Gene \"The Dean\" Colan draws Daredevil once again as Mister Fear launches a new campaign of terror, and Matt comes between his ex-love Black Widow and the mutant Omega Red.",
-    coverUrl: "https://m.media-amazon.com/images/I/716oYonB6ZL._SL1400_.jpg",
+    coverUrl: "https://m.media-amazon.com/images/I/91fv0MbIkCL._SL1500_.jpg",
     ownershipStatus: "announced",
   },
   // --- Deadpool ---
@@ -8210,7 +8210,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     inkers: "Dan Green, Steve Leialoha, Dave Cockrum, Bob Wiacek, Barry Windsor-Smith",
     description:
       "A barbarian nightmare involving Kulan Gath forces the X-Men, Avengers, and Spider-Man to restore the world to normal, while the trickster god Loki offers Earth a gift that comes with a steep price. This volume also features Nightcrawler's solo adventure into another dimension.",
-    coverUrl: "https://m.media-amazon.com/images/I/71Qo0qmPTNL._SL1400_.jpg",
+    coverUrl: "https://m.media-amazon.com/images/I/91E4qMeNtrL._SL1500_.jpg",
     ownershipStatus: "announced",
   },
   {
