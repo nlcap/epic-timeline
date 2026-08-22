@@ -2,8 +2,9 @@ import { useCallback } from "react";
 import type { TimelineEntry } from "../types";
 import { recompressStoredCovers } from "../lib/imageCompression";
 import { DELETED, useOverrideStore } from "./useOverrideStore";
+import { STORAGE_KEYS } from "../lib/overrideKeys";
 
-const STORAGE_KEY = "epic-timeline:speculative-volumes";
+const STORAGE_KEY = STORAGE_KEYS.speculativeVolumes;
 
 /**
  * Volumes (and gaps) added under a speculative line via the "New

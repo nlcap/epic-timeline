@@ -1,8 +1,9 @@
 import { useCallback } from "react";
 import type { Line } from "../types";
 import { DELETED, useOverrideStore } from "./useOverrideStore";
+import { STORAGE_KEYS } from "../lib/overrideKeys";
 
-const STORAGE_KEY = "epic-timeline:speculative-lines";
+const STORAGE_KEY = STORAGE_KEYS.speculativeLines;
 
 /**
  * Lines added via the "Add Speculative Line" flow -- a sandbox layer that's

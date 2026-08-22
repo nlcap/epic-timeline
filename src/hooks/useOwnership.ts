@@ -1,7 +1,8 @@
 import type { OwnershipStatus } from "../types";
 import { useStatusOverrides } from "./useStatusOverrides";
+import { STORAGE_KEYS } from "../lib/overrideKeys";
 
-const STORAGE_KEY = "epic-timeline:ownership-overrides";
+const STORAGE_KEY = STORAGE_KEYS.ownershipOverrides;
 
 /**
  * Tracks per-volume ownership status overrides on top of each volume's

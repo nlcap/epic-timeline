@@ -1,6 +1,6 @@
 import { COLLECTIONS } from "../data/collections";
 import { COLLECTION_DATA } from "../data/collectionData";
-import { EXPORT_KEYS, type ExportKey } from "./overrideKeys";
+import { EXPORT_KEYS, STORAGE_KEYS, type ExportKey } from "./overrideKeys";
 
 /**
  * The one place that knows how to slice the six override stores by
@@ -40,12 +40,15 @@ export type Selection = {
  * still be scoped correctly. */
 export type StoreBundle = Partial<Record<ExportKey, Record<string, unknown>>>;
 
-const LINE_OVERRIDES_KEY = "epic-timeline:line-overrides";
-const VOLUME_OVERRIDES_KEY = "epic-timeline:volume-overrides";
-const OWNERSHIP_OVERRIDES_KEY = "epic-timeline:ownership-overrides";
-const READING_STATUS_OVERRIDES_KEY = "epic-timeline:reading-status-overrides";
-const SPECULATIVE_LINES_KEY = "epic-timeline:speculative-lines";
-const SPECULATIVE_VOLUMES_KEY = "epic-timeline:speculative-volumes";
+// Local aliases for readability in the maps below -- the strings
+// themselves live in lib/overrideKeys.ts, which is the one place any of
+// them is spelled out (see STORAGE_KEYS there).
+const LINE_OVERRIDES_KEY = STORAGE_KEYS.lineOverrides;
+const VOLUME_OVERRIDES_KEY = STORAGE_KEYS.volumeOverrides;
+const OWNERSHIP_OVERRIDES_KEY = STORAGE_KEYS.ownershipOverrides;
+const READING_STATUS_OVERRIDES_KEY = STORAGE_KEYS.readingStatusOverrides;
+const SPECULATIVE_LINES_KEY = STORAGE_KEYS.speculativeLines;
+const SPECULATIVE_VOLUMES_KEY = STORAGE_KEYS.speculativeVolumes;
 
 // No DELETED constant needed here: a "deleted" tombstone is a bare string,
 // so asRecord below rejects it and the lookup falls through to the seed

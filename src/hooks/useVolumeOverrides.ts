@@ -3,8 +3,9 @@ import type { TimelineEntry } from "../types";
 import { recompressStoredCovers } from "../lib/imageCompression";
 import { backfillFromSeed } from "../lib/seedBackfill";
 import { DELETED, useOverrideStore, type OverrideMap } from "./useOverrideStore";
+import { STORAGE_KEYS } from "../lib/overrideKeys";
 
-const STORAGE_KEY = "epic-timeline:volume-overrides";
+const STORAGE_KEY = STORAGE_KEYS.volumeOverrides;
 
 /**
  * Volumes and gaps added or deleted via the "Add Volume" form and the volume

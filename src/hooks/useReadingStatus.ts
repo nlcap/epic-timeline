@@ -2,8 +2,9 @@ import { useCallback } from "react";
 import type { ReadingStatus } from "../types";
 import { DEFAULT_READING_STATUS } from "../lib/readingStatus";
 import { useStatusOverrides } from "./useStatusOverrides";
+import { STORAGE_KEYS } from "../lib/overrideKeys";
 
-const STORAGE_KEY = "epic-timeline:reading-status-overrides";
+const STORAGE_KEY = STORAGE_KEYS.readingStatusOverrides;
 
 /**
  * Tracks per-volume reading status. Same override map as useOwnership, but

@@ -1,8 +1,9 @@
 import { useCallback } from "react";
 import type { Line } from "../types";
 import { DELETED, useOverrideStore } from "./useOverrideStore";
+import { STORAGE_KEYS } from "../lib/overrideKeys";
 
-const STORAGE_KEY = "epic-timeline:line-overrides";
+const STORAGE_KEY = STORAGE_KEYS.lineOverrides;
 
 /**
  * Lines added or edited via the sidebar's Add/Edit Line form, on top of the

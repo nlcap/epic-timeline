@@ -1,3 +1,31 @@
+/**
+ * Every localStorage key holding user data, written out exactly once.
+ *
+ * These strings are the app's persistence contract: whatever is already
+ * sitting in a returning visitor's browser is keyed by them, so renaming
+ * one silently orphans real records rather than failing loudly. They used
+ * to be spelled out in three separate places -- the arrays below, the six
+ * per-store consts in lib/collectionScope.ts, and a private STORAGE_KEY in
+ * each of the six hooks that owns a store -- which meant a rename had to
+ * land in all three with nothing to catch a miss. Everything now reads
+ * them from here.
+ *
+ * Two other keys deliberately aren't in this map: the active collection
+ * tab (App.tsx) and the last-seen changelog release (useWhatsNew). Both
+ * are single-use UI bookkeeping rather than user data, neither is
+ * duplicated anywhere, and neither belongs in an export -- keeping them
+ * out is what makes "everything in STORAGE_KEYS travels in the bundle"
+ * true by construction.
+ */
+export const STORAGE_KEYS = {
+  lineOverrides: "epic-timeline:line-overrides",
+  volumeOverrides: "epic-timeline:volume-overrides",
+  ownershipOverrides: "epic-timeline:ownership-overrides",
+  readingStatusOverrides: "epic-timeline:reading-status-overrides",
+  speculativeLines: "epic-timeline:speculative-lines",
+  speculativeVolumes: "epic-timeline:speculative-volumes",
+} as const;
+
 // The three "real correction" override stores -- line edits, volume
 // edits/resizes, and ownership status -- plus reading status, a per-volume
 // tracking value with the same override-map shape but no seed counterpart
@@ -7,10 +35,10 @@
 // anyway since export/import/reset all treat every key in this list the
 // same way regardless of what it means.
 export const OVERRIDE_KEYS = [
-  "epic-timeline:line-overrides",
-  "epic-timeline:volume-overrides",
-  "epic-timeline:ownership-overrides",
-  "epic-timeline:reading-status-overrides",
+  STORAGE_KEYS.lineOverrides,
+  STORAGE_KEYS.volumeOverrides,
+  STORAGE_KEYS.ownershipOverrides,
+  STORAGE_KEYS.readingStatusOverrides,
 ] as const;
 
 // Speculation Mode's sandbox layer -- lines/volumes that are an intentional
@@ -18,8 +46,8 @@ export const OVERRIDE_KEYS = [
 // shipped defaults, but still worth including in a user's own
 // export/import so a browser-to-browser backup doesn't lose them.
 export const SPECULATIVE_KEYS = [
-  "epic-timeline:speculative-lines",
-  "epic-timeline:speculative-volumes",
+  STORAGE_KEYS.speculativeLines,
+  STORAGE_KEYS.speculativeVolumes,
 ] as const;
 
 // Everything ExportDataButton/ImportDataButton read and write.
@@ -43,7 +71,7 @@ export const EXPORT_FORMAT_VERSION = 1;
 // inline base64 string. Both cases render as a broken image after import,
 // so icon fields are stripped on both the way out and the way back in --
 // see stripIconsFromPayload. Lines just fall back to their default icon.
-const LINE_KEYED_STORES = ["epic-timeline:line-overrides", "epic-timeline:speculative-lines"] as const;
+const LINE_KEYED_STORES = [STORAGE_KEYS.lineOverrides, STORAGE_KEYS.speculativeLines] as const;
 
 function stripLineIcons(value: unknown): unknown {
   if (typeof value !== "object" || value === null) return value;
