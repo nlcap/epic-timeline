@@ -8,6 +8,7 @@ import { ImageCropModal } from "./ImageCropModal";
 import { TagInput } from "./TagInput";
 import { useSlidePanel } from "../hooks/useSlidePanel";
 import { useEscapeToClose } from "../hooks/useEscapeToClose";
+import { useCommitShortcut } from "../hooks/useCommitShortcut";
 
 const HEX_PATTERN = /^#[0-9a-f]{6}$/i;
 const DEFAULT_HEX = "#FF00D9";
@@ -194,19 +195,9 @@ export function LineFormDrawer({
   // typed) instead of just cancelling the crop.
   useEscapeToClose(closeThen, onClose, !pendingCrop);
 
-  // Cmd/Ctrl+Enter submits from anywhere in the form, same as clicking the
-  // Add/Update button -- requestSubmit (not calling handleSubmit directly)
-  // so it goes through the browser's normal submit path.
-  useEffect(() => {
-    const onKeyDown = (e: KeyboardEvent) => {
-      if ((e.metaKey || e.ctrlKey) && e.key === "Enter") {
-        e.preventDefault();
-        formRef.current?.requestSubmit();
-      }
-    };
-    window.addEventListener("keydown", onKeyDown);
-    return () => window.removeEventListener("keydown", onKeyDown);
-  }, []);
+  // requestSubmit (not calling handleSubmit directly) so it goes through
+  // the browser's normal submit path.
+  useCommitShortcut(() => formRef.current?.requestSubmit());
 
   const handleFileChange = async (e: ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];

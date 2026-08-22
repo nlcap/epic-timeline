@@ -6,6 +6,7 @@ import { MONTH_NAMES, quarterIndex, quarterPointFromIndex, yearsCoveredLabel } f
 import { compressImageFile, getPastedImageFile } from "../lib/imageCompression";
 import { useSlidePanel } from "../hooks/useSlidePanel";
 import { useEscapeToClose } from "../hooks/useEscapeToClose";
+import { useCommitShortcut } from "../hooks/useCommitShortcut";
 
 const QUARTERS: Quarter[] = [1, 2, 3, 4];
 
@@ -222,20 +223,10 @@ export function VolumeFormDrawer({
 
   useEscapeToClose(closeThen, onClose);
 
-  // Cmd/Ctrl+Enter submits from anywhere in the form, same as clicking the
-  // Add/Update button -- requestSubmit (not calling handleSubmit directly)
-  // so it goes through the browser's normal submit path, including any
-  // native validation on the fields themselves.
-  useEffect(() => {
-    const onKeyDown = (e: KeyboardEvent) => {
-      if ((e.metaKey || e.ctrlKey) && e.key === "Enter") {
-        e.preventDefault();
-        formRef.current?.requestSubmit();
-      }
-    };
-    window.addEventListener("keydown", onKeyDown);
-    return () => window.removeEventListener("keydown", onKeyDown);
-  }, []);
+  // requestSubmit (not calling handleSubmit directly) so it goes through
+  // the browser's normal submit path, including any native validation on
+  // the fields themselves.
+  useCommitShortcut(() => formRef.current?.requestSubmit());
 
   // Focuses the title field when opening in edit mode, so Cmd+V works
   // immediately instead of needing a click into the drawer first.
