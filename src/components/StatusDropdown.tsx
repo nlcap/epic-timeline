@@ -83,6 +83,11 @@ function StatusDropdownInner<T extends string>(
   // reason a REOPENED list should remember where it was left last time.
   const [highlightedIndex, setHighlightedIndex] = useState(0);
   const buttonRef = useRef<HTMLButtonElement>(null);
+  // Wraps the trigger AND the option list, so the outside-pointerdown
+  // dismissal below can tell "clicked somewhere else" from "clicked my own
+  // trigger/an option" -- same shape as the settings menu's own guard (see
+  // SettingsMenu in TopNav.tsx).
+  const containerRef = useRef<HTMLDivElement>(null);
 
   // Shared by both the trigger button's own click (toggle, below) and the
   // imperative handle -- computes openAbove/highlightedIndex the same way
@@ -147,15 +152,38 @@ function StatusDropdownInner<T extends string>(
           onSelect(options[highlightedIndex].value);
           close();
           break;
+        // Dismisses just this list, leaving whatever it's layered over
+        // alone. The containing panel suppresses its OWN Escape handler
+        // while a picker is open (see VolumeDetailPanel's dropdownOpen) --
+        // both listeners sit on window, so neither can intercept the other
+        // by stopping propagation, and which one runs first depends on
+        // registration order. Without that pairing, one press closed the
+        // picker and the whole panel out from under it at once.
+        case "Escape":
+          e.preventDefault();
+          close();
+          break;
       }
     };
+    // Clicking anywhere outside closes without selecting -- every other
+    // dismissible popup in the app does this (the settings menu via the
+    // same pointerdown check, the tag autocomplete via onBlur), and
+    // without it this one just hung open until it was toggled or picked
+    // from.
+    const onPointerDown = (e: PointerEvent) => {
+      if (!containerRef.current?.contains(e.target as Node)) close();
+    };
     window.addEventListener("keydown", onKeyDown);
-    return () => window.removeEventListener("keydown", onKeyDown);
+    window.addEventListener("pointerdown", onPointerDown);
+    return () => {
+      window.removeEventListener("keydown", onKeyDown);
+      window.removeEventListener("pointerdown", onPointerDown);
+    };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [open, options, highlightedIndex, onSelect]);
 
   return (
-    <div className="relative">
+    <div className="relative" ref={containerRef}>
       <button
         ref={buttonRef}
         type="button"

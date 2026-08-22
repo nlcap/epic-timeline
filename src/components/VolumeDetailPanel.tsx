@@ -102,7 +102,14 @@ export function VolumeDetailPanel({
     scrollRef.current?.focus({ preventScroll: true });
   }, []);
 
-  useEscapeToClose(closeThen, onClose);
+  // Suppressed while a status picker has its own list open -- that list
+  // claims Escape first (see StatusDropdown), the same way ImageCropModal
+  // claims it ahead of the form drawers via this exact `enabled` argument.
+  // Both listeners are on window, so this flag is the only thing that can
+  // order them; without it a single press closed the picker AND this whole
+  // panel together. Second press, list now closed, closes the panel as
+  // usual.
+  useEscapeToClose(closeThen, onClose, !dropdownOpen);
 
   // "e" opens Edit Volume, same as clicking the button -- only wired up
   // when onEdit is actually provided (matching the button's own conditional
