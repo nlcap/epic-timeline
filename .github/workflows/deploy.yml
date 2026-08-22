@@ -27,12 +27,12 @@ jobs:
       # --follow` (see the collectionUpdatedAt plugin in vite.config.ts) to
       # show "Last updated" in the Reset line data modal, which needs the
       # real history to search.
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
         with:
           fetch-depth: 0
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v7
         with:
-          node-version: 20
+          node-version: 22
           cache: npm
       - run: npm ci
       # Gate the deploy on both -- a step that fails stops the job before
@@ -44,7 +44,7 @@ jobs:
       - run: npm run build
         env:
           GITHUB_PAGES: true
-      - uses: actions/upload-pages-artifact@v3
+      - uses: actions/upload-pages-artifact@v5
         with:
           path: dist
 
@@ -56,4 +56,4 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5
