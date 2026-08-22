@@ -123,6 +123,26 @@ export function TagInput({
       e.preventDefault();
       if (trimmed) addTag(trimmed);
     } else if (e.key === "Escape" && open) {
+      // Escape dismisses the suggestion list only -- WITHOUT this
+      // stopPropagation it also reached the whole drawer's own
+      // window-level Escape handler (see useEscapeToClose in
+      // LineFormDrawer), which closed the entire form and discarded
+      // everything typed into it, from a keypress that meant "hide this
+      // autocomplete".
+      //
+      // stopPropagation works here specifically because this is an
+      // element-level React handler: the native event is still mid-bubble
+      // at React's root container when this runs, so stopping it there
+      // keeps it from ever reaching window. That's NOT an option for two
+      // window-level listeners racing each other (see StatusDropdown's own
+      // note about the panel's arrow keys) -- those have to coordinate
+      // through an `enabled` flag instead, which is how the same Escape
+      // layering is handled for the status pickers and ImageCropModal.
+      //
+      // Falls through when the list is already closed (`open` false), so a
+      // second Escape still closes the drawer as usual -- one layer per
+      // press.
+      e.stopPropagation();
       setOpen(false);
     }
   };
