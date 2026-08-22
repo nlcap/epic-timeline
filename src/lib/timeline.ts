@@ -1,7 +1,7 @@
 import type { MonthPoint, Quarter, QuarterPoint, TimelineEntry, Volume } from "../types";
 
-export const MIN_SWIM_LANES = 1;
-export const MAX_SWIM_LANES = 5;
+const MIN_SWIM_LANES = 1;
+const MAX_SWIM_LANES = 5;
 
 export const SIDEBAR_MIN_WIDTH = 180;
 export const SIDEBAR_MAX_WIDTH = 320;
@@ -61,7 +61,7 @@ export const STEPPER_BUTTON_SIZE_PX = 22;
 // Two STEPPER_BUTTON_SIZE_PX buttons, stacked with zero gap either
 // direction -- vertical stack at zoom 1-2 keeps the single-button width;
 // horizontal at zoom 3 doubles it instead.
-export function panelFootprintPx(zoomLevel: ZoomLevel): number {
+function panelFootprintPx(zoomLevel: ZoomLevel): number {
   return zoomLevel === 3 ? STEPPER_BUTTON_SIZE_PX * 2 : STEPPER_BUTTON_SIZE_PX;
 }
 // How much wider LineRow should render the sidebar pill than its own label/
@@ -83,7 +83,7 @@ export function stepperReservePx(zoomLevel: ZoomLevel): number {
 // is giving direction one level at a time -- only level 1 has a value so
 // far; 2 and 3 stay at 0 (i.e. unchanged, full-quarter clearance) until he
 // specifies theirs.
-export const STEPPER_ICON_OVERLAP_PX_BY_ZOOM: Record<ZoomLevel, number> = { 1: 12, 2: 0, 3: 0 };
+const STEPPER_ICON_OVERLAP_PX_BY_ZOOM: Record<ZoomLevel, number> = { 1: 12, 2: 0, 3: 0 };
 // The hover "add volume" circle shown over an empty quarter segment (see
 // AddVolumeCell.tsx) -- shrinks with the row so it never overflows the
 // shorter tile area at zoomed-out levels.
@@ -139,7 +139,7 @@ export const ADD_CELL_SCROLL_BUCKET_PX = 150;
 // blocked zone extends at least a full bucket-width past the approximated
 // edge, which by construction always reaches (and clears, with margin) the
 // true edge regardless of which direction the approximation drifted.
-export const ADD_CELL_LEADING_BLOCKED_PX = ADD_CELL_SCROLL_BUCKET_PX;
+const ADD_CELL_LEADING_BLOCKED_PX = ADD_CELL_SCROLL_BUCKET_PX;
 // Quarters-to-block scales inversely with pxPerQuarter so the px guarantee
 // above holds at every zoom level, not just the one it was tuned against.
 export function addCellLeadingBlockedQuarters(pxPerQuarter: number): number {

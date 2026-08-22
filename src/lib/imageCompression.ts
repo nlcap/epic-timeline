@@ -39,7 +39,7 @@ function loadImage(dataUrl: string): Promise<HTMLImageElement> {
  * on any failure (unsupported format, canvas errors) rather than blocking
  * the save -- a large-but-working cover beats none at all.
  */
-export async function compressDataUrl(dataUrl: string): Promise<string> {
+async function compressDataUrl(dataUrl: string): Promise<string> {
   try {
     const img = await loadImage(dataUrl);
     const scale = Math.min(1, MAX_DIMENSION / Math.max(img.width, img.height));

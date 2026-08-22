@@ -24,7 +24,7 @@ export const ERA_ORDER: Era[] = ["golden", "silver", "bronze", "post-crisis"];
  * on Infinite Earths / Man of Steel). First and last eras are open-ended.
  */
 const eraBoundaryQuarter = (point: QuarterPoint) => quarterIndex(point);
-export const ERA_QUARTER_RANGE: Record<Era, { start: number; end: number }> = {
+const ERA_QUARTER_RANGE: Record<Era, { start: number; end: number }> = {
   golden: { start: -Infinity, end: eraBoundaryQuarter({ year: 1952, quarter: 4 }) },
   silver: {
     start: eraBoundaryQuarter({ year: 1953, quarter: 1 }),
