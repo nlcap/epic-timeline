@@ -1,3 +1,4 @@
+import { PlusIcon } from "./icons";
 // Shared with useAddVolumeCellHover, which delegates pointerover/pointerout
 // off the row container instead of relying on per-cell CSS `:hover` -- see
 // that hook for why. ATTR marks a cell as a delegation target; HOVER_CLASS
@@ -35,17 +36,7 @@ export function AddVolumeCell({
         className="add-volume-cell-icon flex items-center justify-center rounded-full border border-neutral-500 bg-neutral-900/80 text-neutral-200 transition-opacity duration-100 ease-out"
         style={{ height: iconSize, width: iconSize }}
       >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth={2}
-          strokeLinecap="round"
-          className="h-1/2 w-1/2"
-        >
-          <path d="M12 5v14M5 12h14" />
-        </svg>
+        <PlusIcon className="h-1/2 w-1/2" strokeWidth={2} />
       </span>
     </button>
   );

@@ -1,5 +1,6 @@
 import { useRef } from "react";
 import { useSidebarPillMetrics } from "../hooks/useSidebarPillMetrics";
+import { PlusIcon } from "./icons";
 
 /**
  * Fixed to the viewport's bottom-left corner (see the wrapping div in
@@ -63,17 +64,7 @@ export function AddLineButton({
         className="flex shrink-0 items-center justify-center rounded-full border-2 border-current"
         style={{ height: iconSize, width: iconSize }}
       >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth={1.75}
-          strokeLinecap="round"
-          className="h-4 w-4"
-        >
-          <path d="M12 5v14M5 12h14" />
-        </svg>
+        <PlusIcon className="h-4 w-4" />
       </span>
       <span
         className="whitespace-nowrap text-sm font-semibold transition-opacity duration-150 ease-out"

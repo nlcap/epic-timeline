@@ -64,6 +64,7 @@ import {
   yearsCoveredLabel,
   type ZoomLevel,
 } from "./lib/timeline";
+import { PlusIcon } from "./components/icons";
 
 // Stable fallback for lines with no entries -- `entriesByLine.get(id) ?? []`
 // would otherwise create a brand-new array every render for any such line,
@@ -968,17 +969,7 @@ export default function App() {
               onClick={() => setAddLineOpen(true)}
               className="mx-auto mt-4 flex items-center gap-2 rounded-md border border-dashed border-neutral-700 px-4 py-2 text-sm font-medium text-neutral-300 hover:border-neutral-500 hover:text-white"
             >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth={1.75}
-                strokeLinecap="round"
-                className="h-4 w-4"
-              >
-                <path d="M12 5v14M5 12h14" />
-              </svg>
+              <PlusIcon className="h-4 w-4" />
               {speculationMode ? "Add Speculative Line" : "Add Line"}
             </button>
           </div>

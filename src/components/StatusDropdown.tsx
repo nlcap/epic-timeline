@@ -7,6 +7,7 @@ import {
   type ReactNode,
   type Ref,
 } from "react";
+import { ChevronDownIcon } from "./icons";
 
 // One option row is py-1.5 padding (12px) + text-sm line height (20px) =
 // 32px, plus the list's own py-1 (8px) container padding -- used to guess
@@ -192,18 +193,7 @@ function StatusDropdownInner<T extends string>(
       >
         {icon}
         {label}
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth={1.75}
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          className="h-3 w-3 text-neutral-500"
-        >
-          <path d="M6 9l6 6 6-6" />
-        </svg>
+        <ChevronDownIcon className="h-3 w-3 text-neutral-500" />
       </button>
 
       {open && (

@@ -10,6 +10,8 @@ import { useSlidePanel } from "../hooks/useSlidePanel";
 import { useEscapeToClose } from "../hooks/useEscapeToClose";
 import { useCommitShortcut } from "../hooks/useCommitShortcut";
 import { useArmedConfirm } from "../hooks/useArmedConfirm";
+import { ChevronDownIcon, PlusIcon, TrashIcon } from "./icons";
+import { FIELD, FIELD_DISABLED, FIELD_PLACEHOLDER, SELECT } from "./formStyles";
 
 const HEX_PATTERN = /^#[0-9a-f]{6}$/i;
 const DEFAULT_HEX = "#FF00D9";
@@ -71,22 +73,7 @@ function IconResetOverlay({ onReset }: { onReset: () => void }) {
           <path d="M20 6 9 17l-5-5" />
         </svg>
       ) : (
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth={1.75}
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          className="h-5 w-5"
-        >
-          <path d="M3 6h18" />
-          <path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" />
-          <path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6" />
-          <path d="M10 11v6" />
-          <path d="M14 11v6" />
-        </svg>
+        <TrashIcon className="h-5 w-5" />
       )}
     </button>
   );
@@ -432,7 +419,7 @@ export function LineFormDrawer({
             // Speculation Mode) it's disabled and unfocusable -- which
             // matches handlePaste refusing to paste in that mode anyway.
             autoFocus={!isEditing}
-            className="mt-1 w-full rounded-md border border-neutral-700 bg-neutral-900 px-3 py-2 text-sm text-white placeholder:text-neutral-600 focus:border-neutral-500 focus:outline-none disabled:opacity-40"
+            className={`mt-1 w-full ${FIELD} ${FIELD_PLACEHOLDER} ${FIELD_DISABLED}`}
           />
         </label>
 
@@ -448,7 +435,7 @@ export function LineFormDrawer({
                 value={month}
                 onChange={(e) => setMonth(e.target.value)}
                 disabled={fieldsLocked}
-                className="w-full appearance-none rounded-md border border-neutral-700 bg-neutral-900 px-3 py-2 pr-8 text-sm text-white focus:border-neutral-500 focus:outline-none disabled:opacity-40"
+                className={`w-full ${FIELD} ${SELECT} ${FIELD_DISABLED}`}
               >
                 {MONTH_NAMES.map((m, i) => (
                   <option key={m} value={i + 1}>
@@ -456,18 +443,7 @@ export function LineFormDrawer({
                   </option>
                 ))}
               </select>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth={1.75}
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                className="pointer-events-none absolute right-2.5 top-1/2 h-4 w-4 -translate-y-1/2 text-neutral-500"
-              >
-                <path d="M6 9l6 6 6-6" />
-              </svg>
+              <ChevronDownIcon className="pointer-events-none absolute right-2.5 top-1/2 h-4 w-4 -translate-y-1/2 text-neutral-500" />
             </div>
           </label>
           <label className="block w-28 text-sm font-medium text-neutral-300">
@@ -478,7 +454,7 @@ export function LineFormDrawer({
               onChange={(e) => setYear(e.target.value)}
               placeholder="1941"
               disabled={fieldsLocked}
-              className="mt-1 w-full rounded-md border border-neutral-700 bg-neutral-900 px-3 py-2 text-sm text-white placeholder:text-neutral-600 focus:border-neutral-500 focus:outline-none disabled:opacity-40"
+              className={`mt-1 w-full ${FIELD} ${FIELD_PLACEHOLDER} ${FIELD_DISABLED}`}
             />
           </label>
         </div>
@@ -495,7 +471,7 @@ export function LineFormDrawer({
                 value={swimLanes}
                 onChange={(e) => setSwimLanes(Number(e.target.value))}
                 disabled={fieldsLocked}
-                className="w-full appearance-none rounded-md border border-neutral-700 bg-neutral-900 px-3 py-2 pr-8 text-sm text-white focus:border-neutral-500 focus:outline-none disabled:opacity-40"
+                className={`w-full ${FIELD} ${SELECT} ${FIELD_DISABLED}`}
               >
                 {[1, 2, 3, 4, 5].map((n) => (
                   <option key={n} value={n}>
@@ -503,18 +479,7 @@ export function LineFormDrawer({
                   </option>
                 ))}
               </select>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth={1.75}
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                className="pointer-events-none absolute right-2.5 top-1/2 h-4 w-4 -translate-y-1/2 text-neutral-500"
-              >
-                <path d="M6 9l6 6 6-6" />
-              </svg>
+              <ChevronDownIcon className="pointer-events-none absolute right-2.5 top-1/2 h-4 w-4 -translate-y-1/2 text-neutral-500" />
             </div>
           </label>
         )}
@@ -533,7 +498,7 @@ export function LineFormDrawer({
               onChange={(e) => setDescription(e.target.value)}
               placeholder="e.g. 4000-1000 years before Yavin"
               disabled={fieldsLocked}
-              className="mt-1 w-full rounded-md border border-neutral-700 bg-neutral-900 px-3 py-2 text-sm text-white placeholder:text-neutral-600 focus:border-neutral-500 focus:outline-none disabled:opacity-40"
+              className={`mt-1 w-full ${FIELD} ${FIELD_PLACEHOLDER} ${FIELD_DISABLED}`}
             />
           </label>
         )}
@@ -554,7 +519,7 @@ export function LineFormDrawer({
               onChange={(e) => setHex(e.target.value)}
               placeholder="#8B1E2F"
               disabled={fieldsLocked}
-              className="w-full rounded-md border border-neutral-700 bg-neutral-900 px-3 py-2 text-sm text-white placeholder:text-neutral-600 focus:border-neutral-500 focus:outline-none disabled:opacity-40"
+              className={`w-full ${FIELD} ${FIELD_PLACEHOLDER} ${FIELD_DISABLED}`}
             />
           </div>
         </label>
@@ -612,17 +577,7 @@ export function LineFormDrawer({
                   onClick={() => closeThen(onAddVolume)}
                   className="mt-3 flex w-full items-center justify-center gap-2 rounded-md border border-dashed border-neutral-700 px-4 py-2 text-sm font-medium text-neutral-300 hover:border-neutral-500 hover:text-white"
                 >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth={1.75}
-                    strokeLinecap="round"
-                    className="h-4 w-4"
-                  >
-                    <path d="M12 5v14M5 12h14" />
-                  </svg>
+                  <PlusIcon className="h-4 w-4" />
                   Add Volume
                 </button>
               )}

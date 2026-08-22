@@ -8,6 +8,8 @@ import { useSlidePanel } from "../hooks/useSlidePanel";
 import { useEscapeToClose } from "../hooks/useEscapeToClose";
 import { useCommitShortcut } from "../hooks/useCommitShortcut";
 import { useArmedConfirm } from "../hooks/useArmedConfirm";
+import { ChevronDownIcon, TrashIcon } from "./icons";
+import { FIELD, FIELD_DISABLED, FIELD_PLACEHOLDER, SELECT } from "./formStyles";
 
 const QUARTERS: Quarter[] = [1, 2, 3, 4];
 
@@ -58,22 +60,7 @@ function ImageResetOverlay({ onReset }: { onReset: () => void }) {
       aria-label="Reset cover image"
       className="absolute inset-0 flex items-center justify-center bg-black/60 text-white opacity-0 transition-opacity focus-visible:opacity-100 group-hover:opacity-100"
     >
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth={1.75}
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        className="h-6 w-6"
-      >
-        <path d="M3 6h18" />
-        <path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" />
-        <path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6" />
-        <path d="M10 11v6" />
-        <path d="M14 11v6" />
-      </svg>
+      <TrashIcon className="h-6 w-6" />
     </button>
   );
 }
@@ -479,7 +466,7 @@ export function VolumeFormDrawer({
                 // field via titleRef's effect above (caret only, nothing
                 // selected) so the drawer is paste-ready on open.
                 autoFocus={!isEditing}
-                className="mt-1 w-full rounded-md border border-neutral-700 bg-neutral-900 px-3 py-2 text-sm text-white placeholder:text-neutral-600 focus:border-neutral-500 focus:outline-none"
+                className={`mt-1 w-full ${FIELD} ${FIELD_PLACEHOLDER}`}
               />
             </label>
 
@@ -490,7 +477,7 @@ export function VolumeFormDrawer({
                   <select
                     value={era}
                     onChange={(e) => setEra(e.target.value as Era)}
-                    className="mt-1 w-full rounded-md border border-neutral-700 bg-neutral-900 px-3 py-2 text-sm text-white focus:border-neutral-500 focus:outline-none"
+                    className={`mt-1 w-full ${FIELD}`}
                   >
                     {ERA_ORDER.map((e) => (
                       <option key={e} value={e}>
@@ -506,7 +493,7 @@ export function VolumeFormDrawer({
                     value={number}
                     onChange={(e) => setNumber(e.target.value)}
                     placeholder="1 or a"
-                    className="mt-1 w-full rounded-md border border-neutral-700 bg-neutral-900 px-3 py-2 text-sm text-white placeholder:text-neutral-600 focus:border-neutral-500 focus:outline-none"
+                    className={`mt-1 w-full ${FIELD} ${FIELD_PLACEHOLDER}`}
                   />
                 </label>
               </div>
@@ -518,7 +505,7 @@ export function VolumeFormDrawer({
                   value={number}
                   onChange={(e) => setNumber(e.target.value)}
                   placeholder="1"
-                  className="mt-1 w-full rounded-md border border-neutral-700 bg-neutral-900 px-3 py-2 text-sm text-white placeholder:text-neutral-600 focus:border-neutral-500 focus:outline-none"
+                  className={`mt-1 w-full ${FIELD} ${FIELD_PLACEHOLDER}`}
                 />
               </label>
             )}
@@ -530,7 +517,7 @@ export function VolumeFormDrawer({
                 onChange={(e) => setIssuesCollected(e.target.value)}
                 placeholder="e.g. Fantastic Four #1-18"
                 rows={3}
-                className="mt-1 w-full rounded-md border border-neutral-700 bg-neutral-900 px-3 py-2 text-sm text-white placeholder:text-neutral-600 focus:border-neutral-500 focus:outline-none"
+                className={`mt-1 w-full ${FIELD} ${FIELD_PLACEHOLDER}`}
               />
             </label>
           </>
@@ -544,12 +531,12 @@ export function VolumeFormDrawer({
               value={startYear}
               onChange={(e) => setStartYear(e.target.value)}
               placeholder="Year"
-              className="w-full rounded-md border border-neutral-700 bg-neutral-900 px-3 py-2 text-sm text-white placeholder:text-neutral-600 focus:border-neutral-500 focus:outline-none"
+              className={`w-full ${FIELD} ${FIELD_PLACEHOLDER}`}
             />
             <select
               value={startQuarter}
               onChange={(e) => setStartQuarter(Number(e.target.value) as Quarter)}
-              className="w-24 rounded-md border border-neutral-700 bg-neutral-900 px-3 py-2 text-sm text-white focus:border-neutral-500 focus:outline-none"
+              className={`w-24 ${FIELD}`}
             >
               {QUARTERS.map((q) => (
                 <option key={q} value={q}>
@@ -568,12 +555,12 @@ export function VolumeFormDrawer({
               value={endYear}
               onChange={(e) => setEndYear(e.target.value)}
               placeholder="Year"
-              className="w-full rounded-md border border-neutral-700 bg-neutral-900 px-3 py-2 text-sm text-white placeholder:text-neutral-600 focus:border-neutral-500 focus:outline-none"
+              className={`w-full ${FIELD} ${FIELD_PLACEHOLDER}`}
             />
             <select
               value={endQuarter}
               onChange={(e) => setEndQuarter(Number(e.target.value) as Quarter)}
-              className="w-24 rounded-md border border-neutral-700 bg-neutral-900 px-3 py-2 text-sm text-white focus:border-neutral-500 focus:outline-none"
+              className={`w-24 ${FIELD}`}
             >
               {QUARTERS.map((q) => (
                 <option key={q} value={q}>
@@ -598,7 +585,7 @@ export function VolumeFormDrawer({
                   <select
                     value={ownershipStatus}
                     onChange={(e) => setOwnershipStatus(e.target.value as OwnershipStatus)}
-                    className="w-full appearance-none rounded-md border border-neutral-700 bg-neutral-900 px-3 py-2 pr-8 text-sm text-white focus:border-neutral-500 focus:outline-none"
+                    className={`w-full ${FIELD} ${SELECT}`}
                   >
                     {OWNERSHIP_ORDER.map((s) => (
                       <option key={s} value={s}>
@@ -606,18 +593,7 @@ export function VolumeFormDrawer({
                       </option>
                     ))}
                   </select>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth={1.75}
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    className="pointer-events-none absolute right-2.5 top-1/2 h-4 w-4 -translate-y-1/2 text-neutral-500"
-                  >
-                    <path d="M6 9l6 6 6-6" />
-                  </svg>
+                  <ChevronDownIcon className="pointer-events-none absolute right-2.5 top-1/2 h-4 w-4 -translate-y-1/2 text-neutral-500" />
                 </div>
               </label>
             )}
@@ -636,7 +612,7 @@ export function VolumeFormDrawer({
                       setSwimLanePosition(e.target.value === "" ? undefined : Number(e.target.value))
                     }
                     disabled={lineSwimLanes <= 1}
-                    className="w-full appearance-none rounded-md border border-neutral-700 bg-neutral-900 px-3 py-2 pr-8 text-sm text-white focus:border-neutral-500 focus:outline-none disabled:opacity-40"
+                    className={`w-full ${FIELD} ${SELECT} ${FIELD_DISABLED}`}
                   >
                     <option value="">Auto</option>
                     {Array.from({ length: lineSwimLanes }, (_, i) => i + 1).map((n) => (
@@ -645,18 +621,7 @@ export function VolumeFormDrawer({
                       </option>
                     ))}
                   </select>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth={1.75}
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    className="pointer-events-none absolute right-2.5 top-1/2 h-4 w-4 -translate-y-1/2 text-neutral-500"
-                  >
-                    <path d="M6 9l6 6 6-6" />
-                  </svg>
+                  <ChevronDownIcon className="pointer-events-none absolute right-2.5 top-1/2 h-4 w-4 -translate-y-1/2 text-neutral-500" />
                 </div>
               </label>
             )}
@@ -677,7 +642,7 @@ export function VolumeFormDrawer({
                   <select
                     value={releaseMonth}
                     onChange={(e) => setReleaseMonth(e.target.value)}
-                    className="w-full appearance-none rounded-md border border-neutral-700 bg-neutral-900 px-3 py-2 pr-8 text-sm text-white focus:border-neutral-500 focus:outline-none"
+                    className={`w-full ${FIELD} ${SELECT}`}
                   >
                     {MONTH_NAMES.map((m, i) => (
                       <option key={m} value={i + 1}>
@@ -685,25 +650,14 @@ export function VolumeFormDrawer({
                       </option>
                     ))}
                   </select>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth={1.75}
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    className="pointer-events-none absolute right-2.5 top-1/2 h-4 w-4 -translate-y-1/2 text-neutral-500"
-                  >
-                    <path d="M6 9l6 6 6-6" />
-                  </svg>
+                  <ChevronDownIcon className="pointer-events-none absolute right-2.5 top-1/2 h-4 w-4 -translate-y-1/2 text-neutral-500" />
                 </div>
                 <input
                   type="number"
                   value={releaseYear}
                   onChange={(e) => setReleaseYear(e.target.value)}
                   placeholder="Year"
-                  className="w-24 rounded-md border border-neutral-700 bg-neutral-900 px-3 py-2 text-sm text-white placeholder:text-neutral-600 focus:border-neutral-500 focus:outline-none"
+                  className={`w-24 ${FIELD} ${FIELD_PLACEHOLDER}`}
                 />
               </div>
             </fieldset>
@@ -715,7 +669,7 @@ export function VolumeFormDrawer({
                 value={writers}
                 onChange={(e) => setWriters(e.target.value)}
                 placeholder="e.g. Stan Lee"
-                className="mt-1 w-full rounded-md border border-neutral-700 bg-neutral-900 px-3 py-2 text-sm text-white placeholder:text-neutral-600 focus:border-neutral-500 focus:outline-none"
+                className={`mt-1 w-full ${FIELD} ${FIELD_PLACEHOLDER}`}
               />
             </label>
 
@@ -726,7 +680,7 @@ export function VolumeFormDrawer({
                 value={pencillers}
                 onChange={(e) => setPencillers(e.target.value)}
                 placeholder="e.g. Jack Kirby"
-                className="mt-1 w-full rounded-md border border-neutral-700 bg-neutral-900 px-3 py-2 text-sm text-white placeholder:text-neutral-600 focus:border-neutral-500 focus:outline-none"
+                className={`mt-1 w-full ${FIELD} ${FIELD_PLACEHOLDER}`}
               />
             </label>
 
@@ -737,7 +691,7 @@ export function VolumeFormDrawer({
                 value={inkers}
                 onChange={(e) => setInkers(e.target.value)}
                 placeholder="e.g. Joe Sinnott"
-                className="mt-1 w-full rounded-md border border-neutral-700 bg-neutral-900 px-3 py-2 text-sm text-white placeholder:text-neutral-600 focus:border-neutral-500 focus:outline-none"
+                className={`mt-1 w-full ${FIELD} ${FIELD_PLACEHOLDER}`}
               />
             </label>
           </>
@@ -754,7 +708,7 @@ export function VolumeFormDrawer({
               value={description}
               onChange={(e) => setDescription(e.target.value)}
               rows={4}
-              className="mt-1 w-full rounded-md border border-neutral-700 bg-neutral-900 px-3 py-2 text-sm text-white placeholder:text-neutral-600 focus:border-neutral-500 focus:outline-none"
+              className={`mt-1 w-full ${FIELD} ${FIELD_PLACEHOLDER}`}
             />
           </label>
         )}
