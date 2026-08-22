@@ -9,6 +9,7 @@ import { TagInput } from "./TagInput";
 import { useSlidePanel } from "../hooks/useSlidePanel";
 import { useEscapeToClose } from "../hooks/useEscapeToClose";
 import { useCommitShortcut } from "../hooks/useCommitShortcut";
+import { useArmedConfirm } from "../hooks/useArmedConfirm";
 
 const HEX_PATTERN = /^#[0-9a-f]{6}$/i;
 const DEFAULT_HEX = "#FF00D9";
@@ -34,24 +35,15 @@ function slugify(name: string): string {
  * clicking it doesn't also open the file picker.
  */
 function IconResetOverlay({ onReset }: { onReset: () => void }) {
-  const [confirming, setConfirming] = useState(false);
-  const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
-
-  useEffect(() => {
-    return () => {
-      if (timeoutRef.current) clearTimeout(timeoutRef.current);
-    };
-  }, []);
+  const { confirming, arm, disarm } = useArmedConfirm(3000);
 
   const handleClick = () => {
     if (confirming) {
-      if (timeoutRef.current) clearTimeout(timeoutRef.current);
-      setConfirming(false);
+      disarm();
       onReset();
       return;
     }
-    setConfirming(true);
-    timeoutRef.current = setTimeout(() => setConfirming(false), 3000);
+    arm();
   };
 
   return (

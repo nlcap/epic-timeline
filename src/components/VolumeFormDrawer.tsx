@@ -7,6 +7,7 @@ import { compressImageFile, getPastedImageFile } from "../lib/imageCompression";
 import { useSlidePanel } from "../hooks/useSlidePanel";
 import { useEscapeToClose } from "../hooks/useEscapeToClose";
 import { useCommitShortcut } from "../hooks/useCommitShortcut";
+import { useArmedConfirm } from "../hooks/useArmedConfirm";
 
 const QUARTERS: Quarter[] = [1, 2, 3, 4];
 
@@ -24,24 +25,7 @@ function formatQuarterPoint(p: QuarterPoint): string {
  * doesn't also open the file picker.
  */
 function ImageResetOverlay({ onReset }: { onReset: () => void }) {
-  const [confirming, setConfirming] = useState(false);
-  const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
-
-  useEffect(() => {
-    return () => {
-      if (timeoutRef.current) clearTimeout(timeoutRef.current);
-    };
-  }, []);
-
-  const arm = () => {
-    setConfirming(true);
-    timeoutRef.current = setTimeout(() => setConfirming(false), 4000);
-  };
-
-  const cancel = () => {
-    if (timeoutRef.current) clearTimeout(timeoutRef.current);
-    setConfirming(false);
-  };
+  const { confirming, arm, disarm } = useArmedConfirm(4000);
 
   if (confirming) {
     return (
@@ -50,7 +34,7 @@ function ImageResetOverlay({ onReset }: { onReset: () => void }) {
         <div className="flex gap-2">
           <button
             type="button"
-            onClick={cancel}
+            onClick={disarm}
             className="rounded border border-neutral-600 px-2.5 py-1 text-xs text-neutral-200 hover:text-white"
           >
             Cancel
