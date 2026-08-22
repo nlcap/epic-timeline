@@ -44,26 +44,36 @@ export function KeyboardShortcutsModal({ open, onClose }: { open: boolean; onClo
     <SettingsModal
       title="Keyboard shortcuts"
       onClose={onClose}
-      maxWidthClassName="max-w-sm"
+      // Widened from the old single-column max-w-sm to fit two columns
+      // side by side -- see the grid below. sm:grid-cols-2 (not md:)
+      // matches DataSelectionPicker's own responsive grid, the one other
+      // place in the app doing this same "columns down to a breakpoint"
+      // layout, so the two don't collapse at different points for no
+      // reason.
+      maxWidthClassName="max-w-2xl"
       scrollable={false}
     >
-      <div className="mt-4">
-        <h3 className="text-xs font-semibold uppercase tracking-wide text-neutral-500">
-          Anywhere
-        </h3>
-        <div className="mt-1 divide-y divide-neutral-800">
-          {GLOBAL_SHORTCUTS.map((s) => (
-            <ShortcutRow key={s.label} {...s} />
-          ))}
+      <div className="mt-4 grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
+        <div>
+          <h3 className="text-xs font-semibold uppercase tracking-wide text-neutral-500">
+            Anywhere
+          </h3>
+          <div className="mt-1 divide-y divide-neutral-800">
+            {GLOBAL_SHORTCUTS.map((s) => (
+              <ShortcutRow key={s.label} {...s} />
+            ))}
+          </div>
         </div>
 
-        <h3 className="mt-4 text-xs font-semibold uppercase tracking-wide text-neutral-500">
-          With a panel open
-        </h3>
-        <div className="mt-1 divide-y divide-neutral-800">
-          {PANEL_SHORTCUTS.map((s) => (
-            <ShortcutRow key={s.label} {...s} />
-          ))}
+        <div>
+          <h3 className="text-xs font-semibold uppercase tracking-wide text-neutral-500">
+            With a panel open
+          </h3>
+          <div className="mt-1 divide-y divide-neutral-800">
+            {PANEL_SHORTCUTS.map((s) => (
+              <ShortcutRow key={s.label} {...s} />
+            ))}
+          </div>
         </div>
       </div>
     </SettingsModal>
