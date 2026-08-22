@@ -440,3 +440,46 @@ export function isFutureMonth(point: MonthPoint, now: Date = new Date()): boolea
 export function yearsCoveredLabel(startYear: number, endYear: number): string {
   return startYear === endYear ? String(startYear) : `${startYear}-${endYear}`;
 }
+
+/**
+ * The volume whose start quarter sits closest to `reference` -- what the
+ * volume detail panel's Up/Down step lands on when moving to the line
+ * above/below (see handlePanelVerticalStep in App.tsx). Ties go to the
+ * earlier volume, since the scan keeps the first strict minimum.
+ *
+ * Returns null for an empty list: the panel treats "the adjacent line has
+ * no volumes" as nothing to step to rather than skipping onward to the
+ * next line that does, so the shortcut always reflects the line physically
+ * above/below.
+ */
+export function nearestVolumeByStart<T extends { start: QuarterPoint }>(
+  volumes: readonly T[],
+  reference: QuarterPoint
+): T | null {
+  let nearest: T | null = null;
+  let nearestDistance = Infinity;
+  for (const volume of volumes) {
+    const distance = Math.abs(quartersBetween(reference, volume.start));
+    if (distance < nearestDistance) {
+      nearest = volume;
+      nearestDistance = distance;
+    }
+  }
+  return nearest;
+}
+
+/**
+ * Where row `index` starts, relative to the top of the rows container --
+ * the sum of every row above it. Rows aren't uniform (a Licensed line with
+ * multiple swim lanes is taller, see lineHeight), so this can't be
+ * index * rowHeight.
+ *
+ * The same cumulative walk useVisibleRowRange does for the reverse
+ * question (screen position -> which rows are visible), pulled out so the
+ * panel's Up/Down scroll and that hook agree on what a row's offset means.
+ */
+export function rowTopOffset(rowHeights: readonly number[], index: number): number {
+  let top = 0;
+  for (let i = 0; i < index && i < rowHeights.length; i++) top += rowHeights[i];
+  return top;
+}

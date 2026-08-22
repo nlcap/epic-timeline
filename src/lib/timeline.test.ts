@@ -12,6 +12,8 @@ import {
   resizeSpan,
   spanToPx,
   yearsCoveredLabel,
+  nearestVolumeByStart,
+  rowTopOffset,
 } from "./timeline";
 
 function volume(id: string, start: [number, number], end: [number, number], swimLanePosition?: number): Volume {
@@ -239,5 +241,49 @@ describe("yearsCoveredLabel", () => {
 
   it("returns a range when they differ", () => {
     expect(yearsCoveredLabel(1962, 1963)).toBe("1962-1963");
+  });
+});
+
+describe("nearestVolumeByStart", () => {
+  const at = (year: number, quarter: 1 | 2 | 3 | 4) => ({ start: { year, quarter } });
+
+  it("picks the volume whose start is closest, in either direction", () => {
+    const volumes = [at(1960, 1), at(1970, 1), at(1980, 1)];
+    expect(nearestVolumeByStart(volumes, { year: 1969, quarter: 1 })).toBe(volumes[1]);
+    expect(nearestVolumeByStart(volumes, { year: 1971, quarter: 1 })).toBe(volumes[1]);
+    expect(nearestVolumeByStart(volumes, { year: 1900, quarter: 1 })).toBe(volumes[0]);
+    expect(nearestVolumeByStart(volumes, { year: 2000, quarter: 1 })).toBe(volumes[2]);
+  });
+
+  it("breaks an exact tie toward the earlier volume", () => {
+    // 1965 sits exactly between them; the first strict minimum wins.
+    const volumes = [at(1960, 1), at(1970, 1)];
+    expect(nearestVolumeByStart(volumes, { year: 1965, quarter: 1 })).toBe(volumes[0]);
+  });
+
+  it("returns null when the adjacent line has no volumes", () => {
+    expect(nearestVolumeByStart([], { year: 1970, quarter: 1 })).toBeNull();
+  });
+
+  it("matches exactly when a volume shares the reference quarter", () => {
+    const volumes = [at(1960, 1), at(1970, 2), at(1980, 1)];
+    expect(nearestVolumeByStart(volumes, { year: 1970, quarter: 2 })).toBe(volumes[1]);
+  });
+});
+
+describe("rowTopOffset", () => {
+  it("sums every row above the index, not index * height", () => {
+    // Uneven heights are the point -- a multi-swim-lane row is taller.
+    const heights = [64, 128, 64, 192];
+    expect(rowTopOffset(heights, 0)).toBe(0);
+    expect(rowTopOffset(heights, 1)).toBe(64);
+    expect(rowTopOffset(heights, 2)).toBe(192);
+    expect(rowTopOffset(heights, 3)).toBe(256);
+  });
+
+  it("stops at the end of the list rather than reading past it", () => {
+    const heights = [10, 20];
+    expect(rowTopOffset(heights, 99)).toBe(30);
+    expect(rowTopOffset([], 3)).toBe(0);
   });
 });

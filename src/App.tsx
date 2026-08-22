@@ -58,13 +58,15 @@ import {
   SIDEBAR_ICON_SIZE_BY_ZOOM,
   SIDEBAR_PILL_HEIGHT_BY_ZOOM,
   monthIndex,
-  quartersBetween,
+  nearestVolumeByStart,
+  rowTopOffset,
   stepperReservePx,
   stepperVolumeTargets,
   yearsCoveredLabel,
   type ZoomLevel,
 } from "./lib/timeline";
 import { PlusIcon } from "./components/icons";
+import { useStepperAutoPreview } from "./hooks/useStepperAutoPreview";
 
 // Stable fallback for lines with no entries -- `entriesByLine.get(id) ?? []`
 // would otherwise create a brand-new array every render for any such line,
@@ -123,57 +125,15 @@ export default function App() {
   // for the animation's duration, so a stationary cursor can't trigger a
   // spurious expand/collapse from the pinning math's own jitter.
   const [stepScrolling, setStepScrolling] = useState(false);
-  // Volume stepper auto-preview (see VolumeStepper.tsx / LineRow.tsx): which
-  // volume, if any, is currently showing its hover preview because a chevron
-  // click stepped to it -- standing in for a real hover the cursor, parked on
-  // the stepper panel, never makes.
-  //
-  // Owned HERE rather than per-LineRow, even though only one row's tile ever
-  // uses it, because every rule about it is global: at most one auto-preview
-  // exists across the whole timeline at a time, a step on one line has to
-  // retire whatever a previous step left showing on another (each row's own
-  // 8s timer used to keep running independently, which is exactly how a
-  // Daredevil panel outlived several Black Widow steps), and -- see
-  // handleVolumeHover below -- a real hover anywhere retires it too. A single
-  // piece of state up here makes all three of those structural: setting it
-  // replaces the previous one, so there is nothing to coordinate between rows.
-  const [autoPreviewVolumeId, setAutoPreviewVolumeId] = useState<string | null>(null);
-  // How far the timeline is about to scroll for the current auto-preview
-  // (target minus current scrollLeft) -- lets the destination tile compute its
-  // FINAL on-screen position from its pre-scroll rect, so the preview can be
-  // shown the instant the chevron is clicked instead of waiting out the
-  // animation. See useTilePreviewPosition.
-  const [autoPreviewDelta, setAutoPreviewDelta] = useState(0);
-  const autoPreviewTimeoutRef = useRef<number | null>(null);
-  // Shared by every path that retires an auto-preview (a new step, a real
-  // hover, unmount) so the pending 8s timer never outlives the panel it was
-  // started for and clear a LATER one out from under itself.
-  const clearAutoPreview = useCallback(() => {
-    if (autoPreviewTimeoutRef.current !== null) {
-      window.clearTimeout(autoPreviewTimeoutRef.current);
-      autoPreviewTimeoutRef.current = null;
-    }
-    setAutoPreviewVolumeId(null);
-  }, []);
-  // Any genuine mouse hover on any volume/note tile anywhere retires the
-  // stepper's auto-preview: once the user is hovering things themselves, the
-  // "here's what you stepped to" affordance has done its job, and leaving it
-  // up means two panels on screen at once. Fires for the stepped-to tile
-  // itself too, which is seamless rather than a flicker -- the real hover
-  // keeps the card visible (see previewVisible) and just re-anchors it to the
-  // cursor instead of the tile's left edge. Suppressed for the duration of a
-  // step's own scroll (see useTilePreviewPosition's suppressHover), so the
-  // tiles sweeping under a stationary cursor mid-animation can't trigger it.
-  const handleVolumeHover = useCallback(() => {
-    clearAutoPreview();
-  }, [clearAutoPreview]);
-  useEffect(() => {
-    return () => {
-      if (autoPreviewTimeoutRef.current !== null) {
-        window.clearTimeout(autoPreviewTimeoutRef.current);
-      }
-    };
-  }, []);
+  // Volume stepper auto-preview -- see useStepperAutoPreview for what it is
+  // and why it's owned app-wide. `clear` is passed straight down as every
+  // tile's onVolumeHover: any genuine hover anywhere retires it, since once
+  // the user is hovering things themselves the "here's what you stepped to"
+  // affordance has done its job and leaving it up means two cards on screen.
+  // Firing for the stepped-to tile itself is seamless rather than a flicker
+  // -- the real hover keeps the card visible (see previewVisible) and just
+  // re-anchors it to the cursor instead of the tile's left edge.
+  const autoPreview = useStepperAutoPreview();
   const [zoomLevel, setZoomLevel] = useState<ZoomLevel>(DEFAULT_ZOOM_LEVEL);
   const [addLineOpen, setAddLineOpen] = useState(false);
   const [editingLine, setEditingLine] = useState<Line | null>(null);
@@ -642,25 +602,14 @@ export default function App() {
     (targetScrollLeft: number, targetVolumeId: string) => {
       const el = timelineScrollRef.current;
       if (!el) return;
-      // Set BEFORE the scroll starts, not after it settles -- the destination
-      // tile derives its final position from autoPreviewDelta (see the
-      // state's own comment above), so the panel can appear immediately,
-      // already sitting where the tile is about to glide into, with no lag
-      // behind the click. Assigning here also retires whatever a previous
-      // step left showing, wherever it was: one piece of state, so the old
-      // value is simply gone.
-      if (autoPreviewTimeoutRef.current !== null) {
-        window.clearTimeout(autoPreviewTimeoutRef.current);
-      }
-      setAutoPreviewVolumeId(targetVolumeId);
-      setAutoPreviewDelta(targetScrollLeft - el.scrollLeft);
-      autoPreviewTimeoutRef.current = window.setTimeout(() => {
-        autoPreviewTimeoutRef.current = null;
-        setAutoPreviewVolumeId(null);
-      }, 8000);
+      // Begun BEFORE the scroll starts, not after it settles -- the
+      // destination tile derives its final position from the delta, so the
+      // card appears immediately, already sitting where the tile is about
+      // to glide into, with no lag behind the click.
+      autoPreview.begin(targetVolumeId, targetScrollLeft - el.scrollLeft);
       scrollTimelineTo(targetScrollLeft);
     },
-    [scrollTimelineTo]
+    [scrollTimelineTo, autoPreview]
   );
   // Coarsened scroll position for windowing the hover "add volume" cells
   // (see LineRow.tsx) -- a plain derived number, not its own state/memo, but
@@ -845,17 +794,8 @@ export default function App() {
       const adjacentVolumes = (entriesByLine.get(adjacentLine.id) ?? EMPTY_ENTRIES).filter(
         (e): e is Volume => e.kind === "volume"
       );
-      if (adjacentVolumes.length === 0) return;
-
-      let nearest = adjacentVolumes[0];
-      let nearestDistance = Math.abs(quartersBetween(selectedVolume.start, nearest.start));
-      for (const v of adjacentVolumes) {
-        const distance = Math.abs(quartersBetween(selectedVolume.start, v.start));
-        if (distance < nearestDistance) {
-          nearest = v;
-          nearestDistance = distance;
-        }
-      }
+      const nearest = nearestVolumeByStart(adjacentVolumes, selectedVolume.start);
+      if (!nearest) return;
 
       setSelectedVolumeId(nearest.id);
       scrollTimelineTo(panelScrollTargetFor(nearest));
@@ -869,8 +809,7 @@ export default function App() {
       const container = rowsContainerRef.current;
       if (container) {
         const containerTop = container.getBoundingClientRect().top + window.scrollY;
-        let rowTop = containerTop;
-        for (let i = 0; i < adjacentIndex; i++) rowTop += rowHeights[i];
+        const rowTop = containerTop + rowTopOffset(rowHeights, adjacentIndex);
         const rowBottom = rowTop + rowHeights[adjacentIndex];
         const headerClearance = NAV_HEIGHT + AXIS_HEIGHT;
         const viewTop = window.scrollY + headerClearance;
@@ -1066,9 +1005,9 @@ export default function App() {
                       onResizeEntry={handleResizeEntry}
                       onStepScroll={handleStepScroll}
                       stepScrolling={stepScrolling}
-                      autoPreviewVolumeId={autoPreviewVolumeId}
-                      autoPreviewDelta={autoPreviewDelta}
-                      onVolumeHover={handleVolumeHover}
+                      autoPreviewVolumeId={autoPreview.volumeId}
+                      autoPreviewDelta={autoPreview.delta}
+                      onVolumeHover={autoPreview.clear}
                       speculative={lineIsSpeculative}
                       locked={speculationMode && !lineIsSpeculative}
                       speculativeVolumeIds={speculativeVolumeIds}
