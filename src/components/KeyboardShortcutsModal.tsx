@@ -6,12 +6,15 @@ const GLOBAL_SHORTCUTS = globalShortcutHelp(COLLECTIONS.length);
 
 /** Unlike the global list above, these aren't one hook's doing -- Escape
  * comes from useEscapeToClose, Cmd/Ctrl+Enter from each form drawer's and
- * FilterPanel's own submit listener, and "E" from VolumeDetailPanel -- so
- * there's no single definition to derive them from. */
+ * FilterPanel's own submit listener, and "E"/"S"/"R"/the stepper keys/Space
+ * are each their own listener inside VolumeDetailPanel -- so there's no
+ * single definition to derive them from. */
 const PANEL_SHORTCUTS: { keys: string; label: string }[] = [
   { keys: "Esc", label: "Close the open panel" },
   { keys: "⌘/Ctrl Enter", label: "Save, or apply filters" },
   { keys: "E", label: "Edit the open volume" },
+  { keys: "S", label: "Open the shelving status picker" },
+  { keys: "R", label: "Open the reading status picker" },
   { keys: "← → , .", label: "Step to the previous/next volume" },
   { keys: "↑ ↓", label: "Jump to the nearest volume on the line above/below" },
   { keys: "Space", label: "Page down; wraps to the top at the end" },

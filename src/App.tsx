@@ -1238,11 +1238,30 @@ export default function App() {
               setAddVolumeDefaultStart(null);
               setEditingEntry(null);
             }}
-            onClose={() => {
-              setAddVolumeForLineId(null);
-              setAddVolumeDefaultStart(null);
-              setEditingEntry(null);
-            }}
+            onClose={
+              // Cancel/X/Esc/backdrop-click while editing an EXISTING
+              // volume return to that volume's own read-only detail panel
+              // instead of dropping all the way back to the bare timeline
+              // -- the mirror image of VolumeDetailPanel's own onEdit
+              // above, which is the only path that ever opens this form
+              // for a volume in the first place. Gaps/notes (opened
+              // straight from the timeline, never through a detail panel
+              // -- see onEditEntry) and adding a brand-new volume (nothing
+              // to "return" to) both keep the old full-close behavior.
+              // Deliberately NOT applied to onSave/onDelete above: saving
+              // or deleting is a completed action, not a dismiss, so both
+              // still close all the way out same as before.
+              editingEntry?.kind === "volume"
+                ? () => {
+                    setSelectedVolumeId(editingEntry.id);
+                    setEditingEntry(null);
+                  }
+                : () => {
+                    setAddVolumeForLineId(null);
+                    setAddVolumeDefaultStart(null);
+                    setEditingEntry(null);
+                  }
+            }
           />
         );
       })()}

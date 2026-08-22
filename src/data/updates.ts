@@ -80,6 +80,18 @@ export const UPDATES: UpdateRelease[] = [
     entries: [
       {
         kind: "new",
+        title: "Canceling an edit returns to the volume, not the timeline",
+        description:
+          "Cancel, the X, or Esc while editing a volume now lands back on that volume's own detail view instead of closing the whole panel. Adding a brand-new volume, or editing a gap or note (neither has a detail view to return to), still closes all the way out.",
+      },
+      {
+        kind: "new",
+        title: "Keyboard shortcuts for the shelving and reading pickers",
+        description:
+          "With a volume's panel open, S opens the shelving picker and R opens the reading picker -- arrow keys move through the list, Enter picks one, and pressing S or R again closes back out to the panel.",
+      },
+      {
+        kind: "new",
         title: "Space pages through a long volume's details",
         description:
           "With a volume's panel open, Space scrolls down about half a screen at a time -- handy for a volume with a long description or a big credits list -- and wraps back to the top once you reach the end.",

@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import type { OwnershipStatus, ReadingStatus, Volume } from "../types";
 import { OWNERSHIP_META, OWNERSHIP_ORDER } from "../lib/ownership";
 import { READING_STATUS_META, READING_STATUS_ORDER } from "../lib/readingStatus";
@@ -8,7 +8,7 @@ import { formatLineBreaks } from "../lib/text";
 import { isTypingTarget } from "../lib/keyboard";
 import { useSlidePanel } from "../hooks/useSlidePanel";
 import { useEscapeToClose } from "../hooks/useEscapeToClose";
-import { StatusDropdown } from "./StatusDropdown";
+import { StatusDropdown, type StatusDropdownHandle } from "./StatusDropdown";
 
 export function VolumeDetailPanel({
   volume,
@@ -67,6 +67,21 @@ export function VolumeDetailPanel({
   const readingMeta = READING_STATUS_META[readingStatus];
   const { visible, closeThen } = useSlidePanel();
   const scrollRef = useRef<HTMLDivElement>(null);
+  // Whether either status picker (shelving, reading) currently has its own
+  // option list open -- two independent booleans, not one shared flag,
+  // since the two StatusDropdown instances below don't coordinate with
+  // each other and could in principle both be open at once. Gates the
+  // Up/Down volume-stepper effect below: while a picker is open, Up/Down
+  // belong to IT (see StatusDropdown.tsx's own Up/Down handling), not to
+  // stepping the timeline to a different volume out from under it.
+  const [shelvingDropdownOpen, setShelvingDropdownOpen] = useState(false);
+  const [readingDropdownOpen, setReadingDropdownOpen] = useState(false);
+  const dropdownOpen = shelvingDropdownOpen || readingDropdownOpen;
+  // "s"/"r" below open these directly -- see StatusDropdownHandle's own
+  // comment for why a ref (rather than e.g. a boolean prop) is what
+  // actually triggers it.
+  const shelvingDropdownRef = useRef<StatusDropdownHandle>(null);
+  const readingDropdownRef = useRef<StatusDropdownHandle>(null);
 
   // Moves focus into the panel's own scroller the instant it opens, off
   // whatever timeline tile was just clicked to open it -- without this,
@@ -105,6 +120,51 @@ export function VolumeDetailPanel({
     return () => window.removeEventListener("keydown", onKeyDown);
   }, [onEdit, volume, closeThen]);
 
+  // "s"/"r" open the shelving/reading status pickers directly, focusing
+  // their trigger the same way clicking it would (see
+  // StatusDropdownHandle's own comment) -- or, pressed again while that
+  // SAME picker is already open, close it and hand focus back to the
+  // panel's own scroller (scrollRef, the same element the panel focuses
+  // itself on open -- see that effect above), so "s"/"r" reads as a true
+  // toggle rather than something that only ever opens. Skipped entirely
+  // for speculative volumes -- neither picker renders then, so there's
+  // nothing to open or close. "s" collides with the global Speculation
+  // Mode toggle (see useGlobalShortcuts), but that shortcut already
+  // stands down whenever any panel/drawer is open (useOverlaysOpen,
+  // registered by this panel's own useSlidePanel above) -- the same
+  // reason "e" here doesn't collide with anything either -- so there's
+  // nothing to actually resolve, just confirmed to already be a
+  // non-issue.
+  useEffect(() => {
+    if (speculative) return;
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.metaKey || e.ctrlKey || e.altKey) return;
+      if (isTypingTarget(e.target)) return;
+      switch (e.key) {
+        case "s":
+          e.preventDefault();
+          if (shelvingDropdownOpen) {
+            shelvingDropdownRef.current?.close();
+            scrollRef.current?.focus({ preventScroll: true });
+          } else {
+            shelvingDropdownRef.current?.open();
+          }
+          break;
+        case "r":
+          e.preventDefault();
+          if (readingDropdownOpen) {
+            readingDropdownRef.current?.close();
+            scrollRef.current?.focus({ preventScroll: true });
+          } else {
+            readingDropdownRef.current?.open();
+          }
+          break;
+      }
+    };
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, [speculative, shelvingDropdownOpen, readingDropdownOpen]);
+
   // Left/Right arrows, ,/< and ./>, step to the previous/next volume on
   // this line -- the same target and timeline scroll the panel's own
   // stepper chevrons trigger (see onStepBackward/onStepForward above), just
@@ -122,6 +182,13 @@ export function VolumeDetailPanel({
   // boundary -- see their own doc comment), so there's nothing to bail on
   // here beyond the shared guards; "nothing above/below" is handled inside
   // that function, not by this one skipping the call.
+  //
+  // Up/Down specifically also bail while a status picker is open
+  // (dropdownOpen) -- those same two keys move the highlight within that
+  // picker's own option list instead (see StatusDropdown.tsx), and without
+  // this the timeline would ALSO step to a different volume underneath an
+  // open picker on every press. Left/Right/,/./</> are untouched here since
+  // neither picker uses them for anything.
   useEffect(() => {
     if (!onStepBackward && !onStepForward && !onStepUp && !onStepDown) return;
     const onKeyDown = (e: KeyboardEvent) => {
@@ -143,12 +210,12 @@ export function VolumeDetailPanel({
           onStepForward();
           break;
         case "ArrowUp":
-          if (!onStepUp) return;
+          if (dropdownOpen || !onStepUp) return;
           e.preventDefault();
           onStepUp();
           break;
         case "ArrowDown":
-          if (!onStepDown) return;
+          if (dropdownOpen || !onStepDown) return;
           e.preventDefault();
           onStepDown();
           break;
@@ -156,7 +223,7 @@ export function VolumeDetailPanel({
     };
     window.addEventListener("keydown", onKeyDown);
     return () => window.removeEventListener("keydown", onKeyDown);
-  }, [onStepBackward, onStepForward, onStepUp, onStepDown]);
+  }, [onStepBackward, onStepForward, onStepUp, onStepDown, dropdownOpen]);
 
   // Space pages the panel's own scroller down by about half its own visible
   // height -- a reader's "more," not a full page-worth, so the tail of what
@@ -415,9 +482,11 @@ export function VolumeDetailPanel({
         {!speculative && (
           <div className="mt-4 flex flex-wrap items-center gap-2">
             <StatusDropdown
+              ref={shelvingDropdownRef}
               icon={<img src={meta.iconUrl} alt="" className="h-3 w-3" />}
               label={meta.label}
               onSelect={onStatusChange}
+              onOpenChange={setShelvingDropdownOpen}
               options={OWNERSHIP_ORDER.map((s) => ({
                 value: s,
                 label: OWNERSHIP_META[s].label,
@@ -425,9 +494,11 @@ export function VolumeDetailPanel({
               }))}
             />
             <StatusDropdown
+              ref={readingDropdownRef}
               icon={<span className={`h-2.5 w-2.5 rounded-full ${readingMeta.dotClassName}`} />}
               label={readingMeta.label}
               onSelect={onReadingStatusChange}
+              onOpenChange={setReadingDropdownOpen}
               options={READING_STATUS_ORDER.map((s) => ({
                 value: s,
                 label: READING_STATUS_META[s].label,
