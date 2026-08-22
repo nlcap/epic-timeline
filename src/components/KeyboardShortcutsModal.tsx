@@ -14,6 +14,7 @@ const PANEL_SHORTCUTS: { keys: string; label: string }[] = [
   { keys: "E", label: "Edit the open volume" },
   { keys: "← → , .", label: "Step to the previous/next volume" },
   { keys: "↑ ↓", label: "Jump to the nearest volume on the line above/below" },
+  { keys: "Space", label: "Page down; wraps to the top at the end" },
 ];
 
 function ShortcutRow({ keys, label }: { keys: string; label: string }) {

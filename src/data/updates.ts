@@ -80,6 +80,12 @@ export const UPDATES: UpdateRelease[] = [
     entries: [
       {
         kind: "new",
+        title: "Space pages through a long volume's details",
+        description:
+          "With a volume's panel open, Space scrolls down about half a screen at a time -- handy for a volume with a long description or a big credits list -- and wraps back to the top once you reach the end.",
+      },
+      {
+        kind: "new",
         title: "Step through the timeline without leaving the volume panel",
         description:
           "Chevrons beside the cover -- or the arrow keys, or , and . -- move to the next or previous volume on that line, scrolling the timeline behind the panel the same way the sidebar's own stepper does, but keeping the panel open on wherever you land. Up and down arrows jump to the nearest volume on the line above or below instead.",

@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import type { OwnershipStatus, ReadingStatus, Volume } from "../types";
 import { OWNERSHIP_META, OWNERSHIP_ORDER } from "../lib/ownership";
 import { READING_STATUS_META, READING_STATUS_ORDER } from "../lib/readingStatus";
@@ -64,6 +64,26 @@ export function VolumeDetailPanel({
   const meta = OWNERSHIP_META[status];
   const readingMeta = READING_STATUS_META[readingStatus];
   const { visible, closeThen } = useSlidePanel();
+  const scrollRef = useRef<HTMLDivElement>(null);
+
+  // Moves focus into the panel's own scroller the instant it opens, off
+  // whatever timeline tile was just clicked to open it -- without this,
+  // that tile stays focused (clicking a button focuses it in every browser
+  // but Safari), and Space's own guard against hijacking a focused
+  // button's native activation (see below) reads THAT stale focus and
+  // treats every press as "let the button handle it," never touching the
+  // panel at all. Reported by Nick as having to click inside the panel
+  // first before Space would do anything. `tabIndex={-1}` on the scroller
+  // below makes it focusable via script without joining the normal Tab
+  // order; `preventScroll` stops the focus call itself from being treated
+  // as a scroll-into-view. Empty deps: this component remounts fresh each
+  // time the panel opens (see App.tsx's `{selectedVolume && ... && (...)}`
+  // conditional), so a run-once effect is exactly "on open," and stepping
+  // to a different volume afterward never needs to re-run it -- nothing
+  // during a keyboard-driven step ever moves focus away in the first place.
+  useEffect(() => {
+    scrollRef.current?.focus({ preventScroll: true });
+  }, []);
 
   useEscapeToClose(closeThen, onClose);
 
@@ -136,6 +156,37 @@ export function VolumeDetailPanel({
     return () => window.removeEventListener("keydown", onKeyDown);
   }, [onStepBackward, onStepForward, onStepUp, onStepDown]);
 
+  // Space pages the panel's own scroller down by about half its own visible
+  // height -- a reader's "more," not a full page-worth, so the tail of what
+  // was already on screen carries over as context for what's new. Once
+  // there's nothing left to page to (within a couple px -- scrollHeight/
+  // scrollTop can both be fractional and rarely land on an exact integer
+  // match), the next press wraps back to the top instead of just sitting
+  // inert at the bottom, so Space alone can cycle the whole panel
+  // repeatedly with no other key needed.
+  //
+  // Skipped when the event target is itself a button (StatusDropdown's
+  // trigger, Edit/Delete/confirm) -- Space is that element's own native
+  // activation key there, and hijacking it here would silence a focused
+  // button's click in favor of scrolling out from under it.
+  useEffect(() => {
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key !== " " || e.metaKey || e.ctrlKey || e.altKey) return;
+      if (isTypingTarget(e.target)) return;
+      if (e.target instanceof HTMLElement && e.target.tagName === "BUTTON") return;
+      const el = scrollRef.current;
+      if (!el) return;
+      e.preventDefault();
+      const atBottom = el.scrollTop + el.clientHeight >= el.scrollHeight - 2;
+      el.scrollTo({
+        top: atBottom ? 0 : el.scrollTop + el.clientHeight / 2,
+        behavior: "smooth",
+      });
+    };
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, []);
+
   const formattedDescription = formatLineBreaks(volume.description);
 
   // Credits read as lead-in phrases ("Written by ...") rather than labelled
@@ -178,7 +229,15 @@ export function VolumeDetailPanel({
 
         {/* isolate keeps the wash's -z-10 inside this scroller, above the
          * gradient behind it rather than underneath. */}
-        <div className="relative isolate flex flex-1 flex-col overflow-y-auto overflow-x-hidden p-6">
+        <div
+          ref={scrollRef}
+          tabIndex={-1}
+          // Focusable via the effect above, not Tab -- outline-none since a
+          // default focus ring around the whole scroller reads as a stray
+          // rectangle around the panel's content, not a real interactive
+          // control a sighted user would expect to see highlighted.
+          className="relative isolate flex flex-1 flex-col overflow-y-auto overflow-x-hidden p-6 outline-none"
+        >
         <div className="flex items-center">
           {onEdit && (
             <button
