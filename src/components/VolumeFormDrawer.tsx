@@ -786,9 +786,12 @@ export function VolumeFormDrawer({
 
         {error && <p className="mt-4 text-sm text-red-400">{error}</p>}
 
-        {/* Volumes are deleted from the volume detail panel; gaps and notes
-         * have no separate detail view, so deletion lives here instead. */}
-        {isEditing && (editingGap || editingNote) && onDelete && (
+        {/* Deletion lives here (not in the volume detail panel it's edited
+         * from) so every entry kind -- volume, gap, note -- shares the one
+         * confirm flow, instead of the panel needing its own copy just for
+         * volumes while gaps/notes (which have no separate detail view at
+         * all) used this one anyway. */}
+        {isEditing && (editingGap || editingNote || editingVolume) && onDelete && (
           <div className="mt-4">
             {confirmingDelete ? (
               <div className="rounded-md border border-red-900 bg-red-950/40 p-4">
@@ -806,7 +809,9 @@ export function VolumeFormDrawer({
                   </button>
                   <button
                     type="button"
-                    onClick={() => closeThen(() => onDelete((editingGap ?? editingNote)!.id))}
+                    onClick={() =>
+                      closeThen(() => onDelete((editingGap ?? editingNote ?? editingVolume)!.id))
+                    }
                     className="flex-1 rounded-md bg-red-600 px-4 py-2 text-sm font-semibold text-white hover:bg-red-500"
                   >
                     Yes, delete

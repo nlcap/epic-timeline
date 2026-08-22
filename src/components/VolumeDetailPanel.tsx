@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import type { OwnershipStatus, ReadingStatus, Volume } from "../types";
 import { OWNERSHIP_META, OWNERSHIP_ORDER } from "../lib/ownership";
 import { READING_STATUS_META, READING_STATUS_ORDER } from "../lib/readingStatus";
@@ -17,7 +17,6 @@ export function VolumeDetailPanel({
   readingStatus,
   onReadingStatusChange,
   onEdit,
-  onDelete,
   onClose,
   onStepBackward,
   onStepForward,
@@ -30,8 +29,12 @@ export function VolumeDetailPanel({
   onStatusChange: (status: OwnershipStatus) => void;
   readingStatus: ReadingStatus;
   onReadingStatusChange: (status: ReadingStatus) => void;
+  /** Also the only way to reach deletion now -- Delete Volume lives in the
+   * edit form (see VolumeFormDrawer.tsx), not here, so a locked/no-edit
+   * volume (e.g. an official volume while Speculation Mode is on) is
+   * correctly also un-deletable: this prop being absent already blocks
+   * both. */
   onEdit?: (volume: Volume) => void;
-  onDelete?: (volumeId: string) => void;
   onClose: () => void;
   /** Volume stepper (see VolumeStepper.tsx): steps to the previous/next
    * volume on this volume's line, same target selection and timeline scroll
@@ -60,7 +63,6 @@ export function VolumeDetailPanel({
    * both status pickers entirely. */
   speculative?: boolean;
 }) {
-  const [confirmingDelete, setConfirmingDelete] = useState(false);
   const meta = OWNERSHIP_META[status];
   const readingMeta = READING_STATUS_META[readingStatus];
   const { visible, closeThen } = useSlidePanel();
@@ -166,7 +168,7 @@ export function VolumeDetailPanel({
   // repeatedly with no other key needed.
   //
   // Skipped when the event target is itself a button (StatusDropdown's
-  // trigger, Edit/Delete/confirm) -- Space is that element's own native
+  // trigger, Edit Volume, Close) -- Space is that element's own native
   // activation key there, and hijacking it here would silence a focused
   // button's click in favor of scrolling out from under it.
   useEffect(() => {
@@ -487,42 +489,6 @@ export function VolumeDetailPanel({
           <p className="mt-3 text-xs text-neutral-500">
             Cover art &copy; its respective publisher, used for reference only.
           </p>
-        )}
-
-        {onDelete && (
-          <div className="mt-6">
-            {confirmingDelete ? (
-              <div className="rounded-md border border-red-900 bg-red-950/40 p-4">
-                <p className="text-sm text-red-200">
-                  Are you sure you want to delete "{volume.title}"? This can't be undone.
-                </p>
-                <div className="mt-3 flex gap-3">
-                  <button
-                    type="button"
-                    onClick={() => setConfirmingDelete(false)}
-                    className="flex-1 rounded-md border border-neutral-700 px-4 py-2 text-sm font-medium text-neutral-300 hover:text-white"
-                  >
-                    Cancel
-                  </button>
-                  <button
-                    type="button"
-                    onClick={() => closeThen(() => onDelete(volume.id))}
-                    className="flex-1 rounded-md bg-red-600 px-4 py-2 text-sm font-semibold text-white hover:bg-red-500"
-                  >
-                    Yes, delete
-                  </button>
-                </div>
-              </div>
-            ) : (
-              <button
-                type="button"
-                onClick={() => setConfirmingDelete(true)}
-                className="w-full rounded-md border border-transparent px-4 py-2 text-sm font-medium text-red-400 hover:text-red-300"
-              >
-                Delete Volume
-              </button>
-            )}
-          </div>
         )}
         </div>
       </div>

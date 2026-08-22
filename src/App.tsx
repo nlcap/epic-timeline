@@ -1126,18 +1126,6 @@ export default function App() {
                   setSelectedVolumeId(null);
                 }
           }
-          onDelete={
-            speculationMode && !selectedVolumeIsSpeculative
-              ? undefined
-              : (volumeId) => {
-                  if (selectedVolumeIsSpeculative) {
-                    deleteSpeculativeVolume(volumeId);
-                  } else {
-                    deleteVolume(volumeId);
-                  }
-                  setSelectedVolumeId(null);
-                }
-          }
           onClose={() => setSelectedVolumeId(null)}
           onStepBackward={panelBackwardTarget ? () => handlePanelStep("backward") : undefined}
           onStepForward={panelForwardTarget ? () => handlePanelStep("forward") : undefined}
