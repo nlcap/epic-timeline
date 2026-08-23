@@ -7,6 +7,8 @@ import type { Line, TimelineEntry } from "../types";
 import ghostRiderBadToTheBoneCover from "../assets/covers/Ghost Rider - Bad to the Bone.jpg";
 import punisherCapitalPunishmentCover from "../assets/covers/Punisher - Capital Punishment.jpg";
 import punisherSurvivalCover from "../assets/covers/Punisher - Survival.jpg";
+// TODO: swap for a proper Iron Man Epic Collection cover once one turns up
+import ironManWarGamesCover from "../assets/covers/Iron Man - War Games.webp";
 
 // Bulk-wired from src/assets/Marvel/epic classic/<Character>.png (Nick dropped
 // in a folder of per-line icons). Eagerly globbed so new files just need to
@@ -5211,7 +5213,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     inkers: "Bob Wiacek",
     description:
       "John Byrne's complete Iron Man run unfolds across Armor Wars II, the cataclysmic sequel to one of Iron Man's most infamous storylines, the Mandarin's return with the alien dragon Fin Fang Foom, and Cold War chaos as Iron Man and the Black Widow race to stop World War III.",
-    coverUrl: "https://m.media-amazon.com/images/I/71o7BTm4uHL._SL1400_.jpg",
+    coverUrl: ironManWarGamesCover,
     ownershipStatus: "announced",
   },
   {
