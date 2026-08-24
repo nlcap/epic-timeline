@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState, type RefObject } from "react";
+import { useEffect, useRef, useState, type CSSProperties, type RefObject } from "react";
 import type { Collection } from "../types";
 import epicTimelineLogo from "../assets/logo_epic_timeline.svg";
 import { AboutModal } from "./AboutModal";
@@ -10,6 +10,22 @@ import { UpdatesModal } from "./UpdatesModal";
 
 const NAV_HEIGHT = 48;
 export { NAV_HEIGHT };
+
+// The desktop search box was a flat 192px (Tailwind's w-48) regardless of
+// viewport, which was fine everywhere except the ~40px window just above
+// the md: breakpoint (768px) where the desktop nav switches on: with five
+// collection tabs, a fixed 192px search box, and the settings gear all
+// demanding room at once, that row had no slack left and would wrap onto
+// a second line before the nav had a chance to hand off to the mobile
+// menu -- visibly breaking the layout around 806px specifically. Rather
+// than raise the md: breakpoint itself (used elsewhere in the app --
+// ReferenceModal, KeyboardShortcutsModal, OnboardingFlow -- so bumping it
+// globally would shift those too), this only narrows the search box,
+// linearly, across exactly that gap: full 192px from 808px up, shrinking
+// to a 140px floor right at 768px where the mobile menu takes over
+// anyway. 130vw is the slope solving width = 192px at 808px and 140px at
+// 768px; -858.4px is the matching offset for that same line.
+const SEARCH_BOX_WIDTH = "clamp(140px, calc(130vw - 858.4px), 192px)";
 
 /** Filter-slider icon, always visible at the search box's right edge --
  * the small blue dot overlays it once any filter facet is applied (see
@@ -61,6 +77,7 @@ function SearchBox({
   inputRef,
   tourTarget,
   className = "",
+  style,
 }: {
   value: string;
   onChange: (value: string) => void;
@@ -81,13 +98,14 @@ function SearchBox({
    * (or at a stable position) when the tour would run. */
   tourTarget?: string;
   className?: string;
+  style?: CSSProperties;
 }) {
   // The clear-X used to only show once there was text to clear; now it
   // also does double duty clearing filters, so it shows whenever there's
   // either to clear -- the filter icon alone stays visible always.
   const showClear = value.length > 0 || filtersActive;
   return (
-    <div data-tour-target={tourTarget} className={`relative ${className}`}>
+    <div data-tour-target={tourTarget} className={`relative ${className}`} style={style}>
       <input
         ref={inputRef}
         type="text"
@@ -345,7 +363,7 @@ export function TopNav({
             onClearFilters={onClearFilters}
             inputRef={searchInputRef}
             tourTarget="search-box"
-            className="w-48"
+            style={{ width: SEARCH_BOX_WIDTH }}
           />
           <SettingsMenu items={settingsItems} tourTarget="settings-gear" />
         </div>
