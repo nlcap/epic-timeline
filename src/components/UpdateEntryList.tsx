@@ -39,8 +39,15 @@ export function UpdateEntryList({ releases }: { releases: UpdateRelease[] }) {
         <section key={release.date}>
           {/* Sticky so the date stays readable while scrolling a long
            * day like 16 August. Opaque rather than translucent -- entry
-           * text scrolling visibly under it reads as a rendering bug. */}
-          <h3 className="sticky top-0 z-10 bg-neutral-900 py-2 text-xs font-semibold uppercase tracking-wide text-neutral-500">
+           * text scrolling visibly under it reads as a rendering bug.
+           * Still locks at top:0 (unchanged), but -mt-px/pt-[9px] (1px
+           * more than the pb-2 it's paired with) extends the painted box
+           * 1px above that lock line -- during an active scroll,
+           * fractional scrollTop values can round the sticky box's paint
+           * boundary independently of the content scrolling behind it,
+           * leaving a hairline sliver of that content visible right above
+           * the heading without this 1px of overlap to absorb it. */}
+          <h3 className="sticky top-0 z-10 -mt-px bg-neutral-900 pb-2 pt-[9px] text-xs font-semibold uppercase tracking-wide text-neutral-500">
             {formatUpdateDate(release.date)}
           </h3>
           <ul className="divide-y divide-neutral-800 border-t border-neutral-800">
