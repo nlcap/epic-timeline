@@ -9,6 +9,7 @@ import { useEscapeToClose } from "../hooks/useEscapeToClose";
 // in the picker and another way in the filter for it.
 import type { StatusDropdownOption } from "./StatusDropdown";
 import { useCommitShortcut } from "../hooks/useCommitShortcut";
+import { FlagIcon } from "./icons";
 
 /** One checkbox (Any mode) or radio (All mode) row -- custom rather than a
  * native <input> to match the icon+label rows used everywhere else in the
@@ -359,7 +360,11 @@ export function FilterPanel({
               value: status,
               label: OWNERSHIP_META[status].label,
               icon: (
-                <img src={OWNERSHIP_META[status].iconUrl} alt="" className="h-3 w-3 shrink-0" />
+                <img
+                  src={OWNERSHIP_META[status].iconUrl}
+                  alt=""
+                  className="h-3.5 w-3.5 shrink-0"
+                />
               ),
             }))}
           />
@@ -373,8 +378,8 @@ export function FilterPanel({
               value: status,
               label: READING_STATUS_META[status].label,
               icon: (
-                <span
-                  className={`h-2.5 w-2.5 shrink-0 rounded-full ${READING_STATUS_META[status].dotClassName}`}
+                <FlagIcon
+                  className={`h-2.5 w-2.5 shrink-0 ${READING_STATUS_META[status].flagClassName}`}
                 />
               ),
             }))}
