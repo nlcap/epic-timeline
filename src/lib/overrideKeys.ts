@@ -22,6 +22,7 @@ export const STORAGE_KEYS = {
   volumeOverrides: "epic-timeline:volume-overrides",
   ownershipOverrides: "epic-timeline:ownership-overrides",
   readingStatusOverrides: "epic-timeline:reading-status-overrides",
+  ratingOverrides: "epic-timeline:rating-overrides",
   speculativeLines: "epic-timeline:speculative-lines",
   speculativeVolumes: "epic-timeline:speculative-volumes",
 } as const;
@@ -54,6 +55,7 @@ export const OVERRIDE_KEYS = [
   STORAGE_KEYS.volumeOverrides,
   STORAGE_KEYS.ownershipOverrides,
   STORAGE_KEYS.readingStatusOverrides,
+  STORAGE_KEYS.ratingOverrides,
 ] as const;
 
 // Speculation Mode's sandbox layer -- lines/volumes that are an intentional

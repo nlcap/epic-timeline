@@ -10,6 +10,7 @@ import { useSlidePanel } from "../hooks/useSlidePanel";
 import { useEscapeToClose } from "../hooks/useEscapeToClose";
 import { StatusDropdown, type StatusDropdownHandle } from "./StatusDropdown";
 import { FlagIcon } from "./icons";
+import { StarRating } from "./StarRating";
 
 export function VolumeDetailPanel({
   volume,
@@ -17,6 +18,8 @@ export function VolumeDetailPanel({
   onStatusChange,
   readingStatus,
   onReadingStatusChange,
+  rating,
+  onRatingChange,
   onEdit,
   onClose,
   onStepBackward,
@@ -30,6 +33,12 @@ export function VolumeDetailPanel({
   onStatusChange: (status: OwnershipStatus) => void;
   readingStatus: ReadingStatus;
   onReadingStatusChange: (status: ReadingStatus) => void;
+  /** Personal star rating (0.5-5, half-star steps) -- undefined means
+   * unrated. See StarRating.tsx for the sweep/click/click-again-to-clear
+   * interaction. Hidden entirely for speculative volumes, same as the
+   * shelving/reading pickers below. */
+  rating: number | undefined;
+  onRatingChange: (rating: number | undefined) => void;
   /** Also the only way to reach deletion now -- Delete Volume lives in the
    * edit form (see VolumeFormDrawer.tsx), not here, so a locked/no-edit
    * volume (e.g. an official volume while Speculation Mode is on) is
@@ -489,6 +498,12 @@ export function VolumeDetailPanel({
             </svg>
           </button>
         </div>
+
+        {!speculative && (
+          <div className="mt-3 flex justify-center">
+            <StarRating value={rating} onChange={onRatingChange} />
+          </div>
+        )}
 
         <h2 className="mt-4 text-xl font-bold text-white">{volume.title}</h2>
         <p className="text-sm italic text-neutral-300">

@@ -19,6 +19,7 @@ const KIND_LABELS: Record<DataKind, string> = {
   notes: "Notes",
   ownership: "Ownership",
   reading: "Reading progress",
+  rating: "Star rating",
 };
 
 /** Called out on the rows that only exist on one layer, so an empty result
@@ -30,6 +31,7 @@ const KIND_SUBTITLES: Partial<Record<DataKind, string>> = {
   notes: "Speculative only",
   ownership: "Main only",
   reading: "Main only",
+  rating: "Main only",
 };
 
 /**

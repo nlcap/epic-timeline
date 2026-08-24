@@ -75,6 +75,7 @@ const KIND_LABELS: Record<DataKind, string> = {
   notes: "notes",
   ownership: "ownership",
   reading: "reading progress",
+  rating: "star ratings",
 };
 
 /**

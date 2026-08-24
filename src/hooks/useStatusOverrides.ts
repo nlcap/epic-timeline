@@ -2,9 +2,9 @@ import { useCallback, useEffect, useState } from "react";
 import { isSupabaseConfigured, supabase } from "../lib/supabaseClient";
 import { safeSetItem } from "../lib/storage";
 
-type StatusMap<T extends string> = Record<string, T>;
+type StatusMap<T> = Record<string, T>;
 
-function loadLocalOverrides<T extends string>(key: string): StatusMap<T> {
+function loadLocalOverrides<T>(key: string): StatusMap<T> {
   try {
     const raw = localStorage.getItem(key);
     return raw ? (JSON.parse(raw) as StatusMap<T>) : {};
@@ -26,8 +26,18 @@ function loadLocalOverrides<T extends string>(key: string): StatusMap<T> {
  * ownership's default is the volume's own seeded status (different for every
  * volume) while reading status has a single flat default -- see
  * useReadingStatus, which just closes over DEFAULT_READING_STATUS.
+ *
+ * `T` is unconstrained (not `T extends string`) so useRating can back a
+ * numeric rating the same way -- nothing in the body actually depends on
+ * string-ness, it's just JSON round-tripping and object spreads. useRating
+ * also leans on `setStatus(id, undefined)` to *clear* a value: since a
+ * status here is "always overwritten, never deleted," there's no separate
+ * delete path, but `{...prev, [id]: undefined}` followed by
+ * `JSON.stringify` (which drops `undefined` properties) round-trips
+ * exactly like the id was never set -- so passing `undefined` through this
+ * same setStatus already behaves as a clear, no extra method needed.
  */
-export function useStatusOverrides<T extends string>(key: string) {
+export function useStatusOverrides<T>(key: string) {
   const [overrides, setOverrides] = useState<StatusMap<T>>({});
 
   useEffect(() => {

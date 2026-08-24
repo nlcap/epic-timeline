@@ -90,6 +90,12 @@ export const UPDATES: UpdateRelease[] = [
         description:
           "Every volume can now hold a private note, kept separate from its publisher description -- shown in its own section of the detail panel and editable from the volume's edit form, right under Description.",
       },
+      {
+        kind: "new",
+        title: "Rate your volumes with stars",
+        description:
+          "Sweep across the five-star row under a volume's cover to rate it in half-star steps -- no confirmation needed, and clicking your current rating again clears it. A smaller read-only version shows on the hover-preview card too, once you've rated something.",
+      },
     ],
   },
   {

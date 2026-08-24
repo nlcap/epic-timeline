@@ -21,10 +21,11 @@ import { EXPORT_KEYS, STORAGE_KEYS, type ExportKey } from "./overrideKeys";
 export type TimelineScope = "main" | "speculative";
 
 /** What kind of thing a record is, independent of which timeline layer it
- * lives on. "edits" and "notes" exist on both layers; ownership and
- * reading progress are main-only, since speculative entries never carry
- * either (see useOwnership/useReadingStatus and App.tsx). */
-export type DataKind = "edits" | "notes" | "ownership" | "reading";
+ * lives on. "edits" and "notes" exist on both layers; ownership, reading
+ * progress, and rating are main-only, since speculative entries never
+ * carry any of the three (see useOwnership/useReadingStatus/useRating and
+ * App.tsx). */
+export type DataKind = "edits" | "notes" | "ownership" | "reading" | "rating";
 
 export type Selection = {
   collectionIds: string[];
@@ -47,6 +48,7 @@ const LINE_OVERRIDES_KEY = STORAGE_KEYS.lineOverrides;
 const VOLUME_OVERRIDES_KEY = STORAGE_KEYS.volumeOverrides;
 const OWNERSHIP_OVERRIDES_KEY = STORAGE_KEYS.ownershipOverrides;
 const READING_STATUS_OVERRIDES_KEY = STORAGE_KEYS.readingStatusOverrides;
+const RATING_OVERRIDES_KEY = STORAGE_KEYS.ratingOverrides;
 const SPECULATIVE_LINES_KEY = STORAGE_KEYS.speculativeLines;
 const SPECULATIVE_VOLUMES_KEY = STORAGE_KEYS.speculativeVolumes;
 
@@ -58,14 +60,20 @@ const SPECULATIVE_VOLUMES_KEY = STORAGE_KEYS.speculativeVolumes;
 const LINE_STORES = [LINE_OVERRIDES_KEY, SPECULATIVE_LINES_KEY] as const;
 /** Stores keyed by volumeId whose records carry a lineId of their own. */
 const VOLUME_STORES = [VOLUME_OVERRIDES_KEY, SPECULATIVE_VOLUMES_KEY] as const;
-/** Stores keyed by volumeId whose records are a bare status string. */
-const STATUS_STORES = [OWNERSHIP_OVERRIDES_KEY, READING_STATUS_OVERRIDES_KEY] as const;
+/** Stores keyed by volumeId whose records are a bare status value (a
+ * string for ownership/reading, a number for rating). */
+const STATUS_STORES = [
+  OWNERSHIP_OVERRIDES_KEY,
+  READING_STATUS_OVERRIDES_KEY,
+  RATING_OVERRIDES_KEY,
+] as const;
 
 const SCOPE_OF_KEY: Record<ExportKey, TimelineScope> = {
   [LINE_OVERRIDES_KEY]: "main",
   [VOLUME_OVERRIDES_KEY]: "main",
   [OWNERSHIP_OVERRIDES_KEY]: "main",
   [READING_STATUS_OVERRIDES_KEY]: "main",
+  [RATING_OVERRIDES_KEY]: "main",
   [SPECULATIVE_LINES_KEY]: "speculative",
   [SPECULATIVE_VOLUMES_KEY]: "speculative",
 };
@@ -84,6 +92,7 @@ const KINDS_IN_KEY: Record<ExportKey, DataKind[]> = {
   [VOLUME_OVERRIDES_KEY]: ["edits"],
   [OWNERSHIP_OVERRIDES_KEY]: ["ownership"],
   [READING_STATUS_OVERRIDES_KEY]: ["reading"],
+  [RATING_OVERRIDES_KEY]: ["rating"],
   [SPECULATIVE_LINES_KEY]: ["edits"],
   [SPECULATIVE_VOLUMES_KEY]: ["edits", "notes"],
 };
@@ -375,7 +384,7 @@ export function countBySlice(bundle: StoreBundle, context?: StoreBundle): SliceC
   const counts: SliceCounts = {
     byCollection: {},
     byScope: { main: 0, speculative: 0 },
-    byKind: { edits: 0, notes: 0, ownership: 0, reading: 0 },
+    byKind: { edits: 0, notes: 0, ownership: 0, reading: 0, rating: 0 },
     unresolved: 0,
     total: 0,
   };
@@ -424,7 +433,7 @@ export function mergeBundles(base: StoreBundle, overlay: StoreBundle): StoreBund
 
 export const ALL_COLLECTION_IDS = COLLECTIONS.map((c) => c.id);
 export const ALL_SCOPES: TimelineScope[] = ["main", "speculative"];
-export const ALL_KINDS: DataKind[] = ["edits", "notes", "ownership", "reading"];
+export const ALL_KINDS: DataKind[] = ["edits", "notes", "ownership", "reading", "rating"];
 
 /** Everything selected -- the default for an export, and the widest
  * possible import. */

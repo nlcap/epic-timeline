@@ -377,7 +377,7 @@ describe("countBySlice", () => {
     expect(counts.byCollection).toEqual({ ultimate: 4, "dc-finest": 1 });
     expect(counts.byScope).toEqual({ main: 3, speculative: 3 });
     // 2 line overrides + 1 speculative line + the untellable tombstone.
-    expect(counts.byKind).toEqual({ edits: 4, notes: 1, ownership: 1, reading: 0 });
+    expect(counts.byKind).toEqual({ edits: 4, notes: 1, ownership: 1, reading: 0, rating: 0 });
     expect(counts.unresolved).toBe(1);
   });
 });

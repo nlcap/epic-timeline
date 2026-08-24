@@ -31,6 +31,7 @@ import { ZoomControl } from "./components/ZoomControl";
 import { SpeculationModeToggle } from "./components/SpeculationModeToggle";
 import { useOwnership } from "./hooks/useOwnership";
 import { useReadingStatus } from "./hooks/useReadingStatus";
+import { useRating } from "./hooks/useRating";
 import { useSidebarWidth } from "./hooks/useSidebarWidth";
 import { useLineOverrides } from "./hooks/useLineOverrides";
 import { useVolumeOverrides } from "./hooks/useVolumeOverrides";
@@ -203,6 +204,7 @@ export default function App() {
     shelvingFilter.size > 0 || readingFilter.size > 0 || tagFilter.size > 0;
   const { getStatus, setStatus } = useOwnership();
   const { getStatus: getReadingStatus, setStatus: setReadingStatus } = useReadingStatus();
+  const { getRating, setRating } = useRating();
   const { upsertLine, deleteLine, resolveLines } = useLineOverrides();
   const { upsertVolume, deleteVolume, resolveEntries } = useVolumeOverrides();
   const {
@@ -389,10 +391,11 @@ export default function App() {
             ...entry,
             ownershipStatus: getStatus(entry.id, entry.ownershipStatus),
             readingStatus: getReadingStatus(entry.id),
+            rating: getRating(entry.id),
           }
         : entry
     );
-  }, [data, resolveEntries, lines, getStatus, getReadingStatus]);
+  }, [data, resolveEntries, lines, getStatus, getReadingStatus, getRating]);
 
   // Speculative volumes can be added to an official line too (speculating
   // about a future volume on an existing line, not just a brand-new one),
@@ -1076,6 +1079,8 @@ export default function App() {
           onStatusChange={(s) => setStatus(selectedVolume.id, s)}
           readingStatus={getReadingStatus(selectedVolume.id)}
           onReadingStatusChange={(s) => setReadingStatus(selectedVolume.id, s)}
+          rating={getRating(selectedVolume.id)}
+          onRatingChange={(r) => setRating(selectedVolume.id, r)}
           speculative={selectedVolumeIsSpeculative}
           onEdit={
             speculationMode && !selectedVolumeIsSpeculative

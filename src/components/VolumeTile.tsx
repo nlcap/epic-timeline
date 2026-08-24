@@ -10,6 +10,7 @@ import { quartersBetween, type ZoomLevel } from "../lib/timeline";
 import { volumeBadgeText, volumeIconUrl, volumeNumberLabel } from "../lib/era";
 import { OWNERSHIP_META } from "../lib/ownership";
 import { DEFAULT_READING_STATUS, READING_STATUS_META } from "../lib/readingStatus";
+import { STAR_INDEXES, starIconFor } from "../lib/rating";
 import { LineIcon } from "./LineIcon";
 import { TileResizeHandles } from "./TileResizeHandles";
 import { TilePreviewCard } from "./TilePreviewCard";
@@ -274,6 +275,32 @@ export function VolumeTile({
                 />
                 {READING_STATUS_META[volume.readingStatus ?? DEFAULT_READING_STATUS].label}
               </p>
+            </div>
+          )}
+          {/* Read-only star rating, below the status row above -- only
+            * when the reader has actually set one (undefined for both an
+            * unrated volume and, structurally, every speculative one,
+            * since App.tsx only ever stamps `rating` onto official
+            * resolvedEntries -- see Volume.rating's own doc comment). No
+            * separate !speculative check needed the way the row above has
+            * one: an unset rating already reads as "nothing to show"
+            * regardless of why it's unset. Smaller than the interactive
+            * widget's 16px icons (10px here, in scale with this card's
+            * other small icons) and fixed at the same 0.8 opacity
+            * StarRating settles a saved value at when it's not being
+            * actively hovered -- there's no hover state here to justify
+            * ever showing 1. */}
+          {volume.rating !== undefined && (
+            <div className="mt-2 flex items-center gap-0.5">
+              {STAR_INDEXES.map((star) => (
+                <img
+                  key={star}
+                  src={starIconFor(volume.rating!, star)}
+                  alt=""
+                  className="h-2.5 w-2.5"
+                  style={{ opacity: volume.rating! >= star - 0.5 ? 0.8 : 0.3 }}
+                />
+              ))}
             </div>
           )}
         </TilePreviewCard>

@@ -209,6 +209,15 @@ export interface Volume {
    */
   readingStatus?: ReadingStatus;
   /**
+   * Resolved (override-applied) personal star rating -- 0.5-5 in half-star
+   * steps, stamped onto each volume by App.tsx's resolvedEntries the same
+   * way readingStatus is: no seeded value, only ever set at render time,
+   * never in seed data or VolumeFormDrawer. Set/cleared via StarRating.tsx
+   * in the detail panel. Undefined for speculative volumes, same as
+   * ownershipStatus/readingStatus.
+   */
+  rating?: number;
+  /**
    * Deliberate 1-based swim-lane pin (1-5), from the "Swim lane position"
    * field on the Licensed-collection volume form -- undefined means "let
    * assignLanes place it automatically" (the default for every volume,

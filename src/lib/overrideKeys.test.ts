@@ -17,6 +17,7 @@ describe("storage keys", () => {
       volumeOverrides: "epic-timeline:volume-overrides",
       ownershipOverrides: "epic-timeline:ownership-overrides",
       readingStatusOverrides: "epic-timeline:reading-status-overrides",
+      ratingOverrides: "epic-timeline:rating-overrides",
       speculativeLines: "epic-timeline:speculative-lines",
       speculativeVolumes: "epic-timeline:speculative-volumes",
     });
@@ -28,6 +29,7 @@ describe("storage keys", () => {
       "epic-timeline:volume-overrides",
       "epic-timeline:ownership-overrides",
       "epic-timeline:reading-status-overrides",
+      "epic-timeline:rating-overrides",
     ]);
     expect([...SPECULATIVE_KEYS]).toEqual([
       "epic-timeline:speculative-lines",

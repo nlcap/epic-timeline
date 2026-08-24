@@ -18,12 +18,13 @@ const TIMELINE_SCOPES: { id: TimelineScope; label: string }[] = [
  * "did I mess up the data, or just my shelf" is. Each maps to the kinds
  * defined in lib/collectionScope.ts:
  *   metadata -> edits + notes    (line/volume overrides, speculative content)
- *   status   -> ownership + reading (the two per-volume dropdowns)
+ *   status   -> ownership + reading + rating (the shelving/reading dropdowns
+ *               and the star rating widget)
  *   both     -> every kind, the old wholesale-reset behavior
  * Notes travel with metadata rather than status: a note is user-authored
  * content hung off a volume, same as an edit, and it only exists on
- * Speculative Timeline anyway -- it was never something the shelving/reading
- * dropdowns touched. */
+ * Speculative Timeline anyway -- it was never something the shelving/reading/
+ * rating controls touched. */
 type ResetKindGroup = "metadata" | "status" | "both";
 
 const KIND_GROUPS: { id: ResetKindGroup; label: string; description: string }[] = [
@@ -35,21 +36,21 @@ const KIND_GROUPS: { id: ResetKindGroup; label: string; description: string }[] 
   {
     id: "status",
     label: "Shelving & reading status",
-    description: "Just the Owned/Wishlist and reading-progress dropdowns.",
+    description: "Just the Owned/Wishlist and reading-progress dropdowns, plus your star ratings.",
   },
   { id: "both", label: "Both", description: "Everything above, for a full reset." },
 ];
 
 const KINDS_FOR_GROUP: Record<ResetKindGroup, DataKind[]> = {
   metadata: ["edits", "notes"],
-  status: ["ownership", "reading"],
-  both: ["edits", "notes", "ownership", "reading"],
+  status: ["ownership", "reading", "rating"],
+  both: ["edits", "notes", "ownership", "reading", "rating"],
 };
 
 const GROUP_LABEL: Record<ResetKindGroup, string> = {
   metadata: "volume metadata",
-  status: "shelving and reading status",
-  both: "volume metadata and shelving/reading status",
+  status: "shelving/reading status and star ratings",
+  both: "volume metadata, shelving/reading status, and star ratings",
 };
 
 /**
