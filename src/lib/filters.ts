@@ -2,10 +2,12 @@ import type {
   FilterMode,
   Line,
   OwnershipStatus,
+  RatingRange,
   ReadingStatus,
   TimelineEntry,
   Volume,
 } from "../types";
+import { FULL_RATING_RANGE, RATING_MAX, RATING_MIN } from "./rating";
 
 /**
  * Pure matching rules behind the nav search box and the filter panel (see
@@ -31,7 +33,11 @@ import type {
 export function volumeMatchesStatusFilters(
   volume: Volume,
   shelvingFilter: ReadonlySet<OwnershipStatus>,
-  readingFilter: ReadonlySet<ReadingStatus>
+  readingFilter: ReadonlySet<ReadingStatus>,
+  // Defaulted (not required) so every pre-existing call site -- including
+  // filters.test.ts's -- keeps compiling without being touched just to
+  // pass along an "inactive" value they don't otherwise care about.
+  ratingFilter: RatingRange = FULL_RATING_RANGE
 ): boolean {
   if (shelvingFilter.size > 0 && !shelvingFilter.has(volume.ownershipStatus)) return false;
   if (
@@ -39,6 +45,20 @@ export function volumeMatchesStatusFilters(
     !(volume.readingStatus !== undefined && readingFilter.has(volume.readingStatus))
   ) {
     return false;
+  }
+  // Same "undefined fails an active facet" rule as readingStatus above --
+  // an unrated volume can't be said to be "3+ stars", so it's excluded the
+  // moment the range narrows at all. At the default full range this
+  // branch is skipped entirely, so an unrated volume still passes when
+  // nothing's actually filtering on rating.
+  if (ratingFilter[0] > RATING_MIN || ratingFilter[1] < RATING_MAX) {
+    if (
+      volume.rating === undefined ||
+      volume.rating < ratingFilter[0] ||
+      volume.rating > ratingFilter[1]
+    ) {
+      return false;
+    }
   }
   return true;
 }
@@ -67,45 +87,53 @@ export function lineMatchesTagFilter(
  * them, whatever the Any/All mode says about how values combine *within* a
  * facet.
  *
- * `speculativeLineIds` pass the shelving/reading facet unconditionally.
- * Speculative content carries neither status (App only scans official
- * entries here), so without that exemption a speculative line -- which by
- * definition has no official volumes -- could never match, and the whole
- * Speculation Mode layer vanished the moment any status facet was checked.
- * The tag facet still applies to them normally.
+ * `speculativeLineIds` pass the shelving/reading/rating facet
+ * unconditionally. Speculative content carries none of the three (App only
+ * scans official entries here), so without that exemption a speculative
+ * line -- which by definition has no official volumes -- could never
+ * match, and the whole Speculation Mode layer vanished the moment any
+ * volume facet was checked. The tag facet still applies to them normally.
  */
 export function matchingLineIds({
   entries,
   lines,
   shelvingFilter,
   readingFilter,
+  ratingFilter = FULL_RATING_RANGE,
   tagFilter,
   filterMode,
   speculativeLineIds,
 }: {
   /** Official (non-speculative) resolved entries -- the only ones carrying a
-   * shelving or reading status to match on. */
+   * shelving, reading, or rating status to match on. */
   entries: readonly TimelineEntry[];
   /** Every line currently on the timeline, official and speculative. */
   lines: readonly Line[];
   shelvingFilter: ReadonlySet<OwnershipStatus>;
   readingFilter: ReadonlySet<ReadingStatus>;
+  /** Defaults to the full (inactive) range -- optional so call sites that
+   * predate this facet don't need updating just to opt out of it. */
+  ratingFilter?: RatingRange;
   tagFilter: ReadonlySet<string>;
   filterMode: FilterMode;
   /** Empty when Speculation Mode is off -- nothing to exempt. */
   speculativeLineIds: ReadonlySet<string>;
 }): Set<string> | null {
-  const shelvingOrReadingActive = shelvingFilter.size > 0 || readingFilter.size > 0;
+  const volumeFacetsActive =
+    shelvingFilter.size > 0 ||
+    readingFilter.size > 0 ||
+    ratingFilter[0] > RATING_MIN ||
+    ratingFilter[1] < RATING_MAX;
   const tagsActive = tagFilter.size > 0;
-  if (!shelvingOrReadingActive && !tagsActive) return null;
+  if (!volumeFacetsActive && !tagsActive) return null;
 
   const matchSets: Set<string>[] = [];
-  if (shelvingOrReadingActive) {
+  if (volumeFacetsActive) {
     const volumeMatches = new Set<string>();
     for (const entry of entries) {
       if (
         entry.kind === "volume" &&
-        volumeMatchesStatusFilters(entry, shelvingFilter, readingFilter)
+        volumeMatchesStatusFilters(entry, shelvingFilter, readingFilter, ratingFilter)
       ) {
         volumeMatches.add(entry.lineId);
       }

@@ -1,7 +1,8 @@
 import type { Dispatch, ReactNode, SetStateAction } from "react";
-import type { FilterMode, OwnershipStatus, ReadingStatus } from "../types";
+import type { FilterMode, OwnershipStatus, RatingRange, ReadingStatus } from "../types";
 import { OWNERSHIP_META, OWNERSHIP_ORDER } from "../lib/ownership";
 import { READING_STATUS_META, READING_STATUS_ORDER } from "../lib/readingStatus";
+import { FULL_RATING_RANGE, RATING_MAX, RATING_MIN, RATING_STEP } from "../lib/rating";
 import { useSlidePanel } from "../hooks/useSlidePanel";
 import { useEscapeToClose } from "../hooks/useEscapeToClose";
 // Same {value, label, icon} shape the volume detail panel's status pickers
@@ -150,6 +151,63 @@ function FilterStatusSection<T extends string>({
   );
 }
 
+/**
+ * Two-handle 0-5 star range, half-star steps -- see index.css's
+ * `.dual-range-input` rules for the pointer-events trick that makes both
+ * native `<input type="range">` thumbs independently grabbable while
+ * stacked on one track. Each input clamps against the *other's* current
+ * value on change so the handles can never cross (a plain min/max swap
+ * would fight the browser's own drag tracking mid-gesture).
+ */
+function RatingRangeSlider({
+  value,
+  onChange,
+}: {
+  value: RatingRange;
+  onChange: (value: RatingRange) => void;
+}) {
+  const [min, max] = value;
+  const span = RATING_MAX - RATING_MIN;
+  const leftPct = ((min - RATING_MIN) / span) * 100;
+  const rightPct = ((max - RATING_MIN) / span) * 100;
+
+  return (
+    <div className="mt-3">
+      <p className="text-xs text-neutral-400">
+        {min} – {max} stars
+      </p>
+      <div className="relative mt-3 h-4">
+        <div className="absolute inset-x-0 top-1/2 h-1 -translate-y-1/2 rounded-full bg-neutral-700" />
+        <div
+          aria-hidden
+          className="absolute top-1/2 h-1 -translate-y-1/2 rounded-full bg-white"
+          style={{ left: `${leftPct}%`, right: `${100 - rightPct}%` }}
+        />
+        <input
+          type="range"
+          min={RATING_MIN}
+          max={RATING_MAX}
+          step={RATING_STEP}
+          value={min}
+          onChange={(e) => onChange([Math.min(Number(e.target.value), max), max])}
+          aria-label="Minimum star rating"
+          className="dual-range-input absolute inset-0 w-full"
+        />
+        <input
+          type="range"
+          min={RATING_MIN}
+          max={RATING_MAX}
+          step={RATING_STEP}
+          value={max}
+          onChange={(e) => onChange([min, Math.max(Number(e.target.value), min)])}
+          aria-label="Maximum star rating"
+          className="dual-range-input absolute inset-0 w-full"
+        />
+      </div>
+    </div>
+  );
+}
+
 /** Same pill footprint (size/padding/shape) as TagInput's TagPill, so a
  * filter chip and an edit-form tag chip read as the same kind of object --
  * but toggleable rather than remove-only: inactive is an outline (border,
@@ -221,6 +279,8 @@ export function FilterPanel({
   onShelvingChange,
   readingFilter,
   onReadingChange,
+  ratingFilter,
+  onRatingChange,
   tagFilter,
   onTagsChange,
   timelineTags,
@@ -232,6 +292,8 @@ export function FilterPanel({
   onShelvingChange: Dispatch<SetStateAction<Set<OwnershipStatus>>>;
   readingFilter: ReadonlySet<ReadingStatus>;
   onReadingChange: Dispatch<SetStateAction<Set<ReadingStatus>>>;
+  ratingFilter: RatingRange;
+  onRatingChange: Dispatch<SetStateAction<RatingRange>>;
   tagFilter: ReadonlySet<string>;
   onTagsChange: Dispatch<SetStateAction<Set<string>>>;
   /** Every tag used anywhere on the current timeline (see App.tsx's
@@ -241,17 +303,22 @@ export function FilterPanel({
 }) {
   const { visible, closeThen } = useSlidePanel();
 
+  const ratingActive = ratingFilter[0] > RATING_MIN || ratingFilter[1] < RATING_MAX;
+
   // Switching mode clears every facet rather than translating an existing
   // selection -- collapsing a multi-checked shelving selection down to
   // "just the first one" would be a silent, surprising pick made on the
   // user's behalf, so this asks them to re-pick under the new mode instead.
   // Applies both directions (All -> Any clears too) so there's one rule,
-  // not a direction-dependent exception.
+  // not a direction-dependent exception. Rating rides along too for the
+  // same reason Tags does even though neither's own meaning actually
+  // changes with the mode -- one rule, not a per-facet exception.
   const setMode = (mode: FilterMode) => {
     if (mode === filterMode) return;
     onModeChange(mode);
     onShelvingChange(new Set());
     onReadingChange(new Set());
+    onRatingChange(FULL_RATING_RANGE);
     onTagsChange(new Set());
   };
 
@@ -262,7 +329,8 @@ export function FilterPanel({
     onTagsChange((prev) => toggleInSet(prev, tag, "any"));
   };
 
-  const hasSelections = shelvingFilter.size > 0 || readingFilter.size > 0 || tagFilter.size > 0;
+  const hasSelections =
+    shelvingFilter.size > 0 || readingFilter.size > 0 || ratingActive || tagFilter.size > 0;
 
   useEscapeToClose(closeThen, onClose);
 
@@ -324,6 +392,7 @@ export function FilterPanel({
               onClick={() => {
                 onShelvingChange(new Set());
                 onReadingChange(new Set());
+                onRatingChange(FULL_RATING_RANGE);
                 onTagsChange(new Set());
               }}
               className={`text-xs font-medium ${
@@ -369,6 +438,15 @@ export function FilterPanel({
               ),
             }))}
           />
+
+          <div className="mt-6">
+            <FilterSectionHeading
+              label="Star Rating"
+              disabled={!ratingActive}
+              onClear={() => onRatingChange(FULL_RATING_RANGE)}
+            />
+            <RatingRangeSlider value={ratingFilter} onChange={onRatingChange} />
+          </div>
 
           {/* The heading stays even with nothing to show. Dropping the whole
            * section made tags look like a feature this timeline doesn't

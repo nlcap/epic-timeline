@@ -44,3 +44,52 @@ html {
 [data-add-volume-cell].add-volume-cell--hovered .add-volume-cell-icon {
   opacity: 1;
 }
+
+/* Dual-handle range slider (FilterPanel's Star Rating facet, see
+   RatingRangeSlider in components/FilterPanel.tsx) -- two native
+   <input type="range"> stacked on one track. Tailwind utilities alone
+   can't reach the thumb pseudo-elements, and this is the standard trick
+   for making both thumbs independently grabbable: the input itself (and
+   its native track) goes fully transparent and `pointer-events: none`, so
+   clicks fall through to whichever thumb they actually land on --
+   `pointer-events: auto` is restored only on the thumb pseudo-element
+   itself, not the input's full-width hit area. Without this, the
+   top-stacked input's track would eat every click/drag, making the
+   bottom one's handle unreachable except by Tab. The single-handle slider
+   in ImageCropModal.tsx never needed this -- there's no second input
+   underneath it to lose events to. */
+.dual-range-input {
+  pointer-events: none;
+  -webkit-appearance: none;
+  appearance: none;
+  background: transparent;
+}
+.dual-range-input::-webkit-slider-runnable-track {
+  -webkit-appearance: none;
+  background: transparent;
+}
+.dual-range-input::-moz-range-track {
+  background: transparent;
+}
+.dual-range-input::-webkit-slider-thumb {
+  pointer-events: auto;
+  -webkit-appearance: none;
+  appearance: none;
+  width: 14px;
+  height: 14px;
+  border-radius: 9999px;
+  background: #fff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+  margin-top: -6px;
+}
+.dual-range-input::-moz-range-thumb {
+  pointer-events: auto;
+  width: 14px;
+  height: 14px;
+  border: none;
+  border-radius: 9999px;
+  background: #fff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+}

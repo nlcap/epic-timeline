@@ -1,3 +1,4 @@
+import type { RatingRange } from "../types";
 import starFilled from "../assets/Star-filled.svg";
 import starHalf from "../assets/Star-half.svg";
 import starOutline from "../assets/Star-outline.svg";
@@ -5,6 +6,15 @@ import starOutline from "../assets/Star-outline.svg";
 /** 1-5, the star position indexes both StarRating and the read-only
  * summary on VolumeTile's hover-preview card iterate over. */
 export const STAR_INDEXES = [1, 2, 3, 4, 5];
+
+export const RATING_MIN = 0;
+export const RATING_MAX = 5;
+export const RATING_STEP = 0.5;
+/** The filter panel's rating range at rest -- restricts nothing, same
+ * "inactive facet" convention an empty Set gives the other facets. Shared
+ * so App.tsx's default state, the "Clear" buttons, and the "is this facet
+ * active" checks can't drift out of sync with each other. */
+export const FULL_RATING_RANGE: RatingRange = [RATING_MIN, RATING_MAX];
 
 /** Which of the three star assets a single star position shows for a given
  * rating value -- e.g. value 3.5, star 4 -> half (3.5 is exactly "4 minus

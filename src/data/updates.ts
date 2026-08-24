@@ -96,6 +96,12 @@ export const UPDATES: UpdateRelease[] = [
         description:
           "Sweep across the five-star row under a volume's cover to rate it in half-star steps -- no confirmation needed, and clicking your current rating again clears it. A smaller read-only version shows on the hover-preview card too, once you've rated something.",
       },
+      {
+        kind: "new",
+        title: "Filter the timeline by star rating",
+        description:
+          "The Filters panel now has a two-handle star rating slider, half-star steps from 0 to 5, alongside shelving and reading status. Narrowing it hides unrated volumes too, the same way an unset reading status already does.",
+      },
     ],
   },
   {

@@ -66,6 +66,14 @@ export type ReadingStatus = "not_started" | "reading" | "finished" | "paused" | 
  */
 export type FilterMode = "any" | "all";
 
+/**
+ * Star-rating filter-panel facet: `[min, max]`, half-star precision.
+ * `[RATING_MIN, RATING_MAX]` (see lib/rating.ts's FULL_RATING_RANGE) is the
+ * "doesn't restrict anything" default, same convention as an empty Set for
+ * the other facets.
+ */
+export type RatingRange = [number, number];
+
 export interface Collection {
   id: string;
   name: string;

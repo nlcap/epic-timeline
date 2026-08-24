@@ -3,6 +3,7 @@ import type {
   FilterMode,
   Line,
   OwnershipStatus,
+  RatingRange,
   ReadingStatus,
   TimelineEntry,
 } from "../types";
@@ -30,6 +31,7 @@ export function useTimelineFilters({
   searchQuery,
   shelvingFilter,
   readingFilter,
+  ratingFilter,
   tagFilter,
   filterMode,
   speculationMode,
@@ -46,6 +48,7 @@ export function useTimelineFilters({
   searchQuery: string;
   shelvingFilter: ReadonlySet<OwnershipStatus>;
   readingFilter: ReadonlySet<ReadingStatus>;
+  ratingFilter: RatingRange;
   tagFilter: ReadonlySet<string>;
   filterMode: FilterMode;
   speculationMode: boolean;
@@ -58,6 +61,7 @@ export function useTimelineFilters({
         lines,
         shelvingFilter,
         readingFilter,
+        ratingFilter,
         tagFilter,
         filterMode,
         // Nothing to exempt with the mode off: speculative lines aren't
@@ -69,6 +73,7 @@ export function useTimelineFilters({
       lines,
       shelvingFilter,
       readingFilter,
+      ratingFilter,
       tagFilter,
       filterMode,
       speculationMode,

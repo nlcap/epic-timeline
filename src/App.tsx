@@ -6,6 +6,7 @@ import type {
   Line,
   OwnershipStatus,
   QuarterPoint,
+  RatingRange,
   ReadingStatus,
   TimelineEntry,
   Volume,
@@ -46,6 +47,7 @@ import { useTimelineFilters } from "./hooks/useTimelineFilters";
 import { useWhatsNew } from "./hooks/useWhatsNew";
 import { useOnboarding } from "./hooks/useOnboarding";
 import { volumeMatchesStatusFilters, volumeVisibleUnderSearch } from "./lib/filters";
+import { FULL_RATING_RANGE, RATING_MAX, RATING_MIN } from "./lib/rating";
 import { hexToRgba, SPECULATION_ACCENT_HEX } from "./lib/color";
 import { safeSetItem } from "./lib/storage";
 import { useEraBarCollapseProgress } from "./hooks/useEraBarCollapseProgress";
@@ -165,6 +167,9 @@ export default function App() {
   // searchQuery's empty string.
   const [shelvingFilter, setShelvingFilter] = useState<Set<OwnershipStatus>>(new Set());
   const [readingFilter, setReadingFilter] = useState<Set<ReadingStatus>>(new Set());
+  // [min, max] star rating -- FULL_RATING_RANGE (0-5) is "doesn't restrict
+  // anything", same convention as the empty Sets above.
+  const [ratingFilter, setRatingFilter] = useState<RatingRange>(FULL_RATING_RANGE);
   const [tagFilter, setTagFilter] = useState<Set<string>>(new Set());
   // How the above facets combine with each other's own multiple checked
   // values -- "any" (OR) is the default; "all" (AND) is only offered
@@ -201,7 +206,11 @@ export default function App() {
   // copy, which only exists in the DOM while that menu is open).
   const searchInputRef = useRef<HTMLInputElement>(null);
   const filtersActive =
-    shelvingFilter.size > 0 || readingFilter.size > 0 || tagFilter.size > 0;
+    shelvingFilter.size > 0 ||
+    readingFilter.size > 0 ||
+    ratingFilter[0] > RATING_MIN ||
+    ratingFilter[1] < RATING_MAX ||
+    tagFilter.size > 0;
   const { getStatus, setStatus } = useOwnership();
   const { getStatus: getReadingStatus, setStatus: setReadingStatus } = useReadingStatus();
   const { getRating, setRating } = useRating();
@@ -282,6 +291,7 @@ export default function App() {
     setSearchQuery("");
     setShelvingFilter(new Set());
     setReadingFilter(new Set());
+    setRatingFilter(FULL_RATING_RANGE);
     setTagFilter(new Set());
     // Switching collections swaps in a completely different axis range and
     // line list -- carrying over the old tab's scroll position doesn't map
@@ -439,6 +449,7 @@ export default function App() {
     searchQuery,
     shelvingFilter,
     readingFilter,
+    ratingFilter,
     tagFilter,
     filterMode,
     speculationMode,
@@ -474,7 +485,11 @@ export default function App() {
     // lines (via statusFilteredLineIds) rather than individual volume tiles
     // within a surviving one. Named apart from it so the two don't read as
     // the same value.
-    const volumeFacetsActive = shelvingFilter.size > 0 || readingFilter.size > 0;
+    const volumeFacetsActive =
+      shelvingFilter.size > 0 ||
+      readingFilter.size > 0 ||
+      ratingFilter[0] > RATING_MIN ||
+      ratingFilter[1] < RATING_MAX;
     for (const entry of combined) {
       // A gap says "nothing was published across this stretch", which is only
       // true of the line's full run. Once anything is narrowing the tiles,
@@ -495,7 +510,7 @@ export default function App() {
         volumeFacetsActive &&
         entry.kind === "volume" &&
         !speculativeVolumeIds.has(entry.id) &&
-        !volumeMatchesStatusFilters(entry, shelvingFilter, readingFilter)
+        !volumeMatchesStatusFilters(entry, shelvingFilter, readingFilter, ratingFilter)
       ) {
         continue;
       }
@@ -517,7 +532,7 @@ export default function App() {
       });
     }
     return map;
-  }, [searchableEntries, shelvingFilter, readingFilter, speculativeVolumeIds, search]);
+  }, [searchableEntries, shelvingFilter, readingFilter, ratingFilter, speculativeVolumeIds, search]);
 
   // Scoped to searchFilteredLines (not every line in the collection) so a
   // nav search trims the axis down to just the matching lines' own
@@ -540,7 +555,12 @@ export default function App() {
     for (const line of searchFilteredLines) {
       relevant.push(...(entriesByLine.get(line.id) ?? []));
     }
-    if (shelvingFilter.size > 0 || readingFilter.size > 0) {
+    if (
+      shelvingFilter.size > 0 ||
+      readingFilter.size > 0 ||
+      ratingFilter[0] > RATING_MIN ||
+      ratingFilter[1] < RATING_MAX
+    ) {
       relevant = relevant.filter((e) => e.kind === "volume");
     }
     if (relevant.length === 0) {
@@ -549,7 +569,7 @@ export default function App() {
     }
     const years = relevant.flatMap((e) => [e.start.year, e.end.year]);
     return { axisStart: Math.min(...years), axisEnd: Math.max(...years) };
-  }, [searchFilteredLines, entriesByLine, shelvingFilter, readingFilter]);
+  }, [searchFilteredLines, entriesByLine, shelvingFilter, readingFilter, ratingFilter]);
 
   // Stable object/function references for LineRow's memoized timeline lane
   // (see LineRow.tsx) -- an inline `{ year: axisStart, quarter: 1 }` literal
@@ -912,6 +932,7 @@ export default function App() {
         onClearFilters={() => {
           setShelvingFilter(new Set());
           setReadingFilter(new Set());
+          setRatingFilter(FULL_RATING_RANGE);
           setTagFilter(new Set());
         }}
         onSelect={switchCollection}
@@ -1106,6 +1127,8 @@ export default function App() {
           onShelvingChange={setShelvingFilter}
           readingFilter={readingFilter}
           onReadingChange={setReadingFilter}
+          ratingFilter={ratingFilter}
+          onRatingChange={setRatingFilter}
           tagFilter={tagFilter}
           onTagsChange={setTagFilter}
           timelineTags={timelineTags}

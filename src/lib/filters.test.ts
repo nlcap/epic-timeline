@@ -25,7 +25,8 @@ function volume(
   id: string,
   lineId: string,
   ownershipStatus: OwnershipStatus,
-  readingStatus?: ReadingStatus
+  readingStatus?: ReadingStatus,
+  rating?: number
 ): Volume {
   return {
     kind: "volume",
@@ -40,6 +41,7 @@ function volume(
     description: "",
     ownershipStatus,
     ...(readingStatus ? { readingStatus } : {}),
+    ...(rating !== undefined ? { rating } : {}),
   };
 }
 
@@ -81,6 +83,33 @@ describe("volumeMatchesStatusFilters", () => {
     expect(volumeMatchesStatusFilters(volume("v", "l", "ordered"), NONE_OWNERSHIP, reading)).toBe(
       false
     );
+  });
+
+  it("passes an unrated volume when the rating range is left at its full default", () => {
+    expect(
+      volumeMatchesStatusFilters(volume("v", "l", "announced"), NONE_OWNERSHIP, NONE_READING, [
+        0, 5,
+      ])
+    ).toBe(true);
+  });
+
+  it("fails a rating filter on a volume carrying no rating, once the range is narrowed", () => {
+    expect(
+      volumeMatchesStatusFilters(volume("v", "l", "announced"), NONE_OWNERSHIP, NONE_READING, [
+        3, 5,
+      ])
+    ).toBe(false);
+  });
+
+  it("matches a rated volume inside the range, including both boundaries", () => {
+    const rated = volume("v", "l", "announced", undefined, 3.5);
+    expect(volumeMatchesStatusFilters(rated, NONE_OWNERSHIP, NONE_READING, [3, 5])).toBe(true);
+    expect(volumeMatchesStatusFilters(rated, NONE_OWNERSHIP, NONE_READING, [3.5, 3.5])).toBe(true);
+  });
+
+  it("excludes a rated volume outside the range", () => {
+    const rated = volume("v", "l", "announced", undefined, 2);
+    expect(volumeMatchesStatusFilters(rated, NONE_OWNERSHIP, NONE_READING, [3, 5])).toBe(false);
   });
 });
 
@@ -161,6 +190,29 @@ describe("matchingLineIds", () => {
       tagFilter: new Set(["Bat Family"]),
     });
     expect([...withTag!]).toEqual(["a"]);
+  });
+
+  it("matches lines by their volumes' rating, excluding unrated ones once active", () => {
+    const rated = [
+      volume("a1", "a", "shelved", "finished", 4),
+      volume("b1", "b", "announced", "not_started", 2),
+      volume("c1", "c", "ordered", "reading"), // unrated
+    ];
+    const result = matchingLineIds({ ...base, entries: rated, ratingFilter: [3, 5] });
+    expect([...result!]).toEqual(["a"]);
+  });
+
+  it("exempts speculative lines from a rating-only-active facet", () => {
+    const speculative = line("s", "Spec");
+    const result = matchingLineIds({
+      ...base,
+      lines: [...lines, speculative],
+      speculativeLineIds: new Set(["s"]),
+      ratingFilter: [3, 5],
+    });
+    // None of the base entries carry a rating, so only the exempted
+    // speculative line survives.
+    expect([...result!]).toEqual(["s"]);
   });
 });
 
