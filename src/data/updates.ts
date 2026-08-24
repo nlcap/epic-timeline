@@ -84,6 +84,12 @@ export const UPDATES: UpdateRelease[] = [
         description:
           "A new visitor now gets a short welcome and an optional guided tour pointing out the nav, search, Speculation Mode, zoom, and Add Line, before a few notes on what isn't visible on screen. The tour and a more detailed reference guide are both available anytime from Settings -> Guide.",
       },
+      {
+        kind: "new",
+        title: "A Notes field for your own thoughts on a volume",
+        description:
+          "Every volume can now hold a private note, kept separate from its publisher description -- shown in its own section of the detail panel and editable from the volume's edit form, right under Description.",
+      },
     ],
   },
   {

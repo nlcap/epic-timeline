@@ -182,6 +182,10 @@ export function VolumeFormDrawer({
   const [description, setDescription] = useState(
     editingVolume?.description ?? editingNote?.notes ?? ""
   );
+  // Volume-only -- a reader's own freeform notes, distinct from the
+  // description above (see Volume.notes' own doc comment). Notes/Gaps have
+  // no equivalent field.
+  const [notes, setNotes] = useState(editingVolume?.notes ?? "");
   // undefined ("Auto") lets assignLanes place this volume automatically --
   // the default for every volume, including a freshly-opened form. Only an
   // explicit 1-N choice here is a deliberate pin (see assignLanes in
@@ -215,6 +219,7 @@ export function VolumeFormDrawer({
     pencillers,
     inkers,
     description,
+    notes,
     swimLanePosition,
   });
   const isDirty = useMemo(() => {
@@ -236,6 +241,7 @@ export function VolumeFormDrawer({
       pencillers !== s.pencillers ||
       inkers !== s.inkers ||
       description !== s.description ||
+      notes !== s.notes ||
       swimLanePosition !== s.swimLanePosition
     );
   }, [
@@ -255,6 +261,7 @@ export function VolumeFormDrawer({
     pencillers,
     inkers,
     description,
+    notes,
     swimLanePosition,
   ]);
   // Whether the unsaved-changes prompt (see UnsavedChangesModal) is up --
@@ -449,6 +456,7 @@ export function VolumeFormDrawer({
         pencillers: pencillers.trim() || undefined,
         inkers: inkers.trim() || undefined,
         description: description.trim(),
+        notes: notes.trim() || undefined,
         coverUrl,
         ownershipStatus,
         swimLanePosition: supportsSwimLanePosition && lineSwimLanes > 1 ? swimLanePosition : undefined,
@@ -806,6 +814,22 @@ export function VolumeFormDrawer({
               value={description}
               onChange={(e) => setDescription(e.target.value)}
               rows={4}
+              className={`mt-1 w-full ${FIELD} ${FIELD_PLACEHOLDER}`}
+            />
+          </label>
+        )}
+
+        {entryKind === "volume" && (
+          <label className="mt-4 block text-sm font-medium text-neutral-300">
+            Notes
+            <p className="mt-0.5 text-xs font-normal text-neutral-500">
+              Your own notes about this volume, kept separate from the
+              description above.
+            </p>
+            <textarea
+              value={notes}
+              onChange={(e) => setNotes(e.target.value)}
+              rows={3}
               className={`mt-1 w-full ${FIELD} ${FIELD_PLACEHOLDER}`}
             />
           </label>

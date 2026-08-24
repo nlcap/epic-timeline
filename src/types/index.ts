@@ -189,6 +189,14 @@ export interface Volume {
   pencillers?: string;
   inkers?: string;
   description: string;
+  /**
+   * A reader's own freeform notes on this volume -- distinct from
+   * `description` (the publisher blurb): never seeded, blank for every
+   * volume until someone writes one via the edit form. Not to be confused
+   * with `Note.notes` below, which is Speculation Mode's own primary text
+   * field for an entirely different timeline-entry kind.
+   */
+  notes?: string;
   coverUrl?: string;
   ownershipStatus: OwnershipStatus;
   /**

@@ -546,6 +546,23 @@ export function VolumeDetailPanel({
           ))}
         </div>
 
+        {volume.notes && (
+          <div className="mt-4">
+            <h3 className="text-xs font-semibold uppercase tracking-wide text-neutral-500">
+              Notes
+            </h3>
+            <div className="mt-1 text-sm leading-relaxed text-neutral-200">
+              {formatLineBreaks(volume.notes)
+                .split("\n")
+                .map((paragraph, i) => (
+                  <p key={i} className="pb-2 last:pb-0">
+                    {paragraph}
+                  </p>
+                ))}
+            </div>
+          </div>
+        )}
+
         {hasCredits && (
           <div className="mt-4 flex flex-col gap-1 text-sm text-neutral-400">
             {volume.writers && (
