@@ -268,7 +268,7 @@ export function VolumeTile({
               </p>
               <p className="flex items-center gap-1.5">
                 <FlagIcon
-                  className={`h-2.5 w-2.5 shrink-0 ${
+                  className={`h-[9px] w-[9px] shrink-0 ${
                     READING_STATUS_META[volume.readingStatus ?? DEFAULT_READING_STATUS].flagClassName
                   }`}
                 />

@@ -379,7 +379,7 @@ export function FilterPanel({
               label: READING_STATUS_META[status].label,
               icon: (
                 <FlagIcon
-                  className={`h-2.5 w-2.5 shrink-0 ${READING_STATUS_META[status].flagClassName}`}
+                  className={`h-[9px] w-[9px] shrink-0 ${READING_STATUS_META[status].flagClassName}`}
                 />
               ),
             }))}

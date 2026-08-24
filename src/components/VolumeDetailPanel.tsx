@@ -516,14 +516,18 @@ export function VolumeDetailPanel({
             />
             <StatusDropdown
               ref={readingDropdownRef}
-              icon={<FlagIcon className={`h-3 w-3 ${readingMeta.flagClassName}`} />}
+              icon={<FlagIcon className={`h-[11px] w-[11px] ${readingMeta.flagClassName}`} />}
               label={readingMeta.label}
               onSelect={onReadingStatusChange}
               onOpenChange={setReadingDropdownOpen}
               options={READING_STATUS_ORDER.map((s) => ({
                 value: s,
                 label: READING_STATUS_META[s].label,
-                icon: <FlagIcon className={`h-3 w-3 ${READING_STATUS_META[s].flagClassName}`} />,
+                icon: (
+                  <FlagIcon
+                    className={`h-[11px] w-[11px] ${READING_STATUS_META[s].flagClassName}`}
+                  />
+                ),
               }))}
             />
           </div>
