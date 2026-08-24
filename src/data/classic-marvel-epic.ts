@@ -791,7 +791,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
       "Andy Mushynsky, Keith Williams, Mike Machlan, Mike Esposito, Al Gordon, Sal Buscema, Joe Rosas, Brad Vancata, Keith Wilson, Mickey Ritter, Jack Abel, Rudy Nebres, Mike Manley, Alan Kupperberg",
     description:
       "A science experiment enhances Spider-Man's powers just as a cabal of villains launches unpredictable attacks across his three titles, leading to a Punisher team-up and a shrunken showdown with Psycho-Man.",
-    coverUrl: "https://m.media-amazon.com/images/I/71IPSk4y9BL._SL1400_.jpg",
+    coverUrl: "https://m.media-amazon.com/images/I/91KbIXXEKZL._SL1500_.jpg",
     ownershipStatus: "announced",
   },
   {
@@ -3082,7 +3082,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
       "Joe Sinnott, Al Milgrom, Sal Trapani, Jack Abel, Frank Giacoia, Mike Esposito, Pablo Marcos, Rick Magyar, Chic Stone, Hilary Barta, John Beatty",
     description:
       "J.M. DeMatteis takes Doctor Strange, the Hulk, Nighthawk, Hellcat, and the Son of Satan on wild journeys into the occult, beginning with a broken Eternity and building to a double-sized issue #100 extravaganza featuring Dracula and the Devil-Slayer.",
-    coverUrl: "https://m.media-amazon.com/images/I/91ImonznJTL._SL1500_.jpg",
+    coverUrl: "https://m.media-amazon.com/images/I/A1IV8PDebYL._SL1500_.jpg",
     ownershipStatus: "announced",
   },
   {
@@ -4116,7 +4116,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
       "Mark Buckingham, Al Milgrom, Dan Panosian, Jim Fern, Mark Pennington, Andy Lanning, Joe Rubinstein, Mike Sellers, Mark Morales, Joe Pimentel, Al Vey, Scott Hanna, Jason Martin, Karl Story, Shawn McManus, Vince Russell, Bill Sienkiewicz, Steve Lightle, Gary Chaloner, Mark Irwin",
     description:
       "M's monstrous brother Emplate returns to menace the students of the Massachusetts Academy, forcing the young team to confront the sibling trauma at the root of M's condition.",
-    coverUrl: "https://m.media-amazon.com/images/I/81Pw1O7QuNL._SL1500_.jpg",
+    coverUrl: "https://m.media-amazon.com/images/I/914MRmgn0zL._SL1500_.jpg",
     ownershipStatus: "announced",
   },
   {
@@ -6108,7 +6108,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
       "Hilary Barta, Bob Wiacek, Art Thibert, Tim Dzon, Jeff Albrecht, Harry Candelario, Al Milgrom, Scott Williams, Arthur Adams, Steve Moncuse, Dan Green, Bret Blevins",
     description:
       "Cable makes his explosive debut, transforming the New Mutants into a harder-edged strike force as Rob Liefeld's artwork and Louise Simonson's scripts push the team toward the militarized future that will become X-Force.",
-    coverUrl: "https://m.media-amazon.com/images/I/916kPPP355L._SL1500_.jpg",
+    coverUrl: "https://m.media-amazon.com/images/I/A1Jn9r6eA7L._SL1500_.jpg",
     ownershipStatus: "announced",
   },
   {
@@ -6758,7 +6758,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     inkers: "Chic Stone, Dick Ayers, Joe Sinnott, Don Heck, Steve Ditko, George Roussos",
     description:
       "Dr. Donald Blake discovers a strange, gnarled cane in Norway, and upon striking it transforms into Thor, God of Thunder. Stan Lee and Jack Kirby lay the foundation of Asgard and the Marvel Universe's mightiest hero from the ground up.",
-    coverUrl: "https://cdn.marvel.com/u/prod/marvel/i/mg/9/20/646b6cb041dd7/detail.jpg",
+    coverUrl: "https://m.media-amazon.com/images/I/91FUQVm6WYL._SL1500_.jpg",
     ownershipStatus: "announced",
   },
   {
@@ -6777,7 +6777,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     inkers: "Vince Colletta, Chic Stone, Carl Hubbell, Frank Giacoia",
     description:
       "Asgardian adventures escalate with a fight between Thor and the Incredible Hulk, the return of the Grey Gargoyle, and the debuts of the Absorbing Man and the Destroyer. The volume closes with an epic team-up adventure pitting Thor against Hercules that concludes in Pluto's Underworld.",
-    coverUrl: "https://m.media-amazon.com/images/I/81+ZftH7E3L._SL1500_.jpg",
+    coverUrl: "https://m.media-amazon.com/images/I/91RBtcRJ-IL._SL1500_.jpg",
     ownershipStatus: "announced",
   },
   {
@@ -6815,7 +6815,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     inkers: "Vince Colletta, Bill Everett, George Klein",
     description:
       "Mangog threatens to unsheathe the Odinsword and bring Ragnarok upon the Norse gods in this run of Asgardian classics. The volume also features a cosmic battle between Galactus and Ego the Living Planet, the return of \"Him\" (later Adam Warlock), and the origin of Galactus himself, alongside personal revelations about Donald Blake and the dramatic dance between Balder and the Norn queen Karnilla.",
-    coverUrl: "https://m.media-amazon.com/images/I/71e3dqMqPaL._SL1400_.jpg",
+    coverUrl: "https://m.media-amazon.com/images/I/A1q3WJ1Gc2L._SL1500_.jpg",
     ownershipStatus: "announced",
   },
   {
