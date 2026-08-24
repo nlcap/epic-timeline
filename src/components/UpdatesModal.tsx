@@ -28,9 +28,7 @@ export function UpdatesModal({ open, onClose }: { open: boolean; onClose: () => 
         {ENTRY_COUNT} changes across {PUBLIC_RELEASES.length} days, newest first.
       </p>
 
-      <div className="mt-4 min-h-0 flex-1 overflow-y-auto">
-        <UpdateEntryList releases={PUBLIC_RELEASES} />
-      </div>
+      <UpdateEntryList releases={PUBLIC_RELEASES} />
     </SettingsModal>
   );
 }
