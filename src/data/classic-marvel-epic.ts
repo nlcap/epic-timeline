@@ -6510,7 +6510,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     inkers: "Joe Sinnott, Dan Adkins, Frank Giacoia",
     description:
       "The Silver Surfer debuts as the herald of the world-devourer Galactus in Fantastic Four, a stoic alien entity touched by human compassion who rebels against his master. Trapped on Earth by Galactus, the Surfer struggles to understand his adopted world, clashing with the Thing and the Hulk, venturing into the Microverse, and facing his own Power Cosmic at the hands of Doctor Doom.",
-    coverUrl: "https://m.media-amazon.com/images/I/71oEnwVG-YL._SL1400_.jpg",
+    coverUrl: "https://m.media-amazon.com/images/I/9171MiWiT6L._SL1500_.jpg",
     ownershipStatus: "announced",
   },
   {
@@ -6758,7 +6758,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     inkers: "Chic Stone, Dick Ayers, Joe Sinnott, Don Heck, Steve Ditko, George Roussos",
     description:
       "Dr. Donald Blake discovers a strange, gnarled cane in Norway, and upon striking it transforms into Thor, God of Thunder. Stan Lee and Jack Kirby lay the foundation of Asgard and the Marvel Universe's mightiest hero from the ground up.",
-    coverUrl: "https://m.media-amazon.com/images/I/91FUQVm6WYL._SL1500_.jpg",
+    coverUrl: "https://cdn.marvel.com/u/prod/marvel/i/mg/9/20/646b6cb041dd7/detail.webp",
     ownershipStatus: "announced",
   },
   {
