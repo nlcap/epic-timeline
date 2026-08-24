@@ -17,7 +17,10 @@ export function ZoomControl({
   const canZoomOut = level < MAX_ZOOM_LEVEL;
 
   return (
-    <div className="flex flex-col items-center overflow-hidden rounded-full border border-neutral-700 bg-neutral-900/90 shadow-lg backdrop-blur">
+    <div
+      data-tour-target="zoom-control"
+      className="flex flex-col items-center overflow-hidden rounded-full border border-neutral-700 bg-neutral-900/90 shadow-lg backdrop-blur"
+    >
       <button
         type="button"
         onClick={onZoomIn}

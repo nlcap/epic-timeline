@@ -59,6 +59,7 @@ function SearchBox({
   onOpenFilters,
   onClearFilters,
   inputRef,
+  tourTarget,
   className = "",
 }: {
   value: string;
@@ -74,6 +75,11 @@ function SearchBox({
    * always-mounted desktop nav, not the mobile menu's copy) needs to be
    * reachable that way. */
   inputRef?: RefObject<HTMLInputElement>;
+  /** `data-tour-target` value for SpotlightTour (see tourSteps.ts) --
+   * same desktop-only reasoning as inputRef above: only the desktop call
+   * site passes this, since the mobile menu's copy isn't in the tree yet
+   * (or at a stable position) when the tour would run. */
+  tourTarget?: string;
   className?: string;
 }) {
   // The clear-X used to only show once there was text to clear; now it
@@ -81,7 +87,7 @@ function SearchBox({
   // either to clear -- the filter icon alone stays visible always.
   const showClear = value.length > 0 || filtersActive;
   return (
-    <div className={`relative ${className}`}>
+    <div data-tour-target={tourTarget} className={`relative ${className}`}>
       <input
         ref={inputRef}
         type="text"
@@ -141,9 +147,14 @@ interface SettingsItem {
 function SettingsMenu({
   className = "",
   items,
+  tourTarget,
 }: {
   className?: string;
   items: SettingsItem[];
+  /** `data-tour-target` value for SpotlightTour -- same desktop-only
+   * reasoning as SearchBox's own tourTarget prop; the mobile menu renders
+   * its settings items as a plain button list, not this component. */
+  tourTarget?: string;
 }) {
   const [menuOpen, setMenuOpen] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
@@ -165,7 +176,11 @@ function SettingsMenu({
   }, [menuOpen]);
 
   return (
-    <div className={`relative shrink-0 ${className}`} ref={containerRef}>
+    <div
+      className={`relative shrink-0 ${className}`}
+      ref={containerRef}
+      data-tour-target={tourTarget}
+    >
       <button
         type="button"
         onClick={() => setMenuOpen((o) => !o)}
@@ -226,6 +241,7 @@ export function TopNav({
   onClearFilters,
   onOpenShortcuts,
   onOpenUpdates,
+  onOpenReference,
   searchInputRef,
 }: {
   collections: Collection[];
@@ -242,6 +258,11 @@ export function TopNav({
    * seen, since reading it here means the one-time popup has nothing left
    * to announce. */
   onOpenUpdates: () => void;
+  /** Opens ReferenceModal -- owned by App.tsx (not a local useState here
+   * like Updates/About) because both the settings menu and
+   * OnboardingClosingModal need to be able to open it, same reason
+   * App.tsx already owns shortcutsOpen instead of TopNav. */
+  onOpenReference: () => void;
   /** Forwarded to the desktop nav's SearchBox only -- see SearchBox's own
    * inputRef prop. */
   searchInputRef?: RefObject<HTMLInputElement>;
@@ -270,6 +291,7 @@ export function TopNav({
         onOpenUpdates();
       },
     },
+    { label: "Guide", onOpen: onOpenReference },
     { label: "About", onOpen: () => setAboutOpen(true) },
   ];
 
@@ -290,7 +312,10 @@ export function TopNav({
       >
         <div className="flex min-w-0 items-center gap-6">
           <img src={epicTimelineLogo} alt="Epic Timeline" className="h-6 w-auto shrink-0" />
-          <div className="hidden flex-wrap items-center gap-5 md:flex">
+          <div
+            data-tour-target="collection-tabs"
+            className="hidden flex-wrap items-center gap-5 md:flex"
+          >
             {collections.map((c) => {
               const active = c.id === activeId;
               return (
@@ -319,9 +344,10 @@ export function TopNav({
             onOpenFilters={onOpenFilters}
             onClearFilters={onClearFilters}
             inputRef={searchInputRef}
+            tourTarget="search-box"
             className="w-48"
           />
-          <SettingsMenu items={settingsItems} />
+          <SettingsMenu items={settingsItems} tourTarget="settings-gear" />
         </div>
 
         <button

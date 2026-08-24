@@ -34,6 +34,21 @@ export const STORAGE_KEYS = {
 // personal progress, not a fact about the volume) -- it's grouped here
 // anyway since export/import/reset all treat every key in this list the
 // same way regardless of what it means.
+/** True once any real user data exists -- any of the six keys above, not
+ * `active-collection` or `updates-last-seen`/`onboarding-seen` (deliberately
+ * excluded per the file-level comment: single-use UI bookkeeping, not data).
+ * The single source for "is this visitor genuinely new" -- both
+ * useWhatsNew's silent-catch-up split and useOnboarding's first-visit gate
+ * read this instead of each keeping their own ad-hoc exclude-list, which
+ * would otherwise need updating every time a new bookkeeping key is added. */
+export function hasStoredUserData(): boolean {
+  try {
+    return Object.values(STORAGE_KEYS).some((key) => localStorage.getItem(key) !== null);
+  } catch {
+    return false;
+  }
+}
+
 export const OVERRIDE_KEYS = [
   STORAGE_KEYS.lineOverrides,
   STORAGE_KEYS.volumeOverrides,

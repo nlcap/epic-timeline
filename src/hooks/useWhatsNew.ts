@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { PUBLIC_RELEASES, type UpdateRelease } from "../data/updates";
 import { safeSetItem } from "../lib/storage";
-import { APP_PREFIX } from "../lib/storageDebug";
+import { hasStoredUserData } from "../lib/overrideKeys";
 
 const LAST_SEEN_STORAGE_KEY = "epic-timeline:updates-last-seen";
 
@@ -11,25 +11,6 @@ function loadLastSeen(): string | null {
   } catch {
     return null;
   }
-}
-
-/** True if this origin already has app data from before this hook ever
- * ran -- any `epic-timeline:` key other than the one this hook itself
- * owns. Distinguishes a visitor who's genuinely brand new (nothing to
- * miss, catch up silently) from one who's been using the app all along
- * and just never had a "last seen" recorded, because the feature didn't
- * exist yet. */
-function hasPriorAppData(): boolean {
-  try {
-    for (let i = 0; i < localStorage.length; i++) {
-      const key = localStorage.key(i);
-      if (key && key.startsWith(APP_PREFIX) && key !== LAST_SEEN_STORAGE_KEY) return true;
-    }
-  } catch {
-    // Storage unavailable -- treat as brand new rather than risk dumping
-    // the whole changelog on someone we can't actually tell apart.
-  }
-  return false;
 }
 
 /**
@@ -54,7 +35,7 @@ export function useWhatsNew(): { newReleases: UpdateRelease[]; markSeen: () => v
   // apart the two possible pasts a visitor with no stored date could have,
   // and the popup fires immediately on load anyway, before anything the
   // current session does could change the answer.
-  const [hasPriorActivity] = useState(hasPriorAppData);
+  const [hasPriorActivity] = useState(hasStoredUserData);
   const latestDate = PUBLIC_RELEASES[0]?.date ?? null;
 
   useEffect(() => {

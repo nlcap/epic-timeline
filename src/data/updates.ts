@@ -76,6 +76,17 @@ export function formatUpdateDate(iso: string): string {
 
 export const UPDATES: UpdateRelease[] = [
   {
+    date: "2026-08-24",
+    entries: [
+      {
+        kind: "new",
+        title: "A guided tour for first-time visitors, and a reference guide for anyone",
+        description:
+          "A new visitor now gets a short welcome and an optional guided tour pointing out the nav, search, Speculation Mode, zoom, and Add Line, before a few notes on what isn't visible on screen. The tour and a more detailed reference guide are both available anytime from Settings -> Guide.",
+      },
+    ],
+  },
+  {
     date: "2026-08-23",
     entries: [
       {

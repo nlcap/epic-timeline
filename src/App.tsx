@@ -22,7 +22,11 @@ import { VolumeFormDrawer } from "./components/VolumeFormDrawer";
 import { VolumeDetailPanel } from "./components/VolumeDetailPanel";
 import { FilterPanel } from "./components/FilterPanel";
 import { KeyboardShortcutsModal } from "./components/KeyboardShortcutsModal";
+import { ReferenceModal } from "./components/ReferenceModal";
 import { WhatsNewModal } from "./components/WhatsNewModal";
+import { OnboardingFlow } from "./components/OnboardingFlow";
+import { SpotlightTour } from "./components/SpotlightTour";
+import { TOUR_STEPS } from "./data/tourSteps";
 import { ZoomControl } from "./components/ZoomControl";
 import { SpeculationModeToggle } from "./components/SpeculationModeToggle";
 import { useOwnership } from "./hooks/useOwnership";
@@ -39,6 +43,7 @@ import { useGlobalShortcuts } from "./hooks/useGlobalShortcuts";
 import { useOverlaysOpen } from "./hooks/useOverlay";
 import { useTimelineFilters } from "./hooks/useTimelineFilters";
 import { useWhatsNew } from "./hooks/useWhatsNew";
+import { useOnboarding } from "./hooks/useOnboarding";
 import { volumeMatchesStatusFilters, volumeVisibleUnderSearch } from "./lib/filters";
 import { hexToRgba, SPECULATION_ACCENT_HEX } from "./lib/color";
 import { safeSetItem } from "./lib/storage";
@@ -172,12 +177,24 @@ export default function App() {
   // debug) because the "?" global shortcut needs to be able to open it too
   // -- same reason filterPanelOpen lives here instead of in TopNav.
   const [shortcutsOpen, setShortcutsOpen] = useState(false);
+  // Owned here rather than in TopNav (like Updates/About) for the same
+  // reason shortcutsOpen is: more than one place needs to open it -- the
+  // Settings menu's "Guide" item, and OnboardingClosingModal's "Open the
+  // full guide".
+  const [referenceOpen, setReferenceOpen] = useState(false);
+  // "Replay tour" from the Guide -- reruns SpotlightTour on its own (not
+  // the full welcome/tour/closing flow; see ReferenceModal's onReplayTour
+  // doc comment), independent of useOnboarding's one-time shouldShow.
+  const [replayTourOpen, setReplayTourOpen] = useState(false);
   // What's-new popup: whichever public releases this visitor hasn't seen
   // yet (empty on a normal visit), plus markSeen -- fired on dismissal and
   // also passed to TopNav so opening the full Updates page counts as
   // having seen everything too. See useWhatsNew for the localStorage
   // bookkeeping.
   const { newReleases: unseenUpdates, markSeen: markUpdatesSeen } = useWhatsNew();
+  // First-time welcome/tour/guide flow -- see useOnboarding and
+  // OnboardingFlow.
+  const { shouldShow: onboardingShouldShow, markSeen: markOnboardingSeen } = useOnboarding();
   // Imperative focus target for the "/" shortcut -- TopNav forwards this to
   // the desktop nav's search input specifically (not the mobile menu's
   // copy, which only exists in the DOM while that menu is open).
@@ -897,6 +914,7 @@ export default function App() {
         onSelect={switchCollection}
         onOpenShortcuts={() => setShortcutsOpen(true)}
         onOpenUpdates={markUpdatesSeen}
+        onOpenReference={() => setReferenceOpen(true)}
         searchInputRef={searchInputRef}
       />
       <div style={{ paddingTop: NAV_HEIGHT }}>
@@ -1035,7 +1053,7 @@ export default function App() {
       </div>
 
       {displayLines.length > 0 && (
-        <div className="fixed bottom-4 left-4 z-40">
+        <div className="fixed bottom-4 left-4 z-40" data-tour-target="add-line-button">
           <AddLineButton
             scrollLeft={scrollLeft}
             sidebarWidth={sidebarColumnWidth}
@@ -1091,7 +1109,35 @@ export default function App() {
       )}
 
       <KeyboardShortcutsModal open={shortcutsOpen} onClose={() => setShortcutsOpen(false)} />
+      <ReferenceModal
+        open={referenceOpen}
+        onClose={() => setReferenceOpen(false)}
+        onOpenShortcuts={() => setShortcutsOpen(true)}
+        onReplayTour={() => {
+          setReferenceOpen(false);
+          setReplayTourOpen(true);
+        }}
+      />
       <WhatsNewModal releases={unseenUpdates} onDismiss={markUpdatesSeen} />
+      {/* Held behind any unseen changelog releases -- both are one-time
+       * popups gated on their own separate localStorage flags, so a
+       * visitor who predates both features (real data, never saw either)
+       * would otherwise have both trying to show at once. Updates goes
+       * first; once it's dismissed (or there was nothing to show),
+       * onboarding gets its turn. */}
+      {onboardingShouldShow && unseenUpdates.length === 0 && (
+        <OnboardingFlow
+          onFinish={markOnboardingSeen}
+          onOpenReference={() => setReferenceOpen(true)}
+        />
+      )}
+      {replayTourOpen && (
+        <SpotlightTour
+          steps={TOUR_STEPS}
+          onFinish={() => setReplayTourOpen(false)}
+          onSkip={() => setReplayTourOpen(false)}
+        />
+      )}
 
       {(addLineOpen || editingLine) && (
         <LineFormDrawer

@@ -17,6 +17,7 @@ export function SpeculationModeToggle({
       aria-checked={enabled}
       aria-label="Speculation Mode"
       title="Speculation Mode"
+      data-tour-target="speculation-toggle"
       onClick={onToggle}
       className={`flex h-7 w-12 shrink-0 items-center rounded-full border border-neutral-700 p-0.5 shadow-lg backdrop-blur transition-colors ${
         enabled ? "" : "bg-neutral-900/90"
