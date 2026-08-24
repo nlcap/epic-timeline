@@ -152,9 +152,11 @@ export default function App() {
   // Global -- nav search box; filters the displayed lines by title (see
   // searchFilteredLines below).
   const [searchQuery, setSearchQuery] = useState("");
-  // Nav filter panel (see FilterPanel.tsx) -- applied (committed) facet
-  // selections. Empty set means that facet doesn't restrict anything, same
-  // "no filter" convention as searchQuery's empty string.
+  // Nav filter panel (see FilterPanel.tsx) -- lives here, not local state in
+  // the panel, since every checkbox writes straight through to these
+  // setters and re-filters the timeline immediately. Empty set means that
+  // facet doesn't restrict anything, same "no filter" convention as
+  // searchQuery's empty string.
   const [shelvingFilter, setShelvingFilter] = useState<Set<OwnershipStatus>>(new Set());
   const [readingFilter, setReadingFilter] = useState<Set<ReadingStatus>>(new Set());
   const [tagFilter, setTagFilter] = useState<Set<string>>(new Set());
@@ -1076,17 +1078,14 @@ export default function App() {
       {filterPanelOpen && (
         <FilterPanel
           filterMode={filterMode}
+          onModeChange={setFilterMode}
           shelvingFilter={shelvingFilter}
+          onShelvingChange={setShelvingFilter}
           readingFilter={readingFilter}
+          onReadingChange={setReadingFilter}
           tagFilter={tagFilter}
+          onTagsChange={setTagFilter}
           timelineTags={timelineTags}
-          onApply={(mode, shelving, reading, tags) => {
-            setFilterMode(mode);
-            setShelvingFilter(shelving);
-            setReadingFilter(reading);
-            setTagFilter(tags);
-            setFilterPanelOpen(false);
-          }}
           onClose={() => setFilterPanelOpen(false)}
         />
       )}

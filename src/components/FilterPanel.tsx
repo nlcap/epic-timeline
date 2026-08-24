@@ -1,4 +1,4 @@
-import { useState, type Dispatch, type ReactNode, type SetStateAction } from "react";
+import type { Dispatch, ReactNode, SetStateAction } from "react";
 import type { FilterMode, OwnershipStatus, ReadingStatus } from "../types";
 import { OWNERSHIP_META, OWNERSHIP_ORDER } from "../lib/ownership";
 import { READING_STATUS_META, READING_STATUS_ORDER } from "../lib/readingStatus";
@@ -8,7 +8,6 @@ import { useEscapeToClose } from "../hooks/useEscapeToClose";
 // use -- deliberately shared, so a status's icon can't end up drawn one way
 // in the picker and another way in the filter for it.
 import type { StatusDropdownOption } from "./StatusDropdown";
-import { useCommitShortcut } from "../hooks/useCommitShortcut";
 import { FlagIcon } from "./icons";
 
 /** One checkbox (Any mode) or radio (All mode) row -- custom rather than a
@@ -118,13 +117,13 @@ function toggleInSet<T>(prev: ReadonlySet<T>, value: T, mode: FilterMode): Set<T
 function FilterStatusSection<T extends string>({
   label,
   options,
-  draft,
+  selected,
   mode,
   onChange,
 }: {
   label: string;
   options: StatusDropdownOption<T>[];
-  draft: ReadonlySet<T>;
+  selected: ReadonlySet<T>;
   mode: FilterMode;
   onChange: Dispatch<SetStateAction<Set<T>>>;
 }) {
@@ -132,7 +131,7 @@ function FilterStatusSection<T extends string>({
     <div className="mt-6">
       <FilterSectionHeading
         label={label}
-        disabled={draft.size === 0}
+        disabled={selected.size === 0}
         onClear={() => onChange(new Set())}
       />
       <div className="mt-2 flex flex-col gap-0.5">
@@ -140,7 +139,7 @@ function FilterStatusSection<T extends string>({
           <FilterSelectableRow
             key={option.value}
             variant={mode === "all" ? "radio" : "checkbox"}
-            selected={draft.has(option.value)}
+            selected={selected.has(option.value)}
             onToggle={() => onChange((prev) => toggleInSet(prev, option.value, mode))}
             icon={option.icon}
             label={option.label}
@@ -207,79 +206,65 @@ function FilterTagChip({
  * valued per volume -- switch from checkboxes to radios instead of
  * offering a combination that could never match anything; Tags stays
  * checkboxes since "has every one of these tags" is a real query. Flipping
- * the mode either direction clears all three draft facets rather than
- * silently keeping a selection whose meaning just changed underneath it.
+ * the mode either direction clears all three facets rather than silently
+ * keeping a selection whose meaning just changed underneath it.
  *
- * Draft/apply, same as VolumeFormDrawer/LineFormDrawer: checking boxes here
- * only edits local state, seeded from the currently-applied filters on
- * mount -- nothing actually filters the timeline until "Apply Filters"
- * commits the draft up to App.tsx, and "Cancel" (or the backdrop/Close ✕)
- * just discards it.
+ * Every checkbox/radio here writes straight through to App.tsx's own
+ * filter state via the setters below -- no draft, no Apply/Cancel. The
+ * timeline re-filters as each box is checked, and closing the panel
+ * (Close ✕, the backdrop, or Escape) never has anything to discard.
  */
 export function FilterPanel({
   filterMode,
+  onModeChange,
   shelvingFilter,
+  onShelvingChange,
   readingFilter,
+  onReadingChange,
   tagFilter,
+  onTagsChange,
   timelineTags,
-  onApply,
   onClose,
 }: {
   filterMode: FilterMode;
+  onModeChange: Dispatch<SetStateAction<FilterMode>>;
   shelvingFilter: ReadonlySet<OwnershipStatus>;
+  onShelvingChange: Dispatch<SetStateAction<Set<OwnershipStatus>>>;
   readingFilter: ReadonlySet<ReadingStatus>;
+  onReadingChange: Dispatch<SetStateAction<Set<ReadingStatus>>>;
   tagFilter: ReadonlySet<string>;
+  onTagsChange: Dispatch<SetStateAction<Set<string>>>;
   /** Every tag used anywhere on the current timeline (see App.tsx's
    * timelineTags) -- the full set of chips this panel can offer. */
   timelineTags: string[];
-  onApply: (
-    mode: FilterMode,
-    shelving: Set<OwnershipStatus>,
-    reading: Set<ReadingStatus>,
-    tags: Set<string>
-  ) => void;
   onClose: () => void;
 }) {
   const { visible, closeThen } = useSlidePanel();
-  const [draftMode, setDraftMode] = useState<FilterMode>(filterMode);
-  const [draftShelving, setDraftShelving] = useState<Set<OwnershipStatus>>(
-    () => new Set(shelvingFilter)
-  );
-  const [draftReading, setDraftReading] = useState<Set<ReadingStatus>>(
-    () => new Set(readingFilter)
-  );
-  const [draftTags, setDraftTags] = useState<Set<string>>(() => new Set(tagFilter));
 
-  // Switching mode clears every facet's draft rather than translating an
-  // existing selection -- collapsing a multi-checked shelving selection
-  // down to "just the first one" would be a silent, surprising pick made
-  // on the user's behalf, so this asks them to re-pick under the new mode
-  // instead. Applies both directions (All -> Any clears too) so there's
-  // one rule, not a direction-dependent exception.
+  // Switching mode clears every facet rather than translating an existing
+  // selection -- collapsing a multi-checked shelving selection down to
+  // "just the first one" would be a silent, surprising pick made on the
+  // user's behalf, so this asks them to re-pick under the new mode instead.
+  // Applies both directions (All -> Any clears too) so there's one rule,
+  // not a direction-dependent exception.
   const setMode = (mode: FilterMode) => {
-    if (mode === draftMode) return;
-    setDraftMode(mode);
-    setDraftShelving(new Set());
-    setDraftReading(new Set());
-    setDraftTags(new Set());
+    if (mode === filterMode) return;
+    onModeChange(mode);
+    onShelvingChange(new Set());
+    onReadingChange(new Set());
+    onTagsChange(new Set());
   };
 
   // Always "any" semantics, even in All mode -- tags are multi-valued per
   // line, so "has every one of these" is a real query and the chips stay
   // multi-select (see the docblock above).
   const toggleTag = (tag: string) => {
-    setDraftTags((prev) => toggleInSet(prev, tag, "any"));
+    onTagsChange((prev) => toggleInSet(prev, tag, "any"));
   };
 
-  const hasDraftSelections =
-    draftShelving.size > 0 || draftReading.size > 0 || draftTags.size > 0;
+  const hasSelections = shelvingFilter.size > 0 || readingFilter.size > 0 || tagFilter.size > 0;
 
   useEscapeToClose(closeThen, onClose);
-
-  // Applies the draft, same as clicking Apply Filters.
-  useCommitShortcut(() =>
-    closeThen(() => onApply(draftMode, draftShelving, draftReading, draftTags))
-  );
 
   return (
     <div
@@ -311,9 +296,9 @@ export function FilterPanel({
               <button
                 type="button"
                 onClick={() => setMode("any")}
-                aria-pressed={draftMode === "any"}
+                aria-pressed={filterMode === "any"}
                 className={`rounded px-3 py-1 text-xs font-medium transition-colors ${
-                  draftMode === "any"
+                  filterMode === "any"
                     ? "bg-white text-neutral-950"
                     : "text-neutral-400 hover:text-white"
                 }`}
@@ -323,9 +308,9 @@ export function FilterPanel({
               <button
                 type="button"
                 onClick={() => setMode("all")}
-                aria-pressed={draftMode === "all"}
+                aria-pressed={filterMode === "all"}
                 className={`rounded px-3 py-1 text-xs font-medium transition-colors ${
-                  draftMode === "all"
+                  filterMode === "all"
                     ? "bg-white text-neutral-950"
                     : "text-neutral-400 hover:text-white"
                 }`}
@@ -335,14 +320,14 @@ export function FilterPanel({
             </div>
             <button
               type="button"
-              disabled={!hasDraftSelections}
+              disabled={!hasSelections}
               onClick={() => {
-                setDraftShelving(new Set());
-                setDraftReading(new Set());
-                setDraftTags(new Set());
+                onShelvingChange(new Set());
+                onReadingChange(new Set());
+                onTagsChange(new Set());
               }}
               className={`text-xs font-medium ${
-                hasDraftSelections
+                hasSelections
                   ? "text-blue-400 hover:text-blue-300"
                   : "cursor-not-allowed text-neutral-600"
               }`}
@@ -353,9 +338,9 @@ export function FilterPanel({
 
           <FilterStatusSection
             label="Shelving Status"
-            mode={draftMode}
-            draft={draftShelving}
-            onChange={setDraftShelving}
+            mode={filterMode}
+            selected={shelvingFilter}
+            onChange={onShelvingChange}
             options={OWNERSHIP_ORDER.map((status) => ({
               value: status,
               label: OWNERSHIP_META[status].label,
@@ -371,9 +356,9 @@ export function FilterPanel({
 
           <FilterStatusSection
             label="Reading Status"
-            mode={draftMode}
-            draft={draftReading}
-            onChange={setDraftReading}
+            mode={filterMode}
+            selected={readingFilter}
+            onChange={onReadingChange}
             options={READING_STATUS_ORDER.map((status) => ({
               value: status,
               label: READING_STATUS_META[status].label,
@@ -392,8 +377,8 @@ export function FilterPanel({
           <div className="mt-6">
             <FilterSectionHeading
               label="Tags"
-              disabled={draftTags.size === 0}
-              onClear={() => setDraftTags(new Set())}
+              disabled={tagFilter.size === 0}
+              onClear={() => onTagsChange(new Set())}
             />
             {timelineTags.length > 0 ? (
               /* mt-4, not mt-2 like FilterStatusSection's rows -- a
@@ -407,7 +392,7 @@ export function FilterPanel({
                   <FilterTagChip
                     key={tag}
                     label={tag}
-                    active={draftTags.has(tag)}
+                    active={tagFilter.has(tag)}
                     onToggle={() => toggleTag(tag)}
                   />
                 ))}
@@ -419,27 +404,6 @@ export function FilterPanel({
               </p>
             )}
           </div>
-        </div>
-
-        {/* Pinned footer, same split-from-scrolling-content pattern as
-         * VolumeFormDrawer/LineFormDrawer's Cancel/Save bar. */}
-        <div className="flex gap-3 border-t border-neutral-800 bg-[#252526] p-6">
-          <button
-            type="button"
-            onClick={() => closeThen(onClose)}
-            className="flex-1 rounded-md border border-neutral-700 px-4 py-2 text-sm font-medium text-neutral-300 hover:text-white"
-          >
-            Cancel
-          </button>
-          <button
-            type="button"
-            onClick={() =>
-              closeThen(() => onApply(draftMode, draftShelving, draftReading, draftTags))
-            }
-            className="flex-1 rounded-md bg-white px-4 py-2 text-sm font-semibold text-neutral-950 hover:bg-neutral-200"
-          >
-            Apply Filters
-          </button>
         </div>
       </div>
     </div>
