@@ -29,7 +29,9 @@ export function WhatsNewModal({
         {entryCount} {entryCount === 1 ? "change" : "changes"} since your last visit.
       </p>
 
-      <UpdateEntryList releases={releases} />
+      <div className="mt-4 min-h-0 flex-1 overflow-y-auto">
+        <UpdateEntryList releases={releases} />
+      </div>
     </SettingsModal>
   );
 }
