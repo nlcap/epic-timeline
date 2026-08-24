@@ -76,6 +76,23 @@ export function formatUpdateDate(iso: string): string {
 
 export const UPDATES: UpdateRelease[] = [
   {
+    date: "2026-08-23",
+    entries: [
+      {
+        kind: "new",
+        title: "A warning before losing unsaved edits",
+        description:
+          "Closing an edit form with unsaved changes -- clicking outside it, Esc, or the X -- now asks whether to save or discard instead of silently dropping them. S saves, D or C discards. The explicit Cancel button still discards immediately, since clicking it is already a deliberate choice.",
+      },
+      {
+        kind: "improved",
+        title: "Filters apply as you check them",
+        description:
+          "The Filters panel no longer needs an Apply click -- checking a box re-filters the timeline immediately, and closing the panel never has anything left to discard.",
+      },
+    ],
+  },
+  {
     date: "2026-08-20",
     entries: [
       {
