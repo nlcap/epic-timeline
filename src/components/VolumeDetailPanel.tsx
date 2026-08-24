@@ -273,18 +273,31 @@ export function VolumeDetailPanel({
   // independently and the block disappears entirely when all are absent.
   const hasCredits = !!(volume.writers || volume.pencillers || volume.inkers);
 
+  // Scrim and drawer are two INDEPENDENT fixed siblings, not a drawer
+  // nested inside a full-screen scrim. That's load-bearing: the selected
+  // volume's tile sits at z-[62] (see TimelineEntryTile in LineRow.tsx), so
+  // it needs a real gap to land in -- above the dimming so it stays bright,
+  // below the drawer so it's simply occluded where the two overlap rather
+  // than painting over the panel's controls.
+  //
+  // Nesting them would close that gap: an outer `position: fixed` wrapper
+  // creates a stacking context even at `z-index: auto`, flattening whatever
+  // is inside it into one atomic layer from the outside. There'd be nothing
+  // between 61 and 65 to aim at, and the tile would be dimmed along with
+  // the rest of the timeline again.
   return (
-    <div
-      className={`fixed inset-0 z-[65] flex justify-end bg-black/60 transition-opacity duration-200 ease-out ${
-        visible ? "opacity-100" : "opacity-0"
-      }`}
-      onClick={() => closeThen(onClose)}
-    >
+    <>
       <div
-        className={`relative flex h-full w-full max-w-sm flex-col overflow-hidden border-l border-neutral-800 bg-[#252526]/35 backdrop-blur-sm transition-transform duration-200 ease-out ${
+        aria-hidden
+        className={`fixed inset-0 z-[61] bg-black/60 transition-opacity duration-200 ease-out ${
+          visible ? "opacity-100" : "opacity-0"
+        }`}
+        onClick={() => closeThen(onClose)}
+      />
+      <div
+        className={`fixed inset-y-0 right-0 z-[65] flex w-full max-w-sm flex-col overflow-hidden border-l border-neutral-800 bg-[#252526]/35 backdrop-blur-sm transition-transform duration-200 ease-out ${
           visible ? "translate-x-0" : "translate-x-full"
         }`}
-        onClick={(e) => e.stopPropagation()}
       >
         {/* Panel colour, deepening downwards -- what the cover wash below
          * fades out into. A darker grey than the panel's own #252526 so the
@@ -570,6 +583,6 @@ export function VolumeDetailPanel({
         )}
         </div>
       </div>
-    </div>
+    </>
   );
 }

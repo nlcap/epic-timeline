@@ -220,6 +220,16 @@ export function LineRow({
   // from a clean slate and needs a genuine fresh hover (on the pill itself,
   // or the panel's own independent CSS-hover reveal) to expand/reveal
   // anything again, matching what he actually expects to happen.
+  // The volume detail panel is open on something, somewhere -- App.tsx
+  // passes selectedVolumeId down as focusedId, so a non-null value means
+  // exactly that. Derived rather than passed as its own prop since the
+  // value is already here. Drives the sidebar's z-index/dimming below.
+  const panelOpen = focusedId !== null;
+  // True when the panel's open volume belongs to THIS line -- lets the
+  // sidebar cell below skip its own dimming for that one line, matching the
+  // undimmed z-[62] treatment its tile gets in TimelineEntryTile, so the
+  // pill and the tile it belongs to read as one highlighted unit.
+  const lineHasFocusedVolume = entries.some((e) => e.id === focusedId);
   const wasStepScrolling = useRef(stepScrolling);
   useEffect(() => {
     if (wasStepScrolling.current && !stepScrolling) {
@@ -287,14 +297,46 @@ export function LineRow({
 
   return (
     <div
+      // The settled state carries NO transform class (not even
+      // `translate-y-0`), on purpose. Any non-none transform makes this row
+      // a stacking context, which would trap the selected volume's tile
+      // inside it and stop it rising above the detail panel's scrim -- see
+      // TimelineEntryTile's zIndex below. Animating to no-transform instead
+      // of to translate-y-0 is visually identical: browsers interpolate
+      // `none` as the identity matrix, so the enter/exit slide still runs.
+      // (A row mid-animation IS briefly a stacking context, which is fine --
+      // that only happens on collection switches, never while a panel is
+      // open on a settled row.)
       className={`flex transition-[opacity,transform] duration-500 ease-out ${
-        visible ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-1"
+        visible ? "opacity-100" : "opacity-0 -translate-y-1"
       }`}
       style={{ gap: sidebarGap }}
     >
       <div
         className="relative flex shrink-0 items-center"
-        style={{ width: sidebarColumnWidth, height: lineHeight(rowHeight, line.swimLanes) }}
+        style={{
+          width: sidebarColumnWidth,
+          height: lineHeight(rowHeight, line.swimLanes),
+          // While the detail panel is open, the selected volume's tile is
+          // lifted to z-[62] (see TimelineEntryTile below) so it can clear
+          // that panel's scrim. Left alone, that tile would then also paint
+          // over this pinned pill as it scrolls past -- pills normally win
+          // (z-20 vs the tiles' z-auto) and tiles are meant to scroll
+          // BEHIND them. So the whole sidebar cell goes above it too.
+          //
+          // Which then puts the cell above the scrim (z-[61]) as well, so
+          // it has to reproduce the dimming itself. brightness(0.4) is not
+          // an approximation of the scrim: compositing bg-black/60 over a
+          // colour C yields 0.4*C exactly, which is what this filter
+          // computes, so a dimmed-by-filter pill and a dimmed-by-scrim one
+          // land on the same pixels. Skipped for the line that owns the
+          // open volume (lineHasFocusedVolume) so its pill stays bright
+          // along with its tile -- the zIndex boost still applies
+          // unconditionally though, since every line's pill needs it to
+          // avoid being covered by its own tile, focused or not.
+          zIndex: panelOpen ? 63 : undefined,
+          filter: panelOpen && !lineHasFocusedVolume ? "brightness(0.4)" : undefined,
+        }}
         // onMouseLeave (only) lives here, not on the pill button below,
         // because the stepper panel is a SIBLING of that button (has to be
         // -- it can't be nested inside the button, or a chevron's mouseup
@@ -877,6 +919,20 @@ const TimelineEntryTile = memo(function TimelineEntryTile({
         width: Math.max(width - 1, 0),
         top,
         height: tileHeight,
+        // `focused` means exactly "the volume detail panel is open on this
+        // entry" (App.tsx passes selectedVolumeId as focusedId), so this
+        // lifts the selected tile above that panel's scrim (z-[61]) while
+        // leaving it comfortably below the drawer itself (z-[65]). Every
+        // other tile stays at z-auto, under the scrim, and so reads as
+        // dimmed -- which is the whole effect, achieved without a scrim of
+        // our own and without cloning anything.
+        //
+        // This only reaches the app's root stacking context because neither
+        // the rows container (App.tsx) nor this row (LineRow's root) creates
+        // one any more -- both carry comments saying so. Reintroducing a
+        // z-index or a transform on either would silently re-trap this and
+        // the highlight would go back to being dimmed with everything else.
+        zIndex: focused ? 62 : undefined,
       }}
     >
       {entry.kind === "volume" ? (

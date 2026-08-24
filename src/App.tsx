@@ -974,7 +974,16 @@ export default function App() {
                   pxPerQuarter={pxPerQuarter}
                   sidebarGap={sidebarGap}
                 />
-                <div className="relative z-10" ref={rowsContainerRef}>
+                {/* Deliberately `relative` with NO z-index. A z-index here
+                  * would make this a stacking context, which would trap every
+                  * tile inside it -- and the selected volume's tile has to be
+                  * able to rise above the detail panel's scrim (z-[61]) to
+                  * stay undimmed while the panel is open (see
+                  * TimelineEntryTile's own zIndex below). It doesn't need one
+                  * to paint above TimelineGrid either: that's z-0 and comes
+                  * first in DOM order, so a positioned, z-auto sibling after
+                  * it already wins. */}
+                <div className="relative" ref={rowsContainerRef}>
                 {displayLines.map(({ line, exiting }, rowIndex) => {
                   const lineIsSpeculative = speculativeLineIdSet.has(line.id);
                   return (

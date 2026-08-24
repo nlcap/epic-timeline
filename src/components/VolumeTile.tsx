@@ -148,46 +148,40 @@ export function VolumeTile({
     handleMouseLeave,
   } = useTilePreviewPosition(autoPreview, stepScrolling, autoPreviewDelta, onHoverStart);
 
-  return (
-    <div
-      className="relative h-full w-full"
-      onMouseEnter={handleMouseEnter}
-      onMouseMove={handleMouseMove}
-      onMouseLeave={handleMouseLeave}
+  const tileButton = (
+    <button
+      ref={buttonRef}
+      type="button"
+      onClick={onClick}
+      // No overflow-hidden here on purpose -- at level 2 the icon (40px)
+      // is taller than the tile (32px) and is meant to visibly overflow
+      // it, matching the sidebar icon's overflow treatment. Horizontal
+      // containment still works without it: the title/subtitle below
+      // truncate themselves (their own non-visible overflow), which gives
+      // them an automatic flex min-width of 0 to shrink into.
+      data-official-locked={locked ? "" : undefined}
+      className={`group flex h-full w-full items-center gap-1 rounded-full border text-left backdrop-blur-sm transition-colors ${
+        hasTitleContent ? "pr-2" : centerIconOnly ? "justify-center" : ""
+      }`}
+      style={{
+        backgroundColor: background,
+        // Owned (shelved/ordered) gets a subtle ring tinted with the
+        // line's own color (see ownedTileBorderColor) -- on the actual
+        // border, not a separate inset box-shadow, so it sits flush with
+        // the tile's true edge instead of 1px inside it. Focused/
+        // speculative's full-color ring takes priority when present;
+        // ownership is still visible then via the tile's own higher fill
+        // opacity (see TILE_OPACITY).
+        borderColor: speculative
+          ? speculativeBorderColor
+          : focused
+          ? line.colorHex
+          : owned
+          ? ownedTileBorderColor(line.colorHex)
+          : "transparent",
+      }}
+      title={`${line.name} ${volumeNumberLabel(volume)}: ${volume.title}`}
     >
-      <button
-        ref={buttonRef}
-        type="button"
-        onClick={onClick}
-        // No overflow-hidden here on purpose -- at level 2 the icon (40px)
-        // is taller than the tile (32px) and is meant to visibly overflow
-        // it, matching the sidebar icon's overflow treatment. Horizontal
-        // containment still works without it: the title/subtitle below
-        // truncate themselves (their own non-visible overflow), which gives
-        // them an automatic flex min-width of 0 to shrink into.
-        data-official-locked={locked ? "" : undefined}
-        className={`group flex h-full w-full items-center gap-1 rounded-full border text-left backdrop-blur-sm transition-colors ${
-          hasTitleContent ? "pr-2" : centerIconOnly ? "justify-center" : ""
-        }`}
-        style={{
-          backgroundColor: background,
-          // Owned (shelved/ordered) gets a subtle ring tinted with the
-          // line's own color (see ownedTileBorderColor) -- on the actual
-          // border, not a separate inset box-shadow, so it sits flush with
-          // the tile's true edge instead of 1px inside it. Focused/
-          // speculative's full-color ring takes priority when present;
-          // ownership is still visible then via the tile's own higher fill
-          // opacity (see TILE_OPACITY).
-          borderColor: speculative
-            ? speculativeBorderColor
-            : focused
-            ? line.colorHex
-            : owned
-            ? ownedTileBorderColor(line.colorHex)
-            : "transparent",
-        }}
-        title={`${line.name} ${volumeNumberLabel(volume)}: ${volume.title}`}
-      >
       {showIcon ? (
         // Level 2 only: width matches the icon's own w-7 (28px) exactly,
         // flush against the tile's left edge (that tile is short enough
@@ -228,7 +222,17 @@ export function VolumeTile({
           )}
         </span>
       )}
-      </button>
+    </button>
+  );
+
+  return (
+    <div
+      className="relative h-full w-full"
+      onMouseEnter={handleMouseEnter}
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
+    >
+      {tileButton}
       <TileResizeHandles
         visible={hovered}
         locked={locked}
