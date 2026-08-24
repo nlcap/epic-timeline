@@ -13,6 +13,7 @@ import { DEFAULT_READING_STATUS, READING_STATUS_META } from "../lib/readingStatu
 import { LineIcon } from "./LineIcon";
 import { TileResizeHandles } from "./TileResizeHandles";
 import { TilePreviewCard } from "./TilePreviewCard";
+import { FlagIcon } from "./icons";
 import { useTilePreviewPosition } from "../hooks/useTilePreviewPosition";
 
 export function VolumeTile({
@@ -249,24 +250,26 @@ export function VolumeTile({
           subtitle={volume.issuesCollected}
         >
           {/* Read-only -- same OWNERSHIP_META/READING_STATUS_META icon+label
-              pairs as VolumeDetailPanel's status pickers, just not clickable
-              here. Speculative volumes don't track either (see VolumeTile's
-              owned styling above, which is a no-op for them too), so this
-              is skipped for those the same way the pickers are. */}
+              pairs (FlagIcon for reading status, matching VolumeDetailPanel's
+              own picker) as VolumeDetailPanel's status pickers, just not
+              clickable here. Speculative volumes don't track either (see
+              VolumeTile's owned styling above, which is a no-op for them
+              too), so this is skipped for those the same way the pickers
+              are. */}
           {!speculative && (
             <div className="mt-1 flex flex-wrap items-center gap-x-3 gap-y-1 text-[11px] text-neutral-300">
               <p className="flex items-center gap-1.5">
                 <img
                   src={OWNERSHIP_META[volume.ownershipStatus].iconUrl}
                   alt=""
-                  className="h-2.5 w-2.5 shrink-0"
+                  className="h-3 w-3 shrink-0"
                 />
                 {OWNERSHIP_META[volume.ownershipStatus].label}
               </p>
               <p className="flex items-center gap-1.5">
-                <span
-                  className={`h-2.5 w-2.5 shrink-0 rounded-full ${
-                    READING_STATUS_META[volume.readingStatus ?? DEFAULT_READING_STATUS].dotClassName
+                <FlagIcon
+                  className={`h-2.5 w-2.5 shrink-0 ${
+                    READING_STATUS_META[volume.readingStatus ?? DEFAULT_READING_STATUS].flagClassName
                   }`}
                 />
                 {READING_STATUS_META[volume.readingStatus ?? DEFAULT_READING_STATUS].label}

@@ -80,3 +80,21 @@ export function PlusIcon({
     </svg>
   );
 }
+
+/** Corner-flag triangle -- reading status indicator (StatusDropdown in
+ * VolumeDetailPanel), one per ReadingStatus colour instead of the flat dot
+ * it replaces. Same shape as assets/flag.svg, inlined so `currentColor`
+ * can pick up each status's colour via className the way every other icon
+ * here does, rather than needing a separate coloured asset per status. */
+export function FlagIcon({ className }: { className?: string }) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 16 16"
+      fill="none"
+      className={className}
+    >
+      <path d="M16 0H0V16L16 0Z" fill="currentColor" />
+    </svg>
+  );
+}

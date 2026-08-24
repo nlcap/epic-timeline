@@ -9,6 +9,7 @@ import { isTypingTarget } from "../lib/keyboard";
 import { useSlidePanel } from "../hooks/useSlidePanel";
 import { useEscapeToClose } from "../hooks/useEscapeToClose";
 import { StatusDropdown, type StatusDropdownHandle } from "./StatusDropdown";
+import { FlagIcon } from "./icons";
 
 export function VolumeDetailPanel({
   volume,
@@ -503,30 +504,26 @@ export function VolumeDetailPanel({
           <div className="mt-4 flex flex-wrap items-center gap-2">
             <StatusDropdown
               ref={shelvingDropdownRef}
-              icon={<img src={meta.iconUrl} alt="" className="h-3 w-3" />}
+              icon={<img src={meta.iconUrl} alt="" className="h-3.5 w-3.5" />}
               label={meta.label}
               onSelect={onStatusChange}
               onOpenChange={setShelvingDropdownOpen}
               options={OWNERSHIP_ORDER.map((s) => ({
                 value: s,
                 label: OWNERSHIP_META[s].label,
-                icon: <img src={OWNERSHIP_META[s].iconUrl} alt="" className="h-3 w-3" />,
+                icon: <img src={OWNERSHIP_META[s].iconUrl} alt="" className="h-3.5 w-3.5" />,
               }))}
             />
             <StatusDropdown
               ref={readingDropdownRef}
-              icon={<span className={`h-2.5 w-2.5 rounded-full ${readingMeta.dotClassName}`} />}
+              icon={<FlagIcon className={`h-3 w-3 ${readingMeta.flagClassName}`} />}
               label={readingMeta.label}
               onSelect={onReadingStatusChange}
               onOpenChange={setReadingDropdownOpen}
               options={READING_STATUS_ORDER.map((s) => ({
                 value: s,
                 label: READING_STATUS_META[s].label,
-                icon: (
-                  <span
-                    className={`h-2.5 w-2.5 rounded-full ${READING_STATUS_META[s].dotClassName}`}
-                  />
-                ),
+                icon: <FlagIcon className={`h-3 w-3 ${READING_STATUS_META[s].flagClassName}`} />,
               }))}
             />
           </div>
