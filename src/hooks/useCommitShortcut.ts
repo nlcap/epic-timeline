@@ -1,10 +1,9 @@
 import { useEffect, useRef } from "react";
 
 /**
- * Cmd/Ctrl+Enter commits the panel you're in, from anywhere inside it --
- * submitting a form drawer (same as clicking Add/Update) or applying the
- * filter panel's draft (same as clicking Apply Filters). All three used to
- * reimplement this identical listener individually.
+ * Cmd/Ctrl+Enter submits the form drawer you're in, from anywhere inside it
+ * -- same as clicking Add/Update. VolumeFormDrawer and LineFormDrawer used
+ * to each reimplement this identical listener individually.
  *
  * Deliberately not gated on a typing-target check like the app's bare-key
  * shortcuts (see useGlobalShortcuts): the modifier already makes this
@@ -13,8 +12,7 @@ import { useEffect, useRef } from "react";
  *
  * `onCommit` is read through a ref so callers can pass an inline closure
  * over live state without the listener being torn down and re-added on
- * every render -- FilterPanel's version closes over four pieces of draft
- * state and so was re-attaching on every checkbox click.
+ * every render.
  */
 export function useCommitShortcut(onCommit: () => void) {
   const onCommitRef = useRef(onCommit);
