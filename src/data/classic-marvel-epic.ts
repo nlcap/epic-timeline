@@ -572,7 +572,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     id: "the-amazing-spider-man-8",
     lineId: "the-amazing-spider-man",
     number: "8",
-    title: "Man-wolf At Midnight",
+    title: "Man-Wolf At Midnight",
     start: { year: 1973, quarter: 3 },
     end: { year: 1975, quarter: 1 },
     issuesCollected: "Amazing Spider-Man #124–142, Giant-Size Super-Heroes #1",
