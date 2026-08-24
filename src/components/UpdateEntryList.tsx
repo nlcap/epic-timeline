@@ -53,17 +53,30 @@ export function UpdateEntryList({ releases }: { releases: UpdateRelease[] }) {
           {/* Sticky so the date stays readable while scrolling a long
            * day like 16 August. Opaque rather than translucent -- entry
            * text scrolling visibly under it reads as a rendering bug.
-           * Still locks at top:0 (unchanged), but -mt-1.5/pt-3.5 (6px
-           * more than the pb-2 it's paired with) extends the painted box
-           * 6px above that lock line -- a fast wheel/trackpad fling can
-           * scroll several pixels between the browser compositing this
-           * sticky element's layer and the content layer scrolling
+           * The h3's own box (position, size, padding) is completely
+           * unchanged -- the absolutely-positioned span below is a pure
+           * add-on cover strip, anchored to the h3 itself (already a
+           * positioned element via `sticky`, so no extra `relative` is
+           * needed) and extending 2px above its top edge. That covers
+           * the seam a fast wheel/trackpad fling can leave between this
+           * element's compositor layer and the content layer scrolling
            * behind it (a static check -- set scrollTop, read
            * getBoundingClientRect -- won't reproduce this; both settle
-           * to a pixel-perfect match once scrolling actually stops), and
-           * a 1px overlap wasn't enough margin to reliably cover that gap
-           * during a real fling (reported by Nick after the first pass). */}
-          <h3 className="sticky top-0 z-10 -mt-1.5 bg-neutral-900 pb-2 pt-3.5 text-xs font-semibold uppercase tracking-wide text-neutral-500">
+           * pixel-perfect once scrolling actually stops).
+           *
+           * Deliberately NOT a negative margin or a transform: a first
+           * attempt used -mt/pt (negative margin compensated by extra
+           * padding), which shipped, was verified in Chromium, but still
+           * showed the gap for Nick in Firefox -- a negative top margin
+           * on a section's first child can collapse with the section's
+           * own margin in browser-inconsistent ways, which a margin-free
+           * absolute overlay sidesteps entirely. A translateY alternative
+           * was considered too, but it only relocates the box (2px more
+           * coverage above costs 2px less below) rather than genuinely
+           * extending it -- this absolute span adds coverage without
+           * taking any away. */}
+          <h3 className="sticky top-0 z-10 bg-neutral-900 py-2 text-xs font-semibold uppercase tracking-wide text-neutral-500">
+            <span aria-hidden="true" className="absolute inset-x-0 -top-0.5 h-0.5 bg-neutral-900" />
             {formatUpdateDate(release.date)}
           </h3>
           <ul className="divide-y divide-neutral-800 border-t border-neutral-800">
