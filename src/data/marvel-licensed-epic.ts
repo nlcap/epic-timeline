@@ -411,6 +411,7 @@ export const LICENSED_ENTRIES: TimelineEntry[] = [
     writers: "Robert E. Howard, Timothy Truman, Mike Mignola, Kurt Busiek",
     pencillers:
       "Cary Nord, Paul Lee, Greg Ruth, Timothy Truman, Rafael Kayanan, Tony Harris, Mike Kaluta, Eric Powell",
+    inkers: "Greg Ruth, Cary Nord, Timothy Truman, Eric Powell, Rafael Kayanan",
     description:
       "\"The Tower of the Elephant\" and other stories! Conan the Barbarian stars in more legendary tales filled with swords, sorcery, giant spiders and monstrous creatures — including stories adapted from the original works of Robert E. Howard. Stealing the priceless gem the Heart of the Elephant from an unguarded tower seems like child's play, but nothing's ever easy for Conan. Then a dalliance with a magistrate's wife spells trouble, and Conan's adventures in the City of Thieves continue as he runs a gauntlet of threats both human and inhuman. But what grotesque horrors await him in the Hall of the Dead?",
     coverUrl: "https://cdn.marvel.com/u/prod/marvel/i/mg/9/70/5c9d2ad4d8505/detail.webp",
