@@ -2370,6 +2370,8 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     releaseDate: { year: 2025, month: 12 },
     writers: "Mark Waid",
     pencillers: "Ron Garney, Andy Kubert, Mark Bagley, Patrick Zircher",
+    inkers:
+      "Jesse Delperdang, Bob Wiacek, Scott Koblish, John Beatty, Robin Riggs, Randy Emberlin, Greg Adams",
     description:
       "A new era begins for Captain America, helmed by Mark Waid -- the world is happy to have him back, but as his popularity rises to a fever pitch of \"Capmania,\" something sinister lurks behind the scenes.",
     coverUrl: "https://m.media-amazon.com/images/I/81nx5YfTjeL._SL1500_.jpg",
@@ -5602,6 +5604,8 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     yearsCovered: "1977-1979",
     writers: "Doug Moench",
     pencillers: "Mike Zeck, Jim Craig, Pat Broderick",
+    inkers:
+      "John Tartaglione, Bruce D. Patterson, Gene Day, Jim Mooney, Jim Craig, Ricardo Villamonte, M. Hands, Fred Kida, Al Gordon",
     description:
       "Shang-Chi faces a rogue MI-6 agent driven mad by experimental treatments into the insane embodiment of history's greatest warriors, then is tested by Skull-Crusher, the Cat, and Pavane in a storyline marking Mike Zeck's debut as artist.",
     coverUrl: "https://images.penguinrandomhouse.com/cover/9781302901370",
@@ -6341,7 +6345,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     inkers:
       "Al Williamson, Jimmy Palmiotti, Joe Rubinstein, Mark McKenna, Sean Hardy, Rodney Ramos, Phil Gascoine, Mark Farmer",
     description:
-      "",
+      "The Punisher hits Europe! When Frank Castle heads to London in pursuit of the assassin Snakebite, he finds a whole continent of trouble — and also his biggest fan: the British vigilante Outlaw! Their fragile Anglo-American alliance must survive a deadly chase from country to country that will draw in mercenaries from Batroc to the Tarantula! But can the Punisher put a stop to a plot that goes all the way up to the Kingpin himself? And if he returns to America in one piece, Frank will be targeted by the anti-vigilantism task force known as V.I.G.I.L.! Plus: the Punisher in space! The death-dealing Baron Cemetery! And a tense team-up with the Avengers' own Black Widow!",
     coverUrl: punisherCapitalPunishmentCover,
     ownershipStatus: "announced",
   },
@@ -7443,13 +7447,14 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     end: { year: 1999, quarter: 1 },
     issuesCollected: "Nova #7; Amazing Spider-Man (vol. 2) #19; Spectacular Spider-Man (vol. 2) #1-5; Spider-Man/Fantastic Four #2; material from Amazing Spider-Man (vol. 2) #12; Peter Parker: Spider-Man #12; Spider-Man Family #1-2 !",
     yearsCovered: "1998-1999",
+    releaseDate: { year: 2026, month: 10 },
     writers: "Howard Mackie, Paul Jenkins, Sean McKeever, Erik Larsen, A.A. Ward, Christos N. Gage",
     pencillers:
       "John Romita Jr., Humberto Ramos, Joe Bennett, John Byrne, Erik Larsen, Terrell Bobbett, Kano, Mario Alberti",
     inkers:
       "Scott Hanna, Wayne Faucher, John Beatty, Al Milgrom, Rodney Ramos, Gary Martin, Kano, Mario Alberti",
     description:
-      "",
+      "The Lethal Protector renews rivalries with the Amazing Spider-Man, as Eddie Brock and his alien symbiote return to torment Peter Parker — and they're deadlier than ever! Venom makes dangerous new enemies when he crosses the Sinister Six, and as the world darkens for Eddie, the symbiote begins to hunger — and target the innocents Venom used to protect! To face his most nightmarish foe, Spidey must turn to the Fantastic Four for help, but a fateful decision could forever change things for Peter and Eddie. Plus: Nova the Human Rocket hurtles into Venom's path!",
     coverUrl: "https://m.media-amazon.com/images/I/91QdVELN3zL._SL1500_.jpg",
     ownershipStatus: "announced",
   },
