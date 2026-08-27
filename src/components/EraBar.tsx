@@ -58,7 +58,7 @@ export function EraBar({
             }}
           >
             <span
-              className="whitespace-nowrap ml-4 rounded-[2px] px-0.5 font-display text-[16.5px] font-semibold uppercase leading-none tracking-wide transition-opacity duration-150 ease-out"
+              className="whitespace-nowrap ml-4 rounded-[2px] px-1.5 font-display text-[16.5px] font-semibold uppercase leading-none tracking-wide transition-opacity duration-150 ease-out"
               style={{
                 backgroundColor: "#1E1E1E",
                 color: ERA_BAR_COLOR[segment.era],
