@@ -76,6 +76,17 @@ export function formatUpdateDate(iso: string): string {
 
 export const UPDATES: UpdateRelease[] = [
   {
+    date: "2026-08-28",
+    entries: [
+      {
+        kind: "new",
+        title: "Export and import now carry the Sandbox tab's setup",
+        description:
+          "Its title, colors, logo, font and era definitions travel with the file, so restoring on another browser brings back the tab as you built it rather than just the lines inside it. Files exported before this still import fine -- they simply don't carry it.",
+      },
+    ],
+  },
+  {
     date: "2026-08-27",
     entries: [
       {
