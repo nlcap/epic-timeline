@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { SettingsModal } from "./SettingsModal";
 import { isTypingTarget } from "../lib/keyboard";
+import { BUTTON_PRIMARY } from "./buttonStyles";
 
 /**
  * Confirmation shown when an edit-mode LineFormDrawer/VolumeFormDrawer is
@@ -77,7 +78,7 @@ export function UnsavedChangesModal({
         <button
           type="button"
           onClick={onSave}
-          className="flex-1 rounded-md bg-white px-4 py-2 text-sm font-semibold text-neutral-950 hover:bg-neutral-200"
+          className={`flex-1 ${BUTTON_PRIMARY}`}
         >
           Save changes
         </button>

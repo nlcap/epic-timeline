@@ -6,6 +6,7 @@ import {
   type StorageBreakdown,
 } from "../lib/storageDebug";
 import { SettingsModal } from "./SettingsModal";
+import { BUTTON_SECONDARY } from "./buttonStyles";
 
 type CapacityState =
   | { status: "idle" }
@@ -173,14 +174,14 @@ export function StorageDebugPanel({ open, onClose }: { open: boolean; onClose: (
         <button
           type="button"
           onClick={refresh}
-          className="flex-1 rounded-md border border-neutral-700 px-4 py-2 text-sm font-medium text-neutral-300 hover:text-white"
+          className={`flex-1 ${BUTTON_SECONDARY}`}
         >
           Refresh
         </button>
         <button
           type="button"
           onClick={handleCopyClick}
-          className="flex-1 rounded-md border border-neutral-700 px-4 py-2 text-sm font-medium text-neutral-300 hover:text-white"
+          className={`flex-1 ${BUTTON_SECONDARY}`}
         >
           {copyState === "copied"
             ? "Copied!"

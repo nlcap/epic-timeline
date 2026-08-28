@@ -11,6 +11,7 @@ import { useArmedConfirm } from "../hooks/useArmedConfirm";
 import { ChevronDownIcon, TrashIcon } from "./icons";
 import { FIELD, FIELD_DISABLED, FIELD_PLACEHOLDER, SELECT } from "./formStyles";
 import { UnsavedChangesModal } from "./UnsavedChangesModal";
+import { BUTTON_DESTRUCTIVE, BUTTON_DESTRUCTIVE_GHOST, BUTTON_PRIMARY, BUTTON_SECONDARY } from "./buttonStyles";
 
 const QUARTERS: Quarter[] = [1, 2, 3, 4];
 
@@ -859,7 +860,7 @@ export function VolumeFormDrawer({
                   <button
                     type="button"
                     onClick={() => setConfirmingDelete(false)}
-                    className="flex-1 rounded-md border border-neutral-700 px-4 py-2 text-sm font-medium text-neutral-300 hover:text-white"
+                    className={`flex-1 ${BUTTON_SECONDARY}`}
                   >
                     Cancel
                   </button>
@@ -868,7 +869,7 @@ export function VolumeFormDrawer({
                     onClick={() =>
                       closeThen(() => onDelete((editingGap ?? editingNote ?? editingVolume)!.id))
                     }
-                    className="flex-1 rounded-md bg-red-600 px-4 py-2 text-sm font-semibold text-white hover:bg-red-500"
+                    className={`flex-1 ${BUTTON_DESTRUCTIVE}`}
                   >
                     Yes, delete
                   </button>
@@ -878,7 +879,7 @@ export function VolumeFormDrawer({
               <button
                 type="button"
                 onClick={() => setConfirmingDelete(true)}
-                className="w-full rounded-md border border-transparent px-4 py-2 text-sm font-medium text-red-400 hover:text-red-300"
+                className={`w-full ${BUTTON_DESTRUCTIVE_GHOST}`}
               >
                 Delete {entryNoun}
               </button>
@@ -894,13 +895,13 @@ export function VolumeFormDrawer({
         <button
           type="button"
           onClick={() => closeThen(onClose)}
-          className="flex-1 rounded-md border border-neutral-700 px-4 py-2 text-sm font-medium text-neutral-300 hover:text-white"
+          className={`flex-1 ${BUTTON_SECONDARY}`}
         >
           Cancel
         </button>
         <button
           type="submit"
-          className="flex-1 rounded-md bg-white px-4 py-2 text-sm font-semibold text-neutral-950 hover:bg-neutral-200"
+          className={`flex-1 ${BUTTON_PRIMARY}`}
         >
           {isEditing ? `Update ${entryNoun}` : `Add ${entryNoun}`}
         </button>

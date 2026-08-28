@@ -21,6 +21,7 @@ import {
 } from "../lib/overrideKeys";
 import { DataSelectionPicker } from "./DataSelectionPicker";
 import { SettingsModal } from "./SettingsModal";
+import { BUTTON_SECONDARY_DISABLEABLE } from "./buttonStyles";
 
 /** "ultimate-main", "dc-finest", etc -- a short hint in the download
  * filename so a drawer full of partial exports is still tellable apart. */
@@ -201,7 +202,7 @@ export function ExportDataButton({ open, onClose }: { open: boolean; onClose: ()
           type="button"
           disabled={recordCount === 0}
           onClick={handleCopyClick}
-          className="flex-1 rounded-md border border-neutral-700 px-4 py-2 text-sm font-medium text-neutral-300 transition-colors hover:enabled:text-white disabled:cursor-not-allowed disabled:border-neutral-800 disabled:text-neutral-600"
+          className={`flex-1 ${BUTTON_SECONDARY_DISABLEABLE}`}
         >
           {copyState === "copied"
             ? "Copied!"
@@ -213,7 +214,7 @@ export function ExportDataButton({ open, onClose }: { open: boolean; onClose: ()
           type="button"
           disabled={recordCount === 0}
           onClick={handleDownloadClick}
-          className="flex-1 rounded-md border border-neutral-700 px-4 py-2 text-sm font-medium text-neutral-300 transition-colors hover:enabled:text-white disabled:cursor-not-allowed disabled:border-neutral-800 disabled:text-neutral-600"
+          className={`flex-1 ${BUTTON_SECONDARY_DISABLEABLE}`}
         >
           Download JSON
         </button>

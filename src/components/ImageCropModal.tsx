@@ -2,6 +2,7 @@ import { useEffect, useRef, useState, type PointerEvent } from "react";
 import { createPortal } from "react-dom";
 import type { Era } from "../types";
 import { useOverlay } from "../hooks/useOverlay";
+import { BUTTON_PRIMARY_DISABLEABLE, BUTTON_SECONDARY } from "./buttonStyles";
 
 const VIEWPORT_SIZE = 280;
 const OUTPUT_SIZE = 512;
@@ -238,7 +239,7 @@ export function ImageCropModal({
           <button
             type="button"
             onClick={onCancel}
-            className="flex-1 rounded-md border border-neutral-700 px-4 py-2 text-sm font-medium text-neutral-300 hover:text-white"
+            className={`flex-1 ${BUTTON_SECONDARY}`}
           >
             Cancel
           </button>
@@ -246,7 +247,7 @@ export function ImageCropModal({
             type="button"
             onClick={handleConfirm}
             disabled={!naturalSize}
-            className="flex-1 rounded-md bg-white px-4 py-2 text-sm font-semibold text-neutral-950 hover:enabled:bg-neutral-200 disabled:cursor-not-allowed disabled:opacity-40"
+            className={`flex-1 ${BUTTON_PRIMARY_DISABLEABLE}`}
           >
             Use this crop
           </button>

@@ -13,6 +13,7 @@ import { useCommitShortcut } from "../hooks/useCommitShortcut";
 import { useArmedConfirm } from "../hooks/useArmedConfirm";
 import { ChevronDownIcon, PlusIcon, TrashIcon } from "./icons";
 import { FIELD, FIELD_DISABLED, FIELD_PLACEHOLDER, SELECT } from "./formStyles";
+import { BUTTON_DESTRUCTIVE, BUTTON_DESTRUCTIVE_GHOST, BUTTON_PRIMARY_DISABLEABLE, BUTTON_SECONDARY } from "./buttonStyles";
 
 const HEX_PATTERN = /^#[0-9a-f]{6}$/i;
 const DEFAULT_HEX = "#FF00D9";
@@ -628,14 +629,14 @@ export function LineFormDrawer({
                 <button
                   type="button"
                   onClick={() => setConfirmingDelete(false)}
-                  className="flex-1 rounded-md border border-neutral-700 px-4 py-2 text-sm font-medium text-neutral-300 hover:text-white"
+                  className={`flex-1 ${BUTTON_SECONDARY}`}
                 >
                   Cancel
                 </button>
                 <button
                   type="button"
                   onClick={() => editingLine && closeThen(() => onDelete?.(editingLine.id))}
-                  className="flex-1 rounded-md bg-red-600 px-4 py-2 text-sm font-semibold text-white hover:bg-red-500"
+                  className={`flex-1 ${BUTTON_DESTRUCTIVE}`}
                 >
                   Yes, delete
                 </button>
@@ -647,14 +648,14 @@ export function LineFormDrawer({
                 <button
                   type="button"
                   onClick={() => closeThen(onClose)}
-                  className="flex-1 rounded-md border border-neutral-700 px-4 py-2 text-sm font-medium text-neutral-300 hover:text-white"
+                  className={`flex-1 ${BUTTON_SECONDARY}`}
                 >
                   Cancel
                 </button>
                 <button
                   type="submit"
                   disabled={fieldsLocked}
-                  className="flex-1 rounded-md bg-white px-4 py-2 text-sm font-semibold text-neutral-950 hover:enabled:bg-neutral-200 disabled:cursor-not-allowed disabled:opacity-40"
+                  className={`flex-1 ${BUTTON_PRIMARY_DISABLEABLE}`}
                 >
                   {isEditing ? "Update Line" : speculative ? "Add Speculative Line" : "Add Line"}
                 </button>
@@ -673,7 +674,7 @@ export function LineFormDrawer({
                 <button
                   type="button"
                   onClick={() => setConfirmingDelete(true)}
-                  className="mt-3 w-full rounded-md border border-transparent px-4 py-2 text-sm font-medium text-red-400 hover:text-red-300"
+                  className={`mt-3 w-full ${BUTTON_DESTRUCTIVE_GHOST}`}
                 >
                   Delete Line
                 </button>

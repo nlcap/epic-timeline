@@ -27,6 +27,7 @@ import { safeSetItem } from "../lib/storage";
 import { DataSelectionPicker } from "./DataSelectionPicker";
 import { RadioRow } from "./RadioRow";
 import { SettingsModal } from "./SettingsModal";
+import { BUTTON_PRIMARY_LIGHT, BUTTON_SECONDARY } from "./buttonStyles";
 
 type ImportMode = "replace" | "merge";
 
@@ -323,7 +324,7 @@ export function ImportDataButton({ open, onClose }: { open: boolean; onClose: ()
           <button
             type="button"
             onClick={reset}
-            className="mt-4 w-full rounded-md border border-neutral-700 px-4 py-2 text-sm font-medium text-neutral-300 hover:text-white"
+            className={`mt-4 w-full ${BUTTON_SECONDARY}`}
           >
             Try again
           </button>
@@ -353,7 +354,7 @@ export function ImportDataButton({ open, onClose }: { open: boolean; onClose: ()
             <button
               type="button"
               onClick={() => setConfirming(false)}
-              className="flex-1 rounded-md border border-neutral-700 px-4 py-2 text-sm font-medium text-neutral-300 hover:text-white"
+              className={`flex-1 ${BUTTON_SECONDARY}`}
             >
               Back
             </button>
@@ -419,7 +420,7 @@ export function ImportDataButton({ open, onClose }: { open: boolean; onClose: ()
             <button
               type="button"
               onClick={reset}
-              className="flex-1 rounded-md border border-neutral-700 px-4 py-2 text-sm font-medium text-neutral-300 hover:text-white"
+              className={`flex-1 ${BUTTON_SECONDARY}`}
             >
               Choose another file
             </button>
@@ -427,7 +428,7 @@ export function ImportDataButton({ open, onClose }: { open: boolean; onClose: ()
               type="button"
               disabled={!canImport || (incomingCount === 0 && !importsCustomConfig)}
               onClick={() => setConfirming(true)}
-              className="flex-1 rounded-md border border-neutral-700 bg-neutral-100 px-4 py-2 text-sm font-medium text-neutral-900 transition-colors hover:enabled:bg-white disabled:cursor-not-allowed disabled:border-neutral-800 disabled:bg-neutral-800 disabled:text-neutral-600"
+              className={`flex-1 ${BUTTON_PRIMARY_LIGHT}`}
             >
               Continue
             </button>
@@ -445,14 +446,14 @@ export function ImportDataButton({ open, onClose }: { open: boolean; onClose: ()
             <button
               type="button"
               onClick={handlePasteFromClipboard}
-              className="flex-1 rounded-md border border-neutral-700 px-4 py-2 text-sm font-medium text-neutral-300 hover:text-white"
+              className={`flex-1 ${BUTTON_SECONDARY}`}
             >
               Paste from clipboard
             </button>
             <button
               type="button"
               onClick={() => fileInputRef.current?.click()}
-              className="flex-1 rounded-md border border-neutral-700 px-4 py-2 text-sm font-medium text-neutral-300 hover:text-white"
+              className={`flex-1 ${BUTTON_SECONDARY}`}
             >
               Upload JSON
             </button>
@@ -461,7 +462,7 @@ export function ImportDataButton({ open, onClose }: { open: boolean; onClose: ()
             type="button"
             disabled={pasteText.trim().length === 0}
             onClick={() => beginReview("pasted JSON", pasteText)}
-            className="mt-2 w-full shrink-0 rounded-md border border-neutral-700 bg-neutral-100 px-4 py-2 text-sm font-medium text-neutral-900 transition-colors hover:enabled:bg-white disabled:cursor-not-allowed disabled:border-neutral-800 disabled:bg-neutral-800 disabled:text-neutral-600"
+            className={`mt-2 w-full shrink-0 ${BUTTON_PRIMARY_LIGHT}`}
           >
             Review pasted JSON
           </button>

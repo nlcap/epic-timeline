@@ -6,6 +6,7 @@ import { resetLineData, type TimelineScope } from "../lib/resetLineData";
 import { CheckRow } from "./CheckRow";
 import { RadioRow } from "./RadioRow";
 import { SettingsModal } from "./SettingsModal";
+import { BUTTON_DESTRUCTIVE, BUTTON_PRIMARY_LIGHT, BUTTON_SECONDARY } from "./buttonStyles";
 
 const TIMELINE_SCOPES: { id: TimelineScope; label: string }[] = [
   { id: "main", label: "Main Timeline" },
@@ -133,14 +134,14 @@ export function ResetLineDataButton({ open, onClose }: { open: boolean; onClose:
             <button
               type="button"
               onClick={() => setConfirming(false)}
-              className="flex-1 rounded-md border border-neutral-700 px-4 py-2 text-sm font-medium text-neutral-300 hover:text-white"
+              className={`flex-1 ${BUTTON_SECONDARY}`}
             >
               Cancel
             </button>
             <button
               type="button"
               onClick={handleConfirmReset}
-              className="flex-1 rounded-md bg-red-600 px-4 py-2 text-sm font-semibold text-white hover:bg-red-500"
+              className={`flex-1 ${BUTTON_DESTRUCTIVE}`}
             >
               Yes, reset
             </button>
@@ -208,7 +209,7 @@ export function ResetLineDataButton({ open, onClose }: { open: boolean; onClose:
             <button
               type="button"
               onClick={onClose}
-              className="flex-1 rounded-md border border-neutral-700 px-4 py-2 text-sm font-medium text-neutral-300 hover:text-white"
+              className={`flex-1 ${BUTTON_SECONDARY}`}
             >
               Cancel
             </button>
@@ -216,7 +217,7 @@ export function ResetLineDataButton({ open, onClose }: { open: boolean; onClose:
               type="button"
               disabled={!canReset}
               onClick={() => setConfirming(true)}
-              className="flex-1 rounded-md border border-neutral-700 bg-neutral-100 px-4 py-2 text-sm font-medium text-neutral-900 transition-colors hover:enabled:bg-white disabled:cursor-not-allowed disabled:border-neutral-800 disabled:bg-neutral-800 disabled:text-neutral-600"
+              className={`flex-1 ${BUTTON_PRIMARY_LIGHT}`}
             >
               Reset data
             </button>

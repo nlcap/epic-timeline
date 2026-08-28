@@ -1,4 +1,5 @@
 import { Component, type ErrorInfo, type ReactNode } from "react";
+import { BUTTON_PRIMARY } from "./buttonStyles";
 
 /**
  * Last-resort net around the whole app -- localStorage writes are already
@@ -33,7 +34,7 @@ export class ErrorBoundary extends Component<
           <button
             type="button"
             onClick={() => window.location.reload()}
-            className="rounded-md bg-white px-4 py-2 text-sm font-semibold text-neutral-950 hover:bg-neutral-200"
+            className={BUTTON_PRIMARY}
           >
             Reload
           </button>
