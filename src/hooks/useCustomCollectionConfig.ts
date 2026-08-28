@@ -1,8 +1,9 @@
 import { useCallback, useState } from "react";
 import type { CustomEraDef } from "../lib/era";
 import { safeSetItem } from "../lib/storage";
+import { CUSTOM_COLLECTION_CONFIG_KEY } from "../lib/overrideKeys";
 
-const STORAGE_KEY = "epic-timeline:custom-collection-config";
+const STORAGE_KEY = CUSTOM_COLLECTION_CONFIG_KEY;
 
 export interface CustomCollectionConfig {
   title?: string;

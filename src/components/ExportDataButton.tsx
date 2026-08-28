@@ -12,6 +12,8 @@ import {
   type StoreBundle,
 } from "../lib/collectionScope";
 import {
+  CUSTOM_COLLECTION_CONFIG_KEY,
+  CUSTOM_COLLECTION_ID,
   EXPORT_FORMAT_VERSION,
   EXPORT_KEYS,
   EXPORT_META_KEY,
@@ -96,6 +98,23 @@ export function ExportDataButton({ open, onClose }: { open: boolean; onClose: ()
       // a whole backup round-trips exactly.
       if (!everything && Object.keys(store).length === 0) continue;
       payload[key] = store;
+    }
+
+    // The Sandbox tab's own configuration rides along whenever that tab is
+    // part of the selection -- it isn't a sliceable store (see
+    // CUSTOM_COLLECTION_CONFIG_KEY), so it's carried whole rather than
+    // partitioned by scope/kind, and an export narrowed to other
+    // collections leaves it out entirely.
+    if (selection.collectionIds.includes(CUSTOM_COLLECTION_ID)) {
+      const raw = localStorage.getItem(CUSTOM_COLLECTION_CONFIG_KEY);
+      if (raw) {
+        try {
+          payload[CUSTOM_COLLECTION_CONFIG_KEY] = JSON.parse(raw);
+        } catch {
+          // Unparseable local config -- skip it rather than writing a
+          // string where every reader expects an object.
+        }
+      }
     }
 
     return {

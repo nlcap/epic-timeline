@@ -78,6 +78,29 @@ export type ExportKey = (typeof EXPORT_KEYS)[number];
 // Double-underscored so it can never collide with a store key, and ignored
 // by anything that only looks for EXPORT_KEYS -- which is what makes the
 // format compatible in both directions with exports made before it existed.
+/** The Sandbox tab's own configuration -- title, logo, fonts, colours and
+ * its user-defined era list. Not a store like the six above: it's a single
+ * blob rather than a map of records, so it can't be sliced by collection/
+ * scope/kind and deliberately sits outside EXPORT_KEYS and the
+ * lib/collectionScope.ts partition machinery.
+ *
+ * It does still travel in an export, as its own top-level payload key
+ * alongside __meta -- without it, migrating browsers restored a Sandbox
+ * timeline's lines and volumes into a tab reverted to stock branding, with
+ * any volume tagged to a custom era quietly losing its letter and colour
+ * because the era definitions that gave it meaning stayed behind. Anything
+ * reading only EXPORT_KEYS ignores it, which is what keeps the format
+ * compatible in both directions with exports made before it was included.
+ *
+ * Reset deliberately doesn't touch it: wiping timeline data shouldn't also
+ * strip the tab's appearance. */
+export const CUSTOM_COLLECTION_CONFIG_KEY = "epic-timeline:custom-collection-config";
+
+/** The Sandbox tab's collection id -- the one CUSTOM_COLLECTION_CONFIG_KEY
+ * above belongs to, so an export narrowed to other collections doesn't
+ * carry its branding along. */
+export const CUSTOM_COLLECTION_ID = "custom";
+
 export const EXPORT_META_KEY = "__meta";
 export const EXPORT_FORMAT_VERSION = 1;
 
