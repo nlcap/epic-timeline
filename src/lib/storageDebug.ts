@@ -1,6 +1,6 @@
 /** Also read by useWhatsNew, to tell a pre-existing visitor (any other app
  * key already on this origin) from a genuinely first-ever one. */
-export const APP_PREFIX = "epic-timeline:";
+const APP_PREFIX = "epic-timeline:";
 const PROBE_KEY = `${APP_PREFIX}__debug_quota_probe__`;
 
 export interface StorageKeyUsage {

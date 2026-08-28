@@ -98,22 +98,32 @@ export function SpotlightTour({
     if (cardRef.current) setCardHeight(cardRef.current.offsetHeight);
   }, [step]);
 
+  // Escape skips, Right/Enter advances, Left goes back. The handlers are
+  // read through a ref rather than listed as dependencies -- goNext/goBack
+  // are redeclared on every render, so naming them would tear the listener
+  // down and re-add it each time, and the old `[stepIndex]` workaround was
+  // only correct by coincidence: it happened to re-run often enough to keep
+  // the closures fresh. Same pattern as useGlobalShortcuts and
+  // useCommitShortcut, which hit this first.
+  const keyHandlersRef = useRef({ onSkip, goNext, goBack });
+  keyHandlersRef.current = { onSkip, goNext, goBack };
+
   useEffect(() => {
     const onKeyDown = (e: KeyboardEvent) => {
+      const h = keyHandlersRef.current;
       if (e.key === "Escape") {
-        onSkip();
+        h.onSkip();
       } else if (e.key === "ArrowRight" || e.key === "Enter") {
         e.preventDefault();
-        goNext();
+        h.goNext();
       } else if (e.key === "ArrowLeft") {
         e.preventDefault();
-        goBack();
+        h.goBack();
       }
     };
     window.addEventListener("keydown", onKeyDown);
     return () => window.removeEventListener("keydown", onKeyDown);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [stepIndex]);
+  }, []);
 
   function goNext() {
     if (stepIndex < steps.length - 1) {
