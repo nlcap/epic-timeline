@@ -55,7 +55,7 @@ import { useTimelineFilters } from "./hooks/useTimelineFilters";
 import { useWhatsNew } from "./hooks/useWhatsNew";
 import { useOnboarding } from "./hooks/useOnboarding";
 import { volumeMatchesStatusFilters, volumeVisibleUnderSearch } from "./lib/filters";
-import { FULL_RATING_RANGE, RATING_MAX, RATING_MIN } from "./lib/rating";
+import { FULL_RATING_RANGE, isRatingFilterActive } from "./lib/rating";
 import { hexToRgba, SPECULATION_ACCENT_HEX } from "./lib/color";
 import { safeSetItem } from "./lib/storage";
 import { useEraBarCollapseProgress } from "./hooks/useEraBarCollapseProgress";
@@ -217,8 +217,7 @@ export default function App() {
   const filtersActive =
     shelvingFilter.size > 0 ||
     readingFilter.size > 0 ||
-    ratingFilter[0] > RATING_MIN ||
-    ratingFilter[1] < RATING_MAX ||
+    isRatingFilterActive(ratingFilter) ||
     tagFilter.size > 0;
   const { getStatus, setStatus } = useOwnership();
   const { getStatus: getReadingStatus, setStatus: setReadingStatus } = useReadingStatus();
@@ -521,8 +520,7 @@ export default function App() {
     const volumeFacetsActive =
       shelvingFilter.size > 0 ||
       readingFilter.size > 0 ||
-      ratingFilter[0] > RATING_MIN ||
-      ratingFilter[1] < RATING_MAX;
+      isRatingFilterActive(ratingFilter);
     for (const entry of combined) {
       // A gap says "nothing was published across this stretch", which is only
       // true of the line's full run. Once anything is narrowing the tiles,
@@ -591,8 +589,7 @@ export default function App() {
     if (
       shelvingFilter.size > 0 ||
       readingFilter.size > 0 ||
-      ratingFilter[0] > RATING_MIN ||
-      ratingFilter[1] < RATING_MAX
+      isRatingFilterActive(ratingFilter)
     ) {
       relevant = relevant.filter((e) => e.kind === "volume");
     }

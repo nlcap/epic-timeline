@@ -7,7 +7,7 @@ import type {
   TimelineEntry,
   Volume,
 } from "../types";
-import { FULL_RATING_RANGE, RATING_MAX, RATING_MIN } from "./rating";
+import { FULL_RATING_RANGE, isRatingFilterActive } from "./rating";
 
 /**
  * Pure matching rules behind the nav search box and the filter panel (see
@@ -51,7 +51,7 @@ export function volumeMatchesStatusFilters(
   // moment the range narrows at all. At the default full range this
   // branch is skipped entirely, so an unrated volume still passes when
   // nothing's actually filtering on rating.
-  if (ratingFilter[0] > RATING_MIN || ratingFilter[1] < RATING_MAX) {
+  if (isRatingFilterActive(ratingFilter)) {
     if (
       volume.rating === undefined ||
       volume.rating < ratingFilter[0] ||
@@ -122,8 +122,7 @@ export function matchingLineIds({
   const volumeFacetsActive =
     shelvingFilter.size > 0 ||
     readingFilter.size > 0 ||
-    ratingFilter[0] > RATING_MIN ||
-    ratingFilter[1] < RATING_MAX;
+    isRatingFilterActive(ratingFilter);
   const tagsActive = tagFilter.size > 0;
   if (!volumeFacetsActive && !tagsActive) return null;
 

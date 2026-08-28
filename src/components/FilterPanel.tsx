@@ -2,7 +2,7 @@ import type { Dispatch, ReactNode, SetStateAction } from "react";
 import type { FilterMode, OwnershipStatus, RatingRange, ReadingStatus } from "../types";
 import { OWNERSHIP_META, OWNERSHIP_ORDER } from "../lib/ownership";
 import { READING_STATUS_META, READING_STATUS_ORDER } from "../lib/readingStatus";
-import { FULL_RATING_RANGE, RATING_MAX, RATING_MIN, RATING_STEP } from "../lib/rating";
+import { FULL_RATING_RANGE, isRatingFilterActive, RATING_MAX, RATING_MIN, RATING_STEP } from "../lib/rating";
 import { useSlidePanel } from "../hooks/useSlidePanel";
 import { useEscapeToClose } from "../hooks/useEscapeToClose";
 // Same {value, label, icon} shape the volume detail panel's status pickers
@@ -303,7 +303,7 @@ export function FilterPanel({
 }) {
   const { visible, closeThen } = useSlidePanel();
 
-  const ratingActive = ratingFilter[0] > RATING_MIN || ratingFilter[1] < RATING_MAX;
+  const ratingActive = isRatingFilterActive(ratingFilter);
 
   // Switching mode clears every facet rather than translating an existing
   // selection -- collapsing a multi-checked shelving selection down to

@@ -16,6 +16,15 @@ export const RATING_STEP = 0.5;
  * active" checks can't drift out of sync with each other. */
 export const FULL_RATING_RANGE: RatingRange = [RATING_MIN, RATING_MAX];
 
+/** Whether a rating range actually restricts anything -- i.e. either end
+ * has been moved off the full span. Written out inline in six places
+ * across App, the filter panel and lib/filters before this, which is
+ * exactly the drift FULL_RATING_RANGE above exists to prevent: the
+ * constant was shared, but the question asked about it wasn't. */
+export function isRatingFilterActive(range: RatingRange): boolean {
+  return range[0] > RATING_MIN || range[1] < RATING_MAX;
+}
+
 /** Which of the three star assets a single star position shows for a given
  * rating value -- e.g. value 3.5, star 4 -> half (3.5 is exactly "4 minus
  * a half"); star 3 -> filled; star 5 -> outline. Shared by the interactive
