@@ -1,16 +1,7 @@
 import { useCallback, useEffect, useMemo, useRef, useState, type UIEvent } from "react";
 import { COLLECTIONS } from "./data/collections";
 import { COLLECTION_DATA } from "./data/collectionData";
-import type {
-  FilterMode,
-  Line,
-  OwnershipStatus,
-  QuarterPoint,
-  RatingRange,
-  ReadingStatus,
-  TimelineEntry,
-  Volume,
-} from "./types";
+import type { Line, QuarterPoint, TimelineEntry, Volume } from "./types";
 import { CollectionBanner } from "./components/CollectionBanner";
 import { CustomCollectionConfigModal } from "./components/CustomCollectionConfigModal";
 import { TopNav, NAV_HEIGHT } from "./components/TopNav";
@@ -55,7 +46,6 @@ import { useTimelineFilters } from "./hooks/useTimelineFilters";
 import { useWhatsNew } from "./hooks/useWhatsNew";
 import { useOnboarding } from "./hooks/useOnboarding";
 import { volumeMatchesStatusFilters, volumeVisibleUnderSearch } from "./lib/filters";
-import { FULL_RATING_RANGE, isRatingFilterActive } from "./lib/rating";
 import { hexToRgba, SPECULATION_ACCENT_HEX } from "./lib/color";
 import { safeSetItem } from "./lib/storage";
 import { useEraBarCollapseProgress } from "./hooks/useEraBarCollapseProgress";
@@ -84,6 +74,8 @@ import {
 } from "./lib/timeline";
 import { PlusIcon } from "./components/icons";
 import { useStepperAutoPreview } from "./hooks/useStepperAutoPreview";
+import { useFilterState } from "./hooks/useFilterState";
+import { isRatingFilterActive } from "./lib/rating";
 
 // Stable fallback for lines with no entries -- `entriesByLine.get(id) ?? []`
 // would otherwise create a brand-new array every render for any such line,
@@ -166,27 +158,29 @@ export default function App() {
   // tab at once (the speculative content it reveals is still scoped per
   // tab via the hooks below).
   const [speculationMode, setSpeculationMode] = useState(false);
-  // Global -- nav search box; filters the displayed lines by title (see
-  // searchFilteredLines below).
-  const [searchQuery, setSearchQuery] = useState("");
-  // Nav filter panel (see FilterPanel.tsx) -- lives here, not local state in
-  // the panel, since every checkbox writes straight through to these
-  // setters and re-filters the timeline immediately. Empty set means that
-  // facet doesn't restrict anything, same "no filter" convention as
-  // searchQuery's empty string.
-  const [shelvingFilter, setShelvingFilter] = useState<Set<OwnershipStatus>>(new Set());
-  const [readingFilter, setReadingFilter] = useState<Set<ReadingStatus>>(new Set());
-  // [min, max] star rating -- FULL_RATING_RANGE (0-5) is "doesn't restrict
-  // anything", same convention as the empty Sets above.
-  const [ratingFilter, setRatingFilter] = useState<RatingRange>(FULL_RATING_RANGE);
-  const [tagFilter, setTagFilter] = useState<Set<string>>(new Set());
-  // How the above facets combine with each other's own multiple checked
-  // values -- "any" (OR) is the default; "all" (AND) is only offered
-  // because Tags is multi-valued per line. A collection switch or "Clear
-  // all filters" resets the facet selections above but deliberately leaves
-  // this alone -- it's a "how do I want to search" preference, not itself
-  // a filter selection.
-  const [filterMode, setFilterMode] = useState<FilterMode>("any");
+  // Nav search box and the filter panel's facets -- see useFilterState,
+  // which owns them together so the two paths that clear them (a
+  // collection switch, and the nav's own clear-filters button) can't drift
+  // apart as facets are added. The panel writes straight through these
+  // setters rather than keeping a draft, so every checkbox re-filters the
+  // timeline immediately.
+  const {
+    searchQuery,
+    setSearchQuery,
+    shelvingFilter,
+    setShelvingFilter,
+    readingFilter,
+    setReadingFilter,
+    ratingFilter,
+    setRatingFilter,
+    tagFilter,
+    setTagFilter,
+    filterMode,
+    setFilterMode,
+    filtersActive,
+    clearFacets,
+    clearAll: clearAllFilters,
+  } = useFilterState();
   const [filterPanelOpen, setFilterPanelOpen] = useState(false);
   // Owned here (not locally in TopNav like Export/Import/Reset/Storage
   // debug) because the "?" global shortcut needs to be able to open it too
@@ -214,11 +208,6 @@ export default function App() {
   // the desktop nav's search input specifically (not the mobile menu's
   // copy, which only exists in the DOM while that menu is open).
   const searchInputRef = useRef<HTMLInputElement>(null);
-  const filtersActive =
-    shelvingFilter.size > 0 ||
-    readingFilter.size > 0 ||
-    isRatingFilterActive(ratingFilter) ||
-    tagFilter.size > 0;
   const { getStatus, setStatus } = useOwnership();
   const { getStatus: getReadingStatus, setStatus: setReadingStatus } = useReadingStatus();
   const { getRating, setRating } = useRating();
@@ -320,11 +309,7 @@ export default function App() {
     // carrying it over would just silently hide every line there instead
     // of the empty-search "show everything" state a freshly-opened tab
     // should start in.
-    setSearchQuery("");
-    setShelvingFilter(new Set());
-    setReadingFilter(new Set());
-    setRatingFilter(FULL_RATING_RANGE);
-    setTagFilter(new Set());
+    clearAllFilters();
     // Switching collections swaps in a completely different axis range and
     // line list -- carrying over the old tab's scroll position doesn't map
     // to anything meaningful on the new one. The browser silently clamps
@@ -968,12 +953,7 @@ export default function App() {
         onSearchChange={setSearchQuery}
         filtersActive={filtersActive}
         onOpenFilters={() => setFilterPanelOpen(true)}
-        onClearFilters={() => {
-          setShelvingFilter(new Set());
-          setReadingFilter(new Set());
-          setRatingFilter(FULL_RATING_RANGE);
-          setTagFilter(new Set());
-        }}
+        onClearFilters={clearFacets}
         onSelect={switchCollection}
         onOpenShortcuts={() => setShortcutsOpen(true)}
         onOpenUpdates={markUpdatesSeen}
