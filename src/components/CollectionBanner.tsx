@@ -1,4 +1,12 @@
+import { useEffect } from "react";
 import type { Collection } from "../types";
+import {
+  DEFAULT_FONT_WEIGHT,
+  ensureGoogleFontLoaded,
+  findFontOption,
+  nearestWeight,
+} from "../lib/fonts";
+import { hexToRgba } from "../lib/color";
 import marvelLogo from "../assets/logo_marvel.svg";
 import dcLogo from "../assets/logo_dc.svg";
 import dcFinestWordmark from "../assets/logo_dc_finest_wordmark.svg";
@@ -126,9 +134,75 @@ const DC_RULE_THICKNESS = `clamp(1px,calc(${DC_LOGO_WIDTH} * 0.03125),2px)`;
 // not just at the one width this was originally tuned for.
 const DC_ROW_HEIGHT = `calc(${DC_LOGO_WIDTH} * 0.671875)`;
 
-export function CollectionBanner({ collection }: { collection: Collection }) {
+export function CollectionBanner({
+  collection,
+  bannerOverride,
+  onConfigure,
+}: {
+  collection: Collection;
+  /** Custom tab only -- user-set title/timeline-color/rule-color/rule-
+   * thickness/logo from useCustomCollectionConfig, layered on top of the
+   * collection's own built-in values (see collections.ts's "custom" entry)
+   * exactly the way Line/Volume overrides layer on seed data. accentHex
+   * ("Timeline color" in the Configure form) governs the badge and title;
+   * ruleColorHex/ruleThicknessPx govern the rule lines specifically and
+   * default to accentHex/the standard responsive thickness when unset, so
+   * leaving them alone keeps today's "everything matches" look. */
+  bannerOverride?: {
+    title?: string;
+    accentHex?: string;
+    titleOpacity?: number;
+    ruleColorHex?: string;
+    ruleOpacity?: number;
+    ruleThicknessPx?: number;
+    logoUrl?: string;
+    fontFamily?: string;
+    fontWeight?: number;
+    fontItalic?: boolean;
+  };
+  /** Custom tab only -- renders a gear button at the masthead's far right
+   * that opens CustomCollectionConfigModal. */
+  onConfigure?: () => void;
+}) {
   const logo = PUBLISHER_LOGOS[collection.publisherWordmark];
   const taglineLogo = TAGLINE_LOGOS[collection.id];
+  const effectiveTagline = bannerOverride?.title || collection.tagline;
+  const effectiveAccent = bannerOverride?.accentHex || collection.accentHex;
+  const effectiveLogo = bannerOverride?.logoUrl ?? logo;
+  // The title's own alpha on top of effectiveAccent -- kept as a second
+  // variable rather than folded into effectiveAccent itself, since
+  // effectiveAccent is also the fallback base effectiveRuleColor defaults
+  // to below, and the rule shouldn't inherit the title's opacity just
+  // because the reader never set a rule color of its own.
+  const effectiveTitleColor = hexToRgba(effectiveAccent, (bannerOverride?.titleOpacity ?? 100) / 100);
+  // Independent of effectiveAccent -- defaults to it (matching every other
+  // collection, whose rules always match their own accentHex) so leaving
+  // this alone in the Configure form changes nothing. The opacity fold-in
+  // happens here directly (rather than a separate variable, the way
+  // effectiveTitleColor needs one) since every other use of this value is
+  // already the final rendered rule color -- nothing needs the pre-opacity
+  // version the way effectiveAccent itself still does.
+  const effectiveRuleColor = hexToRgba(
+    bannerOverride?.ruleColorHex || effectiveAccent,
+    (bannerOverride?.ruleOpacity ?? 100) / 100
+  );
+  const effectiveRuleThickness =
+    bannerOverride?.ruleThicknessPx !== undefined
+      ? `${bannerOverride.ruleThicknessPx}px`
+      : RULE_THICKNESS;
+  const effectiveFont = findFontOption(bannerOverride?.fontFamily);
+  const requestedWeight = bannerOverride?.fontWeight ?? DEFAULT_FONT_WEIGHT;
+  const effectiveFontWeight = effectiveFont.weights.includes(requestedWeight)
+    ? requestedWeight
+    : nearestWeight(effectiveFont.weights, requestedWeight);
+  const effectiveFontItalic = effectiveFont.hasItalic && !!bannerOverride?.fontItalic;
+  // Lazily fetches whichever font is actually in use -- covers landing
+  // straight on the Custom tab with a previously-saved font, not just
+  // picking one in the Configure form (CustomCollectionConfigModal loads
+  // the whole curated list itself, for the picker's own live previews).
+  useEffect(() => {
+    ensureGoogleFontLoaded(effectiveFont.id);
+  }, [effectiveFont.id]);
 
   if (collection.id === "dc-finest") {
     // Scaled to 2/3 of the original mockup size (every dimension below,
@@ -139,7 +213,10 @@ export function CollectionBanner({ collection }: { collection: Collection }) {
     // own comment for why it has to track the logo's clamp to keep the
     // roundel straddling both rules at every size, not just this one.
     return (
-      <div className="overflow-hidden px-4 py-[27px]">
+      // pr-2, half of pl-4's 16px -- less padding eaten on the right means
+      // more of the two gold rules (inset-x-0, so they run edge to edge
+      // within this padding) stays visible as the window narrows.
+      <div className="overflow-hidden py-[27px] pl-4 pr-2">
         <div className="relative flex items-center" style={{ height: DC_ROW_HEIGHT }}>
           <div
             className="absolute inset-x-0 top-0"
@@ -171,63 +248,159 @@ export function CollectionBanner({ collection }: { collection: Collection }) {
 
   return (
     <div
-      className={`flex items-center overflow-hidden px-4 py-6 ${taglineLogo ? "gap-0" : "gap-6"}`}
+      // Every gap here is explicit (a rule's own width, or a margin like
+      // TAGLINE_RIGHT_GAP) rather than a flex `gap-*` -- a flat gap doesn't
+      // know that the trailing rule is already `flex-1` and stretching to
+      // fill the row, so it was adding the same 24px a second time on top
+      // of that, mostly between the title/logo and the rule following it.
+      // pl-6 matches TopNav's own px-6, so the logo lines up with the nav's
+      // left edge above it instead of sitting 8px further left. pr-2 is
+      // deliberately its own smaller value, not the same 24px mirrored --
+      // the trailing rule is flex-1 and butts right up against this
+      // padding, so trimming it keeps more of that rule on screen as the
+      // window narrows (the configure button's own mr-4 makes up the
+      // difference on that side, so it still lines up with the nav's
+      // Settings gear -- see its own comment).
+      className="flex items-center gap-0 overflow-hidden py-6 pl-6 pr-2"
     >
       {taglineLogo && (
         <div
           className="shrink-0"
-          style={{ height: RULE_THICKNESS, width: CONNECTOR_RULE_WIDTH, backgroundColor: collection.accentHex }}
+          style={{
+            height: effectiveRuleThickness,
+            width: CONNECTOR_RULE_WIDTH,
+            backgroundColor: effectiveRuleColor,
+          }}
         />
       )}
-      {logo ? (
+      {effectiveLogo ? (
         <img
-          src={logo}
+          src={effectiveLogo}
           alt={collection.publisherWordmark}
-          className="h-auto shrink-0"
+          className="h-auto max-h-12 w-auto shrink-0"
           style={{ maxWidth: PUBLISHER_LOGO_WIDTH }}
         />
+      ) : collection.id === "custom" ? (
+        // No placeholder "CUSTOM" badge -- unlike every other collection,
+        // there's no real publisher wordmark this is ever standing in for,
+        // so once a reader's set their own title it just reads as leftover
+        // filler. The user can still upload a real logo from Configure;
+        // until they do, the rule + title alone are the whole masthead.
+        null
       ) : (
         <div
           className="max-w-[45vw] shrink-0 truncate px-4 py-2 font-display font-black text-[clamp(12px,3.75vw,24px)] tracking-wide text-white"
-          style={{ backgroundColor: collection.accentHex }}
+          style={{ backgroundColor: effectiveAccent }}
         >
           {collection.publisherWordmark}
         </div>
       )}
-      <div
-        className={taglineLogo ? "shrink-0" : "flex-1"}
-        style={{
-          height: RULE_THICKNESS,
-          width: taglineLogo ? CONNECTOR_RULE_WIDTH : undefined,
-          backgroundColor: collection.accentHex,
-        }}
-      />
       {taglineLogo ? (
-        <img
-          src={taglineLogo}
-          alt={collection.tagline}
-          // A little breathing room before the trailing rule below, so the
-          // wordmark doesn't butt straight up against it -- see
-          // TAGLINE_RIGHT_GAP for why this is a calc() tied to the
-          // connector rule's own clamp rather than a flat margin.
-          style={{ maxWidth: TAGLINE_LOGO_WIDTH[collection.id], marginRight: TAGLINE_RIGHT_GAP }}
-          className="h-auto shrink-0"
-        />
+        <>
+          {/* Same short connector as the one above (between the two logos)
+           * -- keeps the tagline wordmark sitting right next to the logo,
+           * instead of drifting toward the middle of whatever space the
+           * row happens to have. */}
+          <div
+            className="shrink-0"
+            style={{
+              height: effectiveRuleThickness,
+              width: CONNECTOR_RULE_WIDTH,
+              backgroundColor: effectiveRuleColor,
+            }}
+          />
+          <img
+            src={taglineLogo}
+            alt={effectiveTagline}
+            // A little breathing room before the trailing rule below, so the
+            // wordmark doesn't butt straight up against it -- see
+            // TAGLINE_RIGHT_GAP for why this is a calc() tied to the
+            // connector rule's own clamp rather than a flat margin.
+            style={{ maxWidth: TAGLINE_LOGO_WIDTH[collection.id], marginRight: TAGLINE_RIGHT_GAP }}
+            className="h-auto shrink-0"
+          />
+          {/* flex-1 already claims whatever width the (now width-capped)
+           * logo to its left doesn't need, so this stays visible rather
+           * than being squeezed toward 0 the way a `shrink-0`-at-a-fixed-
+           * size row would -- the marginRight above is what keeps it from
+           * starting flush against the wordmark's own edge, and the row's
+           * own overflow-hidden (above) is the backstop below the 375px
+           * floor these clamps target. */}
+          <div
+            className="flex-1"
+            style={{ height: effectiveRuleThickness, backgroundColor: effectiveRuleColor }}
+          />
+        </>
       ) : (
-        <h1
-          className="max-w-[55vw] truncate font-display font-extrabold text-[clamp(15px,4.75vw,30px)] tracking-wide uppercase"
-          style={{ color: collection.accentHex, marginRight: TAGLINE_RIGHT_GAP }}
-        >
-          {collection.tagline}
-        </h1>
+        // Custom tab's title: one continuous rule running from right after
+        // the logo to the row's own right edge, drawn as a single
+        // absolutely positioned line instead of the taglineLogo branch's
+        // three separate segments (a short connector, a content-sized gap,
+        // then a flex-1 remainder) -- that three-piece approach only works
+        // when the content is exactly one line of known width, and once the
+        // title can wrap onto a second one, "where the connector ends and
+        // the trailing rule begins" stops having a single answer regardless
+        // of how it's computed. So instead the rule just runs the row's
+        // full remaining width, unbroken, and the title sits on top of it
+        // with an opaque background matching the page's own (#1E1E1E),
+        // masking whichever stretch of rule falls directly behind it.
+        // box-decoration-break: clone (Tailwind has no utility for it) is
+        // what makes that masked patch hug each wrapped line's own text
+        // width -- without it a multi-line inline box's background is one
+        // rectangle sized to its WIDEST line, so a shorter first line would
+        // mask extra rule past its own last letter that a reader would
+        // otherwise expect to see.
+        <div className="relative min-w-0 flex-1">
+          <div
+            className="absolute inset-x-0 top-1/2 -translate-y-1/2"
+            style={{ height: effectiveRuleThickness, backgroundColor: effectiveRuleColor }}
+          />
+          <div className="relative z-10 max-w-[55vw]">
+            <h1
+              className="inline rounded-[2px] px-4 leading-none tracking-wide"
+              style={{
+                color: effectiveTitleColor,
+                fontFamily: `'${effectiveFont.id}', system-ui, sans-serif`,
+                fontWeight: effectiveFontWeight,
+                fontStyle: effectiveFontItalic ? "italic" : "normal",
+                fontSize: "clamp(15px,4.75vw,30px)",
+                backgroundColor: "#1E1E1E",
+                boxDecorationBreak: "clone",
+                WebkitBoxDecorationBreak: "clone",
+              }}
+            >
+              {effectiveTagline}
+            </h1>
+          </div>
+        </div>
       )}
-      {/* flex-1 already claims whatever width the (now width-capped) logos
-       * to its left don't need, so this stays visible rather than being
-       * squeezed toward 0 the way a `shrink-0`-at-a-fixed-size row would --
-       * the marginRight above is what keeps it from starting flush against
-       * the wordmark's own edge, and the row's own overflow-hidden (above)
-       * is the backstop below the 375px floor these clamps target. */}
-      <div className="flex-1" style={{ height: RULE_THICKNESS, backgroundColor: collection.accentHex }} />
+      {onConfigure && (
+        <button
+          type="button"
+          onClick={onConfigure}
+          aria-label="Configure Sandbox timeline"
+          title="Configure"
+          // mr-4 on top of the row's own pr-2 lines this button's right edge
+          // up with TopNav's Settings gear, which sits in a px-6 row -- the
+          // extra 16px here is what closes that 8px/24px gap between the
+          // two rows' own padding (was mr-2 over pr-4's 16px, the same 24px
+          // total, before the row's own right padding was halved).
+          className="ml-4 mr-4 flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-neutral-700 text-neutral-400 transition-colors hover:text-white"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth={1.75}
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            className="h-4 w-4"
+          >
+            <path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z" />
+          </svg>
+        </button>
+      )}
     </div>
   );
 }

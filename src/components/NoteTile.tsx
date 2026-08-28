@@ -1,7 +1,7 @@
 import type { Line, Note } from "../types";
 import { speculativeTextColor, speculativeTileBackground } from "../lib/color";
 import { quartersBetween, type ZoomLevel } from "../lib/timeline";
-import { ERA_META, lineIconUrl } from "../lib/era";
+import { lineIconUrl, type EraOption } from "../lib/era";
 import { LineIcon } from "./LineIcon";
 import { TileResizeHandles } from "./TileResizeHandles";
 import { TilePreviewCard } from "./TilePreviewCard";
@@ -27,11 +27,14 @@ export function NoteTile({
   onResizeStart,
   onHoverStart,
   stepScrolling = false,
+  eraOptions,
 }: {
   note: Note;
   line: Line;
   onClick: () => void;
   zoomLevel: ZoomLevel;
+  /** See VolumeTile's identical prop. */
+  eraOptions: EraOption[];
   /** Speculation Mode: this is an official (non-speculative) line while
    * Speculation Mode is on -- hides the resize handles, same as
    * VolumeTile/GapSegment's locked. */
@@ -60,9 +63,10 @@ export function NoteTile({
   const hasTitleContent = showTitle && !singleQuarter;
   const centerIconOnly = !hasTitleContent && zoomLevel !== 3;
   const trimmedNumber = note.number.trim();
+  const noteEraOption = note.era ? eraOptions.find((o) => o.id === note.era) : undefined;
   const badgeText = trimmedNumber
-    ? note.era
-      ? `${ERA_META[note.era].letter}${trimmedNumber}`
+    ? noteEraOption
+      ? `${noteEraOption.letter}${trimmedNumber}`
       : trimmedNumber
     : undefined;
   const badgeWidthClass = zoomLevel === 3 ? "px-1" : note.era ? "w-7" : "w-5";
@@ -80,7 +84,7 @@ export function NoteTile({
       {badgeText}
     </span>
   ) : null;
-  const iconUrl = (note.era && line.eraIconUrls?.[note.era]) ?? lineIconUrl(line);
+  const iconUrl = (note.era && line.eraIconUrls?.[note.era]) ?? lineIconUrl(line, eraOptions);
 
   const { buttonRef, hovered, flipBelow, previewTop, mouseX, handleMouseEnter, handleMouseMove, handleMouseLeave } =
     useTilePreviewPosition(false, stepScrolling, 0, onHoverStart);

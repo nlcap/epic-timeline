@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useRef, useState, type ChangeEvent, type FormEvent } from "react";
 import type { Era, Line } from "../types";
-import { earliestEraWithIcon, ERA_META, ERA_ORDER } from "../lib/era";
+import { earliestEraWithIcon, type EraOption } from "../lib/era";
 import { getPastedImageFile, readFileAsDataUrl } from "../lib/imageCompression";
 import { MONTH_NAMES } from "../lib/timeline";
 import { LineIcon } from "./LineIcon";
@@ -83,6 +83,8 @@ function IconResetOverlay({ onReset }: { onReset: () => void }) {
 export function LineFormDrawer({
   collectionId,
   supportsEra = false,
+  eraOptions = [],
+  supportsSwimLanes = false,
   editingLine,
   speculative = false,
   fieldsLocked = false,
@@ -93,8 +95,16 @@ export function LineFormDrawer({
   onClose,
 }: {
   collectionId: string;
-  /** DC Finest: one icon upload per era instead of a single icon. */
+  /** DC Finest, or the Custom tab with eras enabled: one icon upload per
+   * era instead of a single icon. */
   supportsEra?: boolean;
+  /** The era list to render when supportsEra is true -- DC_ERA_OPTIONS for
+   * DC Finest, or the Custom tab's own user-defined eras. Ignored (and safe
+   * to omit) when supportsEra is false. */
+  eraOptions?: EraOption[];
+  /** Licensed collection, or the Custom tab with swim lanes enabled: shows
+   * the "Swim lanes" count field and the line description field. */
+  supportsSwimLanes?: boolean;
   /** Omit to add a new line; pass an existing line to edit it. */
   editingLine?: Line;
   /** Speculation Mode: swaps the "Add Line" heading for "Add Speculative
@@ -129,11 +139,10 @@ export function LineFormDrawer({
   const [year, setYear] = useState(editingLine ? String(editingLine.debutDate.year) : "");
   const [month, setMonth] = useState(String(editingLine?.debutDate.month ?? 1));
   const [hex, setHex] = useState(editingLine?.colorHex ?? DEFAULT_HEX);
-  // Licensed-collection-only for now -- see swimLanes on the Line type and
-  // assignLanes/lineHeight in lib/timeline.ts for the layout it drives.
+  // See swimLanes on the Line type and assignLanes/lineHeight in
+  // lib/timeline.ts for the layout it drives.
   const [swimLanes, setSwimLanes] = useState(editingLine?.swimLanes ?? 1);
-  const supportsSwimLanes = collectionId === "marvel-licensed-epic";
-  // Same Licensed-only gate as swimLanes -- only shown under the title when
+  // Same supportsSwimLanes gate as swimLanes -- only shown under the title when
   // a line actually has 2+ lanes (see LineRow.tsx), but stored regardless.
   const [description, setDescription] = useState(editingLine?.description ?? "");
   const [tags, setTags] = useState<string[]>(editingLine?.tags ?? []);
@@ -278,14 +287,18 @@ export function LineFormDrawer({
       e.preventDefault();
       const src = await readFileAsDataUrl(file);
       if (supportsEra) {
-        setPendingCrop({ src, target: "era", era: ERA_ORDER.find((era) => !eraIconUrls[era]) });
+        setPendingCrop({
+          src,
+          target: "era",
+          era: eraOptions.find((option) => !eraIconUrls[option.id])?.id,
+        });
       } else {
         setPendingCrop({ src, target: "icon" });
       }
     };
     document.addEventListener("paste", onPaste);
     return () => document.removeEventListener("paste", onPaste);
-  }, [fieldsLocked, supportsEra, eraIconUrls]);
+  }, [fieldsLocked, supportsEra, eraOptions, eraIconUrls]);
 
   const handleCropConfirm = (croppedDataUrl: string, era?: Era) => {
     if (!pendingCrop) return;
@@ -295,7 +308,7 @@ export function LineFormDrawer({
       const next = { ...eraIconUrls, [era]: croppedDataUrl };
       setEraIconUrls(next);
       if (!defaultPinned) {
-        setDefaultIconEra(earliestEraWithIcon(next));
+        setDefaultIconEra(earliestEraWithIcon(next, eraOptions));
       }
     }
     setPendingCrop(null);
@@ -310,7 +323,7 @@ export function LineFormDrawer({
     // has an icon to point at -- fall back to auto instead of leaving it
     // pinned to an era with nothing uploaded).
     if (!defaultPinned || defaultIconEra === era) {
-      setDefaultIconEra(earliestEraWithIcon(next));
+      setDefaultIconEra(earliestEraWithIcon(next, eraOptions));
       setDefaultPinned(false);
     }
   };
@@ -387,57 +400,65 @@ export function LineFormDrawer({
               Era icons
             </legend>
             <p className="mt-1 text-xs text-neutral-500">
-              Upload an icon for any era the line has -- not all four are required.
-              Pick which one shows on the sidebar. You can also paste an image
-              anywhere in this form; you'll choose which era it's for next.
+              Upload an icon for any era the line has -- not all of them are
+              required. Pick which one shows on the sidebar. You can also
+              paste an image anywhere in this form; you'll choose which era
+              it's for next.
             </p>
-            <div className="mt-3 space-y-3">
-              {ERA_ORDER.map((era) => {
-                const hasIcon = !!eraIconUrls[era];
-                return (
-                  <div key={era} className="flex items-center gap-4">
-                    <span className="group relative h-12 w-12 shrink-0 overflow-hidden rounded-full border-2 border-neutral-700">
-                      <LineIcon iconUrl={eraIconUrls[era]} />
-                      {hasIcon && !fieldsLocked && (
-                        <IconResetOverlay onReset={() => handleEraIconReset(era)} />
-                      )}
-                    </span>
-                    <label
-                      className={`flex-1 ${fieldsLocked ? "" : "cursor-pointer"}`}
-                    >
-                      <span
-                        className={`block rounded-md border border-neutral-700 px-3 py-1.5 text-sm text-white ${
-                          fieldsLocked ? "opacity-40" : "hover:border-neutral-500"
-                        }`}
-                      >
-                        {hasIcon ? "Replace" : "Upload"} {ERA_META[era].label}
+            {eraOptions.length === 0 ? (
+              <p className="mt-3 text-xs text-neutral-500">
+                No eras defined yet -- add some from the gear icon in the masthead.
+              </p>
+            ) : (
+              <div className="mt-3 space-y-3">
+                {eraOptions.map((option) => {
+                  const era = option.id;
+                  const hasIcon = !!eraIconUrls[era];
+                  return (
+                    <div key={era} className="flex items-center gap-4">
+                      <span className="group relative h-12 w-12 shrink-0 overflow-hidden rounded-full border-2 border-neutral-700">
+                        <LineIcon iconUrl={eraIconUrls[era]} />
+                        {hasIcon && !fieldsLocked && (
+                          <IconResetOverlay onReset={() => handleEraIconReset(era)} />
+                        )}
                       </span>
-                      <input
-                        type="file"
-                        accept="image/*"
-                        disabled={fieldsLocked}
-                        onChange={(e) => handleEraFileChange(era, e)}
-                        className="sr-only"
-                      />
-                    </label>
-                    <label className="flex shrink-0 items-center gap-2 text-sm text-neutral-300">
-                      <input
-                        type="radio"
-                        name="defaultIconEra"
-                        checked={defaultIconEra === era}
-                        disabled={!hasIcon || fieldsLocked}
-                        onChange={() => {
-                          setDefaultIconEra(era);
-                          setDefaultPinned(true);
-                        }}
-                        className="disabled:opacity-30"
-                      />
-                      Default
-                    </label>
-                  </div>
-                );
-              })}
-            </div>
+                      <label
+                        className={`flex-1 ${fieldsLocked ? "" : "cursor-pointer"}`}
+                      >
+                        <span
+                          className={`block rounded-md border border-neutral-700 px-3 py-1.5 text-sm text-white ${
+                            fieldsLocked ? "opacity-40" : "hover:border-neutral-500"
+                          }`}
+                        >
+                          {hasIcon ? "Replace" : "Upload"} {option.label}
+                        </span>
+                        <input
+                          type="file"
+                          accept="image/*"
+                          disabled={fieldsLocked}
+                          onChange={(e) => handleEraFileChange(era, e)}
+                          className="sr-only"
+                        />
+                      </label>
+                      <label className="flex shrink-0 items-center gap-2 text-sm text-neutral-300">
+                        <input
+                          type="radio"
+                          name="defaultIconEra"
+                          checked={defaultIconEra === era}
+                          disabled={!hasIcon || fieldsLocked}
+                          onChange={() => {
+                            setDefaultIconEra(era);
+                            setDefaultPinned(true);
+                          }}
+                          className="disabled:opacity-30"
+                        />
+                        Default
+                      </label>
+                    </div>
+                  );
+                })}
+              </div>
+            )}
           </fieldset>
         ) : (
           <div className="mt-6 flex items-center gap-4">
@@ -667,7 +688,7 @@ export function LineFormDrawer({
         imageSrc={pendingCrop.src}
         eraOptions={
           pendingCrop.target === "era"
-            ? ERA_ORDER.map((era) => ({ era, label: ERA_META[era].label }))
+            ? eraOptions.map((option) => ({ era: option.id, label: option.label }))
             : undefined
         }
         initialEra={pendingCrop.target === "era" ? pendingCrop.era : undefined}

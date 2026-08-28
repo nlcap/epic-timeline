@@ -12,20 +12,48 @@ const NAV_HEIGHT = 48;
 export { NAV_HEIGHT };
 
 // The desktop search box was a flat 192px (Tailwind's w-48) regardless of
-// viewport, which was fine everywhere except the ~40px window just above
-// the md: breakpoint (768px) where the desktop nav switches on: with five
-// collection tabs, a fixed 192px search box, and the settings gear all
-// demanding room at once, that row had no slack left and would wrap onto
-// a second line before the nav had a chance to hand off to the mobile
-// menu -- visibly breaking the layout around 806px specifically. Rather
-// than raise the md: breakpoint itself (used elsewhere in the app --
-// ReferenceModal, KeyboardShortcutsModal, OnboardingFlow -- so bumping it
-// globally would shift those too), this only narrows the search box,
-// linearly, across exactly that gap: full 192px from 808px up, shrinking
-// to a 140px floor right at 768px where the mobile menu takes over
-// anyway. 130vw is the slope solving width = 192px at 808px and 140px at
-// 768px; -858.4px is the matching offset for that same line.
-const SEARCH_BOX_WIDTH = "clamp(140px, calc(130vw - 858.4px), 192px)";
+// viewport, which was fine everywhere except the window just above the md:
+// breakpoint (768px) where the desktop nav switches on: with a fixed 192px
+// search box and the settings gear demanding room alongside the collection
+// tabs, that row had no slack left and would wrap onto a second line before
+// the nav had a chance to hand off to the mobile menu. Rather than raise the
+// md: breakpoint itself (used elsewhere in the app -- ReferenceModal,
+// KeyboardShortcutsModal, OnboardingFlow -- so bumping it globally would
+// shift those too), this narrows the search box instead, by exactly however
+// much the row is actually short by at each width.
+//
+// That's a real, measured relationship, not an assumed one, and it moves
+// whenever a tab is added/removed/renamed -- everything else in the row
+// (logo, tabs, gear, every gap) is fixed-width, so at a given viewport width
+// V, the widest the search box can be without wrapping is a flat V - K,
+// where K is the row's own fixed-content width. Found K by binary-searching
+// the search box wrapper's own width (not the `<input>` inside it -- that's
+// `w-full` and just follows the wrapper, so forcing ITS width alone changes
+// nothing the row's flex layout sees) for the exact px where the tab row's
+// first button lands at a different `top` than its last, at three different
+// viewports: it's the same 693px at every one of them (e.g. 127px is exactly
+// as much room as 820px leaves, 207px exactly as much as 900px does), which
+// is what "fixed-content width" predicts. 693px, not the 687px it was before
+// the Custom tab was renamed to Sandbox -- one character wider at this
+// font/size costs exactly 6px, which the row now has to give the search box
+// back everywhere in the range, not just at one end of it. 192px (the search
+// box's own max) is reached once V - 693 = 192, i.e. 885px -- confirmed
+// separately by forcing the wrapper to a flat 192px and finding the row
+// first stops wrapping exactly there. Below that, down to the 768px
+// handoff, V - 693 ranges from 191px down to 75px -- a six-tab row simply
+// doesn't leave 140px (five tabs' own original floor) to spare down there
+// any more, so the floor has to actually shrink with the row's own content
+// width, not just the ceiling's own starting point. 74px is a 1px margin
+// under that measured 75px floor.
+//
+// Redo this whenever the tab count OR any tab's own label changes: in a
+// console on this page, `document.querySelector('input[placeholder="Search"]')
+// .parentElement` is the wrapper to binary-search on, watching
+// `document.querySelectorAll('nav div.flex-wrap button')` for a `top`
+// mismatch, at whatever couple of viewport widths (via the browser's
+// device-toolbar width field, not just dragging the window) bracket the
+// md: breakpoint.
+const SEARCH_BOX_WIDTH = "clamp(74px, calc(100vw - 693px), 192px)";
 
 /** Filter-slider icon, always visible at the search box's right edge --
  * the small blue dot overlays it once any filter facet is applied (see

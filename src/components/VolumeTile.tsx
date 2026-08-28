@@ -7,7 +7,7 @@ import {
   tileBackground,
 } from "../lib/color";
 import { quartersBetween, type ZoomLevel } from "../lib/timeline";
-import { volumeBadgeText, volumeIconUrl, volumeNumberLabel } from "../lib/era";
+import { volumeBadgeText, volumeIconUrl, volumeNumberLabel, type EraOption } from "../lib/era";
 import { OWNERSHIP_META } from "../lib/ownership";
 import { DEFAULT_READING_STATUS, READING_STATUS_META } from "../lib/readingStatus";
 import { STAR_INDEXES, starIconFor } from "../lib/rating";
@@ -30,12 +30,17 @@ export function VolumeTile({
   autoPreviewDelta = 0,
   onHoverStart,
   stepScrolling = false,
+  eraOptions,
 }: {
   volume: Volume;
   line: Line;
   focused: boolean;
   onClick: () => void;
   zoomLevel: ZoomLevel;
+  /** The active collection's era definitions (DC_ERA_OPTIONS, the Custom
+   * tab's own user-defined eras, or [] when eras aren't in play) -- see
+   * lib/era.ts. Drives the era-letter badge and per-era icon lookup. */
+  eraOptions: EraOption[];
   /** Speculation Mode: this volume is speculative -- darkened fill (mixed
    * with black, not opacity-based, so it stays fully opaque), full-opacity
    * line-color border, and title text tinted 50/50 toward white. */
@@ -126,7 +131,7 @@ export function VolumeTile({
         paintOrder: "stroke fill",
       }}
     >
-      {volumeBadgeText(volume)}
+      {volumeBadgeText(volume, eraOptions)}
     </span>
   );
 
@@ -182,7 +187,7 @@ export function VolumeTile({
           ? ownedTileBorderColor(line.colorHex)
           : "transparent",
       }}
-      title={`${line.name} ${volumeNumberLabel(volume)}: ${volume.title}`}
+      title={`${line.name} ${volumeNumberLabel(volume, eraOptions)}: ${volume.title}`}
     >
       {showIcon ? (
         // Level 2 only: width matches the icon's own w-7 (28px) exactly,
@@ -202,7 +207,7 @@ export function VolumeTile({
             className="mb-2 h-7 w-7 overflow-hidden rounded-full border-2"
             style={{ borderColor: line.colorHex }}
           >
-            <LineIcon iconUrl={volumeIconUrl(volume, line)} />
+            <LineIcon iconUrl={volumeIconUrl(volume, line, eraOptions)} />
           </span>
           {badge}
         </span>

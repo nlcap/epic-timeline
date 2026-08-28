@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useRef, useState, type ChangeEvent, type FormEvent } from "react";
 import type { Era, OwnershipStatus, Quarter, QuarterPoint, TimelineEntry } from "../types";
 import { OWNERSHIP_META, OWNERSHIP_ORDER } from "../lib/ownership";
-import { eraForQuarterPoint, ERA_META, ERA_ORDER } from "../lib/era";
+import { eraOptionForQuarterPoint, type EraOption } from "../lib/era";
 import { MONTH_NAMES, quarterIndex, quarterPointFromIndex, yearsCoveredLabel } from "../lib/timeline";
 import { compressImageFile, getPastedImageFile } from "../lib/imageCompression";
 import { useSlidePanel } from "../hooks/useSlidePanel";
@@ -69,6 +69,7 @@ function ImageResetOverlay({ onReset }: { onReset: () => void }) {
 export function VolumeFormDrawer({
   lineId,
   supportsEra = false,
+  eraOptions = [],
   supportsSwimLanePosition = false,
   lineSwimLanes = 1,
   editingEntry,
@@ -79,9 +80,12 @@ export function VolumeFormDrawer({
   onClose,
 }: {
   lineId: string;
-  /** DC Finest: volumes carry an era + era-relative number ("G1", "Sa")
-   * instead of a plain sequential number. Every other collection omits this. */
+  /** DC Finest, or the Custom tab with eras enabled: volumes carry an era +
+   * era-relative number ("G1", "Sa") instead of a plain sequential number. */
   supportsEra?: boolean;
+  /** The era list to render when supportsEra is true -- see the identical
+   * prop on LineFormDrawer. */
+  eraOptions?: EraOption[];
   /** Licensed-collection-only, same gate as the Line form's "Swim lanes"
    * field -- shows the "Swim lane position" field below. */
   supportsSwimLanePosition?: boolean;
@@ -134,7 +138,8 @@ export function VolumeFormDrawer({
   const [era, setEra] = useState<Era>(
     editingVolume?.era ??
       editingNote?.era ??
-      (defaultStart ? eraForQuarterPoint(defaultStart) : ERA_ORDER[0])
+      (defaultStart ? eraOptionForQuarterPoint(eraOptions, defaultStart)?.id : eraOptions[0]?.id) ??
+      ""
   );
   const [number, setNumber] = useState(
     editingVolume ? String(editingVolume.number) : editingNote?.number ?? ""
@@ -585,9 +590,9 @@ export function VolumeFormDrawer({
                     onChange={(e) => setEra(e.target.value as Era)}
                     className={`mt-1 w-full ${FIELD}`}
                   >
-                    {ERA_ORDER.map((e) => (
-                      <option key={e} value={e}>
-                        {ERA_META[e].label}
+                    {eraOptions.map((option) => (
+                      <option key={option.id} value={option.id}>
+                        {option.label}
                       </option>
                     ))}
                   </select>

@@ -12,6 +12,7 @@ import type {
   Volume,
 } from "./types";
 import { CollectionBanner } from "./components/CollectionBanner";
+import { CustomCollectionConfigModal } from "./components/CustomCollectionConfigModal";
 import { TopNav, NAV_HEIGHT } from "./components/TopNav";
 import { TimelineAxis } from "./components/TimelineAxis";
 import { EraBar, ERA_BAR_COLLAPSED_HEIGHT, ERA_BAR_HEIGHT } from "./components/EraBar";
@@ -38,6 +39,13 @@ import { useLineOverrides } from "./hooks/useLineOverrides";
 import { useVolumeOverrides } from "./hooks/useVolumeOverrides";
 import { useSpeculativeLines } from "./hooks/useSpeculativeLines";
 import { useSpeculativeVolumes } from "./hooks/useSpeculativeVolumes";
+import { useCustomCollectionConfig } from "./hooks/useCustomCollectionConfig";
+import {
+  customEraOptions,
+  DC_ERA_OPTIONS,
+  eraOptionSegments,
+  type EraOption,
+} from "./lib/era";
 import { useExitingLines } from "./hooks/useExitingLines";
 import { useVisibleRowRange } from "./hooks/useVisibleRowRange";
 import { useAddVolumeCellHover } from "./hooks/useAddVolumeCellHover";
@@ -67,6 +75,7 @@ import {
   SIDEBAR_PILL_HEIGHT_BY_ZOOM,
   monthIndex,
   nearestVolumeByStart,
+  quarterIndex,
   rowTopOffset,
   stepperReservePx,
   stepperVolumeTargets,
@@ -226,13 +235,37 @@ export default function App() {
     deleteVolume: deleteSpeculativeVolume,
     resolveEntries: resolveSpeculativeEntries,
   } = useSpeculativeVolumes();
-  // Only DC Finest has an era bar -- computed here (rather than down by
-  // `collection`/`data` below, closer to where it's otherwise used) so it's
-  // available to gate useEraBarCollapseProgress, which needs it before that
-  // point.
+  const { config: customCollectionConfig, update: updateCustomCollectionConfig } =
+    useCustomCollectionConfig();
+  const [customConfigOpen, setCustomConfigOpen] = useState(false);
   const isDcFinest = activeCollectionId === "dc-finest";
+  const isCustom = activeCollectionId === "custom";
+  // The active collection's era definitions -- DC Finest's fixed four, the
+  // Custom tab's own user-defined list when it has eras turned on, or none.
+  // Everything era-related downstream (the era bar, badges/icons on
+  // LineRow/VolumeTile/NoteTile/VolumeDetailPanel, the era pickers in
+  // LineFormDrawer/VolumeFormDrawer) is generic over this one list rather
+  // than special-casing DC Finest -- see lib/era.ts.
+  const activeEraOptions: EraOption[] = useMemo(() => {
+    if (isDcFinest) return DC_ERA_OPTIONS;
+    if (isCustom && customCollectionConfig.erasEnabled) {
+      return customEraOptions(customCollectionConfig.eras ?? [], customCollectionConfig.eraOpacity);
+    }
+    return [];
+  }, [
+    isDcFinest,
+    isCustom,
+    customCollectionConfig.erasEnabled,
+    customCollectionConfig.eras,
+    customCollectionConfig.eraOpacity,
+  ]);
+  const supportsEra = activeEraOptions.length > 0;
+  const hasEraBar = isDcFinest || (isCustom && customCollectionConfig.erasEnabled === true);
+  const supportsSwimLanes =
+    activeCollectionId === "marvel-licensed-epic" ||
+    (isCustom && customCollectionConfig.swimLanesEnabled === true);
   const eraBarAnchorRef = useRef<HTMLDivElement>(null);
-  const eraBarCollapseProgress = useEraBarCollapseProgress(eraBarAnchorRef, isDcFinest);
+  const eraBarCollapseProgress = useEraBarCollapseProgress(eraBarAnchorRef, hasEraBar);
 
   const handleTimelineScroll = (e: UIEvent<HTMLDivElement>) => {
     setScrollLeft(e.currentTarget.scrollLeft);
@@ -902,9 +935,18 @@ export default function App() {
     !overlaysOpen
   );
 
-  const eraBarHeight = isDcFinest
+  const eraBarHeight = hasEraBar
     ? ERA_BAR_HEIGHT - eraBarCollapseProgress * (ERA_BAR_HEIGHT - ERA_BAR_COLLAPSED_HEIGHT)
     : 0;
+  // Quarter-precision (not just whole years) so a boundary like "Q4 1986"
+  // lands on the right quarter line rather than snapping to the year --
+  // same +1/Q4 pairing TimelineAxis's own endYear prop below uses.
+  const eraBarSegments = useMemo(() => {
+    if (!hasEraBar) return [];
+    const startQuarter = quarterIndex({ year: axisStart, quarter: 1 });
+    const endQuarter = quarterIndex({ year: axisEnd + 1, quarter: 4 });
+    return eraOptionSegments(activeEraOptions, startQuarter, endQuarter);
+  }, [hasEraBar, activeEraOptions, axisStart, axisEnd]);
 
   return (
     <div className="min-h-screen bg-[#1E1E1E] font-body">
@@ -942,11 +984,19 @@ export default function App() {
         searchInputRef={searchInputRef}
       />
       <div style={{ paddingTop: NAV_HEIGHT }}>
-        <CollectionBanner collection={collection} />
+        <CollectionBanner
+          collection={collection}
+          bannerOverride={isCustom ? customCollectionConfig : undefined}
+          onConfigure={isCustom ? () => setCustomConfigOpen(true) : undefined}
+        />
 
         {displayLines.length === 0 ? (
           <div className="px-8 py-16 text-center text-neutral-500">
-            <p>No volume data compiled for this collection yet.</p>
+            <p>
+              {isCustom
+                ? "Your sandbox timeline is empty -- add a line to get started."
+                : "No volume data compiled for this collection yet."}
+            </p>
             <button
               type="button"
               onClick={() => setAddLineOpen(true)}
@@ -981,10 +1031,9 @@ export default function App() {
                   transform: `translateX(${-scrollLeft}px)`,
                 }}
               >
-                {isDcFinest && (
+                {hasEraBar && (
                   <EraBar
-                    startYear={axisStart}
-                    endYear={axisEnd + 1}
+                    segments={eraBarSegments}
                     pxPerQuarter={pxPerQuarter}
                     collapseProgress={eraBarCollapseProgress}
                   />
@@ -1066,6 +1115,7 @@ export default function App() {
                       speculativeVolumeIds={speculativeVolumeIds}
                       exiting={exiting}
                       skipEnterTransition={isCollectionSwitch}
+                      eraOptions={activeEraOptions}
                     />
                   );
                 })}
@@ -1116,6 +1166,7 @@ export default function App() {
           onStepForward={panelForwardTarget ? () => handlePanelStep("forward") : undefined}
           onStepUp={() => handlePanelVerticalStep("up")}
           onStepDown={() => handlePanelVerticalStep("down")}
+          eraOptions={activeEraOptions}
         />
       )}
 
@@ -1146,6 +1197,14 @@ export default function App() {
           setReplayTourOpen(true);
         }}
       />
+      {customConfigOpen && (
+        <CustomCollectionConfigModal
+          collection={collection}
+          config={customCollectionConfig}
+          onSave={updateCustomCollectionConfig}
+          onClose={() => setCustomConfigOpen(false)}
+        />
+      )}
       <WhatsNewModal releases={unseenUpdates} onDismiss={markUpdatesSeen} />
       {/* Held behind any unseen changelog releases -- both are one-time
        * popups gated on their own separate localStorage flags, so a
@@ -1170,7 +1229,9 @@ export default function App() {
       {(addLineOpen || editingLine) && (
         <LineFormDrawer
           collectionId={activeCollectionId}
-          supportsEra={activeCollectionId === "dc-finest"}
+          supportsEra={supportsEra}
+          eraOptions={activeEraOptions}
+          supportsSwimLanes={supportsSwimLanes}
           editingLine={editingLine ?? undefined}
           allTags={allTags}
           speculative={editingLine ? speculativeLineIdSet.has(editingLine.id) : speculationMode}
@@ -1224,8 +1285,9 @@ export default function App() {
         return (
           <VolumeFormDrawer
             lineId={targetLineId}
-            supportsEra={activeCollectionId === "dc-finest"}
-            supportsSwimLanePosition={activeCollectionId === "marvel-licensed-epic"}
+            supportsEra={supportsEra}
+            eraOptions={activeEraOptions}
+            supportsSwimLanePosition={supportsSwimLanes}
             lineSwimLanes={targetLine?.swimLanes ?? 1}
             editingEntry={editingEntry ?? undefined}
             speculative={volumeFormIsSpeculative}

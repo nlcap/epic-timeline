@@ -1,5 +1,4 @@
-import { ERA_BAR_COLOR, ERA_META, eraSegmentsForQuarterRange } from "../lib/era";
-import { quarterIndex } from "../lib/timeline";
+import type { EraBarSegment } from "../lib/era";
 
 export const ERA_BAR_HEIGHT = 12;
 // How short the bar gets once fully scroll-collapsed -- stays a visible
@@ -7,29 +6,30 @@ export const ERA_BAR_HEIGHT = 12;
 export const ERA_BAR_COLLAPSED_HEIGHT = 2;
 
 /**
- * DC Finest-only row above the year axis marking the shared-continuity eras
- * (Golden/Silver/Bronze/Post-Crisis) as colored segments with an integrated
- * label. Once the axis sticks to the top of the viewport on scroll, the bar
- * height eases down to ERA_BAR_COLLAPSED_HEIGHT and the label fades out --
- * `collapseProgress` (0-1) drives both, continuous like the sidebar pill's
- * horizontal scroll-collapse (see useSidebarPillMetrics).
+ * Row above the year axis marking a collection's eras as colored segments
+ * with an integrated label -- DC Finest's four shared-continuity eras
+ * (Golden/Silver/Bronze/Post-Crisis), or the Custom tab's own user-defined
+ * eras when enabled. Purely a rendering component: App.tsx computes
+ * `segments` (via lib/era.ts's eraOptionSegments, fed either DC_ERA_OPTIONS
+ * or the Custom tab's own EraOption[]) and this just lays them out -- it has
+ * no idea which collection it's showing. Once the axis sticks to the top of
+ * the viewport on scroll, the bar height eases down to
+ * ERA_BAR_COLLAPSED_HEIGHT and the label fades out -- `collapseProgress`
+ * (0-1) drives both, continuous like the sidebar pill's horizontal
+ * scroll-collapse (see useSidebarPillMetrics).
  */
 export function EraBar({
-  startYear,
-  endYear,
+  segments,
   pxPerQuarter,
   collapseProgress,
 }: {
-  startYear: number;
-  endYear: number;
+  /** Already clipped to the visible quarter range and ordered oldest-first
+   * -- see lib/era.ts's eraOptionSegments, which is how App.tsx builds
+   * this. */
+  segments: EraBarSegment[];
   pxPerQuarter: number;
   collapseProgress: number;
 }) {
-  // Quarter-precision (not just whole years) so a boundary like "Q4 1986"
-  // lands on the right quarter line rather than snapping to the year.
-  const startQuarter = quarterIndex({ year: startYear, quarter: 1 });
-  const endQuarter = quarterIndex({ year: endYear, quarter: 4 });
-  const segments = eraSegmentsForQuarterRange(startQuarter, endQuarter);
   const barHeight =
     ERA_BAR_HEIGHT - collapseProgress * (ERA_BAR_HEIGHT - ERA_BAR_COLLAPSED_HEIGHT);
   const labelOpacity = 1 - collapseProgress;
@@ -49,23 +49,23 @@ export function EraBar({
         cursor += width;
         return (
           <div
-            key={segment.era}
+            key={segment.id}
             className="absolute inset-y-0 flex items-center overflow-hidden rounded-[2px]"
             style={{
               left,
               width: Math.max(width - 1, 0),
-              backgroundColor: ERA_BAR_COLOR[segment.era],
+              backgroundColor: segment.colorHex,
             }}
           >
             <span
               className="whitespace-nowrap ml-4 rounded-[2px] px-1.5 font-display text-[15.5px] font-semibold uppercase leading-none tracking-wide transition-opacity duration-150 ease-out"
               style={{
                 backgroundColor: "#1E1E1E",
-                color: ERA_BAR_COLOR[segment.era],
+                color: segment.colorHex,
                 opacity: labelOpacity,
               }}
             >
-              {ERA_META[segment.era].label}
+              {segment.label}
             </span>
           </div>
         );

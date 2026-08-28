@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import type { OwnershipStatus, ReadingStatus, Volume } from "../types";
 import { OWNERSHIP_META, OWNERSHIP_ORDER } from "../lib/ownership";
 import { READING_STATUS_META, READING_STATUS_ORDER } from "../lib/readingStatus";
-import { volumeBadgeText } from "../lib/era";
+import { volumeBadgeText, type EraOption } from "../lib/era";
 import { formatMonthPoint, isFutureMonth } from "../lib/timeline";
 import { formatLineBreaks } from "../lib/text";
 import { isTypingTarget } from "../lib/keyboard";
@@ -27,9 +27,12 @@ export function VolumeDetailPanel({
   onStepUp,
   onStepDown,
   speculative = false,
+  eraOptions,
 }: {
   volume: Volume;
   status: OwnershipStatus;
+  /** See VolumeTile's identical prop. */
+  eraOptions: EraOption[];
   onStatusChange: (status: OwnershipStatus) => void;
   readingStatus: ReadingStatus;
   onReadingStatusChange: (status: ReadingStatus) => void;
@@ -507,7 +510,7 @@ export function VolumeDetailPanel({
 
         <h2 className="mt-4 text-xl font-bold text-white">{volume.title}</h2>
         <p className="text-sm italic text-neutral-300">
-          Vol. {volumeBadgeText(volume)}, {volume.yearsCovered}
+          Vol. {volumeBadgeText(volume, eraOptions)}, {volume.yearsCovered}
         </p>
         {volume.releaseDate && (
           <p className="mt-1 text-xs text-neutral-400">

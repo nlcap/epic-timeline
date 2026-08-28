@@ -59,12 +59,20 @@ export function SettingsModal({
     <div className="fixed inset-0 z-[70] overflow-y-auto bg-black/60 p-6" onClick={onClose}>
       <div className="flex min-h-full items-center justify-center">
         <div
-          className={`flex w-full flex-col rounded-md border border-neutral-700 bg-neutral-900 p-5 shadow-xl ${
+          // max-h-[85vh] alone only caps this box's height -- it doesn't
+          // make anything past that cap scroll, so a tall child (e.g. the
+          // Custom tab's Configure form once its era list grows) just
+          // rendered past the card's own bottom edge instead of scrolling
+          // inside it. overflow-y-auto has to live on the region that's
+          // actually meant to scroll (the body below), not this outer flex
+          // column itself, or the header would scroll away with it -- see
+          // the body div below.
+          className={`flex w-full flex-col rounded-md border border-neutral-700 bg-neutral-900 shadow-xl ${
             scrollable ? "max-h-[85vh] " : ""
           }${maxWidthClassName}`}
           onClick={(e) => e.stopPropagation()}
         >
-          <div className="flex shrink-0 items-center justify-between">
+          <div className="flex shrink-0 items-center justify-between px-5 pt-5">
             <h2 className="text-sm font-semibold text-white">{title}</h2>
             <button
               type="button"
@@ -74,7 +82,9 @@ export function SettingsModal({
               Close ✕
             </button>
           </div>
-          {children}
+          <div className={`px-5 pb-5 ${scrollable ? "min-h-0 flex-1 overflow-y-auto" : ""}`}>
+            {children}
+          </div>
         </div>
       </div>
     </div>,

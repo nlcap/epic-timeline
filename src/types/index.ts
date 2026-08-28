@@ -143,8 +143,13 @@ export interface Line {
  * through Post-Crisis), so a volume's era can't be inferred from its Line --
  * it's a manual per-volume choice, independent of `start`/`end`. Marvel/
  * Ultimate/Licensed volumes never set this.
+ *
+ * A plain string (not the old fixed "golden"|"silver"|"bronze"|"post-crisis"
+ * union) since the Custom tab can define its own era ids too -- see
+ * EraOption in lib/era.ts, which is what actually defines a given id's
+ * label/letter/color/boundary for whichever collection is active.
  */
-export type Era = "golden" | "silver" | "bronze" | "post-crisis";
+export type Era = string;
 
 export interface Volume {
   kind: "volume";

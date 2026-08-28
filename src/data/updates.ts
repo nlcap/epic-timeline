@@ -76,6 +76,51 @@ export function formatUpdateDate(iso: string): string {
 
 export const UPDATES: UpdateRelease[] = [
   {
+    date: "2026-08-27",
+    entries: [
+      {
+        kind: "new",
+        title: "Configure the Custom tab's own title, color, and logo",
+        description:
+          "A gear icon on the Custom tab's masthead opens a form to set its own title, rule color, and logo image -- each falls back to the default whenever you leave it blank.",
+      },
+      {
+        kind: "new",
+        title: "Bring DC Finest's eras and Licensed's swim lanes to the Custom tab",
+        description:
+          "The same Configure form now has two independent switches -- Eras (your own named eras, each with a color and start year, plus per-era line icons and era-relative volume numbers) and Swim lanes (stack a line's volumes across overlapping lanes) -- and they can both be on at once.",
+      },
+      {
+        kind: "new",
+        title: "Pick a font and weight for the Custom tab's title",
+        description:
+          "Configure now has a Font and Weight picker with a live preview -- a dozen Google Fonts from clean sans faces to comic-style display type, each showing its own weight options since not every font ships the same range.",
+      },
+      {
+        kind: "improved",
+        title: "Renamed the Custom tab to Sandbox",
+        description: "Same tab, same data -- just a new name in the nav.",
+      },
+      {
+        kind: "new",
+        title: "Opacity sliders for the Sandbox tab's title, rule, and era colors",
+        description:
+          "Three independent 0-100% dials in Configure -- Title opacity, Rule opacity, and one Era color opacity that applies to every defined era at once, not per era.",
+      },
+    ],
+  },
+  {
+    date: "2026-08-26",
+    entries: [
+      {
+        kind: "new",
+        title: "A Custom tab for timelines of your own",
+        description:
+          "A new Custom tab starts out completely blank -- add any lines and volumes you want, outside Epic Collections or DC Finest, with the same editing, zoom, and Speculation Mode as every other tab.",
+      },
+    ],
+  },
+  {
     date: "2026-08-24",
     entries: [
       {

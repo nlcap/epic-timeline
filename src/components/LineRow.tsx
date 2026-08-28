@@ -17,7 +17,7 @@ import {
 } from "../lib/timeline";
 import { useSidebarPillMetrics } from "../hooks/useSidebarPillMetrics";
 import { useEnterTransition } from "../hooks/useEnterTransition";
-import { lineIconUrl } from "../lib/era";
+import { lineIconUrl, type EraOption } from "../lib/era";
 import { speculativeTextColor } from "../lib/color";
 import { formatLineBreaks } from "../lib/text";
 import { VolumeTile } from "./VolumeTile";
@@ -68,10 +68,15 @@ export function LineRow({
   autoPreviewVolumeId,
   autoPreviewDelta,
   onVolumeHover,
+  eraOptions,
 }: {
   line: Line;
   entries: TimelineEntry[];
   axisStart: QuarterPoint;
+  /** The active collection's era definitions (DC_ERA_OPTIONS, the Custom
+   * tab's own user-defined eras, or [] otherwise) -- see lib/era.ts.
+   * Forwarded to VolumeTile/NoteTile for era badges/icons. */
+  eraOptions: EraOption[];
   focusedId: string | null;
   onSelect: (volumeId: string) => void;
   onEdit: (line: Line) => void;
@@ -469,7 +474,7 @@ export function LineRow({
               boxShadow: "0 2px 6px rgba(0, 0, 0, 0.5)",
             }}
           >
-            <LineIcon iconUrl={lineIconUrl(line)} />
+            <LineIcon iconUrl={lineIconUrl(line, eraOptions)} />
           </span>
           {isMultiLane && line.description ? (
             <span
@@ -542,6 +547,7 @@ export function LineRow({
         autoPreviewDelta={autoPreviewDelta}
         onVolumeHover={onVolumeHover}
         stepScrolling={stepScrolling}
+        eraOptions={eraOptions}
       />
     </div>
   );
@@ -584,6 +590,7 @@ const LineTimelineLane = memo(function LineTimelineLane({
   autoPreviewDelta,
   onVolumeHover,
   stepScrolling,
+  eraOptions,
 }: {
   line: Line;
   entries: TimelineEntry[];
@@ -592,6 +599,9 @@ const LineTimelineLane = memo(function LineTimelineLane({
   pxPerQuarter: number;
   zoomLevel: ZoomLevel;
   rowHeight: number;
+  /** See LineRow's identical prop -- forwarded to each entry's tile via
+   * TimelineEntryTile. */
+  eraOptions: EraOption[];
   focusedId: string | null;
   onSelect: (volumeId: string) => void;
   onEditEntry: (entry: Gap | Note) => void;
@@ -820,6 +830,7 @@ const LineTimelineLane = memo(function LineTimelineLane({
             autoPreviewDelta={autoPreviewDelta}
             onVolumeHover={onVolumeHover}
             stepScrolling={stepScrolling}
+            eraOptions={eraOptions}
           />
         );
       })}
@@ -866,10 +877,13 @@ const TimelineEntryTile = memo(function TimelineEntryTile({
   autoPreviewDelta,
   onVolumeHover,
   stepScrolling,
+  eraOptions,
 }: {
   entry: TimelineEntry;
   line: Line;
   axisStart: QuarterPoint;
+  /** See LineRow's identical prop -- forwarded to VolumeTile/NoteTile. */
+  eraOptions: EraOption[];
   pxPerQuarter: number;
   /** Single-lane row height (per zoom level) -- one lane's worth, not the
    * line's total (possibly multi-lane) height. */
@@ -951,6 +965,7 @@ const TimelineEntryTile = memo(function TimelineEntryTile({
           autoPreviewDelta={autoPreviewDelta}
           onHoverStart={onVolumeHover}
           stepScrolling={stepScrolling}
+          eraOptions={eraOptions}
         />
       ) : entry.kind === "gap" ? (
         <GapSegment
@@ -975,6 +990,7 @@ const TimelineEntryTile = memo(function TimelineEntryTile({
           }
           onHoverStart={onVolumeHover}
           stepScrolling={stepScrolling}
+          eraOptions={eraOptions}
         />
       )}
     </div>
