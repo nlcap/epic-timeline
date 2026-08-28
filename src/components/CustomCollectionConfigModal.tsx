@@ -1,4 +1,4 @@
-import { useEffect, useState, type ChangeEvent } from "react";
+import { useEffect, useMemo, useRef, useState, type ChangeEvent } from "react";
 import type { Collection } from "../types";
 import type { CustomCollectionConfig } from "../hooks/useCustomCollectionConfig";
 import type { CustomEraDef } from "../lib/era";
@@ -15,6 +15,7 @@ import {
 } from "../lib/fonts";
 import { useArmedConfirm } from "../hooks/useArmedConfirm";
 import { SettingsModal } from "./SettingsModal";
+import { UnsavedChangesModal } from "./UnsavedChangesModal";
 import { FIELD, FIELD_PLACEHOLDER, SELECT } from "./formStyles";
 import { ChevronDownIcon, PlusIcon, TrashIcon } from "./icons";
 
@@ -140,6 +141,84 @@ export function CustomCollectionConfigModal({
   const [eras, setEras] = useState<CustomEraDef[]>(config.eras ?? []);
   const [eraOpacity, setEraOpacity] = useState(config.eraOpacity ?? DEFAULT_OPACITY);
 
+  // Every field above, snapshotted once at mount, so dismissing this form
+  // by accident can't silently bin a half-built configuration -- the same
+  // guard LineFormDrawer/VolumeFormDrawer already have, which this form
+  // (14 fields, including a whole hand-authored era list) wanted more than
+  // either of them. `eras` compares by value: it's an array of objects
+  // rebuilt on every edit, so identity always differs.
+  const initialSnapshot = useRef({
+    title,
+    fontId,
+    fontWeight,
+    fontItalic,
+    hex,
+    titleOpacity,
+    ruleHex,
+    ruleOpacity,
+    ruleThicknessPx,
+    logoUrl,
+    erasEnabled,
+    swimLanesEnabled,
+    eras: JSON.stringify(eras),
+    eraOpacity,
+  });
+  const isDirty = useMemo(() => {
+    const s = initialSnapshot.current;
+    return (
+      title !== s.title ||
+      fontId !== s.fontId ||
+      fontWeight !== s.fontWeight ||
+      fontItalic !== s.fontItalic ||
+      hex !== s.hex ||
+      titleOpacity !== s.titleOpacity ||
+      ruleHex !== s.ruleHex ||
+      ruleOpacity !== s.ruleOpacity ||
+      ruleThicknessPx !== s.ruleThicknessPx ||
+      logoUrl !== s.logoUrl ||
+      erasEnabled !== s.erasEnabled ||
+      swimLanesEnabled !== s.swimLanesEnabled ||
+      JSON.stringify(eras) !== s.eras ||
+      eraOpacity !== s.eraOpacity
+    );
+  }, [
+    title,
+    fontId,
+    fontWeight,
+    fontItalic,
+    hex,
+    titleOpacity,
+    ruleHex,
+    ruleOpacity,
+    ruleThicknessPx,
+    logoUrl,
+    erasEnabled,
+    swimLanesEnabled,
+    eras,
+    eraOpacity,
+  ]);
+  const [showUnsavedPrompt, setShowUnsavedPrompt] = useState(false);
+
+  // SettingsModal routes the backdrop click, Close ✕ and Escape all through
+  // its single onClose, so intercepting there covers all three at once --
+  // simpler than the form drawers, which need a separate Escape path
+  // because closeThen commits to an exit animation the moment it's called.
+  //
+  // The explicit Cancel button deliberately skips this and keeps
+  // discarding immediately (see UnsavedChangesModal's docblock) -- a button
+  // labelled "Cancel" is already a deliberate "throw this away".
+  //
+  // Bails outright while the prompt is up: that prompt is itself a
+  // SettingsModal with its own window-level Escape handler, and both fire
+  // for the same keypress. Ignoring it here lets the prompt's own
+  // "keep editing" win, leaving this form open underneath, rather than the
+  // two racing to interpret one Escape.
+  const requestClose = () => {
+    if (showUnsavedPrompt) return;
+    if (isDirty) setShowUnsavedPrompt(true);
+    else onClose();
+  };
+
   // Eagerly loads every curated font up front, unlike CollectionBanner
   // (which only ever fetches the one actually in use) -- this modal's own
   // Font <select> renders each option in its own face, and the picker would
@@ -245,7 +324,8 @@ export function CustomCollectionConfigModal({
   };
 
   return (
-    <SettingsModal title="Configure Sandbox Timeline" onClose={onClose} maxWidthClassName="max-w-lg">
+    <>
+    <SettingsModal title="Configure Sandbox Timeline" onClose={requestClose} maxWidthClassName="max-w-lg">
       <div className="mt-4 flex flex-col gap-4">
         <label className="block text-sm font-medium text-neutral-300">
           Title
@@ -647,5 +727,14 @@ export function CustomCollectionConfigModal({
         </div>
       </div>
     </SettingsModal>
+    {showUnsavedPrompt && (
+      <UnsavedChangesModal
+        entityLabel="timeline configuration"
+        onSave={handleSave}
+        onDiscard={onClose}
+        onKeepEditing={() => setShowUnsavedPrompt(false)}
+      />
+    )}
+    </>
   );
 }
