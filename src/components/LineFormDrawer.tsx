@@ -11,9 +11,10 @@ import { useSlidePanel } from "../hooks/useSlidePanel";
 import { useEscapeToClose } from "../hooks/useEscapeToClose";
 import { useCommitShortcut } from "../hooks/useCommitShortcut";
 import { useArmedConfirm } from "../hooks/useArmedConfirm";
-import { ChevronDownIcon, PlusIcon, TrashIcon } from "./icons";
-import { FIELD, FIELD_DISABLED, FIELD_PLACEHOLDER, SELECT } from "./formStyles";
+import { PlusIcon, TrashIcon } from "./icons";
+import { FIELD, FIELD_DISABLED, FIELD_PLACEHOLDER } from "./formStyles";
 import { BUTTON_DESTRUCTIVE, BUTTON_DESTRUCTIVE_GHOST, BUTTON_PRIMARY_DISABLEABLE, BUTTON_SECONDARY } from "./buttonStyles";
+import { SelectField } from "./SelectField";
 
 const HEX_PATTERN = /^#[0-9a-f]{6}$/i;
 const DEFAULT_HEX = "#FF00D9";
@@ -519,21 +520,18 @@ export function LineFormDrawer({
              * relies on the OS's native control chrome, which some browsers
              * (Safari in particular) size to the selected option's text
              * instead of filling the box the way a plain <input> does. */}
-            <div className="relative mt-1">
-              <select
-                value={month}
-                onChange={(e) => setMonth(e.target.value)}
-                disabled={fieldsLocked}
-                className={`w-full ${FIELD} ${SELECT} ${FIELD_DISABLED}`}
-              >
+            <SelectField
+              value={month}
+              onChange={(e) => setMonth(e.target.value)}
+              disabled={fieldsLocked}
+              wrapperClassName="mt-1"
+            >
                 {MONTH_NAMES.map((m, i) => (
                   <option key={m} value={i + 1}>
                     {m}
                   </option>
                 ))}
-              </select>
-              <ChevronDownIcon className="pointer-events-none absolute right-2.5 top-1/2 h-4 w-4 -translate-y-1/2 text-neutral-500" />
-            </div>
+            </SelectField>
           </label>
           <label className="block w-28 text-sm font-medium text-neutral-300">
             Debut year
@@ -555,21 +553,18 @@ export function LineFormDrawer({
               How many stacked lanes this line's volumes can spread across when
               their dates overlap.
             </p>
-            <div className="relative mt-1">
-              <select
-                value={swimLanes}
-                onChange={(e) => setSwimLanes(Number(e.target.value))}
-                disabled={fieldsLocked}
-                className={`w-full ${FIELD} ${SELECT} ${FIELD_DISABLED}`}
-              >
+            <SelectField
+              value={swimLanes}
+              onChange={(e) => setSwimLanes(Number(e.target.value))}
+              disabled={fieldsLocked}
+              wrapperClassName="mt-1"
+            >
                 {[1, 2, 3, 4, 5].map((n) => (
                   <option key={n} value={n}>
                     {n}
                   </option>
                 ))}
-              </select>
-              <ChevronDownIcon className="pointer-events-none absolute right-2.5 top-1/2 h-4 w-4 -translate-y-1/2 text-neutral-500" />
-            </div>
+            </SelectField>
           </label>
         )}
 

@@ -18,6 +18,7 @@ import { SettingsModal } from "./SettingsModal";
 import { UnsavedChangesModal } from "./UnsavedChangesModal";
 import { FIELD, FIELD_PLACEHOLDER, SELECT } from "./formStyles";
 import { ChevronDownIcon, PlusIcon, TrashIcon } from "./icons";
+import { SelectField } from "./SelectField";
 
 const HEX_PATTERN = /^#[0-9a-f]{6}$/i;
 const DEFAULT_ERA_HEX = "#7B4FE0";
@@ -363,20 +364,17 @@ export function CustomCollectionConfigModal({
           </label>
           <label className="block w-36 text-sm font-medium text-neutral-300">
             Weight
-            <div className="relative mt-1">
-              <select
-                value={fontWeight}
-                onChange={(e) => setFontWeight(Number(e.target.value))}
-                className={`w-full ${FIELD} ${SELECT}`}
-              >
+            <SelectField
+              value={fontWeight}
+              onChange={(e) => setFontWeight(Number(e.target.value))}
+              wrapperClassName="mt-1"
+            >
                 {findFontOption(fontId).weights.map((weight) => (
                   <option key={weight} value={weight}>
                     {WEIGHT_LABELS[weight] ?? weight}
                   </option>
                 ))}
-              </select>
-              <ChevronDownIcon className="pointer-events-none absolute right-2.5 top-1/2 h-4 w-4 -translate-y-1/2 text-neutral-500" />
-            </div>
+            </SelectField>
           </label>
           <label
             className={`block w-16 text-sm font-medium ${

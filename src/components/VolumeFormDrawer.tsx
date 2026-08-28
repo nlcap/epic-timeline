@@ -8,10 +8,11 @@ import { useSlidePanel } from "../hooks/useSlidePanel";
 import { useEscapeToClose } from "../hooks/useEscapeToClose";
 import { useCommitShortcut } from "../hooks/useCommitShortcut";
 import { useArmedConfirm } from "../hooks/useArmedConfirm";
-import { ChevronDownIcon, TrashIcon } from "./icons";
-import { FIELD, FIELD_DISABLED, FIELD_PLACEHOLDER, SELECT } from "./formStyles";
+import { TrashIcon } from "./icons";
+import { FIELD, FIELD_PLACEHOLDER } from "./formStyles";
 import { UnsavedChangesModal } from "./UnsavedChangesModal";
 import { BUTTON_DESTRUCTIVE, BUTTON_DESTRUCTIVE_GHOST, BUTTON_PRIMARY, BUTTON_SECONDARY } from "./buttonStyles";
+import { SelectField } from "./SelectField";
 
 const QUARTERS: Quarter[] = [1, 2, 3, 4];
 
@@ -693,20 +694,17 @@ export function VolumeFormDrawer({
                  * browsers (Safari in particular) size to the selected
                  * option's text instead of filling the box the way a plain
                  * <input> does. */}
-                <div className="relative mt-1">
-                  <select
-                    value={ownershipStatus}
-                    onChange={(e) => setOwnershipStatus(e.target.value as OwnershipStatus)}
-                    className={`w-full ${FIELD} ${SELECT}`}
-                  >
+                <SelectField
+                  value={ownershipStatus}
+                  onChange={(e) => setOwnershipStatus(e.target.value as OwnershipStatus)}
+                  wrapperClassName="mt-1"
+                >
                     {OWNERSHIP_ORDER.map((s) => (
                       <option key={s} value={s}>
                         {OWNERSHIP_META[s].label}
                       </option>
                     ))}
-                  </select>
-                  <ChevronDownIcon className="pointer-events-none absolute right-2.5 top-1/2 h-4 w-4 -translate-y-1/2 text-neutral-500" />
-                </div>
+                </SelectField>
               </label>
             )}
 
@@ -717,24 +715,21 @@ export function VolumeFormDrawer({
                   Pin this volume to a specific lane instead of letting it
                   auto-place among the line's other overlapping volumes.
                 </p>
-                <div className="relative mt-1">
-                  <select
-                    value={swimLanePosition ?? ""}
-                    onChange={(e) =>
-                      setSwimLanePosition(e.target.value === "" ? undefined : Number(e.target.value))
-                    }
-                    disabled={lineSwimLanes <= 1}
-                    className={`w-full ${FIELD} ${SELECT} ${FIELD_DISABLED}`}
-                  >
+                <SelectField
+                  value={swimLanePosition ?? ""}
+                  onChange={(e) =>
+                  setSwimLanePosition(e.target.value === "" ? undefined : Number(e.target.value))
+                  }
+                  disabled={lineSwimLanes <= 1}
+                  wrapperClassName="mt-1"
+                >
                     <option value="">Auto</option>
                     {Array.from({ length: lineSwimLanes }, (_, i) => i + 1).map((n) => (
                       <option key={n} value={n}>
                         {n}
                       </option>
                     ))}
-                  </select>
-                  <ChevronDownIcon className="pointer-events-none absolute right-2.5 top-1/2 h-4 w-4 -translate-y-1/2 text-neutral-500" />
-                </div>
+                </SelectField>
               </label>
             )}
 
@@ -750,20 +745,17 @@ export function VolumeFormDrawer({
                  * browsers (Safari in particular) size to the selected
                  * option's text instead of filling the box the way a plain
                  * <input> does. */}
-                <div className="relative flex-1">
-                  <select
-                    value={releaseMonth}
-                    onChange={(e) => setReleaseMonth(e.target.value)}
-                    className={`w-full ${FIELD} ${SELECT}`}
-                  >
+                <SelectField
+                  value={releaseMonth}
+                  onChange={(e) => setReleaseMonth(e.target.value)}
+                  wrapperClassName="flex-1"
+                >
                     {MONTH_NAMES.map((m, i) => (
                       <option key={m} value={i + 1}>
                         {m}
                       </option>
                     ))}
-                  </select>
-                  <ChevronDownIcon className="pointer-events-none absolute right-2.5 top-1/2 h-4 w-4 -translate-y-1/2 text-neutral-500" />
-                </div>
+                </SelectField>
                 <input
                   type="number"
                   value={releaseYear}
