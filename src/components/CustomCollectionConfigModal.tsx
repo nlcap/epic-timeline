@@ -14,14 +14,33 @@ import {
   WEIGHT_LABELS,
 } from "../lib/fonts";
 import { useArmedConfirm } from "../hooks/useArmedConfirm";
+import {
+  deleteSandboxSnapshot,
+  getActiveSandboxSnapshotId,
+  listSandboxSnapshots,
+  loadSandboxSnapshot,
+  saveSandboxSnapshot,
+  startNewSandbox,
+  type SandboxSnapshot,
+} from "../lib/sandboxSnapshots";
 import { SettingsModal } from "./SettingsModal";
 import { UnsavedChangesModal } from "./UnsavedChangesModal";
+import {
+  BUTTON_DESTRUCTIVE,
+  BUTTON_DESTRUCTIVE_GHOST,
+  BUTTON_PRIMARY_LIGHT,
+  BUTTON_SECONDARY,
+  BUTTON_SECONDARY_DISABLEABLE,
+} from "./buttonStyles";
 import { FIELD, FIELD_PLACEHOLDER, SELECT } from "./formStyles";
 import { ChevronDownIcon, PlusIcon, TrashIcon } from "./icons";
 import { SelectField } from "./SelectField";
 
 const HEX_PATTERN = /^#[0-9a-f]{6}$/i;
 const DEFAULT_ERA_HEX = "#7B4FE0";
+/** Sentinel <option> value for "no snapshot active" in the saved-sandboxes
+ * picker -- distinct from any real id, since those are crypto.randomUUID(). */
+const NEW_SANDBOX_VALUE = "__new__";
 const MIN_RULE_THICKNESS = 0;
 const MAX_RULE_THICKNESS = 16;
 /** Shown as the slider's starting position while ruleThicknessPx is
@@ -106,6 +125,12 @@ function LogoResetOverlay({ onReset }: { onReset: () => void }) {
  * `eras` is kept in the saved config regardless of erasEnabled -- unchecking
  * the box just stops using the list, it doesn't discard it, so re-checking
  * it later brings the same eras back.
+ *
+ * Also hosts the Sandbox tab's saved-timelines library (see
+ * lib/sandboxSnapshots.ts): the live tab only ever holds one timeline at a
+ * time, so saving captures its current lines/volumes/status/notes and
+ * appearance together under a name, and loading (or starting a blank one)
+ * swaps that whole set back in and reloads the page.
  */
 export function CustomCollectionConfigModal({
   collection,
@@ -220,6 +245,103 @@ export function CustomCollectionConfigModal({
     else onClose();
   };
 
+  // Builds the same "only the fields that differ from default" patch both
+  // the form's own Save (below) and "Save to library" (in the saved-
+  // sandboxes section) need -- the latter snapshots these in-progress field
+  // values directly rather than re-reading storage, so it captures edits
+  // made here even before the form's own Save has committed them.
+  const buildConfigSnapshot = (): CustomCollectionConfig => {
+    const trimmedTitle = title.trim();
+    const effectiveTimelineHex = HEX_PATTERN.test(hex) ? hex : collection.accentHex;
+    return {
+      title: trimmedTitle && trimmedTitle !== collection.tagline ? trimmedTitle : undefined,
+      fontFamily: fontId !== DEFAULT_FONT_ID ? fontId : undefined,
+      fontWeight: fontWeight !== DEFAULT_FONT_WEIGHT ? fontWeight : undefined,
+      fontItalic: fontItalic && findFontOption(fontId).hasItalic ? true : undefined,
+      accentHex:
+        effectiveTimelineHex.toUpperCase() !== collection.accentHex.toUpperCase()
+          ? effectiveTimelineHex
+          : undefined,
+      titleOpacity: titleOpacity !== DEFAULT_OPACITY ? titleOpacity : undefined,
+      ruleColorHex:
+        ruleHex && HEX_PATTERN.test(ruleHex) && ruleHex.toUpperCase() !== effectiveTimelineHex.toUpperCase()
+          ? ruleHex
+          : undefined,
+      ruleOpacity: ruleOpacity !== DEFAULT_OPACITY ? ruleOpacity : undefined,
+      ruleThicknessPx,
+      logoUrl,
+      erasEnabled,
+      swimLanesEnabled,
+      eras,
+      eraOpacity: eraOpacity !== DEFAULT_OPACITY ? eraOpacity : undefined,
+    };
+  };
+
+  // The Sandbox tab's library of saved timelines -- separate from isDirty
+  // above, which only tracks this form's own appearance fields. Switching
+  // or starting new here replaces the tab's actual lines/volumes too, and
+  // only takes effect after a reload (see loadSandboxSnapshot/
+  // startNewSandbox), so it's confirmed explicitly below rather than routed
+  // through requestClose's guard.
+  const [snapshots, setSnapshots] = useState<SandboxSnapshot[]>(listSandboxSnapshots);
+  const [activeSnapshotId, setActiveSnapshotId] = useState<string | null>(
+    getActiveSandboxSnapshotId
+  );
+  const [snapshotName, setSnapshotName] = useState(
+    () => snapshots.find((s) => s.id === activeSnapshotId)?.name ?? ""
+  );
+  const [pendingSwitch, setPendingSwitch] = useState<
+    { type: "new" } | { type: "load"; id: string; name: string } | null
+  >(null);
+  const [saveState, setSaveState] = useState<"idle" | "saved">("idle");
+  const {
+    confirming: deleteConfirming,
+    arm: armDelete,
+    disarm: disarmDelete,
+  } = useArmedConfirm(4000);
+
+  // Typing over a just-shown "Saved!" makes it stale -- same "reset on the
+  // next relevant change" idiom ExportDataButton/StorageDebugPanel use for
+  // their own copyState, rather than a timer.
+  useEffect(() => setSaveState("idle"), [snapshotName]);
+
+  const handleSwitchRequest = (value: string) => {
+    if (value === (activeSnapshotId ?? NEW_SANDBOX_VALUE)) return;
+    if (value === NEW_SANDBOX_VALUE) {
+      setPendingSwitch({ type: "new" });
+      return;
+    }
+    const target = snapshots.find((s) => s.id === value);
+    if (target) setPendingSwitch({ type: "load", id: target.id, name: target.name });
+  };
+
+  const cancelSwitch = () => setPendingSwitch(null);
+
+  const confirmSwitch = () => {
+    if (!pendingSwitch) return;
+    if (pendingSwitch.type === "new") startNewSandbox();
+    else loadSandboxSnapshot(pendingSwitch.id);
+    window.location.reload();
+  };
+
+  const handleSaveSnapshot = () => {
+    const name = snapshotName.trim();
+    if (!name) return;
+    const saved = saveSandboxSnapshot(name, buildConfigSnapshot(), activeSnapshotId ?? undefined);
+    setSnapshots(listSandboxSnapshots());
+    setActiveSnapshotId(saved.id);
+    setSaveState("saved");
+  };
+
+  const handleDeleteConfirmed = () => {
+    if (!activeSnapshotId) return;
+    deleteSandboxSnapshot(activeSnapshotId);
+    setSnapshots(listSandboxSnapshots());
+    setActiveSnapshotId(null);
+    setSnapshotName("");
+    disarmDelete();
+  };
+
   // Eagerly loads every curated font up front, unlike CollectionBanner
   // (which only ever fetches the one actually in use) -- this modal's own
   // Font <select> renders each option in its own face, and the picker would
@@ -297,30 +419,7 @@ export function CustomCollectionConfigModal({
   };
 
   const handleSave = () => {
-    const trimmedTitle = title.trim();
-    const effectiveTimelineHex = HEX_PATTERN.test(hex) ? hex : collection.accentHex;
-    onSave({
-      title: trimmedTitle && trimmedTitle !== collection.tagline ? trimmedTitle : undefined,
-      fontFamily: fontId !== DEFAULT_FONT_ID ? fontId : undefined,
-      fontWeight: fontWeight !== DEFAULT_FONT_WEIGHT ? fontWeight : undefined,
-      fontItalic: fontItalic && findFontOption(fontId).hasItalic ? true : undefined,
-      accentHex:
-        effectiveTimelineHex.toUpperCase() !== collection.accentHex.toUpperCase()
-          ? effectiveTimelineHex
-          : undefined,
-      titleOpacity: titleOpacity !== DEFAULT_OPACITY ? titleOpacity : undefined,
-      ruleColorHex:
-        ruleHex && HEX_PATTERN.test(ruleHex) && ruleHex.toUpperCase() !== effectiveTimelineHex.toUpperCase()
-          ? ruleHex
-          : undefined,
-      ruleOpacity: ruleOpacity !== DEFAULT_OPACITY ? ruleOpacity : undefined,
-      ruleThicknessPx,
-      logoUrl,
-      erasEnabled,
-      swimLanesEnabled,
-      eras,
-      eraOpacity: eraOpacity !== DEFAULT_OPACITY ? eraOpacity : undefined,
-    });
+    onSave(buildConfigSnapshot());
     onClose();
   };
 
@@ -328,6 +427,82 @@ export function CustomCollectionConfigModal({
     <>
     <SettingsModal title="Configure Sandbox Timeline" onClose={requestClose} maxWidthClassName="max-w-lg">
       <div className="mt-4 flex flex-col gap-4">
+        <div className="rounded-md border border-neutral-800 p-3">
+          <span className="block text-sm font-medium text-neutral-300">Saved sandboxes</span>
+          <p className="mt-0.5 text-xs text-neutral-500">
+            Save this timeline to come back to it later, switch to one you've already saved, or
+            start a new one.
+          </p>
+
+          <div className="mt-2">
+            <SelectField
+              value={activeSnapshotId ?? NEW_SANDBOX_VALUE}
+              onChange={(e) => handleSwitchRequest(e.target.value)}
+            >
+              <option value={NEW_SANDBOX_VALUE}>New Sandbox</option>
+              {snapshots.map((s) => (
+                <option key={s.id} value={s.id}>
+                  {s.name}
+                </option>
+              ))}
+            </SelectField>
+          </div>
+
+          {pendingSwitch && (
+            <div className="mt-2 rounded-md border border-amber-900 bg-amber-950/40 p-3">
+              <p className="text-xs text-amber-100">
+                {pendingSwitch.type === "new"
+                  ? "This clears the current timeline and appearance -- including any unsaved changes above -- back to a blank Sandbox."
+                  : `This replaces the current timeline and appearance -- including any unsaved changes above -- with "${pendingSwitch.name}".`}{" "}
+                Save first if you want to keep what's here now. The page reloads afterward.
+              </p>
+              <div className="mt-2 flex gap-2">
+                <button
+                  type="button"
+                  onClick={cancelSwitch}
+                  className={`flex-1 ${BUTTON_SECONDARY}`}
+                >
+                  Cancel
+                </button>
+                <button
+                  type="button"
+                  onClick={confirmSwitch}
+                  className={`flex-1 ${BUTTON_PRIMARY_LIGHT}`}
+                >
+                  {pendingSwitch.type === "new" ? "Start new" : "Load"}
+                </button>
+              </div>
+            </div>
+          )}
+
+          <div className="mt-3 flex gap-2">
+            <input
+              type="text"
+              value={snapshotName}
+              onChange={(e) => setSnapshotName(e.target.value)}
+              placeholder="Name this sandbox"
+              className={`min-w-0 flex-1 ${FIELD} ${FIELD_PLACEHOLDER}`}
+            />
+            <button
+              type="button"
+              disabled={snapshotName.trim().length === 0}
+              onClick={handleSaveSnapshot}
+              className={`shrink-0 ${BUTTON_SECONDARY_DISABLEABLE}`}
+            >
+              {saveState === "saved" ? "Saved!" : "Save"}
+            </button>
+            {activeSnapshotId && (
+              <button
+                type="button"
+                onClick={deleteConfirming ? handleDeleteConfirmed : armDelete}
+                className={`shrink-0 ${deleteConfirming ? BUTTON_DESTRUCTIVE : BUTTON_DESTRUCTIVE_GHOST}`}
+              >
+                {deleteConfirming ? "Confirm delete" : "Delete"}
+              </button>
+            )}
+          </div>
+        </div>
+
         <label className="block text-sm font-medium text-neutral-300">
           Title
           <input

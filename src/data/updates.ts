@@ -76,6 +76,17 @@ export function formatUpdateDate(iso: string): string {
 
 export const UPDATES: UpdateRelease[] = [
   {
+    date: "2026-08-31",
+    entries: [
+      {
+        kind: "new",
+        title: "Save and load named Sandbox timelines",
+        description:
+          "Configure's new Saved sandboxes picker lets you save the tab's current lines, volumes and appearance under a name, switch to another one you've already saved, or start a blank timeline -- so the one Sandbox tab can hold as many alternate builds as you want, one loaded at a time.",
+      },
+    ],
+  },
+  {
     date: "2026-08-28",
     entries: [
       {
