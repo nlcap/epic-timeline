@@ -34,10 +34,24 @@ function loadImage(dataUrl: string): Promise<HTMLImageElement> {
   });
 }
 
+/** True if any pixel in the canvas isn't fully opaque. Checked after
+ * drawImage, once every pixel has actually been painted, so an all-opaque
+ * source never trips this just for having an alpha channel. */
+function hasTransparency(ctx: CanvasRenderingContext2D, width: number, height: number): boolean {
+  const { data } = ctx.getImageData(0, 0, width, height);
+  for (let i = 3; i < data.length; i += 4) {
+    if (data[i] !== 255) return true;
+  }
+  return false;
+}
+
 /**
- * Re-encodes a data URL as a downscaled JPEG. Falls back to the original
- * on any failure (unsupported format, canvas errors) rather than blocking
- * the save -- a large-but-working cover beats none at all.
+ * Re-encodes a data URL as a downscaled JPEG, or PNG when the source has
+ * any transparent pixels -- JPEG has no alpha channel, so the canvas
+ * encoder flattens a transparent image (a logo, say) onto solid black
+ * instead. Falls back to the original on any failure (unsupported format,
+ * canvas errors) rather than blocking the save -- a large-but-working
+ * image beats none at all.
  */
 async function compressDataUrl(dataUrl: string): Promise<string> {
   try {
@@ -53,7 +67,9 @@ async function compressDataUrl(dataUrl: string): Promise<string> {
     if (!ctx) return dataUrl;
 
     ctx.drawImage(img, 0, 0, width, height);
-    const compressed = canvas.toDataURL("image/jpeg", JPEG_QUALITY);
+    const compressed = hasTransparency(ctx, width, height)
+      ? canvas.toDataURL("image/png")
+      : canvas.toDataURL("image/jpeg", JPEG_QUALITY);
     return compressed.length < dataUrl.length ? compressed : dataUrl;
   } catch {
     return dataUrl;
