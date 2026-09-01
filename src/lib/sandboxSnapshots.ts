@@ -25,9 +25,12 @@ import type { CustomCollectionConfig } from "../hooks/useCustomCollectionConfig"
  * machinery, the same way CUSTOM_COLLECTION_CONFIG_KEY already is: an entry
  * here is a whole saved bundle+config pair keyed by its own id, not a
  * per-line/per-volume record the collection/scope/kind axes could slice
- * further.
+ * further. It still travels in an export as its own top-level payload key,
+ * whenever the Sandbox tab is part of the selection (see
+ * ExportDataButton/ImportDataButton), and always merges by id on the way
+ * back in regardless of import mode -- see mergeSandboxSnapshots.
  */
-const SANDBOX_SNAPSHOTS_KEY = "epic-timeline:sandbox-snapshots";
+export const SANDBOX_SNAPSHOTS_KEY = "epic-timeline:sandbox-snapshots";
 
 /** Which saved snapshot (if any) the live Sandbox tab currently matches --
  * single-use UI bookkeeping like active-collection/updates-last-seen (see
@@ -58,8 +61,8 @@ function loadSnapshots(): Record<string, SandboxSnapshot> {
   }
 }
 
-function writeSnapshots(snapshots: Record<string, SandboxSnapshot>): void {
-  safeSetItem(SANDBOX_SNAPSHOTS_KEY, JSON.stringify(snapshots));
+function writeSnapshots(snapshots: Record<string, SandboxSnapshot>): boolean {
+  return safeSetItem(SANDBOX_SNAPSHOTS_KEY, JSON.stringify(snapshots));
 }
 
 /** Newest-saved first -- the one just saved (or most recently touched) is
@@ -120,6 +123,18 @@ export function deleteSandboxSnapshot(id: string): void {
   delete snapshots[id];
   writeSnapshots(snapshots);
   if (getActiveSandboxSnapshotId() === id) setActiveSandboxSnapshotId(null);
+}
+
+/** Merges an imported library of snapshots into the local one, the
+ * incoming copy winning only on an id collision -- called from
+ * ImportDataButton, which always merges this key regardless of which
+ * import mode ("replace"/"merge") the user picked for the rest of the
+ * file. That toggle governs the *live* Sandbox tab's content; applying
+ * "replace" here too would silently delete every other saved sandbox in
+ * the library over a choice that was never about the library at all.
+ * Returns false if the write failed (see safeSetItem). */
+export function mergeSandboxSnapshots(incoming: Record<string, SandboxSnapshot>): boolean {
+  return writeSnapshots({ ...loadSnapshots(), ...incoming });
 }
 
 /**

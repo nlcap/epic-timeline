@@ -4,6 +4,7 @@ import {
   getActiveSandboxSnapshotId,
   listSandboxSnapshots,
   loadSandboxSnapshot,
+  mergeSandboxSnapshots,
   saveSandboxSnapshot,
   startNewSandbox,
 } from "./sandboxSnapshots";
@@ -227,6 +228,25 @@ describe("startNewSandbox", () => {
 
     // Only the live tab was cleared -- the library itself is separate.
     expect(listSandboxSnapshots().map((s) => s.id)).toEqual([saved.id]);
+  });
+});
+
+describe("mergeSandboxSnapshots", () => {
+  it("keeps local entries the incoming library doesn't name, and lets the incoming copy win on an id collision", () => {
+    seedSandboxContent();
+    const keepLocal = saveSandboxSnapshot("Keep Local", {});
+    const willCollide = saveSandboxSnapshot("Old Name", {});
+
+    const ok = mergeSandboxSnapshots({
+      "incoming-only": { ...willCollide, id: "incoming-only", name: "Incoming Only" },
+      [willCollide.id]: { ...willCollide, name: "New Name From Import" },
+    });
+
+    expect(ok).toBe(true);
+    const byId = Object.fromEntries(listSandboxSnapshots().map((s) => [s.id, s]));
+    expect(byId[keepLocal.id].name).toBe("Keep Local");
+    expect(byId[willCollide.id].name).toBe("New Name From Import");
+    expect(byId["incoming-only"].name).toBe("Incoming Only");
   });
 });
 

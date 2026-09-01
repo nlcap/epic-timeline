@@ -23,6 +23,7 @@ import {
   stripIconsFromPayload,
   type ExportKey,
 } from "../lib/overrideKeys";
+import { mergeSandboxSnapshots, SANDBOX_SNAPSHOTS_KEY, type SandboxSnapshot } from "../lib/sandboxSnapshots";
 import { safeSetItem } from "../lib/storage";
 import { DataSelectionPicker } from "./DataSelectionPicker";
 import { RadioRow } from "./RadioRow";
@@ -72,6 +73,24 @@ function parseCustomConfig(text: string): Record<string, unknown> | null {
     const config = parsed?.[CUSTOM_COLLECTION_CONFIG_KEY];
     if (typeof config === "object" && config !== null && !Array.isArray(config)) {
       return config as Record<string, unknown>;
+    }
+  } catch {
+    // Bad JSON is already reported by parseExportPayload above.
+  }
+  return null;
+}
+
+/** The user's library of saved Sandbox timelines, if the file carries one
+ * -- itself a whole Record<id, SandboxSnapshot>, not a single blob, so
+ * unlike parseCustomConfig this hands back the whole map rather than one
+ * config (see SANDBOX_SNAPSHOTS_KEY). Returns null for a file predating its
+ * inclusion, which is every export made before it, hence no error. */
+function parseSandboxSnapshots(text: string): Record<string, SandboxSnapshot> | null {
+  try {
+    const parsed = JSON.parse(text) as Record<string, unknown>;
+    const snapshots = parsed?.[SANDBOX_SNAPSHOTS_KEY];
+    if (typeof snapshots === "object" && snapshots !== null && !Array.isArray(snapshots)) {
+      return snapshots as Record<string, SandboxSnapshot>;
     }
   } catch {
     // Bad JSON is already reported by parseExportPayload above.
@@ -135,6 +154,7 @@ export function ImportDataButton({ open, onClose }: { open: boolean; onClose: ()
     label: string;
     bundle: StoreBundle;
     customConfig: Record<string, unknown> | null;
+    sandboxSnapshots: Record<string, SandboxSnapshot> | null;
   } | null>(null);
   const [selection, setSelection] = useState<Selection>({
     collectionIds: [],
@@ -190,21 +210,25 @@ export function ImportDataButton({ open, onClose }: { open: boolean; onClose: ()
   const beginReview = (label: string, text: string) => {
     const bundle = parseExportPayload(text);
     // A Sandbox tab that's been configured but has no lines yet exports a
-    // file with the configuration and nothing else, so a missing bundle
-    // alone isn't grounds to reject it -- only a file carrying neither.
+    // file with the configuration and nothing else, and a file sharing
+    // just a saved-sandbox library has neither -- so a missing bundle
+    // alone isn't grounds to reject it, only a file carrying none of the
+    // three.
     const customConfig = parseCustomConfig(text);
-    if (!bundle && !customConfig) {
+    const sandboxSnapshots = parseSandboxSnapshots(text);
+    if (!bundle && !customConfig && !sandboxSnapshots) {
       setError("That file doesn't look like an Epic Timeline export -- no recognized keys found.");
       return;
     }
     const resolved = bundle ?? {};
-    setSource({ label, bundle: resolved, customConfig });
+    setSource({ label, bundle: resolved, customConfig, sandboxSnapshots });
     const counts = selectionFromCounts(countBySlice(resolved, localBundle));
     // Same reason: with no records to count, nothing would be selected and
-    // the config would have no selected collection to ride in on. Select
-    // the Sandbox tab explicitly so a config-only file can still be applied.
+    // neither the config nor the saved-sandbox library would have a
+    // selected collection to ride in on. Select the Sandbox tab explicitly
+    // so a config-only or snapshots-only file can still be applied.
     setSelection(
-      customConfig && !counts.collectionIds.includes(CUSTOM_COLLECTION_ID)
+      (customConfig || sandboxSnapshots) && !counts.collectionIds.includes(CUSTOM_COLLECTION_ID)
         ? { ...counts, collectionIds: [...counts.collectionIds, CUSTOM_COLLECTION_ID] }
         : counts
     );
@@ -270,6 +294,19 @@ export function ImportDataButton({ open, onClose }: { open: boolean; onClose: ()
       }
     }
 
+    // The user's library of saved Sandbox timelines, under the same
+    // condition. Unlike the config above, this key is itself a whole keyed
+    // library rather than a single blob, so it's always merged by id --
+    // regardless of the replace/merge mode picked above -- instead of
+    // overwritten. That mode governs the *live* Sandbox tab's content;
+    // applying "replace" here too would silently delete every other saved
+    // sandbox over a choice that was never about the library at all.
+    if (source?.sandboxSnapshots && selection.collectionIds.includes(CUSTOM_COLLECTION_ID)) {
+      if (!mergeSandboxSnapshots(source.sandboxSnapshots)) {
+        failed.push(SANDBOX_SNAPSHOTS_KEY);
+      }
+    }
+
     // A quota failure part-way through leaves storage half-written, so say
     // so rather than reloading into a state the user didn't ask for. (The
     // StorageErrorToast fires too, but it's easy to miss behind a modal
@@ -286,15 +323,20 @@ export function ImportDataButton({ open, onClose }: { open: boolean; onClose: ()
 
   if (!open) return null;
 
-  // The Sandbox tab's configuration isn't a record, so it doesn't show up
-  // in any of the counts below -- but it's still something to import. A
-  // file holding a configured-but-empty Sandbox tab has zero records and
-  // would otherwise leave Continue permanently disabled.
+  // Neither the Sandbox tab's configuration nor its saved-sandbox library
+  // is a record, so neither shows up in the counts below -- but either is
+  // still something to import. A file holding just one of them (a
+  // configured-but-empty Sandbox tab, or someone sharing only their saved
+  // sandbox designs) has zero records and would otherwise leave Continue
+  // permanently disabled.
   const importsCustomConfig =
     !!source?.customConfig && selection.collectionIds.includes(CUSTOM_COLLECTION_ID);
+  const importsSandboxSnapshots =
+    !!source?.sandboxSnapshots && selection.collectionIds.includes(CUSTOM_COLLECTION_ID);
   const canImport =
     (selection.collectionIds.length > 0 && keysForSelection(selection).length > 0) ||
-    importsCustomConfig;
+    importsCustomConfig ||
+    importsSandboxSnapshots;
 
   const title = error
     ? "Import failed"
@@ -404,8 +446,12 @@ export function ImportDataButton({ open, onClose }: { open: boolean; onClose: ()
 
           <p className="mt-3 shrink-0 text-xs text-neutral-500">
             {incomingCount === 0
-              ? importsCustomConfig
+              ? importsCustomConfig && importsSandboxSnapshots
+                ? "No records in this selection -- the Sandbox tab's own settings and saved sandboxes will still be imported."
+                : importsCustomConfig
                 ? "No records in this selection -- the Sandbox tab's own settings will still be imported."
+                : importsSandboxSnapshots
+                ? "No records in this selection -- your saved sandboxes will still be imported."
                 : "Nothing to import in this selection."
               : `${incomingCount} record${incomingCount === 1 ? "" : "s"} will be imported.${
                   carriedLines > 0
@@ -413,7 +459,15 @@ export function ImportDataButton({ open, onClose }: { open: boolean; onClose: ()
                         carriedLines === 1 ? "" : "s"
                       } they hang off, added if missing.`
                     : ""
-                }${importsCustomConfig ? " The Sandbox tab's own settings come too." : ""}`}
+                }${
+                  importsCustomConfig && importsSandboxSnapshots
+                    ? " The Sandbox tab's own settings and saved sandboxes come too."
+                    : importsCustomConfig
+                    ? " The Sandbox tab's own settings come too."
+                    : importsSandboxSnapshots
+                    ? " Your saved sandboxes come too."
+                    : ""
+                }`}
           </p>
 
           <div className="mt-2 flex shrink-0 gap-2">
@@ -426,7 +480,10 @@ export function ImportDataButton({ open, onClose }: { open: boolean; onClose: ()
             </button>
             <button
               type="button"
-              disabled={!canImport || (incomingCount === 0 && !importsCustomConfig)}
+              disabled={
+                !canImport ||
+                (incomingCount === 0 && !importsCustomConfig && !importsSandboxSnapshots)
+              }
               onClick={() => setConfirming(true)}
               className={`flex-1 ${BUTTON_PRIMARY_LIGHT}`}
             >
