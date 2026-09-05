@@ -6,6 +6,7 @@ import {
   loadSandboxSnapshot,
   mergeSandboxSnapshots,
   saveSandboxSnapshot,
+  stripIconsFromSnapshots,
   startNewSandbox,
 } from "./sandboxSnapshots";
 
@@ -13,6 +14,9 @@ import {
 // dependency needed just for real localStorage.getItem/setItem calls.
 class MemoryStorage implements Storage {
   private store = new Map<string, string>();
+  /** Keys whose writes should throw, standing in for the
+   * QuotaExceededError safeSetItem exists to absorb. */
+  failingKeys = new Set<string>();
   get length() {
     return this.store.size;
   }
@@ -29,6 +33,7 @@ class MemoryStorage implements Storage {
     this.store.delete(key);
   }
   setItem(key: string, value: string) {
+    if (this.failingKeys.has(key)) throw new Error("QuotaExceededError");
     this.store.set(key, value);
   }
 }
@@ -89,7 +94,7 @@ describe("saveSandboxSnapshot", () => {
   it("captures the sandbox's current records (line, volume, and status alike) and the given config under a new id, and marks it active", () => {
     seedSandboxContent();
 
-    const saved = saveSandboxSnapshot("First Save", { title: "First Save Title" });
+    const saved = saveSandboxSnapshot("First Save", { title: "First Save Title" })!;
 
     expect(saved.name).toBe("First Save");
     expect(saved.config).toEqual({ title: "First Save Title" });
@@ -111,7 +116,7 @@ describe("saveSandboxSnapshot", () => {
   it("creates a config-only snapshot when the sandbox has no lines yet", () => {
     storage.setItem(CONFIG_KEY, JSON.stringify({ title: "Just Branding" }));
 
-    const saved = saveSandboxSnapshot("Empty Sandbox", { title: "Just Branding" });
+    const saved = saveSandboxSnapshot("Empty Sandbox", { title: "Just Branding" })!;
 
     expect(saved.bundle).toEqual({});
     expect(saved.config).toEqual({ title: "Just Branding" });
@@ -119,7 +124,7 @@ describe("saveSandboxSnapshot", () => {
 
   it("overwrites the same entry in place when passed its own id, rather than creating a second one", () => {
     seedSandboxContent();
-    const first = saveSandboxSnapshot("Draft", { title: "Draft" });
+    const first = saveSandboxSnapshot("Draft", { title: "Draft" })!;
 
     storage.setItem(
       LINE_OVERRIDES_KEY,
@@ -127,7 +132,7 @@ describe("saveSandboxSnapshot", () => {
         [SANDBOX_LINE_ID]: { id: SANDBOX_LINE_ID, collectionId: "custom", name: "Renamed" },
       })
     );
-    const second = saveSandboxSnapshot("Draft v2", { title: "Draft v2" }, first.id);
+    const second = saveSandboxSnapshot("Draft v2", { title: "Draft v2" }, first.id)!;
 
     expect(second.id).toBe(first.id);
     const all = listSandboxSnapshots();
@@ -142,8 +147,8 @@ describe("saveSandboxSnapshot", () => {
 describe("listSandboxSnapshots", () => {
   it("returns newest-saved first", () => {
     seedSandboxContent();
-    const older = saveSandboxSnapshot("Older", {});
-    const newer = saveSandboxSnapshot("Newer", {});
+    const older = saveSandboxSnapshot("Older", {})!;
+    const newer = saveSandboxSnapshot("Newer", {})!;
 
     // Force the timestamps apart rather than trusting real clock ticks
     // between two calls that can run within the same millisecond.
@@ -159,7 +164,7 @@ describe("listSandboxSnapshots", () => {
 describe("loadSandboxSnapshot", () => {
   it("replaces the sandbox's records and config with the snapshot's, leaving other collections untouched", () => {
     seedSandboxContent();
-    const saved = saveSandboxSnapshot("Saved State", { title: "Saved State" });
+    const saved = saveSandboxSnapshot("Saved State", { title: "Saved State" })!;
 
     // Diverge live sandbox state from what was saved.
     storage.setItem(
@@ -176,9 +181,9 @@ describe("loadSandboxSnapshot", () => {
     storage.setItem(OWNERSHIP_KEY, JSON.stringify({ [SANDBOX_VOLUME_ID]: "wishlist" }));
     storage.setItem(CONFIG_KEY, JSON.stringify({ title: "Changed since save" }));
 
-    const ok = loadSandboxSnapshot(saved.id);
+    const result = loadSandboxSnapshot(saved.id);
 
-    expect(ok).toBe(true);
+    expect(result).toBe("ok");
     const lineOverrides = JSON.parse(storage.getItem(LINE_OVERRIDES_KEY)!);
     expect(lineOverrides[SANDBOX_LINE_ID]).toEqual({
       id: SANDBOX_LINE_ID,
@@ -196,13 +201,13 @@ describe("loadSandboxSnapshot", () => {
     expect(getActiveSandboxSnapshotId()).toBe(saved.id);
   });
 
-  it("returns false and writes nothing for an id that isn't in the library", () => {
+  it("reports not-found and writes nothing for an id that isn't in the library", () => {
     seedSandboxContent();
     const before = storage.getItem(LINE_OVERRIDES_KEY);
 
-    const ok = loadSandboxSnapshot("not-a-real-id");
+    const result = loadSandboxSnapshot("not-a-real-id");
 
-    expect(ok).toBe(false);
+    expect(result).toBe("not-found");
     expect(storage.getItem(LINE_OVERRIDES_KEY)).toBe(before);
     expect(getActiveSandboxSnapshotId()).toBeNull();
   });
@@ -211,7 +216,7 @@ describe("loadSandboxSnapshot", () => {
 describe("startNewSandbox", () => {
   it("clears the sandbox's own records and config, leaving other collections and the saved library untouched", () => {
     seedSandboxContent();
-    const saved = saveSandboxSnapshot("Will stay saved", { title: "Will stay saved" });
+    const saved = saveSandboxSnapshot("Will stay saved", { title: "Will stay saved" })!;
 
     startNewSandbox();
 
@@ -231,11 +236,47 @@ describe("startNewSandbox", () => {
   });
 });
 
+describe("stripIconsFromSnapshots", () => {
+  it("strips icon data from the line records nested inside each snapshot's bundle, leaving everything else intact", () => {
+    storage.setItem(
+      LINE_OVERRIDES_KEY,
+      JSON.stringify({
+        [SANDBOX_LINE_ID]: {
+          id: SANDBOX_LINE_ID,
+          collectionId: "custom",
+          name: "My Heroes",
+          iconUrl: "data:image/png;base64,AAAA",
+          eraIconUrls: { G: "data:image/png;base64,BBBB" },
+        },
+      })
+    );
+    const saved = saveSandboxSnapshot("With Icons", { title: "With Icons" })!;
+    // Saving keeps them -- stripping is only for leaving this browser.
+    expect(saved.bundle[LINE_OVERRIDES_KEY]![SANDBOX_LINE_ID]).toHaveProperty("iconUrl");
+
+    const stripped = stripIconsFromSnapshots({ [saved.id]: saved });
+
+    const line = stripped[saved.id].bundle[LINE_OVERRIDES_KEY]![SANDBOX_LINE_ID] as Record<
+      string,
+      unknown
+    >;
+    expect(line).not.toHaveProperty("iconUrl");
+    expect(line).not.toHaveProperty("eraIconUrls");
+    expect(line.name).toBe("My Heroes");
+    expect(line.collectionId).toBe("custom");
+    // The snapshot's own metadata is carried through untouched.
+    expect(stripped[saved.id].name).toBe("With Icons");
+    expect(stripped[saved.id].config).toEqual({ title: "With Icons" });
+    // And the original is left alone rather than mutated in place.
+    expect(saved.bundle[LINE_OVERRIDES_KEY]![SANDBOX_LINE_ID]).toHaveProperty("iconUrl");
+  });
+});
+
 describe("mergeSandboxSnapshots", () => {
   it("keeps local entries the incoming library doesn't name, and lets the incoming copy win on an id collision", () => {
     seedSandboxContent();
-    const keepLocal = saveSandboxSnapshot("Keep Local", {});
-    const willCollide = saveSandboxSnapshot("Old Name", {});
+    const keepLocal = saveSandboxSnapshot("Keep Local", {})!;
+    const willCollide = saveSandboxSnapshot("Old Name", {})!;
 
     const ok = mergeSandboxSnapshots({
       "incoming-only": { ...willCollide, id: "incoming-only", name: "Incoming Only" },
@@ -250,10 +291,66 @@ describe("mergeSandboxSnapshots", () => {
   });
 });
 
+// safeSetItem absorbs the throw and reports false rather than propagating,
+// so every one of these is about what the caller does with that false --
+// the failure modes that used to be silently discarded.
+describe("when browser storage refuses the write", () => {
+  beforeEach(() => {
+    // safeSetItem console.errors on every failure; keep the run readable.
+    vi.spyOn(console, "error").mockImplementation(() => {});
+  });
+
+  it("saveSandboxSnapshot returns null and leaves the active pointer alone, rather than aiming it at an entry that was never stored", () => {
+    seedSandboxContent();
+    storage.failingKeys.add(SNAPSHOTS_KEY);
+
+    const saved = saveSandboxSnapshot("Never Lands", { title: "Never Lands" });
+
+    expect(saved).toBeNull();
+    expect(listSandboxSnapshots()).toEqual([]);
+    expect(getActiveSandboxSnapshotId()).toBeNull();
+  });
+
+  it("loadSandboxSnapshot reports partial and doesn't claim the tab is that snapshot", () => {
+    seedSandboxContent();
+    const saved = saveSandboxSnapshot("Saved State", { title: "Saved State" })!;
+    startNewSandbox();
+    storage.failingKeys.add(OWNERSHIP_KEY);
+
+    const result = loadSandboxSnapshot(saved.id);
+
+    expect(result).toBe("partial");
+    // Pointing at it would aim the next Save at overwriting the snapshot
+    // with the half-restored state it was supposed to bring back.
+    expect(getActiveSandboxSnapshotId()).toBeNull();
+  });
+
+  it("startNewSandbox reports partial but still unties the tab from the old snapshot", () => {
+    seedSandboxContent();
+    saveSandboxSnapshot("Was Active", {});
+    storage.failingKeys.add(OWNERSHIP_KEY);
+
+    const result = startNewSandbox();
+
+    expect(result).toBe("partial");
+    expect(getActiveSandboxSnapshotId()).toBeNull();
+  });
+
+  it("deleteSandboxSnapshot returns false and keeps the entry it couldn't remove", () => {
+    seedSandboxContent();
+    const saved = saveSandboxSnapshot("Stays", {})!;
+    storage.failingKeys.add(SNAPSHOTS_KEY);
+
+    expect(deleteSandboxSnapshot(saved.id)).toBe(false);
+    expect(listSandboxSnapshots().map((s) => s.id)).toEqual([saved.id]);
+    expect(getActiveSandboxSnapshotId()).toBe(saved.id);
+  });
+});
+
 describe("deleteSandboxSnapshot", () => {
   it("removes the entry from the library without touching the live sandbox content", () => {
     seedSandboxContent();
-    const saved = saveSandboxSnapshot("To Delete", { title: "To Delete" });
+    const saved = saveSandboxSnapshot("To Delete", { title: "To Delete" })!;
     const liveLinesBefore = storage.getItem(LINE_OVERRIDES_KEY);
 
     deleteSandboxSnapshot(saved.id);
@@ -264,8 +361,8 @@ describe("deleteSandboxSnapshot", () => {
 
   it("clears the active pointer only when the deleted snapshot was the active one", () => {
     seedSandboxContent();
-    const first = saveSandboxSnapshot("First", {});
-    const second = saveSandboxSnapshot("Second", {});
+    const first = saveSandboxSnapshot("First", {})!;
+    const second = saveSandboxSnapshot("Second", {})!;
     expect(getActiveSandboxSnapshotId()).toBe(second.id);
 
     deleteSandboxSnapshot(first.id);

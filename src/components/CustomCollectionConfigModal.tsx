@@ -21,6 +21,7 @@ import {
   loadSandboxSnapshot,
   saveSandboxSnapshot,
   startNewSandbox,
+  type SandboxApplyResult,
   type SandboxSnapshot,
 } from "../lib/sandboxSnapshots";
 import { SettingsModal } from "./SettingsModal";
@@ -41,6 +42,16 @@ const DEFAULT_ERA_HEX = "#7B4FE0";
 /** Sentinel <option> value for "no snapshot active" in the saved-sandboxes
  * picker -- distinct from any real id, since those are crypto.randomUUID(). */
 const NEW_SANDBOX_VALUE = "__new__";
+
+/** What to say when switching sandboxes didn't fully land -- see
+ * SandboxApplyResult. "partial" deliberately doesn't claim nothing changed,
+ * because some of the seven stores may well have been written. */
+const APPLY_ERRORS: Record<Exclude<SandboxApplyResult, "ok">, string> = {
+  "not-found":
+    "That saved sandbox isn't in your library any more -- it may have been deleted in another tab. Nothing was changed.",
+  partial:
+    "Ran out of browser storage part-way through, so the Sandbox tab may be left half-changed. Free up space (Settings > Storage debug), then reload and try again.",
+};
 const MIN_RULE_THICKNESS = 0;
 const MAX_RULE_THICKNESS = 16;
 /** Shown as the slider's starting position while ruleThicknessPx is
@@ -284,16 +295,22 @@ export function CustomCollectionConfigModal({
   // startNewSandbox), so it's confirmed explicitly below rather than routed
   // through requestClose's guard.
   const [snapshots, setSnapshots] = useState<SandboxSnapshot[]>(listSandboxSnapshots);
-  const [activeSnapshotId, setActiveSnapshotId] = useState<string | null>(
-    getActiveSandboxSnapshotId
-  );
+  // Validated against the library rather than trusted outright: a pointer
+  // at an id that isn't there (deleted in another tab, storage edited by
+  // hand) would leave the picker below showing a selection with no matching
+  // option at all.
+  const [activeSnapshotId, setActiveSnapshotId] = useState<string | null>(() => {
+    const id = getActiveSandboxSnapshotId();
+    return id && snapshots.some((s) => s.id === id) ? id : null;
+  });
   const [snapshotName, setSnapshotName] = useState(
     () => snapshots.find((s) => s.id === activeSnapshotId)?.name ?? ""
   );
   const [pendingSwitch, setPendingSwitch] = useState<
     { type: "new" } | { type: "load"; id: string; name: string } | null
   >(null);
-  const [saveState, setSaveState] = useState<"idle" | "saved">("idle");
+  const [saveState, setSaveState] = useState<"idle" | "saved" | "failed">("idle");
+  const [applyError, setApplyError] = useState("");
   const {
     confirming: deleteConfirming,
     arm: armDelete,
@@ -307,6 +324,7 @@ export function CustomCollectionConfigModal({
 
   const handleSwitchRequest = (value: string) => {
     if (value === (activeSnapshotId ?? NEW_SANDBOX_VALUE)) return;
+    setApplyError("");
     if (value === NEW_SANDBOX_VALUE) {
       setPendingSwitch({ type: "new" });
       return;
@@ -319,8 +337,17 @@ export function CustomCollectionConfigModal({
 
   const confirmSwitch = () => {
     if (!pendingSwitch) return;
-    if (pendingSwitch.type === "new") startNewSandbox();
-    else loadSandboxSnapshot(pendingSwitch.id);
+    const result =
+      pendingSwitch.type === "new" ? startNewSandbox() : loadSandboxSnapshot(pendingSwitch.id);
+    if (result !== "ok") {
+      // Deliberately no reload -- see SandboxApplyResult. Reloading on a
+      // half-applied write would present the wreckage as the finished
+      // result, which is what ImportDataButton's own guard avoids too.
+      setApplyError(APPLY_ERRORS[result]);
+      setPendingSwitch(null);
+      setSnapshots(listSandboxSnapshots());
+      return;
+    }
     window.location.reload();
   };
 
@@ -328,6 +355,14 @@ export function CustomCollectionConfigModal({
     const name = snapshotName.trim();
     if (!name) return;
     const saved = saveSandboxSnapshot(name, buildConfigSnapshot(), activeSnapshotId ?? undefined);
+    // A failed write leaves the library exactly as it was, so the only
+    // thing to update is the button -- reporting "Saved!" over a write that
+    // never landed is the one outcome worth being loud about. (safeSetItem
+    // raises StorageErrorToast for the why.)
+    if (!saved) {
+      setSaveState("failed");
+      return;
+    }
     setSnapshots(listSandboxSnapshots());
     setActiveSnapshotId(saved.id);
     setSaveState("saved");
@@ -335,10 +370,14 @@ export function CustomCollectionConfigModal({
 
   const handleDeleteConfirmed = () => {
     if (!activeSnapshotId) return;
-    deleteSandboxSnapshot(activeSnapshotId);
+    const deleted = deleteSandboxSnapshot(activeSnapshotId);
+    // Re-read either way: on a failed write the entry is still there, and
+    // the list should show that rather than a deletion that didn't happen.
     setSnapshots(listSandboxSnapshots());
-    setActiveSnapshotId(null);
-    setSnapshotName("");
+    if (deleted) {
+      setActiveSnapshotId(null);
+      setSnapshotName("");
+    }
     disarmDelete();
   };
 
@@ -475,6 +514,12 @@ export function CustomCollectionConfigModal({
             </div>
           )}
 
+          {applyError && (
+            <p className="mt-2 rounded-md border border-red-900 bg-red-950/40 p-3 text-xs text-red-200">
+              {applyError}
+            </p>
+          )}
+
           <div className="mt-3 flex gap-2">
             <input
               type="text"
@@ -489,7 +534,7 @@ export function CustomCollectionConfigModal({
               onClick={handleSaveSnapshot}
               className={`shrink-0 ${BUTTON_SECONDARY_DISABLEABLE}`}
             >
-              {saveState === "saved" ? "Saved!" : "Save"}
+              {saveState === "saved" ? "Saved!" : saveState === "failed" ? "Save failed" : "Save"}
             </button>
             {activeSnapshotId && (
               <button

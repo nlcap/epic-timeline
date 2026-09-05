@@ -19,7 +19,11 @@ import {
   EXPORT_META_KEY,
   stripIconsFromPayload,
 } from "../lib/overrideKeys";
-import { SANDBOX_SNAPSHOTS_KEY } from "../lib/sandboxSnapshots";
+import {
+  SANDBOX_SNAPSHOTS_KEY,
+  stripIconsFromSnapshots,
+  type SandboxSnapshot,
+} from "../lib/sandboxSnapshots";
 import { DataSelectionPicker } from "./DataSelectionPicker";
 import { SettingsModal } from "./SettingsModal";
 import { BUTTON_SECONDARY_DISABLEABLE } from "./buttonStyles";
@@ -121,7 +125,13 @@ export function ExportDataButton({ open, onClose }: { open: boolean; onClose: ()
       const rawSnapshots = localStorage.getItem(SANDBOX_SNAPSHOTS_KEY);
       if (rawSnapshots) {
         try {
-          payload[SANDBOX_SNAPSHOTS_KEY] = JSON.parse(rawSnapshots);
+          // Icons are stripped a level deeper here than for the stores
+          // above -- each snapshot carries its own nested bundle, which
+          // stripIconsFromPayload below can't see into. See
+          // stripIconsFromSnapshots.
+          payload[SANDBOX_SNAPSHOTS_KEY] = stripIconsFromSnapshots(
+            JSON.parse(rawSnapshots) as Record<string, SandboxSnapshot>
+          );
         } catch {
           // Unparseable local snapshots -- skip them rather than writing a
           // string where every reader expects an object.

@@ -9,7 +9,11 @@ import {
   type Selection,
   type StoreBundle,
 } from "./collectionScope";
-import { CUSTOM_COLLECTION_CONFIG_KEY, CUSTOM_COLLECTION_ID } from "./overrideKeys";
+import {
+  CUSTOM_COLLECTION_CONFIG_KEY,
+  CUSTOM_COLLECTION_ID,
+  stripIconsFromPayload,
+} from "./overrideKeys";
 import type { CustomCollectionConfig } from "../hooks/useCustomCollectionConfig";
 
 /**
@@ -45,6 +49,17 @@ export type SandboxSnapshot = {
   config: CustomCollectionConfig;
   bundle: StoreBundle;
 };
+
+/**
+ * How an operation that rewrites the live Sandbox tab's stores finished.
+ *
+ * "partial" is the one that matters: these operations write seven stores in
+ * a loop, and a quota failure part-way through leaves the tab half-applied
+ * with no way to roll back (localStorage has no transaction). Callers must
+ * not reload as though it worked -- same reasoning, and the same answer, as
+ * ImportDataButton's own part-way-through guard.
+ */
+export type SandboxApplyResult = "ok" | "not-found" | "partial";
 
 const SANDBOX_SELECTION: Selection = {
   collectionIds: [CUSTOM_COLLECTION_ID],
@@ -94,12 +109,17 @@ function setActiveSandboxSnapshotId(id: string | null): void {
  * CUSTOM_COLLECTION_CONFIG_KEY itself, so the caller can snapshot
  * in-progress field edits that haven't been committed with the form's own
  * Save yet.
+ *
+ * Returns null when the write failed (see safeSetItem) -- the active
+ * pointer is deliberately left alone in that case, since pointing it at an
+ * id the library doesn't contain would leave the picker showing a
+ * selection that doesn't exist.
  */
 export function saveSandboxSnapshot(
   name: string,
   config: CustomCollectionConfig,
   id?: string
-): SandboxSnapshot {
+): SandboxSnapshot | null {
   const snapshots = loadSnapshots();
   const snapshotId = id ?? crypto.randomUUID();
   const snapshot: SandboxSnapshot = {
@@ -110,19 +130,47 @@ export function saveSandboxSnapshot(
     bundle: partitionBundle(readBundleFromStorage(), SANDBOX_SELECTION).inside,
   };
   snapshots[snapshotId] = snapshot;
-  writeSnapshots(snapshots);
+  if (!writeSnapshots(snapshots)) return null;
   setActiveSandboxSnapshotId(snapshotId);
   return snapshot;
 }
 
-/** Removes a saved snapshot from the library. Leaves the live Sandbox tab
- * untouched -- if it was the active one, it just stops being tied to a
- * saved slot rather than being cleared. */
-export function deleteSandboxSnapshot(id: string): void {
+/** Removes a saved snapshot from the library, returning false if the write
+ * failed. Leaves the live Sandbox tab untouched -- if it was the active
+ * one, it just stops being tied to a saved slot rather than being cleared. */
+export function deleteSandboxSnapshot(id: string): boolean {
   const snapshots = loadSnapshots();
   delete snapshots[id];
-  writeSnapshots(snapshots);
+  if (!writeSnapshots(snapshots)) return false;
   if (getActiveSandboxSnapshotId() === id) setActiveSandboxSnapshotId(null);
+  return true;
+}
+
+/**
+ * Applies the same icon stripping every other exported store already gets
+ * to the line records nested inside each snapshot's own bundle.
+ *
+ * stripIconsFromPayload only reaches stores sitting at the top level of a
+ * payload, so a snapshot -- which carries its whole bundle one level down
+ * -- slipped past it in both directions: an uploaded line icon is a base64
+ * data URL (see compressImageFile), and a library of them rode out into
+ * export files and back in again, which is exactly what that stripping
+ * exists to prevent (see LINE_KEYED_STORES in overrideKeys.ts).
+ *
+ * Deliberately applied only at the export/import boundary, not in
+ * saveSandboxSnapshot: a snapshot saved and reloaded in the same browser
+ * keeps its icons, since the reasons for stripping (file bloat, and
+ * build-hashed asset paths that don't survive a different deploy) are both
+ * about leaving this browser.
+ */
+export function stripIconsFromSnapshots(
+  snapshots: Record<string, SandboxSnapshot>
+): Record<string, SandboxSnapshot> {
+  const result: Record<string, SandboxSnapshot> = {};
+  for (const [id, snapshot] of Object.entries(snapshots)) {
+    result[id] = { ...snapshot, bundle: stripIconsFromPayload({ ...snapshot.bundle }) };
+  }
+  return result;
 }
 
 /** Merges an imported library of snapshots into the local one, the
@@ -139,26 +187,31 @@ export function mergeSandboxSnapshots(incoming: Record<string, SandboxSnapshot>)
 
 /**
  * Replaces the live Sandbox tab's timeline and appearance with a saved
- * snapshot's, and marks it active. Returns false and writes nothing if
- * `id` doesn't name a saved snapshot.
+ * snapshot's, and marks it active. Writes nothing and reports "not-found"
+ * if `id` doesn't name a saved snapshot.
  *
  * The override stores this writes to are only ever read once, at mount
- * (see useOverrideStore) -- the caller must reload the page afterward for
- * the change to actually show up, same as ImportDataButton/
- * ResetLineDataButton.
+ * (see useOverrideStore) -- on "ok" the caller must reload the page for the
+ * change to actually show up, same as ImportDataButton/ResetLineDataButton.
+ * On "partial" it must *not*: see SandboxApplyResult.
  */
-export function loadSandboxSnapshot(id: string): boolean {
+export function loadSandboxSnapshot(id: string): SandboxApplyResult {
   const snapshot = loadSnapshots()[id];
-  if (!snapshot) return false;
+  if (!snapshot) return "not-found";
 
   const { outside } = partitionBundle(readBundleFromStorage(), SANDBOX_SELECTION);
   const merged = mergeBundles(outside, snapshot.bundle);
+  let written = true;
   for (const key of keysForSelection(SANDBOX_SELECTION)) {
-    safeSetItem(key, JSON.stringify(merged[key] ?? {}));
+    if (!safeSetItem(key, JSON.stringify(merged[key] ?? {}))) written = false;
   }
-  safeSetItem(CUSTOM_COLLECTION_CONFIG_KEY, JSON.stringify(snapshot.config));
+  if (!safeSetItem(CUSTOM_COLLECTION_CONFIG_KEY, JSON.stringify(snapshot.config))) written = false;
+  // Only claim the tab is this snapshot once all of it actually landed --
+  // otherwise a later Save would overwrite the snapshot with the
+  // half-applied state it was supposed to restore.
+  if (!written) return "partial";
   setActiveSandboxSnapshotId(id);
-  return true;
+  return "ok";
 }
 
 /**
@@ -166,11 +219,17 @@ export function loadSandboxSnapshot(id: string): boolean {
  * volumes, default appearance, no active snapshot. The library itself is
  * untouched. Same reload requirement as loadSandboxSnapshot.
  */
-export function startNewSandbox(): void {
+export function startNewSandbox(): SandboxApplyResult {
   const { outside } = partitionBundle(readBundleFromStorage(), SANDBOX_SELECTION);
+  let written = true;
   for (const key of keysForSelection(SANDBOX_SELECTION)) {
-    safeSetItem(key, JSON.stringify(outside[key] ?? {}));
+    if (!safeSetItem(key, JSON.stringify(outside[key] ?? {}))) written = false;
   }
   localStorage.removeItem(CUSTOM_COLLECTION_CONFIG_KEY);
+  // Cleared unconditionally, unlike loadSandboxSnapshot's: a half-cleared
+  // tab doesn't match the previously active snapshot either, so leaving the
+  // pointer on it would aim the next Save at overwriting that snapshot with
+  // the wreckage. Untying it means the next Save starts a new entry.
   setActiveSandboxSnapshotId(null);
+  return written ? "ok" : "partial";
 }

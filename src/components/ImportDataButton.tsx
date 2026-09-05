@@ -23,7 +23,12 @@ import {
   stripIconsFromPayload,
   type ExportKey,
 } from "../lib/overrideKeys";
-import { mergeSandboxSnapshots, SANDBOX_SNAPSHOTS_KEY, type SandboxSnapshot } from "../lib/sandboxSnapshots";
+import {
+  mergeSandboxSnapshots,
+  SANDBOX_SNAPSHOTS_KEY,
+  stripIconsFromSnapshots,
+  type SandboxSnapshot,
+} from "../lib/sandboxSnapshots";
 import { safeSetItem } from "../lib/storage";
 import { DataSelectionPicker } from "./DataSelectionPicker";
 import { RadioRow } from "./RadioRow";
@@ -90,7 +95,11 @@ function parseSandboxSnapshots(text: string): Record<string, SandboxSnapshot> | 
     const parsed = JSON.parse(text) as Record<string, unknown>;
     const snapshots = parsed?.[SANDBOX_SNAPSHOTS_KEY];
     if (typeof snapshots === "object" && snapshots !== null && !Array.isArray(snapshots)) {
-      return snapshots as Record<string, SandboxSnapshot>;
+      // Stripped on the way in as well as out, for the same reason
+      // parseExportPayload does it above: files written before the export
+      // side stripped these still carry icons, and shouldn't be able to
+      // reintroduce them.
+      return stripIconsFromSnapshots(snapshots as Record<string, SandboxSnapshot>);
     }
   } catch {
     // Bad JSON is already reported by parseExportPayload above.
