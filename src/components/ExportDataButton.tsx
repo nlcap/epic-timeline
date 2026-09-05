@@ -2,21 +2,16 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { COLLECTIONS } from "../data/collections";
 import {
   ALL_COLLECTION_IDS,
-  countRecords,
   fullSelection,
   isFullSelection,
-  partitionBundle,
   readBundleFromStorage,
-  withReferencedLines,
   type Selection,
   type StoreBundle,
 } from "../lib/collectionScope";
+import { buildExportPayload } from "../lib/exportPayload";
 import {
   CUSTOM_COLLECTION_CONFIG_KEY,
   CUSTOM_COLLECTION_ID,
-  EXPORT_FORMAT_VERSION,
-  EXPORT_KEYS,
-  EXPORT_META_KEY,
   stripIconsFromPayload,
 } from "../lib/overrideKeys";
 import {
@@ -41,19 +36,18 @@ function filenameSlice(selection: Selection): string {
 
 /**
  * Dumps local-storage-backed corrections and speculation-mode scenarios as
- * JSON, for two different downstream uses: (1) hand the real corrections
- * (line/volume edits, ownership) off to Claude to merge into the shipped
- * seed data in src/data/*.ts as new defaults, or (2) download/re-import it
- * as a personal backup when switching browsers. Speculation-mode data
- * rides along for #2 but should never be baked into #1 -- see
- * OVERRIDE_KEYS vs SPECULATIVE_KEYS in lib/overrideKeys.ts.
+ * JSON, to download or re-import as a personal backup when switching
+ * browsers. Everything starts checked, so the default action is a complete
+ * backup; the three-axis picker (see DataSelectionPicker, shared with the
+ * import dialog) narrows it for a partial restore.
  *
- * What goes in is scoped by the same three-axis picker the import dialog
- * uses (see DataSelectionPicker), which is largely what makes use #1
- * practical: export one collection's line/volume edits without dragging
- * along personal ownership and reading progress, rather than exporting
- * everything and hand-trimming it. Everything starts checked, so the
- * default action is still a complete backup.
+ * This dialog used to serve a second job too -- handing line/volume
+ * corrections to Claude to bake into the seed data in src/data/*.ts -- and
+ * the picker's fine granularity existed largely to make that job possible
+ * (one collection's edits, without dragging personal ownership and reading
+ * progress along). That job now has its own fixed-slice dialog, see
+ * CopyCorrectionsButton, which is why the picker here no longer has to be
+ * the only way to get a narrow slice out.
  *
  * Shows the JSON in a readonly textarea (auto-selected, so a plain
  * Cmd/Ctrl+C works immediately) rather than relying solely on the
@@ -79,32 +73,7 @@ export function ExportDataButton({ open, onClose }: { open: boolean; onClose: ()
   }, [open]);
 
   const { json, recordCount, carriedLines } = useMemo(() => {
-    const { inside: selected } = partitionBundle(bundle, selection);
-    // Entries need the lines they hang off to be readable anywhere else --
-    // most visibly for a notes-only export, whose notes are otherwise
-    // orphaned on the way back in. See withReferencedLines.
-    const inside = withReferencedLines(selected, bundle);
-    const everything = isFullSelection(selection);
-
-    const payload: Record<string, unknown> = {
-      [EXPORT_META_KEY]: {
-        version: EXPORT_FORMAT_VERSION,
-        exportedAt: new Date().toISOString(),
-        collections: selection.collectionIds,
-        scopes: selection.scopes,
-        kinds: selection.kinds,
-      },
-    };
-    for (const key of EXPORT_KEYS) {
-      const store = inside[key];
-      if (!store) continue;
-      // A narrowed export drops stores that ended up with nothing in them,
-      // so the file only contains what was actually asked for. A full
-      // export keeps whatever localStorage held, empty stores included, so
-      // a whole backup round-trips exactly.
-      if (!everything && Object.keys(store).length === 0) continue;
-      payload[key] = store;
-    }
+    const { payload, recordCount, carriedLines } = buildExportPayload(bundle, selection);
 
     // The Sandbox tab's own configuration, plus its library of saved
     // snapshots, ride along whenever that tab is part of the selection --
@@ -141,8 +110,8 @@ export function ExportDataButton({ open, onClose }: { open: boolean; onClose: ()
 
     return {
       json: JSON.stringify(stripIconsFromPayload(payload), null, 2),
-      recordCount: countRecords(selected),
-      carriedLines: countRecords(inside) - countRecords(selected),
+      recordCount,
+      carriedLines,
     };
   }, [bundle, selection]);
 

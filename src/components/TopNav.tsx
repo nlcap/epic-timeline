@@ -2,6 +2,7 @@ import { useEffect, useRef, useState, type CSSProperties, type RefObject } from 
 import type { Collection } from "../types";
 import epicTimelineLogo from "../assets/logo_epic_timeline.svg";
 import { AboutModal } from "./AboutModal";
+import { CopyCorrectionsButton } from "./CopyCorrectionsButton";
 import { ExportDataButton } from "./ExportDataButton";
 import { ImportDataButton } from "./ImportDataButton";
 import { ResetLineDataButton } from "./ResetLineDataButton";
@@ -313,8 +314,10 @@ export function TopNav({
    * inputRef prop. */
   searchInputRef?: RefObject<HTMLInputElement>;
 }) {
+  const activeCollection = collections.find((c) => c.id === activeId);
   const [menuOpen, setMenuOpen] = useState(false);
   const [exportOpen, setExportOpen] = useState(false);
+  const [correctionsOpen, setCorrectionsOpen] = useState(false);
   const [importOpen, setImportOpen] = useState(false);
   const [resetOpen, setResetOpen] = useState(false);
   const [storageDebugOpen, setStorageDebugOpen] = useState(false);
@@ -327,6 +330,7 @@ export function TopNav({
   const settingsItems: SettingsItem[] = [
     { label: "Export data", onOpen: () => setExportOpen(true) },
     { label: "Import data", onOpen: () => setImportOpen(true) },
+    { label: "Copy corrections", onOpen: () => setCorrectionsOpen(true) },
     { label: "Reset line data", onOpen: () => setResetOpen(true) },
     { label: "Storage debug", onOpen: () => setStorageDebugOpen(true) },
     { label: "Keyboard shortcuts", onOpen: onOpenShortcuts },
@@ -496,6 +500,15 @@ export function TopNav({
       )}
 
       <ExportDataButton open={exportOpen} onClose={() => setExportOpen(false)} />
+      {/* Scoped to whichever tab is open, so it needs the active
+       * collection rather than the whole list -- see correctionsSelection. */}
+      {activeCollection && (
+        <CopyCorrectionsButton
+          open={correctionsOpen}
+          onClose={() => setCorrectionsOpen(false)}
+          collection={activeCollection}
+        />
+      )}
       <ImportDataButton open={importOpen} onClose={() => setImportOpen(false)} />
       <ResetLineDataButton open={resetOpen} onClose={() => setResetOpen(false)} />
       <StorageDebugPanel open={storageDebugOpen} onClose={() => setStorageDebugOpen(false)} />
