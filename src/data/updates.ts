@@ -76,17 +76,6 @@ export function formatUpdateDate(iso: string): string {
 
 export const UPDATES: UpdateRelease[] = [
   {
-    date: "2026-09-05",
-    entries: [
-      {
-        kind: "new",
-        title: "Copy corrections straight from the settings menu",
-        description:
-          "A new Copy corrections item hands over just the current tab's line and volume edits, ready to fold back into the shipped data -- no picking through the export dialog's checkboxes, and your shelving, ratings and speculation stay out of it.",
-      },
-    ],
-  },
-  {
     date: "2026-08-31",
     entries: [
       {

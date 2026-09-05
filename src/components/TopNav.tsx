@@ -330,7 +330,16 @@ export function TopNav({
   const settingsItems: SettingsItem[] = [
     { label: "Export data", onOpen: () => setExportOpen(true) },
     { label: "Import data", onOpen: () => setImportOpen(true) },
-    { label: "Copy corrections", onOpen: () => setCorrectionsOpen(true) },
+    // Dev-only. Handing corrections back for a seed merge is part of
+    // maintaining this app's shipped data, not something a reader has any
+    // use for -- so unlike Storage debug (a diagnostic anyone hitting a
+    // quota problem might need), this one stays off the deployed build
+    // entirely. Vite replaces import.meta.env.DEV with a literal false in a
+    // production build, so this row and the dialog below both fold away
+    // rather than shipping hidden behind a flag.
+    ...(import.meta.env.DEV
+      ? [{ label: "Copy corrections", onOpen: () => setCorrectionsOpen(true) }]
+      : []),
     { label: "Reset line data", onOpen: () => setResetOpen(true) },
     { label: "Storage debug", onOpen: () => setStorageDebugOpen(true) },
     { label: "Keyboard shortcuts", onOpen: onOpenShortcuts },
@@ -500,9 +509,10 @@ export function TopNav({
       )}
 
       <ExportDataButton open={exportOpen} onClose={() => setExportOpen(false)} />
-      {/* Scoped to whichever tab is open, so it needs the active
-       * collection rather than the whole list -- see correctionsSelection. */}
-      {activeCollection && (
+      {/* Dev-only, see settingsItems above. Scoped to whichever tab is
+       * open, so it needs the active collection rather than the whole list
+       * -- see correctionsSelection. */}
+      {import.meta.env.DEV && activeCollection && (
         <CopyCorrectionsButton
           open={correctionsOpen}
           onClose={() => setCorrectionsOpen(false)}
