@@ -1,17 +1,8 @@
 import { useEffect, useMemo, useRef, useState } from "react";
-import { COLLECTIONS } from "../data/collections";
-import {
-  ALL_COLLECTION_IDS,
-  fullSelection,
-  isFullSelection,
-  readBundleFromStorage,
-  type Selection,
-  type StoreBundle,
-} from "../lib/collectionScope";
+import { fullSelection, readBundleFromStorage, type StoreBundle } from "../lib/collectionScope";
 import { buildExportPayload } from "../lib/exportPayload";
 import {
   CUSTOM_COLLECTION_CONFIG_KEY,
-  CUSTOM_COLLECTION_ID,
   stripIconsFromPayload,
 } from "../lib/overrideKeys";
 import {
@@ -19,35 +10,28 @@ import {
   stripIconsFromSnapshots,
   type SandboxSnapshot,
 } from "../lib/sandboxSnapshots";
-import { DataSelectionPicker } from "./DataSelectionPicker";
 import { SettingsModal } from "./SettingsModal";
-import { BUTTON_SECONDARY_DISABLEABLE } from "./buttonStyles";
-
-/** "ultimate-main", "dc-finest", etc -- a short hint in the download
- * filename so a drawer full of partial exports is still tellable apart. */
-function filenameSlice(selection: Selection): string {
-  const parts: string[] = [];
-  if (selection.collectionIds.length === ALL_COLLECTION_IDS.length) parts.push("all");
-  else parts.push(...selection.collectionIds);
-  if (selection.scopes.length === 1) parts.push(selection.scopes[0]);
-  if (selection.kinds.length < 3) parts.push(...selection.kinds);
-  return parts.join("-");
-}
+import { BUTTON_PRIMARY_LIGHT, BUTTON_SECONDARY_DISABLEABLE } from "./buttonStyles";
 
 /**
- * Dumps local-storage-backed corrections and speculation-mode scenarios as
- * JSON, to download or re-import as a personal backup when switching
- * browsers. Everything starts checked, so the default action is a complete
- * backup; the three-axis picker (see DataSelectionPicker, shared with the
- * import dialog) narrows it for a partial restore.
+ * Downloads (or copies) everything localStorage holds -- corrections,
+ * personal shelving/reading/ratings, and every Speculation Mode scenario,
+ * across every collection -- as one JSON backup, for re-importing when
+ * switching browsers.
  *
- * This dialog used to serve a second job too -- handing line/volume
- * corrections to Claude to bake into the seed data in src/data/*.ts -- and
- * the picker's fine granularity existed largely to make that job possible
- * (one collection's edits, without dragging personal ownership and reading
- * progress along). That job now has its own fixed-slice dialog, see
- * CopyCorrectionsButton, which is why the picker here no longer has to be
- * the only way to get a narrow slice out.
+ * Used to offer a three-axis picker (see DataSelectionPicker) to narrow
+ * what went in, which existed almost entirely to serve a second job this
+ * dialog no longer does -- handing a single collection's corrections to
+ * Claude for a seed merge (see CopyCorrectionsButton). With that job gone,
+ * a personal backup has one obviously right answer -- everything -- so
+ * this is a one-click action rather than the same thirteen checkboxes
+ * every time to get to that answer.
+ *
+ * Restoring a *partial* backup is still a real choice, so it's still
+ * offered -- just at import time, not here. ImportDataButton keeps its own
+ * picker because that's where the choice actually has something to go on:
+ * real per-slice record counts read from the file, which a picker shown
+ * before the file even exists never could show.
  *
  * Shows the JSON in a readonly textarea (auto-selected, so a plain
  * Cmd/Ctrl+C works immediately) rather than relying solely on the
@@ -57,54 +41,51 @@ function filenameSlice(selection: Selection): string {
  * dropdown, so this component only renders the modal itself.
  */
 export function ExportDataButton({ open, onClose }: { open: boolean; onClose: () => void }) {
-  const [selection, setSelection] = useState<Selection>(fullSelection);
   const [bundle, setBundle] = useState<StoreBundle>({});
   const [copyState, setCopyState] = useState<"idle" | "copied" | "failed">("idle");
   const textareaRef = useRef<HTMLTextAreaElement>(null);
 
-  // Snapshot localStorage once per opening; the selection then slices that
-  // snapshot without re-reading, so dragging through checkboxes doesn't
-  // re-parse every store each time.
+  // Snapshot localStorage once per opening -- there's no picker left to
+  // re-slice it against, but the snapshot still matters: nothing should
+  // change what's shown mid-dialog if a background write happens to land
+  // (e.g. an in-flight image compression finishing) while it's open.
   useEffect(() => {
     if (!open) return;
     setBundle(readBundleFromStorage());
-    setSelection(fullSelection());
     setCopyState("idle");
   }, [open]);
 
   const { json, recordCount, carriedLines } = useMemo(() => {
-    const { payload, recordCount, carriedLines } = buildExportPayload(bundle, selection);
+    const { payload, recordCount, carriedLines } = buildExportPayload(bundle, fullSelection());
 
     // The Sandbox tab's own configuration, plus its library of saved
-    // snapshots, ride along whenever that tab is part of the selection --
-    // neither is a sliceable store (see CUSTOM_COLLECTION_CONFIG_KEY and
-    // SANDBOX_SNAPSHOTS_KEY), so both are carried whole rather than
-    // partitioned by scope/kind, and an export narrowed to other
-    // collections leaves them out entirely.
-    if (selection.collectionIds.includes(CUSTOM_COLLECTION_ID)) {
-      const raw = localStorage.getItem(CUSTOM_COLLECTION_CONFIG_KEY);
-      if (raw) {
-        try {
-          payload[CUSTOM_COLLECTION_CONFIG_KEY] = JSON.parse(raw);
-        } catch {
-          // Unparseable local config -- skip it rather than writing a
-          // string where every reader expects an object.
-        }
+    // snapshots, always ride along -- neither is a sliceable store (see
+    // CUSTOM_COLLECTION_CONFIG_KEY and SANDBOX_SNAPSHOTS_KEY), so both are
+    // carried whole rather than partitioned by scope/kind. A full backup
+    // always covers the Sandbox tab, so unlike before there's no selection
+    // left to check before including them.
+    const raw = localStorage.getItem(CUSTOM_COLLECTION_CONFIG_KEY);
+    if (raw) {
+      try {
+        payload[CUSTOM_COLLECTION_CONFIG_KEY] = JSON.parse(raw);
+      } catch {
+        // Unparseable local config -- skip it rather than writing a
+        // string where every reader expects an object.
       }
-      const rawSnapshots = localStorage.getItem(SANDBOX_SNAPSHOTS_KEY);
-      if (rawSnapshots) {
-        try {
-          // Icons are stripped a level deeper here than for the stores
-          // above -- each snapshot carries its own nested bundle, which
-          // stripIconsFromPayload below can't see into. See
-          // stripIconsFromSnapshots.
-          payload[SANDBOX_SNAPSHOTS_KEY] = stripIconsFromSnapshots(
-            JSON.parse(rawSnapshots) as Record<string, SandboxSnapshot>
-          );
-        } catch {
-          // Unparseable local snapshots -- skip them rather than writing a
-          // string where every reader expects an object.
-        }
+    }
+    const rawSnapshots = localStorage.getItem(SANDBOX_SNAPSHOTS_KEY);
+    if (rawSnapshots) {
+      try {
+        // Icons are stripped a level deeper here than for the stores
+        // above -- each snapshot carries its own nested bundle, which
+        // stripIconsFromPayload below can't see into. See
+        // stripIconsFromSnapshots.
+        payload[SANDBOX_SNAPSHOTS_KEY] = stripIconsFromSnapshots(
+          JSON.parse(rawSnapshots) as Record<string, SandboxSnapshot>
+        );
+      } catch {
+        // Unparseable local snapshots -- skip them rather than writing a
+        // string where every reader expects an object.
       }
     }
 
@@ -113,7 +94,7 @@ export function ExportDataButton({ open, onClose }: { open: boolean; onClose: ()
       recordCount,
       carriedLines,
     };
-  }, [bundle, selection]);
+  }, [bundle]);
 
   useEffect(() => {
     setCopyState("idle");
@@ -137,9 +118,7 @@ export function ExportDataButton({ open, onClose }: { open: boolean; onClose: ()
     const a = document.createElement("a");
     a.href = url;
     const date = new Date().toISOString().slice(0, 10);
-    a.download = isFullSelection(selection)
-      ? `epic-timeline-corrections-${date}.json`
-      : `epic-timeline-${filenameSlice(selection)}-${date}.json`;
+    a.download = `epic-timeline-backup-${date}.json`;
     document.body.appendChild(a);
     a.click();
     document.body.removeChild(a);
@@ -150,35 +129,22 @@ export function ExportDataButton({ open, onClose }: { open: boolean; onClose: ()
 
   if (!open) return null;
 
-  const collectionCount = selection.collectionIds.length;
   const summary =
     recordCount === 0
-      ? "Nothing to export in this selection."
-      : `${recordCount} record${recordCount === 1 ? "" : "s"} across ${collectionCount} collection${
-          collectionCount === 1 ? "" : "s"
-        }${
-          isFullSelection(selection)
-            ? ""
-            : ` (${COLLECTIONS.filter((c) => selection.collectionIds.includes(c.id))
-                .map((c) => c.name)
-                .join(", ")})`
-        }.${
+      ? "Nothing to back up yet -- your changes will show up here once you've made some."
+      : `${recordCount} record${recordCount === 1 ? "" : "s"}.${
           carriedLines > 0
             ? ` Plus ${carriedLines} line${carriedLines === 1 ? "" : "s"} they hang off, so this imports cleanly elsewhere.`
             : ""
         }`;
 
   return (
-    <SettingsModal
-      title="Your corrections & speculation data (JSON)"
-      onClose={onClose}
-      maxWidthClassName="max-w-3xl"
-    >
-      <div className="shrink-0">
-        <DataSelectionPicker value={selection} onChange={setSelection} />
-      </div>
-
-      <p className="mt-3 shrink-0 text-xs text-neutral-500">{summary}</p>
+    <SettingsModal title="Back up your data (JSON)" onClose={onClose} maxWidthClassName="max-w-3xl">
+      <p className="mt-3 shrink-0 text-sm text-neutral-400">
+        Everything localStorage holds for every collection -- corrections, shelving, reading
+        progress, star ratings, and any Speculation Mode scenarios.
+      </p>
+      <p className="mt-1 shrink-0 text-xs text-neutral-500">{summary}</p>
 
       <textarea
         ref={textareaRef}
@@ -204,9 +170,9 @@ export function ExportDataButton({ open, onClose }: { open: boolean; onClose: ()
           type="button"
           disabled={recordCount === 0}
           onClick={handleDownloadClick}
-          className={`flex-1 ${BUTTON_SECONDARY_DISABLEABLE}`}
+          className={`flex-1 ${BUTTON_PRIMARY_LIGHT}`}
         >
-          Download JSON
+          Download backup
         </button>
       </div>
     </SettingsModal>

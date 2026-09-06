@@ -76,6 +76,17 @@ export function formatUpdateDate(iso: string): string {
 
 export const UPDATES: UpdateRelease[] = [
   {
+    date: "2026-09-05",
+    entries: [
+      {
+        kind: "improved",
+        title: "Export is one click now",
+        description:
+          "Export data used to open on a picker of collections, timeline layers and data types; it's now a straight full backup, since that's what nearly every export was already used for. Restoring just part of a backup is still there -- Import keeps its own picker for that.",
+      },
+    ],
+  },
+  {
     date: "2026-08-31",
     entries: [
       {

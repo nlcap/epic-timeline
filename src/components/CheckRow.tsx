@@ -1,8 +1,10 @@
 /**
  * One checkbox row in a settings dialog's scoping checklist -- shared by
- * the reset dialog and the export/import pickers (see
- * DataSelectionPicker), which all offer the same collection/timeline
- * checkboxes and should look identical doing it.
+ * the reset dialog and the import picker (see DataSelectionPicker), which
+ * both offer the same collection/timeline checkboxes and should look
+ * identical doing it. (Export used to share this too, before it dropped
+ * its own picker in favor of a one-click full backup -- see
+ * ExportDataButton.)
  */
 export function CheckRow({
   label,
