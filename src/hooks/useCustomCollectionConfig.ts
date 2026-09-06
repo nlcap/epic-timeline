@@ -1,6 +1,6 @@
 import { useCallback, useState } from "react";
 import type { CustomEraDef } from "../lib/era";
-import { safeSetItem } from "../lib/storage";
+import { safeGetJson, safeSetItem } from "../lib/storage";
 import { CUSTOM_COLLECTION_CONFIG_KEY } from "../lib/overrideKeys";
 
 const STORAGE_KEY = CUSTOM_COLLECTION_CONFIG_KEY;
@@ -54,12 +54,7 @@ export interface CustomCollectionConfig {
 }
 
 function load(): CustomCollectionConfig {
-  try {
-    const raw = localStorage.getItem(STORAGE_KEY);
-    return raw ? (JSON.parse(raw) as CustomCollectionConfig) : {};
-  } catch {
-    return {};
-  }
+  return safeGetJson<CustomCollectionConfig>(STORAGE_KEY, {});
 }
 
 /**
@@ -69,8 +64,13 @@ function load(): CustomCollectionConfig {
  * configure button (see
  * CustomCollectionConfigModal). Kept separate from the Line/Volume override
  * stores in overrideKeys.ts: this is a setting for the tab itself, not
- * timeline data, so it sits outside Export/Import/Reset the same way the
- * active-tab and last-seen-changelog keys already do.
+ * timeline data, so it sits outside the collection/scope/kind partition
+ * machinery in lib/collectionScope.ts -- it's a single blob, not a map of
+ * sliceable records. It does still travel in an export/import, as its own
+ * top-level payload key (see CUSTOM_COLLECTION_CONFIG_KEY in
+ * overrideKeys.ts for why a migrating browser needs it); Reset is the one
+ * that deliberately leaves it alone, since wiping timeline data shouldn't
+ * also strip the tab's appearance.
  */
 export function useCustomCollectionConfig() {
   const [config, setConfig] = useState<CustomCollectionConfig>(load);

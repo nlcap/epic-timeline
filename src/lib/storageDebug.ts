@@ -1,3 +1,5 @@
+import { safeRemoveItem } from "./storage";
+
 /** Also read by useWhatsNew, to tell a pre-existing visitor (any other app
  * key already on this origin) from a genuinely first-ever one. */
 const APP_PREFIX = "epic-timeline:";
@@ -33,20 +35,29 @@ export function getStorageBreakdown(): StorageBreakdown {
   let appBytes = 0;
   let otherBytes = 0;
 
-  for (let i = 0; i < localStorage.length; i++) {
-    const key = localStorage.key(i);
-    if (!key) continue;
-    const value = localStorage.getItem(key) ?? "";
-    const bytes = byteLength(key) + byteLength(value);
-    const isAppKey = key.startsWith(APP_PREFIX);
-    keys.push({
-      key,
-      label: isAppKey ? key.slice(APP_PREFIX.length) : key,
-      bytes,
-      isAppKey,
-    });
-    if (isAppKey) appBytes += bytes;
-    else otherBytes += bytes;
+  // Enumerating is itself a storage access, so `localStorage.length` throws
+  // wherever getItem would (Safari with cookies blocked, and the like) --
+  // and this panel exists precisely to be opened when storage is
+  // misbehaving, so it must not be the thing that crashes. An empty
+  // breakdown reads correctly in that case: there is nothing readable.
+  try {
+    for (let i = 0; i < localStorage.length; i++) {
+      const key = localStorage.key(i);
+      if (!key) continue;
+      const value = localStorage.getItem(key) ?? "";
+      const bytes = byteLength(key) + byteLength(value);
+      const isAppKey = key.startsWith(APP_PREFIX);
+      keys.push({
+        key,
+        label: isAppKey ? key.slice(APP_PREFIX.length) : key,
+        bytes,
+        isAppKey,
+      });
+      if (isAppKey) appBytes += bytes;
+      else otherBytes += bytes;
+    }
+  } catch {
+    // Fall through with whatever was read before the throw.
   }
 
   keys.sort((a, b) => b.bytes - a.bytes);
@@ -74,6 +85,12 @@ export interface CapacityProbeResult {
  *
  * Not run automatically (unlike getStorageBreakdown) -- it's a deliberate
  * action from the panel's "Check" button, since it does real writes.
+ *
+ * Yields to the browser between attempts, which is what makes the `async`
+ * signature honest: each attempt writes a string up to `capBytes` long, and
+ * running the whole search in one synchronous go blocked the main thread
+ * hard enough that the panel's own "Checking..." state never got a frame to
+ * paint in. A dozen-odd yields cost a few ms against work measured in tens.
  */
 export async function probeRemainingCapacity(
   capBytes = 30 * 1024 * 1024
@@ -84,6 +101,10 @@ export async function probeRemainingCapacity(
   // readout, and keeps this to a handful of iterations.
   const tolerance = 1024;
 
+  // The cleanup removes sit in `finally` blocks, so a throw from one of
+  // them escapes the loop's own catch and takes the panel with it --
+  // safeRemoveItem swallows that, leaving the search's real signal (whether
+  // the *write* threw) as the only thing that steers it.
   try {
     while (hi - lo > tolerance) {
       const mid = Math.floor((lo + hi) / 2);
@@ -93,11 +114,12 @@ export async function probeRemainingCapacity(
       } catch {
         hi = mid;
       } finally {
-        localStorage.removeItem(PROBE_KEY);
+        safeRemoveItem(PROBE_KEY);
       }
+      await new Promise((resolve) => setTimeout(resolve, 0));
     }
   } finally {
-    localStorage.removeItem(PROBE_KEY);
+    safeRemoveItem(PROBE_KEY);
   }
 
   return { bytes: lo, hitCap: hi === capBytes };

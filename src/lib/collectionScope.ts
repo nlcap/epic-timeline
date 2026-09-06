@@ -1,9 +1,10 @@
 import { COLLECTIONS } from "../data/collections";
 import { COLLECTION_DATA } from "../data/collectionData";
 import { EXPORT_KEYS, STORAGE_KEYS, type ExportKey } from "./overrideKeys";
+import { safeGetJson } from "./storage";
 
 /**
- * The one place that knows how to slice the six override stores by
+ * The one place that knows how to slice the seven override stores by
  * collection and by which of six things a record is. Reset, export, and
  * import are all the same operation over the same selection -- they just
  * keep different halves of the split:
@@ -210,16 +211,13 @@ for (const [collectionId, { lines, entries }] of Object.entries(COLLECTION_DATA)
 }
 
 function readJson(key: string): Record<string, unknown> | null {
-  try {
-    const raw = localStorage.getItem(key);
-    if (!raw) return null;
-    const parsed: unknown = JSON.parse(raw);
-    return typeof parsed === "object" && parsed !== null
-      ? (parsed as Record<string, unknown>)
-      : null;
-  } catch {
-    return null;
-  }
+  // A stored primitive (a bare number or quoted string) parses fine but
+  // isn't a store, so the object check stays on top of safeGetJson's own
+  // absent/unparseable handling.
+  const parsed = safeGetJson<unknown>(key, null);
+  return typeof parsed === "object" && parsed !== null
+    ? (parsed as Record<string, unknown>)
+    : null;
 }
 
 /** Snapshots every store that currently exists in localStorage. Keys with
@@ -515,8 +513,10 @@ export function mergeBundles(base: StoreBundle, overlay: StoreBundle): StoreBund
   return result;
 }
 
-export const ALL_COLLECTION_IDS = COLLECTIONS.map((c) => c.id);
-export const ALL_SCOPES: TimelineScope[] = ["main", "speculative"];
+// Not exported: fullSelection() below is the only thing that ever wants
+// the whole list, and every caller goes through that rather than
+// assembling a Selection by hand.
+const ALL_COLLECTION_IDS = COLLECTIONS.map((c) => c.id);
 export const ALL_KINDS: DataKind[] = ["edits", "notes", "ownership", "reading", "rating"];
 /** Main-timeline parts first, then the two speculative ones grouped
  * together -- "your real stuff, then your what-if stuff", and the order

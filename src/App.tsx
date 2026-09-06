@@ -47,7 +47,7 @@ import { useWhatsNew } from "./hooks/useWhatsNew";
 import { useOnboarding } from "./hooks/useOnboarding";
 import { volumeMatchesStatusFilters, volumeVisibleUnderSearch } from "./lib/filters";
 import { hexToRgba, SPECULATION_ACCENT_HEX } from "./lib/color";
-import { safeSetItem } from "./lib/storage";
+import { safeGetItem, safeSetItem } from "./lib/storage";
 import { useEraBarCollapseProgress } from "./hooks/useEraBarCollapseProgress";
 import {
   ADD_CELL_SCROLL_BUCKET_PX,
@@ -100,13 +100,9 @@ const ACTIVE_COLLECTION_STORAGE_KEY = "epic-timeline:active-collection";
 // corrupted, or (if a collection is ever renamed/removed) stale from an
 // older build.
 function loadStoredCollectionId(): string {
-  try {
-    const stored = localStorage.getItem(ACTIVE_COLLECTION_STORAGE_KEY);
-    if (stored && COLLECTIONS.some((c) => c.id === stored)) {
-      return stored;
-    }
-  } catch {
-    // Storage unavailable (e.g. private browsing) -- fall through to default.
+  const stored = safeGetItem(ACTIVE_COLLECTION_STORAGE_KEY);
+  if (stored && COLLECTIONS.some((c) => c.id === stored)) {
+    return stored;
   }
   return COLLECTIONS[0].id;
 }

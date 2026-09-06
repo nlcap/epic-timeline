@@ -1,16 +1,10 @@
-import { useCallback, useEffect, useState } from "react";
-import { isSupabaseConfigured, supabase } from "../lib/supabaseClient";
-import { safeSetItem } from "../lib/storage";
+import { useCallback, useState } from "react";
+import { safeGetJson, safeSetItem } from "../lib/storage";
 
 type StatusMap<T> = Record<string, T>;
 
 function loadLocalOverrides<T>(key: string): StatusMap<T> {
-  try {
-    const raw = localStorage.getItem(key);
-    return raw ? (JSON.parse(raw) as StatusMap<T>) : {};
-  } catch {
-    return {};
-  }
+  return safeGetJson<StatusMap<T>>(key, {});
 }
 
 /**
@@ -38,15 +32,18 @@ function loadLocalOverrides<T>(key: string): StatusMap<T> {
  * same setStatus already behaves as a clear, no extra method needed.
  */
 export function useStatusOverrides<T>(key: string) {
-  const [overrides, setOverrides] = useState<StatusMap<T>>({});
-
-  useEffect(() => {
-    // Loaded from localStorage today. Once a Supabase project + auth
-    // session exist this becomes a real fetch (`volume_ownership` /
-    // `volume_reading_status`, keyed by user_id + volume_id) with the local
-    // read as the offline fallback.
-    setOverrides(loadLocalOverrides<T>(key));
-  }, [key]);
+  // A lazy initializer, not an empty map filled in by an effect -- the same
+  // shape useOverrideStore uses for the other four stores, and for the same
+  // reason. An effect runs after the first paint, so the opening frame
+  // rendered every volume at its seeded "announced" status with no rating
+  // and no reading progress, then repainted with the real values a frame
+  // later: a visible flash of the wrong shelf on every load for anyone with
+  // data. Reading synchronously here means the first paint is already
+  // correct. (`key` is a module constant at every call site, so there is no
+  // later key change to reload for.)
+  const [overrides, setOverrides] = useState<StatusMap<T>>(() =>
+    loadLocalOverrides<T>(key)
+  );
 
   const setStatus = useCallback(
     (volumeId: string, status: T) => {
@@ -55,9 +52,6 @@ export function useStatusOverrides<T>(key: string) {
         safeSetItem(key, JSON.stringify(next));
         return next;
       });
-      if (isSupabaseConfigured && supabase) {
-        // TODO: upsert the matching row (volume_id, user_id, status).
-      }
     },
     [key]
   );

@@ -30,3 +30,54 @@ export function safeSetItem(key: string, value: string): boolean {
     return false;
   }
 }
+
+/**
+ * The read counterpart to safeSetItem. `getItem` throws in exactly the same
+ * situations `setItem` does -- Safari with "block all cookies" on, and
+ * anywhere else the browser refuses storage access outright -- and unlike a
+ * failed write, a failed read usually happens during render or a lazy
+ * useState initializer, where an uncaught throw takes the whole tree down
+ * to the ErrorBoundary rather than losing one edit.
+ *
+ * Silent by design, unlike safeSetItem: a read that comes back empty is
+ * indistinguishable from a first visit, and every caller already has a
+ * sensible answer for that. There is nothing to tell the user.
+ */
+export function safeGetItem(key: string): string | null {
+  try {
+    return localStorage.getItem(key);
+  } catch {
+    return null;
+  }
+}
+
+/**
+ * Parses a JSON value out of storage, falling back to `fallback` for any
+ * reason it can't -- unavailable storage, an absent key, or content that
+ * isn't valid JSON (a half-written record, or something else on the origin
+ * using the same key).
+ *
+ * Callers hand back a fallback of the right shape rather than null, so the
+ * "nothing stored yet" and "stored but unreadable" paths converge on the
+ * same empty-but-usable value instead of each needing its own handling.
+ */
+export function safeGetJson<T>(key: string, fallback: T): T {
+  const raw = safeGetItem(key);
+  if (raw === null) return fallback;
+  try {
+    return JSON.parse(raw) as T;
+  } catch {
+    return fallback;
+  }
+}
+
+/** Removal throws under the same conditions as the two above. Nothing in
+ * the app has a recovery path for "couldn't clear that key" beyond carrying
+ * on, so this swallows it the same way safeGetItem does. */
+export function safeRemoveItem(key: string): void {
+  try {
+    localStorage.removeItem(key);
+  } catch {
+    // Storage unavailable -- there was nothing stored to clear either.
+  }
+}

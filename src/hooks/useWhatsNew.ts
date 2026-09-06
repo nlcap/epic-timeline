@@ -1,17 +1,9 @@
 import { useEffect, useState } from "react";
 import { PUBLIC_RELEASES, type UpdateRelease } from "../data/updates";
-import { safeSetItem } from "../lib/storage";
+import { safeGetItem, safeSetItem } from "../lib/storage";
 import { hasStoredUserData } from "../lib/overrideKeys";
 
 const LAST_SEEN_STORAGE_KEY = "epic-timeline:updates-last-seen";
-
-function loadLastSeen(): string | null {
-  try {
-    return localStorage.getItem(LAST_SEEN_STORAGE_KEY);
-  } catch {
-    return null;
-  }
-}
 
 /**
  * Drives the one-time "what's new" popup (see WhatsNewModal): which public
@@ -30,7 +22,7 @@ function loadLastSeen(): string | null {
  *   only releases newer than that date.
  */
 export function useWhatsNew(): { newReleases: UpdateRelease[]; markSeen: () => void } {
-  const [lastSeen, setLastSeen] = useState(loadLastSeen);
+  const [lastSeen, setLastSeen] = useState(() => safeGetItem(LAST_SEEN_STORAGE_KEY));
   // Snapshotted once at mount, not recomputed -- this only needs to tell
   // apart the two possible pasts a visitor with no stored date could have,
   // and the popup fires immediately on load anyway, before anything the

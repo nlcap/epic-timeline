@@ -1,3 +1,5 @@
+import { safeGetItem } from "./storage";
+
 /**
  * Every localStorage key holding user data, written out exactly once.
  *
@@ -27,15 +29,7 @@ export const STORAGE_KEYS = {
   speculativeVolumes: "epic-timeline:speculative-volumes",
 } as const;
 
-// The three "real correction" override stores -- line edits, volume
-// edits/resizes, and ownership status -- plus reading status, a per-volume
-// tracking value with the same override-map shape but no seed counterpart
-// to correct. Unlike the other three, baking a reading status into the
-// shipped seed data as a new default would never make sense (it's Nick's
-// personal progress, not a fact about the volume) -- it's grouped here
-// anyway since export/import/reset all treat every key in this list the
-// same way regardless of what it means.
-/** True once any real user data exists -- any of the six keys above, not
+/** True once any real user data exists -- any of the seven keys above, not
  * `active-collection` or `updates-last-seen`/`onboarding-seen` (deliberately
  * excluded per the file-level comment: single-use UI bookkeeping, not data).
  * The single source for "is this visitor genuinely new" -- both
@@ -43,13 +37,17 @@ export const STORAGE_KEYS = {
  * read this instead of each keeping their own ad-hoc exclude-list, which
  * would otherwise need updating every time a new bookkeeping key is added. */
 export function hasStoredUserData(): boolean {
-  try {
-    return Object.values(STORAGE_KEYS).some((key) => localStorage.getItem(key) !== null);
-  } catch {
-    return false;
-  }
+  return Object.values(STORAGE_KEYS).some((key) => safeGetItem(key) !== null);
 }
 
+// The three "real correction" override stores -- line edits, volume
+// edits/resizes, and ownership status -- plus reading status and star
+// rating, two per-volume tracking values with the same override-map shape
+// but no seed counterpart to correct. Unlike the first three, baking
+// either of those into the shipped seed data as a new default would never
+// make sense (they're Nick's own progress and opinion, not facts about the
+// volume) -- they're grouped here anyway since export/import/reset all
+// treat every key in this list the same way regardless of what it means.
 export const OVERRIDE_KEYS = [
   STORAGE_KEYS.lineOverrides,
   STORAGE_KEYS.volumeOverrides,

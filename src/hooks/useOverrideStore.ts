@@ -1,17 +1,12 @@
 import { useCallback, useEffect, useState } from "react";
-import { safeSetItem } from "../lib/storage";
+import { safeGetJson, safeSetItem } from "../lib/storage";
 
 export const DELETED = "deleted" as const;
 export type Change<T> = T | typeof DELETED;
 export type OverrideMap<T> = Record<string, Change<T>>;
 
 function loadOverrides<T>(key: string): OverrideMap<T> {
-  try {
-    const raw = localStorage.getItem(key);
-    return raw ? (JSON.parse(raw) as OverrideMap<T>) : {};
-  } catch {
-    return {};
-  }
+  return safeGetJson<OverrideMap<T>>(key, {});
 }
 
 /**

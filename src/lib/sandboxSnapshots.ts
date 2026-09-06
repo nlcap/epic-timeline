@@ -1,4 +1,4 @@
-import { safeSetItem } from "./storage";
+import { safeGetItem, safeGetJson, safeRemoveItem, safeSetItem } from "./storage";
 import {
   ALL_PARTS,
   keysForSelection,
@@ -66,12 +66,7 @@ const SANDBOX_SELECTION: Selection = {
 };
 
 function loadSnapshots(): Record<string, SandboxSnapshot> {
-  try {
-    const raw = localStorage.getItem(SANDBOX_SNAPSHOTS_KEY);
-    return raw ? (JSON.parse(raw) as Record<string, SandboxSnapshot>) : {};
-  } catch {
-    return {};
-  }
+  return safeGetJson<Record<string, SandboxSnapshot>>(SANDBOX_SNAPSHOTS_KEY, {});
 }
 
 function writeSnapshots(snapshots: Record<string, SandboxSnapshot>): boolean {
@@ -85,12 +80,12 @@ export function listSandboxSnapshots(): SandboxSnapshot[] {
 }
 
 export function getActiveSandboxSnapshotId(): string | null {
-  return localStorage.getItem(ACTIVE_SNAPSHOT_KEY);
+  return safeGetItem(ACTIVE_SNAPSHOT_KEY);
 }
 
 function setActiveSandboxSnapshotId(id: string | null): void {
   if (id) safeSetItem(ACTIVE_SNAPSHOT_KEY, id);
-  else localStorage.removeItem(ACTIVE_SNAPSHOT_KEY);
+  else safeRemoveItem(ACTIVE_SNAPSHOT_KEY);
 }
 
 /**
@@ -223,7 +218,7 @@ export function startNewSandbox(): SandboxApplyResult {
   for (const key of keysForSelection(SANDBOX_SELECTION)) {
     if (!safeSetItem(key, JSON.stringify(outside[key] ?? {}))) written = false;
   }
-  localStorage.removeItem(CUSTOM_COLLECTION_CONFIG_KEY);
+  safeRemoveItem(CUSTOM_COLLECTION_CONFIG_KEY);
   // Cleared unconditionally, unlike loadSandboxSnapshot's: a half-cleared
   // tab doesn't match the previously active snapshot either, so leaving the
   // pointer on it would aim the next Save at overwriting that snapshot with

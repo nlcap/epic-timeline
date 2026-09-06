@@ -1,13 +1,9 @@
 /// <reference types="vite/client" />
 
-interface ImportMetaEnv {
-  readonly VITE_SUPABASE_URL?: string;
-  readonly VITE_SUPABASE_ANON_KEY?: string;
-}
-
-interface ImportMeta {
-  readonly env: ImportMetaEnv;
-}
+// No app-specific `VITE_*` vars today -- vite/client above already declares
+// ImportMetaEnv/ImportMeta, so redeclaring an empty pair here would add
+// nothing. Add an `interface ImportMetaEnv` block back if one is ever
+// introduced.
 
 // See the collectionUpdatedAt plugin in vite.config.ts -- this virtual
 // module's content is computed there from `git log`, not written by hand.

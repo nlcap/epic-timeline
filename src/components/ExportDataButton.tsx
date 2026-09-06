@@ -10,6 +10,7 @@ import {
   stripIconsFromSnapshots,
   type SandboxSnapshot,
 } from "../lib/sandboxSnapshots";
+import { safeGetJson } from "../lib/storage";
 import { SettingsModal } from "./SettingsModal";
 import { BUTTON_PRIMARY_LIGHT, BUTTON_SECONDARY_DISABLEABLE } from "./buttonStyles";
 
@@ -64,29 +65,28 @@ export function ExportDataButton({ open, onClose }: { open: boolean; onClose: ()
     // carried whole rather than partitioned by scope/kind. A full backup
     // always covers the Sandbox tab, so unlike before there's no selection
     // left to check before including them.
-    const raw = localStorage.getItem(CUSTOM_COLLECTION_CONFIG_KEY);
-    if (raw) {
-      try {
-        payload[CUSTOM_COLLECTION_CONFIG_KEY] = JSON.parse(raw);
-      } catch {
-        // Unparseable local config -- skip it rather than writing a
-        // string where every reader expects an object.
-      }
-    }
-    const rawSnapshots = localStorage.getItem(SANDBOX_SNAPSHOTS_KEY);
-    if (rawSnapshots) {
-      try {
-        // Icons are stripped a level deeper here than for the stores
-        // above -- each snapshot carries its own nested bundle, which
-        // stripIconsFromPayload below can't see into. See
-        // stripIconsFromSnapshots.
-        payload[SANDBOX_SNAPSHOTS_KEY] = stripIconsFromSnapshots(
-          JSON.parse(rawSnapshots) as Record<string, SandboxSnapshot>
-        );
-      } catch {
-        // Unparseable local snapshots -- skip them rather than writing a
-        // string where every reader expects an object.
-      }
+    // safeGetJson, not a bare getItem with the try wrapped around the
+    // parse alone: getItem itself throws where storage is blocked, and this
+    // runs inside a useMemo during render, so an uncaught one took the whole
+    // tree down to the ErrorBoundary. A null fallback keeps the existing
+    // behaviour for both "nothing stored" and "stored but unparseable" --
+    // skip the key rather than write a string where every reader expects an
+    // object.
+    const config = safeGetJson<Record<string, unknown> | null>(
+      CUSTOM_COLLECTION_CONFIG_KEY,
+      null
+    );
+    if (config) payload[CUSTOM_COLLECTION_CONFIG_KEY] = config;
+
+    // Icons are stripped a level deeper here than for the stores above --
+    // each snapshot carries its own nested bundle, which stripIconsFromPayload
+    // below can't see into. See stripIconsFromSnapshots.
+    const snapshots = safeGetJson<Record<string, SandboxSnapshot> | null>(
+      SANDBOX_SNAPSHOTS_KEY,
+      null
+    );
+    if (snapshots) {
+      payload[SANDBOX_SNAPSHOTS_KEY] = stripIconsFromSnapshots(snapshots);
     }
 
     return {

@@ -3,6 +3,17 @@ import { safeSetItem } from "../lib/storage";
 
 const ONBOARDING_SEEN_STORAGE_KEY = "epic-timeline:onboarding-seen";
 
+/**
+ * Deliberately hand-rolled rather than going through safeGetItem, which is
+ * the only reader in the app that doesn't.
+ *
+ * That helper folds "nothing stored" and "storage unreadable" into the same
+ * `null`, which is right everywhere else and wrong here: this flow is shown
+ * once and then recorded as seen, so a browser that can't read storage also
+ * can't record anything -- treating it as a first visit would replay the
+ * whole welcome/tour/guide sequence on every single load, forever. Catching
+ * to `true` (already seen) is the only answer that degrades quietly.
+ */
 function loadSeen(): boolean {
   try {
     return localStorage.getItem(ONBOARDING_SEEN_STORAGE_KEY) !== null;
