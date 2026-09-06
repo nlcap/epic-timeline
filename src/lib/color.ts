@@ -11,8 +11,12 @@ export function hexToRgba(hex: string, opacity: number): string {
 /**
  * The five-tier opacity system: one hex per Line, reused everywhere.
  *   - ring/badge: always 100%
- *   - tile background: 10% (unowned/rest) / 35% (owned/rest)
- *   - focused tile or detail panel: 15% (unowned) / 65% (owned)
+ *   - tile background: 15% (unowned/rest) / 35% (owned/rest)
+ *   - focused tile or detail panel: 20% (unowned) / 60% (owned)
+ *
+ * Read these off the constants below rather than trusting the list above if
+ * the two ever disagree -- the code is the tier system, this is a summary
+ * of it.
  */
 export const TILE_OPACITY = {
   unownedRest: 0.15,

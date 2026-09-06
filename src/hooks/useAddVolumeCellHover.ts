@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { ADD_VOLUME_CELL_ATTR, ADD_VOLUME_CELL_HOVER_CLASS } from "../components/AddVolumeCell";
+import { SIDEBAR_PILL_ATTR } from "../components/LineRow";
 
 const ICON_SELECTOR = ".add-volume-cell-icon";
 
@@ -58,7 +59,7 @@ const ICON_SELECTOR = ".add-volume-cell-icon";
 // added here can measure the sidebar's actual current position directly,
 // with no coarsening or render-lag error at all, and gate BOTH the hover
 // reveal and the click itself from that single live measurement.
-const SIDEBAR_PILL_SELECTOR = "button.z-20";
+const SIDEBAR_PILL_SELECTOR = `[${SIDEBAR_PILL_ATTR}]`;
 // Buffer added past the sidebar column's own measured right edge, covering
 // sidebarGap (max 24px across zoom levels) plus real cursor-precision
 // slack -- generous on purpose, since over-blocking here only costs a
@@ -74,7 +75,7 @@ const LANE_START_BUFFER_PX = 80;
 // row, both of which can change without unmounting this hook (it's mounted
 // once, for the app's lifetime).
 //
-// Measures the pill BUTTON itself, not its wrapping div (LineRow.tsx's
+// Has to be the pill BUTTON itself, not its wrapping div (LineRow.tsx's
 // outer sidebar-cell container) -- confirmed by hand that the wrapper is
 // NOT pinned: only the button (and the stepper panel) apply their own
 // `transform: translateX(scrollLeft)` individually to stay visually fixed
@@ -83,10 +84,32 @@ const LANE_START_BUFFER_PX = 80;
 // left at any real scroll position). Measuring it instead of the button
 // silently made this whole fix a no-op -- the button's own rect is the one
 // that actually reflects where the icon currently, visually sits.
+//
+// SIDEBAR_PILL_ATTR is what keeps that true. This used to select
+// `button.z-20`, which pinned a load-bearing lookup to a Tailwind styling
+// class: restyle the pill's stacking and the guard silently becomes a
+// no-op again, with nothing failing to say so. The attribute exists only
+// to be found, so it can't be adjusted for a visual reason.
+//
+// First match, not all of them: every pill sits in the same column with
+// the same transform, so at rest and at any scroll position they share a
+// right edge. Only a hovered pill is wider -- and a cursor sitting on a
+// pill isn't reaching for an add-cell.
+//
+// The element is cached between calls and re-queried only once it leaves
+// the document (a collection switch remounts every row), since the rect
+// still has to be read live -- that's the part that actually changes as the
+// pill collapses and re-expands. Caching only removes a document-wide
+// querySelector from a function that runs on every animation frame the
+// pointer moves through.
+let cachedPill: Element | null = null;
+
 function protectedZoneRight(): number | null {
-  const pill = document.querySelector(SIDEBAR_PILL_SELECTOR);
-  if (!pill) return null;
-  return pill.getBoundingClientRect().right + LANE_START_BUFFER_PX;
+  if (!cachedPill?.isConnected) {
+    cachedPill = document.querySelector(SIDEBAR_PILL_SELECTOR);
+  }
+  if (!cachedPill) return null;
+  return cachedPill.getBoundingClientRect().right + LANE_START_BUFFER_PX;
 }
 
 export function useAddVolumeCellHover() {
@@ -128,22 +151,60 @@ export function useAddVolumeCellHover() {
       setHovered(el?.closest(`[${ADD_VOLUME_CELL_ATTR}]`) ?? null);
     };
 
+    // recompute reads layout twice (the pill's rect, then elementFromPoint),
+    // and it used to run straight out of the pointermove handler -- a forced
+    // layout on every raw move event, in the one hook in this app that
+    // wasn't frame-gated while useVisibleRowRange and useTilePreviewPosition
+    // both are.
+    //
+    // Cancel-and-reschedule, not a "ticking" boolean only its own callback
+    // can clear: that flavour gets permanently stuck if a single rAF is ever
+    // dropped (a backgrounded tab throttles them), which here would freeze
+    // the hover state for the rest of the page's life. See
+    // useVisibleRowRange.ts for the fuller writeup of the same bug class.
+    //
+    // This does NOT weaken the hit-testing this hook is built on (see the
+    // doc comment above): the last event's coordinates are always the ones
+    // recomputed from, so a pointer that stops moving still settles on its
+    // true final position -- just at the next frame boundary rather than
+    // synchronously. Browsers already coalesce pointermove to roughly one
+    // per frame, so in practice this defers work rather than dropping it.
+    let rafId: number | null = null;
+    const scheduleRecompute = () => {
+      if (rafId !== null) cancelAnimationFrame(rafId);
+      rafId = requestAnimationFrame(() => {
+        rafId = null;
+        recompute();
+      });
+    };
+    const cancelScheduled = () => {
+      if (rafId !== null) cancelAnimationFrame(rafId);
+      rafId = null;
+    };
+
     const handlePointerMove = (e: PointerEvent) => {
       lastX = e.clientX;
       lastY = e.clientY;
-      recompute();
+      scheduleRecompute();
     };
 
     // The pointer leaving the viewport entirely doesn't fire a pointermove
     // to "nowhere" -- pointerleave on the document itself is what catches
     // that (unlike pointerout, this one isn't part of the per-element
     // enter/leave pairing this fix is specifically avoiding relying on).
-    const handleWindowLeave = () => setHovered(null);
+    //
+    // Clears immediately AND drops any pending frame: a recompute still
+    // queued from the last move inside the viewport would otherwise run
+    // after this and re-hover a cell the pointer has already left.
+    const handleWindowLeave = () => {
+      cancelScheduled();
+      setHovered(null);
+    };
 
     let scrollTimeout: ReturnType<typeof setTimeout> | null = null;
     const handleScroll = () => {
       if (scrollTimeout) clearTimeout(scrollTimeout);
-      scrollTimeout = setTimeout(recompute, 50);
+      scrollTimeout = setTimeout(scheduleRecompute, 50);
     };
 
     // Capture-phase click guard: the hover class above only ever gates the
@@ -170,6 +231,7 @@ export function useAddVolumeCellHover() {
 
     return () => {
       if (scrollTimeout) clearTimeout(scrollTimeout);
+      cancelScheduled();
       window.removeEventListener("pointermove", handlePointerMove);
       document.documentElement.removeEventListener("pointerleave", handleWindowLeave);
       window.removeEventListener("scroll", handleScroll, true);

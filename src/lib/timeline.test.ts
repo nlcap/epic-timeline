@@ -4,6 +4,7 @@ import {
   addCellWindowQuarters,
   assignLanes,
   isFutureMonth,
+  isValidYear,
   lineHeight,
   quarterBeforeMonthPoint,
   quarterIndex,
@@ -14,6 +15,7 @@ import {
   yearsCoveredLabel,
   nearestVolumeByStart,
   rowTopOffset,
+  stepperVolumeTargets,
 } from "./timeline";
 
 function volume(id: string, start: [number, number], end: [number, number], swimLanePosition?: number): Volume {
@@ -285,5 +287,86 @@ describe("rowTopOffset", () => {
     const heights = [10, 20];
     expect(rowTopOffset(heights, 99)).toBe(30);
     expect(rowTopOffset([], 3)).toBe(0);
+  });
+});
+
+describe("isValidYear", () => {
+  it("accepts years across the seeded range and a bit beyond", () => {
+    expect(isValidYear(1938)).toBe(true);
+    expect(isValidYear(2027)).toBe(true);
+    expect(isValidYear(1900)).toBe(true);
+    expect(isValidYear(2100)).toBe(true);
+  });
+
+  it("rejects what an empty form field parses to", () => {
+    // The whole reason this helper exists: a blank <input type="number">
+    // reads as "", and Number("") is 0 -- an integer, so a bare
+    // Number.isInteger check waves it through and the entry lands at year 0.
+    expect(isValidYear(Number(""))).toBe(false);
+    expect(isValidYear(Number("   "))).toBe(false);
+    expect(isValidYear(0)).toBe(false);
+  });
+
+  it("rejects non-numeric and non-integer input", () => {
+    expect(isValidYear(Number("abc"))).toBe(false);
+    expect(isValidYear(1985.5)).toBe(false);
+    expect(isValidYear(Infinity)).toBe(false);
+  });
+
+  it("rejects years outside the bounds", () => {
+    expect(isValidYear(1899)).toBe(false);
+    expect(isValidYear(2101)).toBe(false);
+    expect(isValidYear(-1985)).toBe(false);
+  });
+});
+
+describe("stepperVolumeTargets", () => {
+  // The sidebar/pill geometry the chevrons work against. Fixed values so
+  // the landing arithmetic below is reproducible.
+  const AXIS_START = { year: 2000, quarter: 1 } as const;
+  const GEOMETRY = [55, 200, 230, 24, 56] as const; // px/quarter, sidebar, column, gap, icon
+
+  const v1 = volume("v1", [2010, 1], [2010, 4]);
+  const v2 = volume("v2", [2020, 1], [2020, 4]);
+  const v3 = volume("v3", [2030, 1], [2030, 4]);
+  const volumes = [v1, v2, v3];
+
+  const targetsAt = (scrollLeft: number) =>
+    stepperVolumeTargets(volumes, AXIS_START, ...GEOMETRY, scrollLeft, 1);
+
+  it("offers the neighbours on either side of the current position", () => {
+    const { backwardTarget, forwardTarget } = targetsAt(0);
+    expect(backwardTarget).toBeNull();
+    expect(forwardTarget?.id).toBe("v1");
+  });
+
+  it("never re-offers the volume the last step landed on", () => {
+    const landing = targetsAt(0).scrollTargetFor(v2);
+    // Exactly on the landing, and at every rounding error a real browser
+    // could introduce on the way there -- a smooth scroll settles on
+    // whatever scrollLeft it can actually represent, not the float it was
+    // handed. Half a pixel the wrong way used to classify v2 as its OWN
+    // forward target, so "next" scrolled straight back to where it was.
+    for (const drift of [0, -1, -0.5, 0.5, 1]) {
+      const { backwardTarget, forwardTarget } = targetsAt(landing + drift);
+      expect(forwardTarget?.id, `forward at drift ${drift}`).toBe("v3");
+      expect(backwardTarget?.id, `backward at drift ${drift}`).toBe("v1");
+    }
+  });
+
+  it("still separates volumes that are genuinely far apart", () => {
+    // The tolerance must not swallow a real neighbour: parked on v1, v2 is
+    // a decade away and has to remain the forward target.
+    const landing = targetsAt(0).scrollTargetFor(v1);
+    const { backwardTarget, forwardTarget } = targetsAt(landing);
+    expect(forwardTarget?.id).toBe("v2");
+    expect(backwardTarget).toBeNull();
+  });
+
+  it("runs out of targets at the end of the line", () => {
+    const landing = targetsAt(0).scrollTargetFor(v3);
+    const { backwardTarget, forwardTarget } = targetsAt(landing);
+    expect(forwardTarget).toBeNull();
+    expect(backwardTarget?.id).toBe("v2");
   });
 });

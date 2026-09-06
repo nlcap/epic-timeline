@@ -11,6 +11,8 @@ import {
   quarterPointFromIndex,
   quartersBetween,
   resizeSpan,
+  SIDEBAR_ICON_OVERHANG_PX,
+  SIDEBAR_PILL_GAP_PX,
   spanToPx,
   stepperReservePx,
   type ZoomLevel,
@@ -27,6 +29,13 @@ import { LineIcon } from "./LineIcon";
 import { PreDebutFiller } from "./PreDebutFiller";
 import { AddVolumeCell } from "./AddVolumeCell";
 import { VolumeStepper } from "./VolumeStepper";
+
+// Marks the sidebar pill button, so useAddVolumeCellHover can measure where
+// the pinned icon currently sits. Same shape as ADD_VOLUME_CELL_ATTR in
+// AddVolumeCell.tsx: the component that renders the element owns the name,
+// and the hook that looks it up imports it rather than spelling out a
+// selector of its own.
+export const SIDEBAR_PILL_ATTR = "data-sidebar-pill";
 
 // Stable reference for out-of-viewport rows' empty quarter list -- a fresh
 // `[]` here would be a new array every render, defeating AddVolumeCellsLayer's
@@ -208,6 +217,16 @@ export function LineRow({
     pillRef,
     stepScrolling
   );
+  // The volume detail panel is open on something, somewhere -- App.tsx
+  // passes selectedVolumeId down as focusedId, so a non-null value means
+  // exactly that. Derived rather than passed as its own prop since the
+  // value is already here. Drives the sidebar's z-index/dimming below.
+  const panelOpen = focusedId !== null;
+  // True when the panel's open volume belongs to THIS line -- lets the
+  // sidebar cell below skip its own dimming for that one line, matching the
+  // undimmed z-[62] treatment its tile gets in TimelineEntryTile, so the
+  // pill and the tile it belongs to read as one highlighted unit.
+  const lineHasFocusedVolume = entries.some((e) => e.id === focusedId);
   // A chevron-triggered scroll ending clears `hovered` outright rather than
   // letting it carry over from before the click. Without this, a stepper
   // click made from an expanded tile (Change #14) leaves `hovered` frozen
@@ -225,16 +244,6 @@ export function LineRow({
   // from a clean slate and needs a genuine fresh hover (on the pill itself,
   // or the panel's own independent CSS-hover reveal) to expand/reveal
   // anything again, matching what he actually expects to happen.
-  // The volume detail panel is open on something, somewhere -- App.tsx
-  // passes selectedVolumeId down as focusedId, so a non-null value means
-  // exactly that. Derived rather than passed as its own prop since the
-  // value is already here. Drives the sidebar's z-index/dimming below.
-  const panelOpen = focusedId !== null;
-  // True when the panel's open volume belongs to THIS line -- lets the
-  // sidebar cell below skip its own dimming for that one line, matching the
-  // undimmed z-[62] treatment its tile gets in TimelineEntryTile, so the
-  // pill and the tile it belongs to read as one highlighted unit.
-  const lineHasFocusedVolume = entries.some((e) => e.id === focusedId);
   const wasStepScrolling = useRef(stepScrolling);
   useEffect(() => {
     if (wasStepScrolling.current && !stepScrolling) {
@@ -260,7 +269,14 @@ export function LineRow({
   // Speculative line pill's neutral-500 outline fades out in lockstep with
   // the background/label above -- otherwise it's the one piece left
   // floating around the bare icon once everything else has collapsed away.
-  const pillBorderColor = `rgba(115, 115, 115, ${hovered ? .3 : .3 - collapseProgress})`;
+  // Scaled by (1 - collapseProgress), not offset by it: `.3 - collapseProgress`
+  // goes negative past 30% collapse, and CSS clamps a negative alpha to 0 --
+  // so the border used to finish fading a third of the way through the
+  // collapse and sit invisible for the rest of it, instead of fading evenly
+  // alongside the background and label the way this is meant to.
+  const pillBorderColor = `rgba(115, 115, 115, ${
+    hovered ? 0.3 : 0.3 * (1 - collapseProgress)
+  })`;
 
   // Freshly-mounted rows (e.g. a speculative line the toggle just revealed)
   // fade and rise into place instead of popping straight in -- an already-
@@ -401,6 +417,7 @@ export function LineRow({
             if (!stepScrolling) setHovered(true);
           }}
           data-official-locked={locked ? "" : undefined}
+          {...{ [SIDEBAR_PILL_ATTR]: "" }}
           // No overflow set here on purpose -- `overflow-x-hidden` alone would
           // force overflow-y to compute as `auto` (an overflow spec quirk when
           // only one axis is non-visible), clipping the icon's vertical
@@ -433,7 +450,7 @@ export function LineRow({
             // Gap collapses with the label instead of staying reserved --
             // otherwise the icon-only pill overflows its own width and gets
             // clipped asymmetrically by `overflow-hidden`.
-            gap: 12 * labelOpacity,
+            gap: SIDEBAR_PILL_GAP_PX * labelOpacity,
             transform: `translateX(${scrollLeft}px)`,
             // Tied to hover, not collapseProgress -- the pill's background
             // already fades to fully transparent on scroll (see
@@ -459,10 +476,15 @@ export function LineRow({
             // 4px overflow on the left edge at every level, independent of
             // icon size (it's a flat offset, not derived from the icon/pill
             // difference).
-            className="-ml-3 flex shrink-0 items-center justify-center overflow-hidden rounded-full text-white"
+            //
+            // That margin is a shared constant rather than the `-ml-3` class
+            // this used to carry, because useSidebarWidth's measuring probe
+            // has to reproduce it exactly -- see its own doc comment.
+            className="flex shrink-0 items-center justify-center overflow-hidden rounded-full text-white"
             style={{
               height: pillIconSize,
               width: pillIconSize,
+              marginLeft: -SIDEBAR_ICON_OVERHANG_PX,
               borderWidth: pillIconBorder,
               borderColor: line.colorHex,
               borderStyle: "solid",
@@ -762,16 +784,23 @@ const LineTimelineLane = memo(function LineTimelineLane({
     // margin converted to quarters per zoom level, not a flat count.
     const blockedEndIdxExclusive = centerQuarterIdx + addCellLeadingBlockedQuarters(pxPerQuarter);
 
-    const occupied = entries.map((entry) => [
-      quarterIndex(entry.start),
-      quarterIndex(entry.end),
-    ]);
+    // Quarters already covered by a volume or gap, as a Set rather than a
+    // per-quarter scan over every entry -- the window can be hundreds of
+    // quarters wide at zoom 3 and a line can hold dozens of entries, so the
+    // nested version was doing thousands of comparisons to answer a
+    // question a lookup settles. Each entry's span is clipped to the window
+    // first, so one volume spanning decades outside it can't inflate this.
+    const occupied = new Set<number>();
+    for (const entry of entries) {
+      const from = Math.max(windowStartIdx, quarterIndex(entry.start));
+      const to = Math.min(windowEndIdxExclusive - 1, quarterIndex(entry.end));
+      for (let q = from; q <= to; q++) occupied.add(q);
+    }
+
     const indexes: number[] = [];
     for (let q = windowStartIdx; q < windowEndIdxExclusive; q++) {
       if (q >= centerQuarterIdx && q < blockedEndIdxExclusive) continue;
-      if (!occupied.some(([start, end]) => q >= start && q <= end)) {
-        indexes.push(q);
-      }
+      if (!occupied.has(q)) indexes.push(q);
     }
     return indexes;
   }, [axisStart, axisWidth, pxPerQuarter, entries, scrollBucket, addCellWindowQuarters, inViewport]);

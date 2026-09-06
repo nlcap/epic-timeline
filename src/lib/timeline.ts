@@ -41,6 +41,19 @@ export const SIDEBAR_ICON_SIZE_BY_ZOOM: Record<ZoomLevel, number> = { 1: 56, 2: 
 // Matches the icon border thinner at level 3 so it doesn't overwhelm the
 // now much-larger icon relative to its 16px pill.
 export const SIDEBAR_ICON_BORDER_BY_ZOOM: Record<ZoomLevel, number> = { 1: 3, 2: 3, 3: 2 };
+// Gap between the pill's icon and its label. Zoom-independent (unlike the
+// icon itself) and scaled by labelOpacity at the call site, so it collapses
+// away with the label rather than staying reserved -- see LineRow.
+export const SIDEBAR_PILL_GAP_PX = 12;
+// How far the icon is pulled left past the pill's own px-2 padding, for a
+// fixed 4px overflow beyond the pill's left edge at every zoom level. A flat
+// offset, not derived from the icon/pill size difference.
+//
+// It also *reduces* the width the pill needs by exactly this much, since a
+// negative margin shrinks the item's contribution to the flex line -- which
+// is why useSidebarWidth's measuring probe has to reproduce it rather than
+// just the icon's size.
+export const SIDEBAR_ICON_OVERHANG_PX = 12;
 // Horizontal scale compresses harder than ROW_HEIGHT_BY_ZOOM's 0.75x/0.5x --
 // squaring those ratios (0.75^2 = 0.5625x, 0.5^2 = 0.25x of the level-1
 // value) so a zoomed-out screen reveals more calendar time than it does
@@ -84,6 +97,23 @@ export function stepperReservePx(zoomLevel: ZoomLevel): number {
 // far; 2 and 3 stay at 0 (i.e. unchanged, full-quarter clearance) until he
 // specifies theirs.
 const STEPPER_ICON_OVERLAP_PX_BY_ZOOM: Record<ZoomLevel, number> = { 1: 12, 2: 0, 3: 0 };
+// How close to the classification threshold a volume has to sit to count as
+// "the one we're parked on" rather than a step target -- see
+// stepperVolumeTargets, where landing exactly on that threshold is the whole
+// mechanism for not re-offering the volume you just stepped to.
+//
+// It needs a tolerance because that landing is only ever approximate: the
+// scroll target is a float, the browser rounds it to whatever it can
+// actually scroll to, and refX is read back from the settled scrollLeft.
+// Half a pixel of drift in the wrong direction was enough to classify the
+// current volume as its own forward target, so a chevron click scrolled
+// right back to where it already was.
+//
+// 2px because the threshold moves at most 1:1 with a scroll rounding error
+// (refX's own slope against scrollLeft never exceeds 1), and because the
+// closest two volumes can sit is one quarter -- 14px at the most zoomed-out
+// level -- so this can't swallow a genuine neighbour.
+const STEPPER_AT_THRESHOLD_EPSILON_PX = 2;
 // The hover "add volume" circle shown over an empty quarter segment (see
 // AddVolumeCell.tsx) -- shrinks with the row so it never overflows the
 // shorter tile area at zoomed-out levels.
@@ -238,7 +268,10 @@ export function spanToPx(
  * entriesByLine builder) -- a single forward pass finds both nearest
  * neighbors: backwardTarget keeps getting overwritten by every volume still
  * short of the threshold (so the last write is the closest one behind),
- * while forwardTarget locks in on the first volume past it.
+ * while forwardTarget locks in on the first volume past it. A volume within
+ * STEPPER_AT_THRESHOLD_EPSILON_PX of the threshold is skipped by both --
+ * that's the volume the previous step landed on, and offering it again as
+ * its own target is a chevron click that appears to do nothing.
  *
  * See VolumeStepper.tsx's original inline version of this (before the
  * detail-panel stepper needed the same math too) for the fuller derivation
@@ -280,9 +313,15 @@ export function stepperVolumeTargets(
   let forwardTarget: Volume | null = null;
   for (const v of volumes) {
     const x = contentXOf(v);
+    // Sitting on the threshold means this is the volume the last step
+    // landed on: neither direction should offer it back. Checked as a band
+    // rather than exact equality -- see
+    // STEPPER_AT_THRESHOLD_EPSILON_PX for why that equality never held in
+    // practice.
+    if (Math.abs(x - forwardThreshold) <= STEPPER_AT_THRESHOLD_EPSILON_PX) continue;
     if (x < forwardThreshold) {
       backwardTarget = v;
-    } else if (x > forwardThreshold && !forwardTarget) {
+    } else if (!forwardTarget) {
       forwardTarget = v;
     }
   }
@@ -397,6 +436,25 @@ export function quarterBeforeMonthPoint(point: MonthPoint): QuarterPoint {
   return quarter === 1
     ? { year: point.year - 1, quarter: 4 }
     : { year: point.year, quarter: (quarter - 1) as Quarter };
+}
+
+/**
+ * Whether a year typed into a form field is usable.
+ *
+ * The bounds are the point: `Number("")` is 0, which passes
+ * `Number.isInteger` just fine, so an integer test ALONE silently accepts a
+ * blank field as year 0. On a volume's start/end that dragged axisStart
+ * back two millennia and stretched the timeline to a few hundred thousand
+ * px (axisWidth is `(axisEnd - axisStart + 2) * 4 * pxPerQuarter`), with a
+ * year label and four gridlines rendered per year along the way.
+ *
+ * 1900-2100 comfortably covers the seeded data (1938-2027) with room for
+ * both a Sandbox timeline and future solicitations. Shared by every year
+ * field -- a line's debut, a volume's start/end, and a volume's release
+ * date -- so the rule is written once instead of once per form.
+ */
+export function isValidYear(year: number): boolean {
+  return Number.isInteger(year) && year >= 1900 && year <= 2100;
 }
 
 export function yearRange(startYear: number, endYear: number): number[] {
