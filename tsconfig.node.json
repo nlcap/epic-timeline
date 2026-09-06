@@ -1,6 +1,15 @@
 {
   "compilerOptions": {
     "composite": true,
+    // Emit lands outside the repo root on purpose. A referenced composite
+    // project can't set "noEmit" (TS6310), so `tsc -b` insists on writing
+    // vite.config.js/.d.ts somewhere -- and next to the source is exactly
+    // where Vite's own DEFAULT_CONFIG_FILES looks FIRST (".js" is ahead of
+    // ".ts"), so the stale compiled copy silently won over vite.config.ts.
+    // Editing the config and running `npm run dev` did nothing until a
+    // build happened to regenerate it.
+    "outDir": "./node_modules/.tmp/vite-config",
+    "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.node.tsbuildinfo",
     "skipLibCheck": true,
     "module": "ESNext",
     "moduleResolution": "bundler",
