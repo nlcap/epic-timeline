@@ -65,10 +65,24 @@ export function useExitingLines(
   const [justReset, setJustReset] = useState(false);
   const prevDisplayRef = useRef(display);
   const prevResetKeyRef = useRef(resetKey);
+  // Pending fade-out timers, keyed by the line each one is waiting to drop.
+  // Kept (rather than fired and forgotten) so a timer can be cancelled when
+  // the thing it was going to do stops making sense -- see both call sites
+  // below.
+  const exitTimersRef = useRef(new Map<string, ReturnType<typeof setTimeout>>());
 
   useLayoutEffect(() => {
+    const timers = exitTimersRef.current;
+
     if (resetKey !== prevResetKeyRef.current) {
       prevResetKeyRef.current = resetKey;
+      // A collection switch replaces the list outright, so anything still
+      // mid-fade belongs to the tab being left. Its timer would fire into
+      // the *new* tab's list a few hundred ms later, filtering for an id
+      // that isn't there -- which allocates a fresh array regardless, so
+      // it re-rendered every row to arrive at exactly the same content.
+      for (const timer of timers.values()) clearTimeout(timer);
+      timers.clear();
       const next = lines.map((line) => ({ line, exiting: false }));
       prevDisplayRef.current = next;
       setDisplay(next);
@@ -83,26 +97,33 @@ export function useExitingLines(
     prevDisplay.forEach((entry, idx) => {
       if (currentIds.has(entry.line.id)) return;
       next.splice(Math.min(idx, next.length), 0, { line: entry.line, exiting: true });
-      if (!entry.exiting) {
-        const lineId = entry.line.id;
+      if (entry.exiting || timers.has(entry.line.id)) return;
+      const lineId = entry.line.id;
+      timers.set(
+        lineId,
         setTimeout(() => {
+          timers.delete(lineId);
           // Keep prevDisplayRef in lockstep with the state update it's
           // driving -- it's read by the *next* effect run to decide what
           // still needs to fade out. Left stale (state updated, ref not),
           // a later effect run (e.g. toggling Speculation Mode again
           // before this fires, then again after) reads the ref, still
           // finds this already-exiting entry, and splices it back into
-          // `next` -- but since it's already `exiting`, the `!entry.exiting`
-          // check above never re-arms a timer for it, so it's stuck
-          // forever: invisible, but still holding its row's height (the
-          // sidebar gap this was fixed for).
+          // `next` -- but since it's already `exiting`, the check above
+          // never re-arms a timer for it, so it's stuck forever:
+          // invisible, but still holding its row's height (the sidebar gap
+          // this was fixed for).
           setDisplay((cur) => {
             const trimmed = cur.filter((d) => d.line.id !== lineId);
+            // Hand back the same array when there was nothing to drop --
+            // filter always allocates, and a new reference on its own is
+            // enough to re-render every row for no change at all.
+            if (trimmed.length === cur.length) return cur;
             prevDisplayRef.current = trimmed;
             return trimmed;
           });
-        }, exitDurationMs);
-      }
+        }, exitDurationMs)
+      );
     });
 
     prevDisplayRef.current = next;
@@ -112,6 +133,18 @@ export function useExitingLines(
   useEffect(() => {
     if (justReset) setJustReset(false);
   }, [justReset]);
+
+  // Unmount only. A pending timer firing into a torn-down hook is pure
+  // waste, and it would still mutate prevDisplayRef on the way past.
+  // `timers` is captured at setup rather than read off the ref in the
+  // cleanup, since a ref's contents are free to change in between.
+  useEffect(() => {
+    const timers = exitTimersRef.current;
+    return () => {
+      for (const timer of timers.values()) clearTimeout(timer);
+      timers.clear();
+    };
+  }, []);
 
   return [display, justReset];
 }
