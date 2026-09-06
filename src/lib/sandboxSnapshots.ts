@@ -1,7 +1,6 @@
 import { safeSetItem } from "./storage";
 import {
-  ALL_KINDS,
-  ALL_SCOPES,
+  ALL_PARTS,
   keysForSelection,
   mergeBundles,
   partitionBundle,
@@ -63,8 +62,7 @@ export type SandboxApplyResult = "ok" | "not-found" | "partial";
 
 const SANDBOX_SELECTION: Selection = {
   collectionIds: [CUSTOM_COLLECTION_ID],
-  scopes: [...ALL_SCOPES],
-  kinds: [...ALL_KINDS],
+  parts: [...ALL_PARTS],
 };
 
 function loadSnapshots(): Record<string, SandboxSnapshot> {

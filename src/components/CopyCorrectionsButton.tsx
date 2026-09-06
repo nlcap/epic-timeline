@@ -19,7 +19,7 @@ import { BUTTON_SECONDARY_DISABLEABLE } from "./buttonStyles";
  * SPECULATIVE_KEYS there).
  */
 function correctionsSelection(collectionId: string): Selection {
-  return { collectionIds: [collectionId], scopes: ["main"], kinds: ["edits"] };
+  return { collectionIds: [collectionId], parts: ["edits"] };
 }
 
 /**

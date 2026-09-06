@@ -4,9 +4,9 @@ import { EXPORT_KEYS, STORAGE_KEYS, type ExportKey } from "./overrideKeys";
 
 /**
  * The one place that knows how to slice the six override stores by
- * collection, timeline layer, and data type. Reset, export, and import are
- * all the same operation over the same selection -- they just keep
- * different halves of the split:
+ * collection and by which of six things a record is. Reset, export, and
+ * import are all the same operation over the same selection -- they just
+ * keep different halves of the split:
  *
  *   reset            -> write back `outside` (discard the selection)
  *   export           -> serialize `inside`
@@ -27,10 +27,57 @@ export type TimelineScope = "main" | "speculative";
  * App.tsx). */
 export type DataKind = "edits" | "notes" | "ownership" | "reading" | "rating";
 
+/**
+ * One of the six things a Selection can independently include -- the
+ * cross product of TimelineScope x DataKind, minus the four combinations
+ * that never exist: ownership, reading progress and star ratings don't
+ * exist on the speculative layer, and notes don't exist anywhere else.
+ * A two-axis {scopes, kinds} selection could still *name* those four --
+ * DataSelectionPicker had to grey them out and explain why in a subtitle
+ * ("Main only", "Speculative only") -- so this flattens scope and kind
+ * into one list where an unrepresentable combination simply isn't a
+ * member, rather than a combination that's always empty.
+ */
+export type SelectionPart =
+  | "edits"
+  | "ownership"
+  | "reading"
+  | "rating"
+  | "speculativeEdits"
+  | "speculativeNotes";
+
 export type Selection = {
   collectionIds: string[];
-  scopes: TimelineScope[];
-  kinds: DataKind[];
+  parts: SelectionPart[];
+};
+
+export interface SelectionPartMeta {
+  label: string;
+  /** Only the two speculative parts have one -- the other four are
+   * unambiguous standalone ("Ownership" doesn't need to say "main only"
+   * when there's no separate "speculative ownership" row left to confuse
+   * it with). Shown as a picker row's subtitle (see DataSelectionPicker)
+   * and folded into ImportDataButton's confirm sentence via
+   * selectionDescription there. */
+  subtitle?: string;
+}
+
+/** Same co-location as OwnershipMeta/ReadingStatusMeta -- a label lives
+ * next to the type it labels, one canonical copy shared by every reader
+ * rather than each keeping its own. */
+export const SELECTION_PART_META: Record<SelectionPart, SelectionPartMeta> = {
+  edits: { label: "Lines & volumes" },
+  ownership: { label: "Ownership" },
+  reading: { label: "Reading progress" },
+  rating: { label: "Star rating" },
+  speculativeEdits: {
+    label: "Speculative lines & volumes",
+    subtitle: "What-if lines and volumes from Speculation Mode",
+  },
+  speculativeNotes: {
+    label: "Speculative notes",
+    subtitle: "Notes attached to speculative volumes",
+  },
 };
 
 /** Every store as a parsed map, keyed by its localStorage key. Sourced
@@ -68,50 +115,85 @@ const STATUS_STORES = [
   RATING_OVERRIDES_KEY,
 ] as const;
 
-const SCOPE_OF_KEY: Record<ExportKey, TimelineScope> = {
-  [LINE_OVERRIDES_KEY]: "main",
-  [VOLUME_OVERRIDES_KEY]: "main",
-  [OWNERSHIP_OVERRIDES_KEY]: "main",
-  [READING_STATUS_OVERRIDES_KEY]: "main",
-  [RATING_OVERRIDES_KEY]: "main",
-  [SPECULATIVE_LINES_KEY]: "speculative",
-  [SPECULATIVE_VOLUMES_KEY]: "speculative",
+/** Every part's own timeline layer -- main for the first four, speculative
+ * for the last two. Only used to translate a legacy two-axis
+ * {scopes, kinds} pair into parts -- see partsForScopesAndKinds, kept for
+ * ResetLineDataButton, whose "Timeline" and "What to reset" controls are
+ * deliberately independent choices rather than one flat list (see
+ * resetLineData). Every other caller works in parts directly. */
+const PART_SCOPE: Record<SelectionPart, TimelineScope> = {
+  edits: "main",
+  ownership: "main",
+  reading: "main",
+  rating: "main",
+  speculativeEdits: "speculative",
+  speculativeNotes: "speculative",
+};
+
+/** Same translation, the other axis -- speculativeEdits is still the
+ * "edits" kind, just on the speculative layer. */
+const PART_KIND: Record<SelectionPart, DataKind> = {
+  edits: "edits",
+  ownership: "ownership",
+  reading: "reading",
+  rating: "rating",
+  speculativeEdits: "edits",
+  speculativeNotes: "notes",
+};
+
+/** Translates the old two-axis shape into parts, for the one caller that
+ * still wants scope and kind as independent choices. Every other caller
+ * (export, import, the Sandbox snapshot library) works in parts directly. */
+export function partsForScopesAndKinds(
+  scopes: TimelineScope[],
+  kinds: DataKind[]
+): SelectionPart[] {
+  const scopeSet = new Set(scopes);
+  const kindSet = new Set(kinds);
+  return ALL_PARTS.filter((part) => scopeSet.has(PART_SCOPE[part]) && kindSet.has(PART_KIND[part]));
+}
+
+/** Which of the seven stores a part pulls in. Two parts name the
+ * speculative volumes store -- it mixes notes in with volumes and gaps
+ * (see `Note` in types/index.ts), so both speculativeEdits and
+ * speculativeNotes have to be able to claim part of it; partitioning then
+ * sorts individual records out via partOfRecord below. */
+const KEYS_FOR_PART: Record<SelectionPart, readonly ExportKey[]> = {
+  edits: [LINE_OVERRIDES_KEY, VOLUME_OVERRIDES_KEY],
+  ownership: [OWNERSHIP_OVERRIDES_KEY],
+  reading: [READING_STATUS_OVERRIDES_KEY],
+  rating: [RATING_OVERRIDES_KEY],
+  speculativeEdits: [SPECULATIVE_LINES_KEY, SPECULATIVE_VOLUMES_KEY],
+  speculativeNotes: [SPECULATIVE_VOLUMES_KEY],
+};
+
+/** The store keys with exactly one part of their own -- every store except
+ * the speculative volumes store, which mixes two parts together and needs
+ * partOfRecord below to tell them apart per record. */
+const SOLE_PART_OF_KEY: Partial<Record<ExportKey, SelectionPart>> = {
+  [LINE_OVERRIDES_KEY]: "edits",
+  [VOLUME_OVERRIDES_KEY]: "edits",
+  [OWNERSHIP_OVERRIDES_KEY]: "ownership",
+  [READING_STATUS_OVERRIDES_KEY]: "reading",
+  [RATING_OVERRIDES_KEY]: "rating",
+  [SPECULATIVE_LINES_KEY]: "speculativeEdits",
 };
 
 /**
- * Which data-type buckets each store can hold. All but one hold a single
- * kind, so the store itself decides; the speculative volumes store is the
- * exception -- notes share it with volumes and gaps (see `Note` in
- * types/index.ts, a speculation-only entry with no main-timeline
- * counterpart), so records there are bucketed individually by
- * kindOfRecord. Speculative *lines* count as "edits": a line is the
- * container an entry hangs off, not a note in its own right.
- */
-const KINDS_IN_KEY: Record<ExportKey, DataKind[]> = {
-  [LINE_OVERRIDES_KEY]: ["edits"],
-  [VOLUME_OVERRIDES_KEY]: ["edits"],
-  [OWNERSHIP_OVERRIDES_KEY]: ["ownership"],
-  [READING_STATUS_OVERRIDES_KEY]: ["reading"],
-  [RATING_OVERRIDES_KEY]: ["rating"],
-  [SPECULATIVE_LINES_KEY]: ["edits"],
-  [SPECULATIVE_VOLUMES_KEY]: ["edits", "notes"],
-};
-
-/**
- * The bucket a single record falls in. Only the speculative volumes store
- * needs to look at the record at all.
+ * The part a single record falls in. Only the speculative volumes store
+ * needs to look at the record itself -- see KEYS_FOR_PART/SOLE_PART_OF_KEY.
  *
  * A tombstone there can't be told apart from any other -- "deleted" says
- * nothing about what was deleted -- so it's filed under "edits". Harmless
- * either way: speculative entries are always user-created, so a tombstone
- * for one has no seed counterpart to resolve against and never travels in
- * anything but a full export.
+ * nothing about what was deleted -- so it's filed under speculativeEdits.
+ * Harmless either way: speculative entries are always user-created, so a
+ * tombstone for one has no seed counterpart to resolve against and never
+ * travels in anything but a full export.
  */
-function kindOfRecord(key: ExportKey, change: unknown): DataKind {
+function partOfRecord(key: ExportKey, change: unknown): SelectionPart {
   if (key === SPECULATIVE_VOLUMES_KEY) {
-    return readString(asRecord(change), "kind") === "note" ? "notes" : "edits";
+    return readString(asRecord(change), "kind") === "note" ? "speculativeNotes" : "speculativeEdits";
   }
-  return KINDS_IN_KEY[key][0];
+  return SOLE_PART_OF_KEY[key]!;
 }
 
 // Seed lineId -> collectionId and seed entryId -> lineId, across every
@@ -180,7 +262,7 @@ function readString(source: Record<string, unknown> | null, field: string): stri
  * do before this moved here.
  *
  * `context` covers the case where a bundle isn't self-contained: a
- * notes-only export file holds notes but not the custom speculative lines
+ * notes-only export holds notes but not the custom speculative lines
  * they hang off, so on import the local stores have to supply the missing
  * definitions. Without it those notes would resolve to no collection and be
  * quietly skipped -- exactly the records the user asked to import.
@@ -228,19 +310,18 @@ function createResolver(bundle: StoreBundle, context?: StoreBundle) {
   };
 }
 
-/** The stores a selection touches -- those on a selected layer holding at
- * least one selected data type. Empty when the selection can't name any
- * data at all (no collections, no scopes, or no data types). Note that a
- * store being listed doesn't mean all of it is selected: the speculative
- * volumes store qualifies on either "edits" or "notes", and partitioning
- * then sorts its records out one by one. */
+/** The stores a selection touches. Empty when the selection can't name any
+ * data at all (no collections, no parts). Note that a store being listed
+ * doesn't mean all of it is selected: the speculative volumes store
+ * qualifies on either speculativeEdits or speculativeNotes, and
+ * partitioning then sorts its records out one by one. */
 export function keysForSelection(selection: Selection): ExportKey[] {
   if (selection.collectionIds.length === 0) return [];
-  const scopes = new Set(selection.scopes);
-  const kinds = new Set(selection.kinds);
-  return EXPORT_KEYS.filter(
-    (key) => scopes.has(SCOPE_OF_KEY[key]) && KINDS_IN_KEY[key].some((kind) => kinds.has(kind))
-  );
+  const keys = new Set<ExportKey>();
+  for (const part of selection.parts) {
+    for (const key of KEYS_FOR_PART[part]) keys.add(key);
+  }
+  return EXPORT_KEYS.filter((key) => keys.has(key));
 }
 
 /** True when a selection covers everything there is to cover -- the
@@ -250,8 +331,7 @@ export function isFullSelection(selection: Selection): boolean {
   const collections = new Set(selection.collectionIds);
   return (
     COLLECTIONS.every((c) => collections.has(c.id)) &&
-    new Set(selection.scopes).size === ALL_SCOPES.length &&
-    new Set(selection.kinds).size === ALL_KINDS.length
+    new Set(selection.parts).size === ALL_PARTS.length
   );
 }
 
@@ -285,7 +365,7 @@ export function partitionBundle(
 
   const selectedKeys = new Set<ExportKey>(keysForSelection(selection));
   const targets = new Set(selection.collectionIds);
-  const kinds = new Set(selection.kinds);
+  const parts = new Set(selection.parts);
   const collectionOf = createResolver(bundle, context);
 
   const inside: StoreBundle = {};
@@ -301,15 +381,15 @@ export function partitionBundle(
     const kept: Record<string, unknown> = {};
     const dropped: Record<string, unknown> = {};
     for (const [id, change] of Object.entries(store)) {
-      // Both axes are checked per record, not per store, because the
-      // speculative volumes store mixes notes in with volumes and gaps --
-      // so "Ultimate notes only" has to be able to take part of a store
-      // and leave the rest.
+      // Checked per record, not per store, because the speculative
+      // volumes store mixes notes in with volumes and gaps -- so "Ultimate
+      // notes only" has to be able to take part of a store and leave the
+      // rest.
       const collectionId = collectionOf(key, id);
       const matches =
         collectionId !== undefined &&
         targets.has(collectionId) &&
-        kinds.has(kindOfRecord(key, change));
+        parts.has(partOfRecord(key, change));
       if (matches) kept[id] = change;
       else dropped[id] = change;
     }
@@ -326,9 +406,9 @@ export function partitionBundle(
  * seen those lines.
  *
  * This is what makes a notes-only export usable. Notes count as their own
- * data type while the speculative lines they sit on count as "lines &
- * volumes", so picking Notes alone produces entries with nothing to attach
- * to -- they'd resolve to no collection on the way back in and be skipped.
+ * part while the speculative lines they sit on count as speculativeEdits,
+ * so picking Notes alone produces entries with nothing to attach to --
+ * they'd resolve to no collection on the way back in and be skipped.
  * Pulling their lines along closes that gap without muddying what the
  * checkboxes mean.
  *
@@ -364,8 +444,7 @@ export function withReferencedLines(slice: StoreBundle, source: StoreBundle): St
 
 export type SliceCounts = {
   byCollection: Record<string, number>;
-  byScope: Record<TimelineScope, number>;
-  byKind: Record<DataKind, number>;
+  byPart: Record<SelectionPart, number>;
   /** Records that resolve to no collection -- a custom line or volume
    * added and then deleted, or one belonging to a collection this build
    * doesn't ship. Only a full selection carries them. */
@@ -374,17 +453,23 @@ export type SliceCounts = {
 };
 
 /**
- * Tallies a bundle's records along all three axes at once, so the import
- * picker can show per-slice counts and grey out what a file has nothing
- * for. Every record lands in exactly one bucket per axis, so each axis's
- * counts sum to `total`.
+ * Tallies a bundle's records by collection and by part at once, so the
+ * import picker can show per-slice counts and grey out what a file has
+ * nothing for. Every record lands in exactly one bucket per axis, so each
+ * axis's counts sum to `total`.
  */
 export function countBySlice(bundle: StoreBundle, context?: StoreBundle): SliceCounts {
   const collectionOf = createResolver(bundle, context);
   const counts: SliceCounts = {
     byCollection: {},
-    byScope: { main: 0, speculative: 0 },
-    byKind: { edits: 0, notes: 0, ownership: 0, reading: 0, rating: 0 },
+    byPart: {
+      edits: 0,
+      ownership: 0,
+      reading: 0,
+      rating: 0,
+      speculativeEdits: 0,
+      speculativeNotes: 0,
+    },
     unresolved: 0,
     total: 0,
   };
@@ -394,8 +479,7 @@ export function countBySlice(bundle: StoreBundle, context?: StoreBundle): SliceC
     if (!store) continue;
     for (const [id, change] of Object.entries(store)) {
       counts.total += 1;
-      counts.byScope[SCOPE_OF_KEY[key]] += 1;
-      counts.byKind[kindOfRecord(key, change)] += 1;
+      counts.byPart[partOfRecord(key, change)] += 1;
 
       const collectionId = collectionOf(key, id);
       if (collectionId === undefined) counts.unresolved += 1;
@@ -434,9 +518,20 @@ export function mergeBundles(base: StoreBundle, overlay: StoreBundle): StoreBund
 export const ALL_COLLECTION_IDS = COLLECTIONS.map((c) => c.id);
 export const ALL_SCOPES: TimelineScope[] = ["main", "speculative"];
 export const ALL_KINDS: DataKind[] = ["edits", "notes", "ownership", "reading", "rating"];
+/** Main-timeline parts first, then the two speculative ones grouped
+ * together -- "your real stuff, then your what-if stuff", and the order
+ * DataSelectionPicker renders them in. */
+export const ALL_PARTS: SelectionPart[] = [
+  "edits",
+  "ownership",
+  "reading",
+  "rating",
+  "speculativeEdits",
+  "speculativeNotes",
+];
 
 /** Everything selected -- the default for an export, and the widest
  * possible import. */
 export function fullSelection(): Selection {
-  return { collectionIds: [...ALL_COLLECTION_IDS], scopes: [...ALL_SCOPES], kinds: [...ALL_KINDS] };
+  return { collectionIds: [...ALL_COLLECTION_IDS], parts: [...ALL_PARTS] };
 }

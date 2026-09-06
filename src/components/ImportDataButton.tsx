@@ -1,20 +1,18 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { COLLECTIONS } from "../data/collections";
 import {
-  ALL_KINDS,
-  ALL_SCOPES,
+  ALL_PARTS,
   countBySlice,
   countRecords,
   keysForSelection,
   mergeBundles,
   partitionBundle,
   readBundleFromStorage,
+  SELECTION_PART_META,
   withReferencedLines,
-  type DataKind,
   type Selection,
   type SliceCounts,
   type StoreBundle,
-  type TimelineScope,
 } from "../lib/collectionScope";
 import {
   CUSTOM_COLLECTION_CONFIG_KEY,
@@ -113,33 +111,27 @@ function parseSandboxSnapshots(text: string): Record<string, SandboxSnapshot> | 
 function selectionFromCounts(counts: SliceCounts): Selection {
   return {
     collectionIds: COLLECTIONS.filter((c) => (counts.byCollection[c.id] ?? 0) > 0).map((c) => c.id),
-    scopes: ALL_SCOPES.filter((s) => counts.byScope[s] > 0),
-    kinds: ALL_KINDS.filter((k) => counts.byKind[k] > 0),
+    parts: ALL_PARTS.filter((p) => counts.byPart[p] > 0),
   };
 }
 
-function scopeLabel(scopes: TimelineScope[]): string {
-  if (scopes.length === 2) return "main and speculative timeline";
-  return scopes[0] === "main" ? "main timeline" : "speculative timeline";
+/** e.g. "lines & volumes, ownership" -- what used to be a separate
+ * "main timeline"/"speculative timeline" phrase plus a list of kinds is
+ * now just the part labels themselves, since a part like "Speculative
+ * lines & volumes" already says which timeline layer it's on. */
+function selectionDescription(selection: Selection): string {
+  return selection.parts.map((p) => SELECTION_PART_META[p].label.toLowerCase()).join(", ");
 }
-
-const KIND_LABELS: Record<DataKind, string> = {
-  edits: "lines & volumes",
-  notes: "notes",
-  ownership: "ownership",
-  reading: "reading progress",
-  rating: "star ratings",
-};
 
 /**
  * Counterpart to ExportDataButton. Two ways in -- paste a previously
  * exported JSON blob into the textarea, or upload an exported file -- both
- * of which land on the same review step: the three-axis picker (see
+ * of which land on the same review step: the two-axis picker (see
  * DataSelectionPicker), showing how many records the file holds for each
- * collection, timeline layer, and data type, with anything it has nothing
- * for greyed out. So a file containing every collection can still be
- * imported one tab at a time, and someone else's speculative scenarios can
- * come in without touching your own real corrections.
+ * collection and each of the six things it can carry, with anything it has
+ * nothing for greyed out. So a file containing every collection can still
+ * be imported one tab at a time, and someone else's speculative scenarios
+ * can come in without touching your own real corrections.
  *
  * Two ways to apply it, since both are things you'd genuinely want:
  *   replace -- the selected slice is cleared out first, so the file
@@ -165,11 +157,7 @@ export function ImportDataButton({ open, onClose }: { open: boolean; onClose: ()
     customConfig: Record<string, unknown> | null;
     sandboxSnapshots: Record<string, SandboxSnapshot> | null;
   } | null>(null);
-  const [selection, setSelection] = useState<Selection>({
-    collectionIds: [],
-    scopes: [],
-    kinds: [],
-  });
+  const [selection, setSelection] = useState<Selection>({ collectionIds: [], parts: [] });
   const [mode, setMode] = useState<ImportMode>("replace");
   const [confirming, setConfirming] = useState(false);
   const [error, setError] = useState("");
@@ -177,7 +165,7 @@ export function ImportDataButton({ open, onClose }: { open: boolean; onClose: ()
   const reset = () => {
     setPasteText("");
     setSource(null);
-    setSelection({ collectionIds: [], scopes: [], kinds: [] });
+    setSelection({ collectionIds: [], parts: [] });
     setMode("replace");
     setConfirming(false);
     setError("");
@@ -385,9 +373,8 @@ export function ImportDataButton({ open, onClose }: { open: boolean; onClose: ()
           <p className="text-sm text-amber-100">
             {mode === "replace" ? (
               <>
-                This will <strong>replace</strong> your {selectedCollectionNames.join(", ")}{" "}
-                {scopeLabel(selection.scopes)} data (
-                {selection.kinds.map((k) => KIND_LABELS[k]).join(", ")}) with the {incomingCount}{" "}
+                This will <strong>replace</strong> your {selectedCollectionNames.join(", ")} data (
+                {selectionDescription(selection)}) with the {incomingCount}{" "}
                 record{incomingCount === 1 ? "" : "s"} in "{source?.label}".
                 Anything you've changed there since that export is lost. This can't be undone.
               </>
@@ -395,7 +382,7 @@ export function ImportDataButton({ open, onClose }: { open: boolean; onClose: ()
               <>
                 This will <strong>merge</strong> {incomingCount} record
                 {incomingCount === 1 ? "" : "s"} from "{source?.label}" into your{" "}
-                {selectedCollectionNames.join(", ")} {scopeLabel(selection.scopes)} data. Your
+                {selectedCollectionNames.join(", ")} data ({selectionDescription(selection)}). Your
                 records are kept; the file wins wherever the two describe the same line or volume.
               </>
             )}{" "}
@@ -506,7 +493,13 @@ export function ImportDataButton({ open, onClose }: { open: boolean; onClose: ()
             value={pasteText}
             onChange={(e) => setPasteText(e.target.value)}
             placeholder="Paste exported JSON here..."
-            className="mt-3 h-[40rem] min-h-0 w-full shrink resize-none rounded-md border border-neutral-700 bg-neutral-950 p-3 font-mono text-xs text-neutral-300 placeholder:text-neutral-600"
+            // h-64, matching ExportDataButton's own JSON textarea (same
+            // job, same dialog family) -- this used to be h-[40rem]
+            // (640px), tall enough on its own to push the Paste/Upload/
+            // Review buttons below the fold of the modal's 85vh cap on any
+            // ordinary window, forcing a scroll before the dialog was even
+            // usable.
+            className="mt-3 h-64 min-h-0 w-full shrink resize-none rounded-md border border-neutral-700 bg-neutral-950 p-3 font-mono text-xs text-neutral-300 placeholder:text-neutral-600"
           />
           <div className="mt-3 flex shrink-0 gap-2">
             <button

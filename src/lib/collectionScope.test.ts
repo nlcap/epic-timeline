@@ -1,7 +1,6 @@
 import { describe, expect, it } from "vitest";
 import {
-  ALL_KINDS,
-  ALL_SCOPES,
+  ALL_PARTS,
   countBySlice,
   countRecords,
   fullSelection,
@@ -33,35 +32,29 @@ const SPEC_VOLUMES = "epic-timeline:speculative-volumes";
 
 const sel = (over: Partial<Selection> = {}): Selection => ({
   collectionIds: ["ultimate"],
-  scopes: [...ALL_SCOPES],
-  kinds: [...ALL_KINDS],
+  parts: [...ALL_PARTS],
   ...over,
 });
 
 describe("keysForSelection", () => {
-  it("maps each data kind to just its own main-scope store", () => {
-    expect(keysForSelection(sel({ scopes: ["main"], kinds: ["ownership"] }))).toEqual([OWNERSHIP]);
-    expect(keysForSelection(sel({ scopes: ["main"], kinds: ["edits"] }))).toEqual([
-      LINE_OVERRIDES,
-      VOLUME_OVERRIDES,
-    ]);
+  it("maps each main-timeline part to just its own store", () => {
+    expect(keysForSelection(sel({ parts: ["ownership"] }))).toEqual([OWNERSHIP]);
+    expect(keysForSelection(sel({ parts: ["edits"] }))).toEqual([LINE_OVERRIDES, VOLUME_OVERRIDES]);
   });
 
-  it("reaches the speculative stores through the same data kinds as main", () => {
-    expect(keysForSelection(sel({ scopes: ["speculative"], kinds: ["edits"] }))).toEqual([
+  it("reaches the speculative stores through their own parts, mirroring main's", () => {
+    expect(keysForSelection(sel({ parts: ["speculativeEdits"] }))).toEqual([
       SPEC_LINES,
       SPEC_VOLUMES,
     ]);
     // Notes live only in the speculative volumes store -- no lines, since a
     // line is a container rather than a note.
-    expect(keysForSelection(sel({ scopes: ["speculative"], kinds: ["notes"] }))).toEqual([
-      SPEC_VOLUMES,
-    ]);
+    expect(keysForSelection(sel({ parts: ["speculativeNotes"] }))).toEqual([SPEC_VOLUMES]);
   });
 
   it("names nothing when the selection can't reach any data", () => {
     expect(keysForSelection(sel({ collectionIds: [] }))).toEqual([]);
-    expect(keysForSelection(sel({ kinds: [] }))).toEqual([]);
+    expect(keysForSelection(sel({ parts: [] }))).toEqual([]);
   });
 });
 
@@ -92,17 +85,14 @@ describe("partitionBundle", () => {
     expect(outside[OWNERSHIP]).toEqual({ [DC_FINEST_VOLUME_ID]: "ordered" });
   });
 
-  it("leaves stores the data-type axis excludes wholly outside the selection", () => {
+  it("leaves stores a selection doesn't name wholly outside it", () => {
     const bundle: StoreBundle = {
       [LINE_OVERRIDES]: { [ULTIMATE_LINE_ID]: "deleted" },
       [OWNERSHIP]: { [ULTIMATE_VOLUME_ID]: "shelved" },
       [READING]: { [ULTIMATE_VOLUME_ID]: "finished" },
     };
 
-    const { inside, outside } = partitionBundle(
-      bundle,
-      sel({ scopes: ["main"], kinds: ["edits"] })
-    );
+    const { inside, outside } = partitionBundle(bundle, sel({ parts: ["edits"] }));
 
     expect(inside[LINE_OVERRIDES]).toEqual({ [ULTIMATE_LINE_ID]: "deleted" });
     // Ownership and reading progress weren't asked for, so they aren't in
@@ -120,7 +110,10 @@ describe("partitionBundle", () => {
       },
     };
 
-    const { inside, outside } = partitionBundle(bundle, sel({ scopes: ["speculative"] }));
+    const { inside, outside } = partitionBundle(
+      bundle,
+      sel({ parts: ["speculativeEdits", "speculativeNotes"] })
+    );
 
     expect(inside[SPEC_LINES]).toHaveProperty("ultimate-custom");
     expect(inside).not.toHaveProperty(LINE_OVERRIDES);
@@ -178,10 +171,10 @@ describe("partitionBundle", () => {
     expect(outside[SPEC_VOLUMES]).toHaveProperty("note-on-dc");
   });
 
-  // The reason the data-type axis has to be applied per record rather than
-  // per store: notes and speculative volumes share one store, so these two
-  // selections have to be able to split it between them.
-  it("separates notes from speculative volumes within their shared store", () => {
+  // The reason a part has to be applied per record rather than per store:
+  // notes and speculative volumes share one store, so these two selections
+  // have to be able to split it between them.
+  it("separates speculativeNotes from speculativeEdits within their shared store", () => {
     const bundle: StoreBundle = {
       [SPEC_LINES]: {
         "ultimate-custom": { id: "ultimate-custom", collectionId: "ultimate", name: "Custom" },
@@ -193,15 +186,16 @@ describe("partitionBundle", () => {
       },
     };
 
-    const notesOnly = partitionBundle(bundle, sel({ scopes: ["speculative"], kinds: ["notes"] }));
+    const notesOnly = partitionBundle(bundle, sel({ parts: ["speculativeNotes"] }));
     expect(notesOnly.inside[SPEC_VOLUMES]).toEqual({
       "spec-note": { kind: "note", id: "spec-note", lineId: "ultimate-custom" },
     });
-    // The lines store isn't reachable from "notes" at all, so it stays put.
+    // The lines store isn't reachable from speculativeNotes at all, so it
+    // stays put.
     expect(notesOnly.inside).not.toHaveProperty(SPEC_LINES);
     expect(notesOnly.outside[SPEC_LINES]).toHaveProperty("ultimate-custom");
 
-    const entriesOnly = partitionBundle(bundle, sel({ scopes: ["speculative"], kinds: ["edits"] }));
+    const entriesOnly = partitionBundle(bundle, sel({ parts: ["speculativeEdits"] }));
     expect(Object.keys(entriesOnly.inside[SPEC_VOLUMES]!).sort()).toEqual(["spec-gap", "spec-vol"]);
     expect(entriesOnly.inside[SPEC_LINES]).toHaveProperty("ultimate-custom");
     expect(entriesOnly.outside[SPEC_VOLUMES]).toEqual({
@@ -312,7 +306,7 @@ describe("withReferencedLines", () => {
         "spec-vol": { kind: "volume", id: "spec-vol", lineId: "ultimate-custom" },
       },
     };
-    const notesOnly = partitionBundle(source, sel({ scopes: ["speculative"], kinds: ["notes"] }));
+    const notesOnly = partitionBundle(source, sel({ parts: ["speculativeNotes"] }));
     expect(notesOnly.inside).not.toHaveProperty(SPEC_LINES);
 
     const carried = withReferencedLines(notesOnly.inside, source);
@@ -341,10 +335,7 @@ describe("withReferencedLines", () => {
       [SPEC_LINES]: { "ultimate-custom": CUSTOM_LINE },
       [SPEC_VOLUMES]: { note: { kind: "note", id: "note", lineId: "ultimate-custom" } },
     };
-    const { inside, outside } = partitionBundle(
-      source,
-      sel({ scopes: ["speculative"], kinds: ["notes"] })
-    );
+    const { inside, outside } = partitionBundle(source, sel({ parts: ["speculativeNotes"] }));
     const before = JSON.stringify(outside);
 
     withReferencedLines(inside, source);
@@ -358,7 +349,7 @@ describe("withReferencedLines", () => {
 });
 
 describe("countBySlice", () => {
-  it("tallies every axis, counting notes as their own data kind", () => {
+  it("tallies collection and part at once, counting notes as their own part", () => {
     const bundle: StoreBundle = {
       [LINE_OVERRIDES]: { [ULTIMATE_LINE_ID]: "deleted", [DC_FINEST_LINE_ID]: "deleted" },
       [OWNERSHIP]: { [ULTIMATE_VOLUME_ID]: "shelved" },
@@ -375,9 +366,16 @@ describe("countBySlice", () => {
 
     expect(counts.total).toBe(6);
     expect(counts.byCollection).toEqual({ ultimate: 4, "dc-finest": 1 });
-    expect(counts.byScope).toEqual({ main: 3, speculative: 3 });
-    // 2 line overrides + 1 speculative line + the untellable tombstone.
-    expect(counts.byKind).toEqual({ edits: 4, notes: 1, ownership: 1, reading: 0, rating: 0 });
+    // 2 main-timeline line overrides, 1 speculative line + the untellable
+    // tombstone (both filed under speculativeEdits), 1 note.
+    expect(counts.byPart).toEqual({
+      edits: 2,
+      ownership: 1,
+      reading: 0,
+      rating: 0,
+      speculativeEdits: 2,
+      speculativeNotes: 1,
+    });
     expect(counts.unresolved).toBe(1);
   });
 });

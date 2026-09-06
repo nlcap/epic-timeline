@@ -14,10 +14,10 @@ import { EXPORT_FORMAT_VERSION, EXPORT_KEYS, EXPORT_META_KEY } from "./overrideK
  * selection.
  *
  * Shared by the two dialogs that hand data out, which differ only in how
- * the selection is arrived at: ExportDataButton lets the reader pick all
- * three axes, while CopyCorrectionsButton pins them to one fixed slice.
- * Both produce the same format, so a corrections copy is still a valid
- * import file rather than a second, subtly different shape.
+ * the selection is arrived at: ExportDataButton always passes
+ * fullSelection(), while CopyCorrectionsButton pins one fixed narrow
+ * slice. Both produce the same format, so a corrections copy is still a
+ * valid import file rather than a second, subtly different shape.
  *
  * Deliberately doesn't strip icons or add the Sandbox tab's own extras --
  * both are the caller's business (only the full export carries the extras,
@@ -47,8 +47,7 @@ export function buildExportPayload(
       version: EXPORT_FORMAT_VERSION,
       exportedAt: new Date().toISOString(),
       collections: selection.collectionIds,
-      scopes: selection.scopes,
-      kinds: selection.kinds,
+      parts: selection.parts,
     },
   };
   for (const key of EXPORT_KEYS) {

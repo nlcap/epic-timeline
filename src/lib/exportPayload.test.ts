@@ -36,8 +36,7 @@ const BUNDLE: StoreBundle = {
 /** The slice CopyCorrectionsButton pins -- see correctionsSelection there. */
 const corrections: Selection = {
   collectionIds: ["ultimate"],
-  scopes: ["main"],
-  kinds: ["edits"],
+  parts: ["edits"],
 };
 
 describe("buildExportPayload", () => {
@@ -73,8 +72,7 @@ describe("buildExportPayload", () => {
     expect(payload.__meta).toMatchObject({
       version: 1,
       collections: ["ultimate"],
-      scopes: ["main"],
-      kinds: ["edits"],
+      parts: ["edits"],
     });
   });
 
