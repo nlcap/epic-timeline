@@ -1,9 +1,9 @@
 import type { Collection } from "../types";
 
 // The top-level pages from the original spec, plus "custom" (see below).
-// "marvel-licensed-epic" has no dataset compiled yet and renders an empty
-// state -- the rest (classic-marvel-epic, dc-finest, modern-marvel-epic,
-// ultimate) are seeded.
+// All five of the others are seeded now -- see COLLECTION_DATA, which is
+// the one place that actually decides, and renders an empty state for any
+// id it has no dataset for.
 export const COLLECTIONS: Collection[] = [
   {
     id: "classic-marvel-epic",

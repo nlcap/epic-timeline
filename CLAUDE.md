@@ -26,7 +26,7 @@ separate `data` entry if the backfill itself is a second, independently
 newsworthy effort.
 
 **Don't add an entry for**, since the modal filters these out of the public
-view on purpose (see `HIDDEN_KINDS` in `UpdatesModal.tsx`):
+view on purpose (see `HIDDEN_KINDS` in `src/data/updates.ts`):
 
 - Bug fixes (`kind: "fixed"`)
 - Refactors, tests, tooling, CI, dead-code removal -- anything with no
