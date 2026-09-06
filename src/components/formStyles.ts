@@ -25,6 +25,6 @@ export const FIELD_PLACEHOLDER = "placeholder:text-neutral-600";
 export const FIELD_DISABLED = "disabled:opacity-40";
 
 /** Drops the native select arrow and leaves room for the ChevronDownIcon
- * the drawers overlay instead -- see the `relative` wrappers at those call
- * sites. */
+ * overlaid on top -- see SelectField, which owns that positioning wrapper
+ * and is what every select in the app goes through. */
 export const SELECT = "appearance-none pr-8";

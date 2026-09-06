@@ -35,74 +35,77 @@ import { BUTTON_PRIMARY_LIGHT, BUTTON_SECONDARY } from "./buttonStyles";
 
 type ImportMode = "replace" | "merge";
 
-/** Parses text as JSON and pulls out whichever EXPORT_KEYS it recognizes.
- * Returns null for anything that isn't a usable export (bad JSON, an
- * object with none of the keys this app knows about, etc). Any other
- * top-level key -- notably the "__meta" block newer exports carry -- is
- * ignored here, which is what keeps the format readable in both
- * directions. Strips icon image data too, covering exports made before
- * that stripping existed on the way out, so old export files can't
- * reintroduce broken icons. */
-function parseExportPayload(text: string): StoreBundle | null {
+/** A keyed map of records, or null for anything that can't be one -- a
+ * primitive, an array, or an absent key. Both the sliceable stores and the
+ * two whole-blob payload keys have to pass this before anything trusts
+ * them into localStorage. */
+function asRecordMap(value: unknown): Record<string, unknown> | null {
+  return typeof value === "object" && value !== null && !Array.isArray(value)
+    ? (value as Record<string, unknown>)
+    : null;
+}
+
+/** Everything an import file can carry. Each piece is independently
+ * optional: a Sandbox tab configured but never populated exports a config
+ * and no stores, and a file sharing only a saved-sandbox library has
+ * neither. */
+interface ParsedImport {
+  /** The sliceable stores, icon data stripped -- see below. */
+  bundle: StoreBundle | null;
+  /** The Sandbox tab's own configuration: a single blob rather than a
+   * sliceable store, so it's read straight off the payload rather than
+   * through the bundle machinery (see CUSTOM_COLLECTION_CONFIG_KEY). */
+  customConfig: Record<string, unknown> | null;
+  /** The user's library of saved Sandbox timelines -- itself a whole
+   * Record<id, SandboxSnapshot> rather than one blob (see
+   * SANDBOX_SNAPSHOTS_KEY). */
+  sandboxSnapshots: Record<string, SandboxSnapshot> | null;
+}
+
+/**
+ * Reads an export file once and pulls out all three of the things it can
+ * carry. Returns null only when the text isn't a JSON object at all --
+ * individual pieces come back null when the file simply predates them,
+ * which is every export made before each was added, hence no error.
+ *
+ * One parse, not three: this used to be three functions each calling
+ * JSON.parse on the same (potentially multi-megabyte) text, with the two
+ * later ones silently swallowing a syntax error on the grounds that the
+ * first had already reported it.
+ *
+ * Any top-level key not named here -- notably the "__meta" block newer
+ * exports carry -- is ignored, which is what keeps the format readable in
+ * both directions. Icon image data is stripped on the way in as well as
+ * out, so files written before the export side stripped it can't
+ * reintroduce broken icons.
+ */
+function parseImportFile(text: string): ParsedImport | null {
   let parsed: unknown;
   try {
     parsed = JSON.parse(text);
   } catch {
     return null;
   }
-  if (typeof parsed !== "object" || parsed === null) return null;
+  const root = asRecordMap(parsed);
+  if (!root) return null;
 
   const bundle: StoreBundle = {};
   for (const key of EXPORT_KEYS) {
-    const store = (parsed as Record<string, unknown>)[key];
-    // A store has to be a map of records to be sliceable at all -- a key
-    // present but holding a string or an array is treated as absent
-    // rather than trusted into localStorage.
-    if (typeof store === "object" && store !== null && !Array.isArray(store)) {
-      bundle[key] = store as Record<string, unknown>;
-    }
+    const store = asRecordMap(root[key]);
+    if (store) bundle[key] = store;
   }
-  return Object.keys(bundle).length > 0 ? stripIconsFromPayload(bundle) : null;
-}
 
-/** The Sandbox tab's own configuration, if the file carries one -- a
- * single blob rather than a sliceable store, so it's read straight off the
- * payload rather than through the bundle machinery (see
- * CUSTOM_COLLECTION_CONFIG_KEY). Returns null for a file predating its
- * inclusion, which is every export made before it, hence no error. */
-function parseCustomConfig(text: string): Record<string, unknown> | null {
-  try {
-    const parsed = JSON.parse(text) as Record<string, unknown>;
-    const config = parsed?.[CUSTOM_COLLECTION_CONFIG_KEY];
-    if (typeof config === "object" && config !== null && !Array.isArray(config)) {
-      return config as Record<string, unknown>;
-    }
-  } catch {
-    // Bad JSON is already reported by parseExportPayload above.
-  }
-  return null;
-}
+  const snapshots = asRecordMap(root[SANDBOX_SNAPSHOTS_KEY]);
 
-/** The user's library of saved Sandbox timelines, if the file carries one
- * -- itself a whole Record<id, SandboxSnapshot>, not a single blob, so
- * unlike parseCustomConfig this hands back the whole map rather than one
- * config (see SANDBOX_SNAPSHOTS_KEY). Returns null for a file predating its
- * inclusion, which is every export made before it, hence no error. */
-function parseSandboxSnapshots(text: string): Record<string, SandboxSnapshot> | null {
-  try {
-    const parsed = JSON.parse(text) as Record<string, unknown>;
-    const snapshots = parsed?.[SANDBOX_SNAPSHOTS_KEY];
-    if (typeof snapshots === "object" && snapshots !== null && !Array.isArray(snapshots)) {
-      // Stripped on the way in as well as out, for the same reason
-      // parseExportPayload does it above: files written before the export
-      // side stripped these still carry icons, and shouldn't be able to
-      // reintroduce them.
-      return stripIconsFromSnapshots(snapshots as Record<string, SandboxSnapshot>);
-    }
-  } catch {
-    // Bad JSON is already reported by parseExportPayload above.
-  }
-  return null;
+  return {
+    bundle: Object.keys(bundle).length > 0 ? stripIconsFromPayload(bundle) : null,
+    customConfig: asRecordMap(root[CUSTOM_COLLECTION_CONFIG_KEY]),
+    // Stripped a level deeper than the stores above: each snapshot carries
+    // its own nested bundle, which stripIconsFromPayload can't see into.
+    sandboxSnapshots: snapshots
+      ? stripIconsFromSnapshots(snapshots as Record<string, SandboxSnapshot>)
+      : null,
+  };
 }
 
 /** Everything the file actually holds, checked and ready to import --
@@ -205,18 +208,17 @@ export function ImportDataButton({ open, onClose }: { open: boolean; onClose: ()
   }, [source, selection, localBundle]);
 
   const beginReview = (label: string, text: string) => {
-    const bundle = parseExportPayload(text);
+    const parsed = parseImportFile(text);
     // A Sandbox tab that's been configured but has no lines yet exports a
     // file with the configuration and nothing else, and a file sharing
     // just a saved-sandbox library has neither -- so a missing bundle
     // alone isn't grounds to reject it, only a file carrying none of the
     // three.
-    const customConfig = parseCustomConfig(text);
-    const sandboxSnapshots = parseSandboxSnapshots(text);
-    if (!bundle && !customConfig && !sandboxSnapshots) {
+    if (!parsed || (!parsed.bundle && !parsed.customConfig && !parsed.sandboxSnapshots)) {
       setError("That file doesn't look like an Epic Timeline export -- no recognized keys found.");
       return;
     }
+    const { bundle, customConfig, sandboxSnapshots } = parsed;
     const resolved = bundle ?? {};
     setSource({ label, bundle: resolved, customConfig, sandboxSnapshots });
     const counts = selectionFromCounts(countBySlice(resolved, localBundle));
@@ -399,7 +401,7 @@ export function ImportDataButton({ open, onClose }: { open: boolean; onClose: ()
             <button
               type="button"
               onClick={handleConfirmImport}
-              className="flex-1 rounded-md border border-neutral-700 bg-neutral-100 px-4 py-2 text-sm font-semibold text-neutral-900 hover:bg-white"
+              className={`flex-1 ${BUTTON_PRIMARY_LIGHT}`}
             >
               Import &amp; reload
             </button>

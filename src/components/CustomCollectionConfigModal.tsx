@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useState, type ChangeEvent } from "react";
+import { useEffect, useState, type ChangeEvent } from "react";
 import type { Collection } from "../types";
 import type { CustomCollectionConfig } from "../hooks/useCustomCollectionConfig";
 import type { CustomEraDef } from "../lib/era";
@@ -26,6 +26,8 @@ import {
 } from "../lib/sandboxSnapshots";
 import { SettingsModal } from "./SettingsModal";
 import { UnsavedChangesModal } from "./UnsavedChangesModal";
+import { useDirtyTracker } from "../hooks/useDirtyTracker";
+import { useUnsavedChangesGuard } from "../hooks/useUnsavedChangesGuard";
 import {
   BUTTON_DESTRUCTIVE,
   BUTTON_DESTRUCTIVE_GHOST,
@@ -184,7 +186,7 @@ export function CustomCollectionConfigModal({
   // (14 fields, including a whole hand-authored era list) wanted more than
   // either of them. `eras` compares by value: it's an array of objects
   // rebuilt on every edit, so identity always differs.
-  const initialSnapshot = useRef({
+  const isDirty = useDirtyTracker({
     title,
     fontId,
     fontWeight,
@@ -197,44 +199,11 @@ export function CustomCollectionConfigModal({
     logoUrl,
     erasEnabled,
     swimLanesEnabled,
-    eras: JSON.stringify(eras),
-    eraOpacity,
-  });
-  const isDirty = useMemo(() => {
-    const s = initialSnapshot.current;
-    return (
-      title !== s.title ||
-      fontId !== s.fontId ||
-      fontWeight !== s.fontWeight ||
-      fontItalic !== s.fontItalic ||
-      hex !== s.hex ||
-      titleOpacity !== s.titleOpacity ||
-      ruleHex !== s.ruleHex ||
-      ruleOpacity !== s.ruleOpacity ||
-      ruleThicknessPx !== s.ruleThicknessPx ||
-      logoUrl !== s.logoUrl ||
-      erasEnabled !== s.erasEnabled ||
-      swimLanesEnabled !== s.swimLanesEnabled ||
-      JSON.stringify(eras) !== s.eras ||
-      eraOpacity !== s.eraOpacity
-    );
-  }, [
-    title,
-    fontId,
-    fontWeight,
-    fontItalic,
-    hex,
-    titleOpacity,
-    ruleHex,
-    ruleOpacity,
-    ruleThicknessPx,
-    logoUrl,
-    erasEnabled,
-    swimLanesEnabled,
+    // Compared by value there rather than pre-serialized here -- it's an
+    // array of objects rebuilt on every edit, so identity always differs.
     eras,
     eraOpacity,
-  ]);
-  const [showUnsavedPrompt, setShowUnsavedPrompt] = useState(false);
+  });
 
   // SettingsModal routes the backdrop click, Close ✕ and Escape all through
   // its single onClose, so intercepting there covers all three at once --
@@ -250,11 +219,11 @@ export function CustomCollectionConfigModal({
   // for the same keypress. Ignoring it here lets the prompt's own
   // "keep editing" win, leaving this form open underneath, rather than the
   // two racing to interpret one Escape.
-  const requestClose = () => {
-    if (showUnsavedPrompt) return;
-    if (isDirty) setShowUnsavedPrompt(true);
-    else onClose();
-  };
+  const { prompting, requestClose, dismissPrompt, discardAndClose } = useUnsavedChangesGuard({
+    active: isDirty,
+    close: onClose,
+    ownsEscape: false,
+  });
 
   // Builds the same "only the fields that differ from default" patch both
   // the form's own Save (below) and "Save to library" (in the saved-
@@ -945,12 +914,12 @@ export function CustomCollectionConfigModal({
         </div>
       </div>
     </SettingsModal>
-    {showUnsavedPrompt && (
+    {prompting && (
       <UnsavedChangesModal
         entityLabel="timeline configuration"
         onSave={handleSave}
-        onDiscard={onClose}
-        onKeepEditing={() => setShowUnsavedPrompt(false)}
+        onDiscard={discardAndClose}
+        onKeepEditing={dismissPrompt}
       />
     )}
     </>

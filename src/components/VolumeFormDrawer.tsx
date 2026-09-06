@@ -1,12 +1,20 @@
-import { useEffect, useMemo, useRef, useState, type ChangeEvent, type FormEvent } from "react";
+import { useEffect, useRef, useState, type ChangeEvent, type FormEvent } from "react";
 import type { Era, OwnershipStatus, Quarter, QuarterPoint, TimelineEntry } from "../types";
 import { OWNERSHIP_META, OWNERSHIP_ORDER } from "../lib/ownership";
 import { eraOptionForQuarterPoint, type EraOption } from "../lib/era";
-import { MONTH_NAMES, quarterIndex, quarterPointFromIndex, yearsCoveredLabel } from "../lib/timeline";
+import {
+  isValidYear,
+  MONTH_NAMES,
+  quarterIndex,
+  quarterPointFromIndex,
+  yearsCoveredLabel,
+} from "../lib/timeline";
 import { compressImageFile, getPastedImageFile } from "../lib/imageCompression";
+import { newId } from "../lib/ids";
 import { useSlidePanel } from "../hooks/useSlidePanel";
-import { useEscapeToClose } from "../hooks/useEscapeToClose";
 import { useCommitShortcut } from "../hooks/useCommitShortcut";
+import { useDirtyTracker } from "../hooks/useDirtyTracker";
+import { useUnsavedChangesGuard } from "../hooks/useUnsavedChangesGuard";
 import { useArmedConfirm } from "../hooks/useArmedConfirm";
 import { TrashIcon } from "./icons";
 import { FIELD, FIELD_PLACEHOLDER } from "./formStyles";
@@ -204,12 +212,9 @@ export function VolumeFormDrawer({
   const { visible, closeThen } = useSlidePanel();
   const formRef = useRef<HTMLFormElement>(null);
 
-  // Snapshot of every field's value as of the first render -- used below to
-  // detect unsaved edits so the drawer can prompt instead of silently
-  // discarding them. useRef's initializer expression re-runs every render
-  // (React just discards the result after mount), so this stays cheap and
-  // never needs its own effect to "capture once".
-  const initialSnapshot = useRef({
+  // One object, one list -- see useDirtyTracker for why this used to name
+  // every field three times over.
+  const isDirty = useDirtyTracker({
     coverUrl,
     title,
     era,
@@ -229,81 +234,15 @@ export function VolumeFormDrawer({
     notes,
     swimLanePosition,
   });
-  const isDirty = useMemo(() => {
-    const s = initialSnapshot.current;
-    return (
-      coverUrl !== s.coverUrl ||
-      title !== s.title ||
-      era !== s.era ||
-      number !== s.number ||
-      issuesCollected !== s.issuesCollected ||
-      startYear !== s.startYear ||
-      startQuarter !== s.startQuarter ||
-      endYear !== s.endYear ||
-      endQuarter !== s.endQuarter ||
-      ownershipStatus !== s.ownershipStatus ||
-      releaseYear !== s.releaseYear ||
-      releaseMonth !== s.releaseMonth ||
-      writers !== s.writers ||
-      pencillers !== s.pencillers ||
-      inkers !== s.inkers ||
-      description !== s.description ||
-      notes !== s.notes ||
-      swimLanePosition !== s.swimLanePosition
-    );
-  }, [
-    coverUrl,
-    title,
-    era,
-    number,
-    issuesCollected,
-    startYear,
-    startQuarter,
-    endYear,
-    endQuarter,
-    ownershipStatus,
-    releaseYear,
-    releaseMonth,
-    writers,
-    pencillers,
-    inkers,
-    description,
-    notes,
-    swimLanePosition,
-  ]);
-  // Whether the unsaved-changes prompt (see UnsavedChangesModal) is up --
-  // only reachable in edit mode with unsaved edits, never for a fresh Add.
-  const [showUnsavedPrompt, setShowUnsavedPrompt] = useState(false);
 
-  // Backdrop click and Close ✕ (below) both route through this rather than
-  // calling closeThen(onClose) directly -- an editing drawer with unsaved
-  // edits opens the confirm prompt instead of discarding them outright. The
-  // explicit Cancel button deliberately skips this and keeps discarding
-  // immediately (see UnsavedChangesModal's own docblock for why).
-  const requestClose = () => {
-    if (isEditing && isDirty) setShowUnsavedPrompt(true);
-    else closeThen(onClose);
-  };
-
-  // Suppressed once there's something unsaved to lose, or once the prompt
-  // for it is already up -- Escape's own dirty-aware routing lives in the
-  // effect just below instead, since closeThen commits to the exit
-  // animation the instant it's called and there's no way to redirect that
-  // into "open a modal, leave the drawer alone" after the fact.
-  useEscapeToClose(closeThen, onClose, !(isEditing && isDirty) && !showUnsavedPrompt);
-
-  // The half of requestClose's dirty-aware routing useEscapeToClose above
-  // can't do on its own -- picked up only once there's something unsaved
-  // and no prompt already showing (both handled by useEscapeToClose itself
-  // once either flips).
-  useEffect(() => {
-    if (!isEditing || !isDirty || showUnsavedPrompt) return;
-    const onKeyDown = (e: KeyboardEvent) => {
-      if (e.key === "Escape") setShowUnsavedPrompt(true);
-    };
-    window.addEventListener("keydown", onKeyDown);
-    return () => window.removeEventListener("keydown", onKeyDown);
-  }, [isEditing, isDirty, showUnsavedPrompt]);
+  // Backdrop click, Close ✕ and Escape all route through this -- an editing
+  // drawer with unsaved edits opens the confirm prompt instead of
+  // discarding them outright. Only in edit mode: a half-filled *new* volume
+  // has nothing to restore to.
+  const { prompting, requestClose, dismissPrompt, discardAndClose } = useUnsavedChangesGuard({
+    active: isEditing && isDirty,
+    close: () => closeThen(onClose),
+  });
 
   // requestSubmit (not calling handleSubmit directly) so it goes through
   // the browser's normal submit path, including any native validation on
@@ -361,8 +300,10 @@ export function VolumeFormDrawer({
     const startYearNum = Number(startYear);
     const endYearNum = Number(endYear);
 
-    if (!Number.isInteger(startYearNum) || !Number.isInteger(endYearNum)) {
-      setError("Enter valid start and end years.");
+    // isValidYear, not a bare Number.isInteger check -- see its own doc
+    // comment in lib/timeline.ts for the blank-field trap that needs.
+    if (!isValidYear(startYearNum) || !isValidYear(endYearNum)) {
+      setError("Enter valid start and end years (1900-2100).");
       return;
     }
 
@@ -382,7 +323,7 @@ export function VolumeFormDrawer({
       closeThen(() =>
         onSave({
           kind: "gap",
-          id: editingEntry?.id ?? `${lineId}-gap-${Date.now().toString(36)}`,
+          id: editingEntry?.id ?? newId(`${lineId}-gap`),
           lineId,
           // Publishing gap vs. continuity-placeholder gap is a follow-up --
           // every gap added/edited here defaults to "publication" for now.
@@ -403,7 +344,7 @@ export function VolumeFormDrawer({
       closeThen(() =>
         onSave({
           kind: "note",
-          id: editingEntry?.id ?? `${lineId}-note-${Date.now().toString(36)}`,
+          id: editingEntry?.id ?? newId(`${lineId}-note`),
           lineId,
           title: trimmedNoteTitle,
           era: supportsEra ? era : undefined,
@@ -439,7 +380,7 @@ export function VolumeFormDrawer({
 
     const releaseYearNum = Number(releaseYear);
     const hasReleaseDate = releaseYear.trim() !== "";
-    if (hasReleaseDate && (!Number.isInteger(releaseYearNum) || releaseYearNum < 1900 || releaseYearNum > 2100)) {
+    if (hasReleaseDate && !isValidYear(releaseYearNum)) {
       setError("Enter a valid release year, or leave it blank.");
       return;
     }
@@ -447,7 +388,7 @@ export function VolumeFormDrawer({
     closeThen(() =>
       onSave({
         kind: "volume",
-        id: editingEntry?.id ?? `${lineId}-vol-${Date.now().toString(36)}`,
+        id: editingEntry?.id ?? newId(`${lineId}-vol`),
         lineId,
         number: trimmedNumber,
         era: supportsEra ? era : undefined,
@@ -587,17 +528,17 @@ export function VolumeFormDrawer({
               <div className="mt-4 flex gap-3">
                 <label className="block flex-1 text-sm font-medium text-neutral-300">
                   Era
-                  <select
+                  <SelectField
                     value={era}
                     onChange={(e) => setEra(e.target.value as Era)}
-                    className={`mt-1 w-full ${FIELD}`}
+                    wrapperClassName="mt-1"
                   >
                     {eraOptions.map((option) => (
                       <option key={option.id} value={option.id}>
                         {option.label}
                       </option>
                     ))}
-                  </select>
+                  </SelectField>
                 </label>
                 <label className="block w-24 text-sm font-medium text-neutral-300">
                   Number
@@ -646,17 +587,17 @@ export function VolumeFormDrawer({
               placeholder="Year"
               className={`w-full ${FIELD} ${FIELD_PLACEHOLDER}`}
             />
-            <select
+            <SelectField
               value={startQuarter}
               onChange={(e) => setStartQuarter(Number(e.target.value) as Quarter)}
-              className={`w-24 ${FIELD}`}
+              wrapperClassName="w-24 shrink-0"
             >
               {QUARTERS.map((q) => (
                 <option key={q} value={q}>
                   Q{q}
                 </option>
               ))}
-            </select>
+            </SelectField>
           </div>
         </fieldset>
 
@@ -670,17 +611,17 @@ export function VolumeFormDrawer({
               placeholder="Year"
               className={`w-full ${FIELD} ${FIELD_PLACEHOLDER}`}
             />
-            <select
+            <SelectField
               value={endQuarter}
               onChange={(e) => setEndQuarter(Number(e.target.value) as Quarter)}
-              className={`w-24 ${FIELD}`}
+              wrapperClassName="w-24 shrink-0"
             >
               {QUARTERS.map((q) => (
                 <option key={q} value={q}>
                   Q{q}
                 </option>
               ))}
-            </select>
+            </SelectField>
           </div>
         </fieldset>
 
@@ -689,11 +630,6 @@ export function VolumeFormDrawer({
             {!speculative && (
               <label className="mt-4 block text-sm font-medium text-neutral-300">
                 Shelf status
-                {/* appearance-none + a manual chevron -- an unstyled <select>
-                 * relies on the OS's native control chrome, which some
-                 * browsers (Safari in particular) size to the selected
-                 * option's text instead of filling the box the way a plain
-                 * <input> does. */}
                 <SelectField
                   value={ownershipStatus}
                   onChange={(e) => setOwnershipStatus(e.target.value as OwnershipStatus)}
@@ -740,11 +676,6 @@ export function VolumeFormDrawer({
                 stories originally ran. Leave the year blank if unknown.
               </p>
               <div className="mt-1 flex gap-3">
-                {/* appearance-none + a manual chevron -- an unstyled <select>
-                 * relies on the OS's native control chrome, which some
-                 * browsers (Safari in particular) size to the selected
-                 * option's text instead of filling the box the way a plain
-                 * <input> does. */}
                 <SelectField
                   value={releaseMonth}
                   onChange={(e) => setReleaseMonth(e.target.value)}
@@ -900,18 +831,15 @@ export function VolumeFormDrawer({
       </div>
       </form>
     </div>
-    {showUnsavedPrompt && (
+    {prompting && (
       <UnsavedChangesModal
         entityLabel={entryNoun.toLowerCase()}
         onSave={() => {
-          setShowUnsavedPrompt(false);
+          dismissPrompt();
           formRef.current?.requestSubmit();
         }}
-        onDiscard={() => {
-          setShowUnsavedPrompt(false);
-          closeThen(onClose);
-        }}
-        onKeepEditing={() => setShowUnsavedPrompt(false)}
+        onDiscard={discardAndClose}
+        onKeepEditing={dismissPrompt}
       />
     )}
     </>

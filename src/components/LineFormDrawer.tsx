@@ -1,15 +1,17 @@
-import { useEffect, useMemo, useRef, useState, type ChangeEvent, type FormEvent } from "react";
+import { useEffect, useRef, useState, type ChangeEvent, type FormEvent } from "react";
 import type { Era, Line } from "../types";
 import { earliestEraWithIcon, type EraOption } from "../lib/era";
 import { getPastedImageFile, readFileAsDataUrl } from "../lib/imageCompression";
-import { MONTH_NAMES } from "../lib/timeline";
+import { newId } from "../lib/ids";
+import { isValidYear, MONTH_NAMES } from "../lib/timeline";
 import { LineIcon } from "./LineIcon";
 import { ImageCropModal } from "./ImageCropModal";
 import { TagInput } from "./TagInput";
 import { UnsavedChangesModal } from "./UnsavedChangesModal";
 import { useSlidePanel } from "../hooks/useSlidePanel";
-import { useEscapeToClose } from "../hooks/useEscapeToClose";
 import { useCommitShortcut } from "../hooks/useCommitShortcut";
+import { useDirtyTracker } from "../hooks/useDirtyTracker";
+import { useUnsavedChangesGuard } from "../hooks/useUnsavedChangesGuard";
 import { useArmedConfirm } from "../hooks/useArmedConfirm";
 import { PlusIcon, TrashIcon } from "./icons";
 import { FIELD, FIELD_DISABLED, FIELD_PLACEHOLDER } from "./formStyles";
@@ -152,12 +154,10 @@ export function LineFormDrawer({
   const [confirmingDelete, setConfirmingDelete] = useState(false);
   const { visible, closeThen } = useSlidePanel();
 
-  // Snapshot of every field's value as of the first render -- used below to
-  // detect unsaved edits so the drawer can prompt instead of silently
-  // discarding them. useRef's initializer expression re-runs every render
-  // (React just discards the result after mount), so this stays cheap and
-  // never needs its own effect to "capture once".
-  const initialSnapshot = useRef({
+  // One object, one list -- see useDirtyTracker. `eraIconUrls` and `tags`
+  // compare by value there, which is what the hand-written version was
+  // doing with JSON.stringify.
+  const isDirty = useDirtyTracker({
     name,
     iconUrl,
     eraIconUrls,
@@ -169,24 +169,6 @@ export function LineFormDrawer({
     description,
     tags,
   });
-  const isDirty = useMemo(() => {
-    const s = initialSnapshot.current;
-    return (
-      name !== s.name ||
-      iconUrl !== s.iconUrl ||
-      JSON.stringify(eraIconUrls) !== JSON.stringify(s.eraIconUrls) ||
-      defaultIconEra !== s.defaultIconEra ||
-      year !== s.year ||
-      month !== s.month ||
-      hex !== s.hex ||
-      swimLanes !== s.swimLanes ||
-      description !== s.description ||
-      JSON.stringify(tags) !== JSON.stringify(s.tags)
-    );
-  }, [name, iconUrl, eraIconUrls, defaultIconEra, year, month, hex, swimLanes, description, tags]);
-  // Whether the unsaved-changes prompt (see UnsavedChangesModal) is up --
-  // only reachable in edit mode with unsaved edits, never for a fresh Add.
-  const [showUnsavedPrompt, setShowUnsavedPrompt] = useState(false);
 
   // Focuses the title field when opening in edit mode, so Cmd+V works
   // immediately instead of needing a click into the drawer first.
@@ -217,40 +199,16 @@ export function LineFormDrawer({
 
   const formRef = useRef<HTMLFormElement>(null);
 
-  // Backdrop click and Close ✕ (below) both route through this rather than
-  // calling closeThen(onClose) directly -- an editing drawer with unsaved
-  // edits opens the confirm prompt instead of discarding them outright. The
-  // explicit Cancel button deliberately skips this and keeps discarding
-  // immediately (see UnsavedChangesModal's own docblock for why).
-  const requestClose = () => {
-    if (isEditing && isDirty) setShowUnsavedPrompt(true);
-    else closeThen(onClose);
-  };
-
-  // Suppressed while ImageCropModal is up top of this drawer -- otherwise
-  // Escape would skip past it and close the whole form (losing whatever's
-  // typed) instead of just cancelling the crop. Also suppressed once
-  // there's something unsaved to lose, or once the prompt for it is
-  // already up -- Escape's own dirty-aware routing lives in the effect
-  // just below instead, since closeThen commits to the exit animation the
-  // instant it's called and there's no way to redirect that into "open a
-  // modal, leave the drawer alone" after the fact.
-  useEscapeToClose(closeThen, onClose, !pendingCrop && !(isEditing && isDirty) && !showUnsavedPrompt);
-
-  // The half of requestClose's dirty-aware routing useEscapeToClose above
-  // can't do on its own -- picked up only once there's something unsaved
-  // and no prompt already showing (both handled by useEscapeToClose itself
-  // once either flips). Mirrors how pendingCrop's own Escape handling
-  // (ImageCropModal) already covers the crop-in-progress interstitial the
-  // same way.
-  useEffect(() => {
-    if (pendingCrop || !isEditing || !isDirty || showUnsavedPrompt) return;
-    const onKeyDown = (e: KeyboardEvent) => {
-      if (e.key === "Escape") setShowUnsavedPrompt(true);
-    };
-    window.addEventListener("keydown", onKeyDown);
-    return () => window.removeEventListener("keydown", onKeyDown);
-  }, [pendingCrop, isEditing, isDirty, showUnsavedPrompt]);
+  // Backdrop click, Close ✕ and Escape all route through this -- an editing
+  // drawer with unsaved edits opens the confirm prompt instead of
+  // discarding them outright. Stood down entirely while ImageCropModal is
+  // up over this drawer, so Escape cancels the crop rather than skipping
+  // past it to close the whole form and lose whatever's typed.
+  const { prompting, requestClose, dismissPrompt, discardAndClose } = useUnsavedChangesGuard({
+    active: isEditing && isDirty,
+    close: () => closeThen(onClose),
+    suppressed: !!pendingCrop,
+  });
 
   // requestSubmit (not calling handleSubmit directly) so it goes through
   // the browser's normal submit path.
@@ -341,7 +299,7 @@ export function LineFormDrawer({
       setError("Line title is required.");
       return;
     }
-    if (!Number.isInteger(yearNum) || yearNum < 1900 || yearNum > 2100) {
+    if (!isValidYear(yearNum)) {
       setError("Enter a valid debut year.");
       return;
     }
@@ -352,7 +310,7 @@ export function LineFormDrawer({
 
     closeThen(() =>
       onSave({
-        id: editingLine?.id ?? `${collectionId}-${slugify(trimmedName)}-${Date.now().toString(36)}`,
+        id: editingLine?.id ?? newId(`${collectionId}-${slugify(trimmedName)}`),
         collectionId,
         iconUrl: supportsEra ? undefined : iconUrl,
         eraIconUrls: supportsEra ? eraIconUrls : undefined,
@@ -516,10 +474,6 @@ export function LineFormDrawer({
         <div className="mt-4 flex gap-3">
           <label className="block flex-1 text-sm font-medium text-neutral-300">
             Debut month
-            {/* appearance-none + a manual chevron -- an unstyled <select>
-             * relies on the OS's native control chrome, which some browsers
-             * (Safari in particular) size to the selected option's text
-             * instead of filling the box the way a plain <input> does. */}
             <SelectField
               value={month}
               onChange={(e) => setMonth(e.target.value)}
@@ -692,18 +646,15 @@ export function LineFormDrawer({
         onCancel={() => setPendingCrop(null)}
       />
     )}
-    {showUnsavedPrompt && (
+    {prompting && (
       <UnsavedChangesModal
         entityLabel="line"
         onSave={() => {
-          setShowUnsavedPrompt(false);
+          dismissPrompt();
           formRef.current?.requestSubmit();
         }}
-        onDiscard={() => {
-          setShowUnsavedPrompt(false);
-          closeThen(onClose);
-        }}
-        onKeepEditing={() => setShowUnsavedPrompt(false)}
+        onDiscard={discardAndClose}
+        onKeepEditing={dismissPrompt}
       />
     )}
     </>
