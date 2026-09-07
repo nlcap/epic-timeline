@@ -14,7 +14,7 @@ import { EXPORT_FORMAT_VERSION, EXPORT_KEYS, EXPORT_META_KEY } from "./overrideK
  * selection.
  *
  * Shared by the two dialogs that hand data out, which differ only in how
- * the selection is arrived at: ExportDataButton always passes
+ * the selection is arrived at: ExportDataPanel always passes
  * fullSelection(), while CopyCorrectionsButton pins one fixed narrow
  * slice. Both produce the same format, so a corrections copy is still a
  * valid import file rather than a second, subtly different shape.

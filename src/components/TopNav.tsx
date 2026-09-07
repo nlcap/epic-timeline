@@ -3,9 +3,7 @@ import type { Collection } from "../types";
 import epicTimelineLogo from "../assets/logo_epic_timeline.svg";
 import { AboutModal } from "./AboutModal";
 import { CopyCorrectionsButton } from "./CopyCorrectionsButton";
-import { ExportDataButton } from "./ExportDataButton";
-import { ImportDataButton } from "./ImportDataButton";
-import { ResetLineDataButton } from "./ResetLineDataButton";
+import { ManageDataButton } from "./ManageDataButton";
 import { StorageDebugPanel } from "./StorageDebugPanel";
 import { UpdatesModal } from "./UpdatesModal";
 
@@ -316,10 +314,8 @@ export function TopNav({
 }) {
   const activeCollection = collections.find((c) => c.id === activeId);
   const [menuOpen, setMenuOpen] = useState(false);
-  const [exportOpen, setExportOpen] = useState(false);
+  const [manageDataOpen, setManageDataOpen] = useState(false);
   const [correctionsOpen, setCorrectionsOpen] = useState(false);
-  const [importOpen, setImportOpen] = useState(false);
-  const [resetOpen, setResetOpen] = useState(false);
   const [storageDebugOpen, setStorageDebugOpen] = useState(false);
   const [updatesOpen, setUpdatesOpen] = useState(false);
   const [aboutOpen, setAboutOpen] = useState(false);
@@ -328,8 +324,7 @@ export function TopNav({
   // they render it differently (dropdown rows vs. full-width menu rows) but
   // must always offer the same items in the same order.
   const settingsItems: SettingsItem[] = [
-    { label: "Export data", onOpen: () => setExportOpen(true) },
-    { label: "Import data", onOpen: () => setImportOpen(true) },
+    { label: "Manage data", onOpen: () => setManageDataOpen(true) },
     // Dev-only. Handing corrections back for a seed merge is part of
     // maintaining this app's shipped data, not something a reader has any
     // use for -- so unlike Storage debug (a diagnostic anyone hitting a
@@ -340,7 +335,6 @@ export function TopNav({
     ...(import.meta.env.DEV
       ? [{ label: "Copy corrections", onOpen: () => setCorrectionsOpen(true) }]
       : []),
-    { label: "Reset line data", onOpen: () => setResetOpen(true) },
     { label: "Storage debug", onOpen: () => setStorageDebugOpen(true) },
     { label: "Keyboard shortcuts", onOpen: onOpenShortcuts },
     {
@@ -508,7 +502,7 @@ export function TopNav({
         </div>
       )}
 
-      <ExportDataButton open={exportOpen} onClose={() => setExportOpen(false)} />
+      <ManageDataButton open={manageDataOpen} onClose={() => setManageDataOpen(false)} />
       {/* Dev-only, see settingsItems above. Scoped to whichever tab is
        * open, so it needs the active collection rather than the whole list
        * -- see correctionsSelection. */}
@@ -519,8 +513,6 @@ export function TopNav({
           collection={activeCollection}
         />
       )}
-      <ImportDataButton open={importOpen} onClose={() => setImportOpen(false)} />
-      <ResetLineDataButton open={resetOpen} onClose={() => setResetOpen(false)} />
       <StorageDebugPanel open={storageDebugOpen} onClose={() => setStorageDebugOpen(false)} />
       <UpdatesModal open={updatesOpen} onClose={() => setUpdatesOpen(false)} />
       <AboutModal open={aboutOpen} onClose={() => setAboutOpen(false)} />

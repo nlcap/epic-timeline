@@ -287,7 +287,7 @@ export function CustomCollectionConfigModal({
   } = useArmedConfirm(4000);
 
   // Typing over a just-shown "Saved!" makes it stale -- same "reset on the
-  // next relevant change" idiom ExportDataButton/StorageDebugPanel use for
+  // next relevant change" idiom ExportDataPanel/StorageDebugPanel use for
   // their own copyState, rather than a timer.
   useEffect(() => setSaveState("idle"), [snapshotName]);
 
@@ -311,7 +311,7 @@ export function CustomCollectionConfigModal({
     if (result !== "ok") {
       // Deliberately no reload -- see SandboxApplyResult. Reloading on a
       // half-applied write would present the wreckage as the finished
-      // result, which is what ImportDataButton's own guard avoids too.
+      // result, which is what ImportDataPanel's own guard avoids too.
       setApplyError(APPLY_ERRORS[result]);
       setPendingSwitch(null);
       setSnapshots(listSandboxSnapshots());

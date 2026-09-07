@@ -4,14 +4,13 @@ import { useOverlay } from "../hooks/useOverlay";
 
 /**
  * Shared portal + backdrop + centered-card shell behind every settings-menu
- * dialog (ExportDataButton/ImportDataButton/ResetLineDataButton/
- * StorageDebugPanel) -- each independently reimplemented this same
- * structure: a fixed full-screen backdrop that closes on click, a centered
- * scrolling wrapper so a tall card scrolls the page instead of overflowing
- * it, the card itself with a stopPropagation click guard so clicking inside
- * doesn't close it, and a title + Close ✕ header row. Callers own only
- * what's actually specific to them -- the body content between the header
- * and the card's own bottom edge.
+ * dialog (ManageDataButton/StorageDebugPanel) -- each independently
+ * reimplemented this same structure: a fixed full-screen backdrop that
+ * closes on click, a centered scrolling wrapper so a tall card scrolls the
+ * page instead of overflowing it, the card itself with a stopPropagation
+ * click guard so clicking inside doesn't close it, and a title + Close ✕
+ * header row. Callers own only what's actually specific to them -- the
+ * body content between the header and the card's own bottom edge.
  *
  * Callers gate mounting themselves (`if (!open) return null;`) before
  * rendering this; it doesn't take an `open` prop of its own.

@@ -30,7 +30,7 @@ import type { CustomCollectionConfig } from "../hooks/useCustomCollectionConfig"
  * per-line/per-volume record the collection/scope/kind axes could slice
  * further. It still travels in an export as its own top-level payload key,
  * whenever the Sandbox tab is part of the selection (see
- * ExportDataButton/ImportDataButton), and always merges by id on the way
+ * ExportDataPanel/ImportDataPanel), and always merges by id on the way
  * back in regardless of import mode -- see mergeSandboxSnapshots.
  */
 export const SANDBOX_SNAPSHOTS_KEY = "epic-timeline:sandbox-snapshots";
@@ -56,7 +56,7 @@ export type SandboxSnapshot = {
  * a loop, and a quota failure part-way through leaves the tab half-applied
  * with no way to roll back (localStorage has no transaction). Callers must
  * not reload as though it worked -- same reasoning, and the same answer, as
- * ImportDataButton's own part-way-through guard.
+ * ImportDataPanel's own part-way-through guard.
  */
 export type SandboxApplyResult = "ok" | "not-found" | "partial";
 
@@ -168,7 +168,7 @@ export function stripIconsFromSnapshots(
 
 /** Merges an imported library of snapshots into the local one, the
  * incoming copy winning only on an id collision -- called from
- * ImportDataButton, which always merges this key regardless of which
+ * ImportDataPanel, which always merges this key regardless of which
  * import mode ("replace"/"merge") the user picked for the rest of the
  * file. That toggle governs the *live* Sandbox tab's content; applying
  * "replace" here too would silently delete every other saved sandbox in
@@ -185,7 +185,7 @@ export function mergeSandboxSnapshots(incoming: Record<string, SandboxSnapshot>)
  *
  * The override stores this writes to are only ever read once, at mount
  * (see useOverrideStore) -- on "ok" the caller must reload the page for the
- * change to actually show up, same as ImportDataButton/ResetLineDataButton.
+ * change to actually show up, same as ImportDataPanel/ResetLineDataPanel.
  * On "partial" it must *not*: see SandboxApplyResult.
  */
 export function loadSandboxSnapshot(id: string): SandboxApplyResult {

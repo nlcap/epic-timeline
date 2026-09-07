@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useMemo, useRef, useState } from "react";
 import { COLLECTIONS } from "../data/collections";
 import {
   ALL_PARTS,
@@ -30,7 +30,6 @@ import {
 import { safeSetItem } from "../lib/storage";
 import { DataSelectionPicker } from "./DataSelectionPicker";
 import { RadioRow } from "./RadioRow";
-import { SettingsModal } from "./SettingsModal";
 import { BUTTON_PRIMARY_LIGHT, BUTTON_SECONDARY } from "./buttonStyles";
 
 type ImportMode = "replace" | "merge";
@@ -127,7 +126,7 @@ function selectionDescription(selection: Selection): string {
 }
 
 /**
- * Counterpart to ExportDataButton. Two ways in -- paste a previously
+ * Counterpart to ExportDataPanel. Two ways in -- paste a previously
  * exported JSON blob into the textarea, or upload an exported file -- both
  * of which land on the same review step: the two-axis picker (see
  * DataSelectionPicker), showing how many records the file holds for each
@@ -148,10 +147,15 @@ function selectionDescription(selection: Selection): string {
  * useSpeculativeLines, useSpeculativeVolumes) to re-read from
  * localStorage, since they only load on mount.
  *
- * Controlled by `open`/`onClose` -- the trigger lives in the nav's gear
- * dropdown, so this component only renders the modal itself.
+ * One tab of ManageDataButton's Export/Import/Reset modal -- it only mounts
+ * while its tab is selected, which is what gives every visit a clean start
+ * (the `reset` below only has to handle backing out of a file mid-review,
+ * not a fresh open, since a fresh mount already starts every field at its
+ * initial value). No onClose either: unlike Reset's own Cancel button,
+ * nothing in this flow dismisses the modal itself -- that's the shared
+ * header's job.
  */
-export function ImportDataButton({ open, onClose }: { open: boolean; onClose: () => void }) {
+export function ImportDataPanel() {
   const fileInputRef = useRef<HTMLInputElement>(null);
   const [pasteText, setPasteText] = useState("");
   const [source, setSource] = useState<{
@@ -174,18 +178,13 @@ export function ImportDataButton({ open, onClose }: { open: boolean; onClose: ()
     setError("");
   };
 
-  useEffect(() => {
-    if (!open) return;
-    reset();
-  }, [open]);
-
   // An import file needn't be self-contained -- a notes-only export holds
   // notes but not the custom speculative lines they hang off. Passing the
   // local stores as resolution context lets those records still be placed
   // in the right collection instead of being quietly skipped. Snapshotted
-  // once per opening, since nothing writes to localStorage while the dialog
+  // once per mount, since nothing writes to localStorage while the dialog
   // is up.
-  const localBundle = useMemo(() => (open ? readBundleFromStorage() : {}), [open]);
+  const localBundle = useMemo(() => readBundleFromStorage(), []);
 
   const counts = useMemo(
     () => (source ? countBySlice(source.bundle, localBundle) : null),
@@ -320,8 +319,6 @@ export function ImportDataButton({ open, onClose }: { open: boolean; onClose: ()
     window.location.reload();
   };
 
-  if (!open) return null;
-
   // Neither the Sandbox tab's configuration nor its saved-sandbox library
   // is a record, so neither shows up in the counts below -- but either is
   // still something to import. A file holding just one of them (a
@@ -350,7 +347,11 @@ export function ImportDataButton({ open, onClose }: { open: boolean; onClose: ()
   ).map((c) => c.name);
 
   return (
-    <SettingsModal title={title} onClose={onClose} maxWidthClassName="max-w-3xl">
+    <>
+      {/* Stands in for this dialog's old per-phase modal title (see the
+       * `title` derivation above), now that the modal chrome's own title is
+       * the fixed "Manage Data" shared with the Export/Reset tabs. */}
+      <p className="mt-3 shrink-0 text-sm font-semibold text-white">{title}</p>
       <input
         ref={fileInputRef}
         type="file"
@@ -495,7 +496,7 @@ export function ImportDataButton({ open, onClose }: { open: boolean; onClose: ()
             value={pasteText}
             onChange={(e) => setPasteText(e.target.value)}
             placeholder="Paste exported JSON here..."
-            // h-64, matching ExportDataButton's own JSON textarea (same
+            // h-64, matching ExportDataPanel's own JSON textarea (same
             // job, same dialog family) -- this used to be h-[40rem]
             // (640px), tall enough on its own to push the Paste/Upload/
             // Review buttons below the fold of the modal's 85vh cap on any
@@ -529,6 +530,6 @@ export function ImportDataButton({ open, onClose }: { open: boolean; onClose: ()
           </button>
         </>
       )}
-    </SettingsModal>
+    </>
   );
 }

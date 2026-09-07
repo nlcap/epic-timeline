@@ -58,7 +58,7 @@ export interface SelectionPartMeta {
    * unambiguous standalone ("Ownership" doesn't need to say "main only"
    * when there's no separate "speculative ownership" row left to confuse
    * it with). Shown as a picker row's subtitle (see DataSelectionPicker)
-   * and folded into ImportDataButton's confirm sentence via
+   * and folded into ImportDataPanel's confirm sentence via
    * selectionDescription there. */
   subtitle?: string;
 }
@@ -119,7 +119,7 @@ const STATUS_STORES = [
 /** Every part's own timeline layer -- main for the first four, speculative
  * for the last two. Only used to translate a legacy two-axis
  * {scopes, kinds} pair into parts -- see partsForScopesAndKinds, kept for
- * ResetLineDataButton, whose "Timeline" and "What to reset" controls are
+ * ResetLineDataPanel, whose "Timeline" and "What to reset" controls are
  * deliberately independent choices rather than one flat list (see
  * resetLineData). Every other caller works in parts directly. */
 const PART_SCOPE: Record<SelectionPart, TimelineScope> = {

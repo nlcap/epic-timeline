@@ -1,11 +1,10 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { COLLECTIONS } from "../data/collections";
 import type { DataKind } from "../lib/collectionScope";
 import { COLLECTION_DATA_UPDATED_AT } from "../lib/collectionUpdatedAt";
 import { resetLineData, type TimelineScope } from "../lib/resetLineData";
 import { CheckRow } from "./CheckRow";
 import { RadioRow } from "./RadioRow";
-import { SettingsModal } from "./SettingsModal";
 import { BUTTON_DESTRUCTIVE, BUTTON_PRIMARY_LIGHT, BUTTON_SECONDARY } from "./buttonStyles";
 
 const TIMELINE_SCOPES: { id: TimelineScope; label: string }[] = [
@@ -61,25 +60,19 @@ const GROUP_LABEL: Record<ResetKindGroup, string> = {
  * Timeline + "Volume metadata" resets only those two collections' line and
  * volume overrides, leaving shelving/reading status, every other
  * collection, and any speculative data alone. See resetLineData for the
- * scoping logic. Controlled by `open`/`onClose`, same as
- * ExportDataButton/ImportDataButton -- the trigger lives in the nav's gear
- * dropdown.
+ * scoping logic.
+ *
+ * One tab of ManageDataButton's Export/Import/Reset modal -- it only mounts
+ * while its tab is selected, so every visit starts from this component's
+ * own useState defaults rather than a manual reset-on-reopen effect. Still
+ * takes `onClose`, unlike its two sibling tabs: its own Cancel button below
+ * dismisses the whole modal, not just this tab.
  */
-export function ResetLineDataButton({ open, onClose }: { open: boolean; onClose: () => void }) {
+export function ResetLineDataPanel({ onClose }: { onClose: () => void }) {
   const [selectedCollections, setSelectedCollections] = useState<Set<string>>(new Set());
   const [selectedScopes, setSelectedScopes] = useState<Set<TimelineScope>>(new Set());
   const [kindGroup, setKindGroup] = useState<ResetKindGroup>("metadata");
   const [confirming, setConfirming] = useState(false);
-
-  useEffect(() => {
-    if (!open) return;
-    setSelectedCollections(new Set());
-    setSelectedScopes(new Set());
-    setKindGroup("metadata");
-    setConfirming(false);
-  }, [open]);
-
-  if (!open) return null;
 
   const toggleCollection = (id: string) => {
     setSelectedCollections((prev) => {
@@ -121,7 +114,7 @@ export function ResetLineDataButton({ open, onClose }: { open: boolean; onClose:
   };
 
   return (
-    <SettingsModal title="Reset line data" onClose={onClose} maxWidthClassName="max-w-md">
+    <>
       {confirming ? (
         <div className="mt-4 rounded-md border border-red-900 bg-red-950/40 p-4">
           <p className="text-sm text-red-200">
@@ -224,6 +217,6 @@ export function ResetLineDataButton({ open, onClose }: { open: boolean; onClose:
           </div>
         </>
       )}
-    </SettingsModal>
+    </>
   );
 }

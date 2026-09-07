@@ -76,6 +76,17 @@ export function formatUpdateDate(iso: string): string {
 
 export const UPDATES: UpdateRelease[] = [
   {
+    date: "2026-09-07",
+    entries: [
+      {
+        kind: "improved",
+        title: "Manage Data replaces three separate settings rows",
+        description:
+          "Export data, Import data and Reset line data used to each get their own row in the settings menu; they're now Export/Import/Reset tabs inside one Manage Data dialog, opening on Export every time.",
+      },
+    ],
+  },
+  {
     date: "2026-09-05",
     entries: [
       {

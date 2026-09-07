@@ -25,7 +25,7 @@ export type { TimelineScope };
  * "Timeline" and "What to reset" controls are deliberately two independent
  * choices, not one list, so this translates them via
  * partsForScopesAndKinds rather than exposing the flat shape and asking
- * ResetLineDataButton to reassemble it. `kinds` defaults to every kind, so
+ * ResetLineDataPanel to reassemble it. `kinds` defaults to every kind, so
  * a caller that doesn't care about the axis (existing tests, anything
  * calling this before the reset dialog grew its "what to reset" choice)
  * still gets the old wholesale-reset behavior.
@@ -37,7 +37,7 @@ export type { TimelineScope };
  * Reads and writes localStorage directly rather than going through the
  * override hooks (useLineOverrides etc.), since those only load their
  * state once on mount -- callers should reload the page afterward to get
- * every hook to re-read the now-reset stores, same as ImportDataButton.
+ * every hook to re-read the now-reset stores, same as ImportDataPanel.
  */
 export function resetLineData({
   collectionIds,

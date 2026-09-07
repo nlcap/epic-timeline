@@ -32,8 +32,8 @@ function capacityColorClass(bytes: number): string {
  * finds this browser's real remaining write headroom right now (there's no
  * queryable "bytes left" API; the only way to know is to try writing).
  *
- * Controlled by `open`/`onClose`, same as ExportDataButton/ImportDataButton
- * -- the trigger lives in the nav's gear dropdown.
+ * Controlled by `open`/`onClose`, same as ManageDataButton -- the trigger
+ * lives in the nav's gear dropdown.
  */
 export function StorageDebugPanel({ open, onClose }: { open: boolean; onClose: () => void }) {
   const [breakdown, setBreakdown] = useState<StorageBreakdown | null>(null);

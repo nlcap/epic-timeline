@@ -8,7 +8,7 @@ import {
 import { CheckRow } from "./CheckRow";
 
 /**
- * The two-axis picker behind ImportDataButton's review step -- which
+ * The two-axis picker behind ImportDataPanel's review step -- which
  * collections, and which of the six things a collection can independently
  * carry (see SelectionPart in lib/collectionScope.ts).
  *
@@ -20,7 +20,7 @@ import { CheckRow } from "./CheckRow";
  * explain why. Flattening layer and type into one six-item list removes
  * the dead combinations outright instead of showing and explaining them.
  *
- * Export dropped this picker entirely (see ExportDataButton) once its only
+ * Export dropped this picker entirely (see ExportDataPanel) once its only
  * real use -- narrowing a hand-off to Claude for a seed merge -- moved to
  * its own fixed-slice dialog (CopyCorrectionsButton). Import keeps it
  * because that's the one place the choice has something real to go on:

@@ -65,7 +65,7 @@ export const SPECULATIVE_KEYS = [
   STORAGE_KEYS.speculativeVolumes,
 ] as const;
 
-// Everything ExportDataButton/ImportDataButton read and write.
+// Everything ExportDataPanel/ImportDataPanel read and write.
 export const EXPORT_KEYS = [...OVERRIDE_KEYS, ...SPECULATIVE_KEYS] as const;
 
 export type ExportKey = (typeof EXPORT_KEYS)[number];

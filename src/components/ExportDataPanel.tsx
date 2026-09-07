@@ -11,7 +11,6 @@ import {
   type SandboxSnapshot,
 } from "../lib/sandboxSnapshots";
 import { safeGetJson } from "../lib/storage";
-import { SettingsModal } from "./SettingsModal";
 import { BUTTON_PRIMARY_LIGHT, BUTTON_SECONDARY_DISABLEABLE } from "./buttonStyles";
 
 /**
@@ -29,7 +28,7 @@ import { BUTTON_PRIMARY_LIGHT, BUTTON_SECONDARY_DISABLEABLE } from "./buttonStyl
  * every time to get to that answer.
  *
  * Restoring a *partial* backup is still a real choice, so it's still
- * offered -- just at import time, not here. ImportDataButton keeps its own
+ * offered -- just at import time, not here. ImportDataPanel keeps its own
  * picker because that's where the choice actually has something to go on:
  * real per-slice record counts read from the file, which a picker shown
  * before the file even exists never could show.
@@ -38,23 +37,24 @@ import { BUTTON_PRIMARY_LIGHT, BUTTON_SECONDARY_DISABLEABLE } from "./buttonStyl
  * Cmd/Ctrl+C works immediately) rather than relying solely on the
  * Clipboard API, which can silently fail depending on browser/permissions.
  *
- * Controlled by `open`/`onClose` -- the trigger lives in the nav's gear
- * dropdown, so this component only renders the modal itself.
+ * One tab of ManageDataButton's Export/Import/Reset modal -- it only
+ * mounts while its tab is selected, which is what re-snapshots localStorage
+ * below on every visit rather than a manual reset-on-reopen effect: there's
+ * no `open` prop left to key one off, and there doesn't need to be.
  */
-export function ExportDataButton({ open, onClose }: { open: boolean; onClose: () => void }) {
+export function ExportDataPanel() {
   const [bundle, setBundle] = useState<StoreBundle>({});
   const [copyState, setCopyState] = useState<"idle" | "copied" | "failed">("idle");
   const textareaRef = useRef<HTMLTextAreaElement>(null);
 
-  // Snapshot localStorage once per opening -- there's no picker left to
+  // Snapshot localStorage once per mount -- there's no picker left to
   // re-slice it against, but the snapshot still matters: nothing should
   // change what's shown mid-dialog if a background write happens to land
   // (e.g. an in-flight image compression finishing) while it's open.
   useEffect(() => {
-    if (!open) return;
     setBundle(readBundleFromStorage());
     setCopyState("idle");
-  }, [open]);
+  }, []);
 
   const { json, recordCount, carriedLines } = useMemo(() => {
     const { payload, recordCount, carriedLines } = buildExportPayload(bundle, fullSelection());
@@ -101,8 +101,8 @@ export function ExportDataButton({ open, onClose }: { open: boolean; onClose: ()
   }, [json]);
 
   useEffect(() => {
-    if (open) textareaRef.current?.select();
-  }, [open]);
+    textareaRef.current?.select();
+  }, []);
 
   const handleCopyClick = () => {
     navigator.clipboard?.writeText(json).then(
@@ -127,8 +127,6 @@ export function ExportDataButton({ open, onClose }: { open: boolean; onClose: ()
     setTimeout(() => URL.revokeObjectURL(url), 1000);
   };
 
-  if (!open) return null;
-
   const summary =
     recordCount === 0
       ? "Nothing to back up yet -- your changes will show up here once you've made some."
@@ -139,7 +137,7 @@ export function ExportDataButton({ open, onClose }: { open: boolean; onClose: ()
         }`;
 
   return (
-    <SettingsModal title="Back up your data (JSON)" onClose={onClose} maxWidthClassName="max-w-3xl">
+    <>
       <p className="mt-3 shrink-0 text-sm text-neutral-400">
         Everything localStorage holds for every collection -- corrections, shelving, reading
         progress, star ratings, and any Speculation Mode scenarios.
@@ -175,6 +173,6 @@ export function ExportDataButton({ open, onClose }: { open: boolean; onClose: ()
           Download backup
         </button>
       </div>
-    </SettingsModal>
+    </>
   );
 }

@@ -26,7 +26,7 @@ function correctionsSelection(collectionId: string): Selection {
  * Copies the current tab's line/volume corrections as JSON, for pasting to
  * Claude to merge into the shipped seed data in src/data/*.ts.
  *
- * This was one of two jobs ExportDataButton did, chosen by hand each time
+ * This was one of two jobs ExportDataPanel did, chosen by hand each time
  * out of its three-axis picker -- six collections, two timeline layers and
  * five data types, of which exactly one combination was ever the right
  * answer here. Pinning that combination (see correctionsSelection) turns a
@@ -94,8 +94,8 @@ export function CopyCorrectionsButton({
       {!hasSeedData ? (
         <p className="mt-3 text-sm text-neutral-400">
           {collection.name} doesn't ship any data of its own -- every line and volume in it is
-          yours already, so there's nothing here to correct. Use Export data to back it up
-          instead.
+          yours already, so there's nothing here to correct. Use Manage Data's Export tab to
+          back it up instead.
         </p>
       ) : (
         <>
