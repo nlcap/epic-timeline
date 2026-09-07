@@ -45,7 +45,7 @@ export function ManageDataButton({ open, onClose }: { open: boolean; onClose: ()
 
   return (
     <SettingsModal title="Manage Data" onClose={onClose} maxWidthClassName="max-w-3xl">
-      <div className="flex shrink-0 gap-1 rounded-md border border-neutral-700 p-1">
+      <div className="mt-5 flex shrink-0 gap-1 rounded-md border border-neutral-700 p-1">
         {TABS.map((t) => (
           <button
             key={t.id}
