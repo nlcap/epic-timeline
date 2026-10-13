@@ -7506,7 +7506,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     title: "Shadows of the Past",
     start: { year: 1998, quarter: 1 },
     end: { year: 1999, quarter: 1 },
-    issuesCollected: "Nova #7; Amazing Spider-Man (vol. 2) #19; Spectacular Spider-Man (vol. 2) #1-5; Spider-Man/Fantastic Four #2; material from Amazing Spider-Man (vol. 2) #12; Peter Parker: Spider-Man #12; Spider-Man Family #1-2 !",
+    issuesCollected: "Peter Parker: Spider-Man #9-10, 16-17; Nova #7; Amazing Spider-Man (vol. 2) #19; Spectacular Spider-Man (vol. 2) #1-5; Spider-Man/Fantastic Four #2; material from Amazing Spider-Man (vol. 2) #12; Peter Parker: Spider-Man #12; Spider-Man Family #1-2",
     yearsCovered: "1998-1999",
     releaseDate: { year: 2026, month: 10 },
     writers: "Howard Mackie, Paul Jenkins, Sean McKeever, Erik Larsen, A.A. Ward, Christos N. Gage",
