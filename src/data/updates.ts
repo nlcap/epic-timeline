@@ -76,6 +76,17 @@ export function formatUpdateDate(iso: string): string {
 
 export const UPDATES: UpdateRelease[] = [
   {
+    date: "2026-10-12",
+    entries: [
+      {
+        kind: "data",
+        title: "Six new Epic Collection volumes, credited issue by issue",
+        description:
+          "Daredevil Vols. 9 and 10, Ghost Rider: Danny Ketch Vol. 3, Wolverine Vols. 4 and 5 and Ultimate Fantastic Four Vol. 3 are on the timeline, with writers, pencillers and inkers read from every issue and chapter each book collects. Wolverine Vol. 4 credits Barry Windsor-Smith on all fourteen Weapon X chapters.",
+      },
+    ],
+  },
+  {
     date: "2026-09-07",
     entries: [
       {

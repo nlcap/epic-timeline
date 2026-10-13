@@ -2647,6 +2647,47 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
   },
   {
     kind: "volume",
+    id: "daredevil-9",
+    lineId: "daredevil",
+    number: "9",
+    title: "Resurrection",
+    start: { year: 1981, quarter: 4 },
+    end: { year: 1983, quarter: 1 },
+    issuesCollected: "Daredevil #177-193; material from Marvel Fanfare #1; What If #35",
+    yearsCovered: "1981-1983",
+    releaseDate: { year: 2026, month: 12 },
+    writers: "Frank Miller, Roger McKenzie, Alan Brennert, Larry Hama",
+    pencillers: "Frank Miller, Klaus Janson, Paul Smith",
+    inkers: "Klaus Janson, Terry Austin",
+    description:
+      "Marvel Comics don't get more epic than Frank Miller's Daredevil! In this volume, Miller and Klaus Janson lock into their unforgettable artistic partnership as DD's history with his blind mentor Stick stands revealed, the political intrigue surrounding Kingpin begins to take shape and our hero's turbulent romance with Elektra grows ever more violent. It's a relationship Daily Bugle reporter Ben Urich never expected to land on the wrong side of -- and Elektra's next target may be Foggy Nelson. The drama explodes in Frank Miller's historic showdown between Elektra, Bullseye and Daredevil, a tale that remains a masterclass in comic-book storytelling to this day. In the aftermath of Elektra's fate, Matt Murdock's grief drives him through agonizing depths of hope, obsession, madness and despair. Can he pull himself together in time to thwart Kingpin's criminal empire and finally bring Bullseye to justice? Includes stunning Janson-penciled-and-inked stories fully restored from his original art!",
+    coverUrl: "https://images.penguinrandomhouse.com/cover/9781302967925",
+    ownershipStatus: "announced",
+  },
+  {
+    kind: "volume",
+    id: "daredevil-10",
+    lineId: "daredevil",
+    number: "10",
+    title: "Redemption",
+    start: { year: 1983, quarter: 2 },
+    end: { year: 1985, quarter: 1 },
+    issuesCollected: "Daredevil #194-215",
+    yearsCovered: "1983-1985",
+    releaseDate: { year: 2027, month: 3 },
+    writers:
+      "Dennis \"Denny\" O'Neil, Arthur Byron Cover, Michael Carlin, Steven Grant, Harlan Ellison, David Mazzucchelli",
+    pencillers:
+      "David Mazzucchelli, William Johnson, Klaus Janson, Luke McDonnell, Larry Hama, Geof Isherwood",
+    inkers:
+      "Danny Bulanadi, Klaus Janson, David Mazzucchelli, Larry Hama, Mike Mignola, Luke McDonnell, Mel Candido, Pat Redding",
+    description:
+      "Daredevil enters a bold new era under writer Dennis O'Neil with a gritty, character-driven tone that explores humankind's temptations and broken aspirations while pushing Matt Murdock to the limit. As we race toward issue #200, Kingpin enters an alliance with the Yakuza to rebuild Bullseye's shattered spine with adamantium, and Daredevil teams with Wolverine and heads to Japan for a landmark showdown with Elektra's killer. This volume also marks the debut of soon-to-be-legendary artist David Mazzucchelli and the saga of Micah Synn, a ruthless new foe who uncovers DD's identity and challenges both Kingpin and Daredevil for control of New York. Plus: a story by sci-fi master Harlan Ellison, the debut of Glorianna O'Breen and a brutal experience for Foggy and Debbie Nelson.",
+    coverUrl: "https://images.penguinrandomhouse.com/cover/9781302971168",
+    ownershipStatus: "announced",
+  },
+  {
+    kind: "volume",
     id: "daredevil-12",
     lineId: "daredevil",
     number: "12",
@@ -4350,6 +4391,26 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "",
     coverUrl: ghostRiderBadToTheBoneCover,
+    ownershipStatus: "announced",
+  },
+  {
+    kind: "volume",
+    id: "ghost-rider-danny-ketch-3",
+    lineId: "ghost-rider-danny-ketch",
+    number: "3",
+    title: "Rise of the Midnight Sons",
+    start: { year: 1992, quarter: 2 },
+    end: { year: 1992, quarter: 4 },
+    issuesCollected: "Ghost Rider (vol. 3) #25-31; Ghost Rider/Blaze: Spirits of Vengeance #1-3; X-Men (vol. 2) #9; Morbius: The Living Vampire #1; Darkhold: Pages from the Book of Sins #1; Nightstalkers #1; material from Marvel Comics Presents #101-106",
+    yearsCovered: "1992",
+    releaseDate: { year: 2027, month: 5 },
+    writers: "Howard Mackie, Jim Lee, Scott Lobdell, Len Kaminski, Chris Cooper, D.G. Chichester",
+    pencillers:
+      "Rick Leonardi, Ron Wagner, Andy Kubert, Adam Kubert, Jim Lee, Richard Case, Ron Garney",
+    inkers:
+      "Jimmy Palmiotti, Mike Witherby, Joe Kubert, Chris Warner, Art Thibert, Jim Lee, Adam Kubert, Mark McKenna, Tom Palmer",
+    description:
+      "Ghost Rider must battle a one-man army and then survive a very personal alien invasion when the Brood take over his body! As he battles to regain control, the X-Men fight to survive his flaming fury! Then, Ghost Riders past and present race side by side as the Spirits of Vengeance as Danny Ketch and Johnny Blaze join Marvel's Midnight Sons -- including Morbius, Blade, the Nightstalkers and the Darkhold Redeemers -- to confront a hellish threat like no other! Can even this awesome assemblage stop Lilith, Mother of Demons, and her horrifying progeny! Plus: Ghost Rider and Doctor Strange face down demons!",
     ownershipStatus: "announced",
   },
   // --- Guardians of the Galaxy ---
@@ -6345,7 +6406,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     inkers:
       "Al Williamson, Jimmy Palmiotti, Joe Rubinstein, Mark McKenna, Sean Hardy, Rodney Ramos, Phil Gascoine, Mark Farmer",
     description:
-      "The Punisher hits Europe! When Frank Castle heads to London in pursuit of the assassin Snakebite, he finds a whole continent of trouble — and also his biggest fan: the British vigilante Outlaw! Their fragile Anglo-American alliance must survive a deadly chase from country to country that will draw in mercenaries from Batroc to the Tarantula! But can the Punisher put a stop to a plot that goes all the way up to the Kingpin himself? And if he returns to America in one piece, Frank will be targeted by the anti-vigilantism task force known as V.I.G.I.L.! Plus: the Punisher in space! The death-dealing Baron Cemetery! And a tense team-up with the Avengers' own Black Widow!",
+      "The Punisher hits Europe! When Frank Castle heads to London in pursuit of the assassin Snakebite, he finds a whole continent of trouble -- and also his biggest fan: the British vigilante Outlaw! Their fragile Anglo-American alliance must survive a deadly chase from country to country that will draw in mercenaries from Batroc to the Tarantula! But can the Punisher put a stop to a plot that goes all the way up to the Kingpin himself? And if he returns to America in one piece, Frank will be targeted by the anti-vigilantism task force known as V.I.G.I.L.! Plus: the Punisher in space! The death-dealing Baron Cemetery! And a tense team-up with the Avengers' own Black Widow!",
     coverUrl: punisherCapitalPunishmentCover,
     ownershipStatus: "announced",
   },
@@ -7454,7 +7515,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     inkers:
       "Scott Hanna, Wayne Faucher, John Beatty, Al Milgrom, Rodney Ramos, Gary Martin, Kano, Mario Alberti",
     description:
-      "The Lethal Protector renews rivalries with the Amazing Spider-Man, as Eddie Brock and his alien symbiote return to torment Peter Parker — and they're deadlier than ever! Venom makes dangerous new enemies when he crosses the Sinister Six, and as the world darkens for Eddie, the symbiote begins to hunger — and target the innocents Venom used to protect! To face his most nightmarish foe, Spidey must turn to the Fantastic Four for help, but a fateful decision could forever change things for Peter and Eddie. Plus: Nova the Human Rocket hurtles into Venom's path!",
+      "The Lethal Protector renews rivalries with the Amazing Spider-Man, as Eddie Brock and his alien symbiote return to torment Peter Parker -- and they're deadlier than ever! Venom makes dangerous new enemies when he crosses the Sinister Six, and as the world darkens for Eddie, the symbiote begins to hunger -- and target the innocents Venom used to protect! To face his most nightmarish foe, Spidey must turn to the Fantastic Four for help, but a fateful decision could forever change things for Peter and Eddie. Plus: Nova the Human Rocket hurtles into Venom's path!",
     coverUrl: "https://m.media-amazon.com/images/I/91QdVELN3zL._SL1500_.jpg",
     ownershipStatus: "announced",
   },
@@ -7516,6 +7577,46 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     description:
       "Wolverine investigates a destructive new designer drug in Madripoor, then heads to the Yukon on vacation and encounters the mythical Hunter in Darkness. Lady Deathstrike attacks Wolverine and Puck, casting them into a time vortex where they relive the Spanish Civil War, while the Reavers create the cyborgs Albert and Elsie-Dee, and Sabretooth returns convinced he's Wolverine's father.",
     coverUrl: "https://m.media-amazon.com/images/I/91bBuGArogS._SL1500_.jpg",
+    ownershipStatus: "announced",
+  },
+  {
+    kind: "volume",
+    id: "wolverine-4",
+    lineId: "wolverine",
+    number: "4",
+    title: "Escape from Weapon X",
+    start: { year: 1991, quarter: 3 },
+    end: { year: 1991, quarter: 4 },
+    issuesCollected: "Wolverine (vol. 2) #45-50; Wolverine: Rahne of Terra #1; X-Men (vol. 2) #4-7; material from Marvel Comics Presents #72-84",
+    yearsCovered: "1991-1992",
+    releaseDate: { year: 2027, month: 6 },
+    writers: "Barry Windsor-Smith, Larry Hama, Jim Lee, John Byrne, Scott Lobdell, Peter David",
+    pencillers: "Barry Windsor-Smith, Marc Silvestri, Jim Lee, Andy Kubert, Jerry DeCaire",
+    inkers:
+      "Barry Windsor-Smith, Dan Green, Art Thibert, Hilary Barta, Scott Williams, Andy Kubert, Don Hudson, Tom Palmer, Joe Rubinstein, Bob Wiacek",
+    description:
+      "In one of the greatest Marvel Comics stories ever told, visionary creator Barry Windsor-Smith reveals the brutal story of how Logan got his adamantium skeleton! After being taken hostage by an experimental Canadian military science outfit, Logan is transformed into Weapon X -- an unstoppable killing machine with razor-sharp claws. But Weapon X cannot be contained by his captors -- and trapped in their lab with the monster they have made, they will face his feral wrath! Back in the present day, Wolverine is rocked by vividly painful memories when he returns to the Weapon X facility! Can Jean Grey and Professor X help him unlock the secrets of his dark past? Plus: A savage showdown with Sabretooth, Lady Deathstrike and the Hunter-in-Darkness! A feral team-up with Wolfsbane! And the vicious Omega Red makes his debut, which is bad news for Logan and the X-Men!",
+    ownershipStatus: "announced",
+  },
+  {
+    kind: "volume",
+    id: "wolverine-5",
+    lineId: "wolverine",
+    number: "5",
+    title: "Valley of Death",
+    start: { year: 1992, quarter: 1 },
+    end: { year: 1992, quarter: 3 },
+    issuesCollected: "Wolverine (vol. 2) #51-68; Ghost Rider/Wolverine/Punisher: Hearts of Darkness; material from Marvel Holiday Special #2",
+    yearsCovered: "1991-1993",
+    releaseDate: { year: 2026, month: 9 },
+    writers: "Larry Hama, D.G. Chichester, Howard Mackie, Fabian Nicieza",
+    pencillers:
+      "Mark Texeira, Marc Silvestri, Darick Robertson, John Romita Jr., Andy Kubert, Dave Hoover, Mark Pacella, Michael Golden, Steve Biasi",
+    inkers:
+      "Mark Texeira, Dan Green, Joe Rubinstein, Klaus Janson, Steve Biasi, Hilary Barta, Don Hudson, Al Milgrom, Keith Williams, Dan Panosian, Scott Hanna, Michael Golden, Jimmy Palmiotti",
+    description:
+      "When Jubilee thinks she sees Wolverine sharing a late-night rendezvous with Jean Grey in a seedy motel, she's relieved to discover there's more to the story than meets the eye -- a lot more! Like Logan, Mystique and Spiral teaming up against Mojo with the universe at stake! Wolvie joins Nightcrawler to fend off an alien invasion, and Gambit helps out against the ninjas of the Hand -- but Logan faces the hardest decision of his life when Mariko is poisoned with blowfish toxin! Wolverine needs a radical new look to infiltrate a group of environmental extremists, but his stolen memories continue to plague him. With someone targeting the still-living members of Weapon X, he may never be able to escape his past. And an attempt by Professor X to unlock Logan's mind could unleash the killer within! Plus: Wolverine teams up with the Punisher and Ghost Rider to face the demonic threat of Blackheart!",
+    coverUrl: "https://images.penguinrandomhouse.com/cover/9781302969691",
     ownershipStatus: "announced",
   },
   {

@@ -259,4 +259,24 @@ export const ULTIMATE_ENTRIES: TimelineEntry[] = [
     coverUrl: "https://m.media-amazon.com/images/I/81b7p2s3aHL._SL1500_.jpg",
     ownershipStatus: "announced",
   },
+  {
+    kind: "volume",
+    id: "uff-3",
+    lineId: "ultimate-fantastic-four",
+    number: "3",
+    title: "God War",
+    start: { year: 2006, quarter: 4 },
+    end: { year: 2007, quarter: 4 },
+    issuesCollected: "Ultimate Fantastic Four #33-46, Annual #2; Ultimate X-Men/Fantastic Four #1; Ultimate Fantastic Four/X-Men #1",
+    yearsCovered: "2006-2007",
+    releaseDate: { year: 2027, month: 6 },
+    writers: "Mike Carey",
+    pencillers:
+      "Pasqual Ferry, Scott Kolins, Mark Brooks, Leinil Yu, Stuart Immonen, Frazer Irving",
+    inkers:
+      "Pasqual Ferry, Scott Kolins, Jaime Mendoza, Leinil Yu, Wade von Grawbadger, Mark Brooks",
+    description:
+      "Seed Nineteen -- a bizarre name for the most bizarre characters ever to enter the Fantastic Four's lives: Threshold, Fountain, Magnificent Brute and Dreamcatcher. These incredible entities hold the key to a cosmic conflict that has raged for untold millennia and now involves our quarrelsome quartet! Then, those closest to the FF are drawn back through time as a lure to get the foursome to follow. And what awaits them in the year 1483 is a man with a quest to transform the world -- literally. Meet the alchemist supreme: Diablo! The macabre Mole Man returns, and Reed Richards' attempts to create a Cosmic Cube cause him to pierce the barriers of a hundred universes. What falls through is the keeper of the Power Cosmic: the Silver Surfer! Plus: When Cerebro is stolen -- and the trail points directly at the government's premier think tank, the Baxter Building -- the X-Men come calling...and they aren't happy!",
+    ownershipStatus: "announced",
+  },
 ];
