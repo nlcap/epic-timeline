@@ -112,6 +112,7 @@ export const ULTIMATE_ENTRIES: TimelineEntry[] = [
     pencillers: "Mark Bagley",
     inkers: "Art Thibert, Rodney Ramos",
     description: "Eddie Brock's symbiote origin, reimagined.",
+    coverUrl: "https://m.media-amazon.com/images/I/71Hm+RM-1TL._SL1500_.jpg",
     ownershipStatus: "announced",
   },
 
@@ -167,6 +168,7 @@ export const ULTIMATE_ENTRIES: TimelineEntry[] = [
     pencillers: "Adam Kubert, Chris Bachalo, David Finch, Ben Lai",
     inkers: "Danny Miki, Tim Townsend, Art Thibert, Andy Owens, Ray Lai, Aaron Sowd",
     description: "The world tour concludes, crossing into Ultimates territory.",
+    coverUrl: "https://m.media-amazon.com/images/I/913iw-rFItL._SL1500_.jpg",
     ownershipStatus: "announced",
   },
 

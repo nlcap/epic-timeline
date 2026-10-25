@@ -1,11 +1,5 @@
 import type { Line, TimelineEntry } from "../types";
 
-// A handful of one-off volume covers that predate the Amazon-hosted-URL
-// convention most coverUrl fields below use (see the coverUrl note in the
-// block comment further down) -- these three were never migrated, so they're
-// plain imported assets instead, same as any other static image in the app.
-// TODO: swap for a proper Iron Man Epic Collection cover once one turns up
-
 // Bulk-wired from src/assets/Marvel/epic classic/<Character>.png (Nick dropped
 // in a folder of per-line icons). Eagerly globbed so new files just need to
 // match a line's name -- no import list to maintain by hand.
@@ -994,6 +988,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
       "Randy Emberlin, Margeaux Pepoy, Al Milgrom, Mark Buckingham, Larry Mahlstedt, Joe Rubinstein, Christopher \"Chris\" Ivy, Bill Sienkiewicz, Scott Hanna, Sam de la Rosa, Roy Burdine, Ralph Cabrera, Greg Adams, Armando Gil, Arne Starr, Steve Lightle",
     description:
       "",
+    coverUrl: "https://m.media-amazon.com/images/I/91GJxTUnaLL._SL1500_.jpg",
     ownershipStatus: "announced",
   },
   // --- Ant-Man/Giant-Man ---
@@ -3037,6 +3032,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
       "Jon Holdredge, Ron Randall, Andy Lanning, Walden Wong, Liam Sharp, Karl Kerschl, Dexter Vines",
     description:
       "",
+    coverUrl: "https://m.media-amazon.com/images/I/91rGS9qw8nL._SL1500_.jpg",
     ownershipStatus: "announced",
   },
   // --- Defenders ---
@@ -4973,6 +4969,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
       "Joe Sinnott, Gerry Talaoc, Chic Stone, Andy Mushynsky, Herb Trimpe, Kim DeMulder, Jim Mooney, Carlos Garzón, Danny Bulanadi, John Romita Sr.",
     description:
       "",
+    coverUrl: "https://m.media-amazon.com/images/I/818ZlX7-L-L._SL1500_.jpg",
     ownershipStatus: "announced",
   },
   {
@@ -4992,6 +4989,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
       "Marie Severin, Terry Austin, Mike Gustovich, Herb Trimpe, Jim Sanders, Val Gustovich, Keith Williams, Joe Sinnott, Bob Wiacek, Mike DeCarlo",
     description:
       "",
+    coverUrl: "https://m.media-amazon.com/images/I/91t5qJmSCcL._SL1500_.jpg",
     ownershipStatus: "announced",
   },
   // --- Iron Fist ---
@@ -5420,6 +5418,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
       "Ian Akin, Brian Garvey, Sam de la Rosa, Steve Geiger, Scott Williams, Kyle Baker, Tom Morgan",
     description:
       "",
+    coverUrl: "https://images.penguinrandomhouse.com/cover/9781302972486",
     ownershipStatus: "announced",
   },
   {
@@ -5605,6 +5604,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     inkers: "Chic Stone, Pablo Marcos, Gene Day",
     description:
       "",
+    coverUrl: "https://m.media-amazon.com/images/I/91U70yTIJyL._SL1500_.jpg",
     ownershipStatus: "announced",
   },
   // --- Master of Kung Fu ---
@@ -6025,6 +6025,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
       "Bill Everett, Dick Ayers, Dan Adkins, Frank Giacoia, Vince Colletta, John Tartaglione, Tom Sutton, Roger Brand, Johnny Craig, Mike Esposito, Marie Severin",
     description:
       "",
+    coverUrl: "https://m.media-amazon.com/images/I/91-7KU3zraL._SL1500_.jpg",
     ownershipStatus: "announced",
   },
   // --- New Mutants ---
@@ -6376,6 +6377,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
       "Jim Mooney, Frank Giacoia, Mike Esposito, Klaus Janson, Tony DeZuniga, Dave Hunt, Rico Rival, Pablo Marcos",
     description:
       "",
+    coverUrl: "https://images.penguinrandomhouse.com/cover/9781302972493",
     ownershipStatus: "announced",
   },
   {
@@ -6552,6 +6554,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
       "Jim Sanders III, John Beatty, Keith Williams, Mark G. Heike, K. Stan Wilson, Tony DeZuniga",
     description:
       "",
+    coverUrl: "https://m.media-amazon.com/images/I/91jQZ7ZboJL._SL1500_.jpg",
     ownershipStatus: "announced",
   },
   // --- Silver Surfer ---
@@ -6800,6 +6803,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
       "Bill Anderson, Tom Christopher, Bob Almond, Raymond Kryssing, Mike Barreiro, Mark McKenna, Steve Mitchell, Jasen Rodriguez, Mike Miller, Geof Isherwood",
     description:
       "",
+    coverUrl: "https://m.media-amazon.com/images/I/91BTysKvLQL._SL1500_.jpg",
     ownershipStatus: "announced",
   },
   // --- Thor ---
@@ -8528,6 +8532,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     inkers: "Dan Green, Bob Wiacek, Joe Rubinstein, Paul Neary, Terry Austin, Tony DeZuniga",
     description:
       "",
+    coverUrl: "https://m.media-amazon.com/images/I/911Xr+yBz8L._SL1500_.jpg",
     ownershipStatus: "announced",
   },
 ];

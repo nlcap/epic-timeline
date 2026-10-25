@@ -404,6 +404,7 @@ export const MODERN_MARVEL_ENTRIES: TimelineEntry[] = [
     inkers: "Joe Pimentel, Karl Kesel, Dream Engine, Tom Palmer",
     description:
       "Peter Parker faces death itself in a story that pushes him past the edge of his own mortality and into something stranger. As Morlun's assault leaves Spider-Man clinging to life, Peter is forced to confront just how much of the spider is really inside him -- and what he'll have to shed to survive.",
+    coverUrl: "https://m.media-amazon.com/images/I/91Cw5FYm2ML._SL1500_.jpg",
     ownershipStatus: "announced",
   },
   {
@@ -465,6 +466,7 @@ export const MODERN_MARVEL_ENTRIES: TimelineEntry[] = [
       "Victor Olazaba, Stefano Caselli, Klaus Janson, Emma Rios, Kano, Tom Palmer, Sean Parsons",
     description:
       "The Doc Ock story fans waited fifty years for: Otto Octavius holds the entire Earth hostage with his dying breath, and Spider-Man must rally the Avengers and every hero he can find to stop his former foe's final, planet-scale gambit.",
+    coverUrl: "https://m.media-amazon.com/images/I/81HH3U6JjIL._SL1500_.jpg",
     ownershipStatus: "announced",
   },
   // --- Annihilation ---
@@ -814,6 +816,7 @@ export const MODERN_MARVEL_ENTRIES: TimelineEntry[] = [
     inkers: "Jimmy Palmiotti, Mark Morales, Rob Haynes",
     description:
       "Kevin Smith's era-defining Daredevil run begins: Matt Murdock's world is upended when a mysterious woman claims to be carrying his child, followed by a horrifying vision of the future that shakes his faith to its core. As old enemies circle and a supernatural threat looms over Hell's Kitchen, Matt must decide how far he'll go to protect the people he loves.",
+    coverUrl: "https://m.media-amazon.com/images/I/81DaV226rML._SL1500_.jpg",
     ownershipStatus: "announced",
   },
   {
@@ -1195,6 +1198,7 @@ export const MODERN_MARVEL_ENTRIES: TimelineEntry[] = [
       "Danny Miki, Mark Farmer, Carlos Cuevas, Jacopo Camagni, Zach Howard, Mark Irwin, Gerry Alanguilan, Klaus Janson, Tim Sale, Dale Keown, Sal Buscema, Herb Trimpe, Mike Deodato Jr., Ian Churchill, Jorge Molina, Ig Guara, Iban Coello",
     description:
       "The Intelligencia's grand scheme comes to a head as their corrupted, super-powered Hulks make a final play to remake the world in their image. Red Hulk, Red She-Hulk, and a fractured cast of former allies collide across the globe as the fate of both Hulks -- and the Marvel Universe -- hangs in the balance.",
+    coverUrl: "https://m.media-amazon.com/images/I/81Fxv-DDjqL._SL1500_.jpg",
     ownershipStatus: "announced",
   },
   // --- Iron Man ---
@@ -1896,6 +1900,7 @@ export const MODERN_MARVEL_ENTRIES: TimelineEntry[] = [
     inkers: "Salvador Larroca, Ángel Unzueta, Andrea Broccardo",
     description:
       "With the Empire tightening its grip on the galaxy, the Rebellion turns its attention to Mon Cala, hoping to win over a powerful ally -- but internal strife and enemy agents threaten to sink that alliance before it can begin. As Leia navigates the political currents of an underwater world, Luke, Han, and the rest of the Rebel fleet face fresh dangers in the ongoing war against the Empire.",
+    coverUrl: "https://m.media-amazon.com/images/I/81APIU0L+iL._SL1500_.jpg",
     ownershipStatus: "announced",
   },
   // --- Star Wars: Darth Vader ---
