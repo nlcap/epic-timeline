@@ -76,6 +76,23 @@ export function formatUpdateDate(iso: string): string {
 
 export const UPDATES: UpdateRelease[] = [
   {
+    date: "2026-10-25",
+    entries: [
+      {
+        kind: "data",
+        title: "Final covers for 21 upcoming volumes",
+        description:
+          "Eighteen upcoming volumes that had no cover now show the finished one, and three that showed a raw issue cover (Avengers West Coast 8, X-Force 5, All-New Wolverine 2) now show the final Epic Collection art. The rest are waiting on the publisher to post finished art.",
+      },
+      {
+        kind: "data",
+        title: "Daredevil and Ultimate Fantastic Four tiles line up with real cover dates",
+        description:
+          "Every Daredevil and Ultimate Fantastic Four volume now starts and ends in the quarter of its first and last issue, so the volumes sit end to end with no false gaps. Where two volumes share a quarter, it goes to the one with more issues in it.",
+      },
+    ],
+  },
+  {
     date: "2026-10-12",
     entries: [
       {
