@@ -327,7 +327,7 @@ export const MODERN_MARVEL_ENTRIES: TimelineEntry[] = [
       "Juan Cabal, Cory Hamscher, Leonard Kirk, Ramón Rosanas, Terry Pallot, Marc Deering, Marco Failla, Djibril Morissette-Phan",
     description:
       "From the stars comes death: an alien ship, a dying passenger, and two words that will forever change Laura's life, kicking off a nonstop race against a deadly transformative disease as Wolverine faces a battle in a quarantined city against a mysterious villain. Then Daken, Logan's enigmatic son, is kidnapped, and it's up to his \"sister\" to find him -- but the trail leads Wolverine back to the facility where she was created and tortured.",
-    coverUrl: "https://m.media-amazon.com/images/I/81eagDqTzKL._SL1500_.jpg",
+    coverUrl: "https://m.media-amazon.com/images/I/81nYLg-DHEL._SL1500_.jpg",
     ownershipStatus: "announced",
   },
   // --- Amazing Spider-Man ---

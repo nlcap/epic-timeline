@@ -1761,7 +1761,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     inkers: "Tim Dzon, Keith Williams, Fred Fredericks, Mark McKenna, Don Hudson",
     description:
       "",
-    coverUrl: "https://m.media-amazon.com/images/I/91fTq9BgnRL._SL1500_.jpg",
+    coverUrl: "https://m.media-amazon.com/images/I/81R05tmyLLL._SL1500_.jpg",
     ownershipStatus: "announced",
   },
   // --- Black Panther ---
@@ -8092,7 +8092,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
       "Mark Pennington, Mark Morales, Kevin Conrad, Vince Russell, Bud LaRosa, Tim Townsend, Mark Farmer, Joe Rubinstein, Andy Lanning, Jesse Delperdang, Rober Quijano, Robert Jones, Chad Hunt, Ian Akin, Margeaux Pepoy, Daerick Gross",
     description:
       "",
-    coverUrl: "https://m.media-amazon.com/images/I/91C2G67vzsL._SL1500_.jpg",
+    coverUrl: "https://m.media-amazon.com/images/I/912Lr3ztJ1L._SL1500_.jpg",
     ownershipStatus: "announced",
   },
   // --- X-Men ---
