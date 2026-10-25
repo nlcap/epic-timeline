@@ -3,26 +3,10 @@ import type { Line, TimelineEntry } from "../types";
 // One-off volume cover that predates the Amazon-hosted-URL convention most
 // coverUrl fields below use -- a plain imported asset instead, same as any
 // other static image in the app.
-import jonahHexRequiemForAGunfighterCover from "../assets/covers/Jonah Hex - Requiem for a Gunfighter.jpg";
-import hitmanRageInArkhamCover from "../assets/covers/Hitman - Rage in Arkham.jpg";
-import romanceEscapeFromLonelinessCover from "../assets/covers/Romance - Escape from Loneliness.jpg";
-import theAtomBirthOfTheAtomCover from "../assets/covers/The Atom - Birth of the Atom.jpg";
-import theQuestionZenAndViolenceCover from "../assets/covers/The Question - Zen and Violence.jpg";
-import warlordTheSavageWorldCover from "../assets/covers/Warlord - The Savage World.jpg";
-import batgirlSilentKnightCover from "../assets/covers/Batgirl - Silent Knight.jpg";
-import supermanFamilyStraySuperdogCover from "../assets/covers/Superman Family - The Stray Superdog.jpg";
 import batmanNightOfTheStalkerCover from "../assets/covers/Batman - Night of the Stalker.jpg";
-import legionGreatDarknessSagaCover from "../assets/covers/Legion of the Super-Heroes - The Great Darkness Saga.jpg";
-import batmanLonelyPlaceOfDyingCover from "../assets/covers/Batman - A Lonely Place of Dying.jpg";
-import eventsCrisisPartFourCover from "../assets/covers/Events - Crisis on Infinite Earths Part Four.jpg";
-import wonderWomanJudgementInInfinityCover from "../assets/covers/Wonder Woman - Judgement in Infinity.jpg";
-import supermanKryptonConnectionCover from "../assets/covers/Superman - The Krypton Connection.jpg";
-import aquamanHauntedSeaCover from "../assets/covers/Aquaman - The Haunted Sea.jpg";
-import catwomanToCatchAThiefCover from "../assets/covers/Catwoman - To Catch a Thief.jpg";
 // PLACEHOLDER (added 2026-08-10) -- Nick-supplied cover for this volume,
 // not yet confirmed as the final official DC Finest cover. Verify against
 // the official release and swap/delete this comment once confirmed.
-import theFourthWorldStormOfBattleCover from "../assets/covers/The Fourth World - The Storm of Battle.jpg";
 
 // Bulk-wired from src/assets/DC/<era>/<Character>.png (Nick dropped in a folder
 // per era: "golden age", "silver age", "bronze age", "post-crisis"). Eagerly
@@ -655,7 +639,7 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     inkers: "Nick Cardy, Ramona Fradon, Howard Purcell",
     description:
       "Part of the DC Finest line, this deep-diving collection spotlights Aquaman's early adventures!\nAs king of Atlantis and protector of the seas, Aquaman faces threats both above and below the surface-but some dangers are stranger and more unpredictable than anything he's encountered before. From cursed forces rising out of the deep to mysterious enemies that blur the line between science and sorcery, these adventures transform the ocean into a place of wonder, danger, and suspense.\nBlending action, suspense, and imaginative world-building, these stories showcase a defining era of Aquaman's legacy; where superhero storytelling meets eerie, atmospheric adventure.",
-    coverUrl: aquamanHauntedSeaCover,
+    coverUrl: "https://m.media-amazon.com/images/I/9169ikpocbL._SL1500_.jpg",
     ownershipStatus: "announced",
   },
   // --- Batman ---
@@ -886,7 +870,7 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
       "Steve Mitchell, Mike DeCarlo, John Beatty, Bob McLeod, Al Gordon, Al Vey, Dave McKean, Gray Morrow, Michael Bair, Kevin Nowlan, Sam Kieth, Matt Wagner, Dick Giordano",
     description:
       "A new Robin—Tim Drake—rises as Batman faces one of the darkest chapters of his life in this essential DC Finest collection.\nBatman is at his lowest point.\nIn the aftermath of devastating loss, Bruce Wayne becomes increasingly reckless in his war on crime, pushing away allies and abandoning the balance that once made him Gotham City’s greatest hero.\nBut one young detective sees what no one else can: Batman needs a Robin.\nDetermined to help, Tim Drake sets out on a journey that will change both his life and Batman’s forever. What follows is the story of how a new Robin emerges, bringing hope back to Gotham and laying the foundation for a new era of the Bat-Family.\nCollected alongside key stories from one of the most important periods in Batman history, these adventures capture the return of Robin and the beginning of Tim Drake’s journey as one of DC’s most beloved heroes.",
-    coverUrl: batmanLonelyPlaceOfDyingCover,
+    coverUrl: "https://m.media-amazon.com/images/I/811Cnu3qg1L._SL1500_.jpg",
     ownershipStatus: "announced",
   },
   // --- Batgirl ---
@@ -911,7 +895,7 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
       "Robert Campanella, Michael Bair, Randy Emberlin, Ryan Benjamin, Drew Geraci, Howard M. Shum, John Stanisci, Matt Ryan, Sal Regla, Walden Wong",
     description:
       "Cassandra Cain’s journey continues, as she expands her role in Gotham and beyond in a powerful story of growth, identity, and action.\nAt age 17, the teenaged assassin Cassandra Cain is literally a fighter like no other. Remorselessly trained by her mercenary father to be the ultimate human weapon, Cassandra cannot speak or write, but her uncanny ability to read body language allows her to take down opponents three times her size without batting an eye.\nBut when she rebels against her programming on the lawless streets of No Man’s Land-era Gotham City, the Dark Knight Detective sees a possible successor to the role of Batgirl. Under the tutelage of the original Batgirl, Barbara Gordon, Cassandra must now reinvent herself as a protector instead of a predator—and prove to both her newfound family and herself that even someone who was born to kill can be worthy to take up the cowl of a legend!\nWitness the origin of one of the DC Universe’s most celebrated heroes in this landmark volume showcasing Cassandra’s first appearances and foundational adventures.",
-    coverUrl: batgirlSilentKnightCover,
+    coverUrl: "https://m.media-amazon.com/images/I/819OhmvM6ZL._SL1500_.jpg",
     ownershipStatus: "announced",
   },
   {
@@ -1039,7 +1023,7 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     inkers: "John Stanisci, Tom Palmer, Marlo Alquiza, Brian Stelfreeze",
     description:
       "A master thief is pushed to her limits in this pivotal DC Finest collection, as Catwoman faces ever-escalating danger!\nSelina Kyle knows how to steal—but will she be able to stay alive long enough to enjoy her ill-gotten gains?\nAs Catwoman's world expands beyond Gotham, the potential scores grow bigger, and the risks get more personal. From dangerous encounters with some of the city’s most unpredictable figures to high-stakes jobs that take her into dangerously unfamiliar territories, every move will test her hard-earned skills and instincts to their limits.\nBringing together a wide range of stories from one of Catwoman’s greatest eras, this volume blends crime, action, and character-driven storytelling—showcasing Catwoman at her most resourceful, cunning, and complex.",
-    coverUrl: catwomanToCatchAThiefCover,
+    coverUrl: "https://m.media-amazon.com/images/I/719bm+Z1zSL._SL1500_.jpg",
     ownershipStatus: "announced",
   },
   // --- Deadman ---
@@ -1242,7 +1226,7 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
       "Vince Colletta, Jerry Ordway, Tony DeZuniga, Karl Kesel, Rick Magyar, Gary Martin, George Pérez, Bruce Patterson, Alfredo Alcala, Richard Howell, Rick Hoberg, Jerry Acerno, Mike Gustovich, Dick Giordano, Don Heck, Prentis Rollins, Kevin Conrad, Joe Rubinstein, Keith Champagne, Frank McLaughlin, Murphy Anderson, Ray Snyder, Bret Blevins, Mick Gray, Ian Akin, Shawn McManus",
     description:
       "Reality itself is rewritten as the Crisis reaches its epic conclusion in the final chapter of the Multiverse-shattering event.\nEverything ends here.\nAs the Crisis reaches its apocalyptic climax, the battle to save existence itself comes to a breaking point. Heroes from across worlds face impossible odds as reality collapses, and the fate of the entire Multiverse hangs in the balance.\nIn the midst of cosmic destruction, alliances are tested, sacrifices are made, and the universe is forever changed. When the dust settles, nothing will be the same—and the world that remains will reshape the future of every hero.\nBringing together the concluding chapters of Crisis on Infinite Earths alongside key tie-in stories, this volume captures the final transformation of the DC Universe in one sweeping, interconnected collection.",
-    coverUrl: eventsCrisisPartFourCover,
+    coverUrl: "https://m.media-amazon.com/images/I/91TYYzyBr5L._SL1500_.jpg",
     ownershipStatus: "announced",
   },
   {
@@ -1398,7 +1382,7 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     description:
       "Gods, heroes, and worlds all collide in this sweeping cosmic saga featuring an expansive collection of interconnected stories from legendary comics master Jack Kirby.\nA war is spreading—one that reaches across worlds, ideologies, and the fate of entire civilizations.\nAs powerful forces prepare for conflict, heroes are drawn into a growing struggle where survival depends on strength, strategy, and belief. Across multiple storylines, each battle reveals a larger threat, pulling together characters and stories into an expanding, high-stakes confrontation.\nFrom cosmic-scale battles to personal struggles, Jack Kirby's epic tales combine to form a sweeping narrative about power, control, and the fight for freedom—where every decision shapes the outcome of a larger war.\nCollecting interconnected stories from across several series, this volume delivers a wide-ranging, immersive reading experience that brings together action, science fiction, and mythic storytelling.",
     // PLACEHOLDER cover -- see the import comment above. TODO: confirm/replace.
-    coverUrl: theFourthWorldStormOfBattleCover,
+    coverUrl: "https://m.media-amazon.com/images/I/81kPiLZasRL._SL1500_.jpg",
     ownershipStatus: "announced",
   },
   // --- Green Arrow ---
@@ -1838,7 +1822,7 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
       "Larry Mahlstedt, Bruce Patterson, Dave Hunt, Dan Adkins, Dave Cockrum, Dick Giordano, Ernie Colon, Frank Giacoia, Jim Sherman, Kurt Schaffenberger, Rodin Rodriguez",
     description:
       "A group of young heroes faces a mysterious force threatening the entire galaxy in this massive, future-set superhero epic.\nIn the 31st century, a team of young superheroes from across the galaxy unites to prevent Armageddon.\nWhen a powerful and unseen enemy begins manipulating events across space, the Legion of Super-Heroes races to discover the true identity behind the threat that spans worlds, timelines, and entire civilizations. As the danger escalates, the team is pushed to its limits, facing impossible odds and uncovering a force powerful enough to reshape the universe itself.\nBlending action, suspense, and expansive world-building, this landmark storyline delivers a high-stakes adventure where teamwork, sacrifice, and resilience define the fate of the future.",
-    coverUrl: legionGreatDarknessSagaCover,
+    coverUrl: "https://m.media-amazon.com/images/I/81IctPnS5mL._SL1500_.jpg",
     ownershipStatus: "announced",
   },
   // --- Metamorpho ---
@@ -2320,7 +2304,7 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
       "Murphy Anderson, Vince Colletta, Bob Oksner, Dick Giordano, Frank Giacoia, Frank McLaughlin, Joe Giella, Kurt Schaffenberger",
     description:
       "Classic adventures from one of the most imaginative eras of Superman's history.\nSuperman's adventures could take him anywhere.\nDuring this dynamic era, the Man of Steel confronts alien threats, scientific mysteries, cosmic dangers, and challenges that test both his powers and his character.\nAlongside trusted allies and a growing cast of supporting characters, Superman faces everything from ordinary human conflicts to extraordinary adventures that stretch across the universe.\nFilled with action and optimism, these tales showcase the wide-ranging appeal of Superman during the Bronze Age, when every issue introduced new ideas, new dangers, and new opportunities for heroism.\nCollecting a substantial chapter of Superman's publishing, this volume offers readers the chance to experience the evolution of the character and his world through a broad selection of stories from across the era.",
-    coverUrl: supermanKryptonConnectionCover,
+    coverUrl: "https://m.media-amazon.com/images/I/81-lVwaPBIL._SL1500_.jpg",
     ownershipStatus: "announced",
   },
   {
@@ -2409,7 +2393,7 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
       "Kurt Schaffenberger, Vince Colletta, Tex Blaisdell, Al Milgrom, Bob Oksner, Romeo Tanghal, Joe Giella, Steve Mitchell, Bob Layton, Bob Smith, Ernie Chan, Frank Springer, Jim Mooney, Joe Orlando, Joe Rubinstein, John Forte, John Rosenberger, Pete Costanza",
     description:
       "Heroes, friends, and one super-powered dog—adventures from across the Superman Family in a new DC Finest collection.\nSuperman isn’t the only hero in Metropolis. From Lois Lane to Jimmy Olsen to Krypto the Superdog, the Superman Family is filled with characters who each bring their own adventures, challenges, and personalities to the world of heroes.\nIn these stories, brave reporters chase dangerous leads, young heroes step into their own, and loyal companions—both human and animal—prove that heroism comes in many forms. Whether solving mysteries, facing unusual threats, or helping those in need, every member of the Superman Family has a role to play.\nFilled with imagination, humor, and heart, this collection captures a time when Superman’s world expanded beyond one hero into a full cast of unforgettable characters, including this book's titular Superdog, Krypto.",
-    coverUrl: supermanFamilyStraySuperdogCover,
+    coverUrl: "https://m.media-amazon.com/images/I/814mXlBtLOL._SL1500_.jpg",
     ownershipStatus: "announced",
   },
   // --- Suicide Squad ---
@@ -2608,7 +2592,7 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
       "George Evans, Frank Springer, Alfredo Alcala, George Moliterni, Gil Kane, José Luis García-López, Oscar Novelle",
     description:
       "Get ready to hit the trail once more with the second DC Finest: Western volume, which introduces the most steely-eyed and scar-faced stalwart of justice to ever ride the range: Jonah Hex! DC Finest: Western: Requiem for a Gunfighter features a wagon train’s worth of frontier adventures from the bygone years of 1973 through 1977—all crafted by some of comics’ most accomplished hands, including Michael Fleisher, José Luis García-López, John Albano, Tony DeZuniga, Dick Ayers, George Moliterni, Noly Panaligan, and more.",
-    coverUrl: jonahHexRequiemForAGunfighterCover,
+    coverUrl: "https://m.media-amazon.com/images/I/81+ZpVySFeL._SL1500_.jpg",
     ownershipStatus: "announced",
   },
   // --- Wonder Woman ---
@@ -2674,7 +2658,7 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
       "Frank McLaughlin, Romeo Tanghal, Dave Hunt, Steve Mitchell, Bob Smith, Bruce Patterson, Jerry Ordway, Larry Mahlstedt, Tony DeZuniga, Adrian Gonzales, Dick Giordano, Keith Pollard, Mike DeCarlo, Pablo Marcos, Rich Buckler, Rick Bryant, Sal Trapani, Tom Mandrake",
     description:
       "A sweeping collection of Wonder Woman adventures—mythology, action, and cosmic stakes in an expansive, accessible DC Finest collection.\nWonder Woman faces gods, monsters, and threats that stretch far beyond the mortal world.\nAs Diana’s adventures grow in scale and ambition, she is drawn into battles that test her strength, her compassion, and her role as a champion of both humanity and the divine. From mythological trials to universe-spanning conflicts, each story pushes her further as a hero and a warrior.\nSpanning a major run of stories, this volume brings together action, fantasy, and adventure in one immersive collection—offering a wide-ranging look at Wonder Woman’s world and the challenges she must overcome.",
-    coverUrl: wonderWomanJudgementInInfinityCover,
+    coverUrl: "https://m.media-amazon.com/images/I/91QbfKUWPaL._SL1500_.jpg",
     ownershipStatus: "announced",
   },
   {
@@ -2764,7 +2748,7 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     inkers: "John McCrea, D'Israeli, Luke McDonnell",
     description:
       "DC Finest spotlights the origin of Hitman, as Garth Ennis and John McCrea launch a cult-classic antihero saga in Gotham's criminal underworld.\nTommy Monaghan is a Gotham City hitman with an unusual advantage: telepathy, X-ray vision, and a talent for surviving situations that should kill him.\nWorking among organized crime, corrupt officials, supernatural threats, and costumed vigilantes, Tommy navigates a dangerous world where loyalty is rare, and every job could be his last. Armed with a sharp sense of humor and a practical view of life, he quickly discovers that superpowers create just as many problems as they solve.\nBefore starring in his own series, Tommy first appeared alongside Etrigan the Demon, becoming an unlikely ally in a series of supernatural adventures that helped establish his place within the DC Universe. These stories chart his evolution from supporting player to leading man, laying the foundation for one of DC's most acclaimed cult-classic antiheroes.\nWritten by Garth Ennis and illustrated by John McCrea, Hitman combines crime fiction, black comedy, supernatural action, and genuine emotional depth into a uniquely entertaining series that remains a fan favorite decades after its debut.",
-    coverUrl: hitmanRageInArkhamCover,
+    coverUrl: "https://m.media-amazon.com/images/I/8195Z-OUBjL._SL1500_.jpg",
     ownershipStatus: "announced",
   },
   // --- Romance ---
@@ -2787,7 +2771,7 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     inkers: "Bernard Sachs, John Romita Sr., Arthur Peddy, Jay Scott Pike, John Rosenberger",
     description:
       "Love—and heartbreak—is in the air in this new DC Finest volume!\nReturn to those moonstruck days of the Silver Age, when comics readers everywhere could find an endless supply of romantic inspiration for 12 cents an issue in the peerless pages of DC’s legendary line of love story anthologies.\nThese passionate tales of romance and intrigue—carefully crafted by a host of comics’ finest hands, including John Romita, Robert Kanigher, Mike Sekowsky, Phyllis Reed, and more—will leave you breathless and yearning for more! Known for their bold storytelling and iconic imagery, many of these panels later became touchstones in the broader art world, influencing the graphic language of pop art and artists.",
-    coverUrl: romanceEscapeFromLonelinessCover,
+    coverUrl: "https://m.media-amazon.com/images/I/81EkEBjmkDL._SL1500_.jpg",
     ownershipStatus: "announced",
   },
   // --- The Atom ---
@@ -2809,7 +2793,7 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     inkers: "Murphy Anderson, Sid Greene, Bernard Sachs, Alex Toth, Charles Paris, Mike Sekowsky",
     description:
       "A microscopic hero with massive challenges—discover the origin and early adventures of the Atom, in an accessible and comprehensive DC Finest presentation.\nRay Palmer is a scientist who discovers a way to shrink himself to microscopic size-becoming a superhero unlike any other.\nAs the Atom, he uses his incredible abilities to take on threats both large and small, navigating a world where danger can exist at any scale. From high-stakes battles to scientific discoveries, each adventure pushes him to master his powers and find his place as a hero.\nAcross a wide range of stories, these early adventures introduce a character driven by curiosity, ingenuity, and determination—bringing science fiction concepts and superhero action together in a unique and engaging way.\nCollecting foundational stories and key appearances, this volume offers an accessible introduction to one of DC's most inventive and unconventional heroes.",
-    coverUrl: theAtomBirthOfTheAtomCover,
+    coverUrl: "https://m.media-amazon.com/images/I/81yCSXcoN2L._SL1500_.jpg",
     ownershipStatus: "announced",
   },
   // --- The Question ---
@@ -2833,7 +2817,7 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
       "Rick Magyar, Steve Ditko, Bruce Patterson, Albert Val, Alex Toth, Bill Black, Bob McLeod, Dan Reed, Dell Barras",
     description:
       "A dark, thought‑provoking crime saga—the Question confronts corruption, identity, and moral truth in this expansive DC Finest collection of early stories.\nIn a city where corruption runs deep, justice is anything but simple.\nVic Sage operates as the Question, a faceless investigator determined to expose the truth—no matter the cost. But in Hub City, every answer leads to another question, and every case pulls him deeper into a system built on power, fear, and control.\nAs his search for justice continues, Sage is forced to confront not only the criminals around him, but his own beliefs, identity, and what it truly means to do the right thing in a broken world.\nSpanning a major run of stories that include all the character’s original appearances in the Charlton titles from creator Steve Ditko as well as the first 15 issues of his celebrated revival by Dennis O’Neil and Denys Cowan in the 1980s, this volume offers a wide-ranging look at the Question’s evolution, blending crime storytelling, action, and philosophical depth in one immersive collection.",
-    coverUrl: theQuestionZenAndViolenceCover,
+    coverUrl: "https://m.media-amazon.com/images/I/91arrmyW+8L._SL1500_.jpg",
     ownershipStatus: "announced",
   },
   // --- Warlord ---
@@ -2854,7 +2838,7 @@ export const DC_FINEST_ENTRIES: TimelineEntry[] = [
     inkers: "Mike Grell, Vince Colletta, Joe Rubinstein",
     description:
       "Adventure, survival, and fantasy collide in this DC Finest spotlight on a modern man lost in a dangerous, hidden world.\nTravis Morgan was a pilot—until a crash changed everything.\nAfter flying into a mysterious opening at the North Pole, he finds himself in Skartaris, a hidden world filled with ancient kingdoms, deadly creatures, powerful sorcery, and constant danger. Stranded far from home, Morgan must rely on his skill, determination, and instincts to survive.\nAs he navigates this unpredictable land, he becomes a reluctant hero, forging alliances, facing powerful enemies, and shaping the fate of a world he never knew existed.\nCombining fast-paced action with fantasy and adventure, these stories introduce a hero caught between two worlds; one familiar and one full of endless possibilities.\nThis volume collects the earliest adventures of the Warlord, offering an accessible entry point into one of DC’s most unique and beloved fantasy series.",
-    coverUrl: warlordTheSavageWorldCover,
+    coverUrl: "https://m.media-amazon.com/images/I/81xqxchS2+L._SL1500_.jpg",
     ownershipStatus: "announced",
   },
 ];

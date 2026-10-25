@@ -4,11 +4,7 @@ import type { Line, TimelineEntry } from "../types";
 // convention most coverUrl fields below use (see the coverUrl note in the
 // block comment further down) -- these three were never migrated, so they're
 // plain imported assets instead, same as any other static image in the app.
-import ghostRiderBadToTheBoneCover from "../assets/covers/Ghost Rider - Bad to the Bone.jpg";
-import punisherCapitalPunishmentCover from "../assets/covers/Punisher - Capital Punishment.jpg";
-import punisherSurvivalCover from "../assets/covers/Punisher - Survival.jpg";
 // TODO: swap for a proper Iron Man Epic Collection cover once one turns up
-import ironManWarGamesCover from "../assets/covers/Iron Man - War Games.webp";
 
 // Bulk-wired from src/assets/Marvel/epic classic/<Character>.png (Nick dropped
 // in a folder of per-line icons). Eagerly globbed so new files just need to
@@ -4390,7 +4386,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
       "Mark Texeira, Bud LaRosa, Sam Kieth, Jimmy Palmiotti, Michael Bair, Vince Evans, Ariane Lenshoek, Andy Kubert, Klaus Janson, Al Milgrom",
     description:
       "",
-    coverUrl: ghostRiderBadToTheBoneCover,
+    coverUrl: "https://m.media-amazon.com/images/I/81ypTCCjgPL._SL1500_.jpg",
     ownershipStatus: "announced",
   },
   {
@@ -5276,7 +5272,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
     inkers: "Bob Wiacek",
     description:
       "John Byrne's complete Iron Man run unfolds across Armor Wars II, the cataclysmic sequel to one of Iron Man's most infamous storylines, the Mandarin's return with the alien dragon Fin Fang Foom, and Cold War chaos as Iron Man and the Black Widow race to stop World War III.",
-    coverUrl: ironManWarGamesCover,
+    coverUrl: "https://m.media-amazon.com/images/I/71+mBRHyciL._SL1500_.jpg",
     ownershipStatus: "announced",
   },
   {
@@ -6407,7 +6403,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
       "Al Williamson, Jimmy Palmiotti, Joe Rubinstein, Mark McKenna, Sean Hardy, Rodney Ramos, Phil Gascoine, Mark Farmer",
     description:
       "The Punisher hits Europe! When Frank Castle heads to London in pursuit of the assassin Snakebite, he finds a whole continent of trouble -- and also his biggest fan: the British vigilante Outlaw! Their fragile Anglo-American alliance must survive a deadly chase from country to country that will draw in mercenaries from Batroc to the Tarantula! But can the Punisher put a stop to a plot that goes all the way up to the Kingpin himself? And if he returns to America in one piece, Frank will be targeted by the anti-vigilantism task force known as V.I.G.I.L.! Plus: the Punisher in space! The death-dealing Baron Cemetery! And a tense team-up with the Avengers' own Black Widow!",
-    coverUrl: punisherCapitalPunishmentCover,
+    coverUrl: "https://m.media-amazon.com/images/I/911h19K4omL._SL1500_.jpg",
     ownershipStatus: "announced",
   },
   {
@@ -6429,7 +6425,7 @@ export const CLASSIC_MARVEL_ENTRIES: TimelineEntry[] = [
       "Val Mayerik, Mark McKenna, Mick Gray, Dave Hoover, Al Milgrom, Hoang Nguyen, Dan Panosian, Keith Williams, John Buscema",
     description:
       "",
-    coverUrl: punisherSurvivalCover,
+    coverUrl: "https://m.media-amazon.com/images/I/81v2BI0c8PL._SL1500_.jpg",
     ownershipStatus: "announced",
   },
   // --- Sgt. Fury ---
