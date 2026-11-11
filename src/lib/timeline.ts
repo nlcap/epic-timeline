@@ -480,7 +480,7 @@ export function formatMonthPoint(point: MonthPoint): string {
 
 /**
  * Whether a release month is still ahead of us -- the detail panel says
- * "Releases March 2027" rather than "Released" for announced volumes that
+ * "In-store March 2027" rather than "Released" for announced volumes that
  * haven't shipped yet. A releaseDate only carries a month, so the current
  * month counts as released: a volume dated this month is as likely to be on
  * shelves already as not, and "Released" is the safer read of the two once

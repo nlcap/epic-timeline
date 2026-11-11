@@ -514,7 +514,7 @@ export function VolumeDetailPanel({
         </p>
         {volume.releaseDate && (
           <p className="mt-1 text-xs text-neutral-400">
-            {isFutureMonth(volume.releaseDate) ? "Releases" : "Released"}{" "}
+            {isFutureMonth(volume.releaseDate) ? "In-store" : "Released"}{" "}
             {formatMonthPoint(volume.releaseDate)}
           </p>
         )}
